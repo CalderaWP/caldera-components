@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input component Input component props Passes its props 1`] = `
+<input
+  aria-describedby=""
+  className="foo"
+  id="bags"
+  required={false}
+  type="text"
+/>
+`;
