@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
 	valuePropType,
-	onValueChangePropType
+	onValueChangePropType,
+	inputTypeProp
 } from './propTypes';
 
 export const Input = (props) => {
@@ -26,11 +27,11 @@ export const Input = (props) => {
 Input.propTypes = {
 	id: PropTypes.string.isRequired,
 	fieldClassName: PropTypes.string.isRequired,
-	inputType: PropTypes.string,
 	ariaDescribedbyAttr: PropTypes.string,
 	isRequired: PropTypes.bool,
 	value: valuePropType,
-	onValueChange: onValueChangePropType
+	onValueChange: onValueChangePropType,
+	inputType:inputTypeProp,
 };
 
 Input.defaultProps = {

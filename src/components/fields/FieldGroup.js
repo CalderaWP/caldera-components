@@ -5,7 +5,9 @@ import classNames from 'classnames';
 import {ariaDescribedbyAttr} from './util';
 import {
 	onValueChangePropType,
-	valuePropType
+	valuePropType,
+	fieldGroupPropTypes,
+	inputTypeProp
 } from './propTypes';
 
 const FieldInner = (props) => {
@@ -23,6 +25,7 @@ const FieldInner = (props) => {
 				ariaDescribedbyAttr={idAttrFromProps()}
 				value={props.value}
 				onValueChange={props.onValueChange}
+				inputType={props.innerType}
 			/>);
 	}
 
@@ -33,7 +36,8 @@ FieldInner.propTypes = {
 	fieldClassName: PropTypes.string.isRequired,
 	help: PropTypes.string,
 	value: valuePropType,
-	onValueChange: onValueChangePropType
+	onValueChange: onValueChangePropType,
+	inputType: inputTypeProp
 };
 
 FieldInner.defaultProps = {
@@ -68,7 +72,8 @@ export const FieldGroup = (props) => {
 					),
 					help:props.help,
 					value:props.value,
-					onValueChange:props.onValueChange
+					onValueChange:props.onValueChange,
+					inputType: props.inputType
 				}
 			)}
 			{props.help &&
@@ -83,16 +88,10 @@ export const FieldGroup = (props) => {
 	);
 };
 
-FieldGroup.propTypes = {
-	id: PropTypes.string.isRequired,
-	isBlockInput: PropTypes.bool,
-	isRequired: PropTypes.bool,
-	help: PropTypes.string,
-	label: PropTypes.string.isRequired,
-	type: PropTypes.oneOf(['input' ]),
-	value: valuePropType,
-	onValueChange: onValueChangePropType
-};
+
+
+
+FieldGroup.propTypes = fieldGroupPropTypes;
 
 FieldGroup.defaultProps = {
 	isBlockInput: true,

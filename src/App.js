@@ -51,6 +51,18 @@ class App extends Component {
 							values.three=newValue;
 						}}
 					/>
+
+					<FieldGroup
+						id={'control-24'}
+						label={'Non Required Numeric input'}
+						type={'input'}
+						innertype={'number'}
+						isRequired={true}
+						value={values.two}
+						onValueChange={(newValue) => {
+							values.two=newValue;
+						}}
+					/>
 				</div>
 			</div>
 		);
