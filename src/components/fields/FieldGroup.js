@@ -25,7 +25,7 @@ const FieldInner = (props) => {
 				ariaDescribedbyAttr={idAttrFromProps()}
 				value={props.value}
 				onValueChange={props.onValueChange}
-				inputType={props.innerType}
+				inputType={props.inputType}
 			/>);
 	}
 

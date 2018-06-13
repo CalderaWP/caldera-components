@@ -5,6 +5,7 @@ import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import {Input} from './Input';
 Enzyme.configure({ adapter: new Adapter() });
+import {getHtmlInputTypes} from './util';
 
 describe( 'Input component', () => {
 	describe( 'Input component props', () => {
@@ -84,4 +85,23 @@ describe( 'Input component', () => {
 			expect( setValue ).toEqual('r3s');
 		});
 	});
+
+	describe('Works for all HTML5 input types via inputType prop', () => {
+		getHtmlInputTypes().forEach((type) => {
+			it(`inputType prop of ${type} works`, () => {
+				const wrapper = shallow(
+					<Input
+						id={'bags'}
+						fieldClassName={'foo'}
+						onValueChange={() => {}}
+						value={'Sivans'}
+						inputType={type}
+					/>
+				);
+				expect(wrapper.find('input').prop('type')).toBe(type);
+			});
+
+		});
+	});
+
 });

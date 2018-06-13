@@ -12,3 +12,23 @@ export const  ariaDescribedbyAttr = (id, help = '') => {
 	}
 	return ariaDescribedby;
 };
+
+
+export function getHtmlInputTypes() {
+	return [
+		'text',
+		'email',
+		'number',
+		'date',
+		'datetime',
+		'password',
+		'submit',
+		'reset',
+		'checkbox',
+		'hidden'
+	];
+}
+
+export function isValidHtml5type(type ) {
+	return getHtmlInputTypes().includes(type);
+}

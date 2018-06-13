@@ -81,6 +81,19 @@ describe( 'Field Group component', () => {
 				expect(wrapper.find('#test-control input').length).toBeTruthy();
 			});
 
+			it('controls inner input  html5 type', () => {
+				const wrapper = mount(<FieldGroup
+					id={'test-control'}
+					label={'Who'}
+					type={'input'}
+					onValueChange={() => {}}
+					value={'Sivans'}
+					inputType={'hidden'}
+				/>);
+
+				expect( wrapper.find('#test-control input').prop( 'type') ).toEqual('hidden');
+			});
+
 			it( 'Can change inner input', () => {
 				let setValue = '';
 

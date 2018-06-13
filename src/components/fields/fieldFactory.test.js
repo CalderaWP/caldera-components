@@ -1,13 +1,26 @@
 import {
+	prepareFieldConfig,
 	fieldFactory,
 	fieldSetFactory
 } from './fieldFactory';
+import {getHtmlInputTypes} from './util';
+import { mount } from 'enzyme';
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+Enzyme.configure({ adapter: new Adapter() });
 
 const textFieldConfig = {
 	'id': 'cf-convertkit-tags',
 	'label': 'Tags',
 	'desc': 'Comma separated list of tags.',
 	'type': 'text',
+	'description': false
+};
+
+const hiddenFieldConfig = {
+	'id': 'cf-convertkit-sequence-id',
+	'type': 'hidden',
+	'label': 'Sequence ID',
 	'description': false
 };
 
@@ -31,12 +44,7 @@ const configFields = [
 		'label': 'Sequence ID',
 		'description': false
 	},
-	{
-		'id': 'cf-convertkit-form-id',
-		'type': 'hidden',
-		'label': 'Form ID',
-		'description': false
-	},
+	hiddenFieldConfig,
 	{
 		'id': 'cf-convertkit-email',
 		'label': 'Email Address',
@@ -61,21 +69,66 @@ configFields.map(config => {
 	config.onValueChange = genericHandler;
 });
 
-describe('Field factory', () => {
-	it( 'Creates a text input', () => {
-		const component = fieldFactory({
-			...textFieldConfig,
-			onValueChange:() => {},
+describe( 'Factories', () => {
+	describe('Field factory', () => {
+
+		it( 'validates type arg, setting inputType arg', () => {
+			let config = {
+				...textFieldConfig,
+				type: 'email',
+				onValueChange: genericHandler
+			};
+			expect( config.type ).toBe('email');
+			config = prepareFieldConfig(config);
+			expect( config.inputType ).toBe('email');
 		});
-		expect( typeof  component ).toBe( 'object' );
-		expect( component.type ).toBe( 'div' );
+
+
+		describe( 'Sets inputType arg in config', () => {
+			getHtmlInputTypes().forEach((type) => {
+				it(`type arg with value of ${type} sets inputType arg`, () => {
+					const config = prepareFieldConfig({
+						...textFieldConfig,
+						type,
+						onValueChange: genericHandler
+					});
+					expect( config.inputType ).toBe( type );
+				});
+			});
+
+		});
+
+		it( 'Creates inputs', () => {
+			const component = fieldFactory({
+				...textFieldConfig,
+				onValueChange:genericHandler,
+			});
+			expect( component.type ).toBe( 'div' );
+		});
+
+		describe('Works for all HTML5 input types via inputType prop', () => {
+			getHtmlInputTypes().forEach((type) => {
+				it(`inputType prop of ${type} works`, () => {
+					let config = {
+						...textFieldConfig,
+						type,
+						onValueChange: genericHandler
+					};
+					const wrapper = mount(
+						fieldFactory(config)
+					);
+					expect(wrapper.find('input').prop('type')).toBe(type);
+				});
+
+			});
+		});
+
 	});
 
-});
-
-describe( 'Field set factory', () => {
-	it( 'Creates the right number of element', () => {
-		const components = fieldSetFactory(configFields);
-		expect( components ).toHaveLength(configFields.length);
+	describe( 'Field set factory', () => {
+		it( 'Creates the right number of element', () => {
+			const components = fieldSetFactory(configFields);
+			expect( components ).toHaveLength(configFields.length);
+		});
 	});
 });

@@ -12,7 +12,7 @@ export const Input = (props) => {
 	}
 	return (
 		<input
-			type={props.inputType ? props.inputType : 'text'}
+			type={props.inputType}
 			id={props.id}
 			className={props.fieldClassName}
 			aria-describedby={props.ariaDescribedbyAttr}
@@ -36,5 +36,6 @@ Input.propTypes = {
 
 Input.defaultProps = {
 	ariaDescribedbyAttr: '',
-	isRequired: false
+	isRequired: false,
+	inputType: 'text'
 };

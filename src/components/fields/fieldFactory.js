@@ -1,6 +1,28 @@
-import {FieldGroup} from './FieldGroup';
 import {fieldGroupPropTypes} from './propTypes';
+import {
+	isValidHtml5type
+} from './util';
+import {FieldGroup} from './FieldGroup';
 
+export const prepareFieldConfig = (fieldArgs) => {
+	function pick(obj, keys) {
+		return keys.map(k => k in obj ? {[k]: obj[k]} : {})
+			.reduce((res, o) => Object.assign(res, o), {});
+	}
+
+	switch( fieldArgs.type ){
+	case 'text':
+	case 'number':
+	default:
+		fieldArgs.inputType = isValidHtml5type(fieldArgs.type) ? fieldArgs.type : 'text';
+		fieldArgs.type = 'input';
+		break;
+	}
+	if( fieldArgs.hasOwnProperty('desc') ){
+		fieldArgs.help = 'desc';
+	}
+	return pick(fieldArgs, Object.keys(fieldGroupPropTypes));
+};
 /**
  * Generates field controls
  *
@@ -8,36 +30,7 @@ import {fieldGroupPropTypes} from './propTypes';
  * @returns {*}
  */
 export const fieldFactory = (fieldArgs) =>{
-	function pick(obj, keys) {
-
-		return keys.map(k => k in obj ? {[k]: obj[k]} : {})
-			.reduce((res, o) => Object.assign(res, o), {});
-	}
-	const html5types = [
-		'text',
-		'email',
-		'number',
-		'date',
-		'datetime',
-		'password',
-		'submit',
-		'reset',
-		'checkbox'
-	];
-
-	switch( fieldArgs.type ){
-	case 'text':
-	case 'number':
-	default:
-		fieldArgs.inputType = html5types.includes(fieldArgs.type) ? fieldArgs.type : 'text';
-		fieldArgs.type = 'input';
-		break;
-	}
-	if( fieldArgs.hasOwnProperty('desc') ){
-		fieldArgs.help = 'desc';
-	}
-
-	return FieldGroup(pick(fieldArgs, Object.keys(fieldGroupPropTypes)));
+	return FieldGroup(prepareFieldConfig(fieldArgs));
 
 };
 
