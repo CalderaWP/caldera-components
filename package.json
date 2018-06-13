@@ -1,0 +1,21 @@
+{
+  "name": "caldera-components",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-wp-scripts": "0.2.0"
+  },
+  "scripts": {
+    "start": "react-wp-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "jest": "^23.1.0",
+    "jest-cli": "^23.1.0",
+    "react-bootstrap": "^0.32.1"
+  }
+}
