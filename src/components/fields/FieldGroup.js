@@ -1,8 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Input} from "./Input";
-import classNames from 'classnames'
-import {ariaDescribedbyAttr} from "./util";
+import {Input} from './Input';
+import classNames from 'classnames';
+import {ariaDescribedbyAttr} from './util';
+import {
+	onValueChangePropType,
+	valuePropType
+} from './propTypes';
 
 const FieldInner = (props) => {
 	function idAttrFromProps() {
@@ -10,14 +14,16 @@ const FieldInner = (props) => {
 	}
 
 	switch( props.type ){
-		default:
-		case 'input':
-			return (
-				<Input
-					id={props.id}
-					fieldClassName={props.fieldClassName}
-					ariaDescribedbyAttr={idAttrFromProps()}
-				/>);
+	default:
+	case 'input':
+		return (
+			<Input
+				id={props.id}
+				fieldClassName={props.fieldClassName}
+				ariaDescribedbyAttr={idAttrFromProps()}
+				value={props.value}
+				onValueChange={props.onValueChange}
+			/>);
 	}
 
 };
@@ -26,7 +32,8 @@ FieldInner.propTypes = {
 	id: PropTypes.string.isRequired,
 	fieldClassName: PropTypes.string.isRequired,
 	help: PropTypes.string,
-
+	value: valuePropType,
+	onValueChange: onValueChangePropType
 };
 
 FieldInner.defaultProps = {
@@ -60,6 +67,8 @@ export const FieldGroup = (props) => {
 						}
 					),
 					help:props.help,
+					value:props.value,
+					onValueChange:props.onValueChange
 				}
 			)}
 			{props.help &&
@@ -81,6 +90,8 @@ FieldGroup.propTypes = {
 	help: PropTypes.string,
 	label: PropTypes.string.isRequired,
 	type: PropTypes.oneOf(['input' ]),
+	value: valuePropType,
+	onValueChange: onValueChangePropType
 };
 
 FieldGroup.defaultProps = {

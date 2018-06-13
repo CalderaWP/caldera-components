@@ -5,7 +5,20 @@ exports[`Input component Input component props Passes its props 1`] = `
   aria-describedby=""
   className="foo"
   id="bags"
+  onChange={[Function]}
   required={false}
   type="text"
+/>
+`;
+
+exports[`Input component Input component props passes the value 1`] = `
+<input
+  aria-describedby=""
+  className="foo"
+  id="bags"
+  onChange={[Function]}
+  required={false}
+  type="text"
+  value="Sivans"
 />
 `;

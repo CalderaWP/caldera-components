@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {FieldGroup} from "./components/fields/FieldGroup";
+let values = {
+	one: '',
+	two: '',
+	three: ''
+};
 
 class App extends Component {
+
 	render() {
 		return (
 			<div className="App">
@@ -17,6 +23,10 @@ class App extends Component {
 						label={'Required Text input'}
 						type={'input'}
 						isRequired={true}
+						value={values.one}
+						onValueChange={(newValue) => {
+							values.one=newValue;
+						}}
 					/>
 
 					<FieldGroup
@@ -24,6 +34,10 @@ class App extends Component {
 						label={'Non Required Text input'}
 						type={'input'}
 						isRequired={true}
+						value={values.two}
+						onValueChange={(newValue) => {
+							values.two=newValue;
+						}}
 					/>
 
 					<FieldGroup
@@ -32,6 +46,10 @@ class App extends Component {
 						type={'input'}
 						isRequired={true}
 						help={'Adding help text sets aria-describedy'}
+						value={values.thre}
+						onValueChange={(newValue) => {
+							values.three=newValue;
+						}}
 					/>
 				</div>
 			</div>

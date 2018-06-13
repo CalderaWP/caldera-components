@@ -1,7 +1,7 @@
 import {FieldGroup} from './FieldGroup';
 import renderer from 'react-test-renderer';
 import React from 'react';
-import { shallow, mount, render } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
@@ -15,6 +15,7 @@ describe( 'Field Group component', () => {
 					id={'control-22'}
 					label={'Who'}
 					help={'Who to say hi to'}
+					onValueChange={() => {}}
 				/>
 			);
 			expect(component.toJSON()).toMatchSnapshot();
@@ -25,6 +26,7 @@ describe( 'Field Group component', () => {
 				<FieldGroup
 					id={'control-22'}
 					label={'Who'}
+					onValueChange={() => {}}
 				/>
 			);
 			expect(component.toJSON()).toMatchSnapshot();
@@ -36,6 +38,7 @@ describe( 'Field Group component', () => {
 					id={'control-22'}
 					label={'Who'}
 					type={'input'}
+					onValueChange={() => {}}
 				/>
 			);
 			expect(component.toJSON()).toMatchSnapshot();
@@ -48,6 +51,7 @@ describe( 'Field Group component', () => {
 					label={'Who'}
 					type={'input'}
 					isRequired={true}
+					onValueChange={() => {}}
 				/>
 			);
 			expect(component.toJSON()).toMatchSnapshot();
@@ -60,19 +64,39 @@ describe( 'Field Group component', () => {
 				id={'xpadasfsad'}
 				label={'Who'}
 				type={'input'}
+				onValueChange={() => {}}
 			/>);
-			expect(wrapper.find('div.caldera-config-group').length).toBe(1);
+			expect(wrapper.find('div.caldera-config-group')).toHaveLength(1);
 		});
 
-		describe(  'inner input', () => {
+		describe( 'inner input', () => {
 			it('Has inner input', () => {
 				const wrapper = mount(<FieldGroup
 					id={'test-control'}
 					label={'Who'}
 					type={'input'}
+					onValueChange={() => {}}
 				/>);
 
 				expect(wrapper.find('#test-control input').length).toBeTruthy();
+			});
+
+			it( 'Can change inner input', () => {
+				let setValue = '';
+
+				const wrapper = mount(<FieldGroup
+					id={'test-control'}
+					label={'Who'}
+					type={'input'}
+					onValueChange={(newValue) => {
+						setValue = newValue;
+					}}
+					value={'Sivans'}
+				/>);
+
+				wrapper.find('#test-control input').simulate('change', { target: { value: 'r3s' } });
+				expect( setValue ).toEqual('r3s');
+
 			});
 		});
 

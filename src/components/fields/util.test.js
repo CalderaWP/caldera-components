@@ -1,4 +1,4 @@
-import {ariaDescribedbyAttr} from "./util";
+import {ariaDescribedbyAttr} from './util';
 
 describe('aria described by attr', () => {
 	it('Returns null with no help text', () => {

@@ -1,7 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {
+	valuePropType,
+	onValueChangePropType
+} from './propTypes';
 
 export const Input = (props) => {
+	function changeHandler(event){
+		return props.onValueChange(event.target.value);
+	}
 	return (
 		<input
 			type={props.inputType ? props.inputType : 'text'}
@@ -9,8 +16,10 @@ export const Input = (props) => {
 			className={props.fieldClassName}
 			aria-describedby={props.ariaDescribedbyAttr}
 			required={props.isRequired}
+			onChange={changeHandler}
+			value={props.value}
 		/>
-	)
+	);
 
 };
 
@@ -19,7 +28,9 @@ Input.propTypes = {
 	fieldClassName: PropTypes.string.isRequired,
 	inputType: PropTypes.string,
 	ariaDescribedbyAttr: PropTypes.string,
-	isRequired: PropTypes.bool
+	isRequired: PropTypes.bool,
+	value: valuePropType,
+	onValueChange: onValueChangePropType
 };
 
 Input.defaultProps = {
