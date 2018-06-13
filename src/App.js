@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from '../globe.svg';
+import logo from './logo.svg';
 import './App.css';
 import {FieldGroup} from "./components/fields/FieldGroup";
 import {SelectField} from "./components/fields/select/SelectField";

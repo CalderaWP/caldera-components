@@ -14,6 +14,10 @@ export const  ariaDescribedbyAttr = (id, help = '') => {
 };
 
 
+/**
+ * Get HTML5 input types that are valid
+ * @returns {string[]}
+ */
 export function getHtmlInputTypes() {
 	return [
 		'text',
@@ -29,6 +33,12 @@ export function getHtmlInputTypes() {
 	];
 }
 
-export function isValidHtml5type(type ) {
+/**
+ * Checks if a given input type is an acceptable HTML5 input type
+ *
+ * @param {String} type
+ * @returns {boolean}
+ */
+export function isValidHtml5type(type) {
 	return getHtmlInputTypes().includes(type);
 }

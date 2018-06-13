@@ -1,0 +1,24 @@
+{
+  "plugins": [
+    [
+      "transform-es2015-modules-commonjs",
+      {
+        "allowTopLevelThis": "true"
+      }
+    ]
+  ],
+  "presets": [
+    "stage-3",
+    "react",
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": ["last 2 versions", "safari >= 7"]
+        }
+      }
+
+    ]
+
+  ]
+}

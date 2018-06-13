@@ -1,21 +1,34 @@
 {
   "name": "caldera-components",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-wp-scripts": "0.2.0"
   },
+  "license": "GPL-2.0",
   "scripts": {
     "start": "react-wp-scripts start",
-    "build": "react-scripts build",
+    "example:build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint src/components/**",
-    "document": "./node_modules/.bin/esdoc"
+    "document": "./node_modules/.bin/esdoc",
+    "build": "npm run build:pre && npm run build:compile && npm run build:post",
+    "build:pre": "npm run test:once",
+    "build:compile": "./node_modules/.bin/babel -d dist src/components",
+    "build:post": "npm run compress && npm run document"
   },
+  "main": "./dist/fields/index.js",
+  "files" : [
+      "./dist/fields/factories/index.js",
+      "./dist/fields/index.js"
+  ],
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
     "classnames": "^2.2.6",
     "downshift": "^1.31.16",
     "enzyme": "^3.3.0",
