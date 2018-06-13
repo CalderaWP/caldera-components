@@ -1,9 +1,24 @@
-import React from 'react'
-import Downshift from 'downshift'
-import PropTypes from 'prop-types'
-import {fieldPropTypes} from "../propTypes";
+import React from 'react';
+import Downshift from 'downshift';
+import PropTypes from 'prop-types';
+import {fieldPropTypes} from '../propTypes';
 
+/**
+ * Creates a select field
+ *
+ * Wraps [downshift](https://github.com/paypal/downshift)
+ *
+ * @param {Object} props
+ * @returns {*}
+ * @constructor
+ */
 export const SelectField = (props) => {
+	/**
+	 * Dispatches new value(s) to parent
+	 *
+	 * @param selection
+	 * @returns {*}
+	 */
 	function changeHandler(selection) {
 		return props.onValueChange(selection);
 	}
@@ -17,14 +32,13 @@ export const SelectField = (props) => {
 			defaultIsOpen={props.isOpen}
 		>
 			{({
-				  getInputProps,
-				  getItemProps,
-				  getLabelProps,
-				  isOpen,
-				  inputValue,
-				  highlightedIndex,
-				  selectedItem,
-			  }) => (
+				getInputProps,
+				getItemProps,
+				isOpen,
+				inputValue,
+				highlightedIndex,
+				selectedItem,
+			}) => (
 				<div>
 					<input {...getInputProps({
 						id: props.id
@@ -35,6 +49,7 @@ export const SelectField = (props) => {
 								.filter(item => !inputValue || item.value.includes(inputValue))
 								.map((item, index) => (
 									<div
+										key={item.value}
 										{...getItemProps({
 											key: item.value,
 											index,
@@ -44,7 +59,7 @@ export const SelectField = (props) => {
 													highlightedIndex === index ? 'lightgray' : 'white',
 												fontWeight: selectedItem === item ? 'bold' : 'normal',
 											},
-											className:'caldera-config-option'
+											className: 'caldera-config-option'
 										})}
 									>
 										{item.value}
@@ -55,11 +70,11 @@ export const SelectField = (props) => {
 				</div>
 			)}
 		</Downshift>
-	)
+	);
 };
 
 
 SelectField.propTypes = {
 	...fieldPropTypes,
 	isOpen: PropTypes.bool,
-}
+};

@@ -5,7 +5,7 @@ import {
 	fieldGroupPropTypes,
 } from './propTypes';
 
-import {FieldInner} from "./FieldInner";
+import {FieldInner} from './FieldInner';
 
 
 export const FieldGroup = (props) => {

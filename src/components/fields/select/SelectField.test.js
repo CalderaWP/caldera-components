@@ -1,11 +1,10 @@
-import {SelectField} from "./SelectField";
-import renderer from 'react-test-renderer'
+import {SelectField} from './SelectField';
+import renderer from 'react-test-renderer';
 import React from 'react';
 import { mount } from 'enzyme';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
-import {getHtmlInputTypes} from '../util';
 
 describe( 'Select field component', () => {
 	function genericChangeHandler() {
@@ -91,7 +90,7 @@ describe( 'Select field component', () => {
 						]}
 					/>
 				);
-				expect(wrapper.find('.caldera-config-option').length).toBe(0);
+				expect(wrapper.find('.caldera-config-option')).toHaveLength(0);
 			});
 
 			it( 'Does not add options when not open', () => {
@@ -113,21 +112,18 @@ describe( 'Select field component', () => {
 						isOpen={true}
 					/>
 				);
-				expect(wrapper.find('.caldera-config-option') .length).toBe(2);
+				expect(wrapper.find('.caldera-config-option') ).toHaveLength(2);
 			});
 
 		});
 
 		describe( 'Value of field', () => {
 			it( 'Set value from default', () => {
-				let updateValue = false;
 				const wrapper = mount(
 					<SelectField
 						id={'r'}
 						fieldClassName={'rs'}
-						onValueChange={(newValue) => {
-							updateValue = newValue;
-						}}
+						onValueChange={() => {}}
 						options={[
 							{
 								value: 'one',
@@ -144,7 +140,6 @@ describe( 'Select field component', () => {
 				expect( wrapper.find('input').prop( 'value' ) ).toEqual('2');
 			});
 		});
-
 
 	});
 
