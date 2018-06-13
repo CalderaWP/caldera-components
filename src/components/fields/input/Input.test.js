@@ -5,7 +5,7 @@ import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import {Input} from './Input';
 Enzyme.configure({ adapter: new Adapter() });
-import {getHtmlInputTypes} from './util';
+import {getHtmlInputTypes} from '../util';
 
 describe( 'Input component', () => {
 	describe( 'Input component props', () => {

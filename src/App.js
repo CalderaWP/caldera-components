@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {FieldGroup} from "./components/fields/FieldGroup";
+import {SelectField} from "./components/fields/select/SelectField";
+
 let values = {
 	one: '',
 	two: '',
@@ -18,6 +20,7 @@ class App extends Component {
 					<h1 className="App-title">Welcome to React</h1>
 				</header>
 				<div>
+					<h2>Inputs</h2>
 					<FieldGroup
 						id={'control-22'}
 						label={'Required Text input'}
@@ -62,6 +65,25 @@ class App extends Component {
 						onValueChange={(newValue) => {
 							values.two=newValue;
 						}}
+					/>
+				</div>
+				<div>
+					<h2>Selects</h2>
+					<SelectField
+						id={'r'}
+						fieldClassName={'rs'}
+						onValueChange={() => {}}
+						options={[
+							{
+								value: 1,
+								label: 'One'
+							},
+							{
+								value: 2,
+								label: 'Two'
+							}
+						]}
+						isOpen={true}
 					/>
 				</div>
 			</div>

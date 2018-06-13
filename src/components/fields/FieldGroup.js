@@ -1,49 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import {Input} from './Input';
 import classNames from 'classnames';
 import {ariaDescribedbyAttr} from './util';
 import {
-	onValueChangePropType,
-	valuePropType,
 	fieldGroupPropTypes,
-	inputTypeProp
 } from './propTypes';
 
-const FieldInner = (props) => {
-	function idAttrFromProps() {
-		return ariaDescribedbyAttr(props.id, props.help);
-	}
-
-	switch( props.type ){
-	default:
-	case 'input':
-		return (
-			<Input
-				id={props.id}
-				fieldClassName={props.fieldClassName}
-				ariaDescribedbyAttr={idAttrFromProps()}
-				value={props.value}
-				onValueChange={props.onValueChange}
-				inputType={props.inputType}
-			/>);
-	}
-
-};
-
-FieldInner.propTypes = {
-	id: PropTypes.string.isRequired,
-	fieldClassName: PropTypes.string.isRequired,
-	help: PropTypes.string,
-	value: valuePropType,
-	onValueChange: onValueChangePropType,
-	inputType: inputTypeProp
-};
-
-FieldInner.defaultProps = {
-	help: ''
-};
-
+import {FieldInner} from "./FieldInner";
 
 
 export const FieldGroup = (props) => {
