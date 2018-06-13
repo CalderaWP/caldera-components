@@ -5,7 +5,7 @@ Tests use [Jest](https://facebook.github.io/jest/docs/en/expect.html). Unit test
 
 
 ### Example: Snapshot Testing A Component
-```jsx harmony
+```
 it( 'Passes its props', () => {
     const component = renderer.create(
         <Input
@@ -19,10 +19,11 @@ it( 'Passes its props', () => {
 ```
 
 ### Example: Testing a function result
-```jsx harmony
+```
 it('Returns properly when passed help text', () => {
     expect(ariaDescribedbyAttr('foo', 'help me Obi-won Kenobi')).toEqual('foo-description');
 });
+
 ```
 ## DOM Testing
 DOM testing uses Jest and [Enzyme](http://airbnb.io/enzyme).
@@ -49,22 +50,23 @@ it( 'Has the right wrapper class', () => {
 
 ### Important Notes
 
-#### shallow vs full rendering
+* shallow vs full rendering
 Shallow rendering is preferred. Full rendering with `mount` should be used for containers or testing decedents of a component.
 
 * http://airbnb.io/enzyme/docs/api/shallow.html
 * http://airbnb.io/enzyme/docs/api/mount.html
 
-#### Be careful about copying from Enzyme's docs
+* Be careful about copying from Enzyme's docs
 Enzyme's docs use a different assertion library than we do. Therefore examples like this:
 
-```js
+```
 it('allows us to set props', () => {
     const wrapper = mount(<Foo bar="baz" />);
     expect(wrapper.props().bar).to.equal('baz');
 });
 ```
-[original](http://airbnb.io/enzyme/docs/api/mount.html)
+
+[see original](http://airbnb.io/enzyme/docs/api/mount.html)
 
 Would be rewritten as this:
 
