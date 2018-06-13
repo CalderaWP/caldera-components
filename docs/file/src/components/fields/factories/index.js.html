@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../../../">
-  <title data-ice="title">src/components/fields/select/SelectField.js | Caldera Components library</title>
+  <title data-ice="title">src/components/fields/factories/index.js | Caldera Components library</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -52,86 +52,15 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/components/fields/select/SelectField.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;;
-import Downshift from &apos;downshift&apos;;
-import PropTypes from &apos;prop-types&apos;;
-import {fieldPropTypes} from &apos;../propTypes&apos;;
+<div class="content" data-ice="content"><h1 data-ice="title">src/components/fields/factories/index.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/*eslint no-undef: &quot;error&quot;*/
+/*eslint-env node*/
+import {fieldFactory} from &apos;./fieldFactory&apos;;
+import {fieldSetFactory} from &apos;./fieldSetFactory&apos;;
 
-/**
- * Creates a select field
- *
- * Wraps [downshift](https://github.com/paypal/downshift)
- *
- * @param {Object} props
- * @returns {*}
- * @constructor
- */
-export const SelectField = (props) =&gt; {
-	/**
-	 * Dispatches new value(s) to parent
-	 *
-	 * @param selection
-	 * @returns {*}
-	 */
-	function changeHandler(selection) {
-		return props.onValueChange(selection);
-	}
-
-	return (
-		&lt;Downshift
-			inputValue={props.value}
-			defaultInputValue={props.value}
-			onChange={changeHandler}
-			itemToString={item =&gt; (item ? item.value : &apos;&apos;)}
-			defaultIsOpen={props.isOpen}
-		&gt;
-			{({
-				getInputProps,
-				getItemProps,
-				isOpen,
-				inputValue,
-				highlightedIndex,
-				selectedItem,
-			}) =&gt; (
-				&lt;div&gt;
-					&lt;input {...getInputProps({
-						id: props.id
-					})} /&gt;
-					{isOpen ? (
-						&lt;div&gt;
-							{props.options
-								.filter(item =&gt; !inputValue || item.value.includes(inputValue))
-								.map((item, index) =&gt; (
-									&lt;div
-										key={item.value}
-										{...getItemProps({
-											key: item.value,
-											index,
-											item,
-											style: {
-												backgroundColor:
-													highlightedIndex === index ? &apos;lightgray&apos; : &apos;white&apos;,
-												fontWeight: selectedItem === item ? &apos;bold&apos; : &apos;normal&apos;,
-											},
-											className: &apos;caldera-config-option&apos;
-										})}
-									&gt;
-										{item.value}
-									&lt;/div&gt;
-								))}
-						&lt;/div&gt;
-					) : null}
-				&lt;/div&gt;
-			)}
-		&lt;/Downshift&gt;
-	);
-};
-
-
-SelectField.propTypes = {
-	...fieldPropTypes,
-	isOpen: PropTypes.bool,
+module.exports = {
+	fieldFactory,
+	fieldSetFactory
 };</code></pre>
 
 </div>

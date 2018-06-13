@@ -44,6 +44,8 @@
 <li data-ice="manualNav" class="indent-h2" data-link="manual/testing.html"><a href="manual/testing.html#dom-testing" data-ice="link">DOM Testing</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#example" data-ice="link">Example</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#important-notes" data-ice="link">Important Notes</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#shallow-vs-full-rendering" data-ice="link">shallow vs full rendering</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#be-careful-about-copying-from-enzyme--39-s-docs" data-ice="link">Be careful about copying from Enzyme&apos;s docs</a></li>
 </ul>
   </div>
 <div data-ice="manual">
@@ -61,7 +63,6 @@
 <li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#scripts" data-ice="link">Scripts</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/README.html"><a href="manual/README.html#develop" data-ice="link">Develop</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/README.html"><a href="manual/README.html#tests" data-ice="link">Tests</a></li>
-<li data-ice="manualNav" class="indent-h4" data-link="manual/README.html"><a href="manual/README.html#type-checking-with-flow" data-ice="link">Type-checking With Flow</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/README.html"><a href="manual/README.html#lint-code" data-ice="link">Lint Code</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/README.html"><a href="manual/README.html#generate-documentation" data-ice="link">Generate Documentation</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#release-to-npm" data-ice="link">Release To npm</a></li>
@@ -102,18 +103,12 @@ it( &apos;Has the right wrapper class&apos;, () =&gt; {
     expect(wrapper.find(&apos;div.caldera-config-group&apos;).length).toBe(1);
 });</code>
 </code></pre>
-<h3 id="important-notes">Important Notes</h3><ul>
-<li><p>shallow vs full rendering
-Shallow rendering is preferred. Full rendering with <code>mount</code> should be used for containers or testing decedents of a component.</p>
-</li>
-<li><p><a href="http://airbnb.io/enzyme/docs/api/shallow.html">http://airbnb.io/enzyme/docs/api/shallow.html</a></p>
-</li>
-<li><p><a href="http://airbnb.io/enzyme/docs/api/mount.html">http://airbnb.io/enzyme/docs/api/mount.html</a></p>
-</li>
-<li><p>Be careful about copying from Enzyme&apos;s docs
-Enzyme&apos;s docs use a different assertion library than we do. Therefore examples like this:</p>
-</li>
+<h3 id="important-notes">Important Notes</h3><h3 id="shallow-vs-full-rendering">shallow vs full rendering</h3><p>Shallow rendering is preferred. Full rendering with <code>mount</code> should be used for containers or testing decedents of a component.</p>
+<ul>
+<li><a href="http://airbnb.io/enzyme/docs/api/shallow.html">http://airbnb.io/enzyme/docs/api/shallow.html</a></li>
+<li><a href="http://airbnb.io/enzyme/docs/api/mount.html">http://airbnb.io/enzyme/docs/api/mount.html</a></li>
 </ul>
+<h3 id="be-careful-about-copying-from-enzyme--39-s-docs">Be careful about copying from Enzyme&apos;s docs</h3><p>Enzyme&apos;s docs use a different assertion library than we do. Therefore examples like this:</p>
 <pre><code><code class="source-code prettyprint">it(&apos;allows us to set props&apos;, () =&gt; {
     const wrapper = mount(&lt;Foo bar=&quot;baz&quot; /&gt;);
     expect(wrapper.props().bar).to.equal(&apos;baz&apos;);

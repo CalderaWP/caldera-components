@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "name": "prepareFieldConfig",
+    "filePath": "src/components/fields/factories/prepareFieldConfig.js",
+    "lines": [
+      {
+        "lineNumber": 3,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 4,
+        "line": " * Validates field configurations"
+      },
+      {
+        "lineNumber": 5,
+        "line": " *"
+      },
+      {
+        "lineNumber": 6,
+        "line": " * NOTE: This is called internally by factory. You probably do not want to call this."
+      },
+      {
+        "lineNumber": 7,
+        "line": " *"
+      },
+      {
+        "lineNumber": 8,
+        "line": " * @param {Object}fieldArgs"
+      },
+      {
+        "lineNumber": 9,
+        "line": " * @returns {*}"
+      },
+      {
+        "lineNumber": 10,
+        "line": " */"
+      },
+      {
+        "lineNumber": 11,
+        "line": "export const prepareFieldConfig = (fieldArgs) => {"
+      }
+    ],
+    "codeParams": [
+      "fieldArgs"
+    ],
+    "docParams": [
+      "{Object}fieldArgs"
+    ]
+  }
+]

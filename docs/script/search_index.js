@@ -36,9 +36,9 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
-    "caldera-components/src/components/fields/fieldfactory.js~fieldfactory",
+    "caldera-components/src/components/fields/factories/fieldfactory.js~fieldfactory",
     "function/index.html#static-function-fieldFactory",
-    "<span>fieldFactory</span> <span class=\"search-result-import-path\">caldera-components/src/components/fields/fieldFactory.js</span>",
+    "<span>fieldFactory</span> <span class=\"search-result-import-path\">caldera-components/src/components/fields/factories/fieldFactory.js</span>",
     "function"
   ],
   [
@@ -60,9 +60,9 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
-    "caldera-components/src/components/fields/fieldfactory.js~fieldsetfactory",
+    "caldera-components/src/components/fields/factories/fieldsetfactory.js~fieldsetfactory",
     "function/index.html#static-function-fieldSetFactory",
-    "<span>fieldSetFactory</span> <span class=\"search-result-import-path\">caldera-components/src/components/fields/fieldFactory.js</span>",
+    "<span>fieldSetFactory</span> <span class=\"search-result-import-path\">caldera-components/src/components/fields/factories/fieldSetFactory.js</span>",
     "function"
   ],
   [
@@ -90,9 +90,9 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
-    "caldera-components/src/components/fields/fieldfactory.js~preparefieldconfig",
+    "caldera-components/src/components/fields/factories/preparefieldconfig.js~preparefieldconfig",
     "function/index.html#static-function-prepareFieldConfig",
-    "<span>prepareFieldConfig</span> <span class=\"search-result-import-path\">caldera-components/src/components/fields/fieldFactory.js</span>",
+    "<span>prepareFieldConfig</span> <span class=\"search-result-import-path\">caldera-components/src/components/fields/factories/prepareFieldConfig.js</span>",
     "function"
   ],
   [
@@ -420,9 +420,33 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/components/fields/fieldfactory.js",
-    "file/src/components/fields/fieldFactory.js.html",
-    "src/components/fields/fieldFactory.js",
+    "src/components/fields/factories/fieldfactory.js",
+    "file/src/components/fields/factories/fieldFactory.js.html",
+    "src/components/fields/factories/fieldFactory.js",
+    "file"
+  ],
+  [
+    "src/components/fields/factories/fieldsetfactory.js",
+    "file/src/components/fields/factories/fieldSetFactory.js.html",
+    "src/components/fields/factories/fieldSetFactory.js",
+    "file"
+  ],
+  [
+    "src/components/fields/factories/index.js",
+    "file/src/components/fields/factories/index.js.html",
+    "src/components/fields/factories/index.js",
+    "file"
+  ],
+  [
+    "src/components/fields/factories/preparefieldconfig.js",
+    "file/src/components/fields/factories/prepareFieldConfig.js.html",
+    "src/components/fields/factories/prepareFieldConfig.js",
+    "file"
+  ],
+  [
+    "src/components/fields/index.js",
+    "file/src/components/fields/index.js.html",
+    "src/components/fields/index.js",
     "file"
   ],
   [

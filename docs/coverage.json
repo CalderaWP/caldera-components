@@ -1,7 +1,7 @@
 {
-  "coverage": "41.66%",
+  "coverage": "54.16%",
   "expectCount": 24,
-  "actualCount": 10,
+  "actualCount": 13,
   "files": {
     "src/App.js": {
       "expectCount": 3,
@@ -24,12 +24,20 @@
       "actualCount": 1,
       "undocumentLines": []
     },
-    "src/components/fields/fieldFactory.js": {
-      "expectCount": 3,
-      "actualCount": 2,
-      "undocumentLines": [
-        7
-      ]
+    "src/components/fields/factories/fieldFactory.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/components/fields/factories/fieldSetFactory.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/components/fields/factories/prepareFieldConfig.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
     },
     "src/components/fields/input/Input.js": {
       "expectCount": 1,
@@ -52,11 +60,8 @@
     },
     "src/components/fields/util.js": {
       "expectCount": 3,
-      "actualCount": 1,
-      "undocumentLines": [
-        17,
-        32
-      ]
+      "actualCount": 3,
+      "undocumentLines": []
     },
     "src/registerServiceWorker.js": {
       "expectCount": 5,

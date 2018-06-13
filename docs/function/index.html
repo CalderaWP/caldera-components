@@ -34,9 +34,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-unregister">unregister</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields">components/fields</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-FieldGroup">FieldGroup</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-FieldInner">FieldInner</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldFactory">fieldFactory</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldSetFactory">fieldSetFactory</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-prepareFieldConfig">prepareFieldConfig</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ariaDescribedbyAttr">ariaDescribedbyAttr</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getHtmlInputTypes">getHtmlInputTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isValidHtml5type">isValidHtml5type</a></span></span></li>
@@ -46,6 +43,9 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-inputTypeProp">inputTypeProp</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-onValueChangePropType">onValueChangePropType</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-valuePropType">valuePropType</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-factories">components/fields/factories</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldFactory">fieldFactory</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldSetFactory">fieldSetFactory</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-prepareFieldConfig">prepareFieldConfig</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-input">components/fields/input</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Input">Input</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-select">components/fields/select</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SelectField">SelectField</a></span></span></li>
 </ul>
@@ -278,7 +278,8 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>Get HTML5 input types that are valid</p>
+</div>
       </div>
     </td>
     <td>
@@ -300,13 +301,14 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-isValidHtml5type">isValidHtml5type</a></span></span><span class="code" data-ice="signature">(type: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-isValidHtml5type">isValidHtml5type</a></span></span><span class="code" data-ice="signature">(type: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Checks if a given input type is an acceptable HTML5 input type</p>
+</div>
       </div>
     </td>
     <td>
@@ -328,13 +330,14 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-prepareFieldConfig">prepareFieldConfig</a></span></span><span class="code" data-ice="signature">(fieldArgs: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-prepareFieldConfig">prepareFieldConfig</a></span></span><span class="code" data-ice="signature">({Object}fieldArgs: <span>*</span>): <span>*</span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Validates field configurations</p>
+</div>
       </div>
     </td>
     <td>
@@ -782,11 +785,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/components/fields/fieldFactory.js.html#lineNumber32">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/components/fields/factories/fieldFactory.js.html#lineNumber11">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {fieldFactory} from &apos;<span><a href="file/src/components/fields/fieldFactory.js.html#lineNumber32">caldera-components/src/components/fields/fieldFactory.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {fieldFactory} from &apos;<span><a href="file/src/components/fields/factories/fieldFactory.js.html#lineNumber11">caldera-components/src/components/fields/factories/fieldFactory.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>Generates field controls</p>
@@ -855,14 +858,15 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/components/fields/fieldFactory.js.html#lineNumber43">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/components/fields/factories/fieldSetFactory.js.html#lineNumber11">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {fieldSetFactory} from &apos;<span><a href="file/src/components/fields/fieldFactory.js.html#lineNumber43">caldera-components/src/components/fields/fieldFactory.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {fieldSetFactory} from &apos;<span><a href="file/src/components/fields/factories/fieldSetFactory.js.html#lineNumber11">caldera-components/src/components/fields/factories/fieldSetFactory.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>Given an array of field configs, generates and array of field controls</p>
+<p>Should be used for a group of settings, such as all settings for a processor.</p>
 </div>
 
   
@@ -928,14 +932,15 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/components/fields/util.js.html#lineNumber17">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/components/fields/util.js.html#lineNumber21">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {getHtmlInputTypes} from &apos;<span><a href="file/src/components/fields/util.js.html#lineNumber17">caldera-components/src/components/fields/util.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {getHtmlInputTypes} from &apos;<span><a href="file/src/components/fields/util.js.html#lineNumber21">caldera-components/src/components/fields/util.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Get HTML5 input types that are valid</p>
+</div>
 
   
 
@@ -979,18 +984,19 @@
     
     
     
-    <span class="code" data-ice="name">isValidHtml5type</span><span class="code" data-ice="signature">(type: <span>*</span>): <span>*</span></span>
+    <span class="code" data-ice="name">isValidHtml5type</span><span class="code" data-ice="signature">(type: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/components/fields/util.js.html#lineNumber32">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/components/fields/util.js.html#lineNumber42">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {isValidHtml5type} from &apos;<span><a href="file/src/components/fields/util.js.html#lineNumber32">caldera-components/src/components/fields/util.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {isValidHtml5type} from &apos;<span><a href="file/src/components/fields/util.js.html#lineNumber42">caldera-components/src/components/fields/util.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Checks if a given input type is an acceptable HTML5 input type</p>
+</div>
 
   
 
@@ -1004,7 +1010,7 @@
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">type</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"></td>
     </tr>
@@ -1018,7 +1024,7 @@
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></td>
           
         </tr>
       </tbody>
@@ -1050,18 +1056,20 @@
     
     
     
-    <span class="code" data-ice="name">prepareFieldConfig</span><span class="code" data-ice="signature">(fieldArgs: <span>*</span>): <span>*</span></span>
+    <span class="code" data-ice="name">prepareFieldConfig</span><span class="code" data-ice="signature">({Object}fieldArgs: <span>*</span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/components/fields/fieldFactory.js.html#lineNumber7">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/components/fields/factories/prepareFieldConfig.js.html#lineNumber12">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {prepareFieldConfig} from &apos;<span><a href="file/src/components/fields/fieldFactory.js.html#lineNumber7">caldera-components/src/components/fields/fieldFactory.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {prepareFieldConfig} from &apos;<span><a href="file/src/components/fields/factories/prepareFieldConfig.js.html#lineNumber12">caldera-components/src/components/fields/factories/prepareFieldConfig.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Validates field configurations</p>
+<p>NOTE: This is called internally by factory. You probably do not want to call this.</p>
+</div>
 
   
 
@@ -1074,7 +1082,7 @@
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">fieldArgs</td>
+      <td data-ice="name" class="code" data-depth="0">{Object}fieldArgs</td>
       <td data-ice="type" class="code"><span>*</span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"></td>

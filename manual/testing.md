@@ -50,13 +50,13 @@ it( 'Has the right wrapper class', () => {
 
 ### Important Notes
 
-* shallow vs full rendering
+### shallow vs full rendering
 Shallow rendering is preferred. Full rendering with `mount` should be used for containers or testing decedents of a component.
 
 * http://airbnb.io/enzyme/docs/api/shallow.html
 * http://airbnb.io/enzyme/docs/api/mount.html
 
-* Be careful about copying from Enzyme's docs
+### Be careful about copying from Enzyme's docs
 Enzyme's docs use a different assertion library than we do. Therefore examples like this:
 
 ```
