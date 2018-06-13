@@ -12,13 +12,18 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "lint": "eslint src/components/**"
+    "lint": "eslint src/components/**",
+    "document": "./node_modules/.bin/esdoc"
   },
   "devDependencies": {
     "classnames": "^2.2.6",
     "downshift": "^1.31.16",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "esdoc": "^1.1.0",
+    "esdoc-ecmascript-proposal-plugin": "^1.0.0",
+    "esdoc-jsx-plugin": "^1.0.0",
+    "esdoc-standard-plugin": "^1.0.0",
     "eslint-plugin-jest": "^21.17.0",
     "eslint-plugin-react": "^7.9.1",
     "jest": "^23.1.0",

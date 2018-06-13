@@ -26,7 +26,7 @@ export const prepareFieldConfig = (fieldArgs) => {
 /**
  * Generates field controls
  *
- * @param {Array} field Field config
+ * @param {Array} fieldArgs Field config
  * @returns {*}
  */
 export const fieldFactory = (fieldArgs) =>{

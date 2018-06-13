@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../">
+  <title data-ice="title">Manual | Caldera Components library</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="UI components for Caldera Forms admin, Caldera Forms 2.0 front-end"><meta property="og:type" content="website"><meta property="og:url" content="http://calderalabs.org/caldera-components/"><meta property="og:site_name" content="Caldera Components library"><meta property="og:title" content="Caldera Components library"><meta property="og:image" content="https://calderaforms.com/wp-content/themes/caldera-forms-dot-com/img/caldera-forms-logo.svg"><meta property="og:description" content="UI components for Caldera Forms admin, Caldera Forms 2.0 front-end"><meta property="og:author" content="http://calderalabs.org"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="Caldera Components library"><meta property="twitter:description" content="UI components for Caldera Forms admin, Caldera Forms 2.0 front-end"><meta property="twitter:image" content="https://calderaforms.com/wp-content/themes/caldera-forms-dot-com/img/caldera-forms-logo.svg"></head>
+<body class="layout-container manual-root manual-index" data-ice="rootContainer">
+
+<header>
+  <a href="./" style="display: flex; align-items: center;"><img src="./image/brand_logo.svg" style="width:34px;"></a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/calderawp/caldera-components"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div class="manual-toc-root">
+  
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/components.html"><a href="manual/components.html" data-ice="link">Included Components</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/testing.html"><a href="manual/testing.html" data-ice="link">Testing</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/testing.html"><a href="manual/testing.html#unit-testing" data-ice="link">Unit Testing</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#example--snapshot-testing-a-component" data-ice="link">Example: Snapshot Testing A Component</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/testing.html"><a href="manual/testing.html#dom-testing" data-ice="link">DOM Testing</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#example" data-ice="link">Example</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#important-notes" data-ice="link">Important Notes</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/testing.html"><a href="manual/testing.html#shallow-vs-full-rendering" data-ice="link">shallow vs full rendering</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/testing.html"><a href="manual/testing.html#be-careful-about-copying-from-enzyme--39-s-docs" data-ice="link">Be careful about copying from Enzyme&apos;s docs</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/README.html"><a href="manual/README.html" data-ice="link">Caldera Components</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#usage" data-ice="link">Usage</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#install" data-ice="link">Install</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#development-requirements" data-ice="link">Development Requirements</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#testing" data-ice="link">Testing</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#scripts" data-ice="link">Scripts</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#develop" data-ice="link">Develop</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#tests" data-ice="link">Tests</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#type-checking-with-flow" data-ice="link">Type-checking With Flow</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#lint-code" data-ice="link">Lint Code</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#generate-documentation" data-ice="link">Generate Documentation</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#release-to-npm" data-ice="link">Release To npm</a></li>
+</ul>
+  </div>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><div class="github-markdown">
+  <div class="manual-user-index" data-ice="manualUserIndex"><h1 id="caldera-components">Caldera Components</h1></div>
+
+  
+
+  <div class="manual-cards">
+    
+  <div class="manual-card-wrap" data-ice="cards">
+      <div class="manual-card">
+        <div data-ice="card"><h1>Included Components</h1></div>
+        <a data-ice="link" href="manual/components.html"></a>
+      </div>
+    </div>
+<div class="manual-card-wrap" data-ice="cards">
+      <div class="manual-card">
+        <div data-ice="card"><h1>Testing</h1><h2>Unit Testing</h2><p>Tests use <a href="https://facebook.github.io/jest/docs/en/expect.html">Jest</a>. Unit tests are primarily snapshots of components or tests of function results</p><h3>Example: Snapshot Testing A Component</h3><p><code>`</code>jsx harmony
+it( &apos;Passes its props&apos;, () =&gt; {
+    const component = renderer.create(
+        &lt;Input
+            id={&apos;bags&apos;}
+            fieldClassName={&apos;foo&apos;}
+            onValueChange={() =&gt; {}}
+        /&gt;
+    );
+    expect( component.toJSON() ).toMatchSnapshot();
+});</p><pre><code><code class="source-code prettyprint">
+### Example: Testing a function result
+```jsx harmony
+it(&apos;Returns properly when passed help text&apos;, () =&gt; {
+    expect(ariaDescribedbyAttr(&apos;foo&apos;, &apos;help me Obi-won Kenobi&apos;)).toEqual(&apos;foo-description&apos;);
+});</code>
+</code></pre><h2>DOM Testing</h2><p>DOM testing uses Jest and <a href="http://airbnb.io/enzyme">Enzyme</a>.</p><h3>Example</h3><pre><code class="lang-js"><code class="source-code prettyprint">
+import { shallow, mount, render } from &apos;enzyme&apos;;
+import Enzyme from &apos;enzyme&apos;;
+import Adapter from &apos;enzyme-adapter-react-16&apos;;
+
+Enzyme.configure({ adapter: new Adapter() });
+
+it( &apos;Has the right wrapper class&apos;, () =&gt; {
+    const wrapper = shallow(&lt;FieldGroup
+        id={&apos;whatever&apos;}
+        label={&apos;does not matter&apos;}
+        type={&apos;input&apos;}
+    /&gt;);
+    expect(wrapper.find(&apos;div.caldera-config-group&apos;).length).toBe(1);
+});</code>
+</code></pre><h3>Important Notes</h3><h4>shallow vs full rendering</h4><p>Shallow rendering is preferred. Full rendering with <code>mount</code> should be used for containers or testing decedents of a component.</p><ul>
+<li><a href="http://airbnb.io/enzyme/docs/api/shallow.html">http://airbnb.io/enzyme/docs/api/shallow.html</a></li>
+<li><a href="http://airbnb.io/enzyme/docs/api/mount.html">http://airbnb.io/enzyme/docs/api/mount.html</a></li>
+</ul><h4>Be careful about copying from Enzyme&apos;s docs</h4><p>Enzyme&apos;s docs use a different assertion library than we do. Therefore examples like this:</p><pre><code class="lang-js"><code class="source-code prettyprint">it(&apos;allows us to set props&apos;, () =&gt; {
+    const wrapper = mount(&lt;Foo bar=&quot;baz&quot; /&gt;);
+    expect(wrapper.props().bar).to.equal(&apos;baz&apos;);
+});</code>
+</code></pre><p><a href="http://airbnb.io/enzyme/docs/api/mount.html">original</a></p><p>Would be rewritten as this:</p><pre><code class="lang-js"><code class="source-code prettyprint">it(&apos;allows us to set props&apos;, () =&gt; {
+    const wrapper = mount(&lt;Foo bar=&quot;baz&quot; /&gt;);
+    expect(wrapper.props().bar).toEqual(&apos;baz&apos;);
+});</code>
+</code></pre></div>
+        <a data-ice="link" href="manual/testing.html"></a>
+      </div>
+    </div>
+<div class="manual-card-wrap" data-ice="cards">
+      <div class="manual-card">
+        <div data-ice="card"><h1>Caldera Components</h1><p><a href="https://travis-ci.org/calderawp/caldera-components"><img src="https://travis-ci.org/calderawp/caldera-components.svg?branch=master" alt="Build Status"></a>
+<a href="https://coveralls.io/github/calderawp/caldera-components?branch=master"><img src="https://coveralls.io/repos/github/calderawp/caldera-components/badge.svg?branch=master" alt="Coverage Status"></a></p><p>&#x1F30B; <a href="http://calderalabs.org/caldera-components/">Documentation</a></p><h3>Usage</h3><h2>Install</h2><p><code>npm i -D @caldera-labs/components</code></p><h3>Development Requirements</h3><ul>
+<li><a href="https://www.npmjs.com/get-npm">npm</a></li>
+<li><a href="https://yarnpkg.com/lang/en/docs/install/#mac-stable">Yarn</a></li>
+<li><a href="">Git</a></li>
+<li><a href="https://flow.org/en/docs/install/">Flow</a></li>
+</ul><h2>Testing</h2><p><a href="">See testing documentation</a></p><h2>Scripts</h2><h3>Develop</h3><ul>
+<li><code>yarn start</code><ul>
+<li>Runs linter and compiles for production</li>
+<li>Starts test app server</li>
+</ul>
+</li>
+</ul><h3>Tests</h3><p>*<code>yarn test</code></p><pre><code><code class="source-code prettyprint">- Run test watcher</code>
+</code></pre><ul>
+<li><code>npm test:once</code> <ul>
+<li>Run tests once</li>
+</ul>
+</li>
+</ul><h3>Type-checking With Flow</h3><ul>
+<li><code>yarn flow</code></li>
+</ul><h3>Lint Code</h3><ul>
+<li><code>yarn lint</code><ul>
+<li>Run linter and fixer watch</li>
+</ul>
+</li>
+<li><code>yarn lint:fix</code><ul>
+<li>Lint and fix code once</li>
+</ul>
+</li>
+<li><code>yarn lint:once</code><ul>
+<li>Lint code once</li>
+</ul>
+</li>
+</ul><h3>Generate Documentation</h3><ul>
+<li><code>npm run documentation</code><ul>
+<li>Generates documentation from inline docs</li>
+<li>Generates documentation from markdown files in /manual</li>
+</ul>
+</li>
+</ul><h3>Release To npm</h3><p>Must be <a href="https://docs.npmjs.com/cli/adduser">logged in as project maintainer via npm cli</a></p><ul>
+<li><code>yarn release</code></li>
+</ul></div>
+        <a data-ice="link" href="manual/README.html"></a>
+      </div>
+    </div>
+</div>
+</div>
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

@@ -1,10 +1,33 @@
+# Testing
+
+## Unit Testing
+Tests use [Jest](https://facebook.github.io/jest/docs/en/expect.html). Unit tests are primarily snapshots of components or tests of function results
 
 
+### Example: Snapshot Testing A Component
+```jsx harmony
+it( 'Passes its props', () => {
+    const component = renderer.create(
+        <Input
+            id={'bags'}
+            fieldClassName={'foo'}
+            onValueChange={() => {}}
+        />
+    );
+    expect( component.toJSON() ).toMatchSnapshot();
+});
+```
+
+### Example: Testing a function result
+```jsx harmony
+it('Returns properly when passed help text', () => {
+    expect(ariaDescribedbyAttr('foo', 'help me Obi-won Kenobi')).toEqual('foo-description');
+});
+```
 ## DOM Testing
-DOM testing uses [Enzyme](http://airbnb.io/enzyme) for testing.
+DOM testing uses Jest and [Enzyme](http://airbnb.io/enzyme).
 
-
-#### Example
+### Example
 
 ```js
 
