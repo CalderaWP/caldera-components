@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Field group component Help text is optional 1`] = `
+<div
+  className="form-group"
+>
+  <label
+    className="control-label"
+    controlId="control-22"
+    htmlFor="control-22"
+  >
+    Who
+  </label>
+  <input
+    className="form-control"
+    id="control-22"
+  />
+</div>
+`;
+
+exports[`Field group component Works with help text 1`] = `
+<div
+  className="form-group"
+>
+  <label
+    className="control-label"
+    controlId="control-22"
+    htmlFor="control-22"
+  >
+    Who
+  </label>
+  <input
+    className="form-control"
+    id="control-22"
+  />
+  <span
+    className="help-block"
+  >
+    Who to say hi to
+  </span>
+</div>
+`;

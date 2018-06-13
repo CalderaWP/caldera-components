@@ -1,4 +1,4 @@
-import {FieldGroup} from "./FieldGroup";
+import {FieldGroup} from './FieldGroup';
 import renderer from 'react-test-renderer';
 import React from 'react';
 
