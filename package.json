@@ -1,5 +1,5 @@
 {
-  "name": "caldera-components",
+  "name": "@caldera-labs/components",
   "version": "0.1.1",
   "dependencies": {
     "react": "^16.4.0",

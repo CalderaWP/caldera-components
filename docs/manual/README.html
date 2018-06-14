@@ -65,7 +65,7 @@
 <li data-ice="manualNav" class="indent-h4" data-link="manual/README.html"><a href="manual/README.html#tests" data-ice="link">Tests</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/README.html"><a href="manual/README.html#lint-code" data-ice="link">Lint Code</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/README.html"><a href="manual/README.html#generate-documentation" data-ice="link">Generate Documentation</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#release-to-npm" data-ice="link">Release To npm</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/README.html"><a href="manual/README.html#release-to-npm" data-ice="link">Release To npm</a></li>
 </ul>
   </div>
 </div>
@@ -121,10 +121,25 @@
 </ul>
 </li>
 </ul>
-<h3 id="release-to-npm">Release To npm</h3><p>Must be <a href="https://docs.npmjs.com/cli/adduser">logged in as project maintainer via npm cli</a></p>
+<h4 id="release-to-npm">Release To npm</h4><p>Must be <a href="https://docs.npmjs.com/cli/adduser">logged in as project maintainer via npm cli</a></p>
 <ul>
-<li><code>yarn release</code></li>
+<li><code>yarn release</code><ul>
+<li>Release a patch update</li>
+<li>Increments third position of a version. 1.0.1 -&gt; 1.0.2</li>
 </ul>
+</li>
+<li><code>yarn release:minor</code><ul>
+<li>Release a minor update</li>
+<li>Increments second position of a version. 1.0.1 -&gt; 1.1.0 </li>
+</ul>
+</li>
+<li><code>yarn release:major</code><ul>
+<li>Release a major update</li>
+<li>Increments second position of a version. 1.0.1 -&gt; 2.0.0 </li>
+</ul>
+</li>
+</ul>
+<p>These commands run the tests and linter, and if they pass, re-compiles source, rebuilds docs, updates the version using <a href="https://docs.npmjs.com/cli/version">npm version</a>, adds a git tag, makes a git commit for the version change and updates the module on npm.</p>
 </div>
 </div>
 
