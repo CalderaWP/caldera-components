@@ -1,6 +1,6 @@
 {
   "name": "caldera-components",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "dependencies": {
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
@@ -26,10 +26,10 @@
     "release:patch": "npm version patch -m \"version %s\" && npm publish"
   },
   "main": "./dist/index.js",
-  "files" : [
-      "./dist/index.js",
-      "./dist/fields/index.js",
-      "./dist/fields/factories/index.js"
+  "files": [
+    "./dist/index.js",
+    "./dist/fields/index.js",
+    "./dist/fields/factories/index.js"
   ],
   "devDependencies": {
     "babel-cli": "^6.26.0",
