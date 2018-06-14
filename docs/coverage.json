@@ -1,7 +1,7 @@
 {
-  "coverage": "54.16%",
+  "coverage": "58.33%",
   "expectCount": 24,
-  "actualCount": 13,
+  "actualCount": 14,
   "files": {
     "src/App.js": {
       "expectCount": 3,
@@ -41,10 +41,8 @@
     },
     "src/components/fields/input/Input.js": {
       "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        6
-      ]
+      "actualCount": 1,
+      "undocumentLines": []
     },
     "src/components/fields/propTypes.js": {
       "expectCount": 6,

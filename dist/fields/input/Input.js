@@ -13,6 +13,13 @@ var _propTypes = require('../propTypes');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+ * Basic input component
+ *
+ * @param {Object} props
+ * @returns {*}
+ * @constructor
+ */
 var Input = exports.Input = function Input(props) {
 	function changeHandler(event) {
 		return props.onValueChange(event.target.value);
@@ -28,8 +35,16 @@ var Input = exports.Input = function Input(props) {
 	});
 };
 
+/**
+ * Prop definitions for Input components
+ */
 Input.propTypes = _propTypes.fieldPropTypes;
 
+/**
+ * Default props for Input Component
+ *
+ * @type {{ariaDescribedbyAttr: string, isRequired: boolean, inputType: string}}
+ */
 Input.defaultProps = {
 	ariaDescribedbyAttr: '',
 	isRequired: false,

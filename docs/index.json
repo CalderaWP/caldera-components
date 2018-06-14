@@ -917,7 +917,7 @@
     "__docId__": 64,
     "kind": "file",
     "name": "src/components/fields/input/Input.js",
-    "content": "import React from 'react';\nimport {\n\tfieldPropTypes\n} from '../propTypes';\n\nexport const Input = (props) => {\n\tfunction changeHandler(event){\n\t\treturn props.onValueChange(event.target.value);\n\t}\n\treturn (\n\t\t<input\n\t\t\ttype={props.inputType}\n\t\t\tid={props.id}\n\t\t\tclassName={props.fieldClassName}\n\t\t\taria-describedby={props.ariaDescribedbyAttr}\n\t\t\trequired={props.isRequired}\n\t\t\tonChange={changeHandler}\n\t\t\tvalue={props.value}\n\t\t/>\n\t);\n\n};\n\nInput.propTypes = fieldPropTypes;\n\nInput.defaultProps = {\n\tariaDescribedbyAttr: '',\n\tisRequired: false,\n\tinputType: 'text'\n};",
+    "content": "import React from 'react';\nimport {fieldPropTypes} from '../propTypes';\n\n/**\n * Basic input component\n *\n * @param {Object} props\n * @returns {*}\n * @constructor\n */\nexport const Input = (props) => {\n\tfunction changeHandler(event){\n\t\treturn props.onValueChange(event.target.value);\n\t}\n\treturn (\n\t\t<input\n\t\t\ttype={props.inputType}\n\t\t\tid={props.id}\n\t\t\tclassName={props.fieldClassName}\n\t\t\taria-describedby={props.ariaDescribedbyAttr}\n\t\t\trequired={props.isRequired}\n\t\t\tonChange={changeHandler}\n\t\t\tvalue={props.value}\n\t\t/>\n\t);\n\n};\n\n/**\n * Prop definitions for Input components\n */\nInput.propTypes = fieldPropTypes;\n\n/**\n * Default props for Input Component\n *\n * @type {{ariaDescribedbyAttr: string, isRequired: boolean, inputType: string}}\n */\nInput.defaultProps = {\n\tariaDescribedbyAttr: '',\n\tisRequired: false,\n\tinputType: 'text'\n};",
     "static": true,
     "longname": "/Users/josh/caldera-js/components/src/components/fields/input/Input.js",
     "access": "public",
@@ -937,21 +937,37 @@
     "export": true,
     "importPath": "caldera-components/src/components/fields/input/Input.js",
     "importStyle": "{Input}",
-    "description": null,
-    "lineNumber": 6,
-    "undocument": true,
+    "description": "Basic input component",
+    "lineNumber": 11,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{*}"
+      },
+      {
+        "tagName": "@constructor",
+        "tagValue": ""
+      }
+    ],
     "params": [
       {
-        "name": "props",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "props",
+        "description": ""
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
         "*"
-      ]
+      ],
+      "spread": false,
+      "description": ""
     }
   },
   {
@@ -1292,6 +1308,17 @@
   {
     "__docId__": 79,
     "kind": "file",
+    "name": "src/components/index.js",
+    "content": "/*eslint no-undef: \"error\"*/\n/*eslint-env node*/\nimport * as fields from './fields/index';\nimport * as factories from './fields/factories/index'\nmodule.exports = {\n\tfields,\n\tfactories\n};",
+    "static": true,
+    "longname": "/Users/josh/caldera-js/components/src/components/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 80,
+    "kind": "file",
     "name": "src/index.js",
     "content": "import React from 'react';\nimport ReactDOM from 'react-dom';\nimport './index.css';\nimport App from './App';\nimport registerServiceWorker from './registerServiceWorker';\n\nReactDOM.render(<App />, document.getElementById('root'));\nregisterServiceWorker();\n",
     "static": true,
@@ -1301,7 +1328,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 80,
+    "__docId__": 81,
     "kind": "file",
     "name": "src/registerServiceWorker.js",
     "content": "// In production, we register a service worker to serve assets from local cache.\n\n// This lets the app load faster on subsequent visits in production, and gives\n// it offline capabilities. However, it also means that developers (and users)\n// will only see deployed updates on the \"N+1\" visit to a page, since previously\n// cached resources are updated in the background.\n\n// To learn more about the benefits of this model, read https://goo.gl/KwvDNy.\n// This link also includes instructions on opting out of this behavior.\n\nconst isLocalhost = Boolean(\n\twindow.location.hostname === 'localhost' ||\n    // [::1] is the IPv6 localhost address.\n    window.location.hostname === '[::1]' ||\n    // 127.0.0.1/8 is considered localhost for IPv4.\n    window.location.hostname.match(\n    \t/^127(?:\\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/\n    )\n);\n\nexport default function register() {\n\tif (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {\n\t\t// The URL constructor is available in all browsers that support SW.\n\t\tconst publicUrl = new URL(process.env.PUBLIC_URL, window.location);\n\t\tif (publicUrl.origin !== window.location.origin) {\n\t\t\t// Our service worker won't work if PUBLIC_URL is on a different origin\n\t\t\t// from what our page is served on. This might happen if a CDN is used to\n\t\t\t// serve assets; see https://github.com/facebookincubator/create-react-app/issues/2374\n\t\t\treturn;\n\t\t}\n\n\t\twindow.addEventListener('load', () => {\n\t\t\tconst swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;\n\n\t\t\tif (isLocalhost) {\n\t\t\t\t// This is running on localhost. Lets check if a service worker still exists or not.\n\t\t\t\tcheckValidServiceWorker(swUrl);\n\t\t\t} else {\n\t\t\t\t// Is not local host. Just register service worker\n\t\t\t\tregisterValidSW(swUrl);\n\t\t\t}\n\t\t});\n\t}\n}\n\nfunction registerValidSW(swUrl) {\n\tnavigator.serviceWorker\n\t\t.register(swUrl)\n\t\t.then(registration => {\n\t\t\tregistration.onupdatefound = () => {\n\t\t\t\tconst installingWorker = registration.installing;\n\t\t\t\tinstallingWorker.onstatechange = () => {\n\t\t\t\t\tif (installingWorker.state === 'installed') {\n\t\t\t\t\t\tif (navigator.serviceWorker.controller) {\n\t\t\t\t\t\t\t// At this point, the old content will have been purged and\n\t\t\t\t\t\t\t// the fresh content will have been added to the cache.\n\t\t\t\t\t\t\t// It's the perfect time to display a \"New content is\n\t\t\t\t\t\t\t// available; please refresh.\" message in your web app.\n\t\t\t\t\t\t\tconsole.log('New content is available; please refresh.');\n\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\t// At this point, everything has been precached.\n\t\t\t\t\t\t\t// It's the perfect time to display a\n\t\t\t\t\t\t\t// \"Content is cached for offline use.\" message.\n\t\t\t\t\t\t\tconsole.log('Content is cached for offline use.');\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t};\n\t\t\t};\n\t\t})\n\t\t.catch(error => {\n\t\t\tconsole.error('Error during service worker registration:', error);\n\t\t});\n}\n\nfunction checkValidServiceWorker(swUrl) {\n\t// Check if the service worker can be found. If it can't reload the page.\n\tfetch(swUrl)\n\t\t.then(response => {\n\t\t\t// Ensure service worker exists, and that we really are getting a JS file.\n\t\t\tif (\n\t\t\t\tresponse.status === 404 ||\n        response.headers.get('content-type').indexOf('javascript') === -1\n\t\t\t) {\n\t\t\t\t// No service worker found. Probably a different app. Reload the page.\n\t\t\t\tnavigator.serviceWorker.ready.then(registration => {\n\t\t\t\t\tregistration.unregister().then(() => {\n\t\t\t\t\t\twindow.location.reload();\n\t\t\t\t\t});\n\t\t\t\t});\n\t\t\t} else {\n\t\t\t\t// Service worker found. Proceed as normal.\n\t\t\t\tregisterValidSW(swUrl);\n\t\t\t}\n\t\t})\n\t\t.catch(() => {\n\t\t\tconsole.log(\n\t\t\t\t'No internet connection found. App is running in offline mode.'\n\t\t\t);\n\t\t});\n}\n\nexport function unregister() {\n\tif ('serviceWorker' in navigator) {\n\t\tnavigator.serviceWorker.ready.then(registration => {\n\t\t\tregistration.unregister();\n\t\t});\n\t}\n}\n",
@@ -1312,7 +1339,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 81,
+    "__docId__": 82,
     "kind": "variable",
     "name": "isLocalhost",
     "memberof": "src/registerServiceWorker.js",
@@ -1333,7 +1360,7 @@
     "ignore": true
   },
   {
-    "__docId__": 82,
+    "__docId__": 83,
     "kind": "function",
     "name": "register",
     "memberof": "src/registerServiceWorker.js",
@@ -1352,7 +1379,7 @@
     "return": null
   },
   {
-    "__docId__": 83,
+    "__docId__": 84,
     "kind": "function",
     "name": "registerValidSW",
     "memberof": "src/registerServiceWorker.js",
@@ -1379,7 +1406,7 @@
     "ignore": true
   },
   {
-    "__docId__": 84,
+    "__docId__": 85,
     "kind": "function",
     "name": "checkValidServiceWorker",
     "memberof": "src/registerServiceWorker.js",
@@ -1406,7 +1433,7 @@
     "ignore": true
   },
   {
-    "__docId__": 85,
+    "__docId__": 86,
     "kind": "function",
     "name": "unregister",
     "memberof": "src/registerServiceWorker.js",
@@ -1434,7 +1461,7 @@
   },
   {
     "kind": "packageJSON",
-    "content": "{\n  \"name\": \"caldera-components\",\n  \"version\": \"0.1.0\",\n  \"dependencies\": {\n    \"react\": \"^16.4.0\",\n    \"react-dom\": \"^16.4.0\",\n    \"react-wp-scripts\": \"0.2.0\"\n  },\n  \"license\": \"GPL-2.0\",\n  \"scripts\": {\n    \"start\": \"react-wp-scripts start\",\n    \"example:build\": \"react-scripts build\",\n    \"test\": \"react-scripts test --env=jsdom\",\n    \"eject\": \"react-scripts eject\",\n    \"lint\": \"eslint src/components/**\",\n    \"document\": \"./node_modules/.bin/esdoc\",\n    \"build\": \"npm run build:pre && npm run build:compile && npm run build:post\",\n    \"build:pre\": \"npm run test:once\",\n    \"build:compile\": \"./node_modules/.bin/babel -d dist src/components\",\n    \"build:post\": \"npm run compress && npm run document\"\n  },\n  \"main\": \"./dist/fields/index.js\",\n  \"files\" : [\n      \"./dist/fields/factories/index.js\",\n      \"./dist/fields/index.js\"\n  ],\n  \"devDependencies\": {\n    \"babel-cli\": \"^6.26.0\",\n    \"babel-preset-env\": \"^1.7.0\",\n    \"babel-preset-react\": \"^6.24.1\",\n    \"babel-preset-stage-3\": \"^6.24.1\",\n    \"classnames\": \"^2.2.6\",\n    \"downshift\": \"^1.31.16\",\n    \"enzyme\": \"^3.3.0\",\n    \"enzyme-adapter-react-16\": \"^1.1.1\",\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-ecmascript-proposal-plugin\": \"^1.0.0\",\n    \"esdoc-jsx-plugin\": \"^1.0.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"eslint-plugin-jest\": \"^21.17.0\",\n    \"eslint-plugin-react\": \"^7.9.1\",\n    \"jest\": \"^23.1.0\",\n    \"jest-cli\": \"^23.1.0\",\n    \"prop-types\": \"^15.6.1\",\n    \"react-bootstrap\": \"^0.32.1\",\n    \"react-test-renderer\": \"^16.4.0\"\n  }\n}\n",
+    "content": "{\n  \"name\": \"caldera-components\",\n  \"version\": \"0.1.0\",\n  \"dependencies\": {\n    \"react\": \"^16.4.0\",\n    \"react-dom\": \"^16.4.0\",\n    \"react-wp-scripts\": \"0.2.0\"\n  },\n  \"license\": \"GPL-2.0\",\n  \"scripts\": {\n    \"start\": \"react-wp-scripts start\",\n    \"example:build\": \"react-scripts build\",\n    \"test\": \"react-scripts test --env=jsdom\",\n    \"test:once\": \"CI=true react-scripts test --env=jsdom\",\n    \"eject\": \"react-scripts eject\",\n    \"lint\": \"eslint src/components/**\",\n    \"document\": \"./node_modules/.bin/esdoc\",\n    \"prepublish\": \"npm run build\",\n    \"build\": \"npm run build:pre && npm run build:compile && npm run build:post\",\n    \"build:pre\": \"npm run test:once\",\n    \"build:compile\": \"./node_modules/.bin/babel -d dist src/components\",\n    \"build:post\": \"npm run document\"\n  },\n  \"main\": \"./dist/index.js\",\n  \"files\" : [\n      \"./dist/index.js\",\n      \"./dist/fields/index.js\",\n      \"./dist/fields/factories/index.js\"\n  ],\n  \"devDependencies\": {\n    \"babel-cli\": \"^6.26.0\",\n    \"babel-preset-env\": \"^1.7.0\",\n    \"babel-preset-react\": \"^6.24.1\",\n    \"babel-preset-stage-3\": \"^6.24.1\",\n    \"classnames\": \"^2.2.6\",\n    \"downshift\": \"^1.31.16\",\n    \"enzyme\": \"^3.3.0\",\n    \"enzyme-adapter-react-16\": \"^1.1.1\",\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-ecmascript-proposal-plugin\": \"^1.0.0\",\n    \"esdoc-jsx-plugin\": \"^1.0.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"eslint-plugin-jest\": \"^21.17.0\",\n    \"eslint-plugin-react\": \"^7.9.1\",\n    \"jest\": \"^23.1.0\",\n    \"jest-cli\": \"^23.1.0\",\n    \"prop-types\": \"^15.6.1\",\n    \"react-bootstrap\": \"^0.32.1\",\n    \"react-test-renderer\": \"^16.4.0\"\n  }\n}\n",
     "longname": "/Users/josh/caldera-js/components/package.json",
     "name": "package.json",
     "static": true,

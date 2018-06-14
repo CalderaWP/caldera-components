@@ -474,6 +474,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/components/index.js",
+    "file/src/components/index.js.html",
+    "src/components/index.js",
+    "file"
+  ],
+  [
     "src/index.js",
     "file/src/index.js.html",
     "src/index.js",

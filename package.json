@@ -11,13 +11,19 @@
     "start": "react-wp-scripts start",
     "example:build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "test:once": "CI=true react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint src/components/**",
     "document": "./node_modules/.bin/esdoc",
     "build": "npm run build:pre && npm run build:compile && npm run build:post",
     "build:pre": "npm run test:once",
     "build:compile": "./node_modules/.bin/babel -d dist src/components",
-    "build:post": "npm run compress && npm run document"
+    "build:post": "npm run document",
+    "prepublish": "npm run build",
+    "release": "npm run release:patch",
+    "release:minor": "npm version minor -m \"version %s\" && npm publish",
+    "release:major": "npm version major -m \"version %s\" && npm publish",
+    "release:patch": "npm version patch -m \"version %s\" && npm publish"
   },
   "main": "./dist/index.js",
   "files" : [
