@@ -1,8 +1,13 @@
 import React from 'react';
-import {
-	fieldPropTypes
-} from '../propTypes';
+import {fieldPropTypes} from '../propTypes';
 
+/**
+ * Basic input component
+ *
+ * @param {Object} props
+ * @returns {*}
+ * @constructor
+ */
 export const Input = (props) => {
 	function changeHandler(event){
 		return props.onValueChange(event.target.value);
@@ -21,8 +26,16 @@ export const Input = (props) => {
 
 };
 
+/**
+ * Prop definitions for Input components
+ */
 Input.propTypes = fieldPropTypes;
 
+/**
+ * Default props for Input Component
+ *
+ * @type {{ariaDescribedbyAttr: string, isRequired: boolean, inputType: string}}
+ */
 Input.defaultProps = {
 	ariaDescribedbyAttr: '',
 	isRequired: false,
