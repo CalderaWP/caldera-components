@@ -7,6 +7,8 @@ import {getHtmlInputTypes} from '../util';
 import { mount } from 'enzyme';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import React from 'react';
+import renderer from 'react-test-renderer';
 Enzyme.configure({ adapter: new Adapter() });
 
 const textFieldConfig = {
@@ -131,6 +133,43 @@ describe( 'Factories', () => {
 			expect( components ).toHaveLength(configFields.length);
 		});
 
+		it( 'Renders with elements', () => {
+			const components = fieldSetFactory(configFields);
+			const component = renderer.create(
+				<div>
+					{Array.from(components).map((field,i) => {
+						return React.createElement(
+							'div', {
+								key: i,
+								className: `f-${i}`
+							},
+							field
+						);
+					})}
+				</div>
+			);
+			expect(component.toJSON()).toMatchSnapshot();
+		});
+
+		it( 'Creates the elements', () => {
+			const components = fieldSetFactory(configFields);
+			const wrapper = mount(
+				<div>
+					{Array.from(components).map((field,i) => {
+						return React.createElement(
+							'div', {
+								key: i,
+								className: `f-${i}`
+							},
+							field
+						);
+					})}
+				</div>
+			);
+			expect( wrapper.children().length).toBe(configFields.length);
+			expect( wrapper.find('.f-1').length).toBe(1);
+			expect( wrapper.find('.f-1').text()).toBe('Sequencedesc');
+		});
 
 
 	});
