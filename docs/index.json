@@ -567,7 +567,7 @@
     "__docId__": 48,
     "kind": "file",
     "name": "src/App.js",
-    "content": "import React, { Component } from 'react';\nimport logo from './logo.svg';\nimport './App.css';\nimport {FieldGroup} from \"./components/fields/FieldGroup\";\nimport {SelectField} from \"./components/fields/select/SelectField\";\n\nlet values = {\n\tone: '',\n\ttwo: '',\n\tthree: ''\n};\n\nclass App extends Component {\n\n\trender() {\n\t\treturn (\n\t\t\t<div className=\"App\">\n\t\t\t\t<header className=\"App-header\">\n\t\t\t\t\t<img src={logo} className=\"App-logo\" alt=\"logo\" />\n\t\t\t\t\t<h1 className=\"App-title\">Welcome to React</h1>\n\t\t\t\t</header>\n\t\t\t\t<div>\n\t\t\t\t\t<h2>Inputs</h2>\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-22'}\n\t\t\t\t\t\tlabel={'Required Text input'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tvalue={values.one}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.one=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-23'}\n\t\t\t\t\t\tlabel={'Non Required Text input'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tvalue={values.two}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.two=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-23'}\n\t\t\t\t\t\tlabel={'With Help Text'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\thelp={'Adding help text sets aria-describedy'}\n\t\t\t\t\t\tvalue={values.thre}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.three=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-24'}\n\t\t\t\t\t\tlabel={'Non Required Numeric input'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tinnertype={'number'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tvalue={values.two}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.two=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\t\t\t\t<div>\n\t\t\t\t\t<h2>Selects</h2>\n\t\t\t\t\t<SelectField\n\t\t\t\t\t\tid={'r'}\n\t\t\t\t\t\tfieldClassName={'rs'}\n\t\t\t\t\t\tonValueChange={() => {}}\n\t\t\t\t\t\toptions={[\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tvalue: 1,\n\t\t\t\t\t\t\t\tlabel: 'One'\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tvalue: 2,\n\t\t\t\t\t\t\t\tlabel: 'Two'\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t]}\n\t\t\t\t\t\tisOpen={true}\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t);\n\t}\n}\n\nexport default App;\n",
+    "content": "import React, { Component } from 'react';\nimport logo from './logo.svg';\nimport './App.css';\nimport {FieldGroup} from \"./components/fields/FieldGroup\";\nimport {SelectField} from \"./components/fields/select/SelectField\";\nimport {fieldSetFactory} from \"./components/fields/factories/fieldSetFactory\";\n\nlet textFieldValue = 'Roy,Mike';\nconst textFieldConfig = {\n\t'id': 'cf-convertkit-tags',\n\t'label': 'Tags',\n\t'desc': 'Comma separated list of tags.',\n\t'type': 'text',\n\t'description': false,\n\tvalue: textFieldValue,\n\tonValueChange: function(newValue){\n\t\ttextFieldValue = newValue\n\t}\n};\n\nlet hiddenFieldValue = '42';\nconst hiddenFieldConfig = {\n\t'id': 'cf-convertkit-sequence-id',\n\t'type': 'hidden',\n\t'label': 'Sequence ID',\n\t'description': false,\n\tvalue: hiddenFieldValue,\n\tonValueChange: function(newValue){\n\t\thiddenFieldValue = newValue\n\t}\n};\n\nconst fields = fieldSetFactory([\n\ttextFieldConfig,\n\thiddenFieldConfig\n]);\n\nlet values = {\n\tone: '',\n\ttwo: '',\n\tthree: ''\n};\n\nclass App extends Component {\n\n\trender() {\n\t\treturn (\n\t\t\t<div className=\"App\">\n\t\t\t\t<header className=\"App-header\">\n\t\t\t\t\t<img src={logo} className=\"App-logo\" alt=\"logo\" />\n\t\t\t\t\t<h1 className=\"App-title\">Welcome to React</h1>\n\t\t\t\t</header>\n\t\t\t\t<div>\n\t\t\t\t\t<h2>Inputs</h2>\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-22'}\n\t\t\t\t\t\tlabel={'Required Text input'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tvalue={values.one}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.one=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-23'}\n\t\t\t\t\t\tlabel={'Non Required Text input'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tvalue={values.two}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.two=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-23'}\n\t\t\t\t\t\tlabel={'With Help Text'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\thelp={'Adding help text sets aria-describedy'}\n\t\t\t\t\t\tvalue={values.thre}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.three=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-24'}\n\t\t\t\t\t\tlabel={'Non Required Numeric input'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tinnertype={'number'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tvalue={values.two}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.two=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\t\t\t\t<div>\n\t\t\t\t\t<h2>Selects</h2>\n\t\t\t\t\t<SelectField\n\t\t\t\t\t\tid={'r'}\n\t\t\t\t\t\tfieldClassName={'rs'}\n\t\t\t\t\t\tonValueChange={() => {}}\n\t\t\t\t\t\toptions={[\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tvalue: 1,\n\t\t\t\t\t\t\t\tlabel: 'One'\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tvalue: 2,\n\t\t\t\t\t\t\t\tlabel: 'Two'\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t]}\n\t\t\t\t\t\tisOpen={true}\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\t\t\t\t<div>\n\t\t\t\t\t<h2>Created With Factory</h2>\n\t\t\t\t\t{Array.from(fields).map((field,i) => {\n\t\t\t\t\t\treturn React.createElement(\n\t\t\t\t\t\t\t'div', {\n\t\t\t\t\t\t\t\tkey: i,\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\tfield\n\t\t\t\t\t\t);\n\t\t\t\t\t})}\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t);\n\t}\n}\n\nexport default App;\n",
     "static": true,
     "longname": "/Users/josh/caldera-js/components/src/App.js",
     "access": "public",
@@ -576,6 +576,111 @@
   },
   {
     "__docId__": 49,
+    "kind": "variable",
+    "name": "textFieldValue",
+    "memberof": "src/App.js",
+    "static": true,
+    "longname": "src/App.js~textFieldValue",
+    "access": "public",
+    "export": false,
+    "importPath": "@caldera-labs/components/src/App.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 50,
+    "kind": "variable",
+    "name": "textFieldConfig",
+    "memberof": "src/App.js",
+    "static": true,
+    "longname": "src/App.js~textFieldConfig",
+    "access": "public",
+    "export": false,
+    "importPath": "@caldera-labs/components/src/App.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"id\": string, \"label\": string, \"desc\": string, \"type\": string, \"description\": *, \"value\": *, \"onValueChange\": *}"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 51,
+    "kind": "variable",
+    "name": "hiddenFieldValue",
+    "memberof": "src/App.js",
+    "static": true,
+    "longname": "src/App.js~hiddenFieldValue",
+    "access": "public",
+    "export": false,
+    "importPath": "@caldera-labs/components/src/App.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 52,
+    "kind": "variable",
+    "name": "hiddenFieldConfig",
+    "memberof": "src/App.js",
+    "static": true,
+    "longname": "src/App.js~hiddenFieldConfig",
+    "access": "public",
+    "export": false,
+    "importPath": "@caldera-labs/components/src/App.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 22,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"id\": string, \"type\": string, \"label\": string, \"description\": *, \"value\": *, \"onValueChange\": *}"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 53,
+    "kind": "variable",
+    "name": "fields",
+    "memberof": "src/App.js",
+    "static": true,
+    "longname": "src/App.js~fields",
+    "access": "public",
+    "export": false,
+    "importPath": "@caldera-labs/components/src/App.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 33,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 54,
     "kind": "variable",
     "name": "values",
     "memberof": "src/App.js",
@@ -586,7 +691,7 @@
     "importPath": "@caldera-labs/components/src/App.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 7,
+    "lineNumber": 38,
     "undocument": true,
     "type": {
       "types": [
@@ -596,7 +701,7 @@
     "ignore": true
   },
   {
-    "__docId__": 50,
+    "__docId__": 55,
     "kind": "class",
     "name": "App",
     "memberof": "src/App.js",
@@ -607,7 +712,7 @@
     "importPath": "@caldera-labs/components/src/App.js",
     "importStyle": "App",
     "description": null,
-    "lineNumber": 13,
+    "lineNumber": 44,
     "undocument": true,
     "interface": false,
     "extends": [
@@ -615,7 +720,7 @@
     ]
   },
   {
-    "__docId__": 51,
+    "__docId__": 56,
     "kind": "method",
     "name": "render",
     "memberof": "src/App.js~App",
@@ -625,7 +730,7 @@
     "longname": "src/App.js~App#render",
     "access": "public",
     "description": null,
-    "lineNumber": 15,
+    "lineNumber": 46,
     "undocument": true,
     "params": [],
     "return": {
@@ -635,7 +740,7 @@
     }
   },
   {
-    "__docId__": 52,
+    "__docId__": 57,
     "kind": "file",
     "name": "src/components/fields/FieldGroup.js",
     "content": "import React from 'react';\nimport classNames from 'classnames';\nimport {ariaDescribedbyAttr} from './util';\nimport {\n\tfieldGroupPropTypes,\n} from './propTypes';\n\nimport {FieldInner} from './FieldInner';\n\n\nexport const FieldGroup = (props) => {\n\tfunction idAttrFromProps() {\n\t\treturn ariaDescribedbyAttr(props.id, props.help);\n\t}\n\n\treturn (\n\t\t<div\n\t\t\tclassName={'caldera-config-group'}\n\t\t>\n\t\t\t<label\n\t\t\t\thtmlFor={props.id}\n\t\t\t>\n\t\t\t\t{props.label}\n\t\t\t</label>\n\t\t\t{FieldInner(\n\t\t\t\t{\n\t\t\t\t\tid: props.id,\n\t\t\t\t\tfieldClassName: classNames(\n\t\t\t\t\t\t'field-config',\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\trequired: props.isRequired,\n\t\t\t\t\t\t\t'block-input': props.isBlockInput\n\t\t\t\t\t\t}\n\t\t\t\t\t),\n\t\t\t\t\thelp:props.help,\n\t\t\t\t\tvalue:props.value,\n\t\t\t\t\tonValueChange:props.onValueChange,\n\t\t\t\t\tinputType: props.inputType\n\t\t\t\t}\n\t\t\t)}\n\t\t\t{props.help &&\n\t\t\t\t<p\n\t\t\t\t\tid={`${idAttrFromProps()}`}\n\t\t\t\t\tclassName={'description'}\n\t\t\t\t>\n\t\t\t\t\t{props.help}\n\t\t\t\t</p>\n\t\t\t}\n\t\t</div>\n\t);\n};\n\n\n\n\nFieldGroup.propTypes = fieldGroupPropTypes;\n\nFieldGroup.defaultProps = {\n\tisBlockInput: true,\n\tisRequired: false,\n\thelp: ''\n};",
@@ -646,7 +751,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 53,
+    "__docId__": 58,
     "kind": "function",
     "name": "FieldGroup",
     "memberof": "src/components/fields/FieldGroup.js",
@@ -676,7 +781,7 @@
     }
   },
   {
-    "__docId__": 54,
+    "__docId__": 59,
     "kind": "file",
     "name": "src/components/fields/FieldInner.js",
     "content": "import {fieldPropTypes} from './propTypes';\nimport React from 'react';\nimport {Input} from './input/Input';\nimport {SelectField} from './select/SelectField';\nimport {ariaDescribedbyAttr} from './util';\n\n/**\n * Creates the field inside of a field group\n *\n * @param {Object} props\n * @returns {*}\n * @constructor\n */\nexport const FieldInner = (props) => {\n\tfunction idAttrFromProps() {\n\t\treturn ariaDescribedbyAttr(props.id, props.help);\n\t}\n\n\tswitch( props.type ){\n\tcase 'select':\n\tcase 'dropdown':\n\t\treturn (\n\t\t\t<SelectField\n\t\t\t\tid={props.id}\n\t\t\t\tfieldClassName={props.fieldClassName}\n\t\t\t\tariaDescribedbyAttr={idAttrFromProps()}\n\t\t\t\tvalue={props.value}\n\t\t\t\tonValueChange={props.onValueChange}\n\t\t\t\tinputType={props.inputType}\n\t\t\t\toptions={props.opt}\n\t\t\t/>\n\t\t);\n\tdefault:\n\tcase 'input':\n\t\treturn (\n\t\t\t<Input\n\t\t\t\tid={props.id}\n\t\t\t\tfieldClassName={props.fieldClassName}\n\t\t\t\tariaDescribedbyAttr={idAttrFromProps()}\n\t\t\t\tvalue={props.value}\n\t\t\t\tonValueChange={props.onValueChange}\n\t\t\t\tinputType={props.inputType}\n\t\t\t/>);\n\t}\n\n};\n\n/**\n * propTypes for FieldInner component\n *\n * @type {{options, ariaDescribedbyAttr}}\n */\nFieldInner.propTypes = fieldPropTypes;\n\n/**\n * Default props for FieldInner component\n * @type {{help: string}}\n */\nFieldInner.defaultProps = {\n\thelp: ''\n};",
@@ -687,7 +792,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 55,
+    "__docId__": 60,
     "kind": "function",
     "name": "FieldInner",
     "memberof": "src/components/fields/FieldInner.js",
@@ -733,7 +838,7 @@
     }
   },
   {
-    "__docId__": 56,
+    "__docId__": 61,
     "kind": "file",
     "name": "src/components/fields/factories/fieldFactory.js",
     "content": "import {prepareFieldConfig} from './prepareFieldConfig';\nimport {FieldGroup} from '../FieldGroup';\n\n\n/**\n * Generates field controls\n *\n * @param {Array} fieldArgs Field config\n * @returns {*}\n */\nexport const fieldFactory = (fieldArgs) =>{\n\treturn FieldGroup(prepareFieldConfig(fieldArgs));\n\n};\n",
@@ -744,7 +849,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 57,
+    "__docId__": 62,
     "kind": "function",
     "name": "fieldFactory",
     "memberof": "src/components/fields/factories/fieldFactory.js",
@@ -786,7 +891,7 @@
     }
   },
   {
-    "__docId__": 58,
+    "__docId__": 63,
     "kind": "file",
     "name": "src/components/fields/factories/fieldSetFactory.js",
     "content": "import {fieldFactory} from './fieldFactory';\n\n/**\n * Given an array of field configs, generates and array of field controls\n *\n * Should be used for a group of settings, such as all settings for a processor.\n *\n * @param {Array} fields Field configs\n * @returns {Array}\n */\nexport const fieldSetFactory = (fields) =>{\n\tlet out = [];\n\tObject.values(fields).forEach( field => {\n\t\tout.push(fieldFactory(field));\n\t});\n\treturn out;\n};",
@@ -797,7 +902,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 59,
+    "__docId__": 64,
     "kind": "function",
     "name": "fieldSetFactory",
     "memberof": "src/components/fields/factories/fieldSetFactory.js",
@@ -839,7 +944,7 @@
     }
   },
   {
-    "__docId__": 60,
+    "__docId__": 65,
     "kind": "file",
     "name": "src/components/fields/factories/index.js",
     "content": "/*eslint no-undef: \"error\"*/\n/*eslint-env node*/\nimport {fieldFactory} from './fieldFactory';\nimport {fieldSetFactory} from './fieldSetFactory';\n\nmodule.exports = {\n\tfieldFactory,\n\tfieldSetFactory\n};",
@@ -850,7 +955,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 61,
+    "__docId__": 66,
     "kind": "file",
     "name": "src/components/fields/factories/prepareFieldConfig.js",
     "content": "import {fieldGroupPropTypes} from '../propTypes';\nimport {isValidHtml5type} from '../util';\n\n/**\n * Validates field configurations\n *\n * NOTE: This is called internally by factory. You probably do not want to call this.\n *\n * @param {Object}fieldArgs\n * @returns {*}\n */\nexport const prepareFieldConfig = (fieldArgs) => {\n\tfunction pick(obj, keys) {\n\t\treturn keys.map(k => k in obj ? {[k]: obj[k]} : {})\n\t\t\t.reduce((res, o) => Object.assign(res, o), {});\n\t}\n\n\tswitch( fieldArgs.type ){\n\tcase 'text':\n\tcase 'number':\n\tdefault:\n\t\tfieldArgs.inputType = isValidHtml5type(fieldArgs.type) ? fieldArgs.type : 'text';\n\t\tfieldArgs.type = 'input';\n\t\tbreak;\n\t}\n\tif( fieldArgs.hasOwnProperty('desc') ){\n\t\tfieldArgs.help = 'desc';\n\t}\n\treturn pick(fieldArgs, Object.keys(fieldGroupPropTypes));\n};",
@@ -861,7 +966,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 62,
+    "__docId__": 67,
     "kind": "function",
     "name": "prepareFieldConfig",
     "memberof": "src/components/fields/factories/prepareFieldConfig.js",
@@ -903,10 +1008,10 @@
     }
   },
   {
-    "__docId__": 63,
+    "__docId__": 68,
     "kind": "file",
     "name": "src/components/fields/index.js",
-    "content": "/*eslint no-undef: \"error\"*/\n/*eslint-env node*/\nimport {FieldGroup} from \"./FieldGroup\";\nimport {SelectField} from \"./select/SelectField\";\nimport {Input} from \"./input/Input\";\n\nmodule.exports = {\n\tFieldGroup,\n\tSelectField,\n\tInput\n};",
+    "content": "/*eslint no-undef: \"error\"*/\n/*eslint-env node*/\nimport {FieldGroup} from './FieldGroup';\nimport {SelectField} from './select/SelectField';\nimport {Input} from './input/Input';\n\nmodule.exports = {\n\tFieldGroup,\n\tSelectField,\n\tInput\n};",
     "static": true,
     "longname": "/Users/josh/caldera-js/components/src/components/fields/index.js",
     "access": "public",
@@ -914,7 +1019,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 64,
+    "__docId__": 69,
     "kind": "file",
     "name": "src/components/fields/input/Input.js",
     "content": "import React from 'react';\nimport {fieldPropTypes} from '../propTypes';\n\n/**\n * Basic input component\n *\n * @param {Object} props\n * @returns {*}\n * @constructor\n */\nexport const Input = (props) => {\n\tfunction changeHandler(event){\n\t\treturn props.onValueChange(event.target.value);\n\t}\n\treturn (\n\t\t<input\n\t\t\ttype={props.inputType}\n\t\t\tid={props.id}\n\t\t\tclassName={props.fieldClassName}\n\t\t\taria-describedby={props.ariaDescribedbyAttr}\n\t\t\trequired={props.isRequired}\n\t\t\tonChange={changeHandler}\n\t\t\tvalue={props.value}\n\t\t/>\n\t);\n\n};\n\n/**\n * Prop definitions for Input components\n */\nInput.propTypes = fieldPropTypes;\n\n/**\n * Default props for Input Component\n *\n * @type {{ariaDescribedbyAttr: string, isRequired: boolean, inputType: string}}\n */\nInput.defaultProps = {\n\tariaDescribedbyAttr: '',\n\tisRequired: false,\n\tinputType: 'text'\n};",
@@ -925,7 +1030,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 65,
+    "__docId__": 70,
     "kind": "function",
     "name": "Input",
     "memberof": "src/components/fields/input/Input.js",
@@ -971,7 +1076,7 @@
     }
   },
   {
-    "__docId__": 66,
+    "__docId__": 71,
     "kind": "file",
     "name": "src/components/fields/propTypes.js",
     "content": "import PropTypes from 'prop-types';\n\n/**\n * PropType for the field value used in multiple components\n *\n * @type {shim}\n */\nexport const valuePropType = PropTypes.oneOfType([\n\tPropTypes.string,\n\tPropTypes.number,\n\tPropTypes.array\n]);\n\n/**\n * PropType for the field value change event used in multiple components\n *\n * @type {shim}\n */\nexport const onValueChangePropType = PropTypes.func.isRequired;\n\n/**\n * Proptypes for Input component\n * @type {shim}\n */\nexport  const inputTypeProp = PropTypes.string;\n\n/**\n * PropTypes for field groups\n *\n * @type {{id: (boolean|shim|*), isBlockInput: shim, isRequired: shim, help: shim, label: (boolean|shim|*), type: shim, value: shim, onValueChange: (boolean|shim|*), inputType: shim}}\n */\nexport const fieldGroupPropTypes = {\n\tid: PropTypes.string.isRequired,\n\tisBlockInput: PropTypes.bool,\n\tisRequired: PropTypes.bool,\n\thelp: PropTypes.string,\n\tlabel: PropTypes.string.isRequired,\n\ttype: PropTypes.oneOf(['input']),\n\tvalue: valuePropType,\n\tonValueChange: onValueChangePropType,\n\tinputType:inputTypeProp,\n};\n\n/**\n * PropTypes for the InnerField component\n *\n * @type {{id: (boolean|shim|*), fieldClassName: (boolean|shim|*), help: shim, value: shim, onValueChange: (boolean|shim|*), inputType: shim}}\n */\nexport const fieldInnerPropTypes = {\n\tid: PropTypes.string.isRequired,\n\tfieldClassName: PropTypes.string.isRequired,\n\thelp: PropTypes.string,\n\tvalue: valuePropType,\n\tonValueChange: onValueChangePropType,\n\tinputType: inputTypeProp\n};\n\nexport const fieldPropTypes = {\n\t...fieldInnerPropTypes,\n\toptions: PropTypes.array,\n\tariaDescribedbyAttr: PropTypes.string,\n};",
@@ -982,7 +1087,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 67,
+    "__docId__": 72,
     "kind": "variable",
     "name": "valuePropType",
     "memberof": "src/components/fields/propTypes.js",
@@ -1004,7 +1109,7 @@
     }
   },
   {
-    "__docId__": 68,
+    "__docId__": 73,
     "kind": "variable",
     "name": "onValueChangePropType",
     "memberof": "src/components/fields/propTypes.js",
@@ -1026,7 +1131,7 @@
     }
   },
   {
-    "__docId__": 69,
+    "__docId__": 74,
     "kind": "variable",
     "name": "inputTypeProp",
     "memberof": "src/components/fields/propTypes.js",
@@ -1048,7 +1153,7 @@
     }
   },
   {
-    "__docId__": 70,
+    "__docId__": 75,
     "kind": "variable",
     "name": "fieldGroupPropTypes",
     "memberof": "src/components/fields/propTypes.js",
@@ -1070,7 +1175,7 @@
     }
   },
   {
-    "__docId__": 71,
+    "__docId__": 76,
     "kind": "variable",
     "name": "fieldInnerPropTypes",
     "memberof": "src/components/fields/propTypes.js",
@@ -1092,7 +1197,7 @@
     }
   },
   {
-    "__docId__": 72,
+    "__docId__": 77,
     "kind": "variable",
     "name": "fieldPropTypes",
     "memberof": "src/components/fields/propTypes.js",
@@ -1112,7 +1217,7 @@
     }
   },
   {
-    "__docId__": 73,
+    "__docId__": 78,
     "kind": "file",
     "name": "src/components/fields/select/SelectField.js",
     "content": "import React from 'react';\nimport Downshift from 'downshift';\nimport PropTypes from 'prop-types';\nimport {fieldPropTypes} from '../propTypes';\n\n/**\n * Creates a select field\n *\n * Wraps [downshift](https://github.com/paypal/downshift)\n *\n * @param {Object} props\n * @returns {*}\n * @constructor\n */\nexport const SelectField = (props) => {\n\t/**\n\t * Dispatches new value(s) to parent\n\t *\n\t * @param selection\n\t * @returns {*}\n\t */\n\tfunction changeHandler(selection) {\n\t\treturn props.onValueChange(selection);\n\t}\n\n\treturn (\n\t\t<Downshift\n\t\t\tinputValue={props.value}\n\t\t\tdefaultInputValue={props.value}\n\t\t\tonChange={changeHandler}\n\t\t\titemToString={item => (item ? item.value : '')}\n\t\t\tdefaultIsOpen={props.isOpen}\n\t\t>\n\t\t\t{({\n\t\t\t\tgetInputProps,\n\t\t\t\tgetItemProps,\n\t\t\t\tisOpen,\n\t\t\t\tinputValue,\n\t\t\t\thighlightedIndex,\n\t\t\t\tselectedItem,\n\t\t\t}) => (\n\t\t\t\t<div>\n\t\t\t\t\t<input {...getInputProps({\n\t\t\t\t\t\tid: props.id\n\t\t\t\t\t})} />\n\t\t\t\t\t{isOpen ? (\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t{props.options\n\t\t\t\t\t\t\t\t.filter(item => !inputValue || item.value.includes(inputValue))\n\t\t\t\t\t\t\t\t.map((item, index) => (\n\t\t\t\t\t\t\t\t\t<div\n\t\t\t\t\t\t\t\t\t\tkey={item.value}\n\t\t\t\t\t\t\t\t\t\t{...getItemProps({\n\t\t\t\t\t\t\t\t\t\t\tkey: item.value,\n\t\t\t\t\t\t\t\t\t\t\tindex,\n\t\t\t\t\t\t\t\t\t\t\titem,\n\t\t\t\t\t\t\t\t\t\t\tstyle: {\n\t\t\t\t\t\t\t\t\t\t\t\tbackgroundColor:\n\t\t\t\t\t\t\t\t\t\t\t\t\thighlightedIndex === index ? 'lightgray' : 'white',\n\t\t\t\t\t\t\t\t\t\t\t\tfontWeight: selectedItem === item ? 'bold' : 'normal',\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\tclassName: 'caldera-config-option'\n\t\t\t\t\t\t\t\t\t\t})}\n\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t{item.value}\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t))}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t) : null}\n\t\t\t\t</div>\n\t\t\t)}\n\t\t</Downshift>\n\t);\n};\n\n\nSelectField.propTypes = {\n\t...fieldPropTypes,\n\tisOpen: PropTypes.bool,\n};",
@@ -1123,7 +1228,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 74,
+    "__docId__": 79,
     "kind": "function",
     "name": "SelectField",
     "memberof": "src/components/fields/select/SelectField.js",
@@ -1169,7 +1274,7 @@
     }
   },
   {
-    "__docId__": 75,
+    "__docId__": 80,
     "kind": "file",
     "name": "src/components/fields/util.js",
     "content": "/**\n * Create the aria-describedby attribute or id attribute for the describing element\n *\n * @param {String} id Id attribute of input being described\n * @param {String} help Optional. Help text. If empty return is null.\n * @returns {String|null}\n */\nexport const  ariaDescribedbyAttr = (id, help = '') => {\n\tlet ariaDescribedby = null;\n\tif (help.length) {\n\t\tariaDescribedby = `${id}-description`;\n\t}\n\treturn ariaDescribedby;\n};\n\n\n/**\n * Get HTML5 input types that are valid\n * @returns {string[]}\n */\nexport function getHtmlInputTypes() {\n\treturn [\n\t\t'text',\n\t\t'email',\n\t\t'number',\n\t\t'date',\n\t\t'datetime',\n\t\t'password',\n\t\t'submit',\n\t\t'reset',\n\t\t'checkbox',\n\t\t'hidden'\n\t];\n}\n\n/**\n * Checks if a given input type is an acceptable HTML5 input type\n *\n * @param {String} type\n * @returns {boolean}\n */\nexport function isValidHtml5type(type) {\n\treturn getHtmlInputTypes().includes(type);\n}",
@@ -1180,7 +1285,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 76,
+    "__docId__": 81,
     "kind": "function",
     "name": "ariaDescribedbyAttr",
     "memberof": "src/components/fields/util.js",
@@ -1233,7 +1338,7 @@
     }
   },
   {
-    "__docId__": 77,
+    "__docId__": 82,
     "kind": "function",
     "name": "getHtmlInputTypes",
     "memberof": "src/components/fields/util.js",
@@ -1264,7 +1369,7 @@
     "params": []
   },
   {
-    "__docId__": 78,
+    "__docId__": 83,
     "kind": "function",
     "name": "isValidHtml5type",
     "memberof": "src/components/fields/util.js",
@@ -1306,10 +1411,10 @@
     }
   },
   {
-    "__docId__": 79,
+    "__docId__": 84,
     "kind": "file",
     "name": "src/components/index.js",
-    "content": "/*eslint no-undef: \"error\"*/\n/*eslint-env node*/\nimport * as fields from './fields/index';\nimport * as factories from './fields/factories/index'\nmodule.exports = {\n\tfields,\n\tfactories\n};",
+    "content": "/*eslint no-undef: \"error\"*/\n/*eslint-env node*/\nimport * as fields from './fields/index';\nimport * as factories from './fields/factories/index';\nmodule.exports = {\n\tfields,\n\tfactories\n};",
     "static": true,
     "longname": "/Users/josh/caldera-js/components/src/components/index.js",
     "access": "public",
@@ -1317,7 +1422,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 80,
+    "__docId__": 85,
     "kind": "file",
     "name": "src/index.js",
     "content": "import React from 'react';\nimport ReactDOM from 'react-dom';\nimport './index.css';\nimport App from './App';\nimport registerServiceWorker from './registerServiceWorker';\n\nReactDOM.render(<App />, document.getElementById('root'));\nregisterServiceWorker();\n",
@@ -1328,7 +1433,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 81,
+    "__docId__": 86,
     "kind": "file",
     "name": "src/registerServiceWorker.js",
     "content": "// In production, we register a service worker to serve assets from local cache.\n\n// This lets the app load faster on subsequent visits in production, and gives\n// it offline capabilities. However, it also means that developers (and users)\n// will only see deployed updates on the \"N+1\" visit to a page, since previously\n// cached resources are updated in the background.\n\n// To learn more about the benefits of this model, read https://goo.gl/KwvDNy.\n// This link also includes instructions on opting out of this behavior.\n\nconst isLocalhost = Boolean(\n\twindow.location.hostname === 'localhost' ||\n    // [::1] is the IPv6 localhost address.\n    window.location.hostname === '[::1]' ||\n    // 127.0.0.1/8 is considered localhost for IPv4.\n    window.location.hostname.match(\n    \t/^127(?:\\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/\n    )\n);\n\nexport default function register() {\n\tif (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {\n\t\t// The URL constructor is available in all browsers that support SW.\n\t\tconst publicUrl = new URL(process.env.PUBLIC_URL, window.location);\n\t\tif (publicUrl.origin !== window.location.origin) {\n\t\t\t// Our service worker won't work if PUBLIC_URL is on a different origin\n\t\t\t// from what our page is served on. This might happen if a CDN is used to\n\t\t\t// serve assets; see https://github.com/facebookincubator/create-react-app/issues/2374\n\t\t\treturn;\n\t\t}\n\n\t\twindow.addEventListener('load', () => {\n\t\t\tconst swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;\n\n\t\t\tif (isLocalhost) {\n\t\t\t\t// This is running on localhost. Lets check if a service worker still exists or not.\n\t\t\t\tcheckValidServiceWorker(swUrl);\n\t\t\t} else {\n\t\t\t\t// Is not local host. Just register service worker\n\t\t\t\tregisterValidSW(swUrl);\n\t\t\t}\n\t\t});\n\t}\n}\n\nfunction registerValidSW(swUrl) {\n\tnavigator.serviceWorker\n\t\t.register(swUrl)\n\t\t.then(registration => {\n\t\t\tregistration.onupdatefound = () => {\n\t\t\t\tconst installingWorker = registration.installing;\n\t\t\t\tinstallingWorker.onstatechange = () => {\n\t\t\t\t\tif (installingWorker.state === 'installed') {\n\t\t\t\t\t\tif (navigator.serviceWorker.controller) {\n\t\t\t\t\t\t\t// At this point, the old content will have been purged and\n\t\t\t\t\t\t\t// the fresh content will have been added to the cache.\n\t\t\t\t\t\t\t// It's the perfect time to display a \"New content is\n\t\t\t\t\t\t\t// available; please refresh.\" message in your web app.\n\t\t\t\t\t\t\tconsole.log('New content is available; please refresh.');\n\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\t// At this point, everything has been precached.\n\t\t\t\t\t\t\t// It's the perfect time to display a\n\t\t\t\t\t\t\t// \"Content is cached for offline use.\" message.\n\t\t\t\t\t\t\tconsole.log('Content is cached for offline use.');\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t};\n\t\t\t};\n\t\t})\n\t\t.catch(error => {\n\t\t\tconsole.error('Error during service worker registration:', error);\n\t\t});\n}\n\nfunction checkValidServiceWorker(swUrl) {\n\t// Check if the service worker can be found. If it can't reload the page.\n\tfetch(swUrl)\n\t\t.then(response => {\n\t\t\t// Ensure service worker exists, and that we really are getting a JS file.\n\t\t\tif (\n\t\t\t\tresponse.status === 404 ||\n        response.headers.get('content-type').indexOf('javascript') === -1\n\t\t\t) {\n\t\t\t\t// No service worker found. Probably a different app. Reload the page.\n\t\t\t\tnavigator.serviceWorker.ready.then(registration => {\n\t\t\t\t\tregistration.unregister().then(() => {\n\t\t\t\t\t\twindow.location.reload();\n\t\t\t\t\t});\n\t\t\t\t});\n\t\t\t} else {\n\t\t\t\t// Service worker found. Proceed as normal.\n\t\t\t\tregisterValidSW(swUrl);\n\t\t\t}\n\t\t})\n\t\t.catch(() => {\n\t\t\tconsole.log(\n\t\t\t\t'No internet connection found. App is running in offline mode.'\n\t\t\t);\n\t\t});\n}\n\nexport function unregister() {\n\tif ('serviceWorker' in navigator) {\n\t\tnavigator.serviceWorker.ready.then(registration => {\n\t\t\tregistration.unregister();\n\t\t});\n\t}\n}\n",
@@ -1339,7 +1444,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 82,
+    "__docId__": 87,
     "kind": "variable",
     "name": "isLocalhost",
     "memberof": "src/registerServiceWorker.js",
@@ -1360,7 +1465,7 @@
     "ignore": true
   },
   {
-    "__docId__": 83,
+    "__docId__": 88,
     "kind": "function",
     "name": "register",
     "memberof": "src/registerServiceWorker.js",
@@ -1379,7 +1484,7 @@
     "return": null
   },
   {
-    "__docId__": 84,
+    "__docId__": 89,
     "kind": "function",
     "name": "registerValidSW",
     "memberof": "src/registerServiceWorker.js",
@@ -1406,7 +1511,7 @@
     "ignore": true
   },
   {
-    "__docId__": 85,
+    "__docId__": 90,
     "kind": "function",
     "name": "checkValidServiceWorker",
     "memberof": "src/registerServiceWorker.js",
@@ -1433,7 +1538,7 @@
     "ignore": true
   },
   {
-    "__docId__": 86,
+    "__docId__": 91,
     "kind": "function",
     "name": "unregister",
     "memberof": "src/registerServiceWorker.js",
@@ -1453,7 +1558,7 @@
   },
   {
     "kind": "index",
-    "content": "# Caldera Components\n[![Build Status](https://travis-ci.org/calderawp/caldera-components.svg?branch=master)](https://travis-ci.org/calderawp/caldera-components)\n[![Coverage Status](https://coveralls.io/repos/github/calderawp/caldera-components/badge.svg?branch=master)](https://coveralls.io/github/calderawp/caldera-components?branch=master)\n\n🌋 [Documentation](http://calderalabs.org/caldera-components/)\n\n## What Is This?\nUI components for Caldera Forms admin, Caldera Forms 2.0 front-end\n\n## Why Is This?\n[See goals](http://calderalabs.org/caldera-components/#goals)\n\n## How To Use This\n\n### Install\n`npm i -D @caldera-labs/components`\n\n### Basic Usage Examples\n\n\n## How To Develop This\n\n### Development Requirements\n* [npm](https://www.npmjs.com/get-npm)\n* [Yarn](https://yarnpkg.com/lang/en/docs/install/#mac-stable)\n* [Git]()\n\n### Testing\n[See testing documentation](http://calderalabs.org/caldera-components/manual/testing.html)\n\n\n### Scripts\n\n#### Develop\n* `yarn start`\n    - Runs linter and compiles for production\n    - Starts test app server\n\n#### Tests\n* `yarn test`\n    - Run test watcher\n* `npm test:once` \n    - Run tests once\n\n#### Lint Code\n* `yarn lint`\n    - Run linter and fixer watch\n* `yarn lint:fix`\n    - Lint and fix code once\n* `yarn lint:once`\n    - Lint code once\n\n\n#### Generate Documentation\n* `npm run documentation`\n    - Generates documentation from inline docs\n    - Generates documentation from markdown files in /manual\n\n#### Release To npm\nMust be [logged in as project maintainer via npm cli](https://docs.npmjs.com/cli/adduser)\n\n* `yarn release`\n    - Release a patch update\n    - Increments third position of a version. 1.0.1 -> 1.0.2\n* `yarn release:minor`\n    - Release a minor update\n    - Increments second position of a version. 1.0.1 -> 1.1.0 \n* `yarn release:major`\n    - Release a major update\n    - Increments second position of a version. 1.0.1 -> 2.0.0 \n    \nThese commands run the tests and linter, and if they pass, re-compiles source, rebuilds docs, updates the version using [npm version](https://docs.npmjs.com/cli/version), adds a git tag, makes a git commit for the version change and updates the module on npm.\n",
+    "content": "# Caldera Components\nUI components for Caldera Forms admin, Caldera Forms 2.0 front-end\n\n[![Build Status](https://travis-ci.org/calderawp/caldera-components.svg?branch=master)](https://travis-ci.org/calderawp/caldera-components)\n[![Coverage Status](https://coveralls.io/repos/github/calderawp/caldera-components/badge.svg?branch=master)](https://coveralls.io/github/calderawp/caldera-components?branch=master)\n\n🌋 [Documentation](http://calderalabs.org/caldera-components/)\n\n## What Is This?\n* React components for Caldera Forms\n* Factories for generating UI dynamically.\n\n## Why Is This?\n[See goals](http://calderalabs.org/caldera-components/#goals)\n\n## How To Use This\n\n### Install\n`npm i -D @caldera-labs/components`\n\n### Usage\n[See documentation](http://calderalabs.org/caldera-components/manual/components.html)\n\n## How To Develop This\n\n### Development Requirements\n* [npm](https://www.npmjs.com/get-npm)\n* [Yarn](https://yarnpkg.com/lang/en/docs/install/#mac-stable)\n* [Git]()\n\n### Testing\n[See testing documentation](http://calderalabs.org/caldera-components/manual/testing.html)\n\n### Scripts\n\n#### Develop\n* `yarn start`\n    - Runs linter and compiles for production\n    - Starts test app server\n\n#### Tests\n* `yarn test`\n    - Run test watcher\n* `npm test:once` \n    - Run tests once\n\n#### Lint Code\n* `yarn lint`\n    - Run linter and fixer watch\n* `yarn lint:fix`\n    - Lint and fix code once\n* `yarn lint:once`\n    - Lint code once\n\n\n#### Generate Documentation\n* `npm run documentation`\n    - Generates documentation from inline docs\n    - Generates documentation from markdown files in /manual\n\n#### Release To npm\nMust be [logged in as project maintainer via npm cli](https://docs.npmjs.com/cli/adduser)\n\n* `yarn release`\n    - Release a patch update\n    - Increments third position of a version. 1.0.1 -> 1.0.2\n* `yarn release:minor`\n    - Release a minor update\n    - Increments second position of a version. 1.0.1 -> 1.1.0 \n* `yarn release:major`\n    - Release a major update\n    - Increments second position of a version. 1.0.1 -> 2.0.0 \n    \nThese commands run the tests and linter, and if they pass, re-compiles source, rebuilds docs, updates the version using [npm version](https://docs.npmjs.com/cli/version), adds a git tag, makes a git commit for the version change and updates the module on npm.\n",
     "longname": "/Users/josh/caldera-js/components/README.md",
     "name": "./README.md",
     "static": true,
@@ -1461,7 +1566,7 @@
   },
   {
     "kind": "packageJSON",
-    "content": "{\n  \"name\": \"@caldera-labs/components\",\n  \"version\": \"0.1.1\",\n  \"dependencies\": {\n    \"react\": \"^16.4.0\",\n    \"react-dom\": \"^16.4.0\",\n    \"react-wp-scripts\": \"0.2.0\"\n  },\n  \"license\": \"GPL-2.0\",\n  \"scripts\": {\n    \"start\": \"react-wp-scripts start\",\n    \"example:build\": \"react-scripts build\",\n    \"test\": \"react-scripts test --env=jsdom\",\n    \"test:once\": \"CI=true react-scripts test --env=jsdom\",\n    \"eject\": \"react-scripts eject\",\n    \"lint\": \"eslint src/components/**\",\n    \"document\": \"./node_modules/.bin/esdoc\",\n    \"build\": \"npm run build:pre && npm run build:compile && npm run build:post\",\n    \"build:pre\": \"npm run test:once\",\n    \"build:compile\": \"./node_modules/.bin/babel -d dist src/components\",\n    \"build:post\": \"npm run document\",\n    \"prepublish\": \"npm run build\",\n    \"release\": \"npm run release:patch\",\n    \"release:minor\": \"npm version minor -m \\\"version %s\\\" && npm publish\",\n    \"release:major\": \"npm version major -m \\\"version %s\\\" && npm publish\",\n    \"release:patch\": \"npm version patch -m \\\"version %s\\\" && npm publish\"\n  },\n  \"main\": \"./dist/index.js\",\n  \"files\": [\n    \"./dist/index.js\",\n    \"./dist/fields/index.js\",\n    \"./dist/fields/factories/index.js\"\n  ],\n  \"devDependencies\": {\n    \"babel-cli\": \"^6.26.0\",\n    \"babel-preset-env\": \"^1.7.0\",\n    \"babel-preset-react\": \"^6.24.1\",\n    \"babel-preset-stage-3\": \"^6.24.1\",\n    \"classnames\": \"^2.2.6\",\n    \"downshift\": \"^1.31.16\",\n    \"enzyme\": \"^3.3.0\",\n    \"enzyme-adapter-react-16\": \"^1.1.1\",\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-ecmascript-proposal-plugin\": \"^1.0.0\",\n    \"esdoc-jsx-plugin\": \"^1.0.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"eslint-plugin-jest\": \"^21.17.0\",\n    \"eslint-plugin-react\": \"^7.9.1\",\n    \"jest\": \"^23.1.0\",\n    \"jest-cli\": \"^23.1.0\",\n    \"prop-types\": \"^15.6.1\",\n    \"react-bootstrap\": \"^0.32.1\",\n    \"react-test-renderer\": \"^16.4.0\"\n  }\n}\n",
+    "content": "{\n  \"name\": \"@caldera-labs/components\",\n  \"version\": \"0.1.2\",\n  \"dependencies\": {\n    \"react\": \"^16.4.0\",\n    \"react-dom\": \"^16.4.0\",\n    \"react-wp-scripts\": \"0.2.0\"\n  },\n  \"license\": \"GPL-2.0\",\n  \"scripts\": {\n    \"start\": \"react-wp-scripts start\",\n    \"example:build\": \"react-scripts build\",\n    \"test\": \"react-scripts test --env=jsdom\",\n    \"test:once\": \"CI=true react-scripts test --env=jsdom\",\n    \"eject\": \"react-scripts eject\",\n    \"lint\": \"eslint src/components/**\",\n    \"document\": \"./node_modules/.bin/esdoc\",\n    \"build\": \"npm run build:pre && npm run build:compile && npm run build:post\",\n    \"build:pre\": \"npm run test:once\",\n    \"build:compile\": \"./node_modules/.bin/babel -d dist src/components\",\n    \"build:post\": \"npm run document\",\n    \"prepublish\": \"npm run build\",\n    \"release\": \"npm run release:patch\",\n    \"release:minor\": \"npm version minor -m \\\"version %s\\\" && npm publish\",\n    \"release:major\": \"npm version major -m \\\"version %s\\\" && npm publish\",\n    \"release:patch\": \"npm version patch -m \\\"version %s\\\" && npm publish\"\n  },\n  \"main\": \"./dist/index.js\",\n  \"files\": [\n    \"./dist/index.js\",\n    \"./dist/fields/index.js\",\n    \"./dist/fields/factories/index.js\"\n  ],\n  \"devDependencies\": {\n    \"babel-cli\": \"^6.26.0\",\n    \"babel-preset-env\": \"^1.7.0\",\n    \"babel-preset-react\": \"^6.24.1\",\n    \"babel-preset-stage-3\": \"^6.24.1\",\n    \"classnames\": \"^2.2.6\",\n    \"downshift\": \"^1.31.16\",\n    \"enzyme\": \"^3.3.0\",\n    \"enzyme-adapter-react-16\": \"^1.1.1\",\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-ecmascript-proposal-plugin\": \"^1.0.0\",\n    \"esdoc-jsx-plugin\": \"^1.0.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"eslint-plugin-jest\": \"^21.17.0\",\n    \"eslint-plugin-react\": \"^7.9.1\",\n    \"jest\": \"^23.1.0\",\n    \"jest-cli\": \"^23.1.0\",\n    \"prop-types\": \"^15.6.1\",\n    \"react-bootstrap\": \"^0.32.1\",\n    \"react-test-renderer\": \"^16.4.0\"\n  }\n}\n",
     "longname": "/Users/josh/caldera-js/components/package.json",
     "name": "package.json",
     "static": true,
@@ -1480,7 +1585,7 @@
     "kind": "manual",
     "longname": "/Users/josh/caldera-js/components/manual/components.md",
     "name": "./manual/components.md",
-    "content": "# Included Components",
+    "content": "# Included Components\n\n## Factories\nIn general, do not use the components, use the factories.\n\n\n## Field Groups\nIf you have to use a component, please use `FieldGroup` not its inner components.\n\n### Text field that is required\n```jsx harmony\n<FieldGroup\n    id={'control-22'}\n    label={'Required Text input'}\n    type={'input'}\n    isRequired={true}\n    value={values.one}\n    onValueChange={(newValue) => {\n        values.one=newValue;\n    }}\n/>\n\n```\n\n### Text field that is not required\n```jsx harmony\n<FieldGroup\n    id={'control-23'}\n    label={'Non Required Text input'}\n    type={'input'}\n    isRequired={true}\n    value={values.two}\n    onValueChange={(newValue) => {\n        values.two=newValue;\n    }}\n/>\n```\n\n### Text field with help text\n* Adding help text automatically ads `aria-describedby`\n\n```jsx harmony\n<FieldGroup\n    id={'control-23'}\n    label={'With Help Text'}\n    type={'input'}\n    isRequired={true}\n    help={'Adding help text sets aria-describedy'}\n    value={values.thre}\n    onValueChange={(newValue) => {\n        values.three=newValue;\n    }}\n/>\n```\n\n\n### Number Field\n\n```jsx harmony\n<FieldGroup\n    id={'control-24'}\n    label={'Non Required Numeric input'}\n    type={'input'}\n    innertype={'number'}\n    isRequired={true}\n    value={values.two}\n    onValueChange={(newValue) => {\n        values.two=newValue;\n    }}\n/>\n\n```\n## Select Fields",
     "static": true,
     "access": "public"
   },
@@ -1496,7 +1601,7 @@
     "kind": "manual",
     "longname": "/Users/josh/caldera-js/components/README.md",
     "name": "./README.md",
-    "content": "# Caldera Components\n[![Build Status](https://travis-ci.org/calderawp/caldera-components.svg?branch=master)](https://travis-ci.org/calderawp/caldera-components)\n[![Coverage Status](https://coveralls.io/repos/github/calderawp/caldera-components/badge.svg?branch=master)](https://coveralls.io/github/calderawp/caldera-components?branch=master)\n\n🌋 [Documentation](http://calderalabs.org/caldera-components/)\n\n## What Is This?\nUI components for Caldera Forms admin, Caldera Forms 2.0 front-end\n\n## Why Is This?\n[See goals](http://calderalabs.org/caldera-components/#goals)\n\n## How To Use This\n\n### Install\n`npm i -D @caldera-labs/components`\n\n### Basic Usage Examples\n\n\n## How To Develop This\n\n### Development Requirements\n* [npm](https://www.npmjs.com/get-npm)\n* [Yarn](https://yarnpkg.com/lang/en/docs/install/#mac-stable)\n* [Git]()\n\n### Testing\n[See testing documentation](http://calderalabs.org/caldera-components/manual/testing.html)\n\n\n### Scripts\n\n#### Develop\n* `yarn start`\n    - Runs linter and compiles for production\n    - Starts test app server\n\n#### Tests\n* `yarn test`\n    - Run test watcher\n* `npm test:once` \n    - Run tests once\n\n#### Lint Code\n* `yarn lint`\n    - Run linter and fixer watch\n* `yarn lint:fix`\n    - Lint and fix code once\n* `yarn lint:once`\n    - Lint code once\n\n\n#### Generate Documentation\n* `npm run documentation`\n    - Generates documentation from inline docs\n    - Generates documentation from markdown files in /manual\n\n#### Release To npm\nMust be [logged in as project maintainer via npm cli](https://docs.npmjs.com/cli/adduser)\n\n* `yarn release`\n    - Release a patch update\n    - Increments third position of a version. 1.0.1 -> 1.0.2\n* `yarn release:minor`\n    - Release a minor update\n    - Increments second position of a version. 1.0.1 -> 1.1.0 \n* `yarn release:major`\n    - Release a major update\n    - Increments second position of a version. 1.0.1 -> 2.0.0 \n    \nThese commands run the tests and linter, and if they pass, re-compiles source, rebuilds docs, updates the version using [npm version](https://docs.npmjs.com/cli/version), adds a git tag, makes a git commit for the version change and updates the module on npm.\n",
+    "content": "# Caldera Components\nUI components for Caldera Forms admin, Caldera Forms 2.0 front-end\n\n[![Build Status](https://travis-ci.org/calderawp/caldera-components.svg?branch=master)](https://travis-ci.org/calderawp/caldera-components)\n[![Coverage Status](https://coveralls.io/repos/github/calderawp/caldera-components/badge.svg?branch=master)](https://coveralls.io/github/calderawp/caldera-components?branch=master)\n\n🌋 [Documentation](http://calderalabs.org/caldera-components/)\n\n## What Is This?\n* React components for Caldera Forms\n* Factories for generating UI dynamically.\n\n## Why Is This?\n[See goals](http://calderalabs.org/caldera-components/#goals)\n\n## How To Use This\n\n### Install\n`npm i -D @caldera-labs/components`\n\n### Usage\n[See documentation](http://calderalabs.org/caldera-components/manual/components.html)\n\n## How To Develop This\n\n### Development Requirements\n* [npm](https://www.npmjs.com/get-npm)\n* [Yarn](https://yarnpkg.com/lang/en/docs/install/#mac-stable)\n* [Git]()\n\n### Testing\n[See testing documentation](http://calderalabs.org/caldera-components/manual/testing.html)\n\n### Scripts\n\n#### Develop\n* `yarn start`\n    - Runs linter and compiles for production\n    - Starts test app server\n\n#### Tests\n* `yarn test`\n    - Run test watcher\n* `npm test:once` \n    - Run tests once\n\n#### Lint Code\n* `yarn lint`\n    - Run linter and fixer watch\n* `yarn lint:fix`\n    - Lint and fix code once\n* `yarn lint:once`\n    - Lint code once\n\n\n#### Generate Documentation\n* `npm run documentation`\n    - Generates documentation from inline docs\n    - Generates documentation from markdown files in /manual\n\n#### Release To npm\nMust be [logged in as project maintainer via npm cli](https://docs.npmjs.com/cli/adduser)\n\n* `yarn release`\n    - Release a patch update\n    - Increments third position of a version. 1.0.1 -> 1.0.2\n* `yarn release:minor`\n    - Release a minor update\n    - Increments second position of a version. 1.0.1 -> 1.1.0 \n* `yarn release:major`\n    - Release a major update\n    - Increments second position of a version. 1.0.1 -> 2.0.0 \n    \nThese commands run the tests and linter, and if they pass, re-compiles source, rebuilds docs, updates the version using [npm version](https://docs.npmjs.com/cli/version), adds a git tag, makes a git commit for the version change and updates the module on npm.\n",
     "static": true,
     "access": "public"
   }

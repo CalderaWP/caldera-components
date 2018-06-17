@@ -32,6 +32,11 @@
     <ul class="manual-toc">
       
     <li data-ice="manualNav" class="indent-h1" data-link="manual/components.html"><a href="manual/components.html" data-ice="link">Included Components</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#factories" data-ice="link">Factories</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#field-groups" data-ice="link">Field Groups</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#text-field-that-is-required" data-ice="link">Text field that is required</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#text-field-with-help-text" data-ice="link">Text field with help text</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#select-fields" data-ice="link">Select Fields</a></li>
 </ul>
   </div>
 <div data-ice="manual">
@@ -56,7 +61,7 @@
 <li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#why-is-this-" data-ice="link">Why Is This?</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#how-to-use-this" data-ice="link">How To Use This</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#install" data-ice="link">Install</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#basic-usage-examples" data-ice="link">Basic Usage Examples</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#usage" data-ice="link">Usage</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#how-to-develop-this" data-ice="link">How To Develop This</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#development-requirements" data-ice="link">Development Requirements</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#testing" data-ice="link">Testing</a></li>
@@ -85,7 +90,58 @@
     
   <div class="manual-card-wrap" data-ice="cards">
       <div class="manual-card">
-        <div data-ice="card"><h1>Included Components</h1></div>
+        <div data-ice="card"><h1>Included Components</h1><h2>Factories</h2><p>In general, do not use the components, use the factories.</p><h2>Field Groups</h2><p>If you have to use a component, please use <code>FieldGroup</code> not its inner components.</p><h3>Text field that is required</h3><p><code>`</code>jsx harmony</p><p>&lt;FieldGroup
+    id={&apos;control-22&apos;}
+    label={&apos;Required Text input&apos;}
+    type={&apos;input&apos;}
+    isRequired={true}
+    value={values.one}
+    onValueChange={(newValue) =&gt; {
+        values.one=newValue;
+    }}
+/&gt;</p><pre><code><code class="source-code prettyprint">
+### Text field that is not required
+```jsx harmony
+&lt;FieldGroup
+    id={&apos;control-23&apos;}
+    label={&apos;Non Required Text input&apos;}
+    type={&apos;input&apos;}
+    isRequired={true}
+    value={values.two}
+    onValueChange={(newValue) =&gt; {
+        values.two=newValue;
+    }}
+/&gt;</code>
+</code></pre><h3>Text field with help text</h3><ul>
+<li>Adding help text automatically ads <code>aria-describedby</code></li>
+</ul><p><code>`</code>jsx harmony</p><p>&lt;FieldGroup
+    id={&apos;control-23&apos;}
+    label={&apos;With Help Text&apos;}
+    type={&apos;input&apos;}
+    isRequired={true}
+    help={&apos;Adding help text sets aria-describedy&apos;}
+    value={values.thre}
+    onValueChange={(newValue) =&gt; {
+        values.three=newValue;
+    }}
+/&gt;</p><pre><code><code class="source-code prettyprint">
+
+### Number Field
+
+```jsx harmony
+&lt;FieldGroup
+    id={&apos;control-24&apos;}
+    label={&apos;Non Required Numeric input&apos;}
+    type={&apos;input&apos;}
+    innertype={&apos;number&apos;}
+    isRequired={true}
+    value={values.two}
+    onValueChange={(newValue) =&gt; {
+        values.two=newValue;
+    }}
+/&gt;
+</code>
+</code></pre><h2>Select Fields</h2></div>
         <a data-ice="link" href="manual/components.html"></a>
       </div>
     </div>
@@ -137,8 +193,11 @@ it( &apos;Has the right wrapper class&apos;, () =&gt; {
     </div>
 <div class="manual-card-wrap" data-ice="cards">
       <div class="manual-card">
-        <div data-ice="card"><h1>Caldera Components</h1><p><a href="https://travis-ci.org/calderawp/caldera-components"><img src="https://travis-ci.org/calderawp/caldera-components.svg?branch=master" alt="Build Status"></a>
-<a href="https://coveralls.io/github/calderawp/caldera-components?branch=master"><img src="https://coveralls.io/repos/github/calderawp/caldera-components/badge.svg?branch=master" alt="Coverage Status"></a></p><p>&#x1F30B; <a href="http://calderalabs.org/caldera-components/">Documentation</a></p><h2>What Is This?</h2><p>UI components for Caldera Forms admin, Caldera Forms 2.0 front-end</p><h2>Why Is This?</h2><p><a href="http://calderalabs.org/caldera-components/#goals">See goals</a></p><h2>How To Use This</h2><h3>Install</h3><p><code>npm i -D @caldera-labs/components</code></p><h3>Basic Usage Examples</h3><h2>How To Develop This</h2><h3>Development Requirements</h3><ul>
+        <div data-ice="card"><h1>Caldera Components</h1><p>UI components for Caldera Forms admin, Caldera Forms 2.0 front-end</p><p><a href="https://travis-ci.org/calderawp/caldera-components"><img src="https://travis-ci.org/calderawp/caldera-components.svg?branch=master" alt="Build Status"></a>
+<a href="https://coveralls.io/github/calderawp/caldera-components?branch=master"><img src="https://coveralls.io/repos/github/calderawp/caldera-components/badge.svg?branch=master" alt="Coverage Status"></a></p><p>&#x1F30B; <a href="http://calderalabs.org/caldera-components/">Documentation</a></p><h2>What Is This?</h2><ul>
+<li>React components for Caldera Forms</li>
+<li>Factories for generating UI dynamically.</li>
+</ul><h2>Why Is This?</h2><p><a href="http://calderalabs.org/caldera-components/#goals">See goals</a></p><h2>How To Use This</h2><h3>Install</h3><p><code>npm i -D @caldera-labs/components</code></p><h3>Usage</h3><p><a href="http://calderalabs.org/caldera-components/manual/components.html">See documentation</a></p><h2>How To Develop This</h2><h3>Development Requirements</h3><ul>
 <li><a href="https://www.npmjs.com/get-npm">npm</a></li>
 <li><a href="https://yarnpkg.com/lang/en/docs/install/#mac-stable">Yarn</a></li>
 <li><a href="">Git</a></li>

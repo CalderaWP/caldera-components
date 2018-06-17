@@ -58,6 +58,37 @@ import logo from &apos;./logo.svg&apos;;
 import &apos;./App.css&apos;;
 import {FieldGroup} from &quot;./components/fields/FieldGroup&quot;;
 import {SelectField} from &quot;./components/fields/select/SelectField&quot;;
+import {fieldSetFactory} from &quot;./components/fields/factories/fieldSetFactory&quot;;
+
+let textFieldValue = &apos;Roy,Mike&apos;;
+const textFieldConfig = {
+	&apos;id&apos;: &apos;cf-convertkit-tags&apos;,
+	&apos;label&apos;: &apos;Tags&apos;,
+	&apos;desc&apos;: &apos;Comma separated list of tags.&apos;,
+	&apos;type&apos;: &apos;text&apos;,
+	&apos;description&apos;: false,
+	value: textFieldValue,
+	onValueChange: function(newValue){
+		textFieldValue = newValue
+	}
+};
+
+let hiddenFieldValue = &apos;42&apos;;
+const hiddenFieldConfig = {
+	&apos;id&apos;: &apos;cf-convertkit-sequence-id&apos;,
+	&apos;type&apos;: &apos;hidden&apos;,
+	&apos;label&apos;: &apos;Sequence ID&apos;,
+	&apos;description&apos;: false,
+	value: hiddenFieldValue,
+	onValueChange: function(newValue){
+		hiddenFieldValue = newValue
+	}
+};
+
+const fields = fieldSetFactory([
+	textFieldConfig,
+	hiddenFieldConfig
+]);
 
 let values = {
 	one: &apos;&apos;,
@@ -140,6 +171,17 @@ class App extends Component {
 						]}
 						isOpen={true}
 					/&gt;
+				&lt;/div&gt;
+				&lt;div&gt;
+					&lt;h2&gt;Created With Factory&lt;/h2&gt;
+					{Array.from(fields).map((field,i) =&gt; {
+						return React.createElement(
+							&apos;div&apos;, {
+								key: i,
+							},
+							field
+						);
+					})}
 				&lt;/div&gt;
 			&lt;/div&gt;
 		);

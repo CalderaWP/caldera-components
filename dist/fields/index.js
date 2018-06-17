@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
-var _FieldGroup = require("./FieldGroup");
+var _FieldGroup = require('./FieldGroup');
 
-var _SelectField = require("./select/SelectField");
+var _SelectField = require('./select/SelectField');
 
-var _Input = require("./input/Input");
+var _Input = require('./input/Input');
 
 module.exports = {
 	FieldGroup: _FieldGroup.FieldGroup,

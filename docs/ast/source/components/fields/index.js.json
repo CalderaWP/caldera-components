@@ -111,7 +111,7 @@
           },
           "extra": {
             "rawValue": "./FieldGroup",
-            "raw": "\"./FieldGroup\""
+            "raw": "'./FieldGroup'"
           },
           "value": "./FieldGroup"
         },
@@ -231,7 +231,7 @@
           },
           "extra": {
             "rawValue": "./select/SelectField",
-            "raw": "\"./select/SelectField\""
+            "raw": "'./select/SelectField'"
           },
           "value": "./select/SelectField"
         }
@@ -317,7 +317,7 @@
           },
           "extra": {
             "rawValue": "./input/Input",
-            "raw": "\"./input/Input\""
+            "raw": "'./input/Input'"
           },
           "value": "./input/Input"
         }

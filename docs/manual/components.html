@@ -32,6 +32,11 @@
     <ul class="manual-toc">
       
     <li data-ice="manualNav" class="indent-h1" data-link="manual/components.html"><a href="manual/components.html" data-ice="link">Included Components</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#factories" data-ice="link">Factories</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#field-groups" data-ice="link">Field Groups</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#text-field-that-is-required" data-ice="link">Text field that is required</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#text-field-with-help-text" data-ice="link">Text field with help text</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#select-fields" data-ice="link">Select Fields</a></li>
 </ul>
   </div>
 <div data-ice="manual">
@@ -56,7 +61,7 @@
 <li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#why-is-this-" data-ice="link">Why Is This?</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#how-to-use-this" data-ice="link">How To Use This</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#install" data-ice="link">Install</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#basic-usage-examples" data-ice="link">Basic Usage Examples</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#usage" data-ice="link">Usage</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#how-to-develop-this" data-ice="link">How To Develop This</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#development-requirements" data-ice="link">Development Requirements</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#testing" data-ice="link">Testing</a></li>
@@ -71,7 +76,65 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="included-components">Included Components</h1></div>
+<div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="included-components">Included Components</h1><h2 id="factories">Factories</h2><p>In general, do not use the components, use the factories.</p>
+<h2 id="field-groups">Field Groups</h2><p>If you have to use a component, please use <code>FieldGroup</code> not its inner components.</p>
+<h3 id="text-field-that-is-required">Text field that is required</h3><p><code>`</code>jsx harmony</p>
+<p>&lt;FieldGroup
+    id={&apos;control-22&apos;}
+    label={&apos;Required Text input&apos;}
+    type={&apos;input&apos;}
+    isRequired={true}
+    value={values.one}
+    onValueChange={(newValue) =&gt; {
+        values.one=newValue;
+    }}
+/&gt;</p>
+<pre><code><code class="source-code prettyprint">
+### Text field that is not required
+```jsx harmony
+&lt;FieldGroup
+    id={&apos;control-23&apos;}
+    label={&apos;Non Required Text input&apos;}
+    type={&apos;input&apos;}
+    isRequired={true}
+    value={values.two}
+    onValueChange={(newValue) =&gt; {
+        values.two=newValue;
+    }}
+/&gt;</code>
+</code></pre><h3 id="text-field-with-help-text">Text field with help text</h3><ul>
+<li>Adding help text automatically ads <code>aria-describedby</code></li>
+</ul>
+<p><code>`</code>jsx harmony</p>
+<p>&lt;FieldGroup
+    id={&apos;control-23&apos;}
+    label={&apos;With Help Text&apos;}
+    type={&apos;input&apos;}
+    isRequired={true}
+    help={&apos;Adding help text sets aria-describedy&apos;}
+    value={values.thre}
+    onValueChange={(newValue) =&gt; {
+        values.three=newValue;
+    }}
+/&gt;</p>
+<pre><code><code class="source-code prettyprint">
+
+### Number Field
+
+```jsx harmony
+&lt;FieldGroup
+    id={&apos;control-24&apos;}
+    label={&apos;Non Required Numeric input&apos;}
+    type={&apos;input&apos;}
+    innertype={&apos;number&apos;}
+    isRequired={true}
+    value={values.two}
+    onValueChange={(newValue) =&gt; {
+        values.two=newValue;
+    }}
+/&gt;
+</code>
+</code></pre><h2 id="select-fields">Select Fields</h2></div>
 </div>
 
 <footer class="footer">
