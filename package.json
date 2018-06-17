@@ -2,9 +2,8 @@
   "name": "@caldera-labs/components",
   "version": "0.1.5",
   "dependencies": {
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
-    "react-wp-scripts": "0.2.0"
+    "classnames": "^2.2.6",
+    "downshift": "^1.31.16"
   },
   "license": "GPL-2.0",
   "scripts": {
@@ -34,8 +33,6 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-3": "^6.24.1",
-    "classnames": "^2.2.6",
-    "downshift": "^1.31.16",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "esdoc": "^1.1.0",
@@ -47,7 +44,9 @@
     "jest": "^23.1.0",
     "jest-cli": "^23.1.0",
     "prop-types": "^15.6.1",
-    "react-bootstrap": "^0.32.1",
-    "react-test-renderer": "^16.4.0"
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-test-renderer": "^16.4.1",
+    "react-wp-scripts": "0.2.0"
   }
 }
