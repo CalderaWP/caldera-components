@@ -27,9 +27,7 @@
   },
   "main": "./dist/index.js",
   "files": [
-    "./dist/index.js",
-    "./dist/fields/index.js",
-    "./dist/fields/factories/index.js"
+    "lib"
   ],
   "devDependencies": {
     "babel-cli": "^6.26.0",
