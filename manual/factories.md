@@ -2,6 +2,9 @@
 
 
 ```js
+import * as CalderaComponents from '@caldera-labs/components';
+
+
 const textFieldConfig = {
 	'id': 'post-tags',
 	'label': 'Tags',
@@ -17,7 +20,7 @@ const hiddenFieldConfig = {
 	'description': false
 };
 
-const fields = fieldSetFactory([
+const fields = CalderaComponents.factories.fieldSetFactory([
 	textFieldConfig,
 	hiddenFieldConfig
 ]);

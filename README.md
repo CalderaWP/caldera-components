@@ -19,7 +19,11 @@ UI components for Caldera Forms admin, Caldera Forms 2.0 front-end
 `npm i -D @caldera-labs/components`
 
 ### Usage
-[See documentation](http://calderalabs.org/caldera-components/manual/components.html)
+* [Components](http://calderalabs.org/caldera-components/manual/components.html)
+* [Factories](http://calderalabs.org/caldera-components/manual/factories.html)
+* Import From Webpack
+    - `import * as CalderaComponents from '@caldera-labs/components';`
+
 
 ## How To Develop This
 
