@@ -126,9 +126,12 @@ describe( 'Factories', () => {
 	});
 
 	describe( 'Field set factory', () => {
-		it( 'Creates the right number of element', () => {
+		it( 'Creates the right number of elements', () => {
 			const components = fieldSetFactory(configFields);
 			expect( components ).toHaveLength(configFields.length);
 		});
+
+
+
 	});
 });

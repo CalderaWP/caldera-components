@@ -1,11 +1,14 @@
 # Caldera Components
+UI components for Caldera Forms admin, Caldera Forms 2.0 front-end
+
 [![Build Status](https://travis-ci.org/calderawp/caldera-components.svg?branch=master)](https://travis-ci.org/calderawp/caldera-components)
 [![Coverage Status](https://coveralls.io/repos/github/calderawp/caldera-components/badge.svg?branch=master)](https://coveralls.io/github/calderawp/caldera-components?branch=master)
 
 🌋 [Documentation](http://calderalabs.org/caldera-components/)
 
 ## What Is This?
-UI components for Caldera Forms admin, Caldera Forms 2.0 front-end
+* React components for Caldera Forms
+* Factories for generating UI dynamically.
 
 ## Why Is This?
 [See goals](http://calderalabs.org/caldera-components/#goals)
@@ -15,8 +18,8 @@ UI components for Caldera Forms admin, Caldera Forms 2.0 front-end
 ### Install
 `npm i -D @caldera-labs/components`
 
-### Basic Usage Examples
-
+### Usage
+[See documentation](http://calderalabs.org/caldera-components/manual/components.html)
 
 ## How To Develop This
 
@@ -27,7 +30,6 @@ UI components for Caldera Forms admin, Caldera Forms 2.0 front-end
 
 ### Testing
 [See testing documentation](http://calderalabs.org/caldera-components/manual/testing.html)
-
 
 ### Scripts
 

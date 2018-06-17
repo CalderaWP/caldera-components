@@ -3,6 +3,37 @@ import logo from './logo.svg';
 import './App.css';
 import {FieldGroup} from "./components/fields/FieldGroup";
 import {SelectField} from "./components/fields/select/SelectField";
+import {fieldSetFactory} from "./components/fields/factories/fieldSetFactory";
+
+let textFieldValue = 'Roy,Mike';
+const textFieldConfig = {
+	'id': 'cf-convertkit-tags',
+	'label': 'Tags',
+	'desc': 'Comma separated list of tags.',
+	'type': 'text',
+	'description': false,
+	value: textFieldValue,
+	onValueChange: function(newValue){
+		textFieldValue = newValue
+	}
+};
+
+let hiddenFieldValue = '42';
+const hiddenFieldConfig = {
+	'id': 'cf-convertkit-sequence-id',
+	'type': 'hidden',
+	'label': 'Sequence ID',
+	'description': false,
+	value: hiddenFieldValue,
+	onValueChange: function(newValue){
+		hiddenFieldValue = newValue
+	}
+};
+
+const fields = fieldSetFactory([
+	textFieldConfig,
+	hiddenFieldConfig
+]);
 
 let values = {
 	one: '',
@@ -85,6 +116,17 @@ class App extends Component {
 						]}
 						isOpen={true}
 					/>
+				</div>
+				<div>
+					<h2>Created With Factory</h2>
+					{Array.from(fields).map((field,i) => {
+						return React.createElement(
+							'div', {
+								key: i,
+							},
+							field
+						);
+					})}
 				</div>
 			</div>
 		);
