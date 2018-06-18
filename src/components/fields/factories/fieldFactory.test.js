@@ -166,8 +166,8 @@ describe( 'Factories', () => {
 					})}
 				</div>
 			);
-			expect( wrapper.children().length).toBe(configFields.length);
-			expect( wrapper.find('.f-1').length).toBe(1);
+			expect( wrapper.children()).toHaveLength(configFields.length);
+			expect( wrapper.find('.f-1')).toHaveLength(1);
 			expect( wrapper.find('.f-1').text()).toBe('Sequencedesc');
 		});
 

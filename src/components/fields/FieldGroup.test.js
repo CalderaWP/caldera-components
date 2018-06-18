@@ -113,5 +113,33 @@ describe( 'Field Group component', () => {
 			});
 		});
 
+		describe( 'Label of Input', () => {
+			it( 'Has no label for hidden fields ', () => {
+				const wrapper = mount(<FieldGroup
+					id={'test-control'}
+					label={'I will not be outputeed'}
+					type={'input'}
+					inputType={'hidden'}
+					onValueChange={() => {}}
+					value={'Sivans'}
+				/>);
+				expect( wrapper.find( 'input') ).toHaveLength(1);
+				expect( wrapper.find( 'label') ).toHaveLength(0);
+			});
+
+			it( 'Has has label for other input fields ', () => {
+				const wrapper = mount(<FieldGroup
+					id={'test-control'}
+					label={'I will not be outputeed'}
+					type={'input'}
+					onValueChange={() => {}}
+					value={'Sivans'}
+				/>);
+				expect( wrapper.find( 'input') ).toHaveLength(1);
+				expect( wrapper.find( 'label') ).toHaveLength(1);
+			});
+
+		});
+
 	});
 });
