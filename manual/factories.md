@@ -2,6 +2,7 @@
 
 
 ```js
+import React from 'react';
 import * as CalderaComponents from '@caldera-labs/components';
 
 
@@ -27,7 +28,7 @@ const fields = CalderaComponents.factories.fieldSetFactory([
 
 {Array.from(fields).map((field,i) => {
     return React.createElement(
-        'div', {
+        React.Fragment, {
             key: i,
         },
         field

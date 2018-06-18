@@ -121,7 +121,7 @@ class App extends Component {
 					<h2>Created With Factory</h2>
 					{Array.from(fields).map((field,i) => {
 						return React.createElement(
-							'div', {
+							React.Fragment, {
 								key: i,
 							},
 							field
