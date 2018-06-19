@@ -26,6 +26,18 @@ var FieldGroup = exports.FieldGroup = function FieldGroup(props) {
 		return (0, _util.ariaDescribedbyAttr)(props.id, props.help);
 	}
 
+	if ('hidden' === props.inputType) {
+		return (0, _FieldInner.FieldInner)({
+			id: props.id,
+			fieldClassName: (0, _classnames2.default)('field-config', {
+				required: props.isRequired
+			}),
+			value: props.value,
+			onValueChange: props.onValueChange,
+			inputType: props.inputType
+		});
+	}
+
 	return _react2.default.createElement(
 		'div',
 		{

@@ -118,5 +118,32 @@ describe('Field Group component', function () {
 				expect(setValue).toEqual('r3s');
 			});
 		});
+
+		describe('Label of Input', function () {
+			it('Has no label for hidden fields ', function () {
+				var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_FieldGroup.FieldGroup, {
+					id: 'test-control',
+					label: 'I will not be outputeed',
+					type: 'input',
+					inputType: 'hidden',
+					onValueChange: function onValueChange() {},
+					value: 'Sivans'
+				}));
+				expect(wrapper.find('input')).toHaveLength(1);
+				expect(wrapper.find('label')).toHaveLength(0);
+			});
+
+			it('Has has label for other input fields ', function () {
+				var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_FieldGroup.FieldGroup, {
+					id: 'test-control',
+					label: 'I will not be outputeed',
+					type: 'input',
+					onValueChange: function onValueChange() {},
+					value: 'Sivans'
+				}));
+				expect(wrapper.find('input')).toHaveLength(1);
+				expect(wrapper.find('label')).toHaveLength(1);
+			});
+		});
 	});
 });

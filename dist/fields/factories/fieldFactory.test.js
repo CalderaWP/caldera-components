@@ -18,6 +18,14 @@ var _enzymeAdapterReact = require('enzyme-adapter-react-16');
 
 var _enzymeAdapterReact2 = _interopRequireDefault(_enzymeAdapterReact);
 
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactTestRenderer = require('react-test-renderer');
+
+var _reactTestRenderer2 = _interopRequireDefault(_reactTestRenderer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _enzyme2.default.configure({ adapter: new _enzymeAdapterReact2.default() });
@@ -124,6 +132,38 @@ describe('Factories', function () {
 		it('Creates the right number of elements', function () {
 			var components = (0, _fieldSetFactory.fieldSetFactory)(configFields);
 			expect(components).toHaveLength(configFields.length);
+		});
+
+		it('Renders with elements', function () {
+			var components = (0, _fieldSetFactory.fieldSetFactory)(configFields);
+			var component = _reactTestRenderer2.default.create(_react2.default.createElement(
+				'div',
+				null,
+				Array.from(components).map(function (field, i) {
+					return _react2.default.createElement('div', {
+						key: i,
+						className: 'f-' + i
+					}, field);
+				})
+			));
+			expect(component.toJSON()).toMatchSnapshot();
+		});
+
+		it('Creates the elements', function () {
+			var components = (0, _fieldSetFactory.fieldSetFactory)(configFields);
+			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(
+				'div',
+				null,
+				Array.from(components).map(function (field, i) {
+					return _react2.default.createElement('div', {
+						key: i,
+						className: 'f-' + i
+					}, field);
+				})
+			));
+			expect(wrapper.children()).toHaveLength(configFields.length);
+			expect(wrapper.find('.f-1')).toHaveLength(1);
+			expect(wrapper.find('.f-1').text()).toBe('Sequence');
 		});
 	});
 });
