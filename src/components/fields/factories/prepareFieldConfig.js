@@ -24,7 +24,10 @@ export const prepareFieldConfig = (fieldArgs) => {
 		break;
 	}
 	if( fieldArgs.hasOwnProperty('desc') ){
-		fieldArgs.help = 'desc';
+		fieldArgs.help = fieldArgs.desc;
+	}
+	if( fieldArgs.hasOwnProperty('description') ){
+		fieldArgs.help = fieldArgs.description;
 	}
 	return pick(fieldArgs, Object.keys(fieldGroupPropTypes));
 };

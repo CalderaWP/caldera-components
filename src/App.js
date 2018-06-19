@@ -4,10 +4,11 @@ import './App.css';
 import {FieldGroup} from "./components/fields/FieldGroup";
 import {SelectField} from "./components/fields/select/SelectField";
 import {fieldSetFactory} from "./components/fields/factories/fieldSetFactory";
+import {RenderGroup} from "./components/RenderGroup";
 
 let textFieldValue = 'Roy,Mike';
 const textFieldConfig = {
-	'id': 'cf-convertkit-tags',
+	'id': 'cf-something-tags',
 	'label': 'Tags',
 	'desc': 'Comma separated list of tags.',
 	'type': 'text',
@@ -20,7 +21,7 @@ const textFieldConfig = {
 
 let hiddenFieldValue = '42';
 const hiddenFieldConfig = {
-	'id': 'cf-convertkit-sequence-id',
+	'id': 'cf-something-sequence-id',
 	'type': 'hidden',
 	'label': 'Sequence ID',
 	'description': false,
@@ -30,10 +31,36 @@ const hiddenFieldConfig = {
 	}
 };
 
-const fields = fieldSetFactory([
+let selectFieldValue = 'html';
+const selectFieldConfig = {
+	'id': 'cf-something-select-id',
+	'type': 'dropdown',
+	'label': 'Content type',
+	'description': 'Choose content type, default is HTML',
+	options: [
+		{
+			label: 'HTML',
+			value: 'html'
+		},
+		{
+			label: 'Plain Text',
+			value: 'plain'
+		}
+	],
+	value: selectFieldValue,
+	onValueChange: function(newValue){
+		hiddenFieldValue = newValue
+	}
+};
+
+const configFields = [
 	textFieldConfig,
-	hiddenFieldConfig
-]);
+	hiddenFieldConfig,
+	selectFieldConfig
+];
+const configFieldEls = fieldSetFactory(configFields);
+
+
 
 let values = {
 	one: '',
@@ -100,6 +127,7 @@ class App extends Component {
 				</div>
 				<div>
 					<h2>Selects</h2>
+					<h3>Fancy Auto-complete Select Based On Downshift</h3>
 					<SelectField
 						id={'r'}
 						fieldClassName={'rs'}
@@ -119,7 +147,7 @@ class App extends Component {
 				</div>
 				<div>
 					<h2>Created With Factory</h2>
-					{Array.from(fields).map((field,i) => {
+					{Array.from(configFieldEls).map((field,i) => {
 						return React.createElement(
 							React.Fragment, {
 								key: i,
@@ -127,6 +155,14 @@ class App extends Component {
 							field
 						);
 					})}
+				</div>
+
+
+				<div>
+					<h2>Created With RenderGroup Component</h2>
+					<RenderGroup 
+						configFields={configFields}
+					/>
 				</div>
 			</div>
 		);

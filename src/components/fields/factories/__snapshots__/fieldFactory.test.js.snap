@@ -35,19 +35,13 @@ exports[`Factories Field set factory Renders with elements 1`] = `
         Sequence
       </label>
       <input
-        aria-describedby="pid-1-description"
+        aria-describedby={null}
         className="field-config"
         id="pid-1"
         onChange={[Function]}
         required={false}
         type="text"
       />
-      <p
-        className="description"
-        id="pid-1-description"
-      >
-        desc
-      </p>
     </div>
   </div>
   <div
@@ -104,7 +98,7 @@ exports[`Factories Field set factory Renders with elements 1`] = `
         Email Address
       </label>
       <input
-        aria-describedby="cf-convertkit-email-description"
+        aria-describedby={null}
         className="field-config"
         id="cf-convertkit-email"
         onChange={[Function]}
@@ -113,10 +107,8 @@ exports[`Factories Field set factory Renders with elements 1`] = `
       />
       <p
         className="description"
-        id="cf-convertkit-email-description"
-      >
-        desc
-      </p>
+        id="null"
+      />
     </div>
   </div>
   <div
@@ -131,7 +123,7 @@ exports[`Factories Field set factory Renders with elements 1`] = `
         Name
       </label>
       <input
-        aria-describedby="cf-convertkit-name-description"
+        aria-describedby={null}
         className="field-config"
         id="cf-convertkit-name"
         onChange={[Function]}
@@ -140,10 +132,8 @@ exports[`Factories Field set factory Renders with elements 1`] = `
       />
       <p
         className="description"
-        id="cf-convertkit-name-description"
-      >
-        desc
-      </p>
+        id="null"
+      />
     </div>
   </div>
   <div
@@ -158,19 +148,13 @@ exports[`Factories Field set factory Renders with elements 1`] = `
         Tags
       </label>
       <input
-        aria-describedby="cf-convertkit-tags-description"
+        aria-describedby={null}
         className="field-config"
         id="cf-convertkit-tags"
         onChange={[Function]}
         required={false}
         type="text"
       />
-      <p
-        className="description"
-        id="cf-convertkit-tags-description"
-      >
-        desc
-      </p>
     </div>
   </div>
 </div>

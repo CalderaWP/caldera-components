@@ -168,7 +168,7 @@ describe( 'Factories', () => {
 			);
 			expect( wrapper.children()).toHaveLength(configFields.length);
 			expect( wrapper.find('.f-1')).toHaveLength(1);
-			expect( wrapper.find('.f-1').text()).toBe('Sequencedesc');
+			expect( wrapper.find('.f-1').text()).toBe('Sequence');
 		});
 
 
