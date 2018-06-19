@@ -1,6 +1,6 @@
 {
   "name": "@caldera-labs/components",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "dependencies": {
     "classnames": "^2.2.6",
     "downshift": "^1.31.16"
