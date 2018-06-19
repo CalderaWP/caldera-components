@@ -34,7 +34,10 @@
     <li data-ice="manualNav" class="indent-h1" data-link="manual/components.html"><a href="manual/components.html" data-ice="link">Included Components</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#factories" data-ice="link">Factories</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#rendergroup" data-ice="link">RenderGroup</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#field-groups" data-ice="link">Field Groups</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#text-field-that-is-required" data-ice="link">Text field that is required</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#text-field-that-is-not-required" data-ice="link">Text field that is not required</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#text-field-with-help-text" data-ice="link">Text field with help text</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#number-field" data-ice="link">Number Field</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#select-fields" data-ice="link">Select Fields</a></li>
 </ul>
@@ -79,8 +82,7 @@
 
 <div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="included-components">Included Components</h1><h2 id="factories">Factories</h2><p>In general, do not use the components, use the factories or <code>RenderGroup</code></p>
 <h2 id="rendergroup">RenderGroup</h2><p>The <code>RenderGroup</code> component takes an array of field configs and generates UI for them. For example:</p>
-<p><code>`</code>jsx harmony
-const textFieldConfig = {
+<pre><code class="lang-jsx"><code class="source-code prettyprint">const textFieldConfig = {
     &apos;id&apos;: &apos;cf-something-tags&apos;,
     &apos;label&apos;: &apos;Tags&apos;,
     &apos;desc&apos;: &apos;Comma separated list of tags.&apos;,
@@ -90,8 +92,9 @@ const textFieldConfig = {
     onValueChange: (newValue) =&gt;{
         console.log(newValue)
     }
-};</p>
-<p>const hiddenFieldConfig = {
+};
+
+const hiddenFieldConfig = {
     &apos;id&apos;: &apos;cf-something-sequence-id&apos;,
     &apos;type&apos;: &apos;hidden&apos;,
     &apos;label&apos;: &apos;Sequence ID&apos;,
@@ -100,8 +103,9 @@ const textFieldConfig = {
         onValueChange: (newValue) =&gt;{
             console.log(newValue)
         }
-};</p>
-<p>const selectFieldConfig = {
+};
+
+const selectFieldConfig = {
     &apos;id&apos;: &apos;cf-something-select-id&apos;,
     &apos;type&apos;: &apos;dropdown&apos;,
     &apos;label&apos;: &apos;Content type&apos;,
@@ -120,24 +124,21 @@ const textFieldConfig = {
     onValueChange: (newValue) =&gt;{
         console.log(newValue)
     }
-};</p>
-<p>const configFields = [
+};
+
+const configFields = [
     textFieldConfig,
     hiddenFieldConfig,
     selectFieldConfig
-];</p>
-<p>&lt;RenderGroup
+];
+
+&lt;RenderGroup
     configFields={configFields}
     className={&apos;cf-something-config&apos;}
- /&gt; </p>
-<pre><code><code class="source-code prettyprint">
-
-## Field Groups
-If you have to use a component, please use `FieldGroup` not its inner components.
-
-### Text field that is required
-```jsx harmony
-&lt;FieldGroup
+ /&gt; </code>
+</code></pre>
+<h2 id="field-groups">Field Groups</h2><p>If you have to use a component, please use <code>FieldGroup</code> not its inner components.</p>
+<h3 id="text-field-that-is-required">Text field that is required</h3><pre><code class="lang-jsx"><code class="source-code prettyprint">&lt;FieldGroup
     id={&apos;control-22&apos;}
     label={&apos;Required Text input&apos;}
     type={&apos;input&apos;}
@@ -148,8 +149,8 @@ If you have to use a component, please use `FieldGroup` not its inner components
     }}
 /&gt;
 </code>
-</code></pre><h3 id="text-field-that-is-not-required">Text field that is not required</h3><p><code>`</code>jsx harmony</p>
-<p>&lt;FieldGroup
+</code></pre>
+<h3 id="text-field-that-is-not-required">Text field that is not required</h3><pre><code class="lang-jsx"><code class="source-code prettyprint">&lt;FieldGroup
     id={&apos;control-23&apos;}
     label={&apos;Non Required Text input&apos;}
     type={&apos;input&apos;}
@@ -158,13 +159,12 @@ If you have to use a component, please use `FieldGroup` not its inner components
     onValueChange={(newValue) =&gt; {
         values.two=newValue;
     }}
-/&gt;</p>
-<pre><code><code class="source-code prettyprint">
-### Text field with help text
-* Adding help text automatically ads `aria-describedby`
-
-```jsx harmony
-&lt;FieldGroup
+/&gt;</code>
+</code></pre>
+<h3 id="text-field-with-help-text">Text field with help text</h3><ul>
+<li>Adding help text automatically ads <code>aria-describedby</code></li>
+</ul>
+<pre><code class="lang-jsx"><code class="source-code prettyprint">&lt;FieldGroup
     id={&apos;control-23&apos;}
     label={&apos;With Help Text&apos;}
     type={&apos;input&apos;}
@@ -175,8 +175,8 @@ If you have to use a component, please use `FieldGroup` not its inner components
         values.three=newValue;
     }}
 /&gt;</code>
-</code></pre><h3 id="number-field">Number Field</h3><p><code>`</code>jsx harmony</p>
-<p>&lt;FieldGroup
+</code></pre>
+<h3 id="number-field">Number Field</h3><pre><code class="lang-jsx"><code class="source-code prettyprint">&lt;FieldGroup
     id={&apos;control-24&apos;}
     label={&apos;Non Required Numeric input&apos;}
     type={&apos;input&apos;}
@@ -186,8 +186,9 @@ If you have to use a component, please use `FieldGroup` not its inner components
     onValueChange={(newValue) =&gt; {
         values.two=newValue;
     }}
-/&gt;</p>
-<p><code>`</code></p>
+/&gt;
+</code>
+</code></pre>
 <h2 id="select-fields">Select Fields</h2></div>
 </div>
 

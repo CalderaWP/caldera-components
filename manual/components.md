@@ -6,7 +6,7 @@ In general, do not use the components, use the factories or `RenderGroup`
 ## RenderGroup
 The `RenderGroup` component takes an array of field configs and generates UI for them. For example:
 
-```jsx harmony
+```jsx 
 const textFieldConfig = {
 	'id': 'cf-something-tags',
 	'label': 'Tags',
@@ -68,7 +68,7 @@ const configFields = [
 If you have to use a component, please use `FieldGroup` not its inner components.
 
 ### Text field that is required
-```jsx harmony
+```jsx
 <FieldGroup
     id={'control-22'}
     label={'Required Text input'}
@@ -83,7 +83,7 @@ If you have to use a component, please use `FieldGroup` not its inner components
 ```
 
 ### Text field that is not required
-```jsx harmony
+```jsx
 <FieldGroup
     id={'control-23'}
     label={'Non Required Text input'}
@@ -99,7 +99,7 @@ If you have to use a component, please use `FieldGroup` not its inner components
 ### Text field with help text
 * Adding help text automatically ads `aria-describedby`
 
-```jsx harmony
+```jsx
 <FieldGroup
     id={'control-23'}
     label={'With Help Text'}
@@ -116,7 +116,7 @@ If you have to use a component, please use `FieldGroup` not its inner components
 
 ### Number Field
 
-```jsx harmony
+```jsx
 <FieldGroup
     id={'control-24'}
     label={'Non Required Numeric input'}

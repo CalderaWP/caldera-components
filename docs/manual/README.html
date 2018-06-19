@@ -34,7 +34,10 @@
     <li data-ice="manualNav" class="indent-h1" data-link="manual/components.html"><a href="manual/components.html" data-ice="link">Included Components</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#factories" data-ice="link">Factories</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#rendergroup" data-ice="link">RenderGroup</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#field-groups" data-ice="link">Field Groups</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#text-field-that-is-required" data-ice="link">Text field that is required</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#text-field-that-is-not-required" data-ice="link">Text field that is not required</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#text-field-with-help-text" data-ice="link">Text field with help text</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#number-field" data-ice="link">Number Field</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#select-fields" data-ice="link">Select Fields</a></li>
 </ul>
@@ -98,8 +101,10 @@
 <h4 id="basic-example">Basic Example</h4><p><code>`</code>jsx harmony
 import * as CalderaComponents from &apos;@caldera-labs/components&apos;;
 import React from &apos;react&apos;;</p>
-<p>&lt;CalderaComponents.RenderGroup configFields={[
-    {
+<p>&lt;CalderaComponents.RenderGroup 
+    className={&apos;cf-something-config&apos;}
+    configFields={[</p>
+<pre><code><code class="source-code prettyprint">    {
         &apos;id&apos;: &apos;cf-something-select-id&apos;,
         &apos;type&apos;: &apos;dropdown&apos;,
         &apos;label&apos;: &apos;Content type&apos;,
@@ -119,7 +124,8 @@ import React from &apos;react&apos;;</p>
             console.log(newValue)
         }
     }
-]}</p>
+]}</code>
+</code></pre><p>/&gt;</p>
 <p><code>`</code></p>
 <h2 id="how-to-develop-this">How To Develop This</h2><h3 id="development-requirements">Development Requirements</h3><ul>
 <li><a href="https://www.npmjs.com/get-npm">npm</a></li>

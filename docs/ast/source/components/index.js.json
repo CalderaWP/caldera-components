@@ -283,7 +283,7 @@
           },
           "extra": {
             "rawValue": "./RenderGroup",
-            "raw": "\"./RenderGroup\""
+            "raw": "'./RenderGroup'"
           },
           "value": "./RenderGroup"
         }
