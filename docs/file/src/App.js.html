@@ -32,6 +32,7 @@
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/App.js~App.html">App</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-register">register</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-unregister">unregister</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/RenderGroup.js~RenderGroup.html">RenderGroup</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields">components/fields</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-FieldGroup">FieldGroup</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-FieldInner">FieldInner</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ariaDescribedbyAttr">ariaDescribedbyAttr</a></span></span></li>
@@ -59,10 +60,11 @@ import &apos;./App.css&apos;;
 import {FieldGroup} from &quot;./components/fields/FieldGroup&quot;;
 import {SelectField} from &quot;./components/fields/select/SelectField&quot;;
 import {fieldSetFactory} from &quot;./components/fields/factories/fieldSetFactory&quot;;
+import {RenderGroup} from &quot;./components/RenderGroup&quot;;
 
 let textFieldValue = &apos;Roy,Mike&apos;;
 const textFieldConfig = {
-	&apos;id&apos;: &apos;cf-convertkit-tags&apos;,
+	&apos;id&apos;: &apos;cf-something-tags&apos;,
 	&apos;label&apos;: &apos;Tags&apos;,
 	&apos;desc&apos;: &apos;Comma separated list of tags.&apos;,
 	&apos;type&apos;: &apos;text&apos;,
@@ -75,7 +77,7 @@ const textFieldConfig = {
 
 let hiddenFieldValue = &apos;42&apos;;
 const hiddenFieldConfig = {
-	&apos;id&apos;: &apos;cf-convertkit-sequence-id&apos;,
+	&apos;id&apos;: &apos;cf-something-sequence-id&apos;,
 	&apos;type&apos;: &apos;hidden&apos;,
 	&apos;label&apos;: &apos;Sequence ID&apos;,
 	&apos;description&apos;: false,
@@ -85,10 +87,36 @@ const hiddenFieldConfig = {
 	}
 };
 
-const fields = fieldSetFactory([
+let selectFieldValue = &apos;html&apos;;
+const selectFieldConfig = {
+	&apos;id&apos;: &apos;cf-something-select-id&apos;,
+	&apos;type&apos;: &apos;dropdown&apos;,
+	&apos;label&apos;: &apos;Content type&apos;,
+	&apos;description&apos;: &apos;Choose content type, default is HTML&apos;,
+	options: [
+		{
+			label: &apos;HTML&apos;,
+			value: &apos;html&apos;
+		},
+		{
+			label: &apos;Plain Text&apos;,
+			value: &apos;plain&apos;
+		}
+	],
+	value: selectFieldValue,
+	onValueChange: function(newValue){
+		hiddenFieldValue = newValue
+	}
+};
+
+const configFields = [
 	textFieldConfig,
-	hiddenFieldConfig
-]);
+	hiddenFieldConfig,
+	selectFieldConfig
+];
+const configFieldEls = fieldSetFactory(configFields);
+
+
 
 let values = {
 	one: &apos;&apos;,
@@ -155,6 +183,7 @@ class App extends Component {
 				&lt;/div&gt;
 				&lt;div&gt;
 					&lt;h2&gt;Selects&lt;/h2&gt;
+					&lt;h3&gt;Fancy Auto-complete Select Based On Downshift&lt;/h3&gt;
 					&lt;SelectField
 						id={&apos;r&apos;}
 						fieldClassName={&apos;rs&apos;}
@@ -174,14 +203,22 @@ class App extends Component {
 				&lt;/div&gt;
 				&lt;div&gt;
 					&lt;h2&gt;Created With Factory&lt;/h2&gt;
-					{Array.from(fields).map((field,i) =&gt; {
+					{Array.from(configFieldEls).map((field,i) =&gt; {
 						return React.createElement(
-							&apos;div&apos;, {
+							React.Fragment, {
 								key: i,
 							},
 							field
 						);
 					})}
+				&lt;/div&gt;
+
+
+				&lt;div&gt;
+					&lt;h2&gt;Created With RenderGroup Component&lt;/h2&gt;
+					&lt;RenderGroup 
+						configFields={configFields}
+					/&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 		);

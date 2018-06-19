@@ -1,21 +1,29 @@
 {
-  "coverage": "48.27%",
-  "expectCount": 29,
-  "actualCount": 14,
+  "coverage": "50%",
+  "expectCount": 36,
+  "actualCount": 18,
   "files": {
     "src/App.js": {
-      "expectCount": 8,
+      "expectCount": 11,
       "actualCount": 0,
       "undocumentLines": [
-        8,
         9,
-        21,
+        10,
         22,
-        33,
-        38,
-        44,
-        46
+        23,
+        34,
+        35,
+        56,
+        61,
+        65,
+        71,
+        73
       ]
+    },
+    "src/components/RenderGroup.js": {
+      "expectCount": 4,
+      "actualCount": 4,
+      "undocumentLines": []
     },
     "src/components/fields/FieldGroup.js": {
       "expectCount": 1,

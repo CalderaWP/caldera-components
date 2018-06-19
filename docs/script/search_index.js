@@ -24,6 +24,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "@caldera-labs/components/src/components/rendergroup.js~rendergroup",
+    "class/src/components/RenderGroup.js~RenderGroup.html",
+    "<span>RenderGroup</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/RenderGroup.js</span>",
+    "class"
+  ],
+  [
     "@caldera-labs/components/src/components/fields/select/selectfield.js~selectfield",
     "function/index.html#static-function-SelectField",
     "<span>SelectField</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/fields/select/SelectField.js</span>",
@@ -405,6 +411,30 @@ window.esdocSearchIndex = [
     "src/app.js~app#render",
     "class/src/App.js~App.html#instance-method-render",
     "src/App.js~App#render",
+    "method"
+  ],
+  [
+    "src/components/rendergroup.js",
+    "file/src/components/RenderGroup.js.html",
+    "src/components/RenderGroup.js",
+    "file"
+  ],
+  [
+    "src/components/rendergroup.js~rendergroup#constructor",
+    "class/src/components/RenderGroup.js~RenderGroup.html#instance-constructor-constructor",
+    "src/components/RenderGroup.js~RenderGroup#constructor",
+    "method"
+  ],
+  [
+    "src/components/rendergroup.js~rendergroup#createcomponents",
+    "class/src/components/RenderGroup.js~RenderGroup.html#instance-method-createComponents",
+    "src/components/RenderGroup.js~RenderGroup#createComponents",
+    "method"
+  ],
+  [
+    "src/components/rendergroup.js~rendergroup#render",
+    "class/src/components/RenderGroup.js~RenderGroup.html#instance-method-render",
+    "src/components/RenderGroup.js~RenderGroup#render",
     "method"
   ],
   [

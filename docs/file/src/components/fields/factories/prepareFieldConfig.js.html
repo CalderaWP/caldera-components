@@ -32,6 +32,7 @@
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/App.js~App.html">App</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-register">register</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-unregister">unregister</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/RenderGroup.js~RenderGroup.html">RenderGroup</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields">components/fields</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-FieldGroup">FieldGroup</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-FieldInner">FieldInner</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ariaDescribedbyAttr">ariaDescribedbyAttr</a></span></span></li>
@@ -79,7 +80,10 @@ export const prepareFieldConfig = (fieldArgs) =&gt; {
 		break;
 	}
 	if( fieldArgs.hasOwnProperty(&apos;desc&apos;) ){
-		fieldArgs.help = &apos;desc&apos;;
+		fieldArgs.help = fieldArgs.desc;
+	}
+	if( fieldArgs.hasOwnProperty(&apos;description&apos;) ){
+		fieldArgs.help = fieldArgs.description;
 	}
 	return pick(fieldArgs, Object.keys(fieldGroupPropTypes));
 };</code></pre>

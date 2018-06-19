@@ -46,9 +46,9 @@ const selectFieldConfig = {
 		}
 	],
 	value: 'html',
-	onValueChange: (newValue) =>{
-        		console.log(newValue)
-        	}
+    onValueChange: (newValue) =>{
+        console.log(newValue)
+    }
 };
 
 const configFields = [

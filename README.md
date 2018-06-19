@@ -24,6 +24,35 @@ UI components for Caldera Forms admin, Caldera Forms 2.0 front-end
 * Import From Webpack
     - `import * as CalderaComponents from '@caldera-labs/components';`
 
+#### Basic Example
+```jsx harmony
+import * as CalderaComponents from '@caldera-labs/components';
+import React from 'react';
+
+<CalderaComponents.RenderGroup configFields={[
+	{
+    	'id': 'cf-something-select-id',
+    	'type': 'dropdown',
+    	'label': 'Content type',
+    	'description': 'Choose content type, default is HTML',
+    	options: [
+    		{
+    			label: 'HTML',
+    			value: 'html'
+    		},
+    		{
+    			label: 'Plain Text',
+    			value: 'plain'
+    		}
+    	],
+    	value: 'html',
+        onValueChange: (newValue) =>{
+            console.log(newValue)
+        }
+    }
+]}
+
+```
 
 ## How To Develop This
 
