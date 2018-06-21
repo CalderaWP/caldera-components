@@ -104,4 +104,87 @@ describe( 'Input component', () => {
 		});
 	});
 
+	describe.skip('Checkbox', () => {
+		it('Can be a checkbox', () => {
+			const component = renderer.create(
+				<Input
+					id={'check1'}
+					fieldClassName={'check1'}
+					onValueChange={() => {}}
+					value={true}
+					inputType={'checkbox'}
+				/>
+			);
+			expect(component.toJSON()).toMatchSnapshot();
+		});
+
+		it('Has checkbox type', () => {
+			const wrapper = shallow(
+				<Input
+					id={'check2'}
+					fieldClassName={'check1'}
+					onValueChange={() => {}}
+					value={true}
+					inputType={'checkbox'}
+				/>
+			);
+			expect(wrapper.find('input').prop('type')).toEqual('checkbox');
+		});
+
+		it('Sets checked prop to true if value is true', () => {
+			const wrapper = shallow(
+				<Input
+					id={'check3'}
+					fieldClassName={'check1'}
+					onValueChange={() => {}}
+					value={true}
+					inputType={'checkbox'}
+				/>
+			);
+			expect(wrapper.find('input').prop('checked')).toEqual(true);
+		});
+
+		it('Sets checked prop to false if value is false', () => {
+			const wrapper = shallow(
+				<Input
+					id={'check4'}
+					fieldClassName={'check1'}
+					onValueChange={() => {}}
+					value={false}
+					inputType={'checkbox'}
+				/>
+			);
+			expect(wrapper.find('input').prop('checked')).toEqual(false);
+		});
+
+		it('Updates checked prop when clicked and value is true', () => {
+			const wrapper = shallow(
+				<Input
+					id={'check5'}
+					fieldClassName={'check1'}
+					onValueChange={() => {}}
+					value={true}
+					inputType={'checkbox'}
+				/>
+			);
+			wrapper.find('input').simulate('click');
+			expect(wrapper.find('input').prop('checked')).toEqual(false);
+		});
+
+		it('Updates checked prop when clicked and value is false', () => {
+			const wrapper = shallow(
+				<Input
+					id={'check5'}
+					fieldClassName={'check1'}
+					onValueChange={() => {}}
+					value={false}
+					inputType={'checkbox'}
+				/>
+			);
+			wrapper.find('input').simulate('click');
+			expect(wrapper.find('input').prop('checked') ).toEqual(true);
+		});
+
+	});
+
 });
