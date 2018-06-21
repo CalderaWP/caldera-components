@@ -2,24 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2b0f3eb-379f-4bd9-bc0e-61e438292576" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.esdoc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.esdoc.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/factories/fieldFactory.js.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ast/source/components/fields/factories/fieldFactory.js.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/factories/prepareFieldConfig.js.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ast/source/components/fields/factories/prepareFieldConfig.js.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/factories/fieldFactory.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/factories/fieldFactory.js.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/factories/prepareFieldConfig.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/factories/prepareFieldConfig.js.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/manual/README.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/manual/README.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/manual/components.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/manual/components.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/manual/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/manual/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/manual/testing.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/manual/testing.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manual/components.md" beforeDir="false" afterPath="$PROJECT_DIR$/manual/components.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manual/factories.md" beforeDir="false" afterPath="$PROJECT_DIR$/manual/factories.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/fields/factories/fieldFactory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/factories/fieldFactory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/fields/factories/prepareFieldConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/factories/prepareFieldConfig.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -49,20 +33,20 @@
         <entry file="file://$PROJECT_DIR$/manual/components.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="-1490">
-                <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
+              <first_editor relative-caret-position="30">
+                <caret line="2" selection-start-line="1" selection-start-column="60" selection-end-line="2" />
               </first_editor>
               <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="factories.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="factories.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/manual/factories.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="300">
-                <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="54" selection-end-column="38" />
+              <first_editor relative-caret-position="330">
+                <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
                 <folding>
                   <element signature="e#0#26#0" expanded="true" />
                 </folding>
@@ -76,7 +60,7 @@
         <entry file="file://$PROJECT_DIR$/docs/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
-              <caret line="15" column="2" lean-forward="true" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+              <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -95,15 +79,27 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="240">
-                <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="75">
+                <caret line="5" column="129" selection-start-line="5" selection-start-column="129" selection-end-line="5" selection-end-column="129" />
                 <folding>
                   <element signature="e#0#62#0" expanded="true" />
                 </folding>
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="testing.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/manual/testing.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="444">
+                <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
               </first_editor>
               <second_editor />
             </state>
@@ -173,11 +169,11 @@
         <option value="$PROJECT_DIR$/src/components/index.js" />
         <option value="$PROJECT_DIR$/src/components/fields/factories/prepareFieldConfig.js" />
         <option value="$PROJECT_DIR$/src/components/fields/factories/fieldFactory.js" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/manual/schema.md" />
         <option value="$PROJECT_DIR$/.esdoc.json" />
         <option value="$PROJECT_DIR$/manual/components.md" />
         <option value="$PROJECT_DIR$/manual/factories.md" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -299,12 +295,12 @@
       <option name="presentableId" value="Default" />
       <updated>1528897347891</updated>
       <workItem from="1528897349482" duration="37707000" />
-      <workItem from="1529202449011" duration="15492000" />
+      <workItem from="1529202449011" duration="16703000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56076000" />
+    <option name="totallyTimeSpent" value="57287000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="22" y="26" width="1679" height="1057" extended-state="0" />
@@ -439,16 +435,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dist/fields/factories/index.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manual/testing.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="504">
-            <caret line="58" column="4" selection-start-line="58" selection-start-column="4" selection-end-line="58" selection-end-column="4" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.eslintrc.json">
       <provider selected="true" editor-type-id="text-editor">
@@ -654,19 +640,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="240">
-            <caret line="16" selection-start-line="16" selection-end-line="16" />
-            <folding>
-              <element signature="e#0#62#0" expanded="true" />
-            </folding>
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/manual/schema.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -711,27 +684,50 @@
     <entry file="file://$PROJECT_DIR$/docs/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="15" column="2" lean-forward="true" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manual/components.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-1490">
-            <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
-          </first_editor>
-          <second_editor />
+          <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/manual/factories.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="300">
-            <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="54" selection-end-column="38" />
+          <first_editor relative-caret-position="330">
+            <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
             <folding>
               <element signature="e#0#26#0" expanded="true" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manual/testing.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="444">
+            <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manual/components.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="30">
+            <caret line="2" selection-start-line="1" selection-start-column="60" selection-end-line="2" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="75">
+            <caret line="5" column="129" selection-start-line="5" selection-start-column="129" selection-end-line="5" selection-end-column="129" />
+            <folding>
+              <element signature="e#0#62#0" expanded="true" />
             </folding>
           </first_editor>
           <second_editor />

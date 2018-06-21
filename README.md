@@ -3,6 +3,7 @@ UI components for Caldera Forms admin, Caldera Forms 2.0 front-end
 
 [![Build Status](https://travis-ci.org/calderawp/caldera-components.svg?branch=master)](https://travis-ci.org/calderawp/caldera-components)
 [![Coverage Status](https://coveralls.io/repos/github/calderawp/caldera-components/badge.svg?branch=master)](https://coveralls.io/github/calderawp/caldera-components?branch=master)
+[![Coverage Status](https://calderalabs.org/caldera-components/badge.svg)](https://calderalabs.org/caldera-components/source.html)
 
 🌋 [Documentation](http://calderalabs.org/caldera-components/)
 
@@ -13,18 +14,21 @@ UI components for Caldera Forms admin, Caldera Forms 2.0 front-end
 ## Why Is This?
 [See goals](http://calderalabs.org/caldera-components/#goals)
 
-## How To Use This
+## Usage
 
 ### Install
 `npm i -D @caldera-labs/components`
 
-### Usage
-* [Components](http://calderalabs.org/caldera-components/manual/components.html)
-* [Factories](http://calderalabs.org/caldera-components/manual/factories.html)
-* Import From Webpack
+### Using This Library
+* 🌋 [Components](http://calderalabs.org/caldera-components/manual/components.html)
+* 🌋 [Factories](http://calderalabs.org/caldera-components/manual/factories.html)
+* 🌋 🌋 Import From Webpack
     - `import * as CalderaComponents from '@caldera-labs/components';`
+* The reference implementation of this library is [`@caldera-labs/processor-ui`](https://github.com/CalderaWP/processor-ui)
 
 #### Basic Example
+The easiest way to use this library is with the [`RenderGroup` component](https://calderalabs.org/caldera-components/manual/components.html#rendergroup). This component takes an array of configField settings. These settings follow a schema, [defined here](https://calderalabs.org/caldera-components/manual/factories.html#configfield-schema).
+
 ```jsx
 import * as CalderaComponents from '@caldera-labs/components';
 import React from 'react';
