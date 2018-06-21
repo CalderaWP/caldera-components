@@ -1,9 +1,9 @@
 import {fieldPropTypes} from './propTypes';
 import React from 'react';
 import {Input} from './input/Input';
-import {SelectFieldFancy} from './select/SelectFieldFancy';
+import {SelectField} from './select/SelectField';
 import {ariaDescribedbyAttr} from './util';
-
+import PropTypes from 'prop-types';
 /**
  * Creates the field inside of a field group
  *
@@ -20,7 +20,7 @@ export const FieldInner = (props) => {
 	case 'select':
 	case 'dropdown':
 		return (
-			<SelectFieldFancy
+			<SelectField
 				id={props.id}
 				fieldClassName={props.fieldClassName}
 				ariaDescribedbyAttr={idAttrFromProps()}
@@ -50,12 +50,16 @@ export const FieldInner = (props) => {
  *
  * @type {{options, ariaDescribedbyAttr}}
  */
-FieldInner.propTypes = fieldPropTypes;
+FieldInner.propTypes = {
+	...fieldPropTypes,
+	type: PropTypes.string,
+};
 
 /**
  * Default props for FieldInner component
  * @type {{help: string}}
  */
 FieldInner.defaultProps = {
-	help: ''
+	help: '',
+	type: 'input'
 };

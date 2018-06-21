@@ -104,14 +104,14 @@ describe( 'Input component', () => {
 		});
 	});
 
-	describe.skip('Checkbox', () => {
+	describe('Checkbox', () => {
 		it('Can be a checkbox', () => {
 			const component = renderer.create(
 				<Input
 					id={'check1'}
 					fieldClassName={'check1'}
 					onValueChange={() => {}}
-					value={true}
+					value={'true'}
 					inputType={'checkbox'}
 				/>
 			);
@@ -124,7 +124,7 @@ describe( 'Input component', () => {
 					id={'check2'}
 					fieldClassName={'check1'}
 					onValueChange={() => {}}
-					value={true}
+					value={'true'}
 					inputType={'checkbox'}
 				/>
 			);
@@ -137,11 +137,11 @@ describe( 'Input component', () => {
 					id={'check3'}
 					fieldClassName={'check1'}
 					onValueChange={() => {}}
-					value={true}
+					value={'true'}
 					inputType={'checkbox'}
 				/>
 			);
-			expect(wrapper.find('input').prop('checked')).toEqual(true);
+			expect(wrapper.find('input').prop('checked')).toEqual('true');
 		});
 
 		it('Sets checked prop to false if value is false', () => {
@@ -150,40 +150,35 @@ describe( 'Input component', () => {
 					id={'check4'}
 					fieldClassName={'check1'}
 					onValueChange={() => {}}
-					value={false}
+					value={'false'}
 					inputType={'checkbox'}
 				/>
 			);
-			expect(wrapper.find('input').prop('checked')).toEqual(false);
+			expect(wrapper.find('input').prop('checked')).toEqual('false');
 		});
 
-		it('Updates checked prop when clicked and value is true', () => {
-			const wrapper = shallow(
-				<Input
-					id={'check5'}
-					fieldClassName={'check1'}
-					onValueChange={() => {}}
-					value={true}
-					inputType={'checkbox'}
-				/>
-			);
-			wrapper.find('input').simulate('click');
-			expect(wrapper.find('input').prop('checked')).toEqual(false);
+		describe( 'Updating checkbox', () => {
+			it('Updates checked prop when clicked and value is true', () => {
+
+				let checked = true;
+				const wrapper = shallow(
+					<Input
+						id={'check5'}
+						fieldClassName={'check1'}
+						onValueChange={(newValue) => {
+							checked =newValue;
+						}}
+						value={checked}
+						inputType={'checkbox'}
+					/>
+				);
+				wrapper.find('input').simulate('click');
+				expect(checked).toEqual(false);
+			});
+
 		});
 
-		it('Updates checked prop when clicked and value is false', () => {
-			const wrapper = shallow(
-				<Input
-					id={'check5'}
-					fieldClassName={'check1'}
-					onValueChange={() => {}}
-					value={false}
-					inputType={'checkbox'}
-				/>
-			);
-			wrapper.find('input').simulate('click');
-			expect(wrapper.find('input').prop('checked') ).toEqual(true);
-		});
+
 
 	});
 

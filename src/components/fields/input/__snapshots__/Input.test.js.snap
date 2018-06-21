@@ -3,12 +3,12 @@
 exports[`Input component Checkbox Can be a checkbox 1`] = `
 <input
   aria-describedby=""
+  checked="true"
   className="check1"
   id="check1"
-  onChange={[Function]}
+  onClick={[Function]}
   required={false}
   type="checkbox"
-  value={true}
 />
 `;
 

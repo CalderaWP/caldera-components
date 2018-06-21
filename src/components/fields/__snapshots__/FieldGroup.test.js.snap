@@ -5,14 +5,14 @@ exports[`Field Group component Field group component props Can mark inner input 
   className="caldera-config-group"
 >
   <label
-    htmlFor="control-22"
+    htmlFor="control-223"
   >
     Who
   </label>
   <input
     aria-describedby={null}
     className="field-config required block-input"
-    id="control-22"
+    id="control-223"
     onChange={[Function]}
     required={false}
     type="text"
@@ -49,14 +49,14 @@ exports[`Field Group component Field group component props Help text is optional
   className="caldera-config-group"
 >
   <label
-    htmlFor="control-22"
+    htmlFor="control-21"
   >
     Who
   </label>
   <input
     aria-describedby={null}
     className="field-config block-input"
-    id="control-22"
+    id="control-21"
     onChange={[Function]}
     required={false}
     type="text"
@@ -71,14 +71,14 @@ exports[`Field Group component Field group component props Works with help text 
   className="caldera-config-group"
 >
   <label
-    htmlFor="control-22"
+    htmlFor="control-20"
   >
     Who
   </label>
   <input
-    aria-describedby="control-22-description"
+    aria-describedby="control-20-description"
     className="field-config block-input"
-    id="control-22"
+    id="control-20"
     onChange={[Function]}
     required={false}
     type="text"
@@ -86,7 +86,7 @@ exports[`Field Group component Field group component props Works with help text 
   />
   <p
     className="description"
-    id="control-22-description"
+    id="control-20-description"
   >
     Who to say hi to
   </p>

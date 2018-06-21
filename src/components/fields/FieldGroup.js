@@ -17,6 +17,7 @@ export const FieldGroup = (props) => {
 		return (
 			FieldInner(
 				{
+					type: props.type,
 					id: props.id,
 					fieldClassName: classNames(
 						'field-config',
@@ -43,6 +44,7 @@ export const FieldGroup = (props) => {
 			</label>
 			{FieldInner(
 				{
+					type: props.type,
 					id: props.id,
 					fieldClassName: classNames(
 						'field-config',

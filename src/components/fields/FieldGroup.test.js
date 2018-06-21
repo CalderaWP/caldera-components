@@ -12,7 +12,7 @@ describe( 'Field Group component', () => {
 		it('Works with help text', () => {
 			const component = renderer.create(
 				<FieldGroup
-					id={'control-22'}
+					id={'control-20'}
 					label={'Who'}
 					help={'Who to say hi to'}
 					onValueChange={() => {}}
@@ -24,7 +24,7 @@ describe( 'Field Group component', () => {
 		it('Help text is optional', () => {
 			const component = renderer.create(
 				<FieldGroup
-					id={'control-22'}
+					id={'control-21'}
 					label={'Who'}
 					onValueChange={() => {}}
 				/>
@@ -47,7 +47,7 @@ describe( 'Field Group component', () => {
 		it('Can mark inner input as required', () => {
 			const component = renderer.create(
 				<FieldGroup
-					id={'control-22'}
+					id={'control-223'}
 					label={'Who'}
 					type={'input'}
 					isRequired={true}
@@ -117,7 +117,7 @@ describe( 'Field Group component', () => {
 			it( 'Has no label for hidden fields ', () => {
 				const wrapper = mount(<FieldGroup
 					id={'test-control'}
-					label={'I will not be outputeed'}
+					label={'I will not be outputed'}
 					type={'input'}
 					inputType={'hidden'}
 					onValueChange={() => {}}
@@ -130,7 +130,7 @@ describe( 'Field Group component', () => {
 			it( 'Has has label for other input fields ', () => {
 				const wrapper = mount(<FieldGroup
 					id={'test-control'}
-					label={'I will not be outputeed'}
+					label={'I will not be outputed'}
 					type={'input'}
 					onValueChange={() => {}}
 					value={'Sivans'}
@@ -140,6 +140,80 @@ describe( 'Field Group component', () => {
 			});
 
 		});
+
+	});
+
+	describe( 'Using as a select field', () => {
+
+		it( 'Outputs a select field', () => {
+			const wrapper = mount(<FieldGroup
+				id={'select'}
+				label={'Basic select field'}
+				value={'1'}
+				type={'select'}
+				onValueChange={() => {
+
+				}}
+				options={[
+					{
+						value: 1,
+						label: 'One'
+					},
+					{
+						value: 2,
+						label: 'Two'
+					}
+				]}
+			/>);
+			expect( wrapper.find( 'select') ).toHaveLength(1);
+			expect( wrapper.find( 'label') ).toHaveLength(1);
+		});
+
+		it( 'Outputs a select field label', () => {
+			const wrapper = mount(<FieldGroup
+				id={'select2'}
+				label={'Basic select field'}
+				value={'1'}
+				type={'select'}
+				onValueChange={() => {
+
+				}}
+				options={[
+					{
+						value: 1,
+						label: 'One'
+					},
+					{
+						value: 2,
+						label: 'Two'
+					}
+				]}
+			/>);
+			expect( wrapper.find( 'label') ).toHaveLength(1);
+		});
+
+		it( 'Outputs the right select field label', () => {
+			const wrapper = mount(<FieldGroup
+				id={'select3'}
+				label={'Basic select field'}
+				value={'1'}
+				type={'select'}
+				onValueChange={() => {
+				}}
+				options={[
+					{
+						value: 1,
+						label: 'One'
+					},
+					{
+						value: 2,
+						label: 'Two'
+					}
+				]}
+			/>);
+			expect( wrapper.find( 'label').text() ).toEqual( 'Basic select field' );
+		});
+
 
 	});
 });

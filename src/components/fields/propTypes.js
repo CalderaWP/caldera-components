@@ -8,7 +8,8 @@ import PropTypes from 'prop-types';
 export const valuePropType = PropTypes.oneOfType([
 	PropTypes.string,
 	PropTypes.number,
-	PropTypes.array
+	PropTypes.array,
+	PropTypes.bool
 ]);
 
 /**
@@ -35,7 +36,7 @@ export const fieldGroupPropTypes = {
 	isRequired: PropTypes.bool,
 	help: PropTypes.string,
 	label: PropTypes.string.isRequired,
-	type: PropTypes.oneOf(['input']),
+	type: PropTypes.oneOf(['input','select']),
 	value: valuePropType,
 	onValueChange: onValueChangePropType,
 	inputType:inputTypeProp,
