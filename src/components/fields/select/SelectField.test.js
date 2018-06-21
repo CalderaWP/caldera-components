@@ -1,4 +1,4 @@
-import {SelectFieldFancy} from './SelectFieldFancy';
+import {SelectField} from './SelectField';
 import renderer from 'react-test-renderer';
 import React from 'react';
 import { mount } from 'enzyme';
@@ -6,15 +6,15 @@ import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
 
-describe( 'SelectFieldFancy component', () => {
+describe( 'Select field component', () => {
 	function genericChangeHandler() {
 
 	}
 
 	describe( 'Props', () => {
-		it( 'Creates with out options or value', () => {
+		it( 'Creates without options or value', () => {
 			const component = renderer.create(
-				<SelectFieldFancy
+				<SelectField
 					id={'r'}
 					fieldClassName={'rs'}
 					onValueChange={genericChangeHandler}
@@ -25,7 +25,7 @@ describe( 'SelectFieldFancy component', () => {
 
 		it( 'Creates with options', () => {
 			const component = renderer.create(
-				<SelectFieldFancy
+				<SelectField
 					id={'r'}
 					fieldClassName={'rs'}
 					onValueChange={genericChangeHandler}
@@ -42,7 +42,7 @@ describe( 'SelectFieldFancy component', () => {
 
 		it( 'Creates with options and value', () => {
 			const component = renderer.create(
-				<SelectFieldFancy
+				<SelectField
 					id={'r'}
 					fieldClassName={'rs'}
 					onValueChange={genericChangeHandler}
@@ -57,24 +57,22 @@ describe( 'SelectFieldFancy component', () => {
 			);
 			expect( component.toJSON() ).toMatchSnapshot();
 		});
-	});
 
-	describe( 'Renders props with downshift correctly', () => {
 		it( 'sets id attr', () => {
 			const wrapper = mount(
-				<SelectFieldFancy
+				<SelectField
 					id={'r3s'}
 					fieldClassName={'rs'}
 					onValueChange={genericChangeHandler}
 				/>
 			);
-			expect(wrapper.find('input').prop('id')).toBe('r3s');
+			expect(wrapper.find('select').prop('id')).toBe('r3s');
 		});
 
 		describe( 'Options ', () => {
-			it( 'Adds options when open', () =>{
+			it( 'Has option', () =>{
 				const wrapper = mount(
-					<SelectFieldFancy
+					<SelectField
 						id={'r'}
 						fieldClassName={'rs'}
 						onValueChange={genericChangeHandler}
@@ -90,37 +88,17 @@ describe( 'SelectFieldFancy component', () => {
 						]}
 					/>
 				);
-				expect(wrapper.find('.caldera-config-option')).toHaveLength(0);
+				expect(wrapper.find('.caldera-config-option')).toHaveLength(2);
 			});
 
-			it( 'Does not add options when not open', () => {
-				const wrapper = mount(
-					<SelectFieldFancy
-						id={'r'}
-						fieldClassName={'rs'}
-						onValueChange={genericChangeHandler}
-						options={[
-							{
-								value: 1,
-								label: 'One'
-							},
-							{
-								value: 2,
-								label: 'Two'
-							}
-						]}
-						isOpen={true}
-					/>
-				);
-				expect(wrapper.find('.caldera-config-option') ).toHaveLength(2);
-			});
+
 
 		});
 
 		describe( 'Value of field', () => {
 			it( 'Set value from default', () => {
 				const wrapper = mount(
-					<SelectFieldFancy
+					<SelectField
 						id={'r'}
 						fieldClassName={'rs'}
 						onValueChange={() => {}}
@@ -137,11 +115,12 @@ describe( 'SelectFieldFancy component', () => {
 						value={'2'}
 					/>
 				);
-				expect( wrapper.find('input').prop( 'value' ) ).toEqual('2');
+				expect( wrapper.find('select').prop( 'value' ) ).toEqual('2');
 			});
 		});
 
 	});
+
 
 
 

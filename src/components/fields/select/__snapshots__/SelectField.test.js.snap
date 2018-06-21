@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select field component Props Creates with options 1`] = `
+<select
+  className={undefined}
+  id="r"
+  onChange={[Function]}
+  value={undefined}
+>
+  <option
+    className="caldera-config-option"
+    value={1}
+  >
+    One
+  </option>
+</select>
+`;
+
+exports[`Select field component Props Creates with options and value 1`] = `
+<select
+  className={undefined}
+  id="r"
+  onChange={[Function]}
+  value="1"
+>
+  <option
+    className="caldera-config-option"
+    value="1"
+  >
+    One
+  </option>
+</select>
+`;
+
+exports[`Select field component Props Creates without options or value 1`] = `
+<select
+  className={undefined}
+  id="r"
+  onChange={[Function]}
+  value={undefined}
+/>
+`;
