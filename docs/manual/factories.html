@@ -95,38 +95,79 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="included-component">Included Component</h1><p>These components are used by the factories and follow their schema, <a href="https://calderalabs.org/caldera-components/manual/factories.html#configfield-schema">defined here</a>.
-In general, use the <code>RenderGroup</code> component, do not use the low-level components. Use the factories or <code>RenderGroup</code>.</p>
-<h2 id="-code-rendergroup--code-"><code>RenderGroup</code></h2><p>The <code>RenderGroup</code> component takes an array of field configs and generates UI for them. </p>
-<ul>
-<li><a href="https://calderalabs.org/caldera-components/class/src/components/RenderGroup.js~RenderGroup.html">Reference</a></li>
-</ul>
-<h3 id="example-of--code-rendergroup--code--component-usage">Example Of <code>RenderGroup</code> Component Usage</h3><pre><code class="lang-jsx"><code class="source-code prettyprint">const textFieldConfig = {
-    &apos;id&apos;: &apos;cf-something-tags&apos;,
-    &apos;label&apos;: &apos;Tags&apos;,
-    &apos;desc&apos;: &apos;Comma separated list of tags.&apos;,
-    &apos;type&apos;: &apos;text&apos;,
-    &apos;description&apos;: false,
-    value: &apos;Roy,Mike&apos;,
-    onValueChange: (newValue) =&gt;{
-        console.log(newValue)
+<div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="component-factories">Component Factories</h1><p>In general, if not using <code>RenderGroup</code> component, do not use the components, use the factories. </p>
+<h2 id="-code-fieldsetfactory--code-"><code>fieldSetFactory</code></h2><p>You can use the <code>fieldSetFactory</code> to generate an array of React components for each config field.</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">import React from &apos;react&apos;;
+import * as CalderaComponents from &apos;@caldera-labs/components&apos;;
+
+/**
+* Create array of React components
+*/
+const fields = CalderaComponents.factories.fieldSetFactory([
+    {
+        &apos;id&apos;: &apos;post-tags&apos;,
+        &apos;label&apos;: &apos;Tags&apos;,
+        &apos;desc&apos;: &apos;Comma separated list of tags.&apos;,
+        &apos;type&apos;: &apos;text&apos;,
+    },
+    {
+        &apos;id&apos;: &apos;seq-field&apos;,
+        &apos;type&apos;: &apos;hidden&apos;,
+        &apos;label&apos;: &apos;Sequence ID&apos;,
     }
-};
+]);
 
-const hiddenFieldConfig = {
-    &apos;id&apos;: &apos;cf-something-sequence-id&apos;,
-    &apos;type&apos;: &apos;hidden&apos;,
-    &apos;label&apos;: &apos;Sequence ID&apos;,
-    &apos;description&apos;: false,
-    value: &apos;42&apos;,
-        onValueChange: (newValue) =&gt;{
-            console.log(newValue)
-        }
-};
-
-const selectFieldConfig = {
+//Output each component.
+//Fragment is used to avoid extra HTML elements being created around the configField. You could use `&apos;div&apos;` here if you wanted. 
+{Array.from(fields).map((field,i) =&gt; {
+    return React.createElement(
+        React.Fragment, //could use `&apos;div&apos;` to add an extra wrapping `div` element.
+        {
+            key: i,//Key must be unique. Should only change to indicate that a complete re-render is needed. `field.ID` is probably a better option.
+        },
+        field // The component.
+    );
+})}</code>
+</code></pre>
+<p>BTW ^^ This is basically what <code>RenderGroup</code> does, so have a really good reason to copypaste this example instead of using <code>RenderGroup</code></p>
+<h2 id="configfield-schema">configField Schema</h2><ul>
+<li>ID (or id) <code>String</code>. Required.<ul>
+<li>The field&apos;s identifier </li>
+<li>Is not the HTML id attribute.</li>
+</ul>
+</li>
+<li>label <code>String</code>. Required.<ul>
+<li>The field&apos;s label text</li>
+<li>Association of label&apos;s html attribute <code>for</code> and field element&apos;s html <code>id</code> attribute is handled automatically.</li>
+</ul>
+</li>
+<li>type <code>String</code>. Required.<ul>
+<li>The kind of input</li>
+</ul>
+</li>
+<li>inputType <code>String</code>. Optional.<ul>
+<li>The type of input.</li>
+<li>Any valid option for an HTML5 input is accepted. For example, <code>checkbox</code> or <code>url</code> or <code>email</code> or <code>number</code>.</li>
+<li>Does not apply to select fields.</li>
+</ul>
+</li>
+<li>description <code>String|Boolean</code>. Optional.<ul>
+<li>Extra help text for a form field inside of a <code>p</code> element.</li>
+<li>Association of <code>p</code> element&apos;s html <code>id</code> attribute and the <code>aria-describedby</code> attribute of the form field is handled automatically.</li>
+<li>Default value is <code>false</code>, which shows no description/ help text.</li>
+</ul>
+</li>
+<li>options <code>Array</code>. Optional.<ul>
+<li>Select field options</li>
+<li>Shape for options is <code>[{label: String, value: String|number|Array}]</code></li>
+<li>Does not apply to input fields. </li>
+</ul>
+</li>
+</ul>
+<p>###Field types</p>
+<h3 id="select-fields">Select Fields</h3><h4 id="example-of-select-fields">Example Of Select Fields</h4><h4 id="basic-select-field">Basic Select Field</h4><pre><code class="lang-js"><code class="source-code prettyprint">const selectFieldConfig = {
     &apos;id&apos;: &apos;cf-something-select-id&apos;,
-    &apos;type&apos;: &apos;dropdown&apos;,
+    &apos;type&apos;: &apos;select&apos;,
     &apos;label&apos;: &apos;Content type&apos;,
     &apos;description&apos;: &apos;Choose content type, default is HTML&apos;,
     options: [
@@ -139,102 +180,26 @@ const selectFieldConfig = {
             value: &apos;plain&apos;
         }
     ],
-    value: &apos;html&apos;,
-    onValueChange: (newValue) =&gt;{
+    value: selectFieldValue,
+    onValueChange: function(newValue){
         console.log(newValue)
     }
-};
-
-const configFields = [
-    textFieldConfig,
-    hiddenFieldConfig,
-    selectFieldConfig
-];
-
-&lt;RenderGroup
-    configFields={configFields}
-    className={&apos;cf-something-config&apos;}
- /&gt; </code>
+};</code>
 </code></pre>
-<h2 id="field-groups">Field Groups</h2><p>If you have to use a component, please use <code>FieldGroup</code> not its inner components.</p>
-<ul>
-<li><a href="https://calderalabs.org/caldera-components/function/index.html#static-function-Input">Reference</a></li>
-</ul>
-<h3 id="text-field-that-is-required">Text field that is required</h3><pre><code class="lang-jsx"><code class="source-code prettyprint">&lt;FieldGroup
-    id={&apos;control-22&apos;}
-    label={&apos;Required Text input&apos;}
-    type={&apos;input&apos;}
-    isRequired={true}
-    value={values.one}
-    onValueChange={(newValue) =&gt; {
-        values.one=newValue;
-    }}
-/&gt;
-</code>
+<h3 id="input">Input</h3><p>Supports any valid HTML5 input type.</p>
+<h4 id="examples-of-inputs">Examples Of Inputs</h4><h4 id="text-field">Text Field</h4><pre><code class="lang-js"><code class="source-code prettyprint">const textFieldConfig = {
+    &apos;id&apos;: &apos;post-tags&apos;,
+    &apos;label&apos;: &apos;Tags&apos;,
+    &apos;desc&apos;: &apos;Comma separated list of tags.&apos;,
+    &apos;type&apos;: &apos;text&apos;,
+    &apos;description&apos;: false
+};</code>
 </code></pre>
-<h3 id="text-field-that-is-not-required">Text field that is not required</h3><pre><code class="lang-jsx"><code class="source-code prettyprint">&lt;FieldGroup
-    id={&apos;control-23&apos;}
-    label={&apos;Non Required Text input&apos;}
-    type={&apos;input&apos;}
-    isRequired={true}
-    value={values.two}
-    onValueChange={(newValue) =&gt; {
-        values.two=newValue;
-    }}
-/&gt;</code>
-</code></pre>
-<h3 id="text-field-with-help-text">Text field with help text</h3><ul>
-<li>Adding help text automatically ads <code>aria-describedby</code></li>
-</ul>
-<pre><code class="lang-jsx"><code class="source-code prettyprint">&lt;FieldGroup
-    id={&apos;control-23&apos;}
-    label={&apos;With Help Text&apos;}
-    type={&apos;input&apos;}
-    isRequired={true}
-    help={&apos;Adding help text sets aria-describedy&apos;}
-    value={values.thre}
-    onValueChange={(newValue) =&gt; {
-        values.three=newValue;
-    }}
-/&gt;</code>
-</code></pre>
-<h3 id="number-field">Number Field</h3><pre><code class="lang-jsx"><code class="source-code prettyprint">&lt;FieldGroup
-    id={&apos;control-24&apos;}
-    label={&apos;Non Required Numeric input&apos;}
-    type={&apos;input&apos;}
-    innertype={&apos;number&apos;}
-    isRequired={true}
-    value={values.two}
-    onValueChange={(newValue) =&gt; {
-        values.two=newValue;
-    }}
-/&gt;
-</code>
-</code></pre>
-<h2 id="select-fields">Select Fields</h2><ul>
-<li><a href="https://calderalabs.org/caldera-components/function/index.html#static-function-SelectField">Reference</a></li>
-</ul>
-<pre><code class="lang-jsx"><code class="source-code prettyprint">import {SelectField} from &apos;@caldera-labs/components/src/components/fields/select/SelectField.js&apos;
-
-&lt;SelectField
-    id={&apos;number-of-things&apos;} //ID attribute for input
-    fieldClassName={&apos;thing-select&apos;} //Field className prop
-    onValueChange={(newValue) =&gt; {
-        console.log(newValue)
-    }} //Update callback
-    options={[
-        {
-            value: &apos;1,
-            label: &apos;One&apos;
-        },
-        {
-            value: &apos;2&apos;,
-            label: &apos;Two&apos;
-        }
-    ]}
-    value={&apos;2&apos;} //The current value
-/&gt;
-</code>
+<h4 id="hidden-field">Hidden Field</h4><pre><code class="lang-js"><code class="source-code prettyprint">const hiddenFieldConfig = {
+    &apos;id&apos;: &apos;seq-field&apos;, //Unique ID
+    &apos;type&apos;: &apos;hidden&apos;, //type is set to hidden
+    &apos;label&apos;: &apos;Sequence ID&apos;, //label is still required. Make it descriptive.
+};</code>
 </code></pre>
 </div>
 </div>

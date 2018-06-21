@@ -1,10 +1,13 @@
-# Included Components
+# Included Component
+These components are used by the factories and follow their schema, [defined here](https://calderalabs.org/caldera-components/manual/factories.html#configfield-schema).
+In general, use the `RenderGroup` component, do not use the low-level components. Use the factories or `RenderGroup`.
 
-## Factories
-In general, do not use the components, use the factories or `RenderGroup`
+## `RenderGroup`
+The `RenderGroup` component takes an array of field configs and generates UI for them. 
 
-## RenderGroup
-The `RenderGroup` component takes an array of field configs and generates UI for them. For example:
+* [Reference](https://calderalabs.org/caldera-components/class/src/components/RenderGroup.js~RenderGroup.html)
+
+### Example Of `RenderGroup` Component Usage
 
 ```jsx 
 const textFieldConfig = {
@@ -66,6 +69,8 @@ const configFields = [
 
 ## Field Groups
 If you have to use a component, please use `FieldGroup` not its inner components.
+
+* [Reference](https://calderalabs.org/caldera-components/function/index.html#static-function-Input)
 
 ### Text field that is required
 ```jsx
@@ -131,3 +136,28 @@ If you have to use a component, please use `FieldGroup` not its inner components
 
 ```
 ## Select Fields
+* [Reference](https://calderalabs.org/caldera-components/function/index.html#static-function-SelectField)
+
+```jsx 
+import {SelectField} from '@caldera-labs/components/src/components/fields/select/SelectField.js'
+
+<SelectField
+    id={'number-of-things'} //ID attribute for input
+    fieldClassName={'thing-select'} //Field className prop
+    onValueChange={(newValue) => {
+        console.log(newValue)
+    }} //Update callback
+    options={[
+        {
+            value: '1,
+            label: 'One'
+        },
+        {
+            value: '2',
+            label: 'Two'
+        }
+    ]}
+    value={'2'} //The current value
+/>
+    
+```

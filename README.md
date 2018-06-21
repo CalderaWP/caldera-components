@@ -25,14 +25,13 @@ UI components for Caldera Forms admin, Caldera Forms 2.0 front-end
     - `import * as CalderaComponents from '@caldera-labs/components';`
 
 #### Basic Example
-```jsx harmony
+```jsx
 import * as CalderaComponents from '@caldera-labs/components';
 import React from 'react';
 
 <CalderaComponents.RenderGroup 
     className={'cf-something-config'}
     configFields={[
-        
         {
             'id': 'cf-something-select-id',
             'type': 'dropdown',

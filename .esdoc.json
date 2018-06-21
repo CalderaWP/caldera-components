@@ -19,6 +19,7 @@
           "globalIndex": true,
           "files": [
             "./manual/components.md",
+            "./manual/factories.md",
             "./manual/testing.md",
             "./README.md"
           ]

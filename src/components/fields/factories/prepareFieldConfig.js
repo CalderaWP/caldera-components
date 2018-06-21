@@ -10,6 +10,15 @@ import {isValidHtml5type} from '../util';
  * @returns {*}
  */
 export const prepareFieldConfig = (fieldArgs) => {
+	/**
+	 * Pick whitlisted keys from object
+	 *
+	 * @see http://www.jstips.co/en/javascript/picking-and-rejecting-object-properties/
+	 *
+	 * @param {Object} obj The object to pick from
+	 * @param {Array} keys The whitelist of keys
+	 * @return {*}
+	 */
 	function pick(obj, keys) {
 		return keys.map(k => k in obj ? {[k]: obj[k]} : {})
 			.reduce((res, o) => Object.assign(res, o), {});

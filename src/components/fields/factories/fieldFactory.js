@@ -10,5 +10,4 @@ import {FieldGroup} from '../FieldGroup';
  */
 export const fieldFactory = (fieldArgs) =>{
 	return FieldGroup(prepareFieldConfig(fieldArgs));
-
 };

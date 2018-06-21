@@ -31,15 +31,30 @@
 <div data-ice="manual">
     <ul class="manual-toc">
       
-    <li data-ice="manualNav" class="indent-h1" data-link="manual/components.html"><a href="manual/components.html" data-ice="link">Included Components</a></li>
-<li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#factories" data-ice="link">Factories</a></li>
-<li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#rendergroup" data-ice="link">RenderGroup</a></li>
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/components.html"><a href="manual/components.html" data-ice="link">Included Component</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#-code-rendergroup--code-" data-ice="link">RenderGroup</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#example-of--code-rendergroup--code--component-usage" data-ice="link">Example Of RenderGroup Component Usage</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#field-groups" data-ice="link">Field Groups</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#text-field-that-is-required" data-ice="link">Text field that is required</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#text-field-that-is-not-required" data-ice="link">Text field that is not required</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#text-field-with-help-text" data-ice="link">Text field with help text</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#number-field" data-ice="link">Number Field</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#select-fields" data-ice="link">Select Fields</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/factories.html"><a href="manual/factories.html" data-ice="link">Component Factories</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/factories.html"><a href="manual/factories.html#-code-fieldsetfactory--code-" data-ice="link">fieldSetFactory</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/factories.html"><a href="manual/factories.html#configfield-schema" data-ice="link">configField Schema</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/factories.html"><a href="manual/factories.html#select-fields" data-ice="link">Select Fields</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/factories.html"><a href="manual/factories.html#example-of-select-fields" data-ice="link">Example Of Select Fields</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/factories.html"><a href="manual/factories.html#basic-select-field" data-ice="link">Basic Select Field</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/factories.html"><a href="manual/factories.html#input" data-ice="link">Input</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/factories.html"><a href="manual/factories.html#examples-of-inputs" data-ice="link">Examples Of Inputs</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/factories.html"><a href="manual/factories.html#text-field" data-ice="link">Text Field</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/factories.html"><a href="manual/factories.html#hidden-field" data-ice="link">Hidden Field</a></li>
 </ul>
   </div>
 <div data-ice="manual">
@@ -98,35 +113,36 @@
 </ul>
 </li>
 </ul>
-<h4 id="basic-example">Basic Example</h4><p><code>`</code>jsx harmony
-import * as CalderaComponents from &apos;@caldera-labs/components&apos;;
-import React from &apos;react&apos;;</p>
-<p>&lt;CalderaComponents.RenderGroup 
+<h4 id="basic-example">Basic Example</h4><pre><code class="lang-jsx"><code class="source-code prettyprint">import * as CalderaComponents from &apos;@caldera-labs/components&apos;;
+import React from &apos;react&apos;;
+
+&lt;CalderaComponents.RenderGroup 
     className={&apos;cf-something-config&apos;}
-    configFields={[</p>
-<pre><code><code class="source-code prettyprint">    {
-        &apos;id&apos;: &apos;cf-something-select-id&apos;,
-        &apos;type&apos;: &apos;dropdown&apos;,
-        &apos;label&apos;: &apos;Content type&apos;,
-        &apos;description&apos;: &apos;Choose content type, default is HTML&apos;,
-        options: [
-            {
-                label: &apos;HTML&apos;,
-                value: &apos;html&apos;
-            },
-            {
-                label: &apos;Plain Text&apos;,
-                value: &apos;plain&apos;
+    configFields={[
+        {
+            &apos;id&apos;: &apos;cf-something-select-id&apos;,
+            &apos;type&apos;: &apos;dropdown&apos;,
+            &apos;label&apos;: &apos;Content type&apos;,
+            &apos;description&apos;: &apos;Choose content type, default is HTML&apos;,
+            options: [
+                {
+                    label: &apos;HTML&apos;,
+                    value: &apos;html&apos;
+                },
+                {
+                    label: &apos;Plain Text&apos;,
+                    value: &apos;plain&apos;
+                }
+            ],
+            value: &apos;html&apos;,
+            onValueChange: (newValue) =&gt;{
+                console.log(newValue)
             }
-        ],
-        value: &apos;html&apos;,
-        onValueChange: (newValue) =&gt;{
-            console.log(newValue)
         }
-    }
-]}</code>
-</code></pre><p>/&gt;</p>
-<p><code>`</code></p>
+    ]}
+/&gt;
+</code>
+</code></pre>
 <h2 id="how-to-develop-this">How To Develop This</h2><h3 id="development-requirements">Development Requirements</h3><ul>
 <li><a href="https://www.npmjs.com/get-npm">npm</a></li>
 <li><a href="https://yarnpkg.com/lang/en/docs/install/#mac-stable">Yarn</a></li>
