@@ -13,60 +13,73 @@ export const FieldGroup = (props) => {
 		return ariaDescribedbyAttr(props.id, props.help);
 	}
 
-	if( 'hidden' === props.inputType ){
+	/**
+	 *
+	 * @return {*}
+	 */
+	function fieldInner(fieldProps){
+		if( 'hidden' === fieldProps.inputType ){
+			return (
+				FieldInner(
+					{
+						type: props.type,
+						id: props.id,
+						fieldClassName: classNames(
+							'field-config',
+							{
+								required: fieldProps.isRequired,
+							}
+						),
+						value:fieldProps.value,
+						onValueChange:fieldProps.onValueChange,
+						inputType: fieldProps.inputType
+					}
+				)
+			);
+		}
+
 		return (
-			FieldInner(
-				{
-					type: props.type,
-					id: props.id,
-					fieldClassName: classNames(
-						'field-config',
-						{
-							required: props.isRequired,
-						}
-					),
-					value:props.value,
-					onValueChange:props.onValueChange,
-					inputType: props.inputType
+			<React.Fragment>
+				<label
+					htmlFor={fieldProps.id}
+				>
+					{fieldProps.label}
+				</label>
+				{FieldInner(
+					{
+						type: fieldProps.type,
+						id: fieldProps.id,
+						fieldClassName: classNames(
+							'field-config',
+							{
+								required: fieldProps.isRequired,
+								'block-input': fieldProps.isBlockInput
+							}
+						),
+						help:fieldProps.help,
+						value:fieldProps.value,
+						onValueChange:fieldProps.onValueChange,
+						inputType: fieldProps.inputType
+					}
+				)}
+				{fieldProps.help &&
+				<p
+					id={`${idAttrFromProps()}`}
+					className={'description'}
+				>
+					{fieldProps.help}
+				</p>
 				}
-			)
-		);
+			</React.Fragment>
+		)
 	}
 
 	return (
 		<div
 			className={'caldera-config-group'}
 		>
-			<label
-				htmlFor={props.id}
-			>
-				{props.label}
-			</label>
-			{FieldInner(
-				{
-					type: props.type,
-					id: props.id,
-					fieldClassName: classNames(
-						'field-config',
-						{
-							required: props.isRequired,
-							'block-input': props.isBlockInput
-						}
-					),
-					help:props.help,
-					value:props.value,
-					onValueChange:props.onValueChange,
-					inputType: props.inputType
-				}
-			)}
-			{props.help &&
-				<p
-					id={`${idAttrFromProps()}`}
-					className={'description'}
-				>
-					{props.help}
-				</p>
-			}
+			{fieldInner(props)}
+
 		</div>
 	);
 };
