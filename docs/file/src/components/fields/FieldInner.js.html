@@ -48,7 +48,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldSetFactory">fieldSetFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-prepareFieldConfig">prepareFieldConfig</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-input">components/fields/input</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Input">Input</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-select">components/fields/select</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SelectField">SelectField</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-select">components/fields/select</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SelectFieldFancy">SelectFieldFancy</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -57,7 +57,7 @@
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {fieldPropTypes} from &apos;./propTypes&apos;;
 import React from &apos;react&apos;;
 import {Input} from &apos;./input/Input&apos;;
-import {SelectField} from &apos;./select/SelectField&apos;;
+import {SelectFieldFancy} from &apos;./select/SelectFieldFancy&apos;;
 import {ariaDescribedbyAttr} from &apos;./util&apos;;
 
 /**
@@ -76,7 +76,7 @@ export const FieldInner = (props) =&gt; {
 	case &apos;select&apos;:
 	case &apos;dropdown&apos;:
 		return (
-			&lt;SelectField
+			&lt;SelectFieldFancy
 				id={props.id}
 				fieldClassName={props.fieldClassName}
 				ariaDescribedbyAttr={idAttrFromProps()}

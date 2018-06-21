@@ -1,4 +1,4 @@
-import {SelectField} from './SelectField';
+import {SelectFieldFancy} from './SelectFieldFancy';
 import renderer from 'react-test-renderer';
 import React from 'react';
 import { mount } from 'enzyme';
@@ -14,7 +14,7 @@ describe( 'Select field component', () => {
 	describe( 'Props', () => {
 		it( 'Creates with out options or value', () => {
 			const component = renderer.create(
-				<SelectField
+				<SelectFieldFancy
 					id={'r'}
 					fieldClassName={'rs'}
 					onValueChange={genericChangeHandler}
@@ -25,7 +25,7 @@ describe( 'Select field component', () => {
 
 		it( 'Creates with options', () => {
 			const component = renderer.create(
-				<SelectField
+				<SelectFieldFancy
 					id={'r'}
 					fieldClassName={'rs'}
 					onValueChange={genericChangeHandler}
@@ -42,7 +42,7 @@ describe( 'Select field component', () => {
 
 		it( 'Creates with options and value', () => {
 			const component = renderer.create(
-				<SelectField
+				<SelectFieldFancy
 					id={'r'}
 					fieldClassName={'rs'}
 					onValueChange={genericChangeHandler}
@@ -62,7 +62,7 @@ describe( 'Select field component', () => {
 	describe( 'Renders props with downshift correctly', () => {
 		it( 'sets id attr', () => {
 			const wrapper = mount(
-				<SelectField
+				<SelectFieldFancy
 					id={'r3s'}
 					fieldClassName={'rs'}
 					onValueChange={genericChangeHandler}
@@ -74,7 +74,7 @@ describe( 'Select field component', () => {
 		describe( 'Options ', () => {
 			it( 'Adds options when open', () =>{
 				const wrapper = mount(
-					<SelectField
+					<SelectFieldFancy
 						id={'r'}
 						fieldClassName={'rs'}
 						onValueChange={genericChangeHandler}
@@ -95,7 +95,7 @@ describe( 'Select field component', () => {
 
 			it( 'Does not add options when not open', () => {
 				const wrapper = mount(
-					<SelectField
+					<SelectFieldFancy
 						id={'r'}
 						fieldClassName={'rs'}
 						onValueChange={genericChangeHandler}
@@ -120,7 +120,7 @@ describe( 'Select field component', () => {
 		describe( 'Value of field', () => {
 			it( 'Set value from default', () => {
 				const wrapper = mount(
-					<SelectField
+					<SelectFieldFancy
 						id={'r'}
 						fieldClassName={'rs'}
 						onValueChange={() => {}}

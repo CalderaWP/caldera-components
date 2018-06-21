@@ -48,7 +48,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldSetFactory">fieldSetFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-prepareFieldConfig">prepareFieldConfig</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-input">components/fields/input</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Input">Input</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-select">components/fields/select</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SelectField">SelectField</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-select">components/fields/select</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SelectFieldFancy">SelectFieldFancy</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -58,7 +58,7 @@
 import logo from &apos;./logo.svg&apos;;
 import &apos;./App.css&apos;;
 import {FieldGroup} from &quot;./components/fields/FieldGroup&quot;;
-import {SelectField} from &quot;./components/fields/select/SelectField&quot;;
+import {SelectFieldFancy} from &quot;./components/fields/select/SelectFieldFancy&quot;;
 import {fieldSetFactory} from &quot;./components/fields/factories/fieldSetFactory&quot;;
 import {RenderGroup} from &quot;./components/RenderGroup&quot;;
 
@@ -184,7 +184,7 @@ class App extends Component {
 				&lt;div&gt;
 					&lt;h2&gt;Selects&lt;/h2&gt;
 					&lt;h3&gt;Fancy Auto-complete Select Based On Downshift&lt;/h3&gt;
-					&lt;SelectField
+					&lt;SelectFieldFancy
 						id={&apos;r&apos;}
 						fieldClassName={&apos;rs&apos;}
 						onValueChange={() =&gt; {}}

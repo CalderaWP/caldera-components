@@ -1,7 +1,7 @@
 import {fieldPropTypes} from './propTypes';
 import React from 'react';
 import {Input} from './input/Input';
-import {SelectField} from './select/SelectField';
+import {SelectFieldFancy} from './select/SelectFieldFancy';
 import {ariaDescribedbyAttr} from './util';
 
 /**
@@ -20,7 +20,7 @@ export const FieldInner = (props) => {
 	case 'select':
 	case 'dropdown':
 		return (
-			<SelectField
+			<SelectFieldFancy
 				id={props.id}
 				fieldClassName={props.fieldClassName}
 				ariaDescribedbyAttr={idAttrFromProps()}

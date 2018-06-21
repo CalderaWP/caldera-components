@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {FieldGroup} from "./components/fields/FieldGroup";
-import {SelectField} from "./components/fields/select/SelectField";
+import {SelectFieldFancy} from "./components/fields/select/SelectFieldFancy";
 import {fieldSetFactory} from "./components/fields/factories/fieldSetFactory";
 import {RenderGroup} from "./components/RenderGroup";
 
@@ -128,7 +128,7 @@ class App extends Component {
 				<div>
 					<h2>Selects</h2>
 					<h3>Fancy Auto-complete Select Based On Downshift</h3>
-					<SelectField
+					<SelectFieldFancy
 						id={'r'}
 						fieldClassName={'rs'}
 						onValueChange={() => {}}

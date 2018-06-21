@@ -12,7 +12,7 @@ import {fieldPropTypes} from '../propTypes';
  * @returns {*}
  * @constructor
  */
-export const SelectField = (props) => {
+export const SelectFieldFancy = (props) => {
 	/**
 	 * Dispatches new value(s) to parent
 	 *
@@ -74,7 +74,7 @@ export const SelectField = (props) => {
 };
 
 
-SelectField.propTypes = {
+SelectFieldFancy.propTypes = {
 	...fieldPropTypes,
 	isOpen: PropTypes.bool,
 };

@@ -139,9 +139,9 @@ If you have to use a component, please use `FieldGroup` not its inner components
 * [Reference](https://calderalabs.org/caldera-components/function/index.html#static-function-SelectField)
 
 ```jsx 
-import {SelectField} from '@caldera-labs/components/src/components/fields/select/SelectField.js'
+import {SelectFieldFancy} from '@caldera-labs/components/src/components/fields/select/SelectFieldFancyFancy.js'
 
-<SelectField
+<SelectFieldFancy
     id={'number-of-things'} //ID attribute for input
     fieldClassName={'thing-select'} //Field className prop
     onValueChange={(newValue) => {

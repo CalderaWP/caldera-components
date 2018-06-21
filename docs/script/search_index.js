@@ -31,8 +31,8 @@ window.esdocSearchIndex = [
   ],
   [
     "@caldera-labs/components/src/components/fields/select/selectfield.js~selectfield",
-    "function/index.html#static-function-SelectField",
-    "<span>SelectField</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/fields/select/SelectField.js</span>",
+    "function/index.html#static-function-SelectFieldFancy",
+    "<span>SelectFieldFancy</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/fields/select/SelectFieldFancy.jscy.js</span>",
     "function"
   ],
   [
@@ -493,8 +493,8 @@ window.esdocSearchIndex = [
   ],
   [
     "src/components/fields/select/selectfield.js",
-    "file/src/components/fields/select/SelectField.js.html",
-    "src/components/fields/select/SelectField.js",
+    "file/src/components/fields/select/SelectFieldFancyFancy.js.html",
+    "src/components/fields/select/SelectFieldFancyFancy.js",
     "file"
   ],
   [
