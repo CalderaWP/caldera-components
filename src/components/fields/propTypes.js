@@ -36,7 +36,7 @@ export const fieldGroupPropTypes = {
 	isRequired: PropTypes.bool,
 	help: PropTypes.string,
 	label: PropTypes.string.isRequired,
-	type: PropTypes.oneOf(['input','select']),
+	type: PropTypes.oneOf(['input','select', 'fieldset']),
 	value: valuePropType,
 	onValueChange: onValueChangePropType,
 	inputType:inputTypeProp,

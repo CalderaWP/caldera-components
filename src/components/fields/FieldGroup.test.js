@@ -213,7 +213,101 @@ describe( 'Field Group component', () => {
 			/>);
 			expect( wrapper.find( 'label').text() ).toEqual( 'Basic select field' );
 		});
-
-
 	});
+
+	describe( '<fieldset>', () =>{
+		describe( 'checkbox fieldsets', () =>{
+			it( 'Has a fieldset wrapper', () => {
+				const wrapper = mount(
+					<FieldGroup
+						id={'fieldset-1'}
+						label={'How many'}
+						onValueChange={() => {}}
+						inputType={'checkbox'}
+						type={'fieldset'}
+						options={[
+							{
+								value: 1,
+								label: 'One'
+							},
+							{
+								value: 2,
+								label: 'Two'
+							}
+						]}
+					/>
+				);
+				expect( wrapper.find('fieldset')).toMatchLength(1);
+			});
+
+			it( 'Has a legend inside of the fieldset ', () => {
+				const wrapper = mount(
+					<FieldGroup
+						id={'fieldset-2'}
+						label={'How many'}
+						onValueChange={() => {}}
+						inputType={'checkbox'}
+						type={'fieldset'}
+						options={[
+							{
+								value: 1,
+								label: 'One'
+							},
+							{
+								value: 2,
+								label: 'Two'
+							}
+						]}
+					/>
+				);
+				expect( wrapper.find('fieldset').children().find('legend')).toMatchLength(1);
+			});
+
+			it( 'Has a the right legend inside of the fieldset ', () => {
+				const wrapper = mount(
+					<FieldGroup
+						id={'fieldset-3'}
+						label={'How many'}
+						onValueChange={() => {}}
+						inputType={'checkbox'}
+						type={'fieldset'}
+						options={[
+							{
+								value: 1,
+								label: 'One'
+							},
+							{
+								value: 2,
+								label: 'Two'
+							}
+						]}
+					/>
+				);
+				expect( wrapper.find('fieldset').children().find('legend').text()).toEqual('How many');
+			});
+
+			it( 'Has 2 checkboxes inside of the fieldset ', () => {
+				const wrapper = mount(
+					<FieldGroup
+						id={'fieldset-3'}
+						label={'How many'}
+						onValueChange={() => {}}
+						inputType={'checkbox'}
+						type={'fieldset'}
+						options={[
+							{
+								value: 1,
+								label: 'One'
+							},
+							{
+								value: 2,
+								label: 'Two'
+							}
+						]}
+					/>
+				);
+				expect( wrapper.find('fieldset').children().find('input')).toMatchLength(2);
+			});
+		});
+	});;
 });
