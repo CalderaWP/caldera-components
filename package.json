@@ -8,10 +8,10 @@
   "license": "GPL-2.0",
   "scripts": {
     "start": "react-wp-scripts start",
-    "example:build": "react-scripts build",
+    "example:build": "react-wp-script build",
     "test": "react-scripts test --env=jsdom",
-    "test:once": "CI=true react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
+    "test:once": "CI=true react-wp-script test --env=jsdom",
+    "eject": "react-wp-script eject",
     "lint": "eslint src/components/**",
     "document": "./node_modules/.bin/esdoc",
     "build": "npm run build:pre && npm run build:compile && npm run build:post",
