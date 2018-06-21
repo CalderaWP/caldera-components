@@ -8,6 +8,7 @@ exports[`Input component Input component props Passes its props 1`] = `
   onChange={[Function]}
   required={false}
   type="text"
+  value={undefined}
 />
 `;
 

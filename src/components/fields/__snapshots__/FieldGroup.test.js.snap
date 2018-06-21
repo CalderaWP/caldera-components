@@ -16,6 +16,7 @@ exports[`Field Group component Field group component props Can mark inner input 
     onChange={[Function]}
     required={false}
     type="text"
+    value={undefined}
   />
   
 </div>
@@ -37,6 +38,7 @@ exports[`Field Group component Field group component props Can show an input  1`
     onChange={[Function]}
     required={false}
     type="text"
+    value={undefined}
   />
   
 </div>
@@ -58,6 +60,7 @@ exports[`Field Group component Field group component props Help text is optional
     onChange={[Function]}
     required={false}
     type="text"
+    value={undefined}
   />
   
 </div>
@@ -79,6 +82,7 @@ exports[`Field Group component Field group component props Works with help text 
     onChange={[Function]}
     required={false}
     type="text"
+    value={undefined}
   />
   <p
     className="description"

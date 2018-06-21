@@ -25,6 +25,7 @@ exports[`The render group component Rendering with fields Works with a few field
       onChange={[Function]}
       required={false}
       type="text"
+      value={undefined}
     />
   </div>
   <input
@@ -34,6 +35,7 @@ exports[`The render group component Rendering with fields Works with a few field
     onChange={[Function]}
     required={false}
     type="hidden"
+    value={undefined}
   />
   <div
     className="caldera-config-group"
@@ -50,6 +52,7 @@ exports[`The render group component Rendering with fields Works with a few field
       onChange={[Function]}
       required={false}
       type="text"
+      value={undefined}
     />
   </div>
 </div>
@@ -74,6 +77,7 @@ exports[`The render group component Rendering with fields Works with one text fi
       onChange={[Function]}
       required={false}
       type="text"
+      value={undefined}
     />
   </div>
 </div>
