@@ -4,6 +4,8 @@ import {Input} from './input/Input';
 import {SelectField} from './select/SelectField';
 import {ariaDescribedbyAttr} from './util';
 import PropTypes from 'prop-types';
+import classNames from "classnames";
+import {RenderGroup} from "../RenderGroup";
 /**
  * Creates the field inside of a field group
  *
@@ -12,8 +14,26 @@ import PropTypes from 'prop-types';
  * @constructor
  */
 export const FieldInner = (props) => {
-	function idAttrFromProps() {
+
+	/**
+	 * Get the ID for the description element if it will be created
+	 *
+	 * @return {String|null}
+	 */
+	function ariaIdAttr() {
 		return ariaDescribedbyAttr(props.id, props.help);
+	}
+
+	/**
+	 * Get the className prop for the
+	 *
+	 * @return {String}
+	 */
+	function inputClassName() {
+		return classNames(
+			props.fieldClassName,
+			RenderGroup.classNames.fieldGroup
+		)
 	}
 
 	switch( props.type ){
@@ -23,7 +43,7 @@ export const FieldInner = (props) => {
 			<SelectField
 				id={props.id}
 				fieldClassName={props.fieldClassName}
-				ariaDescribedbyAttr={idAttrFromProps()}
+				ariaDescribedbyAttr={ariaIdAttr()}
 				value={props.value}
 				onValueChange={props.onValueChange}
 				inputType={props.inputType}
@@ -36,7 +56,7 @@ export const FieldInner = (props) => {
 			<Input
 				id={props.id}
 				fieldClassName={props.fieldClassName}
-				ariaDescribedbyAttr={idAttrFromProps()}
+				ariaDescribedbyAttr={ariaIdAttr()}
 				value={props.value}
 				onValueChange={props.onValueChange}
 				inputType={props.inputType}

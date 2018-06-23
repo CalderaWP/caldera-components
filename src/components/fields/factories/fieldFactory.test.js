@@ -100,14 +100,6 @@ describe( 'Factories', () => {
 
 		});
 
-		it( 'Creates inputs', () => {
-			const component = fieldFactory({
-				...textFieldConfig,
-				onValueChange:genericHandler,
-			});
-			expect( component.type ).toBe( 'div' );
-		});
-
 		describe('Works for all HTML5 input types via inputType prop', () => {
 			getHtmlInputTypes().forEach((type) => {
 				it(`inputType prop of ${type} works`, () => {
@@ -117,11 +109,10 @@ describe( 'Factories', () => {
 						onValueChange: genericHandler
 					};
 					const wrapper = mount(
-						fieldFactory(config)
+						React.createElement('div', {}, fieldFactory(config) )
 					);
 					expect(wrapper.find('input').prop('type')).toBe(type);
 				});
-
 			});
 		});
 

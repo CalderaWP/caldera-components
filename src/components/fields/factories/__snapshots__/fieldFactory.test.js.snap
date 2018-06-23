@@ -5,164 +5,136 @@ exports[`Factories Field set factory Renders with elements 1`] = `
   <div
     className="f-0"
   >
-    <div
-      className="caldera-config-group"
+    <label
+      htmlFor="cf-convertkit-apikey"
     >
-      <label
-        htmlFor="cf-convertkit-apikey"
-      >
-        API Key
-      </label>
-      <input
-        aria-describedby={null}
-        className="field-config"
-        id="cf-convertkit-apikey"
-        onChange={[Function]}
-        required={false}
-        type="text"
-        value={undefined}
-      />
-    </div>
+      API Key
+    </label>
+    <input
+      aria-describedby={null}
+      className="field-config field-config"
+      id="cf-convertkit-apikey"
+      onChange={[Function]}
+      required={false}
+      type="text"
+      value={undefined}
+    />
   </div>
   <div
     className="f-1"
   >
-    <div
-      className="caldera-config-group"
+    <label
+      htmlFor="pid-1"
     >
-      <label
-        htmlFor="pid-1"
-      >
-        Sequence
-      </label>
-      <input
-        aria-describedby={null}
-        className="field-config"
-        id="pid-1"
-        onChange={[Function]}
-        required={false}
-        type="text"
-        value={undefined}
-      />
-    </div>
+      Sequence
+    </label>
+    <input
+      aria-describedby={null}
+      className="field-config field-config"
+      id="pid-1"
+      onChange={[Function]}
+      required={false}
+      type="text"
+      value={undefined}
+    />
   </div>
   <div
     className="f-2"
   >
-    <div
-      className="caldera-config-group"
+    <label
+      htmlFor="cf-convertkit-sequence-id"
     >
-      <label
-        htmlFor="cf-convertkit-sequence-id"
-      >
-        Sequence ID
-      </label>
-      <input
-        aria-describedby={null}
-        className="field-config"
-        id="cf-convertkit-sequence-id"
-        onChange={[Function]}
-        required={false}
-        type="text"
-        value={undefined}
-      />
-    </div>
+      Sequence ID
+    </label>
+    <input
+      aria-describedby={null}
+      className="field-config field-config"
+      id="cf-convertkit-sequence-id"
+      onChange={[Function]}
+      required={false}
+      type="text"
+      value={undefined}
+    />
   </div>
   <div
     className="f-3"
   >
-    <div
-      className="caldera-config-group"
+    <label
+      htmlFor="cf-convertkit-sequence-id"
     >
-      <label
-        htmlFor="cf-convertkit-sequence-id"
-      >
-        Sequence ID
-      </label>
-      <input
-        aria-describedby={null}
-        className="field-config"
-        id="cf-convertkit-sequence-id"
-        onChange={[Function]}
-        required={false}
-        type="text"
-        value={undefined}
-      />
-    </div>
+      Sequence ID
+    </label>
+    <input
+      aria-describedby={null}
+      className="field-config field-config"
+      id="cf-convertkit-sequence-id"
+      onChange={[Function]}
+      required={false}
+      type="text"
+      value={undefined}
+    />
   </div>
   <div
     className="f-4"
   >
-    <div
-      className="caldera-config-group"
+    <label
+      htmlFor="cf-convertkit-email"
     >
-      <label
-        htmlFor="cf-convertkit-email"
-      >
-        Email Address
-      </label>
-      <input
-        aria-describedby={null}
-        className="field-config"
-        id="cf-convertkit-email"
-        onChange={[Function]}
-        required={false}
-        type="text"
-        value={undefined}
-      />
-      <p
-        className="description"
-        id="null"
-      />
-    </div>
+      Email Address
+    </label>
+    <input
+      aria-describedby={null}
+      className="field-config field-config"
+      id="cf-convertkit-email"
+      onChange={[Function]}
+      required={false}
+      type="text"
+      value={undefined}
+    />
+    <p
+      className="description"
+      id="null"
+    />
   </div>
   <div
     className="f-5"
   >
-    <div
-      className="caldera-config-group"
+    <label
+      htmlFor="cf-convertkit-name"
     >
-      <label
-        htmlFor="cf-convertkit-name"
-      >
-        Name
-      </label>
-      <input
-        aria-describedby={null}
-        className="field-config"
-        id="cf-convertkit-name"
-        onChange={[Function]}
-        required={false}
-        type="text"
-        value={undefined}
-      />
-      <p
-        className="description"
-        id="null"
-      />
-    </div>
+      Name
+    </label>
+    <input
+      aria-describedby={null}
+      className="field-config field-config"
+      id="cf-convertkit-name"
+      onChange={[Function]}
+      required={false}
+      type="text"
+      value={undefined}
+    />
+    <p
+      className="description"
+      id="null"
+    />
   </div>
   <div
     className="f-6"
   >
-    <div
-      className="caldera-config-group"
+    <label
+      htmlFor="cf-convertkit-tags"
     >
-      <label
-        htmlFor="cf-convertkit-tags"
-      >
-        Tags
-      </label>
-      <input
-        aria-describedby={null}
-        className="field-config"
-        id="cf-convertkit-tags"
-        onChange={[Function]}
-        required={false}
-        type="text"
-        value={undefined}
-      />
-    </div>
+      Tags
+    </label>
+    <input
+      aria-describedby={null}
+      className="field-config field-config"
+      id="cf-convertkit-tags"
+      onChange={[Function]}
+      required={false}
+      type="text"
+      value={undefined}
+    />
   </div>
 </div>
 `;

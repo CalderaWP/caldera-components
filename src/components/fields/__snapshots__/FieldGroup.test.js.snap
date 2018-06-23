@@ -1,94 +1,86 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Field Group component Field group component props Can mark inner input as required 1`] = `
-<div
-  className="caldera-config-group"
->
+Array [
   <label
     htmlFor="control-223"
-  >
+>
     Who
-  </label>
+</label>,
   <input
     aria-describedby={null}
-    className="field-config required block-input"
+    className="field-config required block-input field-config"
     id="control-223"
     onChange={[Function]}
     required={false}
     type="text"
     value={undefined}
-  />
-  
-</div>
+/>,
+  "",
+]
 `;
 
 exports[`Field Group component Field group component props Can show an input  1`] = `
-<div
-  className="caldera-config-group"
->
+Array [
   <label
     htmlFor="control-22"
-  >
+>
     Who
-  </label>
+</label>,
   <input
     aria-describedby={null}
-    className="field-config block-input"
+    className="field-config block-input field-config"
     id="control-22"
     onChange={[Function]}
     required={false}
     type="text"
     value={undefined}
-  />
-  
-</div>
+/>,
+  "",
+]
 `;
 
 exports[`Field Group component Field group component props Help text is optional 1`] = `
-<div
-  className="caldera-config-group"
->
+Array [
   <label
     htmlFor="control-21"
-  >
+>
     Who
-  </label>
+</label>,
   <input
     aria-describedby={null}
-    className="field-config block-input"
+    className="field-config block-input field-config"
     id="control-21"
     onChange={[Function]}
     required={false}
     type="text"
     value={undefined}
-  />
-  
-</div>
+/>,
+  "",
+]
 `;
 
 exports[`Field Group component Field group component props Works with help text 1`] = `
-<div
-  className="caldera-config-group"
->
+Array [
   <label
     htmlFor="control-20"
-  >
+>
     Who
-  </label>
+</label>,
   <input
     aria-describedby="control-20-description"
-    className="field-config block-input"
+    className="field-config block-input field-config"
     id="control-20"
     onChange={[Function]}
     required={false}
     type="text"
     value={undefined}
-  />
+/>,
   <p
     className="description"
     id="control-20-description"
-  >
+>
     Who to say hi to
-  </p>
-</div>
+</p>,
+]
 `;

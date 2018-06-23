@@ -15,6 +15,8 @@ export class RenderGroup extends React.Component {
 	constructor(props){
 		super(props);
 		this.createComponents = this.createComponents.bind(this);
+
+
 	}
 
 	/**
@@ -33,11 +35,14 @@ export class RenderGroup extends React.Component {
 	 */
 	render(){
 		return(
-			<div className={this.props.className ? this.props.className : ''}>
+			<div
+				className={this.props.className ? this.props.className : RenderGroup.classNames.renderGroupWrapper }
+			>
 				{this.createComponents().map((configField,i) => {
 					return React.createElement(
-						React.Fragment, {
+						'div', {
 							key: i,
+							className: RenderGroup.classNames.fieldGroup
 						},
 						configField
 					);
@@ -54,4 +59,17 @@ export class RenderGroup extends React.Component {
 RenderGroup.propTypes = {
 	configFields: propTypes.array.isRequired,
 	className: propTypes.string
+};
+
+/**
+ * Classnames for elements (wrappers, field groups and form fields)
+ *
+ * @type {{renderGroupWrapper: string, fieldWrapper: string}}
+ */
+RenderGroup.classNames = {
+	renderGroupWrapper: 'caldera-config-field-setup',
+	fieldGroup: 'caldera-config-group',
+	fieldWrapper: 'caldera-config-field',
+	input: 'field-config',
+
 };

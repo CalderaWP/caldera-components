@@ -1,5 +1,7 @@
 import React from 'react';
 import {fieldPropTypes} from '../propTypes';
+import classNames from "classnames";
+import {RenderGroup} from "../../RenderGroup";
 
 /**
  * Creates a select field
@@ -19,10 +21,22 @@ export const SelectField = (props) => {
 		return props.onValueChange(selection);
 	}
 
+	/**
+	 * Get the className prop for the select element
+	 *
+	 * @return {String}
+	 */
+	function selectClassNames() {
+		return classNames(
+			props.fieldClassName,
+			RenderGroup.classNames.input
+		)
+	}
+
 	return (
 		<select
 			id={props.id}
-			className={props.className}
+			className={selectClassNames()}
 			value={props.value}
 			onChange={changeHandler}
 		>

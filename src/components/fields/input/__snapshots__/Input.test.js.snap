@@ -3,7 +3,7 @@
 exports[`Input component Checkbox props for checkboxes Can be a checkbox 1`] = `
 <input
   aria-describedby=""
-  className="check1"
+  className="check1 field-config"
   defaultChecked="true"
   id="check1"
   onChange={[Function]}
@@ -15,7 +15,7 @@ exports[`Input component Checkbox props for checkboxes Can be a checkbox 1`] = `
 exports[`Input component Input component props Passes its props 1`] = `
 <input
   aria-describedby=""
-  className="foo"
+  className="foo field-config"
   id="bags"
   onChange={[Function]}
   required={false}
@@ -27,7 +27,7 @@ exports[`Input component Input component props Passes its props 1`] = `
 exports[`Input component Input component props passes the value 1`] = `
 <input
   aria-describedby=""
-  className="foo"
+  className="foo field-config"
   id="bags"
   onChange={[Function]}
   required={false}

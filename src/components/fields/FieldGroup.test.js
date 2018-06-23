@@ -59,15 +59,7 @@ describe( 'Field Group component', () => {
 	});
 
 	describe('Field group component rendering', () => {
-		it('Has the right wrapper class', () => {
-			const wrapper = shallow(<FieldGroup
-				id={'xpadasfsad'}
-				label={'Who'}
-				type={'input'}
-				onValueChange={() => {}}
-			/>);
-			expect(wrapper.find('div.caldera-config-group')).toHaveLength(1);
-		});
+
 
 		describe( 'inner input', () => {
 			it('Has inner input', () => {
@@ -143,7 +135,7 @@ describe( 'Field Group component', () => {
 
 	});
 
-	describe( 'Using as a select field', () => {
+	describe.skip( 'Using as a select field', () => {
 
 		it( 'Outputs a select field', () => {
 			const wrapper = mount(<FieldGroup

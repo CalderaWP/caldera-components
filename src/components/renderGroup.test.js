@@ -88,43 +88,6 @@ describe( 'The render group component', () => {
 			expect( wrapper.find('.x1').children() ).toHaveLength(4);
 		});
 
-		it( 'Wraps groups in div', () => {
-			const thisConfigFields = [
-				{
-					'id': 'sz',
-					'label': 'Tags',
-					'desc': 'Comma separated list of tags.',
-					'type': 'text',
-					'description': false,
-					onValueChange: genericHandler
-				}
-			];
-			const props = {
-				configFields:thisConfigFields
-			};
-			const component = new RenderGroup(props);
-			const wrapper = shallow( component.createComponents()[0] );
-			expect( wrapper.type() ).toBe('div');
-		});
-
-		it( 'Creates the inner input', () => {
-			const thisConfigFields = [
-				{
-					'id': 'sz',
-					'label': 'Tags',
-					'desc': 'Comma separated list of tags.',
-					'type': 'text',
-					'description': false,
-					onValueChange: genericHandler
-				}
-			];
-			const props = {
-				configFields:thisConfigFields
-			};
-			const component = new RenderGroup(props);
-			const wrapper = mount( component.createComponents()[0] );
-			expect( wrapper.find('input') ).toHaveLength(1);
-		});
 
 		it( 'Adds the description', () => {
 			const thisConfigFields = [
@@ -253,36 +216,74 @@ describe( 'The render group component', () => {
 
 	});
 
-	describe( 'fieldsets', () => {
-		const fieldSetField = {
-			id: 'fieldset-3',
-			label: 'How many?',
-			type: 'fieldset',
-			options: [
-				{
-					value: 1,
-					label: 'One'
-				},
-				{
-					value: 2,
-					label: 'Two'
-				}
+	const fieldSetField = {
+		id: 'fieldset-3',
+		label: 'How many?',
+		type: 'fieldset',
+		options: [
+			{
+				value: 1,
+				label: 'One'
+			},
+			{
+				value: 2,
+				label: 'Two'
+			}
 
-			],
-			value:[],
-			onValueChange:genericHandler
-		};
+		],
+		value:[],
+		onValueChange:genericHandler
+	};
+
+	describe( 'fieldsets', () => {
 		it( 'Outputs a fieldset', () => {
 			const wrapper = mount( <RenderGroup configFields={[fieldSetField]}/> );
 			expect( wrapper.find('fieldset') ).toHaveLength(1);
 
 		});
 
-		it( 'has checkboxes in the fieldset', () =>{
+		it( 'has inputs in the fieldset', () =>{
 			const wrapper = mount( <RenderGroup configFields={[fieldSetField]}/> );
 			expect( wrapper.find('fieldset').children().find('input' ) ).toHaveLength(2);
 		});
+
+		it( 'has inputs that are checbkoxes in the fieldset', () =>{
+			const wrapper = mount( <RenderGroup configFields={[fieldSetField]}/> );
+			expect( wrapper.find('fieldset').children().find('input' ).first().prop('type') ).toEqual( 'checkbox' );
+		});
 	});
+
+
+	describe( 'class structure', () => {
+		const fieldConfigsForThisTest = [
+			{
+				'id': 'cf-something-else',
+				'label': 'Thing',
+				'type': 'text',
+				onValueChange: genericHandler
+			},
+			textFieldConfig
+		];
+
+		it( 'Puts .caldera-config-field-setup on outermost element', () =>{
+			const wrapper = mount( <RenderGroup configFields={fieldConfigsForThisTest}/> );
+			expect( wrapper.find('.caldera-config-field-setup').length ).toBe(1);
+		});
+
+		it( 'It puts .caldera-config-group around each group', () => {
+			const wrapper = mount( <RenderGroup configFields={fieldConfigsForThisTest}/> );
+			expect( wrapper.find('.caldera-config-field-setup').children().find('.caldera-config-group').length ).toBe(2);
+		});
+
+		it( 'Matches snapshot', () => {
+			const component = renderer.create(<RenderGroup configFields={fieldConfigsForThisTest}/>);
+			expect( component.toJSON()).toMatchSnapshot();
+		});
+	});
+
+
+
+
 	
 });
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import {fieldPropTypes} from '../propTypes';
-
+import classNames from 'classnames';
+import {RenderGroup} from "../../RenderGroup";
 /**
  * Input component for any HTML5 input type
  *
@@ -26,12 +27,25 @@ export const Input = (props) => {
 		return props.onValueChange(! props.value);
 	}
 
+
+	/**
+	 * Get the className prop for inputs
+	 *
+	 * @return {String}
+	 */
+	function inputClassName() {
+		return classNames(
+			props.fieldClassName,
+			RenderGroup.classNames.input
+		)
+	}
+
 	if( 'checkbox' === props.inputType ){
 		return (
 			<input
 				type={'checkbox'}
 				id={props.id}
-				className={props.fieldClassName}
+				className={inputClassName()}
 				aria-describedby={props.ariaDescribedbyAttr}
 				required={props.isRequired}
 				onChange={checkboxChangeHandler}
@@ -44,7 +58,7 @@ export const Input = (props) => {
 		<input
 			type={props.inputType}
 			id={props.id}
-			className={props.fieldClassName}
+			className={inputClassName()}
 			aria-describedby={props.ariaDescribedbyAttr}
 			required={props.isRequired}
 			onChange={changeHandler}

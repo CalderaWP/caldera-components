@@ -147,14 +147,7 @@ export const FieldGroup = (props) => {
 	/**
 	 * Render field group
 	 */
-	return (
-		<div
-			className={'caldera-config-group'}
-		>
-			{fieldInner(props)}
-
-		</div>
-	);
+	return fieldInner(props);
 };
 
 
