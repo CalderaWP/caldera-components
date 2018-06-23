@@ -50,10 +50,19 @@ it( 'Has the right wrapper class', () => {
 
 ### Important Notes
 
+
 ### What To Test
 EVERYTHING! LOL.
 
 [Don't test React, test our components.](https://github.com/airbnb/enzyme/issues/952#issuecomment-303238446) 
+
+### Testing change handlers
+#### Simulate A Change Handler
+Call the select element found in wrapper's onChange() callback (not a simulation of browser click) with a mock object that is enough like an event, we can test with it.
+
+```js
+wrapper.find( 'select' ).simulate('change', { target: { value: 'imaginary' } });
+```
 
 ### shallow vs full rendering
 Shallow rendering is preferred. Full rendering with `mount` should be used for containers or testing decedents of a component.

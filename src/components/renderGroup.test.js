@@ -283,36 +283,71 @@ describe( 'The render group component', () => {
 		});
 	});
 
-	describe( 'Select fields have options', () => {
-		const selectFieldConfig = {
-			'id': 'cf-something-select-id',
-			'type': 'dropdown',
-			'label': 'Content type',
-			'description': 'Choose content type, default is HTML',
-			options: [
-				{
-					label: 'HTML',
-					value: 'html'
-				},
-				{
-					label: 'Plain Text',
-					value: 'plain'
-				},
-				{
-					label: 'Imaginary',
-					value: 'imaginary'
+	describe( 'Select fields', () => {
+		it( 'Select fields have options', () => {
+			const selectFieldConfig = {
+				'id': 'cf-something-select-id',
+				'type': 'dropdown',
+				'label': 'Content type',
+				'description': 'Choose content type, default is HTML',
+				options: [
+					{
+						label: 'HTML',
+						value: 'html'
+					},
+					{
+						label: 'Plain Text',
+						value: 'plain'
+					},
+					{
+						label: 'Imaginary',
+						value: 'imaginary'
+					}
+				],
+				value: '',
+				onValueChange: genericHandler
+			};
+
+			const wrapper = mount( <RenderGroup configFields={[selectFieldConfig]}/> );
+			expect(
+				wrapper.find('select').children().find('option')
+			).toHaveLength(3);
+		});
+
+		it( 'Select field change handlers recive value, not event ', () => {
+			let updateValue = '';
+			const selectFieldConfig = {
+				'id': 'cf-something-select-id',
+				'type': 'dropdown',
+				'label': 'Content type',
+				'description': 'Choose content type, default is HTML',
+				options: [
+					{
+						label: 'HTML',
+						value: 'html'
+					},
+					{
+						label: 'Plain Text',
+						value: 'plain'
+					},
+					{
+						label: 'Imaginary',
+						value: 'imaginary'
+					}
+				],
+				value: '',
+				onValueChange: (newValue) => {
+					updateValue = newValue;
+					return newValue;
 				}
-			],
-			value: '',
-			onValueChange: genericHandler
-		};
+			};
 
-		const wrapper = mount( <RenderGroup configFields={[selectFieldConfig]}/> );
-		expect(
-			wrapper.find('select').children().find('option')
-		).toHaveLength(3);
-
-
+			const wrapper = mount( <RenderGroup configFields={[selectFieldConfig]}/> );
+			wrapper.find( 'select' ).simulate('change', { target: { value: 'imaginary' } })
+			expect(
+				wrapper.find('select').children().find('option')
+			).toHaveLength(3);
+		});
 	});
 
 

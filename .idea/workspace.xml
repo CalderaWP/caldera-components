@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2b0f3eb-379f-4bd9-bc0e-61e438292576" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/dist/fields/FieldGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/fields/FieldGroup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/fields/FieldInner.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/fields/FieldInner.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/renderGroup.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/renderGroup.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/FieldGroup.js.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ast/source/components/fields/FieldGroup.js.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/FieldInner.js.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ast/source/components/fields/FieldInner.js.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/FieldGroup.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/FieldGroup.js.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/FieldInner.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/FieldInner.js.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/function/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/function/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manual/testing.md" beforeDir="false" afterPath="$PROJECT_DIR$/manual/testing.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/renderGroup.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/renderGroup.test.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,11 +20,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.82183474">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="renderGroup.test.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="renderGroup.test.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/components/renderGroup.test.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="355">
-                  <caret line="276" column="28" selection-start-line="276" selection-start-column="28" selection-end-line="276" selection-end-column="28" />
+                <state relative-caret-position="810">
+                  <caret line="345" column="22" selection-start-line="345" selection-end-line="346" />
                   <folding>
                     <element signature="e#1#43#0" expanded="true" />
                   </folding>
@@ -89,6 +82,18 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="180">
                   <caret line="13" selection-start-line="13" selection-end-line="13" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="testing.md" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/manual/testing.md">
+              <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+                <state split_layout="FIRST">
+                  <first_editor relative-caret-position="730">
+                    <caret line="79" column="3" lean-forward="true" selection-start-line="79" selection-start-column="3" selection-end-line="79" selection-end-column="3" />
+                  </first_editor>
+                  <second_editor />
                 </state>
               </provider>
             </entry>
@@ -177,7 +182,6 @@
       <find>class structure</find>
       <find>con</find>
       <find>Creates the inner input</find>
-      <find>.caldera-config-group around each group</find>
       <find>Creates inputs</find>
       <find>HTML5</find>
       <find>.skip</find>
@@ -185,6 +189,7 @@
       <find>fieldWrapper</find>
       <find>caldera-config-group</find>
       <find>select</find>
+      <find>.caldera-config-group around each group</find>
     </findStrings>
     <replaceStrings>
       <replace>caldera-components</replace>
@@ -230,7 +235,6 @@
         <option value="$PROJECT_DIR$/src/components/fields/propTypes.js" />
         <option value="$PROJECT_DIR$/src/components/fields/util.test.js" />
         <option value="$PROJECT_DIR$/src/components/fields/util.js" />
-        <option value="$PROJECT_DIR$/manual/testing.md" />
         <option value="$PROJECT_DIR$/src/components/fields/input/Input.test.js" />
         <option value="$PROJECT_DIR$/manual/components.md" />
         <option value="$PROJECT_DIR$/manual/index.md" />
@@ -244,6 +248,7 @@
         <option value="$PROJECT_DIR$/src/components/fields/FieldInner.js" />
         <option value="$PROJECT_DIR$/src/components/fields/FieldGroup.js" />
         <option value="$PROJECT_DIR$/src/components/renderGroup.test.js" />
+        <option value="$PROJECT_DIR$/manual/testing.md" />
       </list>
     </option>
   </component>
@@ -397,7 +402,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80315000" />
+    <option name="totallyTimeSpent" value="82334000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="139" y="23" width="1679" height="1057" extended-state="0" />
@@ -410,7 +415,7 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32916668" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" x="23" y="157" width="1506" height="708" id="Terminal" order="7" type="WINDOWED" visible="true" weight="0.32916668" />
+      <window_info anchor="bottom" x="23" y="157" width="1506" height="708" id="Terminal" order="7" type="WINDOWED" weight="0.32916668" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.84583336" visible="true" weight="0.1942578" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
@@ -685,19 +690,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/manual/testing.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="254">
-            <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
-            <folding>
-              <element signature="e#0#48#0" expanded="true" />
-            </folding>
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/fields/propTypes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="743">
@@ -863,11 +855,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/renderGroup.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="276" column="28" selection-start-line="276" selection-start-column="28" selection-end-line="276" selection-end-column="28" />
+        <state relative-caret-position="810">
+          <caret line="345" column="22" selection-start-line="345" selection-end-line="346" />
           <folding>
             <element signature="e#1#43#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manual/testing.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="730">
+            <caret line="79" column="3" lean-forward="true" selection-start-line="79" selection-start-column="3" selection-end-line="79" selection-end-column="3" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
