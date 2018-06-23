@@ -21,6 +21,8 @@ var _propTypes = require('./propTypes');
 
 var _FieldInner = require('./FieldInner');
 
+var _RenderGroup = require('../RenderGroup');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
@@ -47,7 +49,7 @@ var FieldGroup = exports.FieldGroup = function FieldGroup(props) {
   */
 	function fieldInner(fieldProps) {
 		function getFieldClassName(conditionalClassNames) {
-			return (0, _classnames2.default)('field-config', _extends({
+			return (0, _classnames2.default)(_extends({
 				required: fieldProps.isRequired
 			}, conditionalClassNames));
 		}
@@ -120,8 +122,10 @@ var FieldGroup = exports.FieldGroup = function FieldGroup(props) {
 			});
 		} else {
 			return _react2.default.createElement(
-				_react2.default.Fragment,
-				null,
+				'div',
+				{
+					className: _RenderGroup.RenderGroup.classNames.fieldWrapper
+				},
 				_react2.default.createElement(
 					'label',
 					{

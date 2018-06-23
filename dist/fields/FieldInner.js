@@ -55,7 +55,7 @@ var FieldInner = exports.FieldInner = function FieldInner(props) {
   * @return {String}
   */
 	function inputClassName() {
-		return (0, _classnames2.default)(props.fieldClassName, _RenderGroup.RenderGroup.classNames.fieldGroup);
+		return (0, _classnames2.default)([props.fieldClassName, _RenderGroup.RenderGroup.classNames.input]);
 	}
 
 	switch (props.type) {
