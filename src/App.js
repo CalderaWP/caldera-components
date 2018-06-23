@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {FieldGroup} from "./components/fields/FieldGroup";
-import {SelectFieldFancy} from "./components/fields/select/SelectFieldFancy";
 import {fieldSetFactory} from "./components/fields/factories/fieldSetFactory";
 import {RenderGroup} from "./components/RenderGroup";
 
@@ -49,14 +48,37 @@ const selectFieldConfig = {
 	],
 	value: selectFieldValue,
 	onValueChange: function(newValue){
-		hiddenFieldValue = newValue
+		selectFieldValue = newValue
+	}
+};
+
+let fieldSetFieldValue = ['1'];
+const fieldSetField = {
+	id: 'fieldset-3',
+	label: 'How many?',
+	type: 'fieldset',
+	options: [
+		{
+			value: '1',
+			label: 'One'
+		},
+		{
+			value: '2',
+			label: 'Two'
+		}
+
+	],
+	value:[],
+	onValueChange:(newValue) => {
+		fieldSetFieldValue=newValue;
 	}
 };
 
 const configFields = [
 	textFieldConfig,
 	hiddenFieldConfig,
-	selectFieldConfig
+	selectFieldConfig,
+	fieldSetField
 ];
 const configFieldEls = fieldSetFactory(configFields);
 
@@ -77,6 +99,27 @@ class App extends Component {
 					<img src={logo} className="App-logo" alt="logo" />
 					<h1 className="App-title">Welcome to React</h1>
 				</header>
+
+
+				<div>
+					<h2>Created With RenderGroup Component</h2>
+					<RenderGroup
+						configFields={configFields}
+					/>
+				</div>
+
+				<div>
+					<h2>Created With Factory</h2>
+					{Array.from(configFieldEls).map((field,i) => {
+						return React.createElement(
+							React.Fragment, {
+								key: i,
+							},
+							field
+						);
+					})}
+				</div>
+
 				<div>
 					<h2>Inputs</h2>
 					<FieldGroup
@@ -127,11 +170,14 @@ class App extends Component {
 				</div>
 				<div>
 					<h2>Selects</h2>
-					<h3>Fancy Auto-complete Select Based On Downshift</h3>
-					<SelectFieldFancy
+					<FieldGroup
+						type={'select'}
+						label={'Basic select field'}
+						value={selectFieldValue}
 						id={'r'}
-						fieldClassName={'rs'}
-						onValueChange={() => {}}
+						onValueChange={(newValue) => {
+							selectFieldValue = newValue;
+						}}
 						options={[
 							{
 								value: 1,
@@ -142,28 +188,32 @@ class App extends Component {
 								label: 'Two'
 							}
 						]}
-						isOpen={true}
 					/>
 				</div>
+
 				<div>
-					<h2>Created With Factory</h2>
-					{Array.from(configFieldEls).map((field,i) => {
-						return React.createElement(
-							React.Fragment, {
-								key: i,
+					<h2>fieldsets</h2>
+					<FieldGroup
+						type={'fieldset'}
+						label={'Checkbox group'}
+						value={fieldSetFieldValue}
+						id={'Checkbox1'}
+						onValueChange={(newValue) => {
+							fieldSetFieldValue = newValue;
+						}}
+						options={[
+							{
+								value: '1',
+								label: 'One'
 							},
-							field
-						);
-					})}
-				</div>
-
-
-				<div>
-					<h2>Created With RenderGroup Component</h2>
-					<RenderGroup 
-						configFields={configFields}
+							{
+								value: '2',
+								label: 'Two'
+							}
+						]}
 					/>
 				</div>
+
 			</div>
 		);
 	}

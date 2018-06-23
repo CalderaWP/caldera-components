@@ -161,3 +161,33 @@ import {SelectFieldFancy} from '@caldera-labs/components/src/components/fields/s
 />
     
 ```
+
+## Fieldsets
+For a `<fieldset>` element containing checkboxes, pass the value `fieldset` to the `type
+
+
+```js
+//Value is an array.
+let checkBoxValue = ['1'];
+
+<FieldGroup
+    type={'fieldset'} //Create a ground of checkboxes wrapped in a field set
+    label={'Checkbox group'} //Used for the <legend>
+    value={checkBoxValue} //value(s)
+    id={'Checkbox1'} //id attribute for <fieldset>
+    onValueChange={(newValue) => {
+    	//logic of removing/adding from array is handled internally
+        checkBoxValue = newValue;
+    }}
+    options={[
+        {
+            value: '1', //this value is in array so box will be checked by default
+            label: 'One'// Used for this checkbox's <label>
+        },
+        {
+            value: '2', //this value is NOT in array so box will NOT be checked by default
+            label: 'Two'// Used for this checkbox's <label>
+        }
+    ]}
+/>
+```

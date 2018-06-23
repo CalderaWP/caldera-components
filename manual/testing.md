@@ -50,6 +50,11 @@ it( 'Has the right wrapper class', () => {
 
 ### Important Notes
 
+### What To Test
+EVERYTHING! LOL.
+
+[Don't test React, test our components.](https://github.com/airbnb/enzyme/issues/952#issuecomment-303238446) 
+
 ### shallow vs full rendering
 Shallow rendering is preferred. Full rendering with `mount` should be used for containers or testing decedents of a component.
 
