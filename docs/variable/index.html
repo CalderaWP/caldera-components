@@ -35,6 +35,7 @@
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/RenderGroup.js~RenderGroup.html">RenderGroup</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields">components/fields</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-FieldGroup">FieldGroup</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-FieldInner">FieldInner</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addOrRemoveFromArray">addOrRemoveFromArray</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ariaDescribedbyAttr">ariaDescribedbyAttr</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getHtmlInputTypes">getHtmlInputTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isValidHtml5type">isValidHtml5type</a></span></span></li>
@@ -48,7 +49,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldSetFactory">fieldSetFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-prepareFieldConfig">prepareFieldConfig</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-input">components/fields/input</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Input">Input</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-select">components/fields/select</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SelectFieldFancy">SelectFieldFancy</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-select">components/fields/select</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SelectField">SelectField</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SelectFieldFancy">SelectFieldFancy</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -130,7 +132,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="variable/index.html#static-variable-fieldPropTypes">fieldPropTypes</a></span></span><span class="code" data-ice="signature">: {...fieldInnerPropTypes: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, &quot;options&quot;: <span>*</span>, &quot;ariaDescribedbyAttr&quot;: <span>*</span>}</span>
+          <span class="code" data-ice="name"><span><a href="variable/index.html#static-variable-fieldPropTypes">fieldPropTypes</a></span></span><span class="code" data-ice="signature">: {...fieldInnerPropTypes: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, &quot;ariaDescribedbyAttr&quot;: <span>*</span>}</span>
         </p>
       </div>
       <div>
@@ -248,11 +250,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/components/fields/propTypes.js.html#lineNumber32">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/components/fields/propTypes.js.html#lineNumber33">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {fieldGroupPropTypes} from &apos;<span><a href="file/src/components/fields/propTypes.js.html#lineNumber32">@caldera-labs/components/src/components/fields/propTypes.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {fieldGroupPropTypes} from &apos;<span><a href="file/src/components/fields/propTypes.js.html#lineNumber33">@caldera-labs/components/src/components/fields/propTypes.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>PropTypes for field groups</p>
@@ -292,11 +294,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/components/fields/propTypes.js.html#lineNumber49">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/components/fields/propTypes.js.html#lineNumber51">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {fieldInnerPropTypes} from &apos;<span><a href="file/src/components/fields/propTypes.js.html#lineNumber49">@caldera-labs/components/src/components/fields/propTypes.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {fieldInnerPropTypes} from &apos;<span><a href="file/src/components/fields/propTypes.js.html#lineNumber51">@caldera-labs/components/src/components/fields/propTypes.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>PropTypes for the InnerField component</p>
@@ -332,15 +334,15 @@
     
     
     
-    <span class="code" data-ice="name">fieldPropTypes</span><span class="code" data-ice="signature">: {...fieldInnerPropTypes: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, &quot;options&quot;: <span>*</span>, &quot;ariaDescribedbyAttr&quot;: <span>*</span>}</span>
+    <span class="code" data-ice="name">fieldPropTypes</span><span class="code" data-ice="signature">: {...fieldInnerPropTypes: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, &quot;ariaDescribedbyAttr&quot;: <span>*</span>}</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/components/fields/propTypes.js.html#lineNumber58">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/components/fields/propTypes.js.html#lineNumber60">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {fieldPropTypes} from &apos;<span><a href="file/src/components/fields/propTypes.js.html#lineNumber58">@caldera-labs/components/src/components/fields/propTypes.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {fieldPropTypes} from &apos;<span><a href="file/src/components/fields/propTypes.js.html#lineNumber60">@caldera-labs/components/src/components/fields/propTypes.js</a></span>&apos;</code></pre></div>
   
   
   
@@ -379,11 +381,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/components/fields/propTypes.js.html#lineNumber25">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/components/fields/propTypes.js.html#lineNumber26">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {inputTypeProp} from &apos;<span><a href="file/src/components/fields/propTypes.js.html#lineNumber25">@caldera-labs/components/src/components/fields/propTypes.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {inputTypeProp} from &apos;<span><a href="file/src/components/fields/propTypes.js.html#lineNumber26">@caldera-labs/components/src/components/fields/propTypes.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>Proptypes for Input component</p>
@@ -423,11 +425,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/components/fields/propTypes.js.html#lineNumber19">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/components/fields/propTypes.js.html#lineNumber20">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {onValueChangePropType} from &apos;<span><a href="file/src/components/fields/propTypes.js.html#lineNumber19">@caldera-labs/components/src/components/fields/propTypes.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {onValueChangePropType} from &apos;<span><a href="file/src/components/fields/propTypes.js.html#lineNumber20">@caldera-labs/components/src/components/fields/propTypes.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>PropType for the field value change event used in multiple components</p>

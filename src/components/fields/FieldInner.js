@@ -30,9 +30,10 @@ export const FieldInner = (props) => {
 	 * @return {String}
 	 */
 	function inputClassName() {
-		return classNames(
+		return classNames([
 			props.fieldClassName,
-			RenderGroup.classNames.fieldGroup
+			RenderGroup.classNames.input
+		]
 		);
 	}
 

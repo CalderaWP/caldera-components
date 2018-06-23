@@ -11,22 +11,18 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _downshift = require('downshift');
+var _propTypes = require('../propTypes');
 
-var _downshift2 = _interopRequireDefault(_downshift);
+var _classnames = require('classnames');
 
-var _propTypes = require('prop-types');
+var _classnames2 = _interopRequireDefault(_classnames);
 
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _propTypes3 = require('../propTypes');
+var _RenderGroup = require('../../RenderGroup');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
  * Creates a select field
- *
- * Wraps [downshift](https://github.com/paypal/downshift)
  *
  * @param {Object} props
  * @returns {*}
@@ -43,59 +39,50 @@ var SelectField = exports.SelectField = function SelectField(props) {
 		return props.onValueChange(selection);
 	}
 
+	/**
+  * Get the className prop for the select element
+  *
+  * @return {String}
+  */
+	function selectClassNames() {
+		return (0, _classnames2.default)(props.fieldClassName, _RenderGroup.RenderGroup.classNames.input);
+	}
+
 	return _react2.default.createElement(
-		_downshift2.default,
+		'select',
 		{
-			inputValue: props.value,
-			defaultInputValue: props.value,
-			onChange: changeHandler,
-			itemToString: function itemToString(item) {
-				return item ? item.value : '';
-			},
-			defaultIsOpen: props.isOpen
+			id: props.id,
+			className: selectClassNames(),
+			value: props.value,
+			onChange: changeHandler
 		},
-		function (_ref) {
-			var getInputProps = _ref.getInputProps,
-			    getItemProps = _ref.getItemProps,
-			    isOpen = _ref.isOpen,
-			    inputValue = _ref.inputValue,
-			    highlightedIndex = _ref.highlightedIndex,
-			    selectedItem = _ref.selectedItem;
+		props.options.map(function (item, i) {
+			var key = 'string' === typeof item.value ? item.value : i;
 			return _react2.default.createElement(
-				'div',
-				null,
-				_react2.default.createElement('input', getInputProps({
-					id: props.id
-				})),
-				isOpen ? _react2.default.createElement(
-					'div',
-					null,
-					props.options.filter(function (item) {
-						return !inputValue || item.value.includes(inputValue);
-					}).map(function (item, index) {
-						return _react2.default.createElement(
-							'div',
-							_extends({
-								key: item.value
-							}, getItemProps({
-								key: item.value,
-								index: index,
-								item: item,
-								style: {
-									backgroundColor: highlightedIndex === index ? 'lightgray' : 'white',
-									fontWeight: selectedItem === item ? 'bold' : 'normal'
-								},
-								className: 'caldera-config-option'
-							})),
-							item.value
-						);
-					})
-				) : null
+				'option',
+				{
+					key: key,
+					className: 'caldera-config-option',
+					value: item.value
+				},
+				item.label
 			);
-		}
+		})
 	);
 };
 
-SelectField.propTypes = _extends({}, _propTypes3.fieldPropTypes, {
-	isOpen: _propTypes2.default.bool
-});
+/**
+ * Prop definition for select fields
+ *
+ * @type {{}}
+ */
+SelectField.propTypes = _extends({}, _propTypes.fieldPropTypes);
+
+/**
+ * Default props for select fields
+ *
+ * @type {{options: Array}}
+ */
+SelectField.defaultProps = {
+	options: []
+};

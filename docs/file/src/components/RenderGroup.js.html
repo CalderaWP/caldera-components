@@ -35,6 +35,7 @@
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/RenderGroup.js~RenderGroup.html">RenderGroup</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields">components/fields</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-FieldGroup">FieldGroup</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-FieldInner">FieldInner</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addOrRemoveFromArray">addOrRemoveFromArray</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ariaDescribedbyAttr">ariaDescribedbyAttr</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getHtmlInputTypes">getHtmlInputTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isValidHtml5type">isValidHtml5type</a></span></span></li>
@@ -48,7 +49,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldSetFactory">fieldSetFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-prepareFieldConfig">prepareFieldConfig</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-input">components/fields/input</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Input">Input</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-select">components/fields/select</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SelectFieldFancy">SelectFieldFancy</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-select">components/fields/select</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SelectField">SelectField</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SelectFieldFancy">SelectFieldFancy</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -71,6 +73,8 @@ export class RenderGroup extends React.Component {
 	constructor(props){
 		super(props);
 		this.createComponents = this.createComponents.bind(this);
+
+
 	}
 
 	/**
@@ -89,11 +93,14 @@ export class RenderGroup extends React.Component {
 	 */
 	render(){
 		return(
-			&lt;div className={this.props.className ? this.props.className : &apos;&apos;}&gt;
+			&lt;div
+				className={this.props.className ? this.props.className : RenderGroup.classNames.renderGroupWrapper }
+			&gt;
 				{this.createComponents().map((configField,i) =&gt; {
 					return React.createElement(
-						React.Fragment, {
+						&apos;div&apos;, {
 							key: i,
+							className: RenderGroup.classNames.fieldGroup
 						},
 						configField
 					);
@@ -110,6 +117,19 @@ export class RenderGroup extends React.Component {
 RenderGroup.propTypes = {
 	configFields: propTypes.array.isRequired,
 	className: propTypes.string
+};
+
+/**
+ * Classnames for elements (wrappers, field groups and form fields)
+ *
+ * @type {{renderGroupWrapper: string, fieldWrapper: string}}
+ */
+RenderGroup.classNames = {
+	renderGroupWrapper: &apos;caldera-config-field-setup&apos;,
+	fieldGroup: &apos;caldera-config-group&apos;,
+	fieldWrapper: &apos;caldera-config-field&apos;,
+	input: &apos;field-config&apos;,
+
 };</code></pre>
 
 </div>

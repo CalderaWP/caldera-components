@@ -274,7 +274,7 @@ describe( 'The render group component', () => {
 			const wrapper = mount( <RenderGroup configFields={fieldConfigsForThisTest}/> );
 			expect(
 				wrapper.find('.caldera-config-field-setup').children().find('.caldera-config-group')
-			).toHaveLength(4);
+			).toHaveLength(2);
 		});
 
 		it( 'Matches snapshot', () => {

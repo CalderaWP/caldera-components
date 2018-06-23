@@ -31,8 +31,20 @@ window.esdocSearchIndex = [
   ],
   [
     "@caldera-labs/components/src/components/fields/select/selectfield.js~selectfield",
+    "function/index.html#static-function-SelectField",
+    "<span>SelectField</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/fields/select/SelectField.js</span>",
+    "function"
+  ],
+  [
+    "@caldera-labs/components/src/components/fields/select/selectfieldfancy.js~selectfieldfancy",
     "function/index.html#static-function-SelectFieldFancy",
-    "<span>SelectFieldFancy</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/fields/select/SelectFieldFancy.jscy.js</span>",
+    "<span>SelectFieldFancy</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/fields/select/SelectFieldFancy.js</span>",
+    "function"
+  ],
+  [
+    "@caldera-labs/components/src/components/fields/util.js~addorremovefromarray",
+    "function/index.html#static-function-addOrRemoveFromArray",
+    "<span>addOrRemoveFromArray</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/fields/util.js</span>",
     "function"
   ],
   [
@@ -493,8 +505,14 @@ window.esdocSearchIndex = [
   ],
   [
     "src/components/fields/select/selectfield.js",
-    "file/src/components/fields/select/SelectFieldFancyFancy.js.html",
-    "src/components/fields/select/SelectFieldFancyFancy.js",
+    "file/src/components/fields/select/SelectField.js.html",
+    "src/components/fields/select/SelectField.js",
+    "file"
+  ],
+  [
+    "src/components/fields/select/selectfieldfancy.js",
+    "file/src/components/fields/select/SelectFieldFancy.js.html",
+    "src/components/fields/select/SelectFieldFancy.js",
     "file"
   ],
   [

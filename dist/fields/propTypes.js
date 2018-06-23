@@ -18,7 +18,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  *
  * @type {shim}
  */
-var valuePropType = exports.valuePropType = _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number, _propTypes2.default.array]);
+var valuePropType = exports.valuePropType = _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number, _propTypes2.default.array, _propTypes2.default.bool]);
 
 /**
  * PropType for the field value change event used in multiple components
@@ -44,9 +44,10 @@ var fieldGroupPropTypes = exports.fieldGroupPropTypes = {
 	isRequired: _propTypes2.default.bool,
 	help: _propTypes2.default.string,
 	label: _propTypes2.default.string.isRequired,
-	type: _propTypes2.default.oneOf(['input']),
+	type: _propTypes2.default.oneOf(['input', 'select', 'fieldset']),
 	value: valuePropType,
 	onValueChange: onValueChangePropType,
+	options: _propTypes2.default.array,
 	inputType: inputTypeProp
 };
 
@@ -65,6 +66,5 @@ var fieldInnerPropTypes = exports.fieldInnerPropTypes = {
 };
 
 var fieldPropTypes = exports.fieldPropTypes = _extends({}, fieldInnerPropTypes, {
-	options: _propTypes2.default.array,
 	ariaDescribedbyAttr: _propTypes2.default.string
 });

@@ -35,6 +35,7 @@
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/RenderGroup.js~RenderGroup.html">RenderGroup</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields">components/fields</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-FieldGroup">FieldGroup</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-FieldInner">FieldInner</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addOrRemoveFromArray">addOrRemoveFromArray</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ariaDescribedbyAttr">ariaDescribedbyAttr</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getHtmlInputTypes">getHtmlInputTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isValidHtml5type">isValidHtml5type</a></span></span></li>
@@ -48,7 +49,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldSetFactory">fieldSetFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-prepareFieldConfig">prepareFieldConfig</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-input">components/fields/input</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Input">Input</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-select">components/fields/select</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SelectFieldFancy">SelectFieldFancy</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-select">components/fields/select</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SelectField">SelectField</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SelectFieldFancy">SelectFieldFancy</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -56,73 +58,155 @@
 <div class="content" data-ice="content"><h1 data-ice="title">src/components/fields/FieldGroup.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;;
 import classNames from &apos;classnames&apos;;
-import {ariaDescribedbyAttr} from &apos;./util&apos;;
+import {addOrRemoveFromArray, ariaDescribedbyAttr} from &apos;./util&apos;;
 import {
 	fieldGroupPropTypes,
 } from &apos;./propTypes&apos;;
 
 import {FieldInner} from &apos;./FieldInner&apos;;
 
-
+/**
+ * Represents one configField -- wrapper, label and input.
+ *
+ * @param props
+ * @return {*}
+ * @constructor
+ */
 export const FieldGroup = (props) =&gt; {
-	function idAttrFromProps() {
+
+	/**
+	 * Creates the id attribute
+	 * @return {String}
+	 */
+	function idAttrForHelpElement() {
 		return ariaDescribedbyAttr(props.id, props.help);
 	}
 
-	if( &apos;hidden&apos; === props.inputType ){
-		return (
-			FieldInner(
+	/**
+	 * Based on type, render the field.
+	 *
+	 * @return {*}
+	 */
+	function fieldInner(fieldProps){
+		function getFieldClassName(conditionalClassNames) {
+			return classNames(
+				&apos;field-config&apos;,
 				{
-					id: props.id,
-					fieldClassName: classNames(
-						&apos;field-config&apos;,
-						{
-							required: props.isRequired,
-						}
-					),
-					value:props.value,
-					onValueChange:props.onValueChange,
-					inputType: props.inputType
+					required: fieldProps.isRequired,
+					...conditionalClassNames
 				}
-			)
-		);
+			);
+		}
+
+		//Fieldsets are rendered recursively.
+		if( &apos;fieldset&apos; === fieldProps.type ){
+			return (
+				&lt;fieldset
+					id={props.id}
+				&gt;
+					&lt;legend&gt;
+						{props.label}
+					&lt;/legend&gt;
+					{props.options.map(option =&gt;  {
+						/**
+						 * Is this option the checked value?
+						 * @param {object}option
+						 * @param {String|number|Array} currentValue
+						 * @return {boolean}
+						 */
+						function isCheckedOption( option, currentValue){
+							if( Array.isArray( currentValue ) ){
+								return currentValue.includes(option.value);
+							}
+							return option.value === currentValue;
+						}
+
+						//Call this same function, as a regular checkbox
+						return (
+							&lt;React.Fragment
+								key={ `${props.id}-${option.value}` }
+							&gt;
+								{fieldInner({
+									type: &apos;input&apos;,
+									inputType: &apos;checkbox&apos;,
+									id: `${props.id}-${option.value}`,
+									value: isCheckedOption(option,props.value),
+									fieldClassName: getFieldClassName({
+										&apos;fieldset-checkbox&apos; : true,
+									}),
+									label: option.label,
+									onValueChange: () =&gt; {
+										let values = props.value;
+										if( ! Array.isArray( values) ){
+											if( &apos;string&apos; === typeof values || &apos;number&apos; === typeof  values ){
+												values = [values];
+											}else{
+												values = [];
+
+											}
+										}
+										values = addOrRemoveFromArray( option.value, values );
+										props.onValueChange(values);
+									}
+								})}
+							&lt;/React.Fragment&gt;
+						);
+					})}
+				&lt;/fieldset&gt;
+			);
+		}else if( &apos;hidden&apos; === fieldProps.inputType ){
+			return (
+				FieldInner(
+					{
+						type: props.type,
+						id: props.id,
+						fieldClassName: getFieldClassName(),
+						value:fieldProps.value,
+						onValueChange:fieldProps.onValueChange,
+						inputType: fieldProps.inputType
+					}
+				)
+			);
+		}else{
+			return (
+				&lt;React.Fragment&gt;
+					&lt;label
+						htmlFor={fieldProps.id}
+					&gt;
+						{fieldProps.label}
+					&lt;/label&gt;
+					{FieldInner(
+						{
+							type: fieldProps.type,
+							id: fieldProps.id,
+							fieldClassName: getFieldClassName({
+								&apos;block-input&apos;: fieldProps.isBlockInput
+							}),
+							help:fieldProps.help,
+							value:fieldProps.value,
+							onValueChange:fieldProps.onValueChange,
+							inputType: fieldProps.inputType,
+							options: fieldProps.options
+						}
+					)}
+					{fieldProps.help &amp;&amp;
+					&lt;p
+						id={`${idAttrForHelpElement()}`}
+						className={&apos;description&apos;}
+					&gt;
+						{fieldProps.help}
+					&lt;/p&gt;
+					}
+				&lt;/React.Fragment&gt;
+			);
+		}
+
 	}
 
-	return (
-		&lt;div
-			className={&apos;caldera-config-group&apos;}
-		&gt;
-			&lt;label
-				htmlFor={props.id}
-			&gt;
-				{props.label}
-			&lt;/label&gt;
-			{FieldInner(
-				{
-					id: props.id,
-					fieldClassName: classNames(
-						&apos;field-config&apos;,
-						{
-							required: props.isRequired,
-							&apos;block-input&apos;: props.isBlockInput
-						}
-					),
-					help:props.help,
-					value:props.value,
-					onValueChange:props.onValueChange,
-					inputType: props.inputType
-				}
-			)}
-			{props.help &amp;&amp;
-				&lt;p
-					id={`${idAttrFromProps()}`}
-					className={&apos;description&apos;}
-				&gt;
-					{props.help}
-				&lt;/p&gt;
-			}
-		&lt;/div&gt;
-	);
+	/**
+	 * Render field group
+	 */
+	return fieldInner(props);
 };
 
 

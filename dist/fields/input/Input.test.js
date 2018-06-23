@@ -106,4 +106,58 @@ describe('Input component', function () {
 			});
 		});
 	});
+
+	describe('Checkbox', function () {
+		describe('props for checkboxes', function () {
+			it('Can be a checkbox', function () {
+				var component = _reactTestRenderer2.default.create(_react2.default.createElement(_Input.Input, {
+					id: 'check1',
+					fieldClassName: 'check1',
+					onValueChange: function onValueChange() {},
+					value: 'true',
+					inputType: 'checkbox'
+				}));
+				expect(component.toJSON()).toMatchSnapshot();
+			});
+
+			it('Has checkbox type', function () {
+				var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_Input.Input, {
+					id: 'check2',
+					fieldClassName: 'check1',
+					onValueChange: function onValueChange() {},
+					value: 'true',
+					inputType: 'checkbox'
+				}));
+				expect(wrapper.find('input').prop('type')).toEqual('checkbox');
+			});
+
+			it('Sets defaultChecked prop to true', function () {
+				var value = true;
+				var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_Input.Input, {
+					id: 'check5',
+					fieldClassName: 'check1',
+					onValueChange: function onValueChange(newValue) {
+						value = newValue;
+					},
+					value: value,
+					inputType: 'checkbox'
+				}));
+				expect(wrapper.find('input').prop('defaultChecked')).toEqual(true);
+			});
+
+			it('Sets defaultChecked prop to false', function () {
+				var value = false;
+				var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_Input.Input, {
+					id: 'check6',
+					fieldClassName: 'check1',
+					onValueChange: function onValueChange(newValue) {
+						value = newValue;
+					},
+					value: value,
+					inputType: 'checkbox'
+				}));
+				expect(wrapper.find('input').prop('defaultChecked')).toEqual(false);
+			});
+		});
+	});
 });

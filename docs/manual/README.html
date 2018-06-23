@@ -40,6 +40,7 @@
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#text-field-with-help-text" data-ice="link">Text field with help text</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#number-field" data-ice="link">Number Field</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#select-fields" data-ice="link">Select Fields</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#fieldsets" data-ice="link">Fieldsets</a></li>
 </ul>
   </div>
 <div data-ice="manual">
@@ -67,6 +68,7 @@
 <li data-ice="manualNav" class="indent-h2" data-link="manual/testing.html"><a href="manual/testing.html#dom-testing" data-ice="link">DOM Testing</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#example" data-ice="link">Example</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#important-notes" data-ice="link">Important Notes</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#what-to-test" data-ice="link">What To Test</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#shallow-vs-full-rendering" data-ice="link">shallow vs full rendering</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#be-careful-about-copying-from-enzyme--39-s-docs" data-ice="link">Be careful about copying from Enzyme&apos;s docs</a></li>
 </ul>
@@ -77,9 +79,9 @@
     <li data-ice="manualNav" class="indent-h1" data-link="manual/README.html"><a href="manual/README.html" data-ice="link">Caldera Components</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#what-is-this-" data-ice="link">What Is This?</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#why-is-this-" data-ice="link">Why Is This?</a></li>
-<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#how-to-use-this" data-ice="link">How To Use This</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#usage" data-ice="link">Usage</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#install" data-ice="link">Install</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#usage" data-ice="link">Usage</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#using-this-library" data-ice="link">Using This Library</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/README.html"><a href="manual/README.html#basic-example" data-ice="link">Basic Example</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#how-to-develop-this" data-ice="link">How To Develop This</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#development-requirements" data-ice="link">Development Requirements</a></li>
@@ -97,23 +99,26 @@
 
 <div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="caldera-components">Caldera Components</h1><p>UI components for Caldera Forms admin, Caldera Forms 2.0 front-end</p>
 <p><a href="https://travis-ci.org/calderawp/caldera-components"><img src="https://travis-ci.org/calderawp/caldera-components.svg?branch=master" alt="Build Status"></a>
-<a href="https://coveralls.io/github/calderawp/caldera-components?branch=master"><img src="https://coveralls.io/repos/github/calderawp/caldera-components/badge.svg?branch=master" alt="Coverage Status"></a></p>
+<a href="https://coveralls.io/github/calderawp/caldera-components?branch=master"><img src="https://coveralls.io/repos/github/calderawp/caldera-components/badge.svg?branch=master" alt="Coverage Status"></a>
+<a href="https://calderalabs.org/caldera-components/source.html"><img src="https://calderalabs.org/caldera-components/badge.svg" alt="Coverage Status"></a></p>
 <p>&#x1F30B; <a href="http://calderalabs.org/caldera-components/">Documentation</a></p>
 <h2 id="what-is-this-">What Is This?</h2><ul>
 <li>React components for Caldera Forms</li>
 <li>Factories for generating UI dynamically.</li>
 </ul>
 <h2 id="why-is-this-">Why Is This?</h2><p><a href="http://calderalabs.org/caldera-components/#goals">See goals</a></p>
-<h2 id="how-to-use-this">How To Use This</h2><h3 id="install">Install</h3><p><code>npm i -D @caldera-labs/components</code></p>
-<h3 id="usage">Usage</h3><ul>
-<li><a href="http://calderalabs.org/caldera-components/manual/components.html">Components</a></li>
-<li><a href="http://calderalabs.org/caldera-components/manual/factories.html">Factories</a></li>
-<li>Import From Webpack<ul>
+<h2 id="usage">Usage</h2><h3 id="install">Install</h3><p><code>npm i -D @caldera-labs/components</code></p>
+<h3 id="using-this-library">Using This Library</h3><ul>
+<li>&#x1F30B; <a href="http://calderalabs.org/caldera-components/manual/components.html">Components</a></li>
+<li>&#x1F30B; <a href="http://calderalabs.org/caldera-components/manual/factories.html">Factories</a></li>
+<li>&#x1F30B; &#x1F30B; Import From Webpack<ul>
 <li><code>import * as CalderaComponents from &apos;@caldera-labs/components&apos;;</code></li>
 </ul>
 </li>
+<li>The reference implementation of this library is <a href="https://github.com/CalderaWP/processor-ui"><code>@caldera-labs/processor-ui</code></a></li>
 </ul>
-<h4 id="basic-example">Basic Example</h4><pre><code class="lang-jsx"><code class="source-code prettyprint">import * as CalderaComponents from &apos;@caldera-labs/components&apos;;
+<h4 id="basic-example">Basic Example</h4><p>The easiest way to use this library is with the <a href="https://calderalabs.org/caldera-components/manual/components.html#rendergroup"><code>RenderGroup</code> component</a>. This component takes an array of configField settings. These settings follow a schema, <a href="https://calderalabs.org/caldera-components/manual/factories.html#configfield-schema">defined here</a>.</p>
+<pre><code class="lang-jsx"><code class="source-code prettyprint">import * as CalderaComponents from &apos;@caldera-labs/components&apos;;
 import React from &apos;react&apos;;
 
 &lt;CalderaComponents.RenderGroup 

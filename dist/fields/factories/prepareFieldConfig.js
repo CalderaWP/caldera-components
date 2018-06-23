@@ -20,6 +20,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  * @returns {*}
  */
 var prepareFieldConfig = exports.prepareFieldConfig = function prepareFieldConfig(fieldArgs) {
+	/**
+  * Pick whitlisted keys from object
+  *
+  * @see http://www.jstips.co/en/javascript/picking-and-rejecting-object-properties/
+  *
+  * @param {Object} obj The object to pick from
+  * @param {Array} keys The whitelist of keys
+  * @return {*}
+  */
 	function pick(obj, keys) {
 		return keys.map(function (k) {
 			return k in obj ? _defineProperty({}, k, obj[k]) : {};
@@ -29,6 +38,13 @@ var prepareFieldConfig = exports.prepareFieldConfig = function prepareFieldConfi
 	}
 
 	switch (fieldArgs.type) {
+		case 'select':
+		case 'dropdown':
+			fieldArgs.type = 'select';
+			break;
+		case 'fieldset':
+			fieldArgs.type = 'fieldset';
+			break;
 		case 'text':
 		case 'number':
 		default:
@@ -36,6 +52,7 @@ var prepareFieldConfig = exports.prepareFieldConfig = function prepareFieldConfi
 			fieldArgs.type = 'input';
 			break;
 	}
+
 	if (fieldArgs.hasOwnProperty('desc')) {
 		fieldArgs.help = fieldArgs.desc;
 	}

@@ -13,27 +13,31 @@ exports[`The render group component Rendering with fields Works with a few field
   <div
     className="caldera-config-group"
   >
-    <label
-      htmlFor="cf-something-apikey"
+    <div
+      className="caldera-config-field"
     >
-      API Key
-    </label>
-    <input
-      aria-describedby={null}
-      className="field-config caldera-config-group field-config"
-      id="cf-something-apikey"
-      onChange={[Function]}
-      required={false}
-      type="text"
-      value={undefined}
-    />
+      <label
+        htmlFor="cf-something-apikey"
+      >
+        API Key
+      </label>
+      <input
+        aria-describedby={null}
+        className="field-config field-config"
+        id="cf-something-apikey"
+        onChange={[Function]}
+        required={false}
+        type="text"
+        value={undefined}
+      />
+    </div>
   </div>
   <div
     className="caldera-config-group"
   >
     <input
       aria-describedby={null}
-      className="field-config caldera-config-group field-config"
+      className="field-config field-config"
       id="cf-something-sequence-id"
       onChange={[Function]}
       required={false}
@@ -44,20 +48,24 @@ exports[`The render group component Rendering with fields Works with a few field
   <div
     className="caldera-config-group"
   >
-    <label
-      htmlFor="cf-something-tags"
+    <div
+      className="caldera-config-field"
     >
-      Tags
-    </label>
-    <input
-      aria-describedby={null}
-      className="field-config caldera-config-group field-config"
-      id="cf-something-tags"
-      onChange={[Function]}
-      required={false}
-      type="text"
-      value={undefined}
-    />
+      <label
+        htmlFor="cf-something-tags"
+      >
+        Tags
+      </label>
+      <input
+        aria-describedby={null}
+        className="field-config field-config"
+        id="cf-something-tags"
+        onChange={[Function]}
+        required={false}
+        type="text"
+        value={undefined}
+      />
+    </div>
   </div>
 </div>
 `;
@@ -69,20 +77,24 @@ exports[`The render group component Rendering with fields Works with one text fi
   <div
     className="caldera-config-group"
   >
-    <label
-      htmlFor="sz"
+    <div
+      className="caldera-config-field"
     >
-      Tags
-    </label>
-    <input
-      aria-describedby={null}
-      className="field-config caldera-config-group field-config"
-      id="sz"
-      onChange={[Function]}
-      required={false}
-      type="text"
-      value={undefined}
-    />
+      <label
+        htmlFor="sz"
+      >
+        Tags
+      </label>
+      <input
+        aria-describedby={null}
+        className="field-config field-config"
+        id="sz"
+        onChange={[Function]}
+        required={false}
+        type="text"
+        value={undefined}
+      />
+    </div>
   </div>
 </div>
 `;
@@ -94,38 +106,46 @@ exports[`The render group component class structure Matches snapshot 1`] = `
   <div
     className="caldera-config-group"
   >
-    <label
-      htmlFor="cf-something-else"
+    <div
+      className="caldera-config-field"
     >
-      Thing
-    </label>
-    <input
-      aria-describedby={null}
-      className="field-config caldera-config-group field-config"
-      id="cf-something-else"
-      onChange={[Function]}
-      required={false}
-      type="text"
-      value={undefined}
-    />
+      <label
+        htmlFor="cf-something-else"
+      >
+        Thing
+      </label>
+      <input
+        aria-describedby={null}
+        className="field-config field-config"
+        id="cf-something-else"
+        onChange={[Function]}
+        required={false}
+        type="text"
+        value={undefined}
+      />
+    </div>
   </div>
   <div
     className="caldera-config-group"
   >
-    <label
-      htmlFor="cf-something-tags"
+    <div
+      className="caldera-config-field"
     >
-      Tags
-    </label>
-    <input
-      aria-describedby={null}
-      className="field-config caldera-config-group field-config"
-      id="cf-something-tags"
-      onChange={[Function]}
-      required={false}
-      type="text"
-      value={undefined}
-    />
+      <label
+        htmlFor="cf-something-tags"
+      >
+        Tags
+      </label>
+      <input
+        aria-describedby={null}
+        className="field-config field-config"
+        id="cf-something-tags"
+        onChange={[Function]}
+        required={false}
+        type="text"
+        value={undefined}
+      />
+    </div>
   </div>
 </div>
 `;

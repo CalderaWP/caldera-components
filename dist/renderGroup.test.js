@@ -88,40 +88,6 @@ describe('The render group component', function () {
 			expect(wrapper.find('.x1').children()).toHaveLength(4);
 		});
 
-		it('Wraps groups in div', function () {
-			var thisConfigFields = [{
-				'id': 'sz',
-				'label': 'Tags',
-				'desc': 'Comma separated list of tags.',
-				'type': 'text',
-				'description': false,
-				onValueChange: genericHandler
-			}];
-			var props = {
-				configFields: thisConfigFields
-			};
-			var component = new _RenderGroup.RenderGroup(props);
-			var wrapper = (0, _enzyme.shallow)(component.createComponents()[0]);
-			expect(wrapper.type()).toBe('div');
-		});
-
-		it('Creates the inner input', function () {
-			var thisConfigFields = [{
-				'id': 'sz',
-				'label': 'Tags',
-				'desc': 'Comma separated list of tags.',
-				'type': 'text',
-				'description': false,
-				onValueChange: genericHandler
-			}];
-			var props = {
-				configFields: thisConfigFields
-			};
-			var component = new _RenderGroup.RenderGroup(props);
-			var wrapper = (0, _enzyme.mount)(component.createComponents()[0]);
-			expect(wrapper.find('input')).toHaveLength(1);
-		});
-
 		it('Adds the description', function () {
 			var thisConfigFields = [{
 				'id': 'sz',
@@ -230,5 +196,85 @@ describe('The render group component', function () {
 			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_RenderGroup.RenderGroup, { configFields: thisConfigFields }));
 			expect(wrapper.find('label').text()).toEqual(thisConfigFields[0].label);
 		});
+	});
+
+	var fieldSetField = {
+		id: 'fieldset-3',
+		label: 'How many?',
+		type: 'fieldset',
+		options: [{
+			value: 1,
+			label: 'One'
+		}, {
+			value: 2,
+			label: 'Two'
+		}],
+		value: [],
+		onValueChange: genericHandler
+	};
+
+	describe('fieldsets', function () {
+		it('Outputs a fieldset', function () {
+			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_RenderGroup.RenderGroup, { configFields: [fieldSetField] }));
+			expect(wrapper.find('fieldset')).toHaveLength(1);
+		});
+
+		it('has inputs in the fieldset', function () {
+			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_RenderGroup.RenderGroup, { configFields: [fieldSetField] }));
+			expect(wrapper.find('fieldset').children().find('input')).toHaveLength(2);
+		});
+
+		it('has inputs that are checbkoxes in the fieldset', function () {
+			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_RenderGroup.RenderGroup, { configFields: [fieldSetField] }));
+			expect(wrapper.find('fieldset').children().find('input').first().prop('type')).toEqual('checkbox');
+		});
+	});
+
+	describe('class structure', function () {
+		var fieldConfigsForThisTest = [{
+			'id': 'cf-something-else',
+			'label': 'Thing',
+			'type': 'text',
+			onValueChange: genericHandler
+		}, textFieldConfig];
+
+		it('Puts .caldera-config-field-setup on outermost element', function () {
+			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_RenderGroup.RenderGroup, { configFields: fieldConfigsForThisTest }));
+			expect(wrapper.find('.caldera-config-field-setup')).toHaveLength(1);
+		});
+
+		it('It puts .caldera-config-group around each group', function () {
+			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_RenderGroup.RenderGroup, { configFields: fieldConfigsForThisTest }));
+			expect(wrapper.find('.caldera-config-field-setup').children().find('.caldera-config-group')).toHaveLength(4);
+		});
+
+		it('Matches snapshot', function () {
+			var component = _reactTestRenderer2.default.create(_react2.default.createElement(_RenderGroup.RenderGroup, { configFields: fieldConfigsForThisTest }));
+			expect(component.toJSON()).toMatchSnapshot();
+		});
+	});
+
+	describe('Select fields have options', function () {
+		var selectFieldConfig = {
+			'id': 'cf-something-select-id',
+			'type': 'dropdown',
+			'label': 'Content type',
+			'description': 'Choose content type, default is HTML',
+			options: [{
+				label: 'HTML',
+				value: 'html'
+			}, {
+				label: 'Plain Text',
+				value: 'plain'
+			}, {
+				label: 'Imaginary',
+				value: 'imaginary'
+			}],
+			value: '',
+			onValueChange: genericHandler
+		};
+
+		var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_RenderGroup.RenderGroup, { configFields: [selectFieldConfig] }));
+		expect(wrapper.find('select').children().find('option')).toHaveLength(3);
 	});
 });

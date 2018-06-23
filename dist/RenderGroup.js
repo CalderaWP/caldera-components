@@ -41,6 +41,7 @@ var RenderGroup = exports.RenderGroup = function (_React$Component) {
 		var _this = _possibleConstructorReturn(this, (RenderGroup.__proto__ || Object.getPrototypeOf(RenderGroup)).call(this, props));
 
 		_this.createComponents = _this.createComponents.bind(_this);
+
 		return _this;
 	}
 
@@ -68,10 +69,13 @@ var RenderGroup = exports.RenderGroup = function (_React$Component) {
 		value: function render() {
 			return _react2.default.createElement(
 				'div',
-				{ className: this.props.className ? this.props.className : '' },
+				{
+					className: this.props.className ? this.props.className : RenderGroup.classNames.renderGroupWrapper
+				},
 				this.createComponents().map(function (configField, i) {
-					return _react2.default.createElement(_react2.default.Fragment, {
-						key: i
+					return _react2.default.createElement('div', {
+						key: i,
+						className: RenderGroup.classNames.fieldGroup
 					}, configField);
 				})
 			);
@@ -90,4 +94,17 @@ var RenderGroup = exports.RenderGroup = function (_React$Component) {
 RenderGroup.propTypes = {
 	configFields: _propTypes2.default.array.isRequired,
 	className: _propTypes2.default.string
+};
+
+/**
+ * Classnames for elements (wrappers, field groups and form fields)
+ *
+ * @type {{renderGroupWrapper: string, fieldWrapper: string}}
+ */
+RenderGroup.classNames = {
+	renderGroupWrapper: 'caldera-config-field-setup',
+	fieldGroup: 'caldera-config-group',
+	fieldWrapper: 'caldera-config-field',
+	input: 'field-config'
+
 };

@@ -40,6 +40,7 @@
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#text-field-with-help-text" data-ice="link">Text field with help text</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#number-field" data-ice="link">Number Field</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#select-fields" data-ice="link">Select Fields</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#fieldsets" data-ice="link">Fieldsets</a></li>
 </ul>
   </div>
 <div data-ice="manual">
@@ -67,6 +68,7 @@
 <li data-ice="manualNav" class="indent-h2" data-link="manual/testing.html"><a href="manual/testing.html#dom-testing" data-ice="link">DOM Testing</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#example" data-ice="link">Example</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#important-notes" data-ice="link">Important Notes</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#what-to-test" data-ice="link">What To Test</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#shallow-vs-full-rendering" data-ice="link">shallow vs full rendering</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#be-careful-about-copying-from-enzyme--39-s-docs" data-ice="link">Be careful about copying from Enzyme&apos;s docs</a></li>
 </ul>
@@ -77,9 +79,9 @@
     <li data-ice="manualNav" class="indent-h1" data-link="manual/README.html"><a href="manual/README.html" data-ice="link">Caldera Components</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#what-is-this-" data-ice="link">What Is This?</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#why-is-this-" data-ice="link">Why Is This?</a></li>
-<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#how-to-use-this" data-ice="link">How To Use This</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#usage" data-ice="link">Usage</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#install" data-ice="link">Install</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#usage" data-ice="link">Usage</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#using-this-library" data-ice="link">Using This Library</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/README.html"><a href="manual/README.html#basic-example" data-ice="link">Basic Example</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#how-to-develop-this" data-ice="link">How To Develop This</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#development-requirements" data-ice="link">Development Requirements</a></li>
@@ -214,7 +216,7 @@ const configFields = [
 <h2 id="select-fields">Select Fields</h2><ul>
 <li><a href="https://calderalabs.org/caldera-components/function/index.html#static-function-SelectField">Reference</a></li>
 </ul>
-<pre><code class="lang-jsx"><code class="source-code prettyprint">import {SelectFieldFancy} from &apos;@caldera-labs/components/src/components/fields/select/SelectFieldFancy.jscy.js&apos;
+<pre><code class="lang-jsx"><code class="source-code prettyprint">import {SelectFieldFancy} from &apos;@caldera-labs/components/src/components/fields/select/SelectFieldFancyFancy.js&apos;
 
 &lt;SelectFieldFancy
     id={&apos;number-of-things&apos;} //ID attribute for input
@@ -235,6 +237,31 @@ const configFields = [
     value={&apos;2&apos;} //The current value
 /&gt;
 </code>
+</code></pre>
+<h2 id="fieldsets">Fieldsets</h2><p>For a <code>&lt;fieldset&gt;</code> element containing checkboxes, pass the value <code>fieldset</code> to the `type</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">//Value is an array.
+let checkBoxValue = [&apos;1&apos;];
+
+&lt;FieldGroup
+    type={&apos;fieldset&apos;} //Create a ground of checkboxes wrapped in a field set
+    label={&apos;Checkbox group&apos;} //Used for the &lt;legend&gt;
+    value={checkBoxValue} //value(s)
+    id={&apos;Checkbox1&apos;} //id attribute for &lt;fieldset&gt;
+    onValueChange={(newValue) =&gt; {
+        //logic of removing/adding from array is handled internally
+        checkBoxValue = newValue;
+    }}
+    options={[
+        {
+            value: &apos;1&apos;, //this value is in array so box will be checked by default
+            label: &apos;One&apos;// Used for this checkbox&apos;s &lt;label&gt;
+        },
+        {
+            value: &apos;2&apos;, //this value is NOT in array so box will NOT be checked by default
+            label: &apos;Two&apos;// Used for this checkbox&apos;s &lt;label&gt;
+        }
+    ]}
+/&gt;</code>
 </code></pre>
 </div>
 </div>

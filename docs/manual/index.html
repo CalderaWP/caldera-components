@@ -40,6 +40,7 @@
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#text-field-with-help-text" data-ice="link">Text field with help text</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#number-field" data-ice="link">Number Field</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#select-fields" data-ice="link">Select Fields</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#fieldsets" data-ice="link">Fieldsets</a></li>
 </ul>
   </div>
 <div data-ice="manual">
@@ -67,6 +68,7 @@
 <li data-ice="manualNav" class="indent-h2" data-link="manual/testing.html"><a href="manual/testing.html#dom-testing" data-ice="link">DOM Testing</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#example" data-ice="link">Example</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#important-notes" data-ice="link">Important Notes</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#what-to-test" data-ice="link">What To Test</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#shallow-vs-full-rendering" data-ice="link">shallow vs full rendering</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#be-careful-about-copying-from-enzyme--39-s-docs" data-ice="link">Be careful about copying from Enzyme&apos;s docs</a></li>
 </ul>
@@ -77,9 +79,9 @@
     <li data-ice="manualNav" class="indent-h1" data-link="manual/README.html"><a href="manual/README.html" data-ice="link">Caldera Components</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#what-is-this-" data-ice="link">What Is This?</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#why-is-this-" data-ice="link">Why Is This?</a></li>
-<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#how-to-use-this" data-ice="link">How To Use This</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#usage" data-ice="link">Usage</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#install" data-ice="link">Install</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#usage" data-ice="link">Usage</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#using-this-library" data-ice="link">Using This Library</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/README.html"><a href="manual/README.html#basic-example" data-ice="link">Basic Example</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#how-to-develop-this" data-ice="link">How To Develop This</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#development-requirements" data-ice="link">Development Requirements</a></li>
@@ -99,8 +101,72 @@
   <div class="manual-user-index" data-ice="manualUserIndex"><h1 id="caldera-components">Caldera Components</h1><h2 id="goals">Goals</h2><ul>
 <li>Have a repeatable systems for creating fields and field configuration for the Caldera Forms admin interface.</li>
 <li>Have a factory that can consume a configuration like <a href="https://calderaforms.com/doc/creating-caldera-forms-processors-using-caldera_forms_processor_processor-class/">the PHP class <code>Caldera_Forms_Processor_UI</code></a> but beacuse the factory runs client-side, they can update in real time.</li>
-<li>Wrap this in a processor UI library that can dynamically generate processor configs, using an array managed by redux.</li>
+<li>Wrap this in <a href="https://github.com/CalderaWP/caldera-processors">a processor UI library</a> that can dynamically generate processor configs, using an array managed by redux.</li>
 </ul>
+<h2 id="structure-of-class-attributes">Structure of class attributes</h2><p>The goal is to always get these classes from the <code>RenderGroup</code>&apos;s property <code>classNames</code>. That&apos;s currently partially true. This SHOULD be the single source of truth for classNames that are universally applied to these types of elements.</p>
+<pre><code class="lang-html"><code class="source-code prettyprint">&lt;div class=&quot;caldera-config-field-setup&quot;&gt;
+    &lt;div class=&quot;caldera-config-group &quot;&gt;
+        &lt;label 
+            for=&quot;example-1&quot;&gt;
+                First Name
+        &lt;/label&gt;
+        &lt;div class=&quot;caldera-config-field &quot;&gt;
+            &lt;input 
+                type=&quot;text&quot; 
+                id=&quot;example-1&quot;
+                class=&quot;block-input field-config  required&quot;
+             /&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;caldera-config-group&quot;&gt;
+        &lt;label 
+            for=&quot;example-2&quot;&gt;
+                Last Name
+        &lt;/label&gt;
+        &lt;div class=&quot;caldera-config-field &quot;&gt;
+            &lt;input 
+                type=&quot;text&quot; 
+                id=&quot;example-2&quot;
+                class=&quot;block-input field-config required&quot;
+             /&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;caldera-config-group&quot;&gt;
+            &lt;fieldset&gt;
+                &lt;legend&gt;
+                    Humanoid? Check All That Apply
+                &lt;/legend&gt;
+                &lt;div class=&quot;caldera-config-field&quot;&gt;
+                    &lt;label for=&quot;organic-human&quot;&gt;
+                        Organic Human
+                    &lt;/label&gt;
+                    &lt;input 
+                        id=&quot;organic-human&quot; 
+                        type=&quot;checkbox&quot; 
+                        class=&quot;field-config&quot;
+                    /&gt;
+                    &lt;label for=&quot;andorid&quot;&gt;
+                        Humanoid Android
+                    &lt;/label&gt;
+                    &lt;input 
+                        id=&quot;andorid&quot; 
+                        type=&quot;checkbox&quot; 
+                        class=&quot;field-config&quot;
+                    /&gt;
+                    &lt;label for=&quot;alien&quot;&gt;
+                       Humanoid Alien
+                    &lt;/label&gt;
+                    &lt;input 
+                        id=&quot;alien&quot; 
+                        type=&quot;checkbox&quot; 
+                        class=&quot;field-config&quot;
+                    /&gt;
+                &lt;/div&gt;
+            &lt;/fieldset&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+</code>
+</code></pre>
 </div>
 
   
@@ -216,7 +282,7 @@ const configFields = [
 </code>
 </code></pre><h2>Select Fields</h2><ul>
 <li><a href="https://calderalabs.org/caldera-components/function/index.html#static-function-SelectField">Reference</a></li>
-</ul><pre><code class="lang-jsx"><code class="source-code prettyprint">import {SelectFieldFancy} from &apos;@caldera-labs/components/src/components/fields/select/SelectFieldFancy.jscy.js&apos;
+</ul><pre><code class="lang-jsx"><code class="source-code prettyprint">import {SelectFieldFancy} from &apos;@caldera-labs/components/src/components/fields/select/SelectFieldFancyFancy.js&apos;
 
 &lt;SelectFieldFancy
     id={&apos;number-of-things&apos;} //ID attribute for input
@@ -237,6 +303,29 @@ const configFields = [
     value={&apos;2&apos;} //The current value
 /&gt;
 </code>
+</code></pre><h2>Fieldsets</h2><p>For a <code>&lt;fieldset&gt;</code> element containing checkboxes, pass the value <code>fieldset</code> to the `type</p><pre><code class="lang-js"><code class="source-code prettyprint">//Value is an array.
+let checkBoxValue = [&apos;1&apos;];
+
+&lt;FieldGroup
+    type={&apos;fieldset&apos;} //Create a ground of checkboxes wrapped in a field set
+    label={&apos;Checkbox group&apos;} //Used for the &lt;legend&gt;
+    value={checkBoxValue} //value(s)
+    id={&apos;Checkbox1&apos;} //id attribute for &lt;fieldset&gt;
+    onValueChange={(newValue) =&gt; {
+        //logic of removing/adding from array is handled internally
+        checkBoxValue = newValue;
+    }}
+    options={[
+        {
+            value: &apos;1&apos;, //this value is in array so box will be checked by default
+            label: &apos;One&apos;// Used for this checkbox&apos;s &lt;label&gt;
+        },
+        {
+            value: &apos;2&apos;, //this value is NOT in array so box will NOT be checked by default
+            label: &apos;Two&apos;// Used for this checkbox&apos;s &lt;label&gt;
+        }
+    ]}
+/&gt;</code>
 </code></pre></div>
         <a data-ice="link" href="manual/components.html"></a>
       </div>
@@ -374,7 +463,7 @@ it( &apos;Has the right wrapper class&apos;, () =&gt; {
     /&gt;);
     expect(wrapper.find(&apos;div.caldera-config-group&apos;).length).toBe(1);
 });</code>
-</code></pre><h3>Important Notes</h3><h3>shallow vs full rendering</h3><p>Shallow rendering is preferred. Full rendering with <code>mount</code> should be used for containers or testing decedents of a component.</p><ul>
+</code></pre><h3>Important Notes</h3><h3>What To Test</h3><p>EVERYTHING! LOL.</p><p><a href="https://github.com/airbnb/enzyme/issues/952#issuecomment-303238446">Don&apos;t test React, test our components.</a> </p><h3>shallow vs full rendering</h3><p>Shallow rendering is preferred. Full rendering with <code>mount</code> should be used for containers or testing decedents of a component.</p><ul>
 <li><a href="http://airbnb.io/enzyme/docs/api/shallow.html">http://airbnb.io/enzyme/docs/api/shallow.html</a></li>
 <li><a href="http://airbnb.io/enzyme/docs/api/mount.html">http://airbnb.io/enzyme/docs/api/mount.html</a></li>
 </ul><h3>Be careful about copying from Enzyme&apos;s docs</h3><p>Enzyme&apos;s docs use a different assertion library than we do. Therefore examples like this:</p><pre><code><code class="source-code prettyprint">it(&apos;allows us to set props&apos;, () =&gt; {
@@ -392,17 +481,19 @@ it( &apos;Has the right wrapper class&apos;, () =&gt; {
 <div class="manual-card-wrap" data-ice="cards">
       <div class="manual-card">
         <div data-ice="card"><h1>Caldera Components</h1><p>UI components for Caldera Forms admin, Caldera Forms 2.0 front-end</p><p><a href="https://travis-ci.org/calderawp/caldera-components"><img src="https://travis-ci.org/calderawp/caldera-components.svg?branch=master" alt="Build Status"></a>
-<a href="https://coveralls.io/github/calderawp/caldera-components?branch=master"><img src="https://coveralls.io/repos/github/calderawp/caldera-components/badge.svg?branch=master" alt="Coverage Status"></a></p><p>&#x1F30B; <a href="http://calderalabs.org/caldera-components/">Documentation</a></p><h2>What Is This?</h2><ul>
+<a href="https://coveralls.io/github/calderawp/caldera-components?branch=master"><img src="https://coveralls.io/repos/github/calderawp/caldera-components/badge.svg?branch=master" alt="Coverage Status"></a>
+<a href="https://calderalabs.org/caldera-components/source.html"><img src="https://calderalabs.org/caldera-components/badge.svg" alt="Coverage Status"></a></p><p>&#x1F30B; <a href="http://calderalabs.org/caldera-components/">Documentation</a></p><h2>What Is This?</h2><ul>
 <li>React components for Caldera Forms</li>
 <li>Factories for generating UI dynamically.</li>
-</ul><h2>Why Is This?</h2><p><a href="http://calderalabs.org/caldera-components/#goals">See goals</a></p><h2>How To Use This</h2><h3>Install</h3><p><code>npm i -D @caldera-labs/components</code></p><h3>Usage</h3><ul>
-<li><a href="http://calderalabs.org/caldera-components/manual/components.html">Components</a></li>
-<li><a href="http://calderalabs.org/caldera-components/manual/factories.html">Factories</a></li>
-<li>Import From Webpack<ul>
+</ul><h2>Why Is This?</h2><p><a href="http://calderalabs.org/caldera-components/#goals">See goals</a></p><h2>Usage</h2><h3>Install</h3><p><code>npm i -D @caldera-labs/components</code></p><h3>Using This Library</h3><ul>
+<li>&#x1F30B; <a href="http://calderalabs.org/caldera-components/manual/components.html">Components</a></li>
+<li>&#x1F30B; <a href="http://calderalabs.org/caldera-components/manual/factories.html">Factories</a></li>
+<li>&#x1F30B; &#x1F30B; Import From Webpack<ul>
 <li><code>import * as CalderaComponents from &apos;@caldera-labs/components&apos;;</code></li>
 </ul>
 </li>
-</ul><h4>Basic Example</h4><pre><code class="lang-jsx"><code class="source-code prettyprint">import * as CalderaComponents from &apos;@caldera-labs/components&apos;;
+<li>The reference implementation of this library is <a href="https://github.com/CalderaWP/processor-ui"><code>@caldera-labs/processor-ui</code></a></li>
+</ul><h4>Basic Example</h4><p>The easiest way to use this library is with the <a href="https://calderalabs.org/caldera-components/manual/components.html#rendergroup"><code>RenderGroup</code> component</a>. This component takes an array of configField settings. These settings follow a schema, <a href="https://calderalabs.org/caldera-components/manual/factories.html#configfield-schema">defined here</a>.</p><pre><code class="lang-jsx"><code class="source-code prettyprint">import * as CalderaComponents from &apos;@caldera-labs/components&apos;;
 import React from &apos;react&apos;;
 
 &lt;CalderaComponents.RenderGroup 

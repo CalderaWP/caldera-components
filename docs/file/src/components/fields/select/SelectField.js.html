@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../../../">
-  <title data-ice="title">src/components/fields/select/SelectFieldFancy.jscy.js | Caldera Components library</title>
+  <title data-ice="title">src/components/fields/select/SelectField.js | Caldera Components library</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -35,6 +35,7 @@
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/RenderGroup.js~RenderGroup.html">RenderGroup</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields">components/fields</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-FieldGroup">FieldGroup</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-FieldInner">FieldInner</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addOrRemoveFromArray">addOrRemoveFromArray</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ariaDescribedbyAttr">ariaDescribedbyAttr</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getHtmlInputTypes">getHtmlInputTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isValidHtml5type">isValidHtml5type</a></span></span></li>
@@ -48,27 +49,26 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldSetFactory">fieldSetFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-prepareFieldConfig">prepareFieldConfig</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-input">components/fields/input</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Input">Input</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-select">components/fields/select</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SelectFieldFancy">SelectFieldFancy</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-select">components/fields/select</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SelectField">SelectField</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SelectFieldFancy">SelectFieldFancy</a></span></span></li>
 </ul>
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/components/fields/select/SelectFieldFancyFancy.js</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">src/components/fields/select/SelectField.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;;
-import Downshift from &apos;downshift&apos;;
-import PropTypes from &apos;prop-types&apos;;
 import {fieldPropTypes} from &apos;../propTypes&apos;;
+import classNames from &apos;classnames&apos;;
+import {RenderGroup} from &apos;../../RenderGroup&apos;;
 
 /**
  * Creates a select field
- *
- * Wraps [downshift](https://github.com/paypal/downshift)
  *
  * @param {Object} props
  * @returns {*}
  * @constructor
  */
-export const SelectFieldFancy = (props) =&gt; {
+export const SelectField = (props) =&gt; {
 	/**
 	 * Dispatches new value(s) to parent
 	 *
@@ -79,60 +79,62 @@ export const SelectFieldFancy = (props) =&gt; {
 		return props.onValueChange(selection);
 	}
 
+	/**
+	 * Get the className prop for the select element
+	 *
+	 * @return {String}
+	 */
+	function selectClassNames() {
+		return classNames(
+			props.fieldClassName,
+			RenderGroup.classNames.input
+		);
+	}
+
 	return (
-		&lt;Downshift
-			inputValue={props.value}
-			defaultInputValue={props.value}
+		&lt;select
+			id={props.id}
+			className={selectClassNames()}
+			value={props.value}
 			onChange={changeHandler}
-			itemToString={item =&gt; (item ? item.value : &apos;&apos;)}
-			defaultIsOpen={props.isOpen}
 		&gt;
-			{({
-				getInputProps,
-				getItemProps,
-				isOpen,
-				inputValue,
-				highlightedIndex,
-				selectedItem,
-			}) =&gt; (
-				&lt;div&gt;
-					&lt;input {...getInputProps({
-						id: props.id
-					})} /&gt;
-					{isOpen ? (
-						&lt;div&gt;
-							{props.options
-								.filter(item =&gt; !inputValue || item.value.includes(inputValue))
-								.map((item, index) =&gt; (
-									&lt;div
-										key={item.value}
-										{...getItemProps({
-											key: item.value,
-											index,
-											item,
-											style: {
-												backgroundColor:
-													highlightedIndex === index ? &apos;lightgray&apos; : &apos;white&apos;,
-												fontWeight: selectedItem === item ? &apos;bold&apos; : &apos;normal&apos;,
-											},
-											className: &apos;caldera-config-option&apos;
-										})}
-									&gt;
-										{item.value}
-									&lt;/div&gt;
-								))}
-						&lt;/div&gt;
-					) : null}
-				&lt;/div&gt;
-			)}
-		&lt;/Downshift&gt;
+			{props.options
+				.map((item,i) =&gt; {
+					const key = &apos;string&apos; === typeof item.value ? item.value : i;
+					return(
+						&lt;option
+							key={key}
+							className={ &apos;caldera-config-option&apos; }
+							value={item.value}
+						&gt;
+							{item.label}
+						&lt;/option&gt;
+					);
+				})
+			}
+		&lt;/select&gt;
+
+
+
 	);
 };
 
-
-SelectFieldFancy.propTypes = {
+/**
+ * Prop definition for select fields
+ *
+ * @type {{}}
+ */
+SelectField.propTypes = {
 	...fieldPropTypes,
-	isOpen: PropTypes.bool,
+};
+
+/**
+ * Default props for select fields
+ *
+ * @type {{options: Array}}
+ */
+SelectField.defaultProps = {
+	options: []
 };</code></pre>
 
 </div>

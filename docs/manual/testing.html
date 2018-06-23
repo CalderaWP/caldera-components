@@ -40,6 +40,7 @@
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#text-field-with-help-text" data-ice="link">Text field with help text</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#number-field" data-ice="link">Number Field</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#select-fields" data-ice="link">Select Fields</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#fieldsets" data-ice="link">Fieldsets</a></li>
 </ul>
   </div>
 <div data-ice="manual">
@@ -67,6 +68,7 @@
 <li data-ice="manualNav" class="indent-h2" data-link="manual/testing.html"><a href="manual/testing.html#dom-testing" data-ice="link">DOM Testing</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#example" data-ice="link">Example</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#important-notes" data-ice="link">Important Notes</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#what-to-test" data-ice="link">What To Test</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#shallow-vs-full-rendering" data-ice="link">shallow vs full rendering</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#be-careful-about-copying-from-enzyme--39-s-docs" data-ice="link">Be careful about copying from Enzyme&apos;s docs</a></li>
 </ul>
@@ -77,9 +79,9 @@
     <li data-ice="manualNav" class="indent-h1" data-link="manual/README.html"><a href="manual/README.html" data-ice="link">Caldera Components</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#what-is-this-" data-ice="link">What Is This?</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#why-is-this-" data-ice="link">Why Is This?</a></li>
-<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#how-to-use-this" data-ice="link">How To Use This</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#usage" data-ice="link">Usage</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#install" data-ice="link">Install</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#usage" data-ice="link">Usage</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#using-this-library" data-ice="link">Using This Library</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/README.html"><a href="manual/README.html#basic-example" data-ice="link">Basic Example</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#how-to-develop-this" data-ice="link">How To Develop This</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#development-requirements" data-ice="link">Development Requirements</a></li>
@@ -127,7 +129,9 @@ it( &apos;Has the right wrapper class&apos;, () =&gt; {
     expect(wrapper.find(&apos;div.caldera-config-group&apos;).length).toBe(1);
 });</code>
 </code></pre>
-<h3 id="important-notes">Important Notes</h3><h3 id="shallow-vs-full-rendering">shallow vs full rendering</h3><p>Shallow rendering is preferred. Full rendering with <code>mount</code> should be used for containers or testing decedents of a component.</p>
+<h3 id="important-notes">Important Notes</h3><h3 id="what-to-test">What To Test</h3><p>EVERYTHING! LOL.</p>
+<p><a href="https://github.com/airbnb/enzyme/issues/952#issuecomment-303238446">Don&apos;t test React, test our components.</a> </p>
+<h3 id="shallow-vs-full-rendering">shallow vs full rendering</h3><p>Shallow rendering is preferred. Full rendering with <code>mount</code> should be used for containers or testing decedents of a component.</p>
 <ul>
 <li><a href="http://airbnb.io/enzyme/docs/api/shallow.html">http://airbnb.io/enzyme/docs/api/shallow.html</a></li>
 <li><a href="http://airbnb.io/enzyme/docs/api/mount.html">http://airbnb.io/enzyme/docs/api/mount.html</a></li>

@@ -95,6 +95,73 @@ describe('Factories', function () {
 			expect(config.inputType).toBe('email');
 		});
 
+		it('Allows fieldset', function () {
+			var fieldSetField = {
+				id: 'fieldset-30',
+				label: 'How many?',
+				type: 'fieldset',
+				options: [{
+					value: '1',
+					label: 'One'
+				}, {
+					value: '2',
+					label: 'Two'
+				}],
+				value: [],
+				onValueChange: function onValueChange() {}
+			};
+
+			var config = _extends({}, textFieldConfig, {
+				type: 'email',
+				onValueChange: genericHandler
+			});
+			config = (0, _prepareFieldConfig.prepareFieldConfig)(fieldSetField);
+			expect(config.type).toBe('fieldset');
+		});
+
+		var selectFieldOptions = [{
+			label: 'HTML',
+			value: 'html'
+		}, {
+			label: 'Plain Text',
+			value: 'plain'
+		}];
+		var selectFieldConfig = {
+			'id': 'cf-something-select-id',
+			'type': 'select',
+			'label': 'Content type',
+			'description': 'Choose content type, default is HTML',
+			options: selectFieldOptions,
+			value: '',
+			onValueChange: genericHandler
+		};
+		it('Allows select fields', function () {
+			expect((0, _prepareFieldConfig.prepareFieldConfig)(selectFieldConfig).type).toBe('select');
+		});
+
+		it('passes the field options for select fields', function () {
+			expect((0, _prepareFieldConfig.prepareFieldConfig)(selectFieldConfig).options).toEqual(selectFieldOptions);
+		});
+
+		it('Changes "dropdown" to select', function () {
+			var selectFieldConfig = {
+				'id': 'cf-something-select-id',
+				'type': 'dropdown',
+				'label': 'Content type',
+				'description': 'Choose content type, default is HTML',
+				options: [{
+					label: 'HTML',
+					value: 'html'
+				}, {
+					label: 'Plain Text',
+					value: 'plain'
+				}],
+				value: '',
+				onValueChange: genericHandler
+			};
+			expect((0, _prepareFieldConfig.prepareFieldConfig)(selectFieldConfig).type).toBe('select');
+		});
+
 		describe('Sets inputType arg in config', function () {
 			(0, _util.getHtmlInputTypes)().forEach(function (type) {
 				it('type arg with value of ' + type + ' sets inputType arg', function () {
@@ -107,13 +174,6 @@ describe('Factories', function () {
 			});
 		});
 
-		it('Creates inputs', function () {
-			var component = (0, _fieldFactory.fieldFactory)(_extends({}, textFieldConfig, {
-				onValueChange: genericHandler
-			}));
-			expect(component.type).toBe('div');
-		});
-
 		describe('Works for all HTML5 input types via inputType prop', function () {
 			(0, _util.getHtmlInputTypes)().forEach(function (type) {
 				it('inputType prop of ' + type + ' works', function () {
@@ -121,7 +181,7 @@ describe('Factories', function () {
 						type: type,
 						onValueChange: genericHandler
 					});
-					var wrapper = (0, _enzyme.mount)((0, _fieldFactory.fieldFactory)(config));
+					var wrapper = (0, _enzyme.mount)(_react2.default.createElement('div', {}, (0, _fieldFactory.fieldFactory)(config)));
 					expect(wrapper.find('input').prop('type')).toBe(type);
 				});
 			});

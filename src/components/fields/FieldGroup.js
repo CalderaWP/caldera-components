@@ -6,6 +6,7 @@ import {
 } from './propTypes';
 
 import {FieldInner} from './FieldInner';
+import {RenderGroup} from '../RenderGroup';
 
 /**
  * Represents one configField -- wrapper, label and input.
@@ -32,7 +33,6 @@ export const FieldGroup = (props) => {
 	function fieldInner(fieldProps){
 		function getFieldClassName(conditionalClassNames) {
 			return classNames(
-				'field-config',
 				{
 					required: fieldProps.isRequired,
 					...conditionalClassNames
@@ -111,7 +111,9 @@ export const FieldGroup = (props) => {
 			);
 		}else{
 			return (
-				<React.Fragment>
+				<div
+					className={RenderGroup.classNames.fieldWrapper}
+				>
 					<label
 						htmlFor={fieldProps.id}
 					>
@@ -139,7 +141,7 @@ export const FieldGroup = (props) => {
 						{fieldProps.help}
 					</p>
 					}
-				</React.Fragment>
+				</div>
 			);
 		}
 

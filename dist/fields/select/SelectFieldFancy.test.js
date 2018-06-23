@@ -1,6 +1,6 @@
 'use strict';
 
-var _SelectField = require('./SelectField');
+var _SelectFieldFancy = require('./SelectFieldFancy');
 
 var _reactTestRenderer = require('react-test-renderer');
 
@@ -22,12 +22,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 _enzyme2.default.configure({ adapter: new _enzymeAdapterReact2.default() });
 
-describe('Select field component', function () {
+describe('SelectFieldFancy component', function () {
 	function genericChangeHandler() {}
 
 	describe('Props', function () {
-		it('Creates without options or value', function () {
-			var component = _reactTestRenderer2.default.create(_react2.default.createElement(_SelectField.SelectField, {
+		it('Creates with out options or value', function () {
+			var component = _reactTestRenderer2.default.create(_react2.default.createElement(_SelectFieldFancy.SelectFieldFancy, {
 				id: 'r',
 				fieldClassName: 'rs',
 				onValueChange: genericChangeHandler
@@ -36,7 +36,7 @@ describe('Select field component', function () {
 		});
 
 		it('Creates with options', function () {
-			var component = _reactTestRenderer2.default.create(_react2.default.createElement(_SelectField.SelectField, {
+			var component = _reactTestRenderer2.default.create(_react2.default.createElement(_SelectFieldFancy.SelectFieldFancy, {
 				id: 'r',
 				fieldClassName: 'rs',
 				onValueChange: genericChangeHandler,
@@ -49,7 +49,7 @@ describe('Select field component', function () {
 		});
 
 		it('Creates with options and value', function () {
-			var component = _reactTestRenderer2.default.create(_react2.default.createElement(_SelectField.SelectField, {
+			var component = _reactTestRenderer2.default.create(_react2.default.createElement(_SelectFieldFancy.SelectFieldFancy, {
 				id: 'r',
 				fieldClassName: 'rs',
 				onValueChange: genericChangeHandler,
@@ -61,19 +61,21 @@ describe('Select field component', function () {
 			}));
 			expect(component.toJSON()).toMatchSnapshot();
 		});
+	});
 
+	describe('Renders props with downshift correctly', function () {
 		it('sets id attr', function () {
-			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_SelectField.SelectField, {
+			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_SelectFieldFancy.SelectFieldFancy, {
 				id: 'r3s',
 				fieldClassName: 'rs',
 				onValueChange: genericChangeHandler
 			}));
-			expect(wrapper.find('select').prop('id')).toBe('r3s');
+			expect(wrapper.find('input').prop('id')).toBe('r3s');
 		});
 
 		describe('Options ', function () {
-			it('Has option', function () {
-				var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_SelectField.SelectField, {
+			it('Adds options when open', function () {
+				var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_SelectFieldFancy.SelectFieldFancy, {
 					id: 'r',
 					fieldClassName: 'rs',
 					onValueChange: genericChangeHandler,
@@ -85,13 +87,30 @@ describe('Select field component', function () {
 						label: 'Two'
 					}]
 				}));
+				expect(wrapper.find('.caldera-config-option')).toHaveLength(0);
+			});
+
+			it('Does not add options when not open', function () {
+				var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_SelectFieldFancy.SelectFieldFancy, {
+					id: 'r',
+					fieldClassName: 'rs',
+					onValueChange: genericChangeHandler,
+					options: [{
+						value: 1,
+						label: 'One'
+					}, {
+						value: 2,
+						label: 'Two'
+					}],
+					isOpen: true
+				}));
 				expect(wrapper.find('.caldera-config-option')).toHaveLength(2);
 			});
 		});
 
 		describe('Value of field', function () {
 			it('Set value from default', function () {
-				var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_SelectField.SelectField, {
+				var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_SelectFieldFancy.SelectFieldFancy, {
 					id: 'r',
 					fieldClassName: 'rs',
 					onValueChange: function onValueChange() {},
@@ -104,7 +123,7 @@ describe('Select field component', function () {
 					}],
 					value: '2'
 				}));
-				expect(wrapper.find('select').prop('value')).toEqual('2');
+				expect(wrapper.find('input').prop('value')).toEqual('2');
 			});
 		});
 	});
