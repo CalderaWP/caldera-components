@@ -251,8 +251,37 @@ describe( 'The render group component', () => {
 			expect( wrapper.find('label').text() ).toEqual(thisConfigFields[0].label);
 		});
 
+	});
 
+	describe( 'fieldsets', () => {
+		const fieldSetField = {
+			id: 'fieldset-3',
+			label: 'How many?',
+			type: 'fieldset',
+			options: [
+				{
+					value: 1,
+					label: 'One'
+				},
+				{
+					value: 2,
+					label: 'Two'
+				}
 
+			],
+			value:[],
+			onValueChange:genericHandler
+		};
+		it( 'Outputs a fieldset', () => {
+			const wrapper = mount( <RenderGroup configFields={[fieldSetField]}/> );
+			expect( wrapper.find('fieldset') ).toHaveLength(1);
+
+		});
+
+		it( 'has checkboxes in the fieldset', () =>{
+			const wrapper = mount( <RenderGroup configFields={[fieldSetField]}/> );
+			expect( wrapper.find('fieldset').children().find('input' ) ).toHaveLength(2);
+		});
 	});
 	
 });

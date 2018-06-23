@@ -42,3 +42,20 @@ export function getHtmlInputTypes() {
 export function isValidHtml5type(type) {
 	return getHtmlInputTypes().includes(type);
 }
+
+/**
+ * Remove a value from an array if present, if not present, add it
+ *
+ * @param {String|number} value Value to add or remove
+ * @param {Array} array Array to mutate
+ * @return {*}
+ */
+export const addOrRemoveFromArray = (value,array) => {
+	const index = array.indexOf(value);
+	if (index !== -1){
+		array.splice(index, 1);
+	}else{
+		array.push( value );
+	}
+	return array;
+};

@@ -105,80 +105,66 @@ describe( 'Input component', () => {
 	});
 
 	describe('Checkbox', () => {
-		it('Can be a checkbox', () => {
-			const component = renderer.create(
-				<Input
-					id={'check1'}
-					fieldClassName={'check1'}
-					onValueChange={() => {}}
-					value={'true'}
-					inputType={'checkbox'}
-				/>
-			);
-			expect(component.toJSON()).toMatchSnapshot();
-		});
+		describe( 'props for checkboxes', () => {
+			it('Can be a checkbox', () => {
+				const component = renderer.create(
+					<Input
+						id={'check1'}
+						fieldClassName={'check1'}
+						onValueChange={() => {}}
+						value={'true'}
+						inputType={'checkbox'}
+					/>
+				);
+				expect(component.toJSON()).toMatchSnapshot();
+			});
 
-		it('Has checkbox type', () => {
-			const wrapper = shallow(
-				<Input
-					id={'check2'}
-					fieldClassName={'check1'}
-					onValueChange={() => {}}
-					value={'true'}
-					inputType={'checkbox'}
-				/>
-			);
-			expect(wrapper.find('input').prop('type')).toEqual('checkbox');
-		});
+			it('Has checkbox type', () => {
+				const wrapper = shallow(
+					<Input
+						id={'check2'}
+						fieldClassName={'check1'}
+						onValueChange={() => {}}
+						value={'true'}
+						inputType={'checkbox'}
+					/>
+				);
+				expect(wrapper.find('input').prop('type')).toEqual('checkbox');
+			});
 
-		it('Sets checked prop to true if value is true', () => {
-			const wrapper = shallow(
-				<Input
-					id={'check3'}
-					fieldClassName={'check1'}
-					onValueChange={() => {}}
-					value={'true'}
-					inputType={'checkbox'}
-				/>
-			);
-			expect(wrapper.find('input').prop('checked')).toEqual('true');
-		});
-
-		it('Sets checked prop to false if value is false', () => {
-			const wrapper = shallow(
-				<Input
-					id={'check4'}
-					fieldClassName={'check1'}
-					onValueChange={() => {}}
-					value={'false'}
-					inputType={'checkbox'}
-				/>
-			);
-			expect(wrapper.find('input').prop('checked')).toEqual('false');
-		});
-
-		describe( 'Updating checkbox', () => {
-			it('Updates checked prop when clicked and value is true', () => {
-
-				let checked = true;
+			it( 'Sets defaultChecked prop to true', () =>{
+				let value = true;
 				const wrapper = shallow(
 					<Input
 						id={'check5'}
 						fieldClassName={'check1'}
 						onValueChange={(newValue) => {
-							checked =newValue;
+							value = newValue;
 						}}
-						value={checked}
+						value={value}
 						inputType={'checkbox'}
 					/>
 				);
-				wrapper.find('input').simulate('click');
-				expect(checked).toEqual(false);
+				expect(wrapper.find('input').prop('defaultChecked')).toEqual(true);
+			});
+
+			it( 'Sets defaultChecked prop to false', () =>{
+				let value = false;
+				const wrapper = shallow(
+					<Input
+						id={'check6'}
+						fieldClassName={'check1'}
+						onValueChange={(newValue) => {
+							value = newValue;
+						}}
+						value={value}
+						inputType={'checkbox'}
+					/>
+				);
+				expect(wrapper.find('input').prop('defaultChecked')).toEqual(false);
 			});
 
 		});
-
-
 
 	});
 

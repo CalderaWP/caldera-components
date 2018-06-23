@@ -39,6 +39,7 @@ export const fieldGroupPropTypes = {
 	type: PropTypes.oneOf(['input','select', 'fieldset']),
 	value: valuePropType,
 	onValueChange: onValueChangePropType,
+	options: PropTypes.array,
 	inputType:inputTypeProp,
 };
 
@@ -58,6 +59,5 @@ export const fieldInnerPropTypes = {
 
 export const fieldPropTypes = {
 	...fieldInnerPropTypes,
-	options: PropTypes.array,
 	ariaDescribedbyAttr: PropTypes.string,
 };

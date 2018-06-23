@@ -24,14 +24,18 @@ export const prepareFieldConfig = (fieldArgs) => {
 			.reduce((res, o) => Object.assign(res, o), {});
 	}
 
-	switch( fieldArgs.type ){
-	case 'text':
-	case 'number':
-	default:
-		fieldArgs.inputType = isValidHtml5type(fieldArgs.type) ? fieldArgs.type : 'text';
-		fieldArgs.type = 'input';
-		break;
+	if( ! ['select', 'fieldset' ].includes(fieldArgs.type ) ){
+		switch( fieldArgs.type ){
+		case 'text':
+		case 'number':
+		default:
+			fieldArgs.inputType = isValidHtml5type(fieldArgs.type) ? fieldArgs.type : 'text';
+			fieldArgs.type = 'input';
+			break;
+		}
+
 	}
+
 	if( fieldArgs.hasOwnProperty('desc') ){
 		fieldArgs.help = fieldArgs.desc;
 	}

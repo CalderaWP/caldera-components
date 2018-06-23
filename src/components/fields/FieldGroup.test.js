@@ -237,7 +237,7 @@ describe( 'Field Group component', () => {
 						]}
 					/>
 				);
-				expect( wrapper.find('fieldset')).toMatchLength(1);
+				expect( wrapper.find('fieldset')).toHaveLength(1);
 			});
 
 			it( 'Has a legend inside of the fieldset ', () => {
@@ -260,7 +260,7 @@ describe( 'Field Group component', () => {
 						]}
 					/>
 				);
-				expect( wrapper.find('fieldset').children().find('legend')).toMatchLength(1);
+				expect( wrapper.find('fieldset').children().find('legend')).toHaveLength(1);
 			});
 
 			it( 'Has a the right legend inside of the fieldset ', () => {
@@ -286,7 +286,7 @@ describe( 'Field Group component', () => {
 				expect( wrapper.find('fieldset').children().find('legend').text()).toEqual('How many');
 			});
 
-			it( 'Has 2 checkboxes inside of the fieldset ', () => {
+			it( 'Has 2 checkboxes inside of the fieldset', () => {
 				const wrapper = mount(
 					<FieldGroup
 						id={'fieldset-3'}
@@ -306,8 +306,10 @@ describe( 'Field Group component', () => {
 						]}
 					/>
 				);
-				expect( wrapper.find('fieldset').children().find('input')).toMatchLength(2);
+				expect( wrapper.find('fieldset').children().find('input')).toHaveLength(2);
 			});
+
 		});
-	});;
+
+	});
 });

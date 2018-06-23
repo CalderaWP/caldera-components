@@ -24,8 +24,8 @@ export const Input = (props) => {
 	 */
 	function checkboxChangeHandler() {
 		return props.onValueChange(! props.value);
-
 	}
+
 	if( 'checkbox' === props.inputType ){
 		return (
 			<input
@@ -34,11 +34,12 @@ export const Input = (props) => {
 				className={props.fieldClassName}
 				aria-describedby={props.ariaDescribedbyAttr}
 				required={props.isRequired}
-				onClick={checkboxChangeHandler}
-				checked={props.value}
+				onChange={checkboxChangeHandler}
+				defaultChecked={props.value}
 			/>
 		);
 	}
+
 	return (
 		<input
 			type={props.inputType}
