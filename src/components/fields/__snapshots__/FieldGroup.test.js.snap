@@ -9,7 +9,7 @@ Array [
 </label>,
   <input
     aria-describedby={null}
-    className="field-config required block-input field-config"
+    className="field-config required block-input caldera-config-group field-config"
     id="control-223"
     onChange={[Function]}
     required={false}
@@ -29,7 +29,7 @@ Array [
 </label>,
   <input
     aria-describedby={null}
-    className="field-config block-input field-config"
+    className="field-config block-input caldera-config-group field-config"
     id="control-22"
     onChange={[Function]}
     required={false}
@@ -49,7 +49,7 @@ Array [
 </label>,
   <input
     aria-describedby={null}
-    className="field-config block-input field-config"
+    className="field-config block-input caldera-config-group field-config"
     id="control-21"
     onChange={[Function]}
     required={false}
@@ -69,7 +69,7 @@ Array [
 </label>,
   <input
     aria-describedby="control-20-description"
-    className="field-config block-input field-config"
+    className="field-config block-input caldera-config-group field-config"
     id="control-20"
     onChange={[Function]}
     required={false}

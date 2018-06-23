@@ -20,7 +20,7 @@ exports[`The render group component Rendering with fields Works with a few field
     </label>
     <input
       aria-describedby={null}
-      className="field-config field-config"
+      className="field-config caldera-config-group field-config"
       id="cf-something-apikey"
       onChange={[Function]}
       required={false}
@@ -33,7 +33,7 @@ exports[`The render group component Rendering with fields Works with a few field
   >
     <input
       aria-describedby={null}
-      className="field-config field-config"
+      className="field-config caldera-config-group field-config"
       id="cf-something-sequence-id"
       onChange={[Function]}
       required={false}
@@ -51,7 +51,7 @@ exports[`The render group component Rendering with fields Works with a few field
     </label>
     <input
       aria-describedby={null}
-      className="field-config field-config"
+      className="field-config caldera-config-group field-config"
       id="cf-something-tags"
       onChange={[Function]}
       required={false}
@@ -76,7 +76,7 @@ exports[`The render group component Rendering with fields Works with one text fi
     </label>
     <input
       aria-describedby={null}
-      className="field-config field-config"
+      className="field-config caldera-config-group field-config"
       id="sz"
       onChange={[Function]}
       required={false}
@@ -101,7 +101,7 @@ exports[`The render group component class structure Matches snapshot 1`] = `
     </label>
     <input
       aria-describedby={null}
-      className="field-config field-config"
+      className="field-config caldera-config-group field-config"
       id="cf-something-else"
       onChange={[Function]}
       required={false}
@@ -119,7 +119,7 @@ exports[`The render group component class structure Matches snapshot 1`] = `
     </label>
     <input
       aria-describedby={null}
-      className="field-config field-config"
+      className="field-config caldera-config-group field-config"
       id="cf-something-tags"
       onChange={[Function]}
       required={false}

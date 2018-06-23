@@ -85,6 +85,84 @@ describe( 'Factories', () => {
 			expect( config.inputType ).toBe('email');
 		});
 
+		it( 'Allows fieldset', () => {
+			const fieldSetField = {
+				id: 'fieldset-30',
+				label: 'How many?',
+				type: 'fieldset',
+				options: [
+					{
+						value: '1',
+						label: 'One'
+					},
+					{
+						value: '2',
+						label: 'Two'
+					}
+
+				],
+				value:[],
+				onValueChange:() => {}
+			};
+
+			let config = {
+				...textFieldConfig,
+				type: 'email',
+				onValueChange: genericHandler
+			};
+			config = prepareFieldConfig(fieldSetField);
+			expect( config.type ).toBe('fieldset');
+		});
+
+		const selectFieldOptions = [
+			{
+				label: 'HTML',
+				value: 'html'
+			},
+			{
+				label: 'Plain Text',
+				value: 'plain'
+			}
+		];
+		const selectFieldConfig = {
+			'id': 'cf-something-select-id',
+			'type': 'select',
+			'label': 'Content type',
+			'description': 'Choose content type, default is HTML',
+			options: selectFieldOptions,
+			value: '',
+			onValueChange: genericHandler
+		};
+		it( 'Allows select fields', () => {
+			expect( prepareFieldConfig(selectFieldConfig).type).toBe( 'select' );
+		});
+
+		it( 'passes the field options for select fields', () => {
+			expect( prepareFieldConfig(selectFieldConfig).options).toEqual( selectFieldOptions );
+
+		});
+
+		it( 'Changes "dropdown" to select', () => {
+			const selectFieldConfig = {
+				'id': 'cf-something-select-id',
+				'type': 'dropdown',
+				'label': 'Content type',
+				'description': 'Choose content type, default is HTML',
+				options: [
+					{
+						label: 'HTML',
+						value: 'html'
+					},
+					{
+						label: 'Plain Text',
+						value: 'plain'
+					}
+				],
+				value: '',
+				onValueChange: genericHandler
+			};
+			expect( prepareFieldConfig(selectFieldConfig).type).toBe( 'select' );
+		});
 
 		describe( 'Sets inputType arg in config', () => {
 			getHtmlInputTypes().forEach((type) => {

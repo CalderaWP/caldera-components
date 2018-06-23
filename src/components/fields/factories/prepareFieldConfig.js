@@ -24,22 +24,27 @@ export const prepareFieldConfig = (fieldArgs) => {
 			.reduce((res, o) => Object.assign(res, o), {});
 	}
 
-	if( ! ['select', 'fieldset' ].includes(fieldArgs.type ) ){
-		switch( fieldArgs.type ){
-		case 'text':
-		case 'number':
-		default:
-			fieldArgs.inputType = isValidHtml5type(fieldArgs.type) ? fieldArgs.type : 'text';
-			fieldArgs.type = 'input';
-			break;
-		}
-
+	switch (fieldArgs.type) {
+	case 'select':
+	case 'dropdown':
+		fieldArgs.type = 'select';
+		break;
+	case 'fieldset':
+		fieldArgs.type = 'fieldset';
+		break;
+	case 'text':
+	case 'number':
+	default:
+		fieldArgs.inputType = isValidHtml5type(fieldArgs.type) ? fieldArgs.type : 'text';
+		fieldArgs.type = 'input';
+		break;
 	}
 
-	if( fieldArgs.hasOwnProperty('desc') ){
+
+	if (fieldArgs.hasOwnProperty('desc')) {
 		fieldArgs.help = fieldArgs.desc;
 	}
-	if( fieldArgs.hasOwnProperty('description') ){
+	if (fieldArgs.hasOwnProperty('description')) {
 		fieldArgs.help = fieldArgs.description;
 	}
 	return pick(fieldArgs, Object.keys(fieldGroupPropTypes));

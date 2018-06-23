@@ -1,7 +1,7 @@
 import React from 'react';
 import {fieldPropTypes} from '../propTypes';
-import classNames from "classnames";
-import {RenderGroup} from "../../RenderGroup";
+import classNames from 'classnames';
+import {RenderGroup} from '../../RenderGroup';
 
 /**
  * Creates a select field
@@ -30,7 +30,7 @@ export const SelectField = (props) => {
 		return classNames(
 			props.fieldClassName,
 			RenderGroup.classNames.input
-		)
+		);
 	}
 
 	return (
@@ -41,10 +41,11 @@ export const SelectField = (props) => {
 			onChange={changeHandler}
 		>
 			{props.options
-				.map((item) => {
+				.map((item,i) => {
+					const key = 'string' === typeof item.value ? item.value : i;
 					return(
 						<option
-							key={item.value}
+							key={key}
 							className={ 'caldera-config-option' }
 							value={item.value}
 						>

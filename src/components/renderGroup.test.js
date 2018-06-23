@@ -1,6 +1,6 @@
 
 import {RenderGroup} from './RenderGroup';
-import { mount,shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import React from 'react';
@@ -267,18 +267,52 @@ describe( 'The render group component', () => {
 
 		it( 'Puts .caldera-config-field-setup on outermost element', () =>{
 			const wrapper = mount( <RenderGroup configFields={fieldConfigsForThisTest}/> );
-			expect( wrapper.find('.caldera-config-field-setup').length ).toBe(1);
+			expect( wrapper.find('.caldera-config-field-setup') ).toHaveLength(1);
 		});
 
 		it( 'It puts .caldera-config-group around each group', () => {
 			const wrapper = mount( <RenderGroup configFields={fieldConfigsForThisTest}/> );
-			expect( wrapper.find('.caldera-config-field-setup').children().find('.caldera-config-group').length ).toBe(2);
+			expect(
+				wrapper.find('.caldera-config-field-setup').children().find('.caldera-config-group')
+			).toHaveLength(4);
 		});
 
 		it( 'Matches snapshot', () => {
 			const component = renderer.create(<RenderGroup configFields={fieldConfigsForThisTest}/>);
 			expect( component.toJSON()).toMatchSnapshot();
 		});
+	});
+
+	describe( 'Select fields have options', () => {
+		const selectFieldConfig = {
+			'id': 'cf-something-select-id',
+			'type': 'dropdown',
+			'label': 'Content type',
+			'description': 'Choose content type, default is HTML',
+			options: [
+				{
+					label: 'HTML',
+					value: 'html'
+				},
+				{
+					label: 'Plain Text',
+					value: 'plain'
+				},
+				{
+					label: 'Imaginary',
+					value: 'imaginary'
+				}
+			],
+			value: '',
+			onValueChange: genericHandler
+		};
+
+		const wrapper = mount( <RenderGroup configFields={[selectFieldConfig]}/> );
+		expect(
+			wrapper.find('select').children().find('option')
+		).toHaveLength(3);
+
+
 	});
 
 

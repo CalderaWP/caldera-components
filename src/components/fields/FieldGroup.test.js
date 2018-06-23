@@ -1,7 +1,7 @@
 import {FieldGroup} from './FieldGroup';
 import renderer from 'react-test-renderer';
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
@@ -135,7 +135,7 @@ describe( 'Field Group component', () => {
 
 	});
 
-	describe.skip( 'Using as a select field', () => {
+	describe( 'Using as a select field', () => {
 
 		it( 'Outputs a select field', () => {
 			const wrapper = mount(<FieldGroup

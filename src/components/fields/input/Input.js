@@ -1,7 +1,7 @@
 import React from 'react';
 import {fieldPropTypes} from '../propTypes';
 import classNames from 'classnames';
-import {RenderGroup} from "../../RenderGroup";
+import {RenderGroup} from '../../RenderGroup';
 /**
  * Input component for any HTML5 input type
  *
@@ -37,7 +37,7 @@ export const Input = (props) => {
 		return classNames(
 			props.fieldClassName,
 			RenderGroup.classNames.input
-		)
+		);
 	}
 
 	if( 'checkbox' === props.inputType ){

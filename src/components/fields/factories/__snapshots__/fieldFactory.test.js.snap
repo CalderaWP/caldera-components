@@ -12,7 +12,7 @@ exports[`Factories Field set factory Renders with elements 1`] = `
     </label>
     <input
       aria-describedby={null}
-      className="field-config field-config"
+      className="field-config caldera-config-group field-config"
       id="cf-convertkit-apikey"
       onChange={[Function]}
       required={false}
@@ -28,15 +28,17 @@ exports[`Factories Field set factory Renders with elements 1`] = `
     >
       Sequence
     </label>
-    <input
-      aria-describedby={null}
-      className="field-config field-config"
+    <select
+      className="field-config caldera-config-group field-config"
       id="pid-1"
       onChange={[Function]}
-      required={false}
-      type="text"
       value={undefined}
-    />
+    >
+      <option
+        className="caldera-config-option"
+        value={undefined}
+      />
+    </select>
   </div>
   <div
     className="f-2"
@@ -48,7 +50,7 @@ exports[`Factories Field set factory Renders with elements 1`] = `
     </label>
     <input
       aria-describedby={null}
-      className="field-config field-config"
+      className="field-config caldera-config-group field-config"
       id="cf-convertkit-sequence-id"
       onChange={[Function]}
       required={false}
@@ -66,7 +68,7 @@ exports[`Factories Field set factory Renders with elements 1`] = `
     </label>
     <input
       aria-describedby={null}
-      className="field-config field-config"
+      className="field-config caldera-config-group field-config"
       id="cf-convertkit-sequence-id"
       onChange={[Function]}
       required={false}
@@ -84,7 +86,7 @@ exports[`Factories Field set factory Renders with elements 1`] = `
     </label>
     <input
       aria-describedby={null}
-      className="field-config field-config"
+      className="field-config caldera-config-group field-config"
       id="cf-convertkit-email"
       onChange={[Function]}
       required={false}
@@ -106,7 +108,7 @@ exports[`Factories Field set factory Renders with elements 1`] = `
     </label>
     <input
       aria-describedby={null}
-      className="field-config field-config"
+      className="field-config caldera-config-group field-config"
       id="cf-convertkit-name"
       onChange={[Function]}
       required={false}
@@ -128,7 +130,7 @@ exports[`Factories Field set factory Renders with elements 1`] = `
     </label>
     <input
       aria-describedby={null}
-      className="field-config field-config"
+      className="field-config caldera-config-group field-config"
       id="cf-convertkit-tags"
       onChange={[Function]}
       required={false}

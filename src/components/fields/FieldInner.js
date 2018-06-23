@@ -4,8 +4,8 @@ import {Input} from './input/Input';
 import {SelectField} from './select/SelectField';
 import {ariaDescribedbyAttr} from './util';
 import PropTypes from 'prop-types';
-import classNames from "classnames";
-import {RenderGroup} from "../RenderGroup";
+import classNames from 'classnames';
+import {RenderGroup} from '../RenderGroup';
 /**
  * Creates the field inside of a field group
  *
@@ -33,7 +33,7 @@ export const FieldInner = (props) => {
 		return classNames(
 			props.fieldClassName,
 			RenderGroup.classNames.fieldGroup
-		)
+		);
 	}
 
 	switch( props.type ){
@@ -42,12 +42,12 @@ export const FieldInner = (props) => {
 		return (
 			<SelectField
 				id={props.id}
-				fieldClassName={props.fieldClassName}
+				fieldClassName={inputClassName()}
 				ariaDescribedbyAttr={ariaIdAttr()}
 				value={props.value}
 				onValueChange={props.onValueChange}
 				inputType={props.inputType}
-				options={props.opt}
+				options={props.options}
 			/>
 		);
 	default:
@@ -55,7 +55,7 @@ export const FieldInner = (props) => {
 		return (
 			<Input
 				id={props.id}
-				fieldClassName={props.fieldClassName}
+				fieldClassName={inputClassName()}
 				ariaDescribedbyAttr={ariaIdAttr()}
 				value={props.value}
 				onValueChange={props.onValueChange}

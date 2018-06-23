@@ -127,7 +127,8 @@ export const FieldGroup = (props) => {
 							help:fieldProps.help,
 							value:fieldProps.value,
 							onValueChange:fieldProps.onValueChange,
-							inputType: fieldProps.inputType
+							inputType: fieldProps.inputType,
+							options: fieldProps.options
 						}
 					)}
 					{fieldProps.help &&
