@@ -191,3 +191,58 @@ let checkBoxValue = ['1'];
     ]}
 />
 ```
+
+## Message component
+The `Message` component is used to display validation messages in a `FieldGroup` component. Messages have a shape defined in the `messagePropShape` object. This component, by design, returns nothing if `props.message.message` is not supplied, or is an empty string.
+### An error message
+```js
+<Message
+    message={{
+        message:'Something bad has happened.',
+        error: true,
+    }}
+/>
+```
+
+### A non-error message
+```js
+<Message
+    message={{
+        message:'Something has happened.',
+        error: false,
+    }}
+/>
+```
+
+### Render nothing
+Message components only render when needed.
+
+This will not render anything
+ ```js
+ <Message
+     message={{
+         error: false,
+     }}
+ />
+ ```
+ 
+ This will also render nothing:
+  ```js
+  <Message
+      message={{
+          message: '',
+      }}
+  />
+  ```
+
+### Adding additional classes to the message's outer element
+This example adds the class `cf-whatever-error` to the element with the message.
+ 
+```js
+<Message
+    message={{
+        message:'Hi Roy'
+    }}
+    className={'cf-whatever-error'}
+/>
+```
