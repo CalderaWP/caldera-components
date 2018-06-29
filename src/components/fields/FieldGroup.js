@@ -7,6 +7,8 @@ import {
 
 import {FieldInner} from './FieldInner';
 import {RenderGroup} from '../RenderGroup';
+import {Message} from "./messages/Message";
+import {messageObjectFactory} from "./messages/messageObjectFactory";
 
 /**
  * Represents one configField -- wrapper, label and input.
@@ -31,6 +33,10 @@ export const FieldGroup = (props) => {
 	 * @return {*}
 	 */
 	function fieldInner(fieldProps){
+		const message = 'object' === typeof  fieldProps.message
+			? messageObjectFactory(fieldProps.message)
+
+			: messageObjectFactory({message:null, error: false });
 		function getFieldClassName(conditionalClassNames) {
 			return classNames(
 				{
@@ -123,6 +129,9 @@ export const FieldGroup = (props) => {
 					>
 						{fieldProps.label}
 					</label>
+					<Message
+						message={message}
+					/>
 					{FieldInner(
 						{
 							type: fieldProps.type,

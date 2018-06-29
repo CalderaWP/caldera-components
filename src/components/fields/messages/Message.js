@@ -15,7 +15,7 @@ import classNames from 'classnames';
 export const Message = (props) => {
 	const {message,error} = props.message;
 	if( !message || '' === message ){
-		return;
+		return <React.Fragment></React.Fragment>;
 	}
 	return(
 		<div
