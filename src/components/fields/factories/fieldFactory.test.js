@@ -239,6 +239,63 @@ describe( 'Factories', () => {
 				};
 				expect( prepareFieldConfig(selectFieldConfig).disabled).toBe( true );
 			});
+
+			it( 'Passes properly formatted message object', () => {
+				const message = {
+					message: 'Hi',
+					error: true
+				};
+				const selectFieldConfig = {
+					'id': 'cf-something-select-id',
+					'type': 'dropdown',
+					'label': 'Content type',
+					'description': 'Choose content type, default is HTML',
+					options: [
+						{
+							label: 'HTML',
+							value: 'html'
+						},
+						{
+							label: 'Plain Text',
+							value: 'plain'
+						}
+					],
+					value: '',
+					onValueChange: genericHandler,
+					message: message
+				};
+				expect( prepareFieldConfig(selectFieldConfig).message).toEqual( message );
+			});
+
+			it( 'Validates message object', () => {
+				const message = {
+					message: 'Hi',
+					error: 1
+				};
+				const selectFieldConfig = {
+					'id': 'cf-something-select-id',
+					'type': 'dropdown',
+					'label': 'Content type',
+					'description': 'Choose content type, default is HTML',
+					options: [
+						{
+							label: 'HTML',
+							value: 'html'
+						},
+						{
+							label: 'Plain Text',
+							value: 'plain'
+						}
+					],
+					value: '',
+					onValueChange: genericHandler,
+					message: message
+				};
+				expect( prepareFieldConfig(selectFieldConfig).message).toEqual( {
+					...message,
+					error:true
+				} );
+			});
 		});
 
 

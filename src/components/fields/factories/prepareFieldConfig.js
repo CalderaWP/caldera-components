@@ -1,5 +1,6 @@
 import {fieldGroupPropTypes} from '../propTypes';
 import {isValidHtml5type, toBoolean} from '../util';
+import {messageObjectFactory} from "../messages/messageObjectFactory";
 
 /**
  * Validates field configurations
@@ -49,6 +50,8 @@ export const prepareFieldConfig = (fieldArgs) => {
 
 	fieldArgs = pick(fieldArgs, Object.keys(fieldGroupPropTypes));
 	fieldArgs.disabled = toBoolean(fieldArgs.disabled);
-
+	fieldArgs.message = 'object' === typeof  fieldArgs.message
+		? messageObjectFactory(fieldArgs.message)
+		: messageObjectFactory({message:null, error: false });
 	return fieldArgs;
 };

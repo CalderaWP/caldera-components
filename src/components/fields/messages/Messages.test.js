@@ -4,6 +4,7 @@ import { shallow } from 'enzyme';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import {Message} from "./Message";
+import {messageObjectFactory} from "./messageObjectFactory";
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -95,5 +96,20 @@ describe( 'Message component', () => {
 		});
 	});
 
+});
 
+describe( 'messageObjectFactory', () => {
+	it( 'casts truthy error to boolean', () => {
+		expect( messageObjectFactory({
+			error: 1,
+			message: 'Roy'
+		}).error).toBe(true);
+	});
+
+	it( 'casts falsey error to boolean', () => {
+		expect( messageObjectFactory({
+			error: 'false',
+			message: 'Roy'
+		}).error).toBe(false);
+	});
 });

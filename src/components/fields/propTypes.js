@@ -43,6 +43,7 @@ export const fieldGroupPropTypes = {
 	options: PropTypes.array,
 	inputType:inputTypeProp,
 	disabled: PropTypes.bool,
+	message: messagePropShape
 };
 
 /**
