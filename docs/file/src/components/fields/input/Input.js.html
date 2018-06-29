@@ -85,7 +85,7 @@ export const Input = (props) =&gt; {
 	 * Dispatches value when checkbox is checked
 	 * @return {*}
 	 */
-	function checkboxChangeHandler() {
+	function fieldsetCheckboxHandler() {
 		return props.onValueChange(! props.value);
 	}
 
@@ -110,7 +110,7 @@ export const Input = (props) =&gt; {
 				className={inputClassName()}
 				aria-describedby={props.ariaDescribedbyAttr}
 				required={props.isRequired}
-				onChange={checkboxChangeHandler}
+				onChange={fieldsetCheckboxHandler}
 				defaultChecked={props.value}
 				disabled={props.disabled}
 			/&gt;

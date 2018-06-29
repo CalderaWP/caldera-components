@@ -358,6 +358,30 @@ describe('Field Group component', () => {
 				expect(wrapper.find('fieldset').children().find('input')).toHaveLength(2);
 			});
 
+			it('Checkboxes have onValueChange prop', () => {
+				const wrapper = mount(
+					<FieldGroup
+						id={'fieldset-3'}
+						label={'How many'}
+						onValueChange={() => {
+						}}
+						inputType={'checkbox'}
+						type={'fieldset'}
+						options={[
+							{
+								value: 1,
+								label: 'One'
+							},
+							{
+								value: 2,
+								label: 'Two'
+							}
+						]}
+					/>
+				);
+				expect(typeof wrapper.find('fieldset').children().find('input').first().prop( 'onChange' )).toEqual('function');
+			});
+
 		});
 
 	});

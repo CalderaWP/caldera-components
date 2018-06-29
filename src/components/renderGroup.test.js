@@ -1,4 +1,3 @@
-
 import {RenderGroup} from './RenderGroup';
 import { mount } from 'enzyme';
 import Enzyme from 'enzyme';
