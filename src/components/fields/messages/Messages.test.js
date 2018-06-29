@@ -3,7 +3,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import {Message} from "./Message";
+import {Message, MESSAGE_CLASS} from "./Message";
 import {messageObjectFactory} from "./messageObjectFactory";
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -80,7 +80,7 @@ describe( 'Message component', () => {
 					}}
 				/>
 			);
-			expect( wrapper.find( '.caldera-components-error').length ).toBe(1);
+			expect( wrapper.hasClass( MESSAGE_CLASS ) ).toEqual(true);
 		});
 
 		it( 'Does have caldera-components-error class when not an error', () => {
@@ -92,7 +92,7 @@ describe( 'Message component', () => {
 					}}
 				/>
 			);
-			expect( wrapper.find( '.caldera-components-message').length ).toBe(1);
+			expect( wrapper.hasClass( MESSAGE_CLASS ) ).toEqual(true);
 		});
 	});
 

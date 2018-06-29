@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2b0f3eb-379f-4bd9-bc0e-61e438292576" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/fields/FieldGroup.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/FieldGroup.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/fields/messages/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/messages/Message.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/fields/messages/Messages.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/messages/Messages.test.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,11 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FieldGroup.test.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FieldGroup.test.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/fields/FieldGroup.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="387" column="21" selection-start-line="387" selection-start-column="21" selection-end-line="387" selection-end-column="21" />
+            <state relative-caret-position="360">
+              <caret line="395" column="12" selection-start-line="395" selection-start-column="12" selection-end-line="395" selection-end-column="80" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
                 <element signature="e#358#1704#0" />
@@ -67,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Messages.test.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Messages.test.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/fields/messages/Messages.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="94" column="62" selection-start-line="94" selection-start-column="62" selection-end-line="94" selection-end-column="62" />
+            <state relative-caret-position="911">
+              <caret line="70" column="48" selection-start-line="70" selection-end-line="71" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -234,8 +231,8 @@
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/components/fields/FieldGroup.js" />
         <option value="$PROJECT_DIR$/src/components/fields/messages/Message.js" />
-        <option value="$PROJECT_DIR$/src/components/fields/FieldGroup.test.js" />
         <option value="$PROJECT_DIR$/src/components/fields/messages/Messages.test.js" />
+        <option value="$PROJECT_DIR$/src/components/fields/FieldGroup.test.js" />
       </list>
     </option>
   </component>
@@ -358,7 +355,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92897000" />
+    <option name="totallyTimeSpent" value="93080000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="29" y="23" width="1411" height="877" extended-state="0" />
@@ -370,8 +367,8 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32916668" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info anchor="bottom" x="430" y="220" width="579" height="482" id="Terminal" order="7" visible="true" weight="0.32948717" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.82217973" visible="true" weight="0.1577794" />
+      <window_info active="true" anchor="bottom" x="430" y="220" width="579" height="482" id="Terminal" order="7" visible="true" weight="0.32948717" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.82217973" visible="true" weight="0.1577794" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.36875" />
@@ -717,6 +714,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1103">
           <caret line="74" column="2" selection-start-line="74" selection-start-column="2" selection-end-line="74" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -775,29 +775,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/fields/FieldGroup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="130" column="24" selection-start-line="130" selection-start-column="24" selection-end-line="130" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/fields/FieldGroup.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="387" column="21" selection-start-line="387" selection-start-column="21" selection-end-line="387" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-            <element signature="e#358#1704#0" />
-            <element signature="e#1759#3913#0" />
-            <element signature="e#5589#7532#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/fields/messages/Message.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -817,10 +794,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/fields/messages/Messages.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="94" column="62" selection-start-line="94" selection-start-column="62" selection-end-line="94" selection-end-column="62" />
+        <state relative-caret-position="911">
+          <caret line="70" column="48" selection-start-line="70" selection-end-line="71" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/fields/FieldGroup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="130" column="24" selection-start-line="130" selection-start-column="24" selection-end-line="130" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/fields/FieldGroup.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="395" column="12" selection-start-line="395" selection-start-column="12" selection-end-line="395" selection-end-column="80" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#358#1704#0" />
+            <element signature="e#1759#3913#0" />
+            <element signature="e#5589#7532#0" />
           </folding>
         </state>
       </provider>
