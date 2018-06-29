@@ -28,7 +28,7 @@ jobs:
 
       - run:
           name: Install Gloabals
-          command: npm i -g jest-cli
+          command: sudo npm i -g jest-cli
 
       - run:
           name: Install
