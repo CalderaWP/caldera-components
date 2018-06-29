@@ -4,7 +4,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import {shallow} from "enzyme/build/index";
+import {shallow} from 'enzyme/build/index';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe( 'Select field component', () => {
@@ -167,7 +167,7 @@ describe( 'Select field component', () => {
 			});
 		});
 
-	})
+	});
 
 
 });

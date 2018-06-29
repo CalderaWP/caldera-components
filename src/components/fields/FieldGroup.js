@@ -7,8 +7,8 @@ import {
 
 import {FieldInner} from './FieldInner';
 import {RenderGroup} from '../RenderGroup';
-import {Message} from "./messages/Message";
-import {messageObjectFactory} from "./messages/messageObjectFactory";
+import {Message} from './messages/Message';
+import {messageObjectFactory} from './messages/messageObjectFactory';
 
 /**
  * Represents one configField -- wrapper, label and input.

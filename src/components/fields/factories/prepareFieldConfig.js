@@ -1,6 +1,6 @@
 import {fieldGroupPropTypes} from '../propTypes';
 import {isValidHtml5type, toBoolean} from '../util';
-import {messageObjectFactory} from "../messages/messageObjectFactory";
+import {messageObjectFactory} from '../messages/messageObjectFactory';
 
 /**
  * Validates field configurations

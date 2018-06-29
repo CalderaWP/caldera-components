@@ -69,14 +69,14 @@ export const addOrRemoveFromArray = (value,array) => {
  */
 export const toBoolean =(value) => {
 	switch(value){
-		case true:
-		case "true":
-		case 1:
-		case "1":
-		case "on":
-		case "yes":
-			return true;
-		default:
-			return false;
+	case true:
+	case 'true':
+	case 1:
+	case '1':
+	case 'on':
+	case 'yes':
+		return true;
+	default:
+		return false;
 	}
-}
+};

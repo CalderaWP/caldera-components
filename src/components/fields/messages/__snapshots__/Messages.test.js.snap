@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Message component Classnames Displaying message Renders message 1`] = `
+<div
+  className="caldera-components-message caldera-components-not-error"
+>
+  Hi Roy
+</div>
+`;

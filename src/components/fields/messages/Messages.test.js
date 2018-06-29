@@ -3,8 +3,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import {Message, MESSAGE_CLASS} from "./Message";
-import {messageObjectFactory} from "./messageObjectFactory";
+import {Message, MESSAGE_CLASS} from './Message';
+import {messageObjectFactory} from './messageObjectFactory';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -19,7 +19,19 @@ describe( 'Message component', () => {
 						}}
 					/>
 				);
-				expect( wrapper.length ).toBe(1);
+				expect( wrapper ).toHaveLength(1);
+			});
+
+			it( 'Renders message', () => {
+				const wrapper = renderer.create(
+					<Message
+						message={{
+							message:'Hi Roy',
+							error: false,
+						}}
+					/>
+				);
+				expect( wrapper.toJSON() ).toMatchSnapshot();
 			});
 
 			it( 'Shows the right message message', () => {
@@ -44,7 +56,7 @@ describe( 'Message component', () => {
 					className={'mike'}
 				/>
 			);
-			expect( wrapper.find( '.mike').length ).toBe(1);
+			expect( wrapper.find( '.mike') ).toHaveLength(1);
 		});
 
 		it( 'Has error class when is an error', () => {
@@ -56,7 +68,7 @@ describe( 'Message component', () => {
 					}}
 				/>
 			);
-			expect( wrapper.find( '.has-error').length ).toBe(1);
+			expect( wrapper.find( '.has-error') ).toHaveLength(1);
 		});
 
 		it( 'Does not have error class when is not an error', () => {
@@ -68,7 +80,7 @@ describe( 'Message component', () => {
 					}}
 				/>
 			);
-			expect( wrapper.find( '.has-error').length ).toBe(0);
+			expect( wrapper.find( '.has-error') ).toHaveLength(0);
 		});
 
 		it( 'Does have caldera-components-error class when an error', () => {

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import {messagePropShape} from "./messages/messagePropTypes";
+import {messagePropShape} from './messages/messagePropTypes';
 
 /**
  * PropType for the field value used in multiple components

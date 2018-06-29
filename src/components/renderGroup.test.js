@@ -343,7 +343,7 @@ describe( 'The render group component', () => {
 			};
 
 			const wrapper = mount( <RenderGroup configFields={[selectFieldConfig]}/> );
-			wrapper.find( 'select' ).simulate('change', { target: { value: 'imaginary' } })
+			wrapper.find( 'select' ).simulate('change', { target: { value: 'imaginary' } });
 			expect(
 				wrapper.find('select').children().find('option')
 			).toHaveLength(3);

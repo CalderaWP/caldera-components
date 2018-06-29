@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {messagePropShape} from "./messagePropTypes";
+import {messagePropShape} from './messagePropTypes';
 import classNames from 'classnames';
 
 /**
@@ -38,7 +38,7 @@ export const Message = (props) => {
 		>
 			{message}
 		</div>
-	)
+	);
 };
 
 /**

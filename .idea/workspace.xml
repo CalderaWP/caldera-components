@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2b0f3eb-379f-4bd9-bc0e-61e438292576" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/components/fields/FieldGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/FieldGroup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/fields/FieldGroup.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/FieldGroup.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/fields/factories/prepareFieldConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/factories/prepareFieldConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/fields/messages/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/messages/Message.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/fields/messages/Messages.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/messages/Messages.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/fields/messages/messageObjectFactory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/messages/messageObjectFactory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/fields/messages/messagePropTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/messages/messagePropTypes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/fields/propTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/propTypes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/fields/select/SelectField.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/select/SelectField.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/fields/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/renderGroup.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/renderGroup.test.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,29 +38,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FieldGroup.test.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FieldGroup.test.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/fields/FieldGroup.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="395" column="12" selection-start-line="395" selection-start-column="12" selection-end-line="395" selection-end-column="80" />
+            <state relative-caret-position="32">
+              <caret line="246" column="46" selection-start-line="246" selection-start-column="46" selection-end-line="246" selection-end-column="46" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
-                <element signature="e#358#1704#0" />
-                <element signature="e#1759#3913#0" />
-                <element signature="e#5589#7532#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/manual/index.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="150">
-                <caret line="10" column="59" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
-              </first_editor>
-              <second_editor />
+      <file leaf-file-name="renderGroup.test.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/renderGroup.test.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="229">
+              <caret line="339" column="30" selection-start-line="339" selection-start-column="30" selection-end-line="339" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -64,11 +68,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Messages.test.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Messages.test.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/fields/messages/Messages.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="911">
-              <caret line="70" column="48" selection-start-line="70" selection-end-line="71" />
+            <state relative-caret-position="495">
+              <caret line="33" column="59" selection-start-line="33" selection-start-column="59" selection-end-line="33" selection-end-column="59" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -119,7 +123,7 @@
         <entry file="file://$PROJECT_DIR$/src/components/fields/messages/Message.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
-              <caret line="9" column="56" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="56" />
+              <caret line="9" column="56" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -138,7 +142,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>desc</find>
       <find>console.</find>
       <find>Adds options when open</find>
       <find>control-22</find>
@@ -168,6 +171,7 @@
       <find>compose</find>
       <find>caldera-components-error</find>
       <find>Does have caldera-components-error class when not an error</find>
+      <find>setValue</find>
     </findStrings>
     <replaceStrings>
       <replace>caldera-components</replace>
@@ -210,7 +214,6 @@
         <option value="$PROJECT_DIR$/src/components/fields/input/__snapshots__/Input.test.js.snap" />
         <option value="$PROJECT_DIR$/manual/index.md" />
         <option value="$PROJECT_DIR$/src/components/RenderGroup.js" />
-        <option value="$PROJECT_DIR$/src/components/renderGroup.test.js" />
         <option value="$PROJECT_DIR$/manual/testing.md" />
         <option value="$PROJECT_DIR$/src/components/fields/messages/Messages.js" />
         <option value="$PROJECT_DIR$/src/components/fields/messages/messagePropTypes.js" />
@@ -231,8 +234,9 @@
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/components/fields/FieldGroup.js" />
         <option value="$PROJECT_DIR$/src/components/fields/messages/Message.js" />
-        <option value="$PROJECT_DIR$/src/components/fields/messages/Messages.test.js" />
         <option value="$PROJECT_DIR$/src/components/fields/FieldGroup.test.js" />
+        <option value="$PROJECT_DIR$/src/components/renderGroup.test.js" />
+        <option value="$PROJECT_DIR$/src/components/fields/messages/Messages.test.js" />
       </list>
     </option>
   </component>
@@ -355,7 +359,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93080000" />
+    <option name="totallyTimeSpent" value="93270000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="29" y="23" width="1411" height="877" extended-state="0" />
@@ -367,14 +371,14 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32916668" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" x="430" y="220" width="579" height="482" id="Terminal" order="7" visible="true" weight="0.32948717" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.82217973" visible="true" weight="0.1577794" />
+      <window_info active="true" anchor="bottom" x="430" y="220" width="579" height="482" id="Terminal" order="7" visible="true" weight="0.015384615" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.82421875" visible="true" weight="0.1577794" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.36875" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info id="Favorites" order="2" sideWeight="0.17782027" side_tool="true" visible="true" weight="0.1577794" />
+      <window_info id="Favorites" order="2" sideWeight="0.17578125" side_tool="true" visible="true" weight="0.1577794" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info id="npm" order="2" side_tool="true" />
@@ -570,13 +574,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="36" lean-forward="true" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/renderGroup.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="345" column="22" selection-start-line="345" selection-end-line="346" />
         </state>
       </provider>
     </entry>
@@ -778,7 +775,7 @@
     <entry file="file://$PROJECT_DIR$/src/components/fields/messages/Message.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="9" column="56" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="56" />
+          <caret line="9" column="56" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -789,16 +786,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/fields/messages/Messages.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="911">
-          <caret line="70" column="48" selection-start-line="70" selection-end-line="71" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -814,13 +801,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/fields/FieldGroup.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="395" column="12" selection-start-line="395" selection-start-column="12" selection-end-line="395" selection-end-column="80" />
+        <state relative-caret-position="32">
+          <caret line="246" column="46" selection-start-line="246" selection-start-column="46" selection-end-line="246" selection-end-column="46" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
-            <element signature="e#358#1704#0" />
-            <element signature="e#1759#3913#0" />
-            <element signature="e#5589#7532#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/renderGroup.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="339" column="30" selection-start-line="339" selection-start-column="30" selection-end-line="339" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/fields/messages/Messages.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="59" selection-start-line="33" selection-start-column="59" selection-end-line="33" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
