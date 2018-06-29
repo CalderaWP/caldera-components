@@ -350,4 +350,113 @@ describe( 'Field Group component', () => {
 		});
 
 	});
+
+	describe.skip( 'Message group in fieldgroup',() => {
+		it( 'Renders error with message', () => {
+			const wrapper = mount(<FieldGroup
+				id={'select-error-test' }
+				label={'Basic select field'}
+				value={'1'}
+				type={'select'}
+				onValueChange={() => {
+
+				}}
+				options={[
+					{
+						value: 1,
+						label: 'One'
+					},
+					{
+						value: 2,
+						label: 'Two'
+					}
+				]}
+				message={{
+					message:'Hi Roy',
+					error: true,
+				}}
+
+			/>);
+			expect( wrapper.find( '.caldera-components-error' ).length ).toBe(1);
+		});
+
+		it( 'Renders non-error with message', () => {
+			const wrapper = mount(<FieldGroup
+				id={'select-error-test' }
+				label={'Basic select field'}
+				value={'1'}
+				type={'select'}
+				onValueChange={() => {
+
+				}}
+				options={[
+					{
+						value: 1,
+						label: 'One'
+					},
+					{
+						value: 2,
+						label: 'Two'
+					}
+				]}
+				message={{
+					message:'Hi Roy',
+					error: false,
+				}}
+
+			/>);
+			expect( wrapper.find( '.caldera-components-error' ).length ).toBe(1);
+		});
+
+		it( 'Renders nothing when message prop not passed', () => {
+			const wrapper = mount(<FieldGroup
+				id={'select-error-test' }
+				label={'Basic select field'}
+				value={'1'}
+				type={'select'}
+				onValueChange={() => {
+
+				}}
+				options={[
+					{
+						value: 1,
+						label: 'One'
+					},
+					{
+						value: 2,
+						label: 'Two'
+					}
+				]}
+
+			/>);
+			expect( wrapper.find( '.caldera-components-error' ).length ).toBe(0);
+		});
+
+		it( 'Renders nothing when message prop passed, without a message', () => {
+			const wrapper = mount(<FieldGroup
+				id={'select-error-test' }
+				label={'Basic select field'}
+				value={'1'}
+				type={'select'}
+				onValueChange={() => {
+
+				}}
+				options={[
+					{
+						value: 1,
+						label: 'One'
+					},
+					{
+						value: 2,
+						label: 'Two'
+					}
+				]}
+				message={{
+					error: true,
+				}}
+
+			/>);
+			expect( wrapper.find( '.caldera-components-error' ).length ).toBe(0);
+		});
+	});
 });

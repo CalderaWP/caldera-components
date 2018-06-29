@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import {messagePropShape} from "./messages/messagePropTypes";
 
 /**
  * PropType for the field value used in multiple components
@@ -41,7 +42,7 @@ export const fieldGroupPropTypes = {
 	onValueChange: onValueChangePropType,
 	options: PropTypes.array,
 	inputType:inputTypeProp,
-	disabled: PropTypes.bool
+	disabled: PropTypes.bool,
 };
 
 /**

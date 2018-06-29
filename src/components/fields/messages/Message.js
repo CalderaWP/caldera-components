@@ -21,6 +21,7 @@ export const Message = (props) => {
 		<div
 			className={classNames(
 				props.className,
+				'caldera-components-error',
 				{
 					'has-error': error,
 				}

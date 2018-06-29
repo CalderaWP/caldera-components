@@ -69,6 +69,30 @@ describe( 'Message component', () => {
 			);
 			expect( wrapper.find( '.has-error').length ).toBe(0);
 		});
+
+		it( 'Does have caldera-components-error class when an error', () => {
+			const wrapper = shallow(
+				<Message
+					message={{
+						message:'Something',
+						error: true,
+					}}
+				/>
+			);
+			expect( wrapper.find( '.caldera-components-error').length ).toBe(1);
+		});
+
+		it( 'Does have caldera-components-error class when not an error', () => {
+			const wrapper = shallow(
+				<Message
+					message={{
+						message:'Something',
+						error: false,
+					}}
+				/>
+			);
+			expect( wrapper.find( '.caldera-components-error').length ).toBe(1);
+		});
 	});
 
 
