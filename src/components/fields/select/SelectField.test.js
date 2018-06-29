@@ -4,6 +4,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import {shallow} from "enzyme/build/index";
 Enzyme.configure({ adapter: new Adapter() });
 
 describe( 'Select field component', () => {
@@ -119,9 +120,54 @@ describe( 'Select field component', () => {
 			});
 		});
 
-	});
+		describe( 'Disabled prop', () => {
+			it( 'Does not disable by default', () => {
+				const wrapper = shallow(
+					<SelectField
+						id={'r11'}
+						fieldClassName={'rs'}
+						onValueChange={() => {}}
+						options={[
+							{
+								value: 'one',
+								label: 'One'
+							},
+							{
+								value: '2',
+								label: 'Two'
+							}
+						]}
+						value={'2'}
+					/>
+				);
+				expect( wrapper.find('select').prop('disabled') ).toBe(undefined);
+			});
 
+			it( 'Does  disable by default', () => {
+				const wrapper = shallow(
+					<SelectField
+						id={'r11'}
+						fieldClassName={'rs'}
+						onValueChange={() => {}}
+						options={[
+							{
+								value: 'one',
+								label: 'One'
+							},
+							{
+								value: '2',
+								label: 'Two'
+							}
+						]}
+						value={'2'}
+						disabled={true}
+					/>
+				);
+				expect( wrapper.find('select').prop('disabled') ).toBe(true);
+			});
+		});
 
+	})
 
 
 });

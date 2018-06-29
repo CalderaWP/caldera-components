@@ -56,6 +56,20 @@ describe( 'Field Group component', () => {
 			);
 			expect(component.toJSON()).toMatchSnapshot();
 		});
+
+		it('Can mark inner input as disabled', () => {
+			const component = renderer.create(
+				<FieldGroup
+					id={'control-224'}
+					label={'Who'}
+					type={'input'}
+					isRequired={true}
+					onValueChange={() => {}}
+					disabled={true}
+				/>
+			);
+			expect(component.toJSON()).toMatchSnapshot();
+		});
 	});
 
 	describe('Field group component rendering', () => {
@@ -101,6 +115,22 @@ describe( 'Field Group component', () => {
 
 				wrapper.find('#test-control input').simulate('change', { target: { value: 'r3s' } });
 				expect( setValue ).toEqual('r3s');
+
+			});
+
+			it( 'Can disable inner input', () => {
+				let setValue = '';
+
+				const wrapper = mount(<FieldGroup
+					id={'control-225'}
+					label={'Who'}
+					type={'input'}
+					isRequired={true}
+					onValueChange={() => {}}
+					disabled={true}
+				/>);
+
+				expect( wrapper.find('#control-225 input' ).prop('disabled' ) ).toEqual(true);
 
 			});
 		});
@@ -204,6 +234,22 @@ describe( 'Field Group component', () => {
 				]}
 			/>);
 			expect( wrapper.find( 'label').text() ).toEqual( 'Basic select field' );
+		});
+
+		it( 'Can disable inner select', () => {
+			let setValue = '';
+
+			const wrapper = mount(<FieldGroup
+				id={'select3-b'}
+				label={'Who'}
+				type={'input'}
+				isRequired={true}
+				onValueChange={() => {}}
+				disabled={true}
+			/>);
+
+			expect( wrapper.find('#select3-b input' ).prop('disabled' ) ).toEqual(true);
+
 		});
 	});
 

@@ -1,5 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Field Group component Field group component props Can mark inner input as disabled 1`] = `
+<div
+  className="caldera-config-field"
+>
+  <label
+    htmlFor="control-224"
+  >
+    Who
+  </label>
+  <input
+    aria-describedby={null}
+    className="required block-input field-config field-config"
+    disabled={true}
+    id="control-224"
+    onChange={[Function]}
+    required={false}
+    type="text"
+    value={undefined}
+  />
+  
+</div>
+`;
+
 exports[`Field Group component Field group component props Can mark inner input as required 1`] = `
 <div
   className="caldera-config-field"

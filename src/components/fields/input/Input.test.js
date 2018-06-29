@@ -84,6 +84,33 @@ describe( 'Input component', () => {
 			wrapper.find('input').simulate('change', { target: { value: 'r3s' } });
 			expect( setValue ).toEqual('r3s');
 		});
+
+		describe( 'Disabled prop', () => {
+			it( 'Does not disable by default', () => {
+				const wrapper = shallow(
+					<Input
+						id={'i8'}
+						fieldClassName={'foo'}
+						onValueChange={() => {}}
+						value={'Sivans'}
+					/>
+				);
+				expect( wrapper.find('input').prop('disabled') ).toBe(undefined);
+			});
+
+			it( 'Does  disable by default', () => {
+				const wrapper = shallow(
+					<Input
+						id={'i8'}
+						fieldClassName={'foo'}
+						onValueChange={() => {}}
+						value={'Sivans'}
+						disabled={true}
+					/>
+				);
+				expect( wrapper.find('input').prop('disabled') ).toBe(true);
+			});
+		});
 	});
 
 	describe('Works for all HTML5 input types via inputType prop', () => {
