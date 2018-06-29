@@ -41,6 +41,11 @@
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#number-field" data-ice="link">Number Field</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#select-fields" data-ice="link">Select Fields</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#fieldsets" data-ice="link">Fieldsets</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#message-component" data-ice="link">Message component</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#an-error-message" data-ice="link">An error message</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#a-non-error-message" data-ice="link">A non-error message</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#render-nothing" data-ice="link">Render nothing</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#adding-additional-classes-to-the-message--39-s-outer-element" data-ice="link">Adding additional classes to the message&apos;s outer element</a></li>
 </ul>
   </div>
 <div data-ice="manual">
@@ -69,6 +74,8 @@
 <li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#example" data-ice="link">Example</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#important-notes" data-ice="link">Important Notes</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#what-to-test" data-ice="link">What To Test</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#testing-change-handlers" data-ice="link">Testing change handlers</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/testing.html"><a href="manual/testing.html#simulate-a-change-handler" data-ice="link">Simulate A Change Handler</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#shallow-vs-full-rendering" data-ice="link">shallow vs full rendering</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#be-careful-about-copying-from-enzyme--39-s-docs" data-ice="link">Be careful about copying from Enzyme&apos;s docs</a></li>
 </ul>
@@ -102,6 +109,13 @@
 <li>Have a repeatable systems for creating fields and field configuration for the Caldera Forms admin interface.</li>
 <li>Have a factory that can consume a configuration like <a href="https://calderaforms.com/doc/creating-caldera-forms-processors-using-caldera_forms_processor_processor-class/">the PHP class <code>Caldera_Forms_Processor_UI</code></a> but beacuse the factory runs client-side, they can update in real time.</li>
 <li>Wrap this in <a href="https://github.com/CalderaWP/caldera-processors">a processor UI library</a> that can dynamically generate processor configs, using an array managed by redux.</li>
+</ul>
+<h2 id="important-notes">Important Notes</h2><ul>
+<li>There is no state managment in this library. It is designed to be used with a module that handles state.<ul>
+<li>For example, these components can show error/ validation/ etc messages. Other modules will provide the messages via state managment.</li>
+<li>Validation logic, is/is not in scope for this module.</li>
+</ul>
+</li>
 </ul>
 <h2 id="structure-of-class-attributes">Structure of class attributes</h2><p>The goal is to always get these classes from the <code>RenderGroup</code>&apos;s property <code>classNames</code>. That&apos;s currently partially true. This SHOULD be the single source of truth for classNames that are universally applied to these types of elements.</p>
 <pre><code class="lang-html"><code class="source-code prettyprint">&lt;div class=&quot;caldera-config-field-setup&quot;&gt;
@@ -326,6 +340,34 @@ let checkBoxValue = [&apos;1&apos;];
         }
     ]}
 /&gt;</code>
+</code></pre><h2>Message component</h2><p>The <code>Message</code> component is used to display validation messages in a <code>FieldGroup</code> component. Messages have a shape defined in the <code>messagePropShape</code> object. This component, by design, returns nothing if <code>props.message.message</code> is not supplied, or is an empty string.</p><h3>An error message</h3><pre><code class="lang-js"><code class="source-code prettyprint">&lt;Message
+    message={{
+        message:&apos;Something bad has happened.&apos;,
+        error: true,
+    }}
+/&gt;</code>
+</code></pre><h3>A non-error message</h3><pre><code class="lang-js"><code class="source-code prettyprint">&lt;Message
+    message={{
+        message:&apos;Something has happened.&apos;,
+        error: false,
+    }}
+/&gt;</code>
+</code></pre><h3>Render nothing</h3><p>Message components only render when needed.</p><p>This will not render anything</p><pre><code class="lang-js"><code class="source-code prettyprint"> &lt;Message
+     message={{
+         error: false,
+     }}
+ /&gt;</code>
+</code></pre><p> This will also render nothing:</p><pre><code class="lang-js"><code class="source-code prettyprint">  &lt;Message
+      message={{
+          message: &apos;&apos;,
+      }}
+  /&gt;</code>
+</code></pre><h3>Adding additional classes to the message&apos;s outer element</h3><p>This example adds the class <code>cf-whatever-error</code> to the element with the message.</p><pre><code class="lang-js"><code class="source-code prettyprint">&lt;Message
+    message={{
+        message:&apos;Hi Roy&apos;
+    }}
+    className={&apos;cf-whatever-error&apos;}
+/&gt;</code>
 </code></pre></div>
         <a data-ice="link" href="manual/components.html"></a>
       </div>
@@ -396,6 +438,11 @@ const fields = CalderaComponents.factories.fieldSetFactory([
 <li>Does not apply to input fields. </li>
 </ul>
 </li>
+<li>disabled <code>Boolean</code> Optional.<ul>
+<li>Should form field be disbaled?</li>
+<li>Default is false.</li>
+</ul>
+</li>
 </ul><p>###Field types</p><h3>Select Fields</h3><h4>Example Of Select Fields</h4><h4>Basic Select Field</h4><pre><code class="lang-js"><code class="source-code prettyprint">const selectFieldConfig = {
     &apos;id&apos;: &apos;cf-something-select-id&apos;,
     &apos;type&apos;: &apos;select&apos;,
@@ -463,7 +510,8 @@ it( &apos;Has the right wrapper class&apos;, () =&gt; {
     /&gt;);
     expect(wrapper.find(&apos;div.caldera-config-group&apos;).length).toBe(1);
 });</code>
-</code></pre><h3>Important Notes</h3><h3>What To Test</h3><p>EVERYTHING! LOL.</p><p><a href="https://github.com/airbnb/enzyme/issues/952#issuecomment-303238446">Don&apos;t test React, test our components.</a> </p><h3>shallow vs full rendering</h3><p>Shallow rendering is preferred. Full rendering with <code>mount</code> should be used for containers or testing decedents of a component.</p><ul>
+</code></pre><h3>Important Notes</h3><h3>What To Test</h3><p>EVERYTHING! LOL.</p><p><a href="https://github.com/airbnb/enzyme/issues/952#issuecomment-303238446">Don&apos;t test React, test our components.</a> </p><h3>Testing change handlers</h3><h4>Simulate A Change Handler</h4><p>Call the select element found in wrapper&apos;s onChange() callback (not a simulation of browser click) with a mock object that is enough like an event, we can test with it.</p><pre><code class="lang-js"><code class="source-code prettyprint">wrapper.find( &apos;select&apos; ).simulate(&apos;change&apos;, { target: { value: &apos;imaginary&apos; } });</code>
+</code></pre><h3>shallow vs full rendering</h3><p>Shallow rendering is preferred. Full rendering with <code>mount</code> should be used for containers or testing decedents of a component.</p><ul>
 <li><a href="http://airbnb.io/enzyme/docs/api/shallow.html">http://airbnb.io/enzyme/docs/api/shallow.html</a></li>
 <li><a href="http://airbnb.io/enzyme/docs/api/mount.html">http://airbnb.io/enzyme/docs/api/mount.html</a></li>
 </ul><h3>Be careful about copying from Enzyme&apos;s docs</h3><p>Enzyme&apos;s docs use a different assertion library than we do. Therefore examples like this:</p><pre><code><code class="source-code prettyprint">it(&apos;allows us to set props&apos;, () =&gt; {

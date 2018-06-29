@@ -1,7 +1,7 @@
 {
-  "coverage": "52.5%",
-  "expectCount": 40,
-  "actualCount": 21,
+  "coverage": "56.81%",
+  "expectCount": 44,
+  "actualCount": 25,
   "files": {
     "src/App.js": {
       "expectCount": 13,
@@ -57,11 +57,26 @@
       "actualCount": 1,
       "undocumentLines": []
     },
+    "src/components/fields/messages/Message.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/components/fields/messages/messageObjectFactory.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/components/fields/messages/messagePropTypes.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
     "src/components/fields/propTypes.js": {
       "expectCount": 6,
       "actualCount": 5,
       "undocumentLines": [
-        60
+        63
       ]
     },
     "src/components/fields/select/SelectField.js": {
@@ -75,8 +90,8 @@
       "undocumentLines": []
     },
     "src/components/fields/util.js": {
-      "expectCount": 4,
-      "actualCount": 4,
+      "expectCount": 5,
+      "actualCount": 5,
       "undocumentLines": []
     },
     "src/registerServiceWorker.js": {

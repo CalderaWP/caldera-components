@@ -39,6 +39,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ariaDescribedbyAttr">ariaDescribedbyAttr</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getHtmlInputTypes">getHtmlInputTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isValidHtml5type">isValidHtml5type</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toBoolean">toBoolean</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fieldGroupPropTypes">fieldGroupPropTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fieldInnerPropTypes">fieldInnerPropTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fieldPropTypes">fieldPropTypes</a></span></span></li>
@@ -49,6 +50,9 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldSetFactory">fieldSetFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-prepareFieldConfig">prepareFieldConfig</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-input">components/fields/input</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Input">Input</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-messages">components/fields/messages</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Message">Message</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-messageObjectFactory">messageObjectFactory</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-messagePropShape">messagePropShape</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-select">components/fields/select</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SelectField">SelectField</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SelectFieldFancy">SelectFieldFancy</a></span></span></li>
 </ul>
@@ -65,6 +69,8 @@ import {
 
 import {FieldInner} from &apos;./FieldInner&apos;;
 import {RenderGroup} from &apos;../RenderGroup&apos;;
+import {Message} from &quot;./messages/Message&quot;;
+import {messageObjectFactory} from &quot;./messages/messageObjectFactory&quot;;
 
 /**
  * Represents one configField -- wrapper, label and input.
@@ -89,6 +95,10 @@ export const FieldGroup = (props) =&gt; {
 	 * @return {*}
 	 */
 	function fieldInner(fieldProps){
+		const message = &apos;object&apos; === typeof  fieldProps.message
+			? messageObjectFactory(fieldProps.message)
+
+			: messageObjectFactory({message:null, error: false });
 		function getFieldClassName(conditionalClassNames) {
 			return classNames(
 				{
@@ -96,6 +106,19 @@ export const FieldGroup = (props) =&gt; {
 					...conditionalClassNames
 				}
 			);
+		}
+
+		/**
+		 * Is this option the checked value?
+		 * @param {object}option
+		 * @param {String|number|Array} currentValue
+		 * @return {boolean}
+		 */
+		function isCheckedOption( option, currentValue){
+			if( Array.isArray( currentValue ) ){
+				return currentValue.includes(option.value);
+			}
+			return option.value === currentValue;
 		}
 
 		//Fieldsets are rendered recursively.
@@ -108,18 +131,7 @@ export const FieldGroup = (props) =&gt; {
 						{props.label}
 					&lt;/legend&gt;
 					{props.options.map(option =&gt;  {
-						/**
-						 * Is this option the checked value?
-						 * @param {object}option
-						 * @param {String|number|Array} currentValue
-						 * @return {boolean}
-						 */
-						function isCheckedOption( option, currentValue){
-							if( Array.isArray( currentValue ) ){
-								return currentValue.includes(option.value);
-							}
-							return option.value === currentValue;
-						}
+
 
 						//Call this same function, as a regular checkbox
 						return (
@@ -135,6 +147,7 @@ export const FieldGroup = (props) =&gt; {
 										&apos;fieldset-checkbox&apos; : true,
 									}),
 									label: option.label,
+									disabled:props.disabled,
 									onValueChange: () =&gt; {
 										let values = props.value;
 										if( ! Array.isArray( values) ){
@@ -163,7 +176,8 @@ export const FieldGroup = (props) =&gt; {
 						fieldClassName: getFieldClassName(),
 						value:fieldProps.value,
 						onValueChange:fieldProps.onValueChange,
-						inputType: fieldProps.inputType
+						inputType: fieldProps.inputType,
+						disabled:props.disabled,
 					}
 				)
 			);
@@ -177,6 +191,9 @@ export const FieldGroup = (props) =&gt; {
 					&gt;
 						{fieldProps.label}
 					&lt;/label&gt;
+					&lt;Message
+						message={message}
+					/&gt;
 					{FieldInner(
 						{
 							type: fieldProps.type,
@@ -188,7 +205,8 @@ export const FieldGroup = (props) =&gt; {
 							value:fieldProps.value,
 							onValueChange:fieldProps.onValueChange,
 							inputType: fieldProps.inputType,
-							options: fieldProps.options
+							options: fieldProps.options,
+							disabled:props.disabled,
 						}
 					)}
 					{fieldProps.help &amp;&amp;

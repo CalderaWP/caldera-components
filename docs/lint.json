@@ -4,39 +4,39 @@
     "filePath": "src/components/fields/factories/prepareFieldConfig.js",
     "lines": [
       {
-        "lineNumber": 3,
+        "lineNumber": 4,
         "line": "/**"
       },
       {
-        "lineNumber": 4,
+        "lineNumber": 5,
         "line": " * Validates field configurations"
       },
       {
-        "lineNumber": 5,
-        "line": " *"
-      },
-      {
         "lineNumber": 6,
-        "line": " * NOTE: This is called internally by factory. You probably do not want to call this."
+        "line": " *"
       },
       {
         "lineNumber": 7,
-        "line": " *"
+        "line": " * NOTE: This is called internally by factory. You probably do not want to call this."
       },
       {
         "lineNumber": 8,
-        "line": " * @param {Object}fieldArgs"
+        "line": " *"
       },
       {
         "lineNumber": 9,
-        "line": " * @returns {*}"
+        "line": " * @param {Object}fieldArgs"
       },
       {
         "lineNumber": 10,
-        "line": " */"
+        "line": " * @returns {*}"
       },
       {
         "lineNumber": 11,
+        "line": " */"
+      },
+      {
+        "lineNumber": 12,
         "line": "export const prepareFieldConfig = (fieldArgs) => {"
       }
     ],
@@ -45,6 +45,91 @@
     ],
     "docParams": [
       "{Object}fieldArgs"
+    ]
+  },
+  {
+    "name": "messageObjectFactory",
+    "filePath": "src/components/fields/messages/messageObjectFactory.js",
+    "lines": [
+      {
+        "lineNumber": 2,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 3,
+        "line": " * Prepares messages object in fieldConfigs"
+      },
+      {
+        "lineNumber": 4,
+        "line": " *"
+      },
+      {
+        "lineNumber": 5,
+        "line": " * @param {Object} message"
+      },
+      {
+        "lineNumber": 6,
+        "line": " * @param {Boolean} error"
+      },
+      {
+        "lineNumber": 7,
+        "line": " * @return {{message: *, error: boolean}}"
+      },
+      {
+        "lineNumber": 8,
+        "line": " */"
+      },
+      {
+        "lineNumber": 9,
+        "line": "export const messageObjectFactory = ({message,error}) => {"
+      }
+    ],
+    "codeParams": [
+      "*"
+    ],
+    "docParams": [
+      "message",
+      "error"
+    ]
+  },
+  {
+    "name": "toBoolean",
+    "filePath": "src/components/fields/util.js",
+    "lines": [
+      {
+        "lineNumber": 63,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 64,
+        "line": " * Cast a boolean or boolean like to a true or false"
+      },
+      {
+        "lineNumber": 65,
+        "line": " *"
+      },
+      {
+        "lineNumber": 66,
+        "line": " * @param Mixed} value Value to cast"
+      },
+      {
+        "lineNumber": 67,
+        "line": " * @return {boolean}"
+      },
+      {
+        "lineNumber": 68,
+        "line": " */"
+      },
+      {
+        "lineNumber": 69,
+        "line": "export const toBoolean =(value) => {"
+      }
+    ],
+    "codeParams": [
+      "value"
+    ],
+    "docParams": [
+      "Mixed}"
     ]
   }
 ]

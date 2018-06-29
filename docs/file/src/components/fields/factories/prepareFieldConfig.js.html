@@ -39,6 +39,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ariaDescribedbyAttr">ariaDescribedbyAttr</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getHtmlInputTypes">getHtmlInputTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isValidHtml5type">isValidHtml5type</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toBoolean">toBoolean</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fieldGroupPropTypes">fieldGroupPropTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fieldInnerPropTypes">fieldInnerPropTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fieldPropTypes">fieldPropTypes</a></span></span></li>
@@ -49,6 +50,9 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldSetFactory">fieldSetFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-prepareFieldConfig">prepareFieldConfig</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-input">components/fields/input</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Input">Input</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-messages">components/fields/messages</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Message">Message</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-messageObjectFactory">messageObjectFactory</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-messagePropShape">messagePropShape</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-select">components/fields/select</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SelectField">SelectField</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SelectFieldFancy">SelectFieldFancy</a></span></span></li>
 </ul>
@@ -57,7 +61,8 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/components/fields/factories/prepareFieldConfig.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {fieldGroupPropTypes} from &apos;../propTypes&apos;;
-import {isValidHtml5type} from &apos;../util&apos;;
+import {isValidHtml5type, toBoolean} from &apos;../util&apos;;
+import {messageObjectFactory} from &quot;../messages/messageObjectFactory&quot;;
 
 /**
  * Validates field configurations
@@ -98,14 +103,19 @@ export const prepareFieldConfig = (fieldArgs) =&gt; {
 		break;
 	}
 
-
 	if (fieldArgs.hasOwnProperty(&apos;desc&apos;)) {
 		fieldArgs.help = fieldArgs.desc;
 	}
 	if (fieldArgs.hasOwnProperty(&apos;description&apos;)) {
 		fieldArgs.help = fieldArgs.description;
 	}
-	return pick(fieldArgs, Object.keys(fieldGroupPropTypes));
+
+	fieldArgs = pick(fieldArgs, Object.keys(fieldGroupPropTypes));
+	fieldArgs.disabled = toBoolean(fieldArgs.disabled);
+	fieldArgs.message = &apos;object&apos; === typeof  fieldArgs.message
+		? messageObjectFactory(fieldArgs.message)
+		: messageObjectFactory({message:null, error: false });
+	return fieldArgs;
 };</code></pre>
 
 </div>

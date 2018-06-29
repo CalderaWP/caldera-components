@@ -5,6 +5,10 @@
 * Have a factory that can consume a configuration like [the PHP class `Caldera_Forms_Processor_UI`](https://calderaforms.com/doc/creating-caldera-forms-processors-using-caldera_forms_processor_processor-class/) but beacuse the factory runs client-side, they can update in real time.
 * Wrap this in [a processor UI library](https://github.com/CalderaWP/caldera-processors) that can dynamically generate processor configs, using an array managed by redux.
 
+## Important Notes
+* There is no state managment in this library. It is designed to be used with a module that handles state.
+    - For example, these components can show error/ validation/ etc messages. Other modules will provide the messages via state managment.
+    - Validation logic, is/is not in scope for this module.
 
 ## Structure of class attributes
 

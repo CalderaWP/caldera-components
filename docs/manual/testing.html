@@ -41,6 +41,11 @@
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#number-field" data-ice="link">Number Field</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#select-fields" data-ice="link">Select Fields</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#fieldsets" data-ice="link">Fieldsets</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#message-component" data-ice="link">Message component</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#an-error-message" data-ice="link">An error message</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#a-non-error-message" data-ice="link">A non-error message</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#render-nothing" data-ice="link">Render nothing</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#adding-additional-classes-to-the-message--39-s-outer-element" data-ice="link">Adding additional classes to the message&apos;s outer element</a></li>
 </ul>
   </div>
 <div data-ice="manual">
@@ -69,6 +74,8 @@
 <li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#example" data-ice="link">Example</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#important-notes" data-ice="link">Important Notes</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#what-to-test" data-ice="link">What To Test</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#testing-change-handlers" data-ice="link">Testing change handlers</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/testing.html"><a href="manual/testing.html#simulate-a-change-handler" data-ice="link">Simulate A Change Handler</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#shallow-vs-full-rendering" data-ice="link">shallow vs full rendering</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#be-careful-about-copying-from-enzyme--39-s-docs" data-ice="link">Be careful about copying from Enzyme&apos;s docs</a></li>
 </ul>
@@ -131,6 +138,9 @@ it( &apos;Has the right wrapper class&apos;, () =&gt; {
 </code></pre>
 <h3 id="important-notes">Important Notes</h3><h3 id="what-to-test">What To Test</h3><p>EVERYTHING! LOL.</p>
 <p><a href="https://github.com/airbnb/enzyme/issues/952#issuecomment-303238446">Don&apos;t test React, test our components.</a> </p>
+<h3 id="testing-change-handlers">Testing change handlers</h3><h4 id="simulate-a-change-handler">Simulate A Change Handler</h4><p>Call the select element found in wrapper&apos;s onChange() callback (not a simulation of browser click) with a mock object that is enough like an event, we can test with it.</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">wrapper.find( &apos;select&apos; ).simulate(&apos;change&apos;, { target: { value: &apos;imaginary&apos; } });</code>
+</code></pre>
 <h3 id="shallow-vs-full-rendering">shallow vs full rendering</h3><p>Shallow rendering is preferred. Full rendering with <code>mount</code> should be used for containers or testing decedents of a component.</p>
 <ul>
 <li><a href="http://airbnb.io/enzyme/docs/api/shallow.html">http://airbnb.io/enzyme/docs/api/shallow.html</a></li>
