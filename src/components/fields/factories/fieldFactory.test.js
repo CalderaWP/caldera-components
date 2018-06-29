@@ -194,6 +194,54 @@ describe( 'Factories', () => {
 			});
 		});
 
+		describe( 'Works with disabled prop', () => {
+			it( 'Sets disabled prop to false if not passed', () => {
+				const selectFieldConfig = {
+					'id': 'cf-something-select-id',
+					'type': 'dropdown',
+					'label': 'Content type',
+					'description': 'Choose content type, default is HTML',
+					options: [
+						{
+							label: 'HTML',
+							value: 'html'
+						},
+						{
+							label: 'Plain Text',
+							value: 'plain'
+						}
+					],
+					value: '',
+					onValueChange: genericHandler
+				};
+				expect( prepareFieldConfig(selectFieldConfig).disabled).toBe( false );
+			});
+
+			it( 'Sets disabled prop to true if passed a truthy value', () => {
+				const selectFieldConfig = {
+					'id': 'cf-something-select-id',
+					'type': 'dropdown',
+					'label': 'Content type',
+					'description': 'Choose content type, default is HTML',
+					options: [
+						{
+							label: 'HTML',
+							value: 'html'
+						},
+						{
+							label: 'Plain Text',
+							value: 'plain'
+						}
+					],
+					value: '',
+					onValueChange: genericHandler,
+					disabled: 1
+				};
+				expect( prepareFieldConfig(selectFieldConfig).disabled).toBe( true );
+			});
+		});
+
+
 	});
 
 	describe( 'Field set factory', () => {

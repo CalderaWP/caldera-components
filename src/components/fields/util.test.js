@@ -1,7 +1,7 @@
 import {
 	ariaDescribedbyAttr,
 	isValidHtml5type,
-	addOrRemoveFromArray
+	addOrRemoveFromArray, toBoolean
 } from './util';
 
 describe('aria described by attr', () => {
@@ -56,4 +56,34 @@ describe( 'addOrRemoveFromArray', () => {
 		expect( array ).toEqual( [2,5]);
 	});
 
+});
+
+describe( 'Boolean casting', () => {
+	it( 'casts 1 to true', () => {
+		expect( toBoolean(1) ).toBe(true);
+	});
+
+	it( 'casts string 1 to true', () => {
+		expect( toBoolean('1') ).toBe(true);
+	});
+
+	it( 'keeps true  true', () => {
+		expect( toBoolean(true) ).toBe(true);
+	});
+
+	it( 'casts string "true" to true', () => {
+		expect( toBoolean('true') ).toBe(true);
+	});
+	it( 'casts string "on" to true', () => {
+		expect( toBoolean('true') ).toBe(true);
+	});
+	it( 'casts string "yes" to true', () => {
+		expect( toBoolean('true') ).toBe(true);
+	});
+	it( 'casts string "hiRoy" to false', () => {
+		expect( toBoolean('hiRoy') ).toBe(false);
+	});
+	it( 'casts undefined to false' , () => {
+		expect( toBoolean(undefined) ).toBe(false);
+	});
 });

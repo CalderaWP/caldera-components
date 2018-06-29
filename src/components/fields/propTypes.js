@@ -41,6 +41,7 @@ export const fieldGroupPropTypes = {
 	onValueChange: onValueChangePropType,
 	options: PropTypes.array,
 	inputType:inputTypeProp,
+	disabled: PropTypes.bool
 };
 
 /**
@@ -55,7 +56,6 @@ export const fieldInnerPropTypes = {
 	value: valuePropType,
 	onValueChange: onValueChangePropType,
 	inputType: inputTypeProp,
-	disable: PropTypes.bool
 };
 
 export const fieldPropTypes = {

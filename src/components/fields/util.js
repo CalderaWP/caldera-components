@@ -43,6 +43,7 @@ export function isValidHtml5type(type) {
 	return getHtmlInputTypes().includes(type);
 }
 
+
 /**
  * Remove a value from an array if present, if not present, add it
  *
@@ -59,3 +60,23 @@ export const addOrRemoveFromArray = (value,array) => {
 	}
 	return array;
 };
+
+/**
+ * Cast a boolean or boolean like to a true or false
+ *
+ * @param Mixed} value Value to cast
+ * @return {boolean}
+ */
+export const toBoolean =(value) => {
+	switch(value){
+		case true:
+		case "true":
+		case 1:
+		case "1":
+		case "on":
+		case "yes":
+			return true;
+		default:
+			return false;
+	}
+}

@@ -24,7 +24,7 @@ exports[`The render group component Rendering with fields Works with a few field
       <input
         aria-describedby={null}
         className="field-config field-config"
-        disabled={undefined}
+        disabled={false}
         id="cf-something-apikey"
         onChange={[Function]}
         required={false}
@@ -39,7 +39,7 @@ exports[`The render group component Rendering with fields Works with a few field
     <input
       aria-describedby={null}
       className="field-config field-config"
-      disabled={undefined}
+      disabled={false}
       id="cf-something-sequence-id"
       onChange={[Function]}
       required={false}
@@ -61,7 +61,7 @@ exports[`The render group component Rendering with fields Works with a few field
       <input
         aria-describedby={null}
         className="field-config field-config"
-        disabled={undefined}
+        disabled={false}
         id="cf-something-tags"
         onChange={[Function]}
         required={false}
@@ -91,7 +91,7 @@ exports[`The render group component Rendering with fields Works with one text fi
       <input
         aria-describedby={null}
         className="field-config field-config"
-        disabled={undefined}
+        disabled={false}
         id="sz"
         onChange={[Function]}
         required={false}
@@ -121,7 +121,7 @@ exports[`The render group component class structure Matches snapshot 1`] = `
       <input
         aria-describedby={null}
         className="field-config field-config"
-        disabled={undefined}
+        disabled={false}
         id="cf-something-else"
         onChange={[Function]}
         required={false}
@@ -144,7 +144,7 @@ exports[`The render group component class structure Matches snapshot 1`] = `
       <input
         aria-describedby={null}
         className="field-config field-config"
-        disabled={undefined}
+        disabled={false}
         id="cf-something-tags"
         onChange={[Function]}
         required={false}

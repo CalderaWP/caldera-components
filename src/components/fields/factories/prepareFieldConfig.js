@@ -1,5 +1,5 @@
 import {fieldGroupPropTypes} from '../propTypes';
-import {isValidHtml5type} from '../util';
+import {isValidHtml5type, toBoolean} from '../util';
 
 /**
  * Validates field configurations
@@ -40,12 +40,15 @@ export const prepareFieldConfig = (fieldArgs) => {
 		break;
 	}
 
-
 	if (fieldArgs.hasOwnProperty('desc')) {
 		fieldArgs.help = fieldArgs.desc;
 	}
 	if (fieldArgs.hasOwnProperty('description')) {
 		fieldArgs.help = fieldArgs.description;
 	}
-	return pick(fieldArgs, Object.keys(fieldGroupPropTypes));
+
+	fieldArgs = pick(fieldArgs, Object.keys(fieldGroupPropTypes));
+	fieldArgs.disabled = toBoolean(fieldArgs.disabled);
+
+	return fieldArgs;
 };
