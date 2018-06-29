@@ -40,6 +40,19 @@ export const FieldGroup = (props) => {
 			);
 		}
 
+		/**
+		 * Is this option the checked value?
+		 * @param {object}option
+		 * @param {String|number|Array} currentValue
+		 * @return {boolean}
+		 */
+		function isCheckedOption( option, currentValue){
+			if( Array.isArray( currentValue ) ){
+				return currentValue.includes(option.value);
+			}
+			return option.value === currentValue;
+		}
+
 		//Fieldsets are rendered recursively.
 		if( 'fieldset' === fieldProps.type ){
 			return (
@@ -50,18 +63,7 @@ export const FieldGroup = (props) => {
 						{props.label}
 					</legend>
 					{props.options.map(option =>  {
-						/**
-						 * Is this option the checked value?
-						 * @param {object}option
-						 * @param {String|number|Array} currentValue
-						 * @return {boolean}
-						 */
-						function isCheckedOption( option, currentValue){
-							if( Array.isArray( currentValue ) ){
-								return currentValue.includes(option.value);
-							}
-							return option.value === currentValue;
-						}
+
 
 						//Call this same function, as a regular checkbox
 						return (
