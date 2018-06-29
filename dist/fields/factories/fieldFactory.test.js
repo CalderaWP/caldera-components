@@ -186,6 +186,97 @@ describe('Factories', function () {
 				});
 			});
 		});
+
+		describe('Works with disabled prop', function () {
+			it('Sets disabled prop to false if not passed', function () {
+				var selectFieldConfig = {
+					'id': 'cf-something-select-id',
+					'type': 'dropdown',
+					'label': 'Content type',
+					'description': 'Choose content type, default is HTML',
+					options: [{
+						label: 'HTML',
+						value: 'html'
+					}, {
+						label: 'Plain Text',
+						value: 'plain'
+					}],
+					value: '',
+					onValueChange: genericHandler
+				};
+				expect((0, _prepareFieldConfig.prepareFieldConfig)(selectFieldConfig).disabled).toBe(false);
+			});
+
+			it('Sets disabled prop to true if passed a truthy value', function () {
+				var selectFieldConfig = {
+					'id': 'cf-something-select-id',
+					'type': 'dropdown',
+					'label': 'Content type',
+					'description': 'Choose content type, default is HTML',
+					options: [{
+						label: 'HTML',
+						value: 'html'
+					}, {
+						label: 'Plain Text',
+						value: 'plain'
+					}],
+					value: '',
+					onValueChange: genericHandler,
+					disabled: 1
+				};
+				expect((0, _prepareFieldConfig.prepareFieldConfig)(selectFieldConfig).disabled).toBe(true);
+			});
+
+			it('Passes properly formatted message object', function () {
+				var message = {
+					message: 'Hi',
+					error: true
+				};
+				var selectFieldConfig = {
+					'id': 'cf-something-select-id',
+					'type': 'dropdown',
+					'label': 'Content type',
+					'description': 'Choose content type, default is HTML',
+					options: [{
+						label: 'HTML',
+						value: 'html'
+					}, {
+						label: 'Plain Text',
+						value: 'plain'
+					}],
+					value: '',
+					onValueChange: genericHandler,
+					message: message
+				};
+				expect((0, _prepareFieldConfig.prepareFieldConfig)(selectFieldConfig).message).toEqual(message);
+			});
+
+			it('Validates message object', function () {
+				var message = {
+					message: 'Hi',
+					error: 1
+				};
+				var selectFieldConfig = {
+					'id': 'cf-something-select-id',
+					'type': 'dropdown',
+					'label': 'Content type',
+					'description': 'Choose content type, default is HTML',
+					options: [{
+						label: 'HTML',
+						value: 'html'
+					}, {
+						label: 'Plain Text',
+						value: 'plain'
+					}],
+					value: '',
+					onValueChange: genericHandler,
+					message: message
+				};
+				expect((0, _prepareFieldConfig.prepareFieldConfig)(selectFieldConfig).message).toEqual(_extends({}, message, {
+					error: true
+				}));
+			});
+		});
 	});
 
 	describe('Field set factory', function () {

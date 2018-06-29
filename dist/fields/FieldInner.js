@@ -68,7 +68,8 @@ var FieldInner = exports.FieldInner = function FieldInner(props) {
 				value: props.value,
 				onValueChange: props.onValueChange,
 				inputType: props.inputType,
-				options: props.options
+				options: props.options,
+				disabled: props.disabled
 			});
 		default:
 		case 'input':
@@ -78,7 +79,8 @@ var FieldInner = exports.FieldInner = function FieldInner(props) {
 				ariaDescribedbyAttr: ariaIdAttr(),
 				value: props.value,
 				onValueChange: props.onValueChange,
-				inputType: props.inputType
+				inputType: props.inputType,
+				disabled: props.disabled
 			});
 	}
 };

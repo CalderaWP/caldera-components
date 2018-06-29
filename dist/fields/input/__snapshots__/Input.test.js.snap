@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input component Checkbox props for checkboxes Can be a checkbox 1`] = `
+<input
+  aria-describedby=""
+  className="check1 field-config"
+  defaultChecked="true"
+  id="check1"
+  onChange={[Function]}
+  required={false}
+  type="checkbox"
+/>
+`;
+
+exports[`Input component Input component props Passes its props 1`] = `
+<input
+  aria-describedby=""
+  className="foo field-config"
+  id="bags"
+  onChange={[Function]}
+  required={false}
+  type="text"
+/>
+`;
+
+exports[`Input component Input component props passes the value 1`] = `
+<input
+  aria-describedby=""
+  className="foo field-config"
+  id="bags"
+  onChange={[Function]}
+  required={false}
+  type="text"
+  value="Sivans"
+/>
+`;

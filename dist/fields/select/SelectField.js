@@ -54,6 +54,7 @@ var SelectField = exports.SelectField = function SelectField(props) {
 			id: props.id,
 			className: selectClassNames(),
 			value: props.value,
+			disabled: props.disabled,
 			onChange: changeHandler
 		},
 		props.options.map(function (item, i) {

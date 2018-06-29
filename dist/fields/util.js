@@ -56,3 +56,23 @@ var addOrRemoveFromArray = exports.addOrRemoveFromArray = function addOrRemoveFr
 	}
 	return array;
 };
+
+/**
+ * Cast a boolean or boolean like to a true or false
+ *
+ * @param Mixed} value Value to cast
+ * @return {boolean}
+ */
+var toBoolean = exports.toBoolean = function toBoolean(value) {
+	switch (value) {
+		case true:
+		case "true":
+		case 1:
+		case "1":
+		case "on":
+		case "yes":
+			return true;
+		default:
+			return false;
+	}
+};

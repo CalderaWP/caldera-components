@@ -5,9 +5,13 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.prepareFieldConfig = undefined;
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 var _propTypes = require('../propTypes');
 
 var _util = require('../util');
+
+var _messageObjectFactory = require('../messages/messageObjectFactory');
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -59,5 +63,9 @@ var prepareFieldConfig = exports.prepareFieldConfig = function prepareFieldConfi
 	if (fieldArgs.hasOwnProperty('description')) {
 		fieldArgs.help = fieldArgs.description;
 	}
-	return pick(fieldArgs, Object.keys(_propTypes.fieldGroupPropTypes));
+
+	fieldArgs = pick(fieldArgs, Object.keys(_propTypes.fieldGroupPropTypes));
+	fieldArgs.disabled = (0, _util.toBoolean)(fieldArgs.disabled);
+	fieldArgs.message = 'object' === _typeof(fieldArgs.message) ? (0, _messageObjectFactory.messageObjectFactory)(fieldArgs.message) : (0, _messageObjectFactory.messageObjectFactory)({ message: null, error: false });
+	return fieldArgs;
 };

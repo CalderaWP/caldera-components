@@ -53,3 +53,33 @@ describe('addOrRemoveFromArray', function () {
 		expect(array).toEqual([2, 5]);
 	});
 });
+
+describe('Boolean casting', function () {
+	it('casts 1 to true', function () {
+		expect((0, _util.toBoolean)(1)).toBe(true);
+	});
+
+	it('casts string 1 to true', function () {
+		expect((0, _util.toBoolean)('1')).toBe(true);
+	});
+
+	it('keeps true  true', function () {
+		expect((0, _util.toBoolean)(true)).toBe(true);
+	});
+
+	it('casts string "true" to true', function () {
+		expect((0, _util.toBoolean)('true')).toBe(true);
+	});
+	it('casts string "on" to true', function () {
+		expect((0, _util.toBoolean)('true')).toBe(true);
+	});
+	it('casts string "yes" to true', function () {
+		expect((0, _util.toBoolean)('true')).toBe(true);
+	});
+	it('casts string "hiRoy" to false', function () {
+		expect((0, _util.toBoolean)('hiRoy')).toBe(false);
+	});
+	it('casts undefined to false', function () {
+		expect((0, _util.toBoolean)(undefined)).toBe(false);
+	});
+});

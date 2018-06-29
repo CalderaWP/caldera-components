@@ -18,6 +18,8 @@ var _enzymeAdapterReact = require('enzyme-adapter-react-16');
 
 var _enzymeAdapterReact2 = _interopRequireDefault(_enzymeAdapterReact);
 
+var _index = require('enzyme/build/index');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _enzyme2.default.configure({ adapter: new _enzymeAdapterReact2.default() });
@@ -105,6 +107,43 @@ describe('Select field component', function () {
 					value: '2'
 				}));
 				expect(wrapper.find('select').prop('value')).toEqual('2');
+			});
+		});
+
+		describe('Disabled prop', function () {
+			it('Does not disable by default', function () {
+				var wrapper = (0, _index.shallow)(_react2.default.createElement(_SelectField.SelectField, {
+					id: 'r11',
+					fieldClassName: 'rs',
+					onValueChange: function onValueChange() {},
+					options: [{
+						value: 'one',
+						label: 'One'
+					}, {
+						value: '2',
+						label: 'Two'
+					}],
+					value: '2'
+				}));
+				expect(wrapper.find('select').prop('disabled')).toBe(undefined);
+			});
+
+			it('Does  disable by default', function () {
+				var wrapper = (0, _index.shallow)(_react2.default.createElement(_SelectField.SelectField, {
+					id: 'r11',
+					fieldClassName: 'rs',
+					onValueChange: function onValueChange() {},
+					options: [{
+						value: 'one',
+						label: 'One'
+					}, {
+						value: '2',
+						label: 'Two'
+					}],
+					value: '2',
+					disabled: true
+				}));
+				expect(wrapper.find('select').prop('disabled')).toBe(true);
 			});
 		});
 	});

@@ -7,6 +7,8 @@ exports.FieldGroup = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -22,6 +24,10 @@ var _propTypes = require('./propTypes');
 var _FieldInner = require('./FieldInner');
 
 var _RenderGroup = require('../RenderGroup');
+
+var _Message = require('./messages/Message');
+
+var _messageObjectFactory = require('./messages/messageObjectFactory');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -48,10 +54,24 @@ var FieldGroup = exports.FieldGroup = function FieldGroup(props) {
   * @return {*}
   */
 	function fieldInner(fieldProps) {
+		var message = 'object' === _typeof(fieldProps.message) ? (0, _messageObjectFactory.messageObjectFactory)(fieldProps.message) : (0, _messageObjectFactory.messageObjectFactory)({ message: null, error: false });
 		function getFieldClassName(conditionalClassNames) {
 			return (0, _classnames2.default)(_extends({
 				required: fieldProps.isRequired
 			}, conditionalClassNames));
+		}
+
+		/**
+   * Is this option the checked value?
+   * @param {object}option
+   * @param {String|number|Array} currentValue
+   * @return {boolean}
+   */
+		function isCheckedOption(option, currentValue) {
+			if (Array.isArray(currentValue)) {
+				return currentValue.includes(option.value);
+			}
+			return option.value === currentValue;
 		}
 
 		//Fieldsets are rendered recursively.
@@ -67,18 +87,6 @@ var FieldGroup = exports.FieldGroup = function FieldGroup(props) {
 					props.label
 				),
 				props.options.map(function (option) {
-					/**
-      * Is this option the checked value?
-      * @param {object}option
-      * @param {String|number|Array} currentValue
-      * @return {boolean}
-      */
-					function isCheckedOption(option, currentValue) {
-						if (Array.isArray(currentValue)) {
-							return currentValue.includes(option.value);
-						}
-						return option.value === currentValue;
-					}
 
 					//Call this same function, as a regular checkbox
 					return _react2.default.createElement(
@@ -95,6 +103,7 @@ var FieldGroup = exports.FieldGroup = function FieldGroup(props) {
 								'fieldset-checkbox': true
 							}),
 							label: option.label,
+							disabled: props.disabled,
 							onValueChange: function onValueChange() {
 								var values = props.value;
 								if (!Array.isArray(values)) {
@@ -118,7 +127,8 @@ var FieldGroup = exports.FieldGroup = function FieldGroup(props) {
 				fieldClassName: getFieldClassName(),
 				value: fieldProps.value,
 				onValueChange: fieldProps.onValueChange,
-				inputType: fieldProps.inputType
+				inputType: fieldProps.inputType,
+				disabled: props.disabled
 			});
 		} else {
 			return _react2.default.createElement(
@@ -133,6 +143,9 @@ var FieldGroup = exports.FieldGroup = function FieldGroup(props) {
 					},
 					fieldProps.label
 				),
+				_react2.default.createElement(_Message.Message, {
+					message: message
+				}),
 				(0, _FieldInner.FieldInner)({
 					type: fieldProps.type,
 					id: fieldProps.id,
@@ -143,7 +156,8 @@ var FieldGroup = exports.FieldGroup = function FieldGroup(props) {
 					value: fieldProps.value,
 					onValueChange: fieldProps.onValueChange,
 					inputType: fieldProps.inputType,
-					options: fieldProps.options
+					options: fieldProps.options,
+					disabled: props.disabled
 				}),
 				fieldProps.help && _react2.default.createElement(
 					'p',

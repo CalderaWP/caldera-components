@@ -63,6 +63,18 @@ describe('Field Group component', function () {
 			}));
 			expect(component.toJSON()).toMatchSnapshot();
 		});
+
+		it('Can mark inner input as disabled', function () {
+			var component = _reactTestRenderer2.default.create(_react2.default.createElement(_FieldGroup.FieldGroup, {
+				id: 'control-224',
+				label: 'Who',
+				type: 'input',
+				isRequired: true,
+				onValueChange: function onValueChange() {},
+				disabled: true
+			}));
+			expect(component.toJSON()).toMatchSnapshot();
+		});
 	});
 
 	describe('Field group component rendering', function () {
@@ -107,6 +119,21 @@ describe('Field Group component', function () {
 
 				wrapper.find('#test-control input').simulate('change', { target: { value: 'r3s' } });
 				expect(setValue).toEqual('r3s');
+			});
+
+			it('Can disable inner input', function () {
+				var setValue = '';
+
+				var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_FieldGroup.FieldGroup, {
+					id: 'control-225',
+					label: 'Who',
+					type: 'input',
+					isRequired: true,
+					onValueChange: function onValueChange() {},
+					disabled: true
+				}));
+
+				expect(wrapper.find('#control-225 input').prop('disabled')).toEqual(true);
 			});
 		});
 
@@ -194,6 +221,21 @@ describe('Field Group component', function () {
 			}));
 			expect(wrapper.find('label').text()).toEqual('Basic select field');
 		});
+
+		it('Can disable inner select', function () {
+			var setValue = '';
+
+			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_FieldGroup.FieldGroup, {
+				id: 'select3-b',
+				label: 'Who',
+				type: 'input',
+				isRequired: true,
+				onValueChange: function onValueChange() {},
+				disabled: true
+			}));
+
+			expect(wrapper.find('#select3-b input').prop('disabled')).toEqual(true);
+		});
 	});
 
 	describe('<fieldset>', function () {
@@ -269,6 +311,143 @@ describe('Field Group component', function () {
 				}));
 				expect(wrapper.find('fieldset').children().find('input')).toHaveLength(2);
 			});
+		});
+	});
+
+	describe('Message group in fieldgroup', function () {
+		it('Renders error with message', function () {
+			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_FieldGroup.FieldGroup, {
+				id: 'select-error-test',
+				label: 'Basic select field',
+				value: '1',
+				type: 'select',
+				onValueChange: function onValueChange() {},
+				options: [{
+					value: 1,
+					label: 'One'
+				}, {
+					value: 2,
+					label: 'Two'
+				}],
+				message: {
+					message: 'Hi Roy',
+					error: true
+				}
+
+			}));
+			expect(wrapper.find('.caldera-components-error').length).toBe(1);
+		});
+
+		it('Renders non-error with message', function () {
+			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_FieldGroup.FieldGroup, {
+				id: 'select-error-test',
+				label: 'Basic select field',
+				value: '1',
+				type: 'select',
+				onValueChange: function onValueChange() {},
+				options: [{
+					value: 1,
+					label: 'One'
+				}, {
+					value: 2,
+					label: 'Two'
+				}],
+				message: {
+					message: 'Hi Roy',
+					error: false
+				}
+
+			}));
+			expect(wrapper.find('.caldera-components-error').length).toBe(1);
+		});
+
+		it('Renders the right error message', function () {
+			var message = 'Hi Roy';
+			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_FieldGroup.FieldGroup, {
+				id: 'select-error-test-2',
+				label: 'Basic select field',
+				value: '1',
+				type: 'select',
+				onValueChange: function onValueChange() {},
+				options: [{
+					value: 1,
+					label: 'One'
+				}, {
+					value: 2,
+					label: 'Two'
+				}],
+				message: {
+					message: message,
+					error: true
+				}
+
+			}));
+			expect(wrapper.find('.caldera-components-error').text()).toBe(message);
+		});
+
+		it('Renders the right non-error message', function () {
+			var message = 'Hi Roy';
+			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_FieldGroup.FieldGroup, {
+				id: 'select-error-test-3',
+				label: 'Basic select field',
+				value: '1',
+				type: 'select',
+				onValueChange: function onValueChange() {},
+				options: [{
+					value: 1,
+					label: 'One'
+				}, {
+					value: 2,
+					label: 'Two'
+				}],
+				message: {
+					message: message,
+					error: false
+				}
+
+			}));
+			expect(wrapper.find('.caldera-components-error').text()).toBe(message);
+		});
+
+		it('Renders nothing when message prop not passed', function () {
+			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_FieldGroup.FieldGroup, {
+				id: 'select-error-test-3b',
+				label: 'Basic select field',
+				value: '1',
+				type: 'select',
+				onValueChange: function onValueChange() {},
+				options: [{
+					value: 1,
+					label: 'One'
+				}, {
+					value: 2,
+					label: 'Two'
+				}]
+
+			}));
+			expect(wrapper.find('.caldera-components-error').length).toBe(0);
+		});
+
+		it('Renders nothing when message prop passed, without a message', function () {
+			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_FieldGroup.FieldGroup, {
+				id: 'select-error-test-4',
+				label: 'Basic select field',
+				value: '1',
+				type: 'select',
+				onValueChange: function onValueChange() {},
+				options: [{
+					value: 1,
+					label: 'One'
+				}, {
+					value: 2,
+					label: 'Two'
+				}],
+				message: {
+					error: true
+				}
+
+			}));
+			expect(wrapper.find('.caldera-components-error').length).toBe(0);
 		});
 	});
 });

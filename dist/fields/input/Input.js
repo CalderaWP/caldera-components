@@ -61,7 +61,8 @@ var Input = exports.Input = function Input(props) {
 			'aria-describedby': props.ariaDescribedbyAttr,
 			required: props.isRequired,
 			onChange: checkboxChangeHandler,
-			defaultChecked: props.value
+			defaultChecked: props.value,
+			disabled: props.disabled
 		});
 	}
 
@@ -72,7 +73,8 @@ var Input = exports.Input = function Input(props) {
 		'aria-describedby': props.ariaDescribedbyAttr,
 		required: props.isRequired,
 		onChange: changeHandler,
-		value: props.value
+		value: props.value,
+		disabled: props.disabled
 	});
 };
 

@@ -167,6 +167,39 @@ class App extends Component {
 							values.two=newValue;
 						}}
 					/>
+
+					<FieldGroup
+						id={'control-25'}
+						label={'Non Required input disabled with error'}
+						type={'input'}
+						innertype={'text'}
+						isRequired={true}
+						value={values.two}
+						onValueChange={(newValue) => {
+							values.two=newValue;
+						}}
+						message={{
+							message:'Failures happened',
+							error: true
+						}}
+						disabled={true}
+					/>
+
+					<FieldGroup
+						id={'control-25'}
+						label={'Non Required input with non-error message'}
+						type={'input'}
+						innertype={'text'}
+						isRequired={true}
+						value={values.two}
+						onValueChange={(newValue) => {
+							values.two=newValue;
+						}}
+						message={{
+							message:'Failures did not happened',
+							error: false
+						}}
+					/>
 				</div>
 				<div>
 					<h2>Selects</h2>
@@ -189,6 +222,7 @@ class App extends Component {
 							}
 						]}
 					/>
+
 				</div>
 
 				<div>

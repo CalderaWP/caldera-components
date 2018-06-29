@@ -254,27 +254,58 @@ describe('The render group component', function () {
 		});
 	});
 
-	describe('Select fields have options', function () {
-		var selectFieldConfig = {
-			'id': 'cf-something-select-id',
-			'type': 'dropdown',
-			'label': 'Content type',
-			'description': 'Choose content type, default is HTML',
-			options: [{
-				label: 'HTML',
-				value: 'html'
-			}, {
-				label: 'Plain Text',
-				value: 'plain'
-			}, {
-				label: 'Imaginary',
-				value: 'imaginary'
-			}],
-			value: '',
-			onValueChange: genericHandler
-		};
+	describe('Select fields', function () {
+		it('Select fields have options', function () {
+			var selectFieldConfig = {
+				'id': 'cf-something-select-id',
+				'type': 'dropdown',
+				'label': 'Content type',
+				'description': 'Choose content type, default is HTML',
+				options: [{
+					label: 'HTML',
+					value: 'html'
+				}, {
+					label: 'Plain Text',
+					value: 'plain'
+				}, {
+					label: 'Imaginary',
+					value: 'imaginary'
+				}],
+				value: '',
+				onValueChange: genericHandler
+			};
 
-		var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_RenderGroup.RenderGroup, { configFields: [selectFieldConfig] }));
-		expect(wrapper.find('select').children().find('option')).toHaveLength(3);
+			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_RenderGroup.RenderGroup, { configFields: [selectFieldConfig] }));
+			expect(wrapper.find('select').children().find('option')).toHaveLength(3);
+		});
+
+		it('Select field change handlers recive value, not event ', function () {
+			var updateValue = '';
+			var selectFieldConfig = {
+				'id': 'cf-something-select-id',
+				'type': 'dropdown',
+				'label': 'Content type',
+				'description': 'Choose content type, default is HTML',
+				options: [{
+					label: 'HTML',
+					value: 'html'
+				}, {
+					label: 'Plain Text',
+					value: 'plain'
+				}, {
+					label: 'Imaginary',
+					value: 'imaginary'
+				}],
+				value: '',
+				onValueChange: function onValueChange(newValue) {
+					updateValue = newValue;
+					return newValue;
+				}
+			};
+
+			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_RenderGroup.RenderGroup, { configFields: [selectFieldConfig] }));
+			wrapper.find('select').simulate('change', { target: { value: 'imaginary' } });
+			expect(wrapper.find('select').children().find('option')).toHaveLength(3);
+		});
 	});
 });

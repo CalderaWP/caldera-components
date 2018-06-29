@@ -11,6 +11,8 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _messagePropTypes = require('./messages/messagePropTypes');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
@@ -48,7 +50,9 @@ var fieldGroupPropTypes = exports.fieldGroupPropTypes = {
 	value: valuePropType,
 	onValueChange: onValueChangePropType,
 	options: _propTypes2.default.array,
-	inputType: inputTypeProp
+	inputType: inputTypeProp,
+	disabled: _propTypes2.default.bool,
+	message: _messagePropTypes.messagePropShape
 };
 
 /**

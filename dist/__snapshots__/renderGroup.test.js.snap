@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The render group component Rendering with fields Does not error when passed empty array of fields 1`] = `
+<div
+  className="caldera-config-field-setup"
+/>
+`;
+
+exports[`The render group component Rendering with fields Works with a few fields 1`] = `
+<div
+  className="caldera-config-field-setup"
+>
+  <div
+    className="caldera-config-group"
+  >
+    <div
+      className="caldera-config-field"
+    >
+      <label
+        htmlFor="cf-something-apikey"
+      >
+        API Key
+      </label>
+      <input
+        aria-describedby={null}
+        className="field-config field-config"
+        id="cf-something-apikey"
+        onChange={[Function]}
+        required={false}
+        type="text"
+      />
+    </div>
+  </div>
+  <div
+    className="caldera-config-group"
+  >
+    <input
+      aria-describedby={null}
+      className="field-config field-config"
+      id="cf-something-sequence-id"
+      onChange={[Function]}
+      required={false}
+      type="hidden"
+    />
+  </div>
+  <div
+    className="caldera-config-group"
+  >
+    <div
+      className="caldera-config-field"
+    >
+      <label
+        htmlFor="cf-something-tags"
+      >
+        Tags
+      </label>
+      <input
+        aria-describedby={null}
+        className="field-config field-config"
+        id="cf-something-tags"
+        onChange={[Function]}
+        required={false}
+        type="text"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`The render group component Rendering with fields Works with one text field 1`] = `
+<div
+  className="caldera-config-field-setup"
+>
+  <div
+    className="caldera-config-group"
+  >
+    <div
+      className="caldera-config-field"
+    >
+      <label
+        htmlFor="sz"
+      >
+        Tags
+      </label>
+      <input
+        aria-describedby={null}
+        className="field-config field-config"
+        id="sz"
+        onChange={[Function]}
+        required={false}
+        type="text"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`The render group component class structure Matches snapshot 1`] = `
+<div
+  className="caldera-config-field-setup"
+>
+  <div
+    className="caldera-config-group"
+  >
+    <div
+      className="caldera-config-field"
+    >
+      <label
+        htmlFor="cf-something-else"
+      >
+        Thing
+      </label>
+      <input
+        aria-describedby={null}
+        className="field-config field-config"
+        id="cf-something-else"
+        onChange={[Function]}
+        required={false}
+        type="text"
+      />
+    </div>
+  </div>
+  <div
+    className="caldera-config-group"
+  >
+    <div
+      className="caldera-config-field"
+    >
+      <label
+        htmlFor="cf-something-tags"
+      >
+        Tags
+      </label>
+      <input
+        aria-describedby={null}
+        className="field-config field-config"
+        id="cf-something-tags"
+        onChange={[Function]}
+        required={false}
+        type="text"
+      />
+    </div>
+  </div>
+</div>
+`;

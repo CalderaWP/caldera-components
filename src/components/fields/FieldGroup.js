@@ -35,7 +35,6 @@ export const FieldGroup = (props) => {
 	function fieldInner(fieldProps){
 		const message = 'object' === typeof  fieldProps.message
 			? messageObjectFactory(fieldProps.message)
-
 			: messageObjectFactory({message:null, error: false });
 		function getFieldClassName(conditionalClassNames) {
 			return classNames(
