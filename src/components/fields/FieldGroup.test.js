@@ -4,6 +4,7 @@ import React from 'react';
 import {mount} from 'enzyme';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import {MESSAGE_CLASS} from "./messages/Message";
 
 Enzyme.configure({adapter: new Adapter()});
 
@@ -392,7 +393,7 @@ describe('Field Group component', () => {
 				}}
 
 			/>);
-			expect(wrapper.find('.caldera-components-error').length).toBe(1);
+			expect(wrapper.find('.caldera-components-message' ).length).toBe(1);
 		});
 
 		it('Renders non-error with message', () => {
@@ -420,7 +421,7 @@ describe('Field Group component', () => {
 				}}
 
 			/>);
-			expect(wrapper.find('.caldera-components-error').length).toBe(1);
+			expect(wrapper.find('.caldera-components-message').length).toBe(1);
 		});
 
 		it('Renders the right error message', () => {
@@ -449,7 +450,7 @@ describe('Field Group component', () => {
 				}}
 
 			/>);
-			expect(wrapper.find('.caldera-components-error').text()).toBe(message);
+			expect(wrapper.find('.caldera-components-message').text()).toBe(message);
 		});
 
 		it('Renders the right non-error message', () => {
@@ -478,7 +479,7 @@ describe('Field Group component', () => {
 				}}
 
 			/>);
-			expect(wrapper.find('.caldera-components-error').text()).toBe(message);
+			expect(wrapper.find('.caldera-components-message').text()).toBe(message);
 		});
 
 		it('Renders nothing when message prop not passed', () => {
@@ -502,7 +503,7 @@ describe('Field Group component', () => {
 				]}
 
 			/>);
-			expect(wrapper.find('.caldera-components-error').length).toBe(0);
+			expect(wrapper.find('.caldera-components-message' ).length).toBe(0);
 		});
 
 		it('Renders nothing when message prop passed, without a message', () => {
@@ -531,7 +532,7 @@ describe('Field Group component', () => {
 
 				/>
 			);
-			expect(wrapper.find('.caldera-components-error').length).toBe(0);
+			expect(wrapper.find('.caldera-components-message').length).toBe(0);
 		});
 	});
 });

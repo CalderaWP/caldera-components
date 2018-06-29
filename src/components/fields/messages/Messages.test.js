@@ -92,7 +92,7 @@ describe( 'Message component', () => {
 					}}
 				/>
 			);
-			expect( wrapper.find( '.caldera-components-error').length ).toBe(1);
+			expect( wrapper.find( '.caldera-components-message').length ).toBe(1);
 		});
 	});
 

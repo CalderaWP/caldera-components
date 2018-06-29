@@ -3,22 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d2b0f3eb-379f-4bd9-bc0e-61e438292576" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/fields/FieldGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/fields/FieldGroup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/fields/FieldGroup.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/fields/FieldGroup.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/fields/FieldInner.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/fields/FieldInner.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/fields/factories/fieldFactory.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/fields/factories/fieldFactory.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/fields/factories/prepareFieldConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/fields/factories/prepareFieldConfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/fields/input/Input.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/fields/input/Input.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/fields/input/Input.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/fields/input/Input.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/fields/propTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/fields/propTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/fields/select/SelectField.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/fields/select/SelectField.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/fields/select/SelectField.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/fields/select/SelectField.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/fields/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/fields/util.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/fields/util.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/fields/util.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/renderGroup.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/renderGroup.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/fields/FieldGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/FieldGroup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/fields/FieldGroup.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/FieldGroup.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/fields/messages/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/messages/Message.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/fields/messages/Messages.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/messages/Messages.test.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -47,8 +34,8 @@
       <file leaf-file-name="FieldGroup.test.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/fields/FieldGroup.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="772">
-              <caret line="534" column="11" selection-end-line="536" selection-end-column="3" />
+            <state relative-caret-position="15">
+              <caret line="387" column="21" selection-start-line="387" selection-start-column="21" selection-end-line="387" selection-end-column="21" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
                 <element signature="e#358#1704#0" />
@@ -71,20 +58,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="103">
               <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Messages.test.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/fields/messages/Messages.test.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="94" column="62" selection-start-line="94" selection-start-column="62" selection-end-line="94" selection-end-column="62" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -128,11 +118,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Message.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Message.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/fields/messages/Message.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+            <state relative-caret-position="135">
+              <caret line="9" column="56" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="56" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -151,8 +141,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>simulare</find>
-      <find>cf-convertkit</find>
       <find>desc</find>
       <find>console.</find>
       <find>Adds options when open</find>
@@ -181,6 +169,8 @@
       <find>Passes properly formatted message object</find>
       <find>casts fals</find>
       <find>compose</find>
+      <find>caldera-components-error</find>
+      <find>Does have caldera-components-error class when not an error</find>
     </findStrings>
     <replaceStrings>
       <replace>caldera-components</replace>
@@ -188,8 +178,8 @@
       <replace>value={'true'}</replace>
     </replaceStrings>
     <dirStrings>
-      <dir>$PROJECT_DIR$/src</dir>
       <dir>$PROJECT_DIR$/src/components</dir>
+      <dir>$PROJECT_DIR$/src</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -239,13 +229,13 @@
         <option value="$PROJECT_DIR$/src/components/fields/propTypes.js" />
         <option value="$PROJECT_DIR$/src/components/fields/messages/messageObjectFactory.js" />
         <option value="$PROJECT_DIR$/src/components/fields/factories/prepareFieldConfig.js" />
-        <option value="$PROJECT_DIR$/src/components/fields/messages/Messages.test.js" />
         <option value="$PROJECT_DIR$/src/components/fields/factories/fieldFactory.test.js" />
         <option value="$PROJECT_DIR$/src/App.test.js" />
-        <option value="$PROJECT_DIR$/src/components/fields/FieldGroup.test.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/components/fields/FieldGroup.js" />
         <option value="$PROJECT_DIR$/src/components/fields/messages/Message.js" />
+        <option value="$PROJECT_DIR$/src/components/fields/FieldGroup.test.js" />
+        <option value="$PROJECT_DIR$/src/components/fields/messages/Messages.test.js" />
       </list>
     </option>
   </component>
@@ -294,6 +284,21 @@
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="components" type="b2602c69:ProjectViewProjectNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="fields" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="components" type="b2602c69:ProjectViewProjectNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="fields" type="462c0819:PsiDirectoryNode" />
+              <item name="messages" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -353,7 +358,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92478000" />
+    <option name="totallyTimeSpent" value="92897000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="29" y="23" width="1411" height="877" extended-state="0" />
@@ -365,14 +370,14 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32916668" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" x="430" y="220" width="579" height="482" id="Terminal" order="7" visible="true" weight="0.0" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.824359" visible="true" weight="0.1577794" />
+      <window_info anchor="bottom" x="430" y="220" width="579" height="482" id="Terminal" order="7" visible="true" weight="0.32948717" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.82217973" visible="true" weight="0.1577794" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.36875" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info id="Favorites" order="2" sideWeight="0.17564103" side_tool="true" visible="true" weight="0.1577794" />
+      <window_info id="Favorites" order="2" sideWeight="0.17782027" side_tool="true" visible="true" weight="0.1577794" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info id="npm" order="2" side_tool="true" />
@@ -445,11 +450,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dist/fields/fieldFactory.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1367" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/fields/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -734,16 +734,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/fields/messages/Messages.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/fields/factories/fieldFactory.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -778,19 +768,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/fields/FieldGroup.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="772">
-          <caret line="534" column="11" selection-end-line="536" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-            <element signature="e#358#1704#0" />
-            <element signature="e#1759#3913#0" />
-            <element signature="e#5589#7532#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="508">
@@ -808,12 +785,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/fields/FieldGroup.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="387" column="21" selection-start-line="387" selection-start-column="21" selection-end-line="387" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#358#1704#0" />
+            <element signature="e#1759#3913#0" />
+            <element signature="e#5589#7532#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/fields/messages/Message.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+        <state relative-caret-position="135">
+          <caret line="9" column="56" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="56" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/fields/messages/Messages.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="94" column="62" selection-start-line="94" selection-start-column="62" selection-end-line="94" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>

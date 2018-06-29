@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import {messagePropShape} from "./messagePropTypes";
 import classNames from 'classnames';
 
-export const MESSAGE_CLASS = 'caldera-components-error';
+/**
+ * The class that message components always wrap messages in
+ * @type {string}
+ */
+export const MESSAGE_CLASS = 'caldera-components-message';
+
 /**
  * Prop for showing a validation message
  *
@@ -25,6 +30,9 @@ export const Message = (props) => {
 				MESSAGE_CLASS,
 				{
 					'has-error': error,
+					'caldera-components-error': error,
+					'caldera-components-not-error': ! error,
+
 				}
 			)}
 		>
