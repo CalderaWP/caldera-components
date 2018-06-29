@@ -27,6 +27,19 @@ export const FieldGroup = (props) => {
 		return ariaDescribedbyAttr(props.id, props.help);
 	}
 
+	function checkboxChangeHandler(option,values) {
+		if (!Array.isArray(values)) {
+			if ('string' === typeof values || 'number' === typeof  values) {
+				values = [values];
+			} else {
+				values = [];
+
+			}
+		}
+		values = addOrRemoveFromArray(option.value, values);
+		props.onValueChange(values);
+	}
+
 	/**
 	 * Based on type, render the field.
 	 *
@@ -86,17 +99,7 @@ export const FieldGroup = (props) => {
 									label: option.label,
 									disabled:props.disabled,
 									onValueChange: () => {
-										let values = props.value;
-										if( ! Array.isArray( values) ){
-											if( 'string' === typeof values || 'number' === typeof  values ){
-												values = [values];
-											}else{
-												values = [];
-
-											}
-										}
-										values = addOrRemoveFromArray( option.value, values );
-										props.onValueChange(values);
+										checkboxChangeHandler(option,props.values);
 									}
 								})}
 							</React.Fragment>
