@@ -1,4 +1,4 @@
-import {fieldsetCheckboxHandler} from "./fieldsetCheckboxHandler";
+import {fieldsetCheckboxHandler} from './fieldsetCheckboxHandler';
 
 describe('checkbox handler', () => {
 	let udpateValue = null;
@@ -8,7 +8,7 @@ describe('checkbox handler', () => {
 
 	function handler(newValue) {
 		udpateValue = newValue;
-	};
+	}
 	it('Adds value to array of values', () => {
 		fieldsetCheckboxHandler({
 			value: '2',

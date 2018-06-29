@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import {addOrRemoveFromArray, ariaDescribedbyAttr} from './util';
+import {ariaDescribedbyAttr} from './util';
 import {
 	fieldGroupPropTypes,
 } from './propTypes';
@@ -9,7 +9,7 @@ import {FieldInner} from './FieldInner';
 import {RenderGroup} from '../RenderGroup';
 import {Message} from './messages/Message';
 import {messageObjectFactory} from './messages/messageObjectFactory';
-import {fieldsetCheckboxHandler} from "./field-group-change-handlers/fieldsetCheckboxHandler";
+import {fieldsetCheckboxHandler} from './field-group-change-handlers/fieldsetCheckboxHandler';
 
 /**
  * Represents one configField -- wrapper, label and input.
@@ -29,16 +29,16 @@ export const FieldGroup = (props) => {
 	}
 
 
-
 	/**
 	 * Based on type, render the field.
 	 *
 	 * @return {*}
 	 */
-	function fieldInner(fieldProps){
+	function fieldInner(fieldProps) {
 		const message = 'object' === typeof  fieldProps.message
 			? messageObjectFactory(fieldProps.message)
-			: messageObjectFactory({message:null, error: false });
+			: messageObjectFactory({message: null, error: false});
+
 		function getFieldClassName(conditionalClassNames) {
 			return classNames(
 				{
@@ -54,15 +54,15 @@ export const FieldGroup = (props) => {
 		 * @param {String|number|Array} currentValue
 		 * @return {boolean}
 		 */
-		function isCheckedOption( option, currentValue){
-			if( Array.isArray( currentValue ) ){
+		function isCheckedOption(option, currentValue) {
+			if (Array.isArray(currentValue)) {
 				return currentValue.includes(option.value);
 			}
 			return option.value === currentValue;
 		}
 
 		//Fieldsets are rendered recursively.
-		if( 'fieldset' === fieldProps.type ){
+		if ('fieldset' === fieldProps.type) {
 			return (
 				<fieldset
 					id={props.id}
@@ -70,46 +70,46 @@ export const FieldGroup = (props) => {
 					<legend>
 						{props.label}
 					</legend>
-					{props.options.map(option =>  {
+					{props.options.map(option => {
 
 
 						//Call this same function, as a regular checkbox
 						return (
 							<React.Fragment
-								key={ `${props.id}-${option.value}` }
+								key={`${props.id}-${option.value}`}
 							>
 								{fieldInner({
 									type: 'input',
 									inputType: 'checkbox',
 									id: `${props.id}-${option.value}`,
-									value: isCheckedOption(option,props.value),
+									value: isCheckedOption(option, props.value),
 									fieldClassName: getFieldClassName({
-										'fieldset-checkbox' : true,
+										'fieldset-checkbox': true,
 									}),
 									label: option.label,
-									disabled:props.disabled,
-									onValueChange: () => fieldsetCheckboxHandler(option,props.values,props.onValueChange)
+									disabled: props.disabled,
+									onValueChange: () => fieldsetCheckboxHandler(option, props.values, props.onValueChange)
 								})}
 							</React.Fragment>
 						);
 					})}
 				</fieldset>
 			);
-		}else if( 'hidden' === fieldProps.inputType ){
+		} else if ('hidden' === fieldProps.inputType) {
 			return (
 				FieldInner(
 					{
 						type: props.type,
 						id: props.id,
 						fieldClassName: getFieldClassName(),
-						value:fieldProps.value,
-						onValueChange:fieldProps.onValueChange,
+						value: fieldProps.value,
+						onValueChange: fieldProps.onValueChange,
 						inputType: fieldProps.inputType,
-						disabled:props.disabled,
+						disabled: props.disabled,
 					}
 				)
 			);
-		}else{
+		} else {
 			return (
 				<div
 					className={RenderGroup.classNames.fieldWrapper}
@@ -129,12 +129,12 @@ export const FieldGroup = (props) => {
 							fieldClassName: getFieldClassName({
 								'block-input': fieldProps.isBlockInput
 							}),
-							help:fieldProps.help,
-							value:fieldProps.value,
-							onValueChange:fieldProps.onValueChange,
+							help: fieldProps.help,
+							value: fieldProps.value,
+							onValueChange: fieldProps.onValueChange,
 							inputType: fieldProps.inputType,
 							options: fieldProps.options,
-							disabled:props.disabled,
+							disabled: props.disabled,
 						}
 					)}
 					{fieldProps.help &&
@@ -156,8 +156,6 @@ export const FieldGroup = (props) => {
 	 */
 	return fieldInner(props);
 };
-
-
 
 
 FieldGroup.propTypes = fieldGroupPropTypes;

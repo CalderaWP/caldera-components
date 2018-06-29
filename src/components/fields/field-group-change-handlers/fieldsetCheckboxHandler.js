@@ -1,4 +1,4 @@
-import {addOrRemoveFromArray} from "../util";
+import {addOrRemoveFromArray} from '../util';
 
 /**
  * Change handler for a checkbox that is a part of a group

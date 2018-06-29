@@ -4,10 +4,9 @@ import {shallow} from 'enzyme';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import {Input} from './Input';
+import {getHtmlInputTypes} from '../util';
 
 Enzyme.configure({adapter: new Adapter()});
-import {getHtmlInputTypes} from '../util';
-import {fieldsetCheckboxHandler} from "../field-group-change-handlers/fieldsetCheckboxHandler";
 
 describe('Input component', () => {
 	describe('Input component props', () => {
@@ -201,6 +200,24 @@ describe('Input component', () => {
 					/>
 				);
 				expect(wrapper.find('input').prop('defaultChecked')).toEqual(false);
+			});
+
+			it('Runs callback function when changed', () => {
+				let setValue = '';
+				const wrapper = shallow(
+					<Input
+						id={'checkbox-value-update-test'}
+						fieldClassName={'foo'}
+						onValueChange={() => {
+							setValue = 'itRan';
+						}}
+						value={['1']}
+						inputType={'checkbox'}
+
+					/>
+				);
+				wrapper.find('input').simulate('change');
+				expect(setValue).toEqual('itRan');
 			});
 
 		});
