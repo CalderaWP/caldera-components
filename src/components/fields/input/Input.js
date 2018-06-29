@@ -50,6 +50,7 @@ export const Input = (props) => {
 				required={props.isRequired}
 				onChange={checkboxChangeHandler}
 				defaultChecked={props.value}
+				disabled={props.disabled}
 			/>
 		);
 	}
@@ -63,6 +64,7 @@ export const Input = (props) => {
 			required={props.isRequired}
 			onChange={changeHandler}
 			value={props.value}
+			disabled={props.disabled}
 		/>
 	);
 

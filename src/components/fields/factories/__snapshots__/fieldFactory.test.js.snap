@@ -16,6 +16,7 @@ exports[`Factories Field set factory Renders with elements 1`] = `
       <input
         aria-describedby={null}
         className="field-config field-config"
+        disabled={undefined}
         id="cf-convertkit-apikey"
         onChange={[Function]}
         required={false}
@@ -37,6 +38,7 @@ exports[`Factories Field set factory Renders with elements 1`] = `
       </label>
       <select
         className="field-config field-config"
+        disabled={undefined}
         id="pid-1"
         onChange={[Function]}
         value={undefined}
@@ -62,6 +64,7 @@ exports[`Factories Field set factory Renders with elements 1`] = `
       <input
         aria-describedby={null}
         className="field-config field-config"
+        disabled={undefined}
         id="cf-convertkit-sequence-id"
         onChange={[Function]}
         required={false}
@@ -84,6 +87,7 @@ exports[`Factories Field set factory Renders with elements 1`] = `
       <input
         aria-describedby={null}
         className="field-config field-config"
+        disabled={undefined}
         id="cf-convertkit-sequence-id"
         onChange={[Function]}
         required={false}
@@ -106,6 +110,7 @@ exports[`Factories Field set factory Renders with elements 1`] = `
       <input
         aria-describedby={null}
         className="field-config field-config"
+        disabled={undefined}
         id="cf-convertkit-email"
         onChange={[Function]}
         required={false}
@@ -132,6 +137,7 @@ exports[`Factories Field set factory Renders with elements 1`] = `
       <input
         aria-describedby={null}
         className="field-config field-config"
+        disabled={undefined}
         id="cf-convertkit-name"
         onChange={[Function]}
         required={false}
@@ -158,6 +164,7 @@ exports[`Factories Field set factory Renders with elements 1`] = `
       <input
         aria-describedby={null}
         className="field-config field-config"
+        disabled={undefined}
         id="cf-convertkit-tags"
         onChange={[Function]}
         required={false}

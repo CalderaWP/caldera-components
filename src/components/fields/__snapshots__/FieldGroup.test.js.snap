@@ -12,6 +12,7 @@ exports[`Field Group component Field group component props Can mark inner input 
   <input
     aria-describedby={null}
     className="required block-input field-config field-config"
+    disabled={undefined}
     id="control-223"
     onChange={[Function]}
     required={false}
@@ -34,6 +35,7 @@ exports[`Field Group component Field group component props Can show an input  1`
   <input
     aria-describedby={null}
     className="block-input field-config field-config"
+    disabled={undefined}
     id="control-22"
     onChange={[Function]}
     required={false}
@@ -56,6 +58,7 @@ exports[`Field Group component Field group component props Help text is optional
   <input
     aria-describedby={null}
     className="block-input field-config field-config"
+    disabled={undefined}
     id="control-21"
     onChange={[Function]}
     required={false}
@@ -78,6 +81,7 @@ exports[`Field Group component Field group component props Works with help text 
   <input
     aria-describedby="control-20-description"
     className="block-input field-config field-config"
+    disabled={undefined}
     id="control-20"
     onChange={[Function]}
     required={false}

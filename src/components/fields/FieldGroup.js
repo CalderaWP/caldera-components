@@ -79,6 +79,7 @@ export const FieldGroup = (props) => {
 										'fieldset-checkbox' : true,
 									}),
 									label: option.label,
+									disabled:props.disabled,
 									onValueChange: () => {
 										let values = props.value;
 										if( ! Array.isArray( values) ){
@@ -107,7 +108,8 @@ export const FieldGroup = (props) => {
 						fieldClassName: getFieldClassName(),
 						value:fieldProps.value,
 						onValueChange:fieldProps.onValueChange,
-						inputType: fieldProps.inputType
+						inputType: fieldProps.inputType,
+						disabled:props.disabled,
 					}
 				)
 			);
@@ -132,7 +134,8 @@ export const FieldGroup = (props) => {
 							value:fieldProps.value,
 							onValueChange:fieldProps.onValueChange,
 							inputType: fieldProps.inputType,
-							options: fieldProps.options
+							options: fieldProps.options,
+							disabled:props.disabled,
 						}
 					)}
 					{fieldProps.help &&

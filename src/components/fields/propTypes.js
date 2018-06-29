@@ -54,7 +54,8 @@ export const fieldInnerPropTypes = {
 	help: PropTypes.string,
 	value: valuePropType,
 	onValueChange: onValueChangePropType,
-	inputType: inputTypeProp
+	inputType: inputTypeProp,
+	disable: PropTypes.bool
 };
 
 export const fieldPropTypes = {

@@ -49,6 +49,7 @@ export const FieldInner = (props) => {
 				onValueChange={props.onValueChange}
 				inputType={props.inputType}
 				options={props.options}
+				disabled={props.disabled}
 			/>
 		);
 	default:
@@ -61,6 +62,7 @@ export const FieldInner = (props) => {
 				value={props.value}
 				onValueChange={props.onValueChange}
 				inputType={props.inputType}
+				disabled={props.disabled}
 			/>);
 	}
 
