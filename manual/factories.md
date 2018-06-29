@@ -61,6 +61,9 @@ BTW ^^ This is basically what `RenderGroup` does, so have a really good reason t
     - Select field options
     - Shape for options is `[{label: String, value: String|number|Array}]`
     - Does not apply to input fields. 
+* disabled `Boolean` Optional.
+    - Should form field be disbaled?
+    - Default is false.
 
 
 ###Field types

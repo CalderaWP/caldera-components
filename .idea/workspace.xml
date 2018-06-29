@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2b0f3eb-379f-4bd9-bc0e-61e438292576" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/__snapshots__/renderGroup.test.js.snap" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/__snapshots__/renderGroup.test.js.snap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/fields/factories/__snapshots__/fieldFactory.test.js.snap" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/factories/__snapshots__/fieldFactory.test.js.snap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/fields/factories/fieldFactory.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/factories/fieldFactory.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/fields/factories/prepareFieldConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/factories/prepareFieldConfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/fields/propTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/propTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/fields/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/util.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/fields/util.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/util.test.js" afterDir="false" />
-    </list>
+    <list default="true" id="d2b0f3eb-379f-4bd9-bc0e-61e438292576" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -94,28 +85,28 @@
       <find>cf-convertkit</find>
       <find>desc</find>
       <find>console.</find>
-      <find>Adds options when open</find>
+      <find />
       <find>control-22</find>
-      <find>Can be a checkbox</find>
+      <find />
       <find>select3</find>
       <find>text</find>
       <find>toMatch</find>
       <find>value={true}</find>
       <find>.toMatchLength</find>
-      <find>Updates checked prop</find>
+      <find />
       <find>fieldSetFactory</find>
-      <find>Updates checked prop when clicked and value is tru</find>
+      <find />
       <find>class</find>
-      <find>class structure</find>
+      <find />
       <find>con</find>
-      <find>Creates the inner input</find>
-      <find>Creates inputs</find>
+      <find />
+      <find />
       <find>HTML5</find>
       <find>.skip</find>
       <find>fieldWrapper</find>
       <find>caldera-config-group</find>
       <find>select</find>
-      <find>.caldera-config-group around each group</find>
+      <find />
       <find>prepareFieldConfig</find>
     </findStrings>
     <replaceStrings>
@@ -200,9 +191,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="58" />
+    <option name="x" value="461" />
     <option name="y" value="23" />
-    <option name="width" value="1382" />
+    <option name="width" value="947" />
     <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -320,16 +311,15 @@
       <workItem from="1528897349482" duration="37707000" />
       <workItem from="1529202449011" duration="18560000" />
       <workItem from="1530235004219" duration="3086000" />
-      <workItem from="1530294063553" duration="2579000" />
+      <workItem from="1530294063553" duration="3233000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89000000" />
+    <option name="totallyTimeSpent" value="89654000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="58" y="23" width="1382" height="877" extended-state="0" />
-    <editor active="true" />
+    <frame x="801" y="176" width="733" height="877" extended-state="0" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -338,12 +328,12 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32916668" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info active="true" anchor="bottom" x="430" y="220" width="579" height="482" id="Terminal" order="7" visible="true" weight="0.35" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8382643" visible="true" weight="0.2261194" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8382643" visible="true" weight="0.43849492" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info id="Favorites" order="2" sideWeight="0.1617357" side_tool="true" visible="true" weight="0.2261194" />
+      <window_info id="Favorites" order="2" sideWeight="0.1617357" side_tool="true" visible="true" weight="0.43849492" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
