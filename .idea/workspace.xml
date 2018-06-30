@@ -2,53 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2b0f3eb-379f-4bd9-bc0e-61e438292576" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/conditional-logic/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/validation/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/validation/checkValidatorsForConfigField.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/validation/checkValidatorsForConfigFields.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/validation/getValidatorsFromConfigField.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/validation/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/validation/validators.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.esdoc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.esdoc.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/fields/FieldGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/fields/FieldGroup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/fields/FieldGroup.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/fields/FieldGroup.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/fields/input/Input.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/fields/input/Input.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/fields/messages/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/fields/messages/Message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/fields/messages/Messages.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/fields/messages/Messages.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/fields/messages/messagePropTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/fields/messages/messagePropTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/fields/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/fields/util.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/App.js.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ast/source/App.js.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/FieldGroup.js.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ast/source/components/fields/FieldGroup.js.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/factories/prepareFieldConfig.js.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ast/source/components/fields/factories/prepareFieldConfig.js.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/messages/Message.js.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ast/source/components/fields/messages/Message.js.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/messages/messageObjectFactory.js.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ast/source/components/fields/messages/messageObjectFactory.js.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/messages/messagePropTypes.js.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ast/source/components/fields/messages/messagePropTypes.js.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/propTypes.js.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ast/source/components/fields/propTypes.js.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/util.js.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ast/source/components/fields/util.js.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/badge.svg" beforeDir="false" afterPath="$PROJECT_DIR$/docs/badge.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/class/src/App.js~App.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/class/src/App.js~App.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/class/src/components/RenderGroup.js~RenderGroup.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/class/src/components/RenderGroup.js~RenderGroup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/coverage.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/coverage.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/App.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/App.js.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/RenderGroup.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/RenderGroup.js.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/FieldGroup.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/FieldGroup.js.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/FieldInner.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/FieldInner.js.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/factories/fieldFactory.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/factories/fieldFactory.js.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/factories/fieldSetFactory.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/factories/fieldSetFactory.js.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/factories/index.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/factories/index.js.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/factories/prepareFieldConfig.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/factories/prepareFieldConfig.js.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/index.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/index.js.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/input/Input.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/input/Input.js.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/messages/Message.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/messages/Message.js.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/messages/messageObjectFactory.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/messages/messageObjectFactory.js.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/messages/messagePropTypes.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/messages/messagePropTypes.js.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/propTypes.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/propTypes.js.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/select/SelectField.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/select/SelectField.js.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/select/SelectFieldFancy.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/select/SelectFieldFancy.js.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/util.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/util.js.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/index.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/index.js.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/index.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/index.js.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/registerServiceWorker.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/registerServiceWorker.js.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/function/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/function/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/identifiers.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/identifiers.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/script/search_index.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/script/search_index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/variable/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/variable/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -61,70 +23,26 @@
     <favorites_list name="components" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.28962964">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="fieldsetCheckboxHandler.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/components/fields/field-group-change-handlers/fieldsetCheckboxHandler.js">
+          <file leaf-file-name="checkValidatorsForConfigFields.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/components/validation/checkValidatorsForConfigFields.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="8" column="36" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="36" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/package.json">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="795">
-                  <caret line="53" column="33" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Input.test.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/components/fields/input/Input.test.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
-                  <caret line="7" selection-start-line="7" selection-end-line="7" />
+                <state relative-caret-position="405">
+                  <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
                   <folding>
-                    <element signature="e#0#43#0" expanded="true" />
+                    <element signature="e#0#76#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Input.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/components/fields/input/Input.js">
+          <file leaf-file-name="util.test.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/components/conditional-logic/util.test.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="345">
-                  <caret line="26" column="47" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
-                  <folding>
-                    <element signature="e#0#26#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="FieldGroup.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/components/fields/FieldGroup.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="330">
-                  <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
-                  <folding>
-                    <element signature="e#0#26#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/components/fields/index.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <folding>
-                    <element signature="n#!!doc" expanded="true" />
-                  </folding>
+                <state relative-caret-position="154">
+                  <caret line="69" column="8" lean-forward="true" selection-start-line="69" selection-start-column="8" selection-end-line="92" selection-end-column="10" />
                 </state>
               </provider>
             </entry>
@@ -132,12 +50,15 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="fieldsetCheckboxHandler.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/components/fields/field-group-change-handlers/fieldsetCheckboxHandler.js">
+        <leaf>
+          <file leaf-file-name="validators.test.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/components/validation/validators.test.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="195">
-                  <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+                <state relative-caret-position="664">
+                  <caret line="137" column="62" selection-start-line="137" selection-start-column="62" selection-end-line="137" selection-end-column="62" />
+                  <folding>
+                    <element signature="e#0#33#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -155,7 +76,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Can be a checkbox</find>
       <find>select3</find>
       <find>text</find>
       <find>toMatch</find>
@@ -185,16 +105,19 @@
       <find>78.23</find>
       <find>simulate</find>
       <find>checkbox</find>
+      <find>configValues</find>
     </findStrings>
     <replaceStrings>
       <replace>caldera-components</replace>
       <replace>cf-something</replace>
       <replace>value={'true'}</replace>
+      <replace>fieldValues</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/components</dir>
       <dir>$PROJECT_DIR$/src</dir>
       <dir>$PROJECT_DIR$/coverage</dir>
+      <dir>$PROJECT_DIR$/src/components/validation</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -203,19 +126,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/components/fields/Input.test.js" />
-        <option value="$PROJECT_DIR$/src/components/fields/fieldFactory.test.js" />
-        <option value="$PROJECT_DIR$/src/components/fields/Input.js" />
-        <option value="$PROJECT_DIR$/src/components/fields/fieldFactory.js" />
-        <option value="$PROJECT_DIR$/src/logo.svg" />
-        <option value="$PROJECT_DIR$/.babelrc" />
-        <option value="$PROJECT_DIR$/src/components/fields/factories/fieldSetFactory.js" />
-        <option value="$PROJECT_DIR$/src/components/fields/factories/index.js" />
-        <option value="$PROJECT_DIR$/src/components/fields/index.js" />
-        <option value="$PROJECT_DIR$/src/components/index.js" />
-        <option value="$PROJECT_DIR$/src/components/fields/factories/fieldFactory.js" />
         <option value="$PROJECT_DIR$/manual/schema.md" />
-        <option value="$PROJECT_DIR$/.esdoc.json" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/components/fields/select/SelectFieldFancy.js" />
         <option value="$PROJECT_DIR$/src/components/fields/select/SelectFieldFancy.test.js" />
@@ -254,6 +165,18 @@
         <option value="$PROJECT_DIR$/src/components/fields/field-group-change-handlers/checkboxHandler.js" />
         <option value="$PROJECT_DIR$/src/components/fields/input/Input.test.js" />
         <option value="$PROJECT_DIR$/src/components/fields/FieldGroup.js" />
+        <option value="$PROJECT_DIR$/src/components/fields/conditional-logic.js" />
+        <option value="$PROJECT_DIR$/src/components/conditional-logic/util.test.js" />
+        <option value="$PROJECT_DIR$/.esdoc.json" />
+        <option value="$PROJECT_DIR$/src/components/index.js" />
+        <option value="$PROJECT_DIR$/src/components/validation/getValidatorsFromConfigField.js" />
+        <option value="$PROJECT_DIR$/src/components/conditional-logic/README.md" />
+        <option value="$PROJECT_DIR$/src/components/validation/README.md" />
+        <option value="$PROJECT_DIR$/src/components/validation/index.js" />
+        <option value="$PROJECT_DIR$/src/components/conditional-logic/util.js" />
+        <option value="$PROJECT_DIR$/src/components/validation/checkValidatorsForConfigFields.js" />
+        <option value="$PROJECT_DIR$/src/components/validation/checkValidatorsForConfigField.js" />
+        <option value="$PROJECT_DIR$/src/components/validation/validators.test.js" />
       </list>
     </option>
   </component>
@@ -274,9 +197,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="500" />
-    <option name="y" value="23" />
-    <option name="width" value="940" />
+    <option name="x" value="199" />
+    <option name="y" value="38" />
+    <option name="width" value="1721" />
     <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -284,7 +207,61 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="components" type="b2602c69:ProjectViewProjectNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="components" type="b2602c69:ProjectViewProjectNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name=".circleci" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="components" type="b2602c69:ProjectViewProjectNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="coverage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="components" type="b2602c69:ProjectViewProjectNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="coverage" type="462c0819:PsiDirectoryNode" />
+              <item name="lcov-report" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="components" type="b2602c69:ProjectViewProjectNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="components" type="b2602c69:ProjectViewProjectNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="components" type="b2602c69:ProjectViewProjectNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="conditional-logic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="components" type="b2602c69:ProjectViewProjectNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="validation" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -334,15 +311,15 @@
       <workItem from="1529202449011" duration="18560000" />
       <workItem from="1530235004219" duration="3086000" />
       <workItem from="1530294063553" duration="5635000" />
-      <workItem from="1530366516493" duration="571000" />
+      <workItem from="1530366516493" duration="4493000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97670000" />
+    <option name="totallyTimeSpent" value="101592000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="500" y="23" width="940" height="877" extended-state="0" />
+    <frame x="199" y="38" width="1721" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -351,12 +328,13 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32916668" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" x="430" y="220" width="579" height="482" id="Terminal" order="7" visible="true" weight="0.32948717" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.82564104" weight="0.24053451" />
+      <window_info active="true" anchor="bottom" x="1" y="545" width="710" height="482" id="Terminal" order="7" type="WINDOWED" visible="true" weight="0.32948717" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.824359" visible="true" weight="0.19594997" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.36875" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" sideWeight="0.17435898" side_tool="true" visible="true" weight="0.33741647" />
+      <window_info id="Favorites" order="2" sideWeight="0.17564103" side_tool="true" weight="0.2829195" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -365,8 +343,30 @@
       <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.36875" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.824359" visible="true" weight="0.2829195" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.36875" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" x="1" y="545" width="710" height="482" id="Terminal" order="9" type="WINDOWED" visible="true" weight="0.32948717" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32916668" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Messages" order="12" />
+      <window_info id="Favorites" order="3" sideWeight="0.17564103" side_tool="true" visible="true" weight="0.2829195" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -417,88 +417,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/enzyme/build/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="50" lean-forward="true" selection-start-line="4" selection-start-column="50" selection-end-line="4" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/__snapshots__/renderGroup.test.js.snap">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/fields/__snapshots__/FieldGroup.test.js.snap">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="785">
-          <caret line="65" column="6" lean-forward="true" selection-start-line="65" selection-start-column="6" selection-end-line="65" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manual/testing.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="280">
-            <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="36" lean-forward="true" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manual/index.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="150">
-            <caret line="10" column="59" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/fields/factories/fieldSetFactory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/fields/factories/fieldFactory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manual/components.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="3345">
-            <caret line="223" column="22" lean-forward="true" selection-start-line="223" selection-start-column="22" selection-end-line="223" selection-end-column="22" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/esdoc/out/src/Typedef/typedef.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es2016.array.include.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/fields/select/SelectField.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -683,13 +601,6 @@
         <state relative-caret-position="-529" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/fields/field-group-change-handlers/handlers.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="356">
@@ -701,22 +612,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/export.test.js" />
-    <entry file="file://$PROJECT_DIR$/src/components/fields/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="53" column="33" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/fields/field-group-change-handlers/checkboxHandler.js" />
     <entry file="file://$PROJECT_DIR$/src/components/fields/FieldGroup.test.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -725,16 +620,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/fields/field-group-change-handlers/fieldsetCheckboxHandler.js">
+    <entry file="file://$PROJECT_DIR$/src/components/fields/FieldGroup.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+        <state relative-caret-position="60">
+          <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/fields/input/Input.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
+        <state relative-caret-position="372">
           <caret line="26" column="47" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -744,7 +639,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/fields/input/Input.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
+        <state relative-caret-position="105">
           <caret line="7" selection-start-line="7" selection-end-line="7" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
@@ -752,12 +647,128 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/fields/FieldGroup.js">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+        <state relative-caret-position="568">
+          <caret line="53" column="33" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/fields/field-group-change-handlers/fieldsetCheckboxHandler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="36" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/fields/conditional-logic.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.esdoc.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="1" selection-end-column="19" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#49#90#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/fields/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="2" lean-forward="true" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/conditional-logic/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="133">
+            <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/validation/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="118">
+            <caret line="53" column="54" selection-start-line="53" selection-start-column="54" selection-end-line="53" selection-end-column="54" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/validation/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/validation/getValidatorsFromConfigField.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/conditional-logic/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/validation/checkValidatorsForConfigField.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/validation/checkValidatorsForConfigFields.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="e#0#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/conditional-logic/util.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="69" column="8" lean-forward="true" selection-start-line="69" selection-start-column="8" selection-end-line="92" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/validation/validators.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="664">
+          <caret line="137" column="62" selection-start-line="137" selection-start-column="62" selection-end-line="137" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
