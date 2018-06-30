@@ -1,4 +1,5 @@
-
+# Validation
+The validation module handles the logic of determining if a field value is valid or not. It works a lot like conditional logic, in that configFields MAY have an array of validation functions. Each function is passed field values. If ANY of the validation functions returns the boolean `false`, the validation returns false. Return value of validators is checked with strict equality `false === validationFunction(fieldValues)`.
 
 ## Structure
 This module is structured differently than the others. It's an experiment that may be better than what I normally do. Not sure.
@@ -7,8 +8,6 @@ This will make moving it into its own npm module easier and **may** make use in 
 
 * One function per file, as the default export
 * All functions get exported together in index.js
-
-
 
 ## Usage
 ## Import With webpack
@@ -53,7 +52,8 @@ const isValid = validation.checkValidatorsForConfigField({
 This field is valid
 
 ```js
-const isValid = checkValidatorsForConfigField({
+import {validation} from '@caldera-labs/components';
+const isValid = validation.checkValidatorsForConfigField({
     validators: [
         () => {return true; },
     ]

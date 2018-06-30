@@ -672,6 +672,18 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/components/validation/isempty.js",
+    "file/src/components/validation/isEmpty.js.html",
+    "src/components/validation/isEmpty.js",
+    "file"
+  ],
+  [
+    "src/components/validation/isvalid.js",
+    "file/src/components/validation/isValid.js.html",
+    "src/components/validation/isValid.js",
+    "file"
+  ],
+  [
     "src/index.js",
     "file/src/index.js.html",
     "src/index.js",
