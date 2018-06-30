@@ -45,7 +45,7 @@ getValidatorsFromConfigField({
 ```
 
 ### Check validators for one config field
-Validators are an array of functions that return true or false. This field is invalid.
+CalderaValidators are an array of functions that return true or false. This field is invalid.
 ```js
 const isValid = checkValidatorsForConfigField({
     validators: [

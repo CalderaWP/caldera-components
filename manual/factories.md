@@ -6,12 +6,12 @@ You can use the `fieldSetFactory` to generate an array of React components for e
 
 ```js
 import React from 'react';
-import * as CalderaComponents from '@caldera-labs/components';
+import * as Components from '@caldera-labs/components';
 
 /**
 * Create array of React components
 */
-const fields = CalderaComponents.factories.fieldSetFactory([
+const fields = Components.factories.fieldSetFactory([
 	{
     	'id': 'post-tags',
     	'label': 'Tags',

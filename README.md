@@ -23,17 +23,17 @@ UI components for Caldera Forms admin, Caldera Forms 2.0 front-end
 * 🌋 [Components](http://calderalabs.org/caldera-components/manual/components.html)
 * 🌋 [Factories](http://calderalabs.org/caldera-components/manual/factories.html)
 * 🌋 🌋 Import From Webpack
-    - `import * as CalderaComponents from '@caldera-labs/components';`
+    - `import * as Components from '@caldera-labs/components';`
 * The reference implementation of this library is [`@caldera-labs/processor-ui`](https://github.com/CalderaWP/processor-ui)
 
 #### Basic Example
 The easiest way to use this library is with the [`RenderGroup` component](https://calderalabs.org/caldera-components/manual/components.html#rendergroup). This component takes an array of configField settings. These settings follow a schema, [defined here](https://calderalabs.org/caldera-components/manual/factories.html#configfield-schema).
 
 ```jsx
-import * as CalderaComponents from '@caldera-labs/components';
+import * as Components from '@caldera-labs/components';
 import React from 'react';
 
-<CalderaComponents.RenderGroup 
+<Components.RenderGroup 
     className={'cf-something-config'}
     configFields={[
         {

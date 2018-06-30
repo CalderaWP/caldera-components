@@ -2,9 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2b0f3eb-379f-4bd9-bc0e-61e438292576" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/validation/isEmpty.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/validation/isEmpty.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/validation/export.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/manual/factories.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/manual/factories.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/manual/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/manual/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manual/factories.md" beforeDir="false" afterPath="$PROJECT_DIR$/manual/factories.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/export.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/export.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/validation/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/validation/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/validation/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/validation/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/validation/isEmpty.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/validation/isEmpty.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/validation/isEmpty.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/validation/isEmpty.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/validation/isValid.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/validation/isValid.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,23 +27,14 @@
     <favorites_list name="components" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.56440806">
+    <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="lib.es5.d.ts" pinned="false" current-in-tab="false">
-            <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
+          <file leaf-file-name="export.test.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/components/validation/export.test.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="232">
-                  <caret line="51" column="4" selection-start-line="51" selection-start-column="2" selection-end-line="51" selection-end-column="4" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="isEmpty.test.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/components/validation/isEmpty.test.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="63">
-                  <caret line="29" column="53" selection-start-line="29" selection-start-column="53" selection-end-line="29" selection-end-column="53" />
+                <state>
+                  <caret column="40" selection-start-column="40" selection-end-column="40" />
                 </state>
               </provider>
             </entry>
@@ -42,11 +43,15 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="isEmpty.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/components/validation/isEmpty.js">
+          <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/components/validation/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="448">
-                  <caret line="54" column="6" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
+                <state relative-caret-position="225">
+                  <caret line="15" column="11" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="11" />
+                  <folding>
+                    <element signature="n#!!doc" expanded="true" />
+                    <element signature="e#49#123#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -114,7 +119,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/components/fields/input/Input.js" />
         <option value="$PROJECT_DIR$/src/components/fields/select/SelectField.js" />
         <option value="$PROJECT_DIR$/src/components/fields/FieldInner.js" />
         <option value="$PROJECT_DIR$/src/components/fields/select/SelectField.test.js" />
@@ -145,7 +149,6 @@
         <option value="$PROJECT_DIR$/src/components/conditional-logic/util.test.js" />
         <option value="$PROJECT_DIR$/.esdoc.json" />
         <option value="$PROJECT_DIR$/src/components/validation/getValidatorsFromConfigField.js" />
-        <option value="$PROJECT_DIR$/src/components/validation/index.js" />
         <option value="$PROJECT_DIR$/src/components/validation/checkValidatorsForConfigFields.js" />
         <option value="$PROJECT_DIR$/src/components/validation/checkValidatorsForConfigField.js" />
         <option value="$PROJECT_DIR$/src/components/conditional-logic/checkConfigFieldConditionals.js" />
@@ -156,7 +159,6 @@
         <option value="$PROJECT_DIR$/src/components/conditional-logic/checkConfigFieldsConditionals.js" />
         <option value="$PROJECT_DIR$/src/components/index.js" />
         <option value="$PROJECT_DIR$/src/components/conditional-logic/README.md" />
-        <option value="$PROJECT_DIR$/src/components/export.test.js" />
         <option value="$PROJECT_DIR$/src/components/validation/validators/isEmail.js" />
         <option value="$PROJECT_DIR$/src/components/validation/validators/is.js" />
         <option value="$PROJECT_DIR$/src/components/validation/isValid.js" />
@@ -165,6 +167,9 @@
         <option value="$PROJECT_DIR$/src/components/validation/validators.test.js" />
         <option value="$PROJECT_DIR$/src/components/validation/isEmpty.js" />
         <option value="$PROJECT_DIR$/src/components/validation/isEmpty.test.js" />
+        <option value="$PROJECT_DIR$/src/components/validation/index.js" />
+        <option value="$PROJECT_DIR$/src/components/export.test.js" />
+        <option value="$PROJECT_DIR$/src/components/validation/export.test.js" />
       </list>
     </option>
   </component>
@@ -257,14 +262,6 @@
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="validation" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="components" type="b2602c69:ProjectViewProjectNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="validation" type="462c0819:PsiDirectoryNode" />
-              <item name="__snapshots__" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -278,19 +275,19 @@
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/components/fields/factories" />
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/manual" />
-      <recent name="$PROJECT_DIR$/src/components" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components/fields/field-group-change-handlers" />
       <recent name="$PROJECT_DIR$/src/components/fields/factories" />
       <recent name="$PROJECT_DIR$/src/components/fields/input" />
       <recent name="$PROJECT_DIR$/src/components/fields" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/validation" />
+      <recent name="$PROJECT_DIR$/src/components/fields/factories" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/manual" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -319,12 +316,12 @@
       <workItem from="1529202449011" duration="18560000" />
       <workItem from="1530235004219" duration="3086000" />
       <workItem from="1530294063553" duration="5635000" />
-      <workItem from="1530366516493" duration="15560000" />
+      <workItem from="1530366516493" duration="15899000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112659000" />
+    <option name="totallyTimeSpent" value="112998000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="134" y="51" width="1721" height="877" extended-state="0" />
@@ -340,7 +337,7 @@
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.824359" visible="true" weight="0.20011912" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.36875" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3679487" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.17564103" side_tool="true" weight="0.2829195" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
@@ -422,7 +419,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/validation/isEmpty.test.js</url>
-          <line>49</line>
+          <line>50</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
@@ -431,16 +428,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/fields/messages/Messages.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="50" column="36" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -647,13 +634,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/export.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="3" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/coverage/lcov-report/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1694">
@@ -661,27 +641,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/validation/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/conditional-logic/checkConfigFieldsConditionals.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="2" lean-forward="true" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/conditional-logic/export.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -811,6 +774,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/validation/isEmpty.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="54" column="6" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/conditional-logic/export.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/export.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/validation/isEmpty.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="65" column="30" selection-start-line="65" selection-start-column="30" selection-end-line="65" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
@@ -818,17 +809,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/validation/isEmpty.js">
+    <entry file="file://$PROJECT_DIR$/src/components/validation/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="54" column="6" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
+        <state relative-caret-position="225">
+          <caret line="15" column="11" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="11" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#49#123#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/validation/isEmpty.test.js">
+    <entry file="file://$PROJECT_DIR$/src/components/validation/export.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="29" column="53" selection-start-line="29" selection-start-column="53" selection-end-line="29" selection-end-column="53" />
+        <state>
+          <caret column="40" selection-start-column="40" selection-end-column="40" />
         </state>
       </provider>
     </entry>

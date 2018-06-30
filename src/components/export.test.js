@@ -1,16 +1,17 @@
-import CalderaComponents from './index';
+import Components from './index';
 describe( 'conditionals export', () => {
 	it( 'exports RenderGroup', () => {
-		expect( typeof CalderaComponents.RenderGroup ).toEqual( 'function' );
+		expect( typeof Components.RenderGroup ).toEqual( 'function' );
 	});
 	it( 'exports fields', () => {
-		expect( typeof CalderaComponents.fields ).toEqual( 'object' );
+		expect( typeof Components.fields ).toEqual( 'object' );
 	});
 	it( 'exports factories', () => {
-		expect( typeof CalderaComponents.factories ).toEqual( 'object' );
+		expect( typeof Components.factories ).toEqual( 'object' );
 	});
 	it( 'exports conditionals', () => {
-		expect( typeof CalderaComponents.conditionals ).toEqual( 'object' );
+		expect( typeof Components.conditionals ).toEqual( 'object' );
 	});
 
 });
+

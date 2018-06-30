@@ -131,12 +131,12 @@
 <div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="component-factories">Component Factories</h1><p>In general, if not using <code>RenderGroup</code> component, do not use the components, use the factories. </p>
 <h2 id="-code-fieldsetfactory--code-"><code>fieldSetFactory</code></h2><p>You can use the <code>fieldSetFactory</code> to generate an array of React components for each config field.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">import React from &apos;react&apos;;
-import * as CalderaComponents from &apos;@caldera-labs/components&apos;;
+import * as Components from &apos;@caldera-labs/components&apos;;
 
 /**
 * Create array of React components
 */
-const fields = CalderaComponents.factories.fieldSetFactory([
+const fields = Components.factories.fieldSetFactory([
     {
         &apos;id&apos;: &apos;post-tags&apos;,
         &apos;label&apos;: &apos;Tags&apos;,

@@ -1,7 +1,7 @@
 import {isEmail,isUrl, isDate} from '@helpdotcom/is';
 
 /**
- * Validators for common types of validation needed
+ * CalderaValidators for common types of validation needed
  */
 export default {
 	/**

@@ -1,5 +1,5 @@
 /**
- * Validators that check if a value is empty or not
+ * CalderaValidators that check if a value is empty or not
  */
 export default {
 	/**

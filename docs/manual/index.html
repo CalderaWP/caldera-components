@@ -399,12 +399,12 @@ let checkBoxValue = [&apos;1&apos;];
 <div class="manual-card-wrap" data-ice="cards">
       <div class="manual-card">
         <div data-ice="card"><h1>Component Factories</h1><p>In general, if not using <code>RenderGroup</code> component, do not use the components, use the factories. </p><h2><code>fieldSetFactory</code></h2><p>You can use the <code>fieldSetFactory</code> to generate an array of React components for each config field.</p><pre><code class="lang-js"><code class="source-code prettyprint">import React from &apos;react&apos;;
-import * as CalderaComponents from &apos;@caldera-labs/components&apos;;
+import * as Components from &apos;@caldera-labs/components&apos;;
 
 /**
 * Create array of React components
 */
-const fields = CalderaComponents.factories.fieldSetFactory([
+const fields = Components.factories.fieldSetFactory([
     {
         &apos;id&apos;: &apos;post-tags&apos;,
         &apos;label&apos;: &apos;Tags&apos;,
@@ -561,14 +561,14 @@ it( &apos;Has the right wrapper class&apos;, () =&gt; {
 <li>&#x1F30B; <a href="http://calderalabs.org/caldera-components/manual/components.html">Components</a></li>
 <li>&#x1F30B; <a href="http://calderalabs.org/caldera-components/manual/factories.html">Factories</a></li>
 <li>&#x1F30B; &#x1F30B; Import From Webpack<ul>
-<li><code>import * as CalderaComponents from &apos;@caldera-labs/components&apos;;</code></li>
+<li><code>import * as Components from &apos;@caldera-labs/components&apos;;</code></li>
 </ul>
 </li>
 <li>The reference implementation of this library is <a href="https://github.com/CalderaWP/processor-ui"><code>@caldera-labs/processor-ui</code></a></li>
-</ul><h4>Basic Example</h4><p>The easiest way to use this library is with the <a href="https://calderalabs.org/caldera-components/manual/components.html#rendergroup"><code>RenderGroup</code> component</a>. This component takes an array of configField settings. These settings follow a schema, <a href="https://calderalabs.org/caldera-components/manual/factories.html#configfield-schema">defined here</a>.</p><pre><code class="lang-jsx"><code class="source-code prettyprint">import * as CalderaComponents from &apos;@caldera-labs/components&apos;;
+</ul><h4>Basic Example</h4><p>The easiest way to use this library is with the <a href="https://calderalabs.org/caldera-components/manual/components.html#rendergroup"><code>RenderGroup</code> component</a>. This component takes an array of configField settings. These settings follow a schema, <a href="https://calderalabs.org/caldera-components/manual/factories.html#configfield-schema">defined here</a>.</p><pre><code class="lang-jsx"><code class="source-code prettyprint">import * as Components from &apos;@caldera-labs/components&apos;;
 import React from &apos;react&apos;;
 
-&lt;CalderaComponents.RenderGroup 
+&lt;Components.RenderGroup
     className={&apos;cf-something-config&apos;}
     configFields={[
         {
