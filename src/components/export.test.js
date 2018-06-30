@@ -1,7 +1,4 @@
 import CalderaComponents from './index';
-import * as fields from "./fields";
-import * as factories from "./fields/factories";
-import conditionals from "./conditional-logic";
 describe( 'conditionals export', () => {
 	it( 'exports RenderGroup', () => {
 		expect( typeof CalderaComponents.RenderGroup ).toEqual( 'function' );
