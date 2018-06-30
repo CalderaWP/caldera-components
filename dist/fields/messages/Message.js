@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-exports.Message = undefined;
+exports.Message = exports.MESSAGE_CLASS = undefined;
 
 var _react = require('react');
 
@@ -20,6 +20,12 @@ var _classnames = require('classnames');
 var _classnames2 = _interopRequireDefault(_classnames);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * The class that message components always wrap messages in
+ * @type {string}
+ */
+var MESSAGE_CLASS = exports.MESSAGE_CLASS = 'caldera-components-message';
 
 /**
  * Prop for showing a validation message
@@ -41,8 +47,11 @@ var Message = exports.Message = function Message(props) {
 	return _react2.default.createElement(
 		'div',
 		{
-			className: (0, _classnames2.default)(props.className, 'caldera-components-error', {
-				'has-error': error
+			className: (0, _classnames2.default)(props.className, MESSAGE_CLASS, {
+				'has-error': error,
+				'caldera-components-error': error,
+				'caldera-components-not-error': !error
+
 			})
 		},
 		message

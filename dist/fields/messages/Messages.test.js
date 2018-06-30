@@ -33,7 +33,17 @@ describe('Message component', function () {
 						message: 'Hi Roy'
 					}
 				}));
-				expect(wrapper.length).toBe(1);
+				expect(wrapper).toHaveLength(1);
+			});
+
+			it('Renders message', function () {
+				var wrapper = _reactTestRenderer2.default.create(_react2.default.createElement(_Message.Message, {
+					message: {
+						message: 'Hi Roy',
+						error: false
+					}
+				}));
+				expect(wrapper.toJSON()).toMatchSnapshot();
 			});
 
 			it('Shows the right message message', function () {
@@ -53,7 +63,7 @@ describe('Message component', function () {
 				},
 				className: 'mike'
 			}));
-			expect(wrapper.find('.mike').length).toBe(1);
+			expect(wrapper.find('.mike')).toHaveLength(1);
 		});
 
 		it('Has error class when is an error', function () {
@@ -63,7 +73,7 @@ describe('Message component', function () {
 					error: true
 				}
 			}));
-			expect(wrapper.find('.has-error').length).toBe(1);
+			expect(wrapper.find('.has-error')).toHaveLength(1);
 		});
 
 		it('Does not have error class when is not an error', function () {
@@ -73,7 +83,7 @@ describe('Message component', function () {
 					error: false
 				}
 			}));
-			expect(wrapper.find('.has-error').length).toBe(0);
+			expect(wrapper.find('.has-error')).toHaveLength(0);
 		});
 
 		it('Does have caldera-components-error class when an error', function () {
@@ -83,7 +93,7 @@ describe('Message component', function () {
 					error: true
 				}
 			}));
-			expect(wrapper.find('.caldera-components-error').length).toBe(1);
+			expect(wrapper.hasClass(_Message.MESSAGE_CLASS)).toEqual(true);
 		});
 
 		it('Does have caldera-components-error class when not an error', function () {
@@ -93,7 +103,7 @@ describe('Message component', function () {
 					error: false
 				}
 			}));
-			expect(wrapper.find('.caldera-components-error').length).toBe(1);
+			expect(wrapper.hasClass(_Message.MESSAGE_CLASS)).toEqual(true);
 		});
 	});
 });

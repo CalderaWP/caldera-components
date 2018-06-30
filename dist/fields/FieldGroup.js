@@ -29,6 +29,8 @@ var _Message = require('./messages/Message');
 
 var _messageObjectFactory = require('./messages/messageObjectFactory');
 
+var _fieldsetCheckboxHandler = require('./field-group-change-handlers/fieldsetCheckboxHandler');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
@@ -55,6 +57,7 @@ var FieldGroup = exports.FieldGroup = function FieldGroup(props) {
   */
 	function fieldInner(fieldProps) {
 		var message = 'object' === _typeof(fieldProps.message) ? (0, _messageObjectFactory.messageObjectFactory)(fieldProps.message) : (0, _messageObjectFactory.messageObjectFactory)({ message: null, error: false });
+
 		function getFieldClassName(conditionalClassNames) {
 			return (0, _classnames2.default)(_extends({
 				required: fieldProps.isRequired
@@ -105,16 +108,7 @@ var FieldGroup = exports.FieldGroup = function FieldGroup(props) {
 							label: option.label,
 							disabled: props.disabled,
 							onValueChange: function onValueChange() {
-								var values = props.value;
-								if (!Array.isArray(values)) {
-									if ('string' === typeof values || 'number' === typeof values) {
-										values = [values];
-									} else {
-										values = [];
-									}
-								}
-								values = (0, _util.addOrRemoveFromArray)(option.value, values);
-								props.onValueChange(values);
+								return (0, _fieldsetCheckboxHandler.fieldsetCheckboxHandler)(option, props.values, props.onValueChange);
 							}
 						})
 					);

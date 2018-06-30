@@ -92,7 +92,7 @@
           },
           "extra": {
             "rawValue": "prop-types",
-            "raw": "\"prop-types\""
+            "raw": "'prop-types'"
           },
           "value": "prop-types"
         },

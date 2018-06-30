@@ -1,5 +1,7 @@
 'use strict';
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 var _FieldGroup = require('./FieldGroup');
 
 var _reactTestRenderer = require('react-test-renderer');
@@ -122,8 +124,6 @@ describe('Field Group component', function () {
 			});
 
 			it('Can disable inner input', function () {
-				var setValue = '';
-
 				var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_FieldGroup.FieldGroup, {
 					id: 'control-225',
 					label: 'Who',
@@ -223,8 +223,6 @@ describe('Field Group component', function () {
 		});
 
 		it('Can disable inner select', function () {
-			var setValue = '';
-
 			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_FieldGroup.FieldGroup, {
 				id: 'select3-b',
 				label: 'Who',
@@ -311,6 +309,24 @@ describe('Field Group component', function () {
 				}));
 				expect(wrapper.find('fieldset').children().find('input')).toHaveLength(2);
 			});
+
+			it('Checkboxes have onValueChange prop', function () {
+				var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_FieldGroup.FieldGroup, {
+					id: 'fieldset-3',
+					label: 'How many',
+					onValueChange: function onValueChange() {},
+					inputType: 'checkbox',
+					type: 'fieldset',
+					options: [{
+						value: 1,
+						label: 'One'
+					}, {
+						value: 2,
+						label: 'Two'
+					}]
+				}));
+				expect(_typeof(wrapper.find('fieldset').children().find('input').first().prop('onChange'))).toEqual('function');
+			});
 		});
 	});
 
@@ -335,7 +351,7 @@ describe('Field Group component', function () {
 				}
 
 			}));
-			expect(wrapper.find('.caldera-components-error').length).toBe(1);
+			expect(wrapper.find('.caldera-components-message')).toHaveLength(1);
 		});
 
 		it('Renders non-error with message', function () {
@@ -358,7 +374,7 @@ describe('Field Group component', function () {
 				}
 
 			}));
-			expect(wrapper.find('.caldera-components-error').length).toBe(1);
+			expect(wrapper.find('.caldera-components-message')).toHaveLength(1);
 		});
 
 		it('Renders the right error message', function () {
@@ -382,7 +398,7 @@ describe('Field Group component', function () {
 				}
 
 			}));
-			expect(wrapper.find('.caldera-components-error').text()).toBe(message);
+			expect(wrapper.find('.caldera-components-message').text()).toBe(message);
 		});
 
 		it('Renders the right non-error message', function () {
@@ -406,7 +422,7 @@ describe('Field Group component', function () {
 				}
 
 			}));
-			expect(wrapper.find('.caldera-components-error').text()).toBe(message);
+			expect(wrapper.find('.caldera-components-message').text()).toBe(message);
 		});
 
 		it('Renders nothing when message prop not passed', function () {
@@ -425,7 +441,7 @@ describe('Field Group component', function () {
 				}]
 
 			}));
-			expect(wrapper.find('.caldera-components-error').length).toBe(0);
+			expect(wrapper.find('.caldera-components-message')).toHaveLength(0);
 		});
 
 		it('Renders nothing when message prop passed, without a message', function () {
@@ -447,7 +463,7 @@ describe('Field Group component', function () {
 				}
 
 			}));
-			expect(wrapper.find('.caldera-components-error').length).toBe(0);
+			expect(wrapper.find('.caldera-components-message')).toHaveLength(0);
 		});
 	});
 });

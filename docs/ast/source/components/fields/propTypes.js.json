@@ -178,7 +178,7 @@
           },
           "extra": {
             "rawValue": "./messages/messagePropTypes",
-            "raw": "\"./messages/messagePropTypes\""
+            "raw": "'./messages/messagePropTypes'"
           },
           "value": "./messages/messagePropTypes"
         },

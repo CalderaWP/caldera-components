@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../../../">
-  <title data-ice="title">src/components/fields/factories/prepareFieldConfig.js | Caldera Components library</title>
+  <title data-ice="title">src/components/fields/field-group-change-handlers/fieldsetCheckboxHandler.js | Caldera Components library</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -61,63 +61,26 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/components/fields/factories/prepareFieldConfig.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {fieldGroupPropTypes} from &apos;../propTypes&apos;;
-import {isValidHtml5type, toBoolean} from &apos;../util&apos;;
-import {messageObjectFactory} from &apos;../messages/messageObjectFactory&apos;;
+<div class="content" data-ice="content"><h1 data-ice="title">src/components/fields/field-group-change-handlers/fieldsetCheckboxHandler.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {addOrRemoveFromArray} from &apos;../util&apos;;
 
 /**
- * Validates field configurations
- *
- * NOTE: This is called internally by factory. You probably do not want to call this.
- *
- * @param {Object}fieldArgs
- * @returns {*}
+ * Change handler for a checkbox that is a part of a group
+ * @param {Object} option Option that is being changed. Shape: `{value:String|number,label:String}`,
+ * @param {Array|string|number} values Current values
+ * @param {Function} onValueChange Function to call with updated value
  */
-export const prepareFieldConfig = (fieldArgs) =&gt; {
-	/**
-	 * Pick whitlisted keys from object
-	 *
-	 * @see http://www.jstips.co/en/javascript/picking-and-rejecting-object-properties/
-	 *
-	 * @param {Object} obj The object to pick from
-	 * @param {Array} keys The whitelist of keys
-	 * @return {*}
-	 */
-	function pick(obj, keys) {
-		return keys.map(k =&gt; k in obj ? {[k]: obj[k]} : {})
-			.reduce((res, o) =&gt; Object.assign(res, o), {});
-	}
+export const fieldsetCheckboxHandler = (option, values, onValueChange)  =&gt; {
+	if (!Array.isArray(values)) {
+		if (&apos;string&apos; === typeof values || &apos;number&apos; === typeof  values) {
+			values = [values];
+		} else {
+			values = [];
 
-	switch (fieldArgs.type) {
-	case &apos;select&apos;:
-	case &apos;dropdown&apos;:
-		fieldArgs.type = &apos;select&apos;;
-		break;
-	case &apos;fieldset&apos;:
-		fieldArgs.type = &apos;fieldset&apos;;
-		break;
-	case &apos;text&apos;:
-	case &apos;number&apos;:
-	default:
-		fieldArgs.inputType = isValidHtml5type(fieldArgs.type) ? fieldArgs.type : &apos;text&apos;;
-		fieldArgs.type = &apos;input&apos;;
-		break;
+		}
 	}
-
-	if (fieldArgs.hasOwnProperty(&apos;desc&apos;)) {
-		fieldArgs.help = fieldArgs.desc;
-	}
-	if (fieldArgs.hasOwnProperty(&apos;description&apos;)) {
-		fieldArgs.help = fieldArgs.description;
-	}
-
-	fieldArgs = pick(fieldArgs, Object.keys(fieldGroupPropTypes));
-	fieldArgs.disabled = toBoolean(fieldArgs.disabled);
-	fieldArgs.message = &apos;object&apos; === typeof  fieldArgs.message
-		? messageObjectFactory(fieldArgs.message)
-		: messageObjectFactory({message:null, error: false });
-	return fieldArgs;
+	values = addOrRemoveFromArray(option.value, values);
+	onValueChange(values);
 };</code></pre>
 
 </div>

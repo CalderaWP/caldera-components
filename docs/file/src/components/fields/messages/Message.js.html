@@ -49,9 +49,11 @@
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-factories">components/fields/factories</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldFactory">fieldFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldSetFactory">fieldSetFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-prepareFieldConfig">prepareFieldConfig</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-field-group-change-handlers">components/fields/field-group-change-handlers</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldsetCheckboxHandler">fieldsetCheckboxHandler</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-input">components/fields/input</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Input">Input</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-messages">components/fields/messages</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Message">Message</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-messageObjectFactory">messageObjectFactory</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MESSAGE_CLASS">MESSAGE_CLASS</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-messagePropShape">messagePropShape</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-select">components/fields/select</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SelectField">SelectField</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SelectFieldFancy">SelectFieldFancy</a></span></span></li>
@@ -62,8 +64,14 @@
 <div class="content" data-ice="content"><h1 data-ice="title">src/components/fields/messages/Message.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;;
 import PropTypes from &apos;prop-types&apos;;
-import {messagePropShape} from &quot;./messagePropTypes&quot;;
+import {messagePropShape} from &apos;./messagePropTypes&apos;;
 import classNames from &apos;classnames&apos;;
+
+/**
+ * The class that message components always wrap messages in
+ * @type {string}
+ */
+export const MESSAGE_CLASS = &apos;caldera-components-message&apos;;
 
 /**
  * Prop for showing a validation message
@@ -83,15 +91,18 @@ export const Message = (props) =&gt; {
 		&lt;div
 			className={classNames(
 				props.className,
-				&apos;caldera-components-error&apos;,
+				MESSAGE_CLASS,
 				{
 					&apos;has-error&apos;: error,
+					&apos;caldera-components-error&apos;: error,
+					&apos;caldera-components-not-error&apos;: ! error,
+
 				}
 			)}
 		&gt;
 			{message}
 		&lt;/div&gt;
-	)
+	);
 };
 
 /**

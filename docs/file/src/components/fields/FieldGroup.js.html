@@ -49,9 +49,11 @@
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-factories">components/fields/factories</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldFactory">fieldFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldSetFactory">fieldSetFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-prepareFieldConfig">prepareFieldConfig</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-field-group-change-handlers">components/fields/field-group-change-handlers</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldsetCheckboxHandler">fieldsetCheckboxHandler</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-input">components/fields/input</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Input">Input</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-messages">components/fields/messages</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Message">Message</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-messageObjectFactory">messageObjectFactory</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MESSAGE_CLASS">MESSAGE_CLASS</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-messagePropShape">messagePropShape</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-select">components/fields/select</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SelectField">SelectField</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SelectFieldFancy">SelectFieldFancy</a></span></span></li>
@@ -62,15 +64,16 @@
 <div class="content" data-ice="content"><h1 data-ice="title">src/components/fields/FieldGroup.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;;
 import classNames from &apos;classnames&apos;;
-import {addOrRemoveFromArray, ariaDescribedbyAttr} from &apos;./util&apos;;
+import {ariaDescribedbyAttr} from &apos;./util&apos;;
 import {
 	fieldGroupPropTypes,
 } from &apos;./propTypes&apos;;
 
 import {FieldInner} from &apos;./FieldInner&apos;;
 import {RenderGroup} from &apos;../RenderGroup&apos;;
-import {Message} from &quot;./messages/Message&quot;;
-import {messageObjectFactory} from &quot;./messages/messageObjectFactory&quot;;
+import {Message} from &apos;./messages/Message&apos;;
+import {messageObjectFactory} from &apos;./messages/messageObjectFactory&apos;;
+import {fieldsetCheckboxHandler} from &apos;./field-group-change-handlers/fieldsetCheckboxHandler&apos;;
 
 /**
  * Represents one configField -- wrapper, label and input.
@@ -89,16 +92,17 @@ export const FieldGroup = (props) =&gt; {
 		return ariaDescribedbyAttr(props.id, props.help);
 	}
 
+
 	/**
 	 * Based on type, render the field.
 	 *
 	 * @return {*}
 	 */
-	function fieldInner(fieldProps){
+	function fieldInner(fieldProps) {
 		const message = &apos;object&apos; === typeof  fieldProps.message
 			? messageObjectFactory(fieldProps.message)
+			: messageObjectFactory({message: null, error: false});
 
-			: messageObjectFactory({message:null, error: false });
 		function getFieldClassName(conditionalClassNames) {
 			return classNames(
 				{
@@ -114,15 +118,15 @@ export const FieldGroup = (props) =&gt; {
 		 * @param {String|number|Array} currentValue
 		 * @return {boolean}
 		 */
-		function isCheckedOption( option, currentValue){
-			if( Array.isArray( currentValue ) ){
+		function isCheckedOption(option, currentValue) {
+			if (Array.isArray(currentValue)) {
 				return currentValue.includes(option.value);
 			}
 			return option.value === currentValue;
 		}
 
 		//Fieldsets are rendered recursively.
-		if( &apos;fieldset&apos; === fieldProps.type ){
+		if (&apos;fieldset&apos; === fieldProps.type) {
 			return (
 				&lt;fieldset
 					id={props.id}
@@ -130,58 +134,46 @@ export const FieldGroup = (props) =&gt; {
 					&lt;legend&gt;
 						{props.label}
 					&lt;/legend&gt;
-					{props.options.map(option =&gt;  {
+					{props.options.map(option =&gt; {
 
 
 						//Call this same function, as a regular checkbox
 						return (
 							&lt;React.Fragment
-								key={ `${props.id}-${option.value}` }
+								key={`${props.id}-${option.value}`}
 							&gt;
 								{fieldInner({
 									type: &apos;input&apos;,
 									inputType: &apos;checkbox&apos;,
 									id: `${props.id}-${option.value}`,
-									value: isCheckedOption(option,props.value),
+									value: isCheckedOption(option, props.value),
 									fieldClassName: getFieldClassName({
-										&apos;fieldset-checkbox&apos; : true,
+										&apos;fieldset-checkbox&apos;: true,
 									}),
 									label: option.label,
-									disabled:props.disabled,
-									onValueChange: () =&gt; {
-										let values = props.value;
-										if( ! Array.isArray( values) ){
-											if( &apos;string&apos; === typeof values || &apos;number&apos; === typeof  values ){
-												values = [values];
-											}else{
-												values = [];
-
-											}
-										}
-										values = addOrRemoveFromArray( option.value, values );
-										props.onValueChange(values);
-									}
+									disabled: props.disabled,
+									onValueChange: () =&gt; fieldsetCheckboxHandler(option, props.values, props.onValueChange)
 								})}
 							&lt;/React.Fragment&gt;
 						);
 					})}
 				&lt;/fieldset&gt;
 			);
-		}else if( &apos;hidden&apos; === fieldProps.inputType ){
+		} else if (&apos;hidden&apos; === fieldProps.inputType) {
 			return (
 				FieldInner(
 					{
 						type: props.type,
 						id: props.id,
 						fieldClassName: getFieldClassName(),
-						value:fieldProps.value,
-						onValueChange:fieldProps.onValueChange,
+						value: fieldProps.value,
+						onValueChange: fieldProps.onValueChange,
 						inputType: fieldProps.inputType,
-						disabled:props.disabled,
+						disabled: props.disabled,
 					}
 				)
 			);
-		}else{
+		} else {
 			return (
 				&lt;div
 					className={RenderGroup.classNames.fieldWrapper}
@@ -201,12 +193,12 @@ export const FieldGroup = (props) =&gt; {
 							fieldClassName: getFieldClassName({
 								&apos;block-input&apos;: fieldProps.isBlockInput
 							}),
-							help:fieldProps.help,
-							value:fieldProps.value,
-							onValueChange:fieldProps.onValueChange,
+							help: fieldProps.help,
+							value: fieldProps.value,
+							onValueChange: fieldProps.onValueChange,
 							inputType: fieldProps.inputType,
 							options: fieldProps.options,
-							disabled:props.disabled,
+							disabled: props.disabled,
 						}
 					)}
 					{fieldProps.help &amp;&amp;
@@ -228,8 +220,6 @@ export const FieldGroup = (props) =&gt; {
 	 */
 	return fieldInner(props);
 };
-
-
 
 
 FieldGroup.propTypes = fieldGroupPropTypes;

@@ -24,6 +24,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "@caldera-labs/components/src/components/fields/messages/message.js~message_class",
+    "variable/index.html#static-variable-MESSAGE_CLASS",
+    "<span>MESSAGE_CLASS</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/fields/messages/Message.js</span>",
+    "variable"
+  ],
+  [
     "@caldera-labs/components/src/components/fields/messages/message.js~message",
     "function/index.html#static-function-Message",
     "<span>Message</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/fields/messages/Message.js</span>",
@@ -87,6 +93,12 @@ window.esdocSearchIndex = [
     "@caldera-labs/components/src/components/fields/factories/fieldsetfactory.js~fieldsetfactory",
     "function/index.html#static-function-fieldSetFactory",
     "<span>fieldSetFactory</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/fields/factories/fieldSetFactory.js</span>",
+    "function"
+  ],
+  [
+    "@caldera-labs/components/src/components/fields/field-group-change-handlers/fieldsetcheckboxhandler.js~fieldsetcheckboxhandler",
+    "function/index.html#static-function-fieldsetCheckboxHandler",
+    "<span>fieldsetCheckboxHandler</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/fields/field-group-change-handlers/fieldsetCheckboxHandler.js</span>",
     "function"
   ],
   [
@@ -507,6 +519,12 @@ window.esdocSearchIndex = [
     "src/components/fields/factories/preparefieldconfig.js",
     "file/src/components/fields/factories/prepareFieldConfig.js.html",
     "src/components/fields/factories/prepareFieldConfig.js",
+    "file"
+  ],
+  [
+    "src/components/fields/field-group-change-handlers/fieldsetcheckboxhandler.js",
+    "file/src/components/fields/field-group-change-handlers/fieldsetCheckboxHandler.js.html",
+    "src/components/fields/field-group-change-handlers/fieldsetCheckboxHandler.js",
     "file"
   ],
   [

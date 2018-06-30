@@ -66,11 +66,11 @@ var addOrRemoveFromArray = exports.addOrRemoveFromArray = function addOrRemoveFr
 var toBoolean = exports.toBoolean = function toBoolean(value) {
 	switch (value) {
 		case true:
-		case "true":
+		case 'true':
 		case 1:
-		case "1":
-		case "on":
-		case "yes":
+		case '1':
+		case 'on':
+		case 'yes':
 			return true;
 		default:
 			return false;

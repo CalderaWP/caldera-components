@@ -567,7 +567,7 @@
     "__docId__": 48,
     "kind": "file",
     "name": "src/App.js",
-    "content": "import React, { Component } from 'react';\nimport logo from './logo.svg';\nimport './App.css';\nimport {FieldGroup} from \"./components/fields/FieldGroup\";\nimport {fieldSetFactory} from \"./components/fields/factories/fieldSetFactory\";\nimport {RenderGroup} from \"./components/RenderGroup\";\n\nlet textFieldValue = 'Roy,Mike';\nconst textFieldConfig = {\n\t'id': 'cf-something-tags',\n\t'label': 'Tags',\n\t'desc': 'Comma separated list of tags.',\n\t'type': 'text',\n\t'description': false,\n\tvalue: textFieldValue,\n\tonValueChange: function(newValue){\n\t\ttextFieldValue = newValue\n\t}\n};\n\nlet hiddenFieldValue = '42';\nconst hiddenFieldConfig = {\n\t'id': 'cf-something-sequence-id',\n\t'type': 'hidden',\n\t'label': 'Sequence ID',\n\t'description': false,\n\tvalue: hiddenFieldValue,\n\tonValueChange: function(newValue){\n\t\thiddenFieldValue = newValue\n\t}\n};\n\nlet selectFieldValue = 'html';\nconst selectFieldConfig = {\n\t'id': 'cf-something-select-id',\n\t'type': 'dropdown',\n\t'label': 'Content type',\n\t'description': 'Choose content type, default is HTML',\n\toptions: [\n\t\t{\n\t\t\tlabel: 'HTML',\n\t\t\tvalue: 'html'\n\t\t},\n\t\t{\n\t\t\tlabel: 'Plain Text',\n\t\t\tvalue: 'plain'\n\t\t}\n\t],\n\tvalue: selectFieldValue,\n\tonValueChange: function(newValue){\n\t\tselectFieldValue = newValue\n\t}\n};\n\nlet fieldSetFieldValue = ['1'];\nconst fieldSetField = {\n\tid: 'fieldset-3',\n\tlabel: 'How many?',\n\ttype: 'fieldset',\n\toptions: [\n\t\t{\n\t\t\tvalue: '1',\n\t\t\tlabel: 'One'\n\t\t},\n\t\t{\n\t\t\tvalue: '2',\n\t\t\tlabel: 'Two'\n\t\t}\n\n\t],\n\tvalue:[],\n\tonValueChange:(newValue) => {\n\t\tfieldSetFieldValue=newValue;\n\t}\n};\n\nconst configFields = [\n\ttextFieldConfig,\n\thiddenFieldConfig,\n\tselectFieldConfig,\n\tfieldSetField\n];\nconst configFieldEls = fieldSetFactory(configFields);\n\n\n\nlet values = {\n\tone: '',\n\ttwo: '',\n\tthree: ''\n};\n\nclass App extends Component {\n\n\trender() {\n\t\treturn (\n\t\t\t<div className=\"App\">\n\t\t\t\t<header className=\"App-header\">\n\t\t\t\t\t<img src={logo} className=\"App-logo\" alt=\"logo\" />\n\t\t\t\t\t<h1 className=\"App-title\">Welcome to React</h1>\n\t\t\t\t</header>\n\n\n\t\t\t\t<div>\n\t\t\t\t\t<h2>Created With RenderGroup Component</h2>\n\t\t\t\t\t<RenderGroup\n\t\t\t\t\t\tconfigFields={configFields}\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\n\t\t\t\t<div>\n\t\t\t\t\t<h2>Created With Factory</h2>\n\t\t\t\t\t{Array.from(configFieldEls).map((field,i) => {\n\t\t\t\t\t\treturn React.createElement(\n\t\t\t\t\t\t\tReact.Fragment, {\n\t\t\t\t\t\t\t\tkey: i,\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\tfield\n\t\t\t\t\t\t);\n\t\t\t\t\t})}\n\t\t\t\t</div>\n\n\t\t\t\t<div>\n\t\t\t\t\t<h2>Inputs</h2>\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-22'}\n\t\t\t\t\t\tlabel={'Required Text input'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tvalue={values.one}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.one=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-23'}\n\t\t\t\t\t\tlabel={'Non Required Text input'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tvalue={values.two}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.two=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-23'}\n\t\t\t\t\t\tlabel={'With Help Text'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\thelp={'Adding help text sets aria-describedy'}\n\t\t\t\t\t\tvalue={values.thre}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.three=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-24'}\n\t\t\t\t\t\tlabel={'Non Required Numeric input'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tinnertype={'number'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tvalue={values.two}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.two=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\t\t\t\t<div>\n\t\t\t\t\t<h2>Selects</h2>\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\ttype={'select'}\n\t\t\t\t\t\tlabel={'Basic select field'}\n\t\t\t\t\t\tvalue={selectFieldValue}\n\t\t\t\t\t\tid={'r'}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tselectFieldValue = newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t\toptions={[\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tvalue: 1,\n\t\t\t\t\t\t\t\tlabel: 'One'\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tvalue: 2,\n\t\t\t\t\t\t\t\tlabel: 'Two'\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t]}\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\n\t\t\t\t<div>\n\t\t\t\t\t<h2>fieldsets</h2>\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\ttype={'fieldset'}\n\t\t\t\t\t\tlabel={'Checkbox group'}\n\t\t\t\t\t\tvalue={fieldSetFieldValue}\n\t\t\t\t\t\tid={'Checkbox1'}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tfieldSetFieldValue = newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t\toptions={[\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tvalue: '1',\n\t\t\t\t\t\t\t\tlabel: 'One'\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tvalue: '2',\n\t\t\t\t\t\t\t\tlabel: 'Two'\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t]}\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\t\t);\n\t}\n}\n\nexport default App;\n",
+    "content": "import React, { Component } from 'react';\nimport logo from './logo.svg';\nimport './App.css';\nimport {FieldGroup} from \"./components/fields/FieldGroup\";\nimport {fieldSetFactory} from \"./components/fields/factories/fieldSetFactory\";\nimport {RenderGroup} from \"./components/RenderGroup\";\n\nlet textFieldValue = 'Roy,Mike';\nconst textFieldConfig = {\n\t'id': 'cf-something-tags',\n\t'label': 'Tags',\n\t'desc': 'Comma separated list of tags.',\n\t'type': 'text',\n\t'description': false,\n\tvalue: textFieldValue,\n\tonValueChange: function(newValue){\n\t\ttextFieldValue = newValue\n\t}\n};\n\nlet hiddenFieldValue = '42';\nconst hiddenFieldConfig = {\n\t'id': 'cf-something-sequence-id',\n\t'type': 'hidden',\n\t'label': 'Sequence ID',\n\t'description': false,\n\tvalue: hiddenFieldValue,\n\tonValueChange: function(newValue){\n\t\thiddenFieldValue = newValue\n\t}\n};\n\nlet selectFieldValue = 'html';\nconst selectFieldConfig = {\n\t'id': 'cf-something-select-id',\n\t'type': 'dropdown',\n\t'label': 'Content type',\n\t'description': 'Choose content type, default is HTML',\n\toptions: [\n\t\t{\n\t\t\tlabel: 'HTML',\n\t\t\tvalue: 'html'\n\t\t},\n\t\t{\n\t\t\tlabel: 'Plain Text',\n\t\t\tvalue: 'plain'\n\t\t}\n\t],\n\tvalue: selectFieldValue,\n\tonValueChange: function(newValue){\n\t\tselectFieldValue = newValue\n\t}\n};\n\nlet fieldSetFieldValue = ['1'];\nconst fieldSetField = {\n\tid: 'fieldset-3',\n\tlabel: 'How many?',\n\ttype: 'fieldset',\n\toptions: [\n\t\t{\n\t\t\tvalue: '1',\n\t\t\tlabel: 'One'\n\t\t},\n\t\t{\n\t\t\tvalue: '2',\n\t\t\tlabel: 'Two'\n\t\t}\n\n\t],\n\tvalue:[],\n\tonValueChange:(newValue) => {\n\t\tfieldSetFieldValue=newValue;\n\t}\n};\n\nconst configFields = [\n\ttextFieldConfig,\n\thiddenFieldConfig,\n\tselectFieldConfig,\n\tfieldSetField\n];\nconst configFieldEls = fieldSetFactory(configFields);\n\n\n\nlet values = {\n\tone: '',\n\ttwo: '',\n\tthree: ''\n};\n\nclass App extends Component {\n\n\trender() {\n\t\treturn (\n\t\t\t<div className=\"App\">\n\t\t\t\t<header className=\"App-header\">\n\t\t\t\t\t<img src={logo} className=\"App-logo\" alt=\"logo\" />\n\t\t\t\t\t<h1 className=\"App-title\">Welcome to React</h1>\n\t\t\t\t</header>\n\n\n\t\t\t\t<div>\n\t\t\t\t\t<h2>Created With RenderGroup Component</h2>\n\t\t\t\t\t<RenderGroup\n\t\t\t\t\t\tconfigFields={configFields}\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\n\t\t\t\t<div>\n\t\t\t\t\t<h2>Created With Factory</h2>\n\t\t\t\t\t{Array.from(configFieldEls).map((field,i) => {\n\t\t\t\t\t\treturn React.createElement(\n\t\t\t\t\t\t\tReact.Fragment, {\n\t\t\t\t\t\t\t\tkey: i,\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\tfield\n\t\t\t\t\t\t);\n\t\t\t\t\t})}\n\t\t\t\t</div>\n\n\t\t\t\t<div>\n\t\t\t\t\t<h2>Inputs</h2>\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-22'}\n\t\t\t\t\t\tlabel={'Required Text input'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tvalue={values.one}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.one=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-23'}\n\t\t\t\t\t\tlabel={'Non Required Text input'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tvalue={values.two}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.two=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-23'}\n\t\t\t\t\t\tlabel={'With Help Text'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\thelp={'Adding help text sets aria-describedy'}\n\t\t\t\t\t\tvalue={values.thre}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.three=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-24'}\n\t\t\t\t\t\tlabel={'Non Required Numeric input'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tinnertype={'number'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tvalue={values.two}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.two=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-25'}\n\t\t\t\t\t\tlabel={'Non Required input disabled with error'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tinnertype={'text'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tvalue={values.two}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.two=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t\tmessage={{\n\t\t\t\t\t\t\tmessage:'Failures happened',\n\t\t\t\t\t\t\terror: true\n\t\t\t\t\t\t}}\n\t\t\t\t\t\tdisabled={true}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-25'}\n\t\t\t\t\t\tlabel={'Non Required input with non-error message'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tinnertype={'text'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tvalue={values.two}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.two=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t\tmessage={{\n\t\t\t\t\t\t\tmessage:'Failures did not happened',\n\t\t\t\t\t\t\terror: false\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\t\t\t\t<div>\n\t\t\t\t\t<h2>Selects</h2>\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\ttype={'select'}\n\t\t\t\t\t\tlabel={'Basic select field'}\n\t\t\t\t\t\tvalue={selectFieldValue}\n\t\t\t\t\t\tid={'r'}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tselectFieldValue = newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t\toptions={[\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tvalue: 1,\n\t\t\t\t\t\t\t\tlabel: 'One'\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tvalue: 2,\n\t\t\t\t\t\t\t\tlabel: 'Two'\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t]}\n\t\t\t\t\t/>\n\n\t\t\t\t</div>\n\n\t\t\t\t<div>\n\t\t\t\t\t<h2>fieldsets</h2>\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\ttype={'fieldset'}\n\t\t\t\t\t\tlabel={'Checkbox group'}\n\t\t\t\t\t\tvalue={fieldSetFieldValue}\n\t\t\t\t\t\tid={'Checkbox1'}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tfieldSetFieldValue = newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t\toptions={[\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tvalue: '1',\n\t\t\t\t\t\t\t\tlabel: 'One'\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tvalue: '2',\n\t\t\t\t\t\t\t\tlabel: 'Two'\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t]}\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\t\t);\n\t}\n}\n\nexport default App;\n",
     "static": true,
     "longname": "/Users/josh/caldera-js/components/src/App.js",
     "access": "public",
@@ -946,7 +946,7 @@
     "__docId__": 68,
     "kind": "file",
     "name": "src/components/fields/FieldGroup.js",
-    "content": "import React from 'react';\nimport classNames from 'classnames';\nimport {addOrRemoveFromArray, ariaDescribedbyAttr} from './util';\nimport {\n\tfieldGroupPropTypes,\n} from './propTypes';\n\nimport {FieldInner} from './FieldInner';\nimport {RenderGroup} from '../RenderGroup';\nimport {Message} from \"./messages/Message\";\nimport {messageObjectFactory} from \"./messages/messageObjectFactory\";\n\n/**\n * Represents one configField -- wrapper, label and input.\n *\n * @param props\n * @return {*}\n * @constructor\n */\nexport const FieldGroup = (props) => {\n\n\t/**\n\t * Creates the id attribute\n\t * @return {String}\n\t */\n\tfunction idAttrForHelpElement() {\n\t\treturn ariaDescribedbyAttr(props.id, props.help);\n\t}\n\n\t/**\n\t * Based on type, render the field.\n\t *\n\t * @return {*}\n\t */\n\tfunction fieldInner(fieldProps){\n\t\tconst message = 'object' === typeof  fieldProps.message\n\t\t\t? messageObjectFactory(fieldProps.message)\n\n\t\t\t: messageObjectFactory({message:null, error: false });\n\t\tfunction getFieldClassName(conditionalClassNames) {\n\t\t\treturn classNames(\n\t\t\t\t{\n\t\t\t\t\trequired: fieldProps.isRequired,\n\t\t\t\t\t...conditionalClassNames\n\t\t\t\t}\n\t\t\t);\n\t\t}\n\n\t\t/**\n\t\t * Is this option the checked value?\n\t\t * @param {object}option\n\t\t * @param {String|number|Array} currentValue\n\t\t * @return {boolean}\n\t\t */\n\t\tfunction isCheckedOption( option, currentValue){\n\t\t\tif( Array.isArray( currentValue ) ){\n\t\t\t\treturn currentValue.includes(option.value);\n\t\t\t}\n\t\t\treturn option.value === currentValue;\n\t\t}\n\n\t\t//Fieldsets are rendered recursively.\n\t\tif( 'fieldset' === fieldProps.type ){\n\t\t\treturn (\n\t\t\t\t<fieldset\n\t\t\t\t\tid={props.id}\n\t\t\t\t>\n\t\t\t\t\t<legend>\n\t\t\t\t\t\t{props.label}\n\t\t\t\t\t</legend>\n\t\t\t\t\t{props.options.map(option =>  {\n\n\n\t\t\t\t\t\t//Call this same function, as a regular checkbox\n\t\t\t\t\t\treturn (\n\t\t\t\t\t\t\t<React.Fragment\n\t\t\t\t\t\t\t\tkey={ `${props.id}-${option.value}` }\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t{fieldInner({\n\t\t\t\t\t\t\t\t\ttype: 'input',\n\t\t\t\t\t\t\t\t\tinputType: 'checkbox',\n\t\t\t\t\t\t\t\t\tid: `${props.id}-${option.value}`,\n\t\t\t\t\t\t\t\t\tvalue: isCheckedOption(option,props.value),\n\t\t\t\t\t\t\t\t\tfieldClassName: getFieldClassName({\n\t\t\t\t\t\t\t\t\t\t'fieldset-checkbox' : true,\n\t\t\t\t\t\t\t\t\t}),\n\t\t\t\t\t\t\t\t\tlabel: option.label,\n\t\t\t\t\t\t\t\t\tdisabled:props.disabled,\n\t\t\t\t\t\t\t\t\tonValueChange: () => {\n\t\t\t\t\t\t\t\t\t\tlet values = props.value;\n\t\t\t\t\t\t\t\t\t\tif( ! Array.isArray( values) ){\n\t\t\t\t\t\t\t\t\t\t\tif( 'string' === typeof values || 'number' === typeof  values ){\n\t\t\t\t\t\t\t\t\t\t\t\tvalues = [values];\n\t\t\t\t\t\t\t\t\t\t\t}else{\n\t\t\t\t\t\t\t\t\t\t\t\tvalues = [];\n\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\tvalues = addOrRemoveFromArray( option.value, values );\n\t\t\t\t\t\t\t\t\t\tprops.onValueChange(values);\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t})}\n\t\t\t\t\t\t\t</React.Fragment>\n\t\t\t\t\t\t);\n\t\t\t\t\t})}\n\t\t\t\t</fieldset>\n\t\t\t);\n\t\t}else if( 'hidden' === fieldProps.inputType ){\n\t\t\treturn (\n\t\t\t\tFieldInner(\n\t\t\t\t\t{\n\t\t\t\t\t\ttype: props.type,\n\t\t\t\t\t\tid: props.id,\n\t\t\t\t\t\tfieldClassName: getFieldClassName(),\n\t\t\t\t\t\tvalue:fieldProps.value,\n\t\t\t\t\t\tonValueChange:fieldProps.onValueChange,\n\t\t\t\t\t\tinputType: fieldProps.inputType,\n\t\t\t\t\t\tdisabled:props.disabled,\n\t\t\t\t\t}\n\t\t\t\t)\n\t\t\t);\n\t\t}else{\n\t\t\treturn (\n\t\t\t\t<div\n\t\t\t\t\tclassName={RenderGroup.classNames.fieldWrapper}\n\t\t\t\t>\n\t\t\t\t\t<label\n\t\t\t\t\t\thtmlFor={fieldProps.id}\n\t\t\t\t\t>\n\t\t\t\t\t\t{fieldProps.label}\n\t\t\t\t\t</label>\n\t\t\t\t\t<Message\n\t\t\t\t\t\tmessage={message}\n\t\t\t\t\t/>\n\t\t\t\t\t{FieldInner(\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\ttype: fieldProps.type,\n\t\t\t\t\t\t\tid: fieldProps.id,\n\t\t\t\t\t\t\tfieldClassName: getFieldClassName({\n\t\t\t\t\t\t\t\t'block-input': fieldProps.isBlockInput\n\t\t\t\t\t\t\t}),\n\t\t\t\t\t\t\thelp:fieldProps.help,\n\t\t\t\t\t\t\tvalue:fieldProps.value,\n\t\t\t\t\t\t\tonValueChange:fieldProps.onValueChange,\n\t\t\t\t\t\t\tinputType: fieldProps.inputType,\n\t\t\t\t\t\t\toptions: fieldProps.options,\n\t\t\t\t\t\t\tdisabled:props.disabled,\n\t\t\t\t\t\t}\n\t\t\t\t\t)}\n\t\t\t\t\t{fieldProps.help &&\n\t\t\t\t\t<p\n\t\t\t\t\t\tid={`${idAttrForHelpElement()}`}\n\t\t\t\t\t\tclassName={'description'}\n\t\t\t\t\t>\n\t\t\t\t\t\t{fieldProps.help}\n\t\t\t\t\t</p>\n\t\t\t\t\t}\n\t\t\t\t</div>\n\t\t\t);\n\t\t}\n\n\t}\n\n\t/**\n\t * Render field group\n\t */\n\treturn fieldInner(props);\n};\n\n\n\n\nFieldGroup.propTypes = fieldGroupPropTypes;\n\nFieldGroup.defaultProps = {\n\tisBlockInput: true,\n\tisRequired: false,\n\thelp: ''\n};",
+    "content": "import React from 'react';\nimport classNames from 'classnames';\nimport {ariaDescribedbyAttr} from './util';\nimport {\n\tfieldGroupPropTypes,\n} from './propTypes';\n\nimport {FieldInner} from './FieldInner';\nimport {RenderGroup} from '../RenderGroup';\nimport {Message} from './messages/Message';\nimport {messageObjectFactory} from './messages/messageObjectFactory';\nimport {fieldsetCheckboxHandler} from './field-group-change-handlers/fieldsetCheckboxHandler';\n\n/**\n * Represents one configField -- wrapper, label and input.\n *\n * @param props\n * @return {*}\n * @constructor\n */\nexport const FieldGroup = (props) => {\n\n\t/**\n\t * Creates the id attribute\n\t * @return {String}\n\t */\n\tfunction idAttrForHelpElement() {\n\t\treturn ariaDescribedbyAttr(props.id, props.help);\n\t}\n\n\n\t/**\n\t * Based on type, render the field.\n\t *\n\t * @return {*}\n\t */\n\tfunction fieldInner(fieldProps) {\n\t\tconst message = 'object' === typeof  fieldProps.message\n\t\t\t? messageObjectFactory(fieldProps.message)\n\t\t\t: messageObjectFactory({message: null, error: false});\n\n\t\tfunction getFieldClassName(conditionalClassNames) {\n\t\t\treturn classNames(\n\t\t\t\t{\n\t\t\t\t\trequired: fieldProps.isRequired,\n\t\t\t\t\t...conditionalClassNames\n\t\t\t\t}\n\t\t\t);\n\t\t}\n\n\t\t/**\n\t\t * Is this option the checked value?\n\t\t * @param {object}option\n\t\t * @param {String|number|Array} currentValue\n\t\t * @return {boolean}\n\t\t */\n\t\tfunction isCheckedOption(option, currentValue) {\n\t\t\tif (Array.isArray(currentValue)) {\n\t\t\t\treturn currentValue.includes(option.value);\n\t\t\t}\n\t\t\treturn option.value === currentValue;\n\t\t}\n\n\t\t//Fieldsets are rendered recursively.\n\t\tif ('fieldset' === fieldProps.type) {\n\t\t\treturn (\n\t\t\t\t<fieldset\n\t\t\t\t\tid={props.id}\n\t\t\t\t>\n\t\t\t\t\t<legend>\n\t\t\t\t\t\t{props.label}\n\t\t\t\t\t</legend>\n\t\t\t\t\t{props.options.map(option => {\n\n\n\t\t\t\t\t\t//Call this same function, as a regular checkbox\n\t\t\t\t\t\treturn (\n\t\t\t\t\t\t\t<React.Fragment\n\t\t\t\t\t\t\t\tkey={`${props.id}-${option.value}`}\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t{fieldInner({\n\t\t\t\t\t\t\t\t\ttype: 'input',\n\t\t\t\t\t\t\t\t\tinputType: 'checkbox',\n\t\t\t\t\t\t\t\t\tid: `${props.id}-${option.value}`,\n\t\t\t\t\t\t\t\t\tvalue: isCheckedOption(option, props.value),\n\t\t\t\t\t\t\t\t\tfieldClassName: getFieldClassName({\n\t\t\t\t\t\t\t\t\t\t'fieldset-checkbox': true,\n\t\t\t\t\t\t\t\t\t}),\n\t\t\t\t\t\t\t\t\tlabel: option.label,\n\t\t\t\t\t\t\t\t\tdisabled: props.disabled,\n\t\t\t\t\t\t\t\t\tonValueChange: () => fieldsetCheckboxHandler(option, props.values, props.onValueChange)\n\t\t\t\t\t\t\t\t})}\n\t\t\t\t\t\t\t</React.Fragment>\n\t\t\t\t\t\t);\n\t\t\t\t\t})}\n\t\t\t\t</fieldset>\n\t\t\t);\n\t\t} else if ('hidden' === fieldProps.inputType) {\n\t\t\treturn (\n\t\t\t\tFieldInner(\n\t\t\t\t\t{\n\t\t\t\t\t\ttype: props.type,\n\t\t\t\t\t\tid: props.id,\n\t\t\t\t\t\tfieldClassName: getFieldClassName(),\n\t\t\t\t\t\tvalue: fieldProps.value,\n\t\t\t\t\t\tonValueChange: fieldProps.onValueChange,\n\t\t\t\t\t\tinputType: fieldProps.inputType,\n\t\t\t\t\t\tdisabled: props.disabled,\n\t\t\t\t\t}\n\t\t\t\t)\n\t\t\t);\n\t\t} else {\n\t\t\treturn (\n\t\t\t\t<div\n\t\t\t\t\tclassName={RenderGroup.classNames.fieldWrapper}\n\t\t\t\t>\n\t\t\t\t\t<label\n\t\t\t\t\t\thtmlFor={fieldProps.id}\n\t\t\t\t\t>\n\t\t\t\t\t\t{fieldProps.label}\n\t\t\t\t\t</label>\n\t\t\t\t\t<Message\n\t\t\t\t\t\tmessage={message}\n\t\t\t\t\t/>\n\t\t\t\t\t{FieldInner(\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\ttype: fieldProps.type,\n\t\t\t\t\t\t\tid: fieldProps.id,\n\t\t\t\t\t\t\tfieldClassName: getFieldClassName({\n\t\t\t\t\t\t\t\t'block-input': fieldProps.isBlockInput\n\t\t\t\t\t\t\t}),\n\t\t\t\t\t\t\thelp: fieldProps.help,\n\t\t\t\t\t\t\tvalue: fieldProps.value,\n\t\t\t\t\t\t\tonValueChange: fieldProps.onValueChange,\n\t\t\t\t\t\t\tinputType: fieldProps.inputType,\n\t\t\t\t\t\t\toptions: fieldProps.options,\n\t\t\t\t\t\t\tdisabled: props.disabled,\n\t\t\t\t\t\t}\n\t\t\t\t\t)}\n\t\t\t\t\t{fieldProps.help &&\n\t\t\t\t\t<p\n\t\t\t\t\t\tid={`${idAttrForHelpElement()}`}\n\t\t\t\t\t\tclassName={'description'}\n\t\t\t\t\t>\n\t\t\t\t\t\t{fieldProps.help}\n\t\t\t\t\t</p>\n\t\t\t\t\t}\n\t\t\t\t</div>\n\t\t\t);\n\t\t}\n\n\t}\n\n\t/**\n\t * Render field group\n\t */\n\treturn fieldInner(props);\n};\n\n\nFieldGroup.propTypes = fieldGroupPropTypes;\n\nFieldGroup.defaultProps = {\n\tisBlockInput: true,\n\tisRequired: false,\n\thelp: ''\n};",
     "static": true,
     "longname": "/Users/josh/caldera-js/components/src/components/fields/FieldGroup.js",
     "access": "public",
@@ -967,7 +967,7 @@
     "importPath": "@caldera-labs/components/src/components/fields/FieldGroup.js",
     "importStyle": "{FieldGroup}",
     "description": "Represents one configField -- wrapper, label and input.",
-    "lineNumber": 20,
+    "lineNumber": 21,
     "unknown": [
       {
         "tagName": "@constructor",
@@ -1173,7 +1173,7 @@
     "__docId__": 77,
     "kind": "file",
     "name": "src/components/fields/factories/prepareFieldConfig.js",
-    "content": "import {fieldGroupPropTypes} from '../propTypes';\nimport {isValidHtml5type, toBoolean} from '../util';\nimport {messageObjectFactory} from \"../messages/messageObjectFactory\";\n\n/**\n * Validates field configurations\n *\n * NOTE: This is called internally by factory. You probably do not want to call this.\n *\n * @param {Object}fieldArgs\n * @returns {*}\n */\nexport const prepareFieldConfig = (fieldArgs) => {\n\t/**\n\t * Pick whitlisted keys from object\n\t *\n\t * @see http://www.jstips.co/en/javascript/picking-and-rejecting-object-properties/\n\t *\n\t * @param {Object} obj The object to pick from\n\t * @param {Array} keys The whitelist of keys\n\t * @return {*}\n\t */\n\tfunction pick(obj, keys) {\n\t\treturn keys.map(k => k in obj ? {[k]: obj[k]} : {})\n\t\t\t.reduce((res, o) => Object.assign(res, o), {});\n\t}\n\n\tswitch (fieldArgs.type) {\n\tcase 'select':\n\tcase 'dropdown':\n\t\tfieldArgs.type = 'select';\n\t\tbreak;\n\tcase 'fieldset':\n\t\tfieldArgs.type = 'fieldset';\n\t\tbreak;\n\tcase 'text':\n\tcase 'number':\n\tdefault:\n\t\tfieldArgs.inputType = isValidHtml5type(fieldArgs.type) ? fieldArgs.type : 'text';\n\t\tfieldArgs.type = 'input';\n\t\tbreak;\n\t}\n\n\tif (fieldArgs.hasOwnProperty('desc')) {\n\t\tfieldArgs.help = fieldArgs.desc;\n\t}\n\tif (fieldArgs.hasOwnProperty('description')) {\n\t\tfieldArgs.help = fieldArgs.description;\n\t}\n\n\tfieldArgs = pick(fieldArgs, Object.keys(fieldGroupPropTypes));\n\tfieldArgs.disabled = toBoolean(fieldArgs.disabled);\n\tfieldArgs.message = 'object' === typeof  fieldArgs.message\n\t\t? messageObjectFactory(fieldArgs.message)\n\t\t: messageObjectFactory({message:null, error: false });\n\treturn fieldArgs;\n};",
+    "content": "import {fieldGroupPropTypes} from '../propTypes';\nimport {isValidHtml5type, toBoolean} from '../util';\nimport {messageObjectFactory} from '../messages/messageObjectFactory';\n\n/**\n * Validates field configurations\n *\n * NOTE: This is called internally by factory. You probably do not want to call this.\n *\n * @param {Object}fieldArgs\n * @returns {*}\n */\nexport const prepareFieldConfig = (fieldArgs) => {\n\t/**\n\t * Pick whitlisted keys from object\n\t *\n\t * @see http://www.jstips.co/en/javascript/picking-and-rejecting-object-properties/\n\t *\n\t * @param {Object} obj The object to pick from\n\t * @param {Array} keys The whitelist of keys\n\t * @return {*}\n\t */\n\tfunction pick(obj, keys) {\n\t\treturn keys.map(k => k in obj ? {[k]: obj[k]} : {})\n\t\t\t.reduce((res, o) => Object.assign(res, o), {});\n\t}\n\n\tswitch (fieldArgs.type) {\n\tcase 'select':\n\tcase 'dropdown':\n\t\tfieldArgs.type = 'select';\n\t\tbreak;\n\tcase 'fieldset':\n\t\tfieldArgs.type = 'fieldset';\n\t\tbreak;\n\tcase 'text':\n\tcase 'number':\n\tdefault:\n\t\tfieldArgs.inputType = isValidHtml5type(fieldArgs.type) ? fieldArgs.type : 'text';\n\t\tfieldArgs.type = 'input';\n\t\tbreak;\n\t}\n\n\tif (fieldArgs.hasOwnProperty('desc')) {\n\t\tfieldArgs.help = fieldArgs.desc;\n\t}\n\tif (fieldArgs.hasOwnProperty('description')) {\n\t\tfieldArgs.help = fieldArgs.description;\n\t}\n\n\tfieldArgs = pick(fieldArgs, Object.keys(fieldGroupPropTypes));\n\tfieldArgs.disabled = toBoolean(fieldArgs.disabled);\n\tfieldArgs.message = 'object' === typeof  fieldArgs.message\n\t\t? messageObjectFactory(fieldArgs.message)\n\t\t: messageObjectFactory({message:null, error: false });\n\treturn fieldArgs;\n};",
     "static": true,
     "longname": "/Users/josh/caldera-js/components/src/components/fields/factories/prepareFieldConfig.js",
     "access": "public",
@@ -1225,6 +1225,68 @@
   {
     "__docId__": 79,
     "kind": "file",
+    "name": "src/components/fields/field-group-change-handlers/fieldsetCheckboxHandler.js",
+    "content": "import {addOrRemoveFromArray} from '../util';\n\n/**\n * Change handler for a checkbox that is a part of a group\n * @param {Object} option Option that is being changed. Shape: `{value:String|number,label:String}`,\n * @param {Array|string|number} values Current values\n * @param {Function} onValueChange Function to call with updated value\n */\nexport const fieldsetCheckboxHandler = (option, values, onValueChange)  => {\n\tif (!Array.isArray(values)) {\n\t\tif ('string' === typeof values || 'number' === typeof  values) {\n\t\t\tvalues = [values];\n\t\t} else {\n\t\t\tvalues = [];\n\n\t\t}\n\t}\n\tvalues = addOrRemoveFromArray(option.value, values);\n\tonValueChange(values);\n};",
+    "static": true,
+    "longname": "/Users/josh/caldera-js/components/src/components/fields/field-group-change-handlers/fieldsetCheckboxHandler.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 80,
+    "kind": "function",
+    "name": "fieldsetCheckboxHandler",
+    "memberof": "src/components/fields/field-group-change-handlers/fieldsetCheckboxHandler.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/components/fields/field-group-change-handlers/fieldsetCheckboxHandler.js~fieldsetCheckboxHandler",
+    "access": "public",
+    "export": true,
+    "importPath": "@caldera-labs/components/src/components/fields/field-group-change-handlers/fieldsetCheckboxHandler.js",
+    "importStyle": "{fieldsetCheckboxHandler}",
+    "description": "Change handler for a checkbox that is a part of a group",
+    "lineNumber": 9,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "option",
+        "description": "Option that is being changed. Shape: `{value:String|number,label:String}`,"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Array",
+          "string",
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "values",
+        "description": "Current values"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "onValueChange",
+        "description": "Function to call with updated value"
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 81,
+    "kind": "file",
     "name": "src/components/fields/index.js",
     "content": "/*eslint no-undef: \"error\"*/\n/*eslint-env node*/\nimport {FieldGroup} from './FieldGroup';\nimport {SelectFieldFancy} from './select/SelectFieldFancy';\nimport {Input} from './input/Input';\n\nmodule.exports = {\n\tFieldGroup,\n\tSelectField: SelectFieldFancy,\n\tInput\n};",
     "static": true,
@@ -1234,7 +1296,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 80,
+    "__docId__": 82,
     "kind": "file",
     "name": "src/components/fields/input/Input.js",
     "content": "import React from 'react';\nimport {fieldPropTypes} from '../propTypes';\nimport classNames from 'classnames';\nimport {RenderGroup} from '../../RenderGroup';\n/**\n * Input component for any HTML5 input type\n *\n * @param {Object} props\n * @returns {*}\n * @constructor\n */\nexport const Input = (props) => {\n\t/**\n\t * Dispatches value of input when it changes\n\t * @param event\n\t * @return {*}\n\t */\n\tfunction changeHandler(event){\n\t\treturn props.onValueChange(event.target.value);\n\t}\n\n\t/**\n\t * Dispatches value when checkbox is checked\n\t * @return {*}\n\t */\n\tfunction checkboxChangeHandler() {\n\t\treturn props.onValueChange(! props.value);\n\t}\n\n\n\t/**\n\t * Get the className prop for inputs\n\t *\n\t * @return {String}\n\t */\n\tfunction inputClassName() {\n\t\treturn classNames(\n\t\t\tprops.fieldClassName,\n\t\t\tRenderGroup.classNames.input\n\t\t);\n\t}\n\n\tif( 'checkbox' === props.inputType ){\n\t\treturn (\n\t\t\t<input\n\t\t\t\ttype={'checkbox'}\n\t\t\t\tid={props.id}\n\t\t\t\tclassName={inputClassName()}\n\t\t\t\taria-describedby={props.ariaDescribedbyAttr}\n\t\t\t\trequired={props.isRequired}\n\t\t\t\tonChange={checkboxChangeHandler}\n\t\t\t\tdefaultChecked={props.value}\n\t\t\t\tdisabled={props.disabled}\n\t\t\t/>\n\t\t);\n\t}\n\n\treturn (\n\t\t<input\n\t\t\ttype={props.inputType}\n\t\t\tid={props.id}\n\t\t\tclassName={inputClassName()}\n\t\t\taria-describedby={props.ariaDescribedbyAttr}\n\t\t\trequired={props.isRequired}\n\t\t\tonChange={changeHandler}\n\t\t\tvalue={props.value}\n\t\t\tdisabled={props.disabled}\n\t\t/>\n\t);\n\n};\n\n/**\n * Prop definitions for Input components\n */\nInput.propTypes = fieldPropTypes;\n\n/**\n * Default props for Input Component\n *\n * @type {{ariaDescribedbyAttr: string, isRequired: boolean, inputType: string}}\n */\nInput.defaultProps = {\n\tariaDescribedbyAttr: '',\n\tisRequired: false,\n\tinputType: 'text'\n};",
@@ -1245,7 +1307,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 81,
+    "__docId__": 83,
     "kind": "function",
     "name": "Input",
     "memberof": "src/components/fields/input/Input.js",
@@ -1291,10 +1353,10 @@
     }
   },
   {
-    "__docId__": 82,
+    "__docId__": 84,
     "kind": "file",
     "name": "src/components/fields/messages/Message.js",
-    "content": "import React from 'react';\nimport PropTypes from 'prop-types';\nimport {messagePropShape} from \"./messagePropTypes\";\nimport classNames from 'classnames';\n\n/**\n * Prop for showing a validation message\n *\n * Use or for errors and such\n *\n * @param {object}  props\n * @return {*}\n * @constructor\n */\nexport const Message = (props) => {\n\tconst {message,error} = props.message;\n\tif( !message || '' === message ){\n\t\treturn <React.Fragment></React.Fragment>;\n\t}\n\treturn(\n\t\t<div\n\t\t\tclassName={classNames(\n\t\t\t\tprops.className,\n\t\t\t\t'caldera-components-error',\n\t\t\t\t{\n\t\t\t\t\t'has-error': error,\n\t\t\t\t}\n\t\t\t)}\n\t\t>\n\t\t\t{message}\n\t\t</div>\n\t)\n};\n\n/**\n * Prop types for Message components\n *\n * @type {{className: shim, message}}\n */\nMessage.propTypes = {\n\tclassName: PropTypes.string,\n\tmessage: messagePropShape,\n};\n\n",
+    "content": "import React from 'react';\nimport PropTypes from 'prop-types';\nimport {messagePropShape} from './messagePropTypes';\nimport classNames from 'classnames';\n\n/**\n * The class that message components always wrap messages in\n * @type {string}\n */\nexport const MESSAGE_CLASS = 'caldera-components-message';\n\n/**\n * Prop for showing a validation message\n *\n * Use or for errors and such\n *\n * @param {object}  props\n * @return {*}\n * @constructor\n */\nexport const Message = (props) => {\n\tconst {message,error} = props.message;\n\tif( !message || '' === message ){\n\t\treturn <React.Fragment></React.Fragment>;\n\t}\n\treturn(\n\t\t<div\n\t\t\tclassName={classNames(\n\t\t\t\tprops.className,\n\t\t\t\tMESSAGE_CLASS,\n\t\t\t\t{\n\t\t\t\t\t'has-error': error,\n\t\t\t\t\t'caldera-components-error': error,\n\t\t\t\t\t'caldera-components-not-error': ! error,\n\n\t\t\t\t}\n\t\t\t)}\n\t\t>\n\t\t\t{message}\n\t\t</div>\n\t);\n};\n\n/**\n * Prop types for Message components\n *\n * @type {{className: shim, message}}\n */\nMessage.propTypes = {\n\tclassName: PropTypes.string,\n\tmessage: messagePropShape,\n};\n\n",
     "static": true,
     "longname": "/Users/josh/caldera-js/components/src/components/fields/messages/Message.js",
     "access": "public",
@@ -1302,7 +1364,29 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 83,
+    "__docId__": 85,
+    "kind": "variable",
+    "name": "MESSAGE_CLASS",
+    "memberof": "src/components/fields/messages/Message.js",
+    "static": true,
+    "longname": "src/components/fields/messages/Message.js~MESSAGE_CLASS",
+    "access": "public",
+    "export": true,
+    "importPath": "@caldera-labs/components/src/components/fields/messages/Message.js",
+    "importStyle": "{MESSAGE_CLASS}",
+    "description": "The class that message components always wrap messages in",
+    "lineNumber": 10,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 86,
     "kind": "function",
     "name": "Message",
     "memberof": "src/components/fields/messages/Message.js",
@@ -1315,7 +1399,7 @@
     "importPath": "@caldera-labs/components/src/components/fields/messages/Message.js",
     "importStyle": "{Message}",
     "description": "Prop for showing a validation message\n\nUse or for errors and such",
-    "lineNumber": 15,
+    "lineNumber": 21,
     "unknown": [
       {
         "tagName": "@constructor",
@@ -1344,10 +1428,10 @@
     }
   },
   {
-    "__docId__": 84,
+    "__docId__": 87,
     "kind": "file",
     "name": "src/components/fields/messages/messageObjectFactory.js",
-    "content": "import {toBoolean} from \"../util\";\n\n/**\n * Prepares messages object in fieldConfigs\n *\n * @param {Object} message\n * @param {Boolean} error\n * @return {{message: *, error: boolean}}\n */\nexport const messageObjectFactory = ({message,error}) => {\n\tif( 'string' !== typeof  message ){\n\t\tmessage = '';\n\t}\n\treturn{\n\t\tmessage: message,\n\t\terror: toBoolean(error)\n\t}\n};",
+    "content": "import {toBoolean} from '../util';\n\n/**\n * Prepares messages object in fieldConfigs\n *\n * @param {Object} message\n * @param {Boolean} error\n * @return {{message: *, error: boolean}}\n */\nexport const messageObjectFactory = ({message,error}) => {\n\tif( 'string' !== typeof  message ){\n\t\tmessage = '';\n\t}\n\treturn{\n\t\tmessage: message,\n\t\terror: toBoolean(error)\n\t};\n};",
     "static": true,
     "longname": "/Users/josh/caldera-js/components/src/components/fields/messages/messageObjectFactory.js",
     "access": "public",
@@ -1355,7 +1439,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 85,
+    "__docId__": 88,
     "kind": "function",
     "name": "messageObjectFactory",
     "memberof": "src/components/fields/messages/messageObjectFactory.js",
@@ -1401,10 +1485,10 @@
     }
   },
   {
-    "__docId__": 86,
+    "__docId__": 89,
     "kind": "file",
     "name": "src/components/fields/messages/messagePropTypes.js",
-    "content": "import PropTypes from \"prop-types\";\n\n/**\n * The shape of the message object passed to Message compoent\n *\n * @type {shim}\n */\nexport const messagePropShape = PropTypes.shape(\n\t{\n\t\terror: PropTypes.bool,\n\t\ttext: PropTypes.string\n\t}\n);",
+    "content": "import PropTypes from 'prop-types';\n\n/**\n * The shape of the message object passed to Message compoent\n *\n * @type {shim}\n */\nexport const messagePropShape = PropTypes.shape(\n\t{\n\t\terror: PropTypes.bool,\n\t\ttext: PropTypes.string\n\t}\n);",
     "static": true,
     "longname": "/Users/josh/caldera-js/components/src/components/fields/messages/messagePropTypes.js",
     "access": "public",
@@ -1412,7 +1496,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 87,
+    "__docId__": 90,
     "kind": "variable",
     "name": "messagePropShape",
     "memberof": "src/components/fields/messages/messagePropTypes.js",
@@ -1434,10 +1518,10 @@
     }
   },
   {
-    "__docId__": 88,
+    "__docId__": 91,
     "kind": "file",
     "name": "src/components/fields/propTypes.js",
-    "content": "import PropTypes from 'prop-types';\nimport {messagePropShape} from \"./messages/messagePropTypes\";\n\n/**\n * PropType for the field value used in multiple components\n *\n * @type {shim}\n */\nexport const valuePropType = PropTypes.oneOfType([\n\tPropTypes.string,\n\tPropTypes.number,\n\tPropTypes.array,\n\tPropTypes.bool\n]);\n\n/**\n * PropType for the field value change event used in multiple components\n *\n * @type {shim}\n */\nexport const onValueChangePropType = PropTypes.func.isRequired;\n\n/**\n * Proptypes for Input component\n * @type {shim}\n */\nexport  const inputTypeProp = PropTypes.string;\n\n/**\n * PropTypes for field groups\n *\n * @type {{id: (boolean|shim|*), isBlockInput: shim, isRequired: shim, help: shim, label: (boolean|shim|*), type: shim, value: shim, onValueChange: (boolean|shim|*), inputType: shim}}\n */\nexport const fieldGroupPropTypes = {\n\tid: PropTypes.string.isRequired,\n\tisBlockInput: PropTypes.bool,\n\tisRequired: PropTypes.bool,\n\thelp: PropTypes.string,\n\tlabel: PropTypes.string.isRequired,\n\ttype: PropTypes.oneOf(['input','select', 'fieldset']),\n\tvalue: valuePropType,\n\tonValueChange: onValueChangePropType,\n\toptions: PropTypes.array,\n\tinputType:inputTypeProp,\n\tdisabled: PropTypes.bool,\n\tmessage: messagePropShape\n};\n\n/**\n * PropTypes for the InnerField component\n *\n * @type {{id: (boolean|shim|*), fieldClassName: (boolean|shim|*), help: shim, value: shim, onValueChange: (boolean|shim|*), inputType: shim}}\n */\nexport const fieldInnerPropTypes = {\n\tid: PropTypes.string.isRequired,\n\tfieldClassName: PropTypes.string.isRequired,\n\thelp: PropTypes.string,\n\tvalue: valuePropType,\n\tonValueChange: onValueChangePropType,\n\tinputType: inputTypeProp,\n};\n\nexport const fieldPropTypes = {\n\t...fieldInnerPropTypes,\n\tariaDescribedbyAttr: PropTypes.string,\n};\n",
+    "content": "import PropTypes from 'prop-types';\nimport {messagePropShape} from './messages/messagePropTypes';\n\n/**\n * PropType for the field value used in multiple components\n *\n * @type {shim}\n */\nexport const valuePropType = PropTypes.oneOfType([\n\tPropTypes.string,\n\tPropTypes.number,\n\tPropTypes.array,\n\tPropTypes.bool\n]);\n\n/**\n * PropType for the field value change event used in multiple components\n *\n * @type {shim}\n */\nexport const onValueChangePropType = PropTypes.func.isRequired;\n\n/**\n * Proptypes for Input component\n * @type {shim}\n */\nexport  const inputTypeProp = PropTypes.string;\n\n/**\n * PropTypes for field groups\n *\n * @type {{id: (boolean|shim|*), isBlockInput: shim, isRequired: shim, help: shim, label: (boolean|shim|*), type: shim, value: shim, onValueChange: (boolean|shim|*), inputType: shim}}\n */\nexport const fieldGroupPropTypes = {\n\tid: PropTypes.string.isRequired,\n\tisBlockInput: PropTypes.bool,\n\tisRequired: PropTypes.bool,\n\thelp: PropTypes.string,\n\tlabel: PropTypes.string.isRequired,\n\ttype: PropTypes.oneOf(['input','select', 'fieldset']),\n\tvalue: valuePropType,\n\tonValueChange: onValueChangePropType,\n\toptions: PropTypes.array,\n\tinputType:inputTypeProp,\n\tdisabled: PropTypes.bool,\n\tmessage: messagePropShape\n};\n\n/**\n * PropTypes for the InnerField component\n *\n * @type {{id: (boolean|shim|*), fieldClassName: (boolean|shim|*), help: shim, value: shim, onValueChange: (boolean|shim|*), inputType: shim}}\n */\nexport const fieldInnerPropTypes = {\n\tid: PropTypes.string.isRequired,\n\tfieldClassName: PropTypes.string.isRequired,\n\thelp: PropTypes.string,\n\tvalue: valuePropType,\n\tonValueChange: onValueChangePropType,\n\tinputType: inputTypeProp,\n};\n\nexport const fieldPropTypes = {\n\t...fieldInnerPropTypes,\n\tariaDescribedbyAttr: PropTypes.string,\n};\n",
     "static": true,
     "longname": "/Users/josh/caldera-js/components/src/components/fields/propTypes.js",
     "access": "public",
@@ -1445,7 +1529,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 89,
+    "__docId__": 92,
     "kind": "variable",
     "name": "valuePropType",
     "memberof": "src/components/fields/propTypes.js",
@@ -1467,7 +1551,7 @@
     }
   },
   {
-    "__docId__": 90,
+    "__docId__": 93,
     "kind": "variable",
     "name": "onValueChangePropType",
     "memberof": "src/components/fields/propTypes.js",
@@ -1489,7 +1573,7 @@
     }
   },
   {
-    "__docId__": 91,
+    "__docId__": 94,
     "kind": "variable",
     "name": "inputTypeProp",
     "memberof": "src/components/fields/propTypes.js",
@@ -1511,7 +1595,7 @@
     }
   },
   {
-    "__docId__": 92,
+    "__docId__": 95,
     "kind": "variable",
     "name": "fieldGroupPropTypes",
     "memberof": "src/components/fields/propTypes.js",
@@ -1533,7 +1617,7 @@
     }
   },
   {
-    "__docId__": 93,
+    "__docId__": 96,
     "kind": "variable",
     "name": "fieldInnerPropTypes",
     "memberof": "src/components/fields/propTypes.js",
@@ -1555,7 +1639,7 @@
     }
   },
   {
-    "__docId__": 94,
+    "__docId__": 97,
     "kind": "variable",
     "name": "fieldPropTypes",
     "memberof": "src/components/fields/propTypes.js",
@@ -1575,7 +1659,7 @@
     }
   },
   {
-    "__docId__": 95,
+    "__docId__": 98,
     "kind": "file",
     "name": "src/components/fields/select/SelectField.js",
     "content": "import React from 'react';\nimport {fieldPropTypes} from '../propTypes';\nimport classNames from 'classnames';\nimport {RenderGroup} from '../../RenderGroup';\n\n/**\n * Creates a select field\n *\n * @param {Object} props\n * @returns {*}\n * @constructor\n */\nexport const SelectField = (props) => {\n\t/**\n\t * Dispatches new value(s) to parent\n\t *\n\t * @param selection\n\t * @returns {*}\n\t */\n\tfunction changeHandler(selection) {\n\t\treturn props.onValueChange(selection);\n\t}\n\n\t/**\n\t * Get the className prop for the select element\n\t *\n\t * @return {String}\n\t */\n\tfunction selectClassNames() {\n\t\treturn classNames(\n\t\t\tprops.fieldClassName,\n\t\t\tRenderGroup.classNames.input\n\t\t);\n\t}\n\n\treturn (\n\t\t<select\n\t\t\tid={props.id}\n\t\t\tclassName={selectClassNames()}\n\t\t\tvalue={props.value}\n\t\t\tdisabled={props.disabled}\n\t\t\tonChange={changeHandler}\n\t\t>\n\t\t\t{props.options\n\t\t\t\t.map((item,i) => {\n\t\t\t\t\tconst key = 'string' === typeof item.value ? item.value : i;\n\t\t\t\t\treturn(\n\t\t\t\t\t\t<option\n\t\t\t\t\t\t\tkey={key}\n\t\t\t\t\t\t\tclassName={ 'caldera-config-option' }\n\t\t\t\t\t\t\tvalue={item.value}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t{item.label}\n\t\t\t\t\t\t</option>\n\t\t\t\t\t);\n\t\t\t\t})\n\t\t\t}\n\t\t</select>\n\n\n\n\t);\n};\n\n/**\n * Prop definition for select fields\n *\n * @type {{}}\n */\nSelectField.propTypes = {\n\t...fieldPropTypes,\n};\n\n/**\n * Default props for select fields\n *\n * @type {{options: Array}}\n */\nSelectField.defaultProps = {\n\toptions: []\n};",
@@ -1586,7 +1670,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 96,
+    "__docId__": 99,
     "kind": "function",
     "name": "SelectField",
     "memberof": "src/components/fields/select/SelectField.js",
@@ -1632,7 +1716,7 @@
     }
   },
   {
-    "__docId__": 97,
+    "__docId__": 100,
     "kind": "file",
     "name": "src/components/fields/select/SelectFieldFancy.js",
     "content": "import React from 'react';\nimport Downshift from 'downshift';\nimport PropTypes from 'prop-types';\nimport {fieldPropTypes} from '../propTypes';\n\n/**\n * Creates a select field\n *\n * Wraps [downshift](https://github.com/paypal/downshift)\n *\n * @param {Object} props\n * @returns {*}\n * @constructor\n */\nexport const SelectFieldFancy = (props) => {\n\t/**\n\t * Dispatches new value(s) to parent\n\t *\n\t * @param selection\n\t * @returns {*}\n\t */\n\tfunction changeHandler(selection) {\n\t\treturn props.onValueChange(selection);\n\t}\n\n\treturn (\n\t\t<Downshift\n\t\t\tinputValue={props.value}\n\t\t\tdefaultInputValue={props.value}\n\t\t\tonChange={changeHandler}\n\t\t\titemToString={item => (item ? item.value : '')}\n\t\t\tdefaultIsOpen={props.isOpen}\n\t\t>\n\t\t\t{({\n\t\t\t\tgetInputProps,\n\t\t\t\tgetItemProps,\n\t\t\t\tisOpen,\n\t\t\t\tinputValue,\n\t\t\t\thighlightedIndex,\n\t\t\t\tselectedItem,\n\t\t\t}) => (\n\t\t\t\t<div>\n\t\t\t\t\t<input {...getInputProps({\n\t\t\t\t\t\tid: props.id\n\t\t\t\t\t})} />\n\t\t\t\t\t{isOpen ? (\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t{props.options\n\t\t\t\t\t\t\t\t.filter(item => !inputValue || item.value.includes(inputValue))\n\t\t\t\t\t\t\t\t.map((item, index) => (\n\t\t\t\t\t\t\t\t\t<div\n\t\t\t\t\t\t\t\t\t\tkey={item.value}\n\t\t\t\t\t\t\t\t\t\t{...getItemProps({\n\t\t\t\t\t\t\t\t\t\t\tkey: item.value,\n\t\t\t\t\t\t\t\t\t\t\tindex,\n\t\t\t\t\t\t\t\t\t\t\titem,\n\t\t\t\t\t\t\t\t\t\t\tstyle: {\n\t\t\t\t\t\t\t\t\t\t\t\tbackgroundColor:\n\t\t\t\t\t\t\t\t\t\t\t\t\thighlightedIndex === index ? 'lightgray' : 'white',\n\t\t\t\t\t\t\t\t\t\t\t\tfontWeight: selectedItem === item ? 'bold' : 'normal',\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\tclassName: 'caldera-config-option'\n\t\t\t\t\t\t\t\t\t\t})}\n\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t{item.value}\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t))}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t) : null}\n\t\t\t\t</div>\n\t\t\t)}\n\t\t</Downshift>\n\t);\n};\n\n\nSelectFieldFancy.propTypes = {\n\t...fieldPropTypes,\n\tisOpen: PropTypes.bool,\n};",
@@ -1643,7 +1727,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 98,
+    "__docId__": 101,
     "kind": "function",
     "name": "SelectFieldFancy",
     "memberof": "src/components/fields/select/SelectFieldFancy.js",
@@ -1689,10 +1773,10 @@
     }
   },
   {
-    "__docId__": 99,
+    "__docId__": 102,
     "kind": "file",
     "name": "src/components/fields/util.js",
-    "content": "/**\n * Create the aria-describedby attribute or id attribute for the describing element\n *\n * @param {String} id Id attribute of input being described\n * @param {String} help Optional. Help text. If empty return is null.\n * @returns {String|null}\n */\nexport const  ariaDescribedbyAttr = (id, help = '') => {\n\tlet ariaDescribedby = null;\n\tif (help.length) {\n\t\tariaDescribedby = `${id}-description`;\n\t}\n\treturn ariaDescribedby;\n};\n\n\n/**\n * Get HTML5 input types that are valid\n * @returns {string[]}\n */\nexport function getHtmlInputTypes() {\n\treturn [\n\t\t'text',\n\t\t'email',\n\t\t'number',\n\t\t'date',\n\t\t'datetime',\n\t\t'password',\n\t\t'submit',\n\t\t'reset',\n\t\t'checkbox',\n\t\t'hidden'\n\t];\n}\n\n/**\n * Checks if a given input type is an acceptable HTML5 input type\n *\n * @param {String} type\n * @returns {boolean}\n */\nexport function isValidHtml5type(type) {\n\treturn getHtmlInputTypes().includes(type);\n}\n\n\n/**\n * Remove a value from an array if present, if not present, add it\n *\n * @param {String|number} value Value to add or remove\n * @param {Array} array Array to mutate\n * @return {*}\n */\nexport const addOrRemoveFromArray = (value,array) => {\n\tconst index = array.indexOf(value);\n\tif (index !== -1){\n\t\tarray.splice(index, 1);\n\t}else{\n\t\tarray.push( value );\n\t}\n\treturn array;\n};\n\n/**\n * Cast a boolean or boolean like to a true or false\n *\n * @param Mixed} value Value to cast\n * @return {boolean}\n */\nexport const toBoolean =(value) => {\n\tswitch(value){\n\t\tcase true:\n\t\tcase \"true\":\n\t\tcase 1:\n\t\tcase \"1\":\n\t\tcase \"on\":\n\t\tcase \"yes\":\n\t\t\treturn true;\n\t\tdefault:\n\t\t\treturn false;\n\t}\n}",
+    "content": "/**\n * Create the aria-describedby attribute or id attribute for the describing element\n *\n * @param {String} id Id attribute of input being described\n * @param {String} help Optional. Help text. If empty return is null.\n * @returns {String|null}\n */\nexport const  ariaDescribedbyAttr = (id, help = '') => {\n\tlet ariaDescribedby = null;\n\tif (help.length) {\n\t\tariaDescribedby = `${id}-description`;\n\t}\n\treturn ariaDescribedby;\n};\n\n\n/**\n * Get HTML5 input types that are valid\n * @returns {string[]}\n */\nexport function getHtmlInputTypes() {\n\treturn [\n\t\t'text',\n\t\t'email',\n\t\t'number',\n\t\t'date',\n\t\t'datetime',\n\t\t'password',\n\t\t'submit',\n\t\t'reset',\n\t\t'checkbox',\n\t\t'hidden'\n\t];\n}\n\n/**\n * Checks if a given input type is an acceptable HTML5 input type\n *\n * @param {String} type\n * @returns {boolean}\n */\nexport function isValidHtml5type(type) {\n\treturn getHtmlInputTypes().includes(type);\n}\n\n\n/**\n * Remove a value from an array if present, if not present, add it\n *\n * @param {String|number} value Value to add or remove\n * @param {Array} array Array to mutate\n * @return {*}\n */\nexport const addOrRemoveFromArray = (value,array) => {\n\tconst index = array.indexOf(value);\n\tif (index !== -1){\n\t\tarray.splice(index, 1);\n\t}else{\n\t\tarray.push( value );\n\t}\n\treturn array;\n};\n\n/**\n * Cast a boolean or boolean like to a true or false\n *\n * @param Mixed} value Value to cast\n * @return {boolean}\n */\nexport const toBoolean =(value) => {\n\tswitch(value){\n\tcase true:\n\tcase 'true':\n\tcase 1:\n\tcase '1':\n\tcase 'on':\n\tcase 'yes':\n\t\treturn true;\n\tdefault:\n\t\treturn false;\n\t}\n};",
     "static": true,
     "longname": "/Users/josh/caldera-js/components/src/components/fields/util.js",
     "access": "public",
@@ -1700,7 +1784,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 100,
+    "__docId__": 103,
     "kind": "function",
     "name": "ariaDescribedbyAttr",
     "memberof": "src/components/fields/util.js",
@@ -1753,7 +1837,7 @@
     }
   },
   {
-    "__docId__": 101,
+    "__docId__": 104,
     "kind": "function",
     "name": "getHtmlInputTypes",
     "memberof": "src/components/fields/util.js",
@@ -1784,7 +1868,7 @@
     "params": []
   },
   {
-    "__docId__": 102,
+    "__docId__": 105,
     "kind": "function",
     "name": "isValidHtml5type",
     "memberof": "src/components/fields/util.js",
@@ -1826,7 +1910,7 @@
     }
   },
   {
-    "__docId__": 103,
+    "__docId__": 106,
     "kind": "function",
     "name": "addOrRemoveFromArray",
     "memberof": "src/components/fields/util.js",
@@ -1873,7 +1957,7 @@
     }
   },
   {
-    "__docId__": 104,
+    "__docId__": 107,
     "kind": "function",
     "name": "toBoolean",
     "memberof": "src/components/fields/util.js",
@@ -1909,7 +1993,7 @@
     }
   },
   {
-    "__docId__": 105,
+    "__docId__": 108,
     "kind": "file",
     "name": "src/components/index.js",
     "content": "/*eslint no-undef: \"error\"*/\n/*eslint-env node*/\nimport * as fields from './fields/index';\nimport * as factories from './fields/factories/index';\nimport {RenderGroup} from './RenderGroup';\n\nmodule.exports = {\n\tRenderGroup,\n\tfields,\n\tfactories\n};",
@@ -1920,7 +2004,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 106,
+    "__docId__": 109,
     "kind": "file",
     "name": "src/index.js",
     "content": "import React from 'react';\nimport ReactDOM from 'react-dom';\nimport './index.css';\nimport App from './App';\nimport registerServiceWorker from './registerServiceWorker';\n\nReactDOM.render(<App />, document.getElementById('root'));\nregisterServiceWorker();\n",
@@ -1931,7 +2015,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 107,
+    "__docId__": 110,
     "kind": "file",
     "name": "src/registerServiceWorker.js",
     "content": "// In production, we register a service worker to serve assets from local cache.\n\n// This lets the app load faster on subsequent visits in production, and gives\n// it offline capabilities. However, it also means that developers (and users)\n// will only see deployed updates on the \"N+1\" visit to a page, since previously\n// cached resources are updated in the background.\n\n// To learn more about the benefits of this model, read https://goo.gl/KwvDNy.\n// This link also includes instructions on opting out of this behavior.\n\nconst isLocalhost = Boolean(\n\twindow.location.hostname === 'localhost' ||\n    // [::1] is the IPv6 localhost address.\n    window.location.hostname === '[::1]' ||\n    // 127.0.0.1/8 is considered localhost for IPv4.\n    window.location.hostname.match(\n    \t/^127(?:\\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/\n    )\n);\n\nexport default function register() {\n\tif (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {\n\t\t// The URL constructor is available in all browsers that support SW.\n\t\tconst publicUrl = new URL(process.env.PUBLIC_URL, window.location);\n\t\tif (publicUrl.origin !== window.location.origin) {\n\t\t\t// Our service worker won't work if PUBLIC_URL is on a different origin\n\t\t\t// from what our page is served on. This might happen if a CDN is used to\n\t\t\t// serve assets; see https://github.com/facebookincubator/create-react-app/issues/2374\n\t\t\treturn;\n\t\t}\n\n\t\twindow.addEventListener('load', () => {\n\t\t\tconst swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;\n\n\t\t\tif (isLocalhost) {\n\t\t\t\t// This is running on localhost. Lets check if a service worker still exists or not.\n\t\t\t\tcheckValidServiceWorker(swUrl);\n\t\t\t} else {\n\t\t\t\t// Is not local host. Just register service worker\n\t\t\t\tregisterValidSW(swUrl);\n\t\t\t}\n\t\t});\n\t}\n}\n\nfunction registerValidSW(swUrl) {\n\tnavigator.serviceWorker\n\t\t.register(swUrl)\n\t\t.then(registration => {\n\t\t\tregistration.onupdatefound = () => {\n\t\t\t\tconst installingWorker = registration.installing;\n\t\t\t\tinstallingWorker.onstatechange = () => {\n\t\t\t\t\tif (installingWorker.state === 'installed') {\n\t\t\t\t\t\tif (navigator.serviceWorker.controller) {\n\t\t\t\t\t\t\t// At this point, the old content will have been purged and\n\t\t\t\t\t\t\t// the fresh content will have been added to the cache.\n\t\t\t\t\t\t\t// It's the perfect time to display a \"New content is\n\t\t\t\t\t\t\t// available; please refresh.\" message in your web app.\n\t\t\t\t\t\t\tconsole.log('New content is available; please refresh.');\n\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\t// At this point, everything has been precached.\n\t\t\t\t\t\t\t// It's the perfect time to display a\n\t\t\t\t\t\t\t// \"Content is cached for offline use.\" message.\n\t\t\t\t\t\t\tconsole.log('Content is cached for offline use.');\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t};\n\t\t\t};\n\t\t})\n\t\t.catch(error => {\n\t\t\tconsole.error('Error during service worker registration:', error);\n\t\t});\n}\n\nfunction checkValidServiceWorker(swUrl) {\n\t// Check if the service worker can be found. If it can't reload the page.\n\tfetch(swUrl)\n\t\t.then(response => {\n\t\t\t// Ensure service worker exists, and that we really are getting a JS file.\n\t\t\tif (\n\t\t\t\tresponse.status === 404 ||\n        response.headers.get('content-type').indexOf('javascript') === -1\n\t\t\t) {\n\t\t\t\t// No service worker found. Probably a different app. Reload the page.\n\t\t\t\tnavigator.serviceWorker.ready.then(registration => {\n\t\t\t\t\tregistration.unregister().then(() => {\n\t\t\t\t\t\twindow.location.reload();\n\t\t\t\t\t});\n\t\t\t\t});\n\t\t\t} else {\n\t\t\t\t// Service worker found. Proceed as normal.\n\t\t\t\tregisterValidSW(swUrl);\n\t\t\t}\n\t\t})\n\t\t.catch(() => {\n\t\t\tconsole.log(\n\t\t\t\t'No internet connection found. App is running in offline mode.'\n\t\t\t);\n\t\t});\n}\n\nexport function unregister() {\n\tif ('serviceWorker' in navigator) {\n\t\tnavigator.serviceWorker.ready.then(registration => {\n\t\t\tregistration.unregister();\n\t\t});\n\t}\n}\n",
@@ -1942,7 +2026,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 108,
+    "__docId__": 111,
     "kind": "variable",
     "name": "isLocalhost",
     "memberof": "src/registerServiceWorker.js",
@@ -1963,7 +2047,7 @@
     "ignore": true
   },
   {
-    "__docId__": 109,
+    "__docId__": 112,
     "kind": "function",
     "name": "register",
     "memberof": "src/registerServiceWorker.js",
@@ -1982,7 +2066,7 @@
     "return": null
   },
   {
-    "__docId__": 110,
+    "__docId__": 113,
     "kind": "function",
     "name": "registerValidSW",
     "memberof": "src/registerServiceWorker.js",
@@ -2009,7 +2093,7 @@
     "ignore": true
   },
   {
-    "__docId__": 111,
+    "__docId__": 114,
     "kind": "function",
     "name": "checkValidServiceWorker",
     "memberof": "src/registerServiceWorker.js",
@@ -2036,7 +2120,7 @@
     "ignore": true
   },
   {
-    "__docId__": 112,
+    "__docId__": 115,
     "kind": "function",
     "name": "unregister",
     "memberof": "src/registerServiceWorker.js",
@@ -2064,7 +2148,7 @@
   },
   {
     "kind": "packageJSON",
-    "content": "{\n  \"name\": \"@caldera-labs/components\",\n  \"version\": \"0.4.0\",\n  \"dependencies\": {\n    \"classnames\": \"^2.2.6\",\n    \"downshift\": \"^1.31.16\"\n  },\n  \"license\": \"GPL-2.0\",\n  \"scripts\": {\n    \"start\": \"react-wp-scripts start\",\n    \"example:build\": \"react-wp-script build\",\n    \"test\": \"react-scripts test --env=jsdom\",\n    \"test:once\": \"CI=true react-scripts test --env=jsdom\",\n    \"eject\": \"react-wp-script eject\",\n    \"lint\": \"eslint src/components/**\",\n    \"document\": \"./node_modules/.bin/esdoc\",\n    \"build\": \"npm run build:pre && npm run build:compile && npm run build:post\",\n    \"build:pre\": \"npm run test:once\",\n    \"build:compile\": \"./node_modules/.bin/babel -d dist src/components\",\n    \"build:post\": \"npm run document\",\n    \"prepublish\": \"npm run build\",\n    \"release\": \"npm run release:patch\",\n    \"release:minor\": \"npm version minor -m \\\"version %s\\\" && npm publish\",\n    \"release:major\": \"npm version major -m \\\"version %s\\\" && npm publish\",\n    \"release:patch\": \"npm version patch -m \\\"version %s\\\" && npm publish\"\n  },\n  \"main\": \"./dist/index.js\",\n  \"files\": [\n    \"dist\"\n  ],\n  \"devDependencies\": {\n    \"babel-cli\": \"^6.26.0\",\n    \"babel-preset-env\": \"^1.7.0\",\n    \"babel-preset-react\": \"^6.24.1\",\n    \"babel-preset-stage-3\": \"^6.24.1\",\n    \"enzyme\": \"^3.3.0\",\n    \"enzyme-adapter-react-16\": \"^1.1.1\",\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-ecmascript-proposal-plugin\": \"^1.0.0\",\n    \"esdoc-jsx-plugin\": \"^1.0.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"eslint-plugin-jest\": \"^21.17.0\",\n    \"eslint-plugin-react\": \"^7.9.1\",\n    \"prop-types\": \"^15.6.1\",\n    \"react\": \"^16.4.1\",\n    \"react-dom\": \"^16.4.1\",\n    \"react-test-renderer\": \"^16.4.1\",\n    \"react-wp-scripts\": \"0.2.0\"\n  }\n}\n",
+    "content": "{\n  \"name\": \"@caldera-labs/components\",\n  \"version\": \"1.0.0\",\n  \"dependencies\": {\n    \"classnames\": \"^2.2.6\",\n    \"downshift\": \"^1.31.16\"\n  },\n  \"license\": \"GPL-2.0\",\n  \"scripts\": {\n    \"start\": \"react-wp-scripts start\",\n    \"example:build\": \"react-wp-script build\",\n    \"test\": \"react-scripts test --env=jsdom\",\n    \"test:once\": \"CI=true react-scripts test --env=jsdom\",\n    \"test:coverage\": \"npm test -- --coverage\",\n    \"eject\": \"react-wp-script eject\",\n    \"lint\": \"eslint src/components/**\",\n    \"document\": \"./node_modules/.bin/esdoc\",\n    \"build\": \"npm run build:pre && npm run build:compile && npm run build:post\",\n    \"build:pre\": \"npm run test:once\",\n    \"build:compile\": \"./node_modules/.bin/babel -d dist src/components\",\n    \"build:post\": \"npm run document\",\n    \"prepublish\": \"npm run build\",\n    \"release\": \"npm run release:patch\",\n    \"release:minor\": \"npm version minor -m \\\"version %s\\\" && npm publish\",\n    \"release:major\": \"npm version major -m \\\"version %s\\\" && npm publish\",\n    \"release:patch\": \"npm version patch -m \\\"version %s\\\" && npm publish\"\n  },\n  \"main\": \"./dist/index.js\",\n  \"files\": [\n    \"dist\"\n  ],\n  \"devDependencies\": {\n    \"babel-cli\": \"^6.26.0\",\n    \"babel-preset-env\": \"^1.7.0\",\n    \"babel-preset-react\": \"^6.24.1\",\n    \"babel-preset-stage-3\": \"^6.24.1\",\n    \"enzyme\": \"^3.3.0\",\n    \"enzyme-adapter-react-16\": \"^1.1.1\",\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-ecmascript-proposal-plugin\": \"^1.0.0\",\n    \"esdoc-jsx-plugin\": \"^1.0.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"eslint-plugin-jest\": \"^21.17.0\",\n    \"eslint-plugin-react\": \"^7.9.1\",\n    \"prop-types\": \"^15.6.1\",\n    \"react\": \"^16.4.1\",\n    \"react-dom\": \"^16.4.1\",\n    \"react-test-renderer\": \"^16.4.1\",\n    \"react-wp-scripts\": \"0.2.0\"\n  },\n  \"jest\": {\n    \"collectCoverageFrom\": [\n      \"src/components/**/*.js\",\n      \"!src/components/index.js\",\n      \"!src/components/fields/index.js\"\n    ]\n  }\n}\n",
     "longname": "/Users/josh/caldera-js/components/package.json",
     "name": "package.json",
     "static": true,

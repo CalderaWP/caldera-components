@@ -24,7 +24,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 _enzyme2.default.configure({ adapter: new _enzymeAdapterReact2.default() });
 
-
 describe('Input component', function () {
 	describe('Input component props', function () {
 		it('Passes its props', function () {
@@ -180,6 +179,22 @@ describe('Input component', function () {
 					inputType: 'checkbox'
 				}));
 				expect(wrapper.find('input').prop('defaultChecked')).toEqual(false);
+			});
+
+			it('Runs callback function when changed', function () {
+				var setValue = '';
+				var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_Input.Input, {
+					id: 'checkbox-value-update-test',
+					fieldClassName: 'foo',
+					onValueChange: function onValueChange() {
+						setValue = 'itRan';
+					},
+					value: ['1'],
+					inputType: 'checkbox'
+
+				}));
+				wrapper.find('input').simulate('change');
+				expect(setValue).toEqual('itRan');
 			});
 		});
 	});
