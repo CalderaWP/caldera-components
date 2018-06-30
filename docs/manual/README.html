@@ -120,6 +120,8 @@
 <li data-ice="manualNav" class="indent-h4" data-link="manual/README.html"><a href="manual/README.html#conceptual-examples" data-ice="link">Conceptual Examples</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/README.html"><a href="manual/README.html#examples-using-field-values" data-ice="link">Examples Using Field Values</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#example-of-a-config-field-with-conditional-rules" data-ice="link">Example of a config field with conditional rules</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#importing-with-webpack" data-ice="link">Importing With webpack</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#using-in-another-package" data-ice="link">Using In Another Package</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#todo" data-ice="link">Todo</a></li>
 </ul>
   </div>
@@ -163,9 +165,10 @@
 </code></pre>
 <p>^^ In this example, the last rule returns true, which is irrelevant. The first one returned <code>false</code>, so the rule set is <code>false</code>.</p>
 <h4 id="examples-using-field-values">Examples Using Field Values</h4><p>In reality, we probably want some logic for our conditionals. The conditional rule functions are passed an object of values. What values they are depends on the implimentation.</p>
+<p>This validator only passes if the value of the field email is &quot;<a href="./manual/mailto:roy@hiroy.club">roy@hiroy.club</a>&quot;, Apex Email Address.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">[
     (fieldValues) =&gt; {
-        if( fieldValues.hasOwnProperty(&apos;email&apos;) &amp;&amp; &apos;roy@hiroy.club&apos; fieldValues.email ){
+        if( fieldValues.hasOwnProperty(&apos;email&apos;) &amp;&amp; &apos;roy@hiroy.club&apos; === fieldValues.email ){
             return true;
         }
         return false;
@@ -176,6 +179,11 @@
         ID: &apos;fld4&apos;,
         type: &apos;email&apos;
     };
+</code>
+</code></pre>
+<h3 id="importing-with-webpack">Importing With webpack</h3><p><code>import {conditionals} from &apos;@caldera-labs/components&apos;;</code></p>
+<h3 id="using-in-another-package">Using In Another Package</h3><pre><code class="lang-js"><code class="source-code prettyprint">import {conditionals} from &apos;@caldera-labs/components&apos;;
+
 </code>
 </code></pre>
 <h2 id="todo">Todo</h2><ul>
