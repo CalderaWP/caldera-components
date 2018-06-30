@@ -30,4 +30,31 @@ describe('Is valid utilities', () => {
 	it('checks an invalid date string', () => {
 		expect(isValid.date('roy.com')).toBe(false);
 	});
+
+	it('Considers integers numeric', () => {
+		expect(isValid.number(4)).toBe(true);
+	});
+	it('Considers numbers in strings numeric', () => {
+		expect(isValid.number('4')).toBe(true);
+	});
+	it('Considers floats in strings numeric', () => {
+		expect(isValid.number('4.01')).toBe(true);
+	});
+	it('Considers floats numeric', () => {
+		expect(isValid.number(4.01)).toBe(true);
+	});
+
+	it('Considers strings not representing numbers to not  be numeric', () => {
+		expect(isValid.number('Hi Roy.')).toBe(false);
+	});
+	it('Considers arrays not numeric', () => {
+		expect( isNaN([])).toBe(false);
+		expect(isValid.number([])).toBe(false);
+	});
+	it('Considers object literals not numeric', () => {
+		expect(isValid.number({
+			hi: 'Roy'
+		})).toBe(false);
+	});
+
 });

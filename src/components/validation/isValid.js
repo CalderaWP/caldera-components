@@ -1,4 +1,8 @@
-import {isEmail,isUrl, isDate} from '@helpdotcom/is'
+import {isEmail,isUrl, isDate} from '@helpdotcom/is';
+
+/**
+ * Validators for common types of validation needed
+ */
 export default {
 	/**
 	 * Check if a given value is an email address
@@ -28,5 +32,17 @@ export default {
 	 */
 	date(value){
 		return isDate(value);
+	},
+	/**
+	 * Check if a given value is numeric
+	 *
+	 * @param {String|number} value Value to check
+	 * @return {boolean}
+	 */
+	number(value){
+		if( Array.isArray( value ) ){
+			return false;
+		}
+		return ! isNaN(value);
 	}
 }

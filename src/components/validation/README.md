@@ -41,7 +41,6 @@ getValidatorsFromConfigField({
     validators: [
     	//some functions
     ]
-     
 })
 ```
 

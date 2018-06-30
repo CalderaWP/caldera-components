@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getValidatorsFromConfigField using default validators Produces the right results 1`] = `"{\\"validEmailField\\":true,\\"invalidEmailField\\":false,\\"invalidNumber\\":false,\\"validNumber\\":true,\\"validDate\\":true,\\"invalidDate\\":false,\\"invalidUrl\\":false,\\"validUrl\\":true}"`;
