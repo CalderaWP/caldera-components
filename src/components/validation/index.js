@@ -5,6 +5,9 @@ import checkValidatorsForConfigFields from './checkValidatorsForConfigField';
 import checkValidatorsForConfigField from './checkValidatorsForConfigField';
 import isEmpty from './isEmpty';
 import isValid from './isValid';
+//Usage here indicates that this is a cross-cutting concern, & it totally is
+//Move to shared module?
+import {reduceConfigFieldsToValues} from "../conditional-logic/util";
 
 /**
  * One export for validation system
@@ -14,5 +17,6 @@ export default {
 	checkValidatorsForConfigFields,
 	checkValidatorsForConfigField,
 	isEmpty,
-	isValid
+	isValid,
+	reduceConfigFieldsToValues
 }

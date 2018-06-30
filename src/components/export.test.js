@@ -1,4 +1,5 @@
 import Components from './index';
+import validation from "./validation";
 describe( 'conditionals export', () => {
 	it( 'exports RenderGroup', () => {
 		expect( typeof Components.RenderGroup ).toEqual( 'function' );
@@ -11,6 +12,10 @@ describe( 'conditionals export', () => {
 	});
 	it( 'exports conditionals', () => {
 		expect( typeof Components.conditionals ).toEqual( 'object' );
+	});
+
+	it( 'exports validation', () => {
+		expect( typeof Components.validation ).toEqual( 'object' );
 	});
 
 });

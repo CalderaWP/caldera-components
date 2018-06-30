@@ -16,6 +16,10 @@ describe( 'CalderaValidators export', () => {
 		expect( typeof CalderaValidators.isEmpty ).toEqual( 'object' );
 	});
 
+	it( 'exports reduceConfigFieldsToValues', () => {
+		expect( typeof CalderaValidators.reduceConfigFieldsToValues ).toEqual('function');
+	});
+
 	it( 'can call a function on isEmpty export ', () => {
 		expect(  CalderaValidators.isEmpty.string('roy@hiroy.club') ).toEqual( false );
 	});
