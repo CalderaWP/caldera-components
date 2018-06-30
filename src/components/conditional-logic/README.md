@@ -58,11 +58,12 @@ This rule set would always fail:
 #### Examples Using Field Values
 In reality, we probably want some logic for our conditionals. The conditional rule functions are passed an object of values. What values they are depends on the implimentation.
 
+This validator only passes if the value of the field email is "roy@hiroy.club", Apex Email Address.
 
 ```js
 [
 	(fieldValues) => {
-        if( fieldValues.hasOwnProperty('email') && 'roy@hiroy.club' fieldValues.email ){
+        if( fieldValues.hasOwnProperty('email') && 'roy@hiroy.club' === fieldValues.email ){
         	return true;
         }
         return false;
@@ -79,6 +80,16 @@ const field4 = {
 		ID: 'fld4',
 		type: 'email'
 	};
+
+```
+
+### Importing With webpack
+`import {conditionals} from '@caldera-labs/components';`
+
+### Using In Another Package
+```js
+import {conditionals} from '@caldera-labs/components';
+
 
 ```
 

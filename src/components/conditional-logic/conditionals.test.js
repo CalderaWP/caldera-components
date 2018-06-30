@@ -1,9 +1,6 @@
-import {
-	checkConfigFieldConditionals,
-	checkConfigFieldsConditionals,
-	reduceConfigFieldsToValues
-} from "./util";
-
+import {checkConfigFieldConditionals} from "./checkConfigFieldConditionals";
+import {checkConfigFieldsConditionals} from "./checkConfigFieldsConditionals";
+import {reduceConfigFieldsToValues} from "./util";
 describe('checking conditionals', () => {
 	const field4 = {
 		ID: 'fld4',

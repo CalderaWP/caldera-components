@@ -1,7 +1,7 @@
 {
-  "coverage": "58.69%",
-  "expectCount": 46,
-  "actualCount": 27,
+  "coverage": "61.53%",
+  "expectCount": 52,
+  "actualCount": 32,
   "files": {
     "src/App.js": {
       "expectCount": 13,
@@ -25,6 +25,21 @@
     "src/components/RenderGroup.js": {
       "expectCount": 4,
       "actualCount": 4,
+      "undocumentLines": []
+    },
+    "src/components/conditional-logic/checkConfigFieldConditionals.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/components/conditional-logic/checkConfigFieldsConditionals.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/components/conditional-logic/util.js": {
+      "expectCount": 1,
+      "actualCount": 1,
       "undocumentLines": []
     },
     "src/components/fields/FieldGroup.js": {
@@ -97,6 +112,23 @@
     "src/components/fields/util.js": {
       "expectCount": 5,
       "actualCount": 5,
+      "undocumentLines": []
+    },
+    "src/components/validation/checkValidatorsForConfigField.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        10
+      ]
+    },
+    "src/components/validation/checkValidatorsForConfigFields.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/components/validation/getValidatorsFromConfigField.js": {
+      "expectCount": 1,
+      "actualCount": 1,
       "undocumentLines": []
     },
     "src/registerServiceWorker.js": {
