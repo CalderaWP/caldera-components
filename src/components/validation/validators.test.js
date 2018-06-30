@@ -88,7 +88,6 @@ describe('getValidatorsFromConfigField', () => {
 			valuesPassedToValiator = {};
 		});
 
-
 		const configFields = [
 			{
 				type: 'email',

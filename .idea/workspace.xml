@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2b0f3eb-379f-4bd9-bc0e-61e438292576" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/docs/index.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/export.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/export.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/validation/isValid.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/validation/isValid.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/validation/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/validation/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/validation/validators.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/validation/validators.test.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,7 +21,82 @@
     <favorites_list name="components" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <splitter split-orientation="horizontal" split-proportion="0.46444446">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/components/validation/README.md">
+              <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+                <state split_layout="FIRST">
+                  <first_editor relative-caret-position="205">
+                    <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+                    <folding>
+                      <element signature="e#49#123#0" expanded="true" />
+                    </folding>
+                  </first_editor>
+                  <second_editor />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="isValid.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/components/validation/isValid.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="345">
+                  <caret line="23" column="73" selection-start-line="23" selection-start-column="73" selection-end-line="23" selection-end-column="73" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/node_modules/@helpdotcom/is/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="450">
+                  <caret line="30" column="15" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="15" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="validators.test.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/components/validation/validators.test.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="404">
+                  <caret line="93" column="4" selection-start-line="93" selection-start-column="4" selection-end-line="93" selection-end-column="4" />
+                  <folding>
+                    <element signature="e#0#33#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="isValid.test.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/components/validation/isValid.test.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="30">
+                  <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/components/conditional-logic/README.md">
+              <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+                <state split_layout="FIRST">
+                  <first_editor relative-caret-position="475">
+                    <caret line="87" selection-start-line="87" selection-end-line="87" />
+                  </first_editor>
+                  <second_editor />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -77,10 +157,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/manual/index.md" />
-        <option value="$PROJECT_DIR$/src/components/RenderGroup.js" />
-        <option value="$PROJECT_DIR$/manual/testing.md" />
-        <option value="$PROJECT_DIR$/src/components/fields/messages/Messages.js" />
         <option value="$PROJECT_DIR$/src/components/fields/messages/messagePropTypes.js" />
         <option value="$PROJECT_DIR$/manual/components.md" />
         <option value="$PROJECT_DIR$/src/components/fields/input/Input.js" />
@@ -114,11 +190,9 @@
         <option value="$PROJECT_DIR$/src/components/conditional-logic/util.test.js" />
         <option value="$PROJECT_DIR$/.esdoc.json" />
         <option value="$PROJECT_DIR$/src/components/validation/getValidatorsFromConfigField.js" />
-        <option value="$PROJECT_DIR$/src/components/validation/README.md" />
         <option value="$PROJECT_DIR$/src/components/validation/index.js" />
         <option value="$PROJECT_DIR$/src/components/validation/checkValidatorsForConfigFields.js" />
         <option value="$PROJECT_DIR$/src/components/validation/checkValidatorsForConfigField.js" />
-        <option value="$PROJECT_DIR$/src/components/validation/validators.test.js" />
         <option value="$PROJECT_DIR$/src/components/conditional-logic/checkConfigFieldConditionals.js" />
         <option value="$PROJECT_DIR$/src/components/conditional-logic/index.js" />
         <option value="$PROJECT_DIR$/src/components/conditional-logic/util.js" />
@@ -128,6 +202,12 @@
         <option value="$PROJECT_DIR$/src/components/index.js" />
         <option value="$PROJECT_DIR$/src/components/conditional-logic/README.md" />
         <option value="$PROJECT_DIR$/src/components/export.test.js" />
+        <option value="$PROJECT_DIR$/src/components/validation/README.md" />
+        <option value="$PROJECT_DIR$/src/components/validation/validators.test.js" />
+        <option value="$PROJECT_DIR$/src/components/validation/validators/isEmail.js" />
+        <option value="$PROJECT_DIR$/src/components/validation/validators/is.js" />
+        <option value="$PROJECT_DIR$/src/components/validation/isValid.test.js" />
+        <option value="$PROJECT_DIR$/src/components/validation/isValid.js" />
       </list>
     </option>
   </component>
@@ -204,6 +284,13 @@
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="conditional-logic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="components" type="b2602c69:ProjectViewProjectNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="fields" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -267,12 +354,12 @@
       <workItem from="1529202449011" duration="18560000" />
       <workItem from="1530235004219" duration="3086000" />
       <workItem from="1530294063553" duration="5635000" />
-      <workItem from="1530366516493" duration="8815000" />
+      <workItem from="1530366516493" duration="12703000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105914000" />
+    <option name="totallyTimeSpent" value="109802000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="345" y="111" width="1721" height="877" extended-state="0" />
@@ -373,34 +460,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/fields/select/SelectField.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/fields/messages/messageObjectFactory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/fields/factories/fieldFactory.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="271" column="34" selection-start-line="271" selection-start-column="34" selection-end-line="271" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/fields/propTypes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="653">
-          <caret line="45" column="29" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/fields/factories/prepareFieldConfig.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="569">
@@ -438,6 +497,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32">
           <caret line="50" column="36" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -499,6 +561,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
           <caret line="360" column="22" selection-start-line="360" selection-start-column="22" selection-end-line="360" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -549,16 +614,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/validation/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="118">
-            <caret line="53" column="54" selection-start-line="53" selection-start-column="54" selection-end-line="53" selection-end-column="54" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/validation/getValidatorsFromConfigField.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -572,16 +627,6 @@
           <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/validation/validators.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="122" lean-forward="true" selection-start-line="122" selection-end-line="122" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -695,16 +740,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/conditional-logic/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="220">
-            <caret line="70" column="1" selection-start-line="70" selection-start-column="1" selection-end-line="70" selection-end-column="1" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/conditional-logic/export.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -750,6 +785,67 @@
           <folding>
             <element signature="e#0#76#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/conditional-logic/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="475">
+            <caret line="87" selection-start-line="87" selection-end-line="87" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/validation/validators.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="93" column="4" selection-start-line="93" selection-start-column="4" selection-end-line="93" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/validation/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="205">
+            <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+            <folding>
+              <element signature="e#49#123#0" expanded="true" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@helpdotcom/is/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="15" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/validation/validators/is.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/validation/isValid.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/validation/isValid.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="73" selection-start-line="23" selection-start-column="73" selection-end-line="23" selection-end-column="73" />
         </state>
       </provider>
     </entry>
