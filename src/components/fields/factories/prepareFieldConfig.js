@@ -12,7 +12,7 @@ import {messageObjectFactory} from '../messages/messageObjectFactory';
  */
 export const prepareFieldConfig = (fieldArgs) => {
 	/**
-	 * Pick whitlisted keys from object
+	 * Pick whitelisted keys from object
 	 *
 	 * @see http://www.jstips.co/en/javascript/picking-and-rejecting-object-properties/
 	 *
@@ -48,10 +48,17 @@ export const prepareFieldConfig = (fieldArgs) => {
 		fieldArgs.help = fieldArgs.description;
 	}
 
+	let validators = [];
+	if( fieldArgs.hasOwnProperty('validators') && Array.isArray(fieldArgs.validators )){
+		validators = fieldArgs.validators;
+	}
+
 	fieldArgs = pick(fieldArgs, Object.keys(fieldGroupPropTypes));
 	fieldArgs.disabled = toBoolean(fieldArgs.disabled);
 	fieldArgs.message = 'object' === typeof  fieldArgs.message
 		? messageObjectFactory(fieldArgs.message)
 		: messageObjectFactory({message:null, error: false });
+
+	fieldArgs.validators = validators;
 	return fieldArgs;
 };
