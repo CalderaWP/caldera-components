@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2b0f3eb-379f-4bd9-bc0e-61e438292576" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/validation/getMessageStrings.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/validation/getMessageStrings.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/validation/strings.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/validation/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/validation/util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/validation/export.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/validation/export.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/validation/getMessageStrings.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/validation/messageStrings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/validation/getMessageStrings.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/validation/messageStrings.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/validation/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/validation/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,78 +19,61 @@
     <favorites_list name="components" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.68716216">
+    <splitter split-orientation="horizontal" split-proportion="0.27513227">
       <split-first>
-        <splitter split-orientation="horizontal" split-proportion="0.8021653">
-          <split-first>
-            <leaf>
-              <file leaf-file-name="getMessageStrings.js" pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/src/components/validation/getMessageStrings.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="105">
-                      <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="isValidOrEmpty.js" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/components/validation/isValidOrEmpty.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="390">
-                      <caret line="26" column="49" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
-                      <folding>
-                        <element signature="e#0#32#0" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="isValid.test.js" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/components/validation/isValid.test.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="281">
-                      <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="renderGroup.test.js" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/components/renderGroup.test.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="181">
-                      <caret line="316" column="12" selection-start-line="316" selection-start-column="12" selection-end-line="316" selection-end-column="33" />
-                      <folding>
-                        <element signature="e#0#42#0" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="export.test.js" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/components/export.test.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="210">
-                      <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-            </leaf>
-          </split-first>
-          <split-second>
-            <leaf>
-              <file leaf-file-name="strings.js" pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/src/components/validation/strings.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="74">
-                      <caret line="18" column="16" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="16" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-            </leaf>
-          </split-second>
-        </splitter>
+        <leaf>
+          <file leaf-file-name="messageStrings.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/components/validation/messageStrings.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="599">
+                  <caret line="55" column="21" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="isValidOrEmpty.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/components/validation/isValidOrEmpty.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="390">
+                  <caret line="26" column="49" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
+                  <folding>
+                    <element signature="e#0#32#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="isValid.test.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/components/validation/isValid.test.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="281">
+                  <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="renderGroup.test.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/components/renderGroup.test.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="181">
+                  <caret line="316" column="12" selection-start-line="316" selection-start-column="12" selection-end-line="316" selection-end-column="33" />
+                  <folding>
+                    <element signature="e#0#42#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="export.test.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/components/export.test.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="210">
+                  <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
       </split-first>
       <split-second>
         <leaf>
@@ -106,13 +89,58 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="getMessageStrings.test.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/components/validation/getMessageStrings.test.js">
+          <file leaf-file-name="messageStrings.test.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/components/validation/messageStrings.test.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="644">
-                  <caret line="89" column="7" selection-start-line="89" selection-start-column="7" selection-end-line="89" selection-end-column="7" />
+                <state relative-caret-position="255">
+                  <caret line="17" column="40" lean-forward="true" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
                   <folding>
                     <element signature="e#0#54#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/components/validation/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="360">
+                  <caret line="24" column="18" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="18" />
+                  <folding>
+                    <element signature="n#!!doc" expanded="true" />
+                    <element signature="e#49#123#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="export.test.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/components/validation/export.test.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="583">
+                  <caret line="46" column="98" selection-start-line="46" selection-start-column="98" selection-end-line="46" selection-end-column="98" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="checkValidatorsForConfigFields.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/components/validation/checkValidatorsForConfigFields.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
+                  <folding>
+                    <element signature="e#0#76#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="checkValidatorsForConfigField.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/components/validation/checkValidatorsForConfigField.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="180">
+                  <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+                  <folding>
+                    <element signature="n#!!doc" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -183,7 +211,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/components/fields/input/Input.test.js" />
         <option value="$PROJECT_DIR$/src/components/fields/FieldGroup.js" />
         <option value="$PROJECT_DIR$/src/components/fields/conditional-logic.js" />
         <option value="$PROJECT_DIR$/src/components/conditional-logic/util.test.js" />
@@ -211,8 +238,6 @@
         <option value="$PROJECT_DIR$/src/components/fields/factories/addAutomaticValidationToFieldConfig.test.js" />
         <option value="$PROJECT_DIR$/src/components/fields/factories/addAutomaticValidationToFieldConfig.js" />
         <option value="$PROJECT_DIR$/src/components/validation/isValidAndNotEmpty.js" />
-        <option value="$PROJECT_DIR$/src/components/validation/index.js" />
-        <option value="$PROJECT_DIR$/src/components/validation/export.test.js" />
         <option value="$PROJECT_DIR$/src/components/validation/getValidatorsFromConfigField.js" />
         <option value="$PROJECT_DIR$/src/components/validation/addAutomaticValidators.js" />
         <option value="$PROJECT_DIR$/src/components/validation/reduceFieldValue.js" />
@@ -234,6 +259,9 @@
         <option value="$PROJECT_DIR$/src/components/validation/strings.js" />
         <option value="$PROJECT_DIR$/src/components/validation/getMessageStrings.js" />
         <option value="$PROJECT_DIR$/src/components/validation/getMessageStrings.test.js" />
+        <option value="$PROJECT_DIR$/src/components/validation/index.js" />
+        <option value="$PROJECT_DIR$/src/components/validation/messageStrings.js" />
+        <option value="$PROJECT_DIR$/src/components/validation/export.test.js" />
       </list>
     </option>
   </component>
@@ -351,12 +379,12 @@
       <workItem from="1530235004219" duration="3086000" />
       <workItem from="1530294063553" duration="5635000" />
       <workItem from="1530366516493" duration="20452000" />
-      <workItem from="1530548429165" duration="11030000" />
+      <workItem from="1530548429165" duration="11418000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128581000" />
+    <option name="totallyTimeSpent" value="128969000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="134" y="51" width="1721" height="877" extended-state="0" />
@@ -368,8 +396,8 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32916668" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" x="1" y="545" width="1130" height="482" id="Terminal" order="7" type="WINDOWED" visible="true" weight="0.32948717" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.824359" visible="true" weight="0.11852293" />
+      <window_info anchor="bottom" x="1" y="545" width="1130" height="482" id="Terminal" order="7" type="WINDOWED" visible="true" weight="0.32948717" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.824359" visible="true" weight="0.21203098" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.0" />
@@ -462,13 +490,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/conditional-logic/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="4" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/manual/index.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -670,13 +691,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/validation/export.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/validation/getValidatorsFromConfigField.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -690,27 +704,6 @@
           <caret line="205" column="14" lean-forward="true" selection-start-line="205" selection-start-column="14" selection-end-line="205" selection-end-column="14" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/validation/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="30" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="30" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#49#123#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/validation/checkValidatorsForConfigField.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="25" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -847,27 +840,64 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/validation/checkValidatorsForConfigFields.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/validation/strings.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="18" column="16" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="16" />
+        <state relative-caret-position="314">
+          <caret line="34" column="47" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/validation/getMessageStrings.js">
+    <entry file="file://$PROJECT_DIR$/src/components/validation/checkValidatorsForConfigField.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+        <state relative-caret-position="180">
+          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/validation/getMessageStrings.test.js">
+    <entry file="file://$PROJECT_DIR$/src/components/validation/messageStrings.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="89" column="7" selection-start-line="89" selection-start-column="7" selection-end-line="89" selection-end-column="7" />
+        <state relative-caret-position="255">
+          <caret line="17" column="40" lean-forward="true" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
           <folding>
             <element signature="e#0#54#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/validation/messageStrings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="599">
+          <caret line="55" column="21" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/validation/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="18" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="18" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#49#123#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/validation/export.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="583">
+          <caret line="46" column="98" selection-start-line="46" selection-start-column="98" selection-end-line="46" selection-end-column="98" />
         </state>
       </provider>
     </entry>

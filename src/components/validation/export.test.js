@@ -17,6 +17,10 @@ describe( 'CalderaValidators export', () => {
 		expect( typeof CalderaValidators.isEmpty ).toEqual( 'object' );
 	});
 
+	it( 'exports messageStrings', () => {
+		expect( typeof CalderaValidators.messageStrings ).toEqual( 'object' );
+	});
+
 	it( 'exports reduceConfigFieldsToValues', () => {
 		expect( typeof CalderaValidators.reduceConfigFieldsToValues ).toEqual('function');
 	});
@@ -38,4 +42,10 @@ describe( 'CalderaValidators export', () => {
 	it( 'can call a function on isValid export ', () => {
 		expect(  CalderaValidators.isValid.email('roy@hiroy.club') ).toEqual( true );
 	});
+
+	it( 'can get English message strings', () => {
+		expect( typeof CalderaValidators.messageStrings.getMessageStrings('en') ).toEqual( 'object' );
+
+	});
+
 });

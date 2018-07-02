@@ -3,6 +3,7 @@
 import getValidatorsFromConfigField from './getValidatorsFromConfigField';
 import checkValidatorsForConfigFields from './checkValidatorsForConfigField';
 import checkValidatorsForConfigField from './checkValidatorsForConfigField';
+import messageStrings from './messageStrings';
 import isEmpty from './isEmpty';
 import isValid from './isValid';
 import isValidOrEmpty from './isValidOrEmpty';
@@ -20,5 +21,6 @@ export default {
 	isEmpty,
 	isValid,
 	isValidOrEmpty,
-	reduceConfigFieldsToValues
+	reduceConfigFieldsToValues,
+	messageStrings
 };

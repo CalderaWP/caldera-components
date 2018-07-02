@@ -1,4 +1,4 @@
-import {getMessageStringByType, getMessageStrings, getRequiredMessage} from "./getMessageStrings";
+import {getMessageStringByType, getMessageStrings, getRequiredMessage} from "./messageStrings";
 import strings from './strings';
 
 describe( 'strings export', () => {
