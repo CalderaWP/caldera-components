@@ -11,8 +11,8 @@ import isValidOrEmpty from './isValidOrEmpty';
  * @param {Object} fieldValues Values to look for field in
  * @return {String|Array|boolean|number|null}
  */
-export const findFieldValueInFieldValues = (fieldId,fieldValues ) => {
-	if( fieldValues.hasOwnProperty(fieldId)){
+export const findFieldValueInFieldValues = (fieldId, fieldValues) => {
+	if (fieldValues.hasOwnProperty(fieldId)) {
 		return fieldValues[fieldId];
 	}
 
@@ -28,9 +28,9 @@ export const findFieldValueInFieldValues = (fieldId,fieldValues ) => {
  * @param {Function} validator Validator function
  * @return {function(*=): *}
  */
-function curryValidator( fieldId, validator ) {
-	return ( fieldValues ) => {
-		return validator( findFieldValueInFieldValues(fieldId,fieldValues) );
+function curryValidator(fieldId, validator) {
+	return (fieldValues) => {
+		return validator(findFieldValueInFieldValues(fieldId, fieldValues));
 	};
 }
 
@@ -58,40 +58,29 @@ function addValidatorsForType(configField, validators, validationType) {
  * @param {Object} configField
  * @return {*}
  */
-export const  addAutomaticValidators = (configField) => {
+export const addAutomaticValidators = (configField) => {
 	let validators = getValidatorsFromConfigField(configField);
-	if( 0 !== validators.length){
+	if (0 !== validators.length) {
 		return configField;
 	}
 
-	switch ( configField.type ){
-	case 'input':
-		switch( configField.inputType ){
-			case 'email':
-				if( configField.isRequired ){
-					validators.push(
-						curryValidator(
-							configField.ID, isValid.email
-						)
-					);
-				}else{
-					validators.push(
-						curryValidator(
-							configField.ID, isValidOrEmpty.email
-						)
-					);
-				}
-				break;
-			case 'url':
-				validators = addValidatorsForType(configField, validators, 'url');
-				break;
-		}
+	switch (configField.type) {
+		case 'input':
+			if( [
+				'email',
+				'url',
+				'date',
+				'number',
+			].includes( configField.inputType ) ){
+				validators = addValidatorsForType(configField, validators, configField.inputType);
+			}else{
+				validators = addValidatorsForType( configField, validators, 'anything' )
+			}
 
+			break;
+		case 'select':
 
-		break;
-	case 'select':
-
-		break;
+			break;
 	}
 
 

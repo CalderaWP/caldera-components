@@ -107,7 +107,7 @@ describe( 'Adding automatic validation', () => {
 			expect( addAutomaticValidators(configField).validators[0](values) ).toEqual( true );
 		});
 
-		it.skip( 'Non urls validate false', () => {
+		it( 'Non urls validate false', () => {
 			const configField = {
 				...urlFieldConfig,
 				ID: 'fld03',
@@ -117,7 +117,7 @@ describe( 'Adding automatic validation', () => {
 			expect( addAutomaticValidators(configField).validators[0](values) ).toEqual( false );
 		});
 
-		it.skip( 'empty values validate true if not required', () => {
+		it( 'empty values validate as valid URL if not required', () => {
 			const configField = {
 				...urlFieldConfig,
 				ID: 'fld04',
@@ -129,5 +129,76 @@ describe( 'Adding automatic validation', () => {
 		});
 	});
 
+	describe( 'Number validator', () => {
+		const numberField = {
+			type: 'input',
+			inputType: 'number',
+			isRequired:false,
+			value: 22.1
+		};
+		it( ' validations  numbers', () => {
+			const  configField = {
+				...numberField,
+				ID: 'fld21'
+			};
+			const values = reduceConfigFieldsToValues([configField]);
+			expect( addAutomaticValidators(configField).validators[0](values) ).toEqual( true );
+
+		});
+
+		it( ' validations  not numbers', () => {
+			const  configField = {
+				...numberField,
+				ID: 'fld22',
+				value: 'foons'
+			};
+			const values = reduceConfigFieldsToValues([configField]);
+			expect( addAutomaticValidators(configField).validators[0](values) ).toEqual( false );
+
+		});
+	});
+
+	describe( 'Date validation', () => {
+		const date = new Date('December 17, 1995 03:24:00');
+
+		const dateField = {
+			type: 'input',
+			inputType: 'number',
+			isRequired:true,
+
+		};
+		it( 'validates dates ', () => {
+			const  configField = {
+				...dateField,
+				ID: 'fld31',
+				value: date
+			};
+			const values = reduceConfigFieldsToValues([configField]);
+			expect( addAutomaticValidators(configField).validators[0](values) ).toEqual( true );
+
+		});
+
+		it( 'validates not dates dates ', () => {
+			const  configField = {
+				...dateField,
+				ID: 'fld32',
+				value: 'fasjksa;dljfd'
+			};
+			const values = reduceConfigFieldsToValues([configField]);
+			expect( addAutomaticValidators(configField).validators[0](values) ).toEqual( false );
+
+		});
+
+		it( 'Validates nothing as valid if not required ', () => {
+			const  configField = {
+				...dateField,
+				ID: 'fld33',
+				isRequired:false,
+			};
+			const values = reduceConfigFieldsToValues([configField]);
+			expect( addAutomaticValidators(configField).validators[0](values) ).toEqual( true );
+
+		});
+	});
 
 });
