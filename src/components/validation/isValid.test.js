@@ -48,13 +48,16 @@ describe('Is valid utilities', () => {
 		expect(isValid.number('Hi Roy.')).toBe(false);
 	});
 	it('Considers arrays not numeric', () => {
-		expect( isNaN([])).toBe(false);
 		expect(isValid.number([])).toBe(false);
 	});
+
 	it('Considers object literals not numeric', () => {
 		expect(isValid.number({
 			hi: 'Roy'
 		})).toBe(false);
 	});
 
+	it('Considers a valid string a string ', () => {
+		expect(isValid.string(' Thanks!')).toBe(true);
+	});
 });

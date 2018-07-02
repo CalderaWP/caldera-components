@@ -16,6 +16,14 @@ export default {
 		return isEmpty.anything( value ) || isValid.email(value);
 	},
 	/**
+	 * Check if given value is a string or empty
+	 *
+	 * @param {String} value Value to check
+	 */
+	string(value){
+		return isEmpty.anything( value ) || isValid.string(value);
+	},
+	/**
 	 * Check if a given value is a valid url or empty
 	 *
 	 * @param {String} value Value to check

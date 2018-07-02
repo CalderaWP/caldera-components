@@ -17,6 +17,14 @@ export default {
 		return isEmail(value);
 	},
 	/**
+	 * Check if given value is a string
+	 *
+	 * @param {String} value Value to check
+	 */
+	string(value){
+		return 'string' === typeof value;
+	},
+	/**
 	 * Check if a given value is a valid url
 	 *
 	 * @param {String} value Value to check

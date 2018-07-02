@@ -73,7 +73,12 @@ export const addAutomaticValidators = (configField) => {
 				'number',
 			].includes( configField.inputType ) ){
 				validators = addValidatorsForType(configField, validators, configField.inputType);
-			}else{
+			}else if( 'text' === configField.inputType){
+				validators = addValidatorsForType(configField, validators, 'string');
+
+			}
+
+			else{
 				validators = addValidatorsForType( configField, validators, 'anything' )
 			}
 

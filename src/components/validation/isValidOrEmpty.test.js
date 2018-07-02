@@ -1,4 +1,5 @@
 import isValidOrEmpty from './isValidOrEmpty';
+import isValid from "./isValid";
 
 describe('Is valid or empty utilities', () => {
 	it('checks a valid email', () => {
@@ -47,6 +48,15 @@ describe('Is valid or empty utilities', () => {
 	it('Considers an empty  string to be a valid number', () => {
 		expect(isValidOrEmpty.number('')).toBe(true);
 	});
+
+	it('Considers a valid string a string ', () => {
+		expect(isValidOrEmpty.string(' Thanks!')).toBe(true);
+	});
+
+	it('Considers an empty string a valid string ', () => {
+		expect(isValidOrEmpty.string(' Thanks!')).toBe(true);
+	});
+
 
 
 });

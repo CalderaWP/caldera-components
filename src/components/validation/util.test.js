@@ -201,4 +201,45 @@ describe( 'Adding automatic validation', () => {
 		});
 	});
 
+
+	describe( 'text validator', () => {
+		const textField = {
+			type: 'input',
+			inputType: 'text',
+			isRequired:false,
+			value: '#almostBluma'
+		};
+		it( 'Strings are valid for text inputs', () => {
+			const  configField = {
+				...textField,
+				ID: 'fld41'
+			};
+			const values = reduceConfigFieldsToValues([configField]);
+			expect( addAutomaticValidators(configField).validators[0](values) ).toEqual( true );
+
+		});
+
+		it( 'Empty strings are valid for non required text fields', () => {
+			const  configField = {
+				...textField,
+				ID: 'fld42',
+				value: ''
+			};
+			const values = reduceConfigFieldsToValues([configField]);
+			expect( addAutomaticValidators(configField).validators[0](values) ).toEqual( true );
+
+		});
+		it( 'Empty strings are not valid for  required text fields', () => {
+			const  configField = {
+				...textField,
+				ID: 'fld43',
+				value: '',
+				isRequired:true
+			};
+			const values = reduceConfigFieldsToValues([configField]);
+			expect( addAutomaticValidators(configField).validators[0](values) ).toEqual( false );
+
+		});
+	});
+
 });
