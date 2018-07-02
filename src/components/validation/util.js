@@ -100,7 +100,7 @@ export const addAutomaticValidators = (configField) => {
 	return {
 		...configField,
 		validators
-	};
-
+	}
 
 };
+
