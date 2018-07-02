@@ -1,7 +1,7 @@
 /**
  * Get the current values for prepareConfigFields
  *
- * @param configFields
+ * @param {Array} configFields
  */
 export const reduceConfigFieldsToValues = (configFields) => {
 	let values = {};
