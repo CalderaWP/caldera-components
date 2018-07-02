@@ -92,7 +92,7 @@
           },
           "extra": {
             "rawValue": "./checkValidatorsForConfigField",
-            "raw": "\"./checkValidatorsForConfigField\""
+            "raw": "'./checkValidatorsForConfigField'"
           },
           "value": "./checkValidatorsForConfigField"
         }
@@ -161,7 +161,7 @@
           },
           "extra": {
             "rawValue": "./getValidatorsFromConfigField",
-            "raw": "\"./getValidatorsFromConfigField\""
+            "raw": "'./getValidatorsFromConfigField'"
           },
           "value": "./getValidatorsFromConfigField"
         },

@@ -109,7 +109,7 @@
           },
           "extra": {
             "rawValue": "./checkConfigFieldConditionals",
-            "raw": "\"./checkConfigFieldConditionals\""
+            "raw": "'./checkConfigFieldConditionals'"
           },
           "value": "./checkConfigFieldConditionals"
         },

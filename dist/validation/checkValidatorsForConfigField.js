@@ -1,11 +1,11 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 exports.default = checkValidatorsForConfigField;
 
-var _getValidatorsFromConfigField = require("./getValidatorsFromConfigField");
+var _getValidatorsFromConfigField = require('./getValidatorsFromConfigField');
 
 var _getValidatorsFromConfigField2 = _interopRequireDefault(_getValidatorsFromConfigField);
 

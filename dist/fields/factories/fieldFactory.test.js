@@ -85,6 +85,19 @@ configFields.map(function (config) {
 describe('Factories', function () {
 	describe('Field factory', function () {
 
+		it('validators array is empty array if none supplied', function () {
+			expect((0, _prepareFieldConfig.prepareFieldConfig)(textFieldConfig).validators).toEqual([]);
+		});
+		it('Keeps valid validators if supplied', function () {
+
+			var validators = [function () {
+				return true;
+			}];
+			expect((0, _prepareFieldConfig.prepareFieldConfig)(_extends({}, textFieldConfig, {
+				validators: validators
+			})).validators).toEqual(validators);
+		});
+
 		it('validates type arg, setting inputType arg', function () {
 			var config = _extends({}, textFieldConfig, {
 				type: 'email',
@@ -226,7 +239,9 @@ describe('Factories', function () {
 				};
 				expect((0, _prepareFieldConfig.prepareFieldConfig)(selectFieldConfig).disabled).toBe(true);
 			});
+		});
 
+		describe('messages prop', function () {
 			it('Passes properly formatted message object', function () {
 				var message = {
 					message: 'Hi',
@@ -272,6 +287,7 @@ describe('Factories', function () {
 					onValueChange: genericHandler,
 					message: message
 				};
+
 				expect((0, _prepareFieldConfig.prepareFieldConfig)(selectFieldConfig).message).toEqual(_extends({}, message, {
 					error: true
 				}));

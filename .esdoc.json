@@ -22,8 +22,8 @@
             "./manual/components.md",
             "./manual/factories.md",
             "./manual/testing.md",
-            "./src/components/validation/README.md",
-            "./src/components/conditional-logic/README.md"
+            "./manual/validation.md",
+            "./manual/conditional-logic.md"
           ]
         }
       }

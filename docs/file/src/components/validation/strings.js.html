@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">src/components/validation/strings.js | Caldera Components library</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="UI components for Caldera Forms admin, Caldera Forms 2.0 front-end"><meta property="og:type" content="website"><meta property="og:url" content="http://calderalabs.org/caldera-components/"><meta property="og:site_name" content="Caldera Components library"><meta property="og:title" content="Caldera Components library"><meta property="og:image" content="https://calderaforms.com/wp-content/themes/caldera-forms-dot-com/img/caldera-forms-logo.svg"><meta property="og:description" content="UI components for Caldera Forms admin, Caldera Forms 2.0 front-end"><meta property="og:author" content="http://calderalabs.org"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="Caldera Components library"><meta property="twitter:description" content="UI components for Caldera Forms admin, Caldera Forms 2.0 front-end"><meta property="twitter:image" content="https://calderaforms.com/wp-content/themes/caldera-forms-dot-com/img/caldera-forms-logo.svg"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./" style="display: flex; align-items: center;"><img src="./image/brand_logo.svg" style="width:34px;"></a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/calderawp/caldera-components"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/App.js~App.html">App</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-register">register</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-unregister">unregister</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/RenderGroup.js~RenderGroup.html">RenderGroup</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-conditional-logic">components/conditional-logic</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-checkConfigFieldConditionals">checkConfigFieldConditionals</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-checkConfigFieldsConditionals">checkConfigFieldsConditionals</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-reduceConfigFieldsToValues">reduceConfigFieldsToValues</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields">components/fields</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-FieldGroup">FieldGroup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-FieldInner">FieldInner</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addOrRemoveFromArray">addOrRemoveFromArray</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ariaDescribedbyAttr">ariaDescribedbyAttr</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getHtmlInputTypes">getHtmlInputTypes</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isValidHtml5type">isValidHtml5type</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toBoolean">toBoolean</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fieldGroupPropTypes">fieldGroupPropTypes</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fieldInnerPropTypes">fieldInnerPropTypes</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fieldPropTypes">fieldPropTypes</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-inputTypeProp">inputTypeProp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-onValueChangePropType">onValueChangePropType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-valuePropType">valuePropType</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-factories">components/fields/factories</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldFactory">fieldFactory</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldSetFactory">fieldSetFactory</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-prepareFieldConfig">prepareFieldConfig</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-field-group-change-handlers">components/fields/field-group-change-handlers</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldsetCheckboxHandler">fieldsetCheckboxHandler</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-input">components/fields/input</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Input">Input</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-messages">components/fields/messages</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Message">Message</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-messageObjectFactory">messageObjectFactory</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MESSAGE_CLASS">MESSAGE_CLASS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-messagePropShape">messagePropShape</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-select">components/fields/select</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SelectField">SelectField</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SelectFieldFancy">SelectFieldFancy</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-validation">components/validation</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-checkValidatorsForConfigField">checkValidatorsForConfigField</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-checkValidatorsForConfigFields">checkValidatorsForConfigFields</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getValidatorsFromConfigField">getValidatorsFromConfigField</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getMessageStringByType">getMessageStringByType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getMessageStrings">getMessageStrings</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getRequiredMessage">getRequiredMessage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addAutomaticValidators">addAutomaticValidators</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-findFieldValueInFieldValues">findFieldValueInFieldValues</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/components/validation/strings.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * Translation strings for Caldera Components
+ * Copied from Parsley (License: MIT)
+ * https://github.com/guillaumepotier/Parsley.js/blob/master/dist/i18n/
+ *
+ */
+export default {
+	en: {
+		defaultMessage: &quot;This value seems to be invalid.&quot;,
+		type: {
+			email:        &quot;This value should be a valid email.&quot;,
+			url:          &quot;This value should be a valid url.&quot;,
+			number:       &quot;This value should be a valid number.&quot;,
+			integer:      &quot;This value should be a valid integer.&quot;,
+			digits:       &quot;This value should be digits.&quot;,
+			alphanum:     &quot;This value should be alphanumeric.&quot;
+		},
+		notblank:       &quot;This value should not be blank.&quot;,
+		required:       &quot;This value is required.&quot;,
+		pattern:        &quot;This value seems to be invalid.&quot;,
+		min:            &quot;This value should be greater than or equal to %s.&quot;,
+		max:            &quot;This value should be lower than or equal to %s.&quot;,
+		range:          &quot;This value should be between %s and %s.&quot;,
+		minlength:      &quot;This value is too short. It should have %s characters or more.&quot;,
+		maxlength:      &quot;This value is too long. It should have %s characters or fewer.&quot;,
+		length:         &quot;This value length is invalid. It should be between %s and %s characters long.&quot;,
+		mincheck:       &quot;You must select at least %s choices.&quot;,
+		maxcheck:       &quot;You must select %s choices or fewer.&quot;,
+		check:          &quot;You must select between %s and %s choices.&quot;,
+		equalto:        &quot;This value should be the same.&quot;
+	},
+	es:{
+		defaultMessage: &quot;Este valor parece ser inv&#xE1;lido.&quot;,
+		type: {
+			email:        &quot;Este valor debe ser un correo v&#xE1;lido.&quot;,
+			url:          &quot;Este valor debe ser una URL v&#xE1;lida.&quot;,
+			number:       &quot;Este valor debe ser un n&#xFA;mero v&#xE1;lido.&quot;,
+			integer:      &quot;Este valor debe ser un n&#xFA;mero v&#xE1;lido.&quot;,
+			digits:       &quot;Este valor debe ser un d&#xED;gito v&#xE1;lido.&quot;,
+			alphanum:     &quot;Este valor debe ser alfanum&#xE9;rico.&quot;
+		},
+		notblank:       &quot;Este valor no debe estar en blanco.&quot;,
+		required:       &quot;Este valor es requerido.&quot;,
+		pattern:        &quot;Este valor es incorrecto.&quot;,
+		min:            &quot;Este valor no debe ser menor que %s.&quot;,
+		max:            &quot;Este valor no debe ser mayor que %s.&quot;,
+		range:          &quot;Este valor debe estar entre %s y %s.&quot;,
+		minlength:      &quot;Este valor es muy corto. La longitud m&#xED;nima es de %s caracteres.&quot;,
+		maxlength:      &quot;Este valor es muy largo. La longitud m&#xE1;xima es de %s caracteres.&quot;,
+		length:         &quot;La longitud de este valor debe estar entre %s y %s caracteres.&quot;,
+		mincheck:       &quot;Debe seleccionar al menos %s opciones.&quot;,
+		maxcheck:       &quot;Debe seleccionar %s opciones o menos.&quot;,
+		check:          &quot;Debe seleccionar entre %s y %s opciones.&quot;,
+		equalto:        &quot;Este valor debe ser id&#xE9;ntico.&quot;
+	}
+}</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

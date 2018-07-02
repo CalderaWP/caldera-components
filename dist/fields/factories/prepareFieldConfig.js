@@ -25,7 +25,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  */
 var prepareFieldConfig = exports.prepareFieldConfig = function prepareFieldConfig(fieldArgs) {
 	/**
-  * Pick whitlisted keys from object
+  * Pick whitelisted keys from object
   *
   * @see http://www.jstips.co/en/javascript/picking-and-rejecting-object-properties/
   *
@@ -64,8 +64,15 @@ var prepareFieldConfig = exports.prepareFieldConfig = function prepareFieldConfi
 		fieldArgs.help = fieldArgs.description;
 	}
 
+	var validators = [];
+	if (fieldArgs.hasOwnProperty('validators') && Array.isArray(fieldArgs.validators)) {
+		validators = fieldArgs.validators;
+	}
+
 	fieldArgs = pick(fieldArgs, Object.keys(_propTypes.fieldGroupPropTypes));
 	fieldArgs.disabled = (0, _util.toBoolean)(fieldArgs.disabled);
 	fieldArgs.message = 'object' === _typeof(fieldArgs.message) ? (0, _messageObjectFactory.messageObjectFactory)(fieldArgs.message) : (0, _messageObjectFactory.messageObjectFactory)({ message: null, error: false });
+
+	fieldArgs.validators = validators;
 	return fieldArgs;
 };

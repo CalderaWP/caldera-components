@@ -63,15 +63,24 @@
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-validation">components/validation</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-checkValidatorsForConfigField">checkValidatorsForConfigField</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-checkValidatorsForConfigFields">checkValidatorsForConfigFields</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getValidatorsFromConfigField">getValidatorsFromConfigField</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getMessageStringByType">getMessageStringByType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getMessageStrings">getMessageStrings</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getRequiredMessage">getRequiredMessage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addAutomaticValidators">addAutomaticValidators</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-findFieldValueInFieldValues">findFieldValueInFieldValues</a></span></span></li>
 </ul>
 </div>
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/components/validation/isValid.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {isEmail,isUrl, isDate} from &apos;@helpdotcom/is&apos;;
+import isEmpty from &apos;./isEmpty&apos;;
 
 /**
  * CalderaValidators for common types of validation needed
+ *
+ * Empty values are not valid.
+ * Ue isValidOrEmpty instead if you want empty values to pass
  */
 export default {
 	/**
@@ -82,6 +91,25 @@ export default {
 	 */
 	email(value){
 		return isEmail(value);
+	},
+	/**
+	 * Check if given value is a non-empty string
+	 *
+	 * @param {String} value Value to check
+	 */
+	string(value){
+		return &apos;string&apos; === typeof value &amp;&amp; ! isEmpty.string(value);
+	},
+	/**
+	 * Check if given value is a string
+	 *
+	 * @param {String} value Value to check
+	 */
+	stringOrNumber(value){
+		if( null !== value ){
+			return this.string(value) || this.number(value);
+		}
+		return false;
 	},
 	/**
 	 * Check if a given value is a valid url
@@ -110,12 +138,15 @@ export default {
 	 * @return {boolean}
 	 */
 	number(value){
+		if( &apos;&apos; === value ){
+			return false;
+		}
 		if( Array.isArray( value ) ){
 			return false;
 		}
 		return ! isNaN(value);
 	}
-}</code></pre>
+};</code></pre>
 
 </div>
 

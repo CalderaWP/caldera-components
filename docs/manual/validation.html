@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../">
+  <title data-ice="title">Manual | Caldera Components library</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="UI components for Caldera Forms admin, Caldera Forms 2.0 front-end"><meta property="og:type" content="website"><meta property="og:url" content="http://calderalabs.org/caldera-components/"><meta property="og:site_name" content="Caldera Components library"><meta property="og:title" content="Caldera Components library"><meta property="og:image" content="https://calderaforms.com/wp-content/themes/caldera-forms-dot-com/img/caldera-forms-logo.svg"><meta property="og:description" content="UI components for Caldera Forms admin, Caldera Forms 2.0 front-end"><meta property="og:author" content="http://calderalabs.org"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="Caldera Components library"><meta property="twitter:description" content="UI components for Caldera Forms admin, Caldera Forms 2.0 front-end"><meta property="twitter:image" content="https://calderaforms.com/wp-content/themes/caldera-forms-dot-com/img/caldera-forms-logo.svg"></head>
+<body class="layout-container manual-root" data-ice="rootContainer">
+
+<header>
+  <a href="./" style="display: flex; align-items: center;"><img src="./image/brand_logo.svg" style="width:34px;"></a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/calderawp/caldera-components"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div class="manual-toc-root">
+  
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/README.html"><a href="manual/README.html" data-ice="link">Caldera Components</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#what-is-this-" data-ice="link">What Is This?</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#why-is-this-" data-ice="link">Why Is This?</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#usage" data-ice="link">Usage</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#install" data-ice="link">Install</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#using-this-library" data-ice="link">Using This Library</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/README.html"><a href="manual/README.html#basic-example" data-ice="link">Basic Example</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#how-to-develop-this" data-ice="link">How To Develop This</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#development-requirements" data-ice="link">Development Requirements</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#testing" data-ice="link">Testing</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#scripts" data-ice="link">Scripts</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/README.html"><a href="manual/README.html#develop" data-ice="link">Develop</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/README.html"><a href="manual/README.html#tests" data-ice="link">Tests</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/README.html"><a href="manual/README.html#lint-code" data-ice="link">Lint Code</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/README.html"><a href="manual/README.html#generate-documentation" data-ice="link">Generate Documentation</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/README.html"><a href="manual/README.html#release-to-npm" data-ice="link">Release To npm</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/components.html"><a href="manual/components.html" data-ice="link">Included Component</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#-code-rendergroup--code-" data-ice="link">RenderGroup</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#example-of--code-rendergroup--code--component-usage" data-ice="link">Example Of RenderGroup Component Usage</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#field-groups" data-ice="link">Field Groups</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#text-field-that-is-required" data-ice="link">Text field that is required</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#text-field-that-is-not-required" data-ice="link">Text field that is not required</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#text-field-with-help-text" data-ice="link">Text field with help text</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#number-field" data-ice="link">Number Field</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#select-fields" data-ice="link">Select Fields</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#fieldsets" data-ice="link">Fieldsets</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#message-component" data-ice="link">Message component</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#an-error-message" data-ice="link">An error message</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#a-non-error-message" data-ice="link">A non-error message</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#render-nothing" data-ice="link">Render nothing</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#adding-additional-classes-to-the-message--39-s-outer-element" data-ice="link">Adding additional classes to the message&apos;s outer element</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/factories.html"><a href="manual/factories.html" data-ice="link">Component Factories</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/factories.html"><a href="manual/factories.html#-code-fieldsetfactory--code-" data-ice="link">fieldSetFactory</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/factories.html"><a href="manual/factories.html#configfield-schema" data-ice="link">configField Schema</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/factories.html"><a href="manual/factories.html#select-fields" data-ice="link">Select Fields</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/factories.html"><a href="manual/factories.html#example-of-select-fields" data-ice="link">Example Of Select Fields</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/factories.html"><a href="manual/factories.html#basic-select-field" data-ice="link">Basic Select Field</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/factories.html"><a href="manual/factories.html#input" data-ice="link">Input</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/factories.html"><a href="manual/factories.html#examples-of-inputs" data-ice="link">Examples Of Inputs</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/factories.html"><a href="manual/factories.html#text-field" data-ice="link">Text Field</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/factories.html"><a href="manual/factories.html#hidden-field" data-ice="link">Hidden Field</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/testing.html"><a href="manual/testing.html" data-ice="link">Testing</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/testing.html"><a href="manual/testing.html#unit-testing" data-ice="link">Unit Testing</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#example--snapshot-testing-a-component" data-ice="link">Example: Snapshot Testing A Component</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#example--testing-a-function-result" data-ice="link">Example: Testing a function result</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/testing.html"><a href="manual/testing.html#dom-testing" data-ice="link">DOM Testing</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#example" data-ice="link">Example</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#important-notes" data-ice="link">Important Notes</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#what-to-test" data-ice="link">What To Test</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#testing-change-handlers" data-ice="link">Testing change handlers</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/testing.html"><a href="manual/testing.html#simulate-a-change-handler" data-ice="link">Simulate A Change Handler</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#shallow-vs-full-rendering" data-ice="link">shallow vs full rendering</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/testing.html"><a href="manual/testing.html#be-careful-about-copying-from-enzyme--39-s-docs" data-ice="link">Be careful about copying from Enzyme&apos;s docs</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/validation.html"><a href="manual/validation.html" data-ice="link">Validation</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/validation.html"><a href="manual/validation.html#structure" data-ice="link">Structure</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/validation.html"><a href="manual/validation.html#usage" data-ice="link">Usage</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/validation.html"><a href="manual/validation.html#import-with-webpack" data-ice="link">Import With webpack</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/validation.html"><a href="manual/validation.html#get-validation-rules-from-config-fields" data-ice="link">Get validation rules from config fields</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/validation.html"><a href="manual/validation.html#check-validators-for-one-config-field" data-ice="link">Check validators for one config field</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/validation.html"><a href="manual/validation.html#check-validators-for-a-collection-of-config-fields" data-ice="link">Check validators for a collection of config fields</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/conditional-logic.html"><a href="manual/conditional-logic.html" data-ice="link">Conditional Logic</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/conditional-logic.html"><a href="manual/conditional-logic.html#usage" data-ice="link">Usage</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/conditional-logic.html"><a href="manual/conditional-logic.html#creating--conditional-rules" data-ice="link">Creating  Conditional Rules</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/conditional-logic.html"><a href="manual/conditional-logic.html#examples-of-conditional-rules-functions" data-ice="link">Examples of conditional rules functions</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/conditional-logic.html"><a href="manual/conditional-logic.html#conceptual-examples" data-ice="link">Conceptual Examples</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/conditional-logic.html"><a href="manual/conditional-logic.html#examples-using-field-values" data-ice="link">Examples Using Field Values</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/conditional-logic.html"><a href="manual/conditional-logic.html#example-of-a-config-field-with-conditional-rules" data-ice="link">Example of a config field with conditional rules</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/conditional-logic.html"><a href="manual/conditional-logic.html#importing-with-webpack" data-ice="link">Importing With webpack</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/conditional-logic.html"><a href="manual/conditional-logic.html#using-in-another-package" data-ice="link">Using In Another Package</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/conditional-logic.html"><a href="manual/conditional-logic.html#todo" data-ice="link">Todo</a></li>
+</ul>
+  </div>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="validation">Validation</h1><p>The validation module handles the logic of determining if a field value is valid or not. It works a lot like conditional logic, in that configFields MAY have an array of validation functions. Each function is passed field values. If ANY of the validation functions returns the boolean <code>false</code>, the validation returns false. Return value of validators is checked with strict equality <code>false === validationFunction(fieldValues)</code>.</p>
+<h2 id="structure">Structure</h2><p>This module is structured differently than the others. It&apos;s an experiment that may be better than what I normally do. Not sure.</p>
+<p>This will make moving it into its own npm module easier and <strong>may</strong> make use in Processor UI and other modules consuming this easier.</p>
+<ul>
+<li>One function per file, as the default export</li>
+<li>All functions get exported together in index.js</li>
+</ul>
+<h2 id="usage">Usage</h2><h2 id="import-with-webpack">Import With webpack</h2><p><code>import {validation} from &apos;@caldera-labs/components</code>;</p>
+<h3 id="get-validation-rules-from-config-fields">Get validation rules from config fields</h3><pre><code class="lang-js"><code class="source-code prettyprint">import {validation} from &apos;@caldera-labs/components&apos;;
+validation.getValidatorsFromConfigField({
+    ID: &apos;fld1&apos;,
+    validators: [
+        //some functions
+    ]
+})</code>
+</code></pre>
+<h3 id="check-validators-for-one-config-field">Check validators for one config field</h3><p>CalderaValidators are an array of functions that return true or false. This field is invalid.</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">import {validation} from &apos;@caldera-labs/components&apos;;
+const isValid = validation.checkValidatorsForConfigField({
+    validators: [
+        () =&gt; {return false; },
+    ]
+}); //false
+</code>
+</code></pre>
+<p> This field is invalid.</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">import {validation} from &apos;@caldera-labs/components&apos;;
+const isValid = validation.checkValidatorsForConfigField({
+    validators: [
+        () =&gt; {return false; },
+        () =&gt; {return true; },
+    ]
+}); //true
+</code>
+</code></pre>
+<p>This field is valid</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">import {validation} from &apos;@caldera-labs/components&apos;;
+const isValid = validation.checkValidatorsForConfigField({
+    validators: [
+        () =&gt; {return true; },
+    ]
+}); //true
+</code>
+</code></pre>
+<h3 id="check-validators-for-a-collection-of-config-fields">Check validators for a collection of config fields</h3><p>The function <code>checkValidatorsForConfigFields</code> returns an object with each field it checked indexed by ID, with boolean value.</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">import {validation} from &apos;@caldera-labs/components&apos;;
+const configFields = [
+    {
+        ID: &apos;fromEmail&apos;,
+        type: &apos;email&apos;,
+        value: &apos;roy@hiroy.club&apos;
+    },
+    {
+            ID: &apos;size&apos;,
+            type: &apos;number&apos;,
+            value: &apos;1&apos;
+        }
+]; //add config fields, with value prop set.
+const fieldValues = validation.reduceConfigFieldsToValues(configFields);
+const results = validation.checkValidatorsForConfigFields(configFields,fieldValues);</code>
+</code></pre>
+</div>
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

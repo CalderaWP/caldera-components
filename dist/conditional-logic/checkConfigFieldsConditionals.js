@@ -1,11 +1,11 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.checkConfigFieldsConditionals = undefined;
 
-var _checkConfigFieldConditionals = require("./checkConfigFieldConditionals");
+var _checkConfigFieldConditionals = require('./checkConfigFieldConditionals');
 
 /**
  * Check conditionals for a collection of configFields

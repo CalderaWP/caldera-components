@@ -13,8 +13,44 @@ describe('aria described by attr', function () {
 });
 
 describe('HTML5 checks', function () {
-	it('detects valid types', function () {
+	it('allows email', function () {
 		expect((0, _util.isValidHtml5type)('email')).toBe(true);
+	});
+
+	it('allows text ', function () {
+		expect((0, _util.isValidHtml5type)('text')).toBe(true);
+	});
+	it('allows number ', function () {
+		expect((0, _util.isValidHtml5type)('number')).toBe(true);
+	});
+	it('allows date ', function () {
+		expect((0, _util.isValidHtml5type)('date')).toBe(true);
+	});
+	it('allows datetime ', function () {
+		expect((0, _util.isValidHtml5type)('datetime')).toBe(true);
+	});
+	it('allows password ', function () {
+		expect((0, _util.isValidHtml5type)('password')).toBe(true);
+	});
+	it('allows submit ', function () {
+		expect((0, _util.isValidHtml5type)('submit')).toBe(true);
+	});
+	it('allows reset ', function () {
+		expect((0, _util.isValidHtml5type)('reset')).toBe(true);
+	});
+	it('allows checkbox ', function () {
+		expect((0, _util.isValidHtml5type)('checkbox')).toBe(true);
+	});
+	it('allows hidden ', function () {
+		expect((0, _util.isValidHtml5type)('hidden')).toBe(true);
+	});
+
+	it('does not allow select ', function () {
+		expect((0, _util.isValidHtml5type)('select')).toBe(false);
+	});
+
+	it('does not allow video ', function () {
+		expect((0, _util.isValidHtml5type)('video')).toBe(false);
 	});
 });
 

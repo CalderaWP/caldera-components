@@ -1,24 +1,28 @@
-"use strict";
+'use strict';
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _index = require("./index");
+var _index = require('./index');
 
 var _index2 = _interopRequireDefault(_index);
 
-var _getValidatorsFromConfigField = require("./getValidatorsFromConfigField");
+var _getValidatorsFromConfigField = require('./getValidatorsFromConfigField');
 
 var _getValidatorsFromConfigField2 = _interopRequireDefault(_getValidatorsFromConfigField);
 
-var _checkValidatorsForConfigField = require("./checkValidatorsForConfigField");
+var _checkValidatorsForConfigField = require('./checkValidatorsForConfigField');
 
 var _checkValidatorsForConfigField2 = _interopRequireDefault(_checkValidatorsForConfigField);
 
-var _util = require("../conditional-logic/util");
+var _util = require('../conditional-logic/util');
 
-var _checkValidatorsForConfigFields = require("./checkValidatorsForConfigFields");
+var _checkValidatorsForConfigFields = require('./checkValidatorsForConfigFields');
 
 var _checkValidatorsForConfigFields2 = _interopRequireDefault(_checkValidatorsForConfigFields);
+
+var _isValid = require('./isValid');
+
+var _isValid2 = _interopRequireDefault(_isValid);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -135,6 +139,78 @@ describe('getValidatorsFromConfigField', function () {
 			it('reports invalid', function () {
 				expect(results.invalidEmailField).toBe(false);
 			});
+		});
+	});
+
+	describe('using default validators', function () {
+		var configFieldsWithValidators = [{
+			type: 'email',
+			ID: 'validEmailField',
+			validators: [function (fieldValues) {
+				return _isValid2.default.email(fieldValues.validEmailField);
+			}],
+			value: 'roy@hiroy.club'
+		}, {
+			type: 'email',
+			ID: 'invalidEmailField',
+			validators: [function (fieldValues) {
+				return _isValid2.default.email(fieldValues.invalidEmailField);
+			}],
+			value: 'pants'
+		}, {
+			type: 'number',
+			ID: 'invalidNumber',
+			validators: [function (fieldValues) {
+				return _isValid2.default.number(fieldValues.invalidNumber);
+			}],
+			value: 'pants'
+		}, {
+			type: 'number',
+			ID: 'validNumber',
+			validators: [function (fieldValues) {
+				return _isValid2.default.number(fieldValues.validNumber);
+			}],
+			value: 1
+		}, {
+			type: 'date',
+			ID: 'validDate',
+			validators: [function (fieldValues) {
+				return _isValid2.default.number(fieldValues.validNumber);
+			}],
+			value: new Date('13 October 1982 00:00 UTC')
+		}, {
+			type: 'date',
+			ID: 'invalidDate',
+			validators: [function (fieldValues) {
+				return _isValid2.default.number(fieldValues.invalidDate);
+			}],
+			value: 'Nothing stops Bluma'
+		}, {
+			type: 'date',
+			ID: 'validDate',
+			validators: [function (fieldValues) {
+				return _isValid2.default.number(fieldValues.validNumber);
+			}],
+			value: new Date('13 October 1982 00:00 UTC')
+		}, {
+			type: 'url',
+			ID: 'invalidUrl',
+			validators: [function (fieldValues) {
+				return _isValid2.default.url(fieldValues.invalidUrl);
+			}],
+			value: 'Nothing stops Bluma'
+		}, {
+			type: 'url',
+			ID: 'validUrl',
+			validators: [function (fieldValues) {
+				return _isValid2.default.url(fieldValues.validUrl);
+			}],
+			value: 'https://corkum.mike'
+		}];
+		var fieldValuesForThisTest = (0, _util.reduceConfigFieldsToValues)(configFieldsWithValidators);
+
+		it('Produces the right results', function () {
+			expect(JSON.stringify((0, _checkValidatorsForConfigFields2.default)(configFieldsWithValidators, fieldValuesForThisTest))).toMatchSnapshot();
 		});
 	});
 });

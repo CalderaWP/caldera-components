@@ -1,7 +1,7 @@
 {
-  "coverage": "61.53%",
-  "expectCount": 52,
-  "actualCount": 32,
+  "coverage": "66.1%",
+  "expectCount": 59,
+  "actualCount": 39,
   "files": {
     "src/App.js": {
       "expectCount": 13,
@@ -129,6 +129,16 @@
     "src/components/validation/getValidatorsFromConfigField.js": {
       "expectCount": 1,
       "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/components/validation/messageStrings.js": {
+      "expectCount": 3,
+      "actualCount": 3,
+      "undocumentLines": []
+    },
+    "src/components/validation/util.js": {
+      "expectCount": 4,
+      "actualCount": 4,
       "undocumentLines": []
     },
     "src/registerServiceWorker.js": {

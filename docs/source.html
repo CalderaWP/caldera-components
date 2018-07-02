@@ -63,11 +63,16 @@
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-validation">components/validation</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-checkValidatorsForConfigField">checkValidatorsForConfigField</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-checkValidatorsForConfigFields">checkValidatorsForConfigFields</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getValidatorsFromConfigField">getValidatorsFromConfigField</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getMessageStringByType">getMessageStringByType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getMessageStrings">getMessageStrings</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getRequiredMessage">getRequiredMessage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addAutomaticValidators">addAutomaticValidators</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-findFieldValueInFieldValues">findFieldValueInFieldValues</a></span></span></li>
 </ul>
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1>Source <img data-ice="coverageBadge" src="./badge.svg"><span data-ice="totalCoverageCount" class="total-coverage-count">32/52</span></h1>
+<div class="content" data-ice="content"><h1>Source <img data-ice="coverageBadge" src="./badge.svg"><span data-ice="totalCoverageCount" class="total-coverage-count">39/59</span></h1>
 
 <table class="files-summary" data-ice="files" data-use-coverage="true">
   <thead>
@@ -112,15 +117,15 @@
       <td class="coverage"><span data-ice="coverage">100 %</span><span data-ice="coverageCount" class="coverage-count">1/1</span></td>
       <td style="display: none;" data-ice="size">706 byte</td>
       <td style="display: none;" data-ice="lines">19</td>
-      <td style="display: none;" data-ice="updated">2018-06-07 19:01:42 (UTC)</td>
+      <td style="display: none;" data-ice="updated">2018-07-02 17:37:31 (UTC)</td>
     </tr>
 <tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/src/components/conditional-logic/index.js.html">src/components/conditional-logic/index.js</a></span></td>
       <td data-ice="identifier" class="identifiers">-</td>
       <td class="coverage"><span data-ice="coverage">-</span></td>
-      <td style="display: none;" data-ice="size">425 byte</td>
+      <td style="display: none;" data-ice="size">426 byte</td>
       <td style="display: none;" data-ice="lines">13</td>
-      <td style="display: none;" data-ice="updated">2018-06-07 18:59:49 (UTC)</td>
+      <td style="display: none;" data-ice="updated">2018-07-02 17:37:31 (UTC)</td>
     </tr>
 <tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/src/components/conditional-logic/util.js.html">src/components/conditional-logic/util.js</a></span></td>
@@ -174,9 +179,9 @@
       <td data-ice="filePath"><span><a href="file/src/components/fields/factories/prepareFieldConfig.js.html">src/components/fields/factories/prepareFieldConfig.js</a></span></td>
       <td data-ice="identifier" class="identifiers"><span><a href="function/index.html#static-function-prepareFieldConfig">prepareFieldConfig</a></span></td>
       <td class="coverage"><span data-ice="coverage">100 %</span><span data-ice="coverageCount" class="coverage-count">1/1</span></td>
-      <td style="display: none;" data-ice="size">1585 byte</td>
-      <td style="display: none;" data-ice="lines">56</td>
-      <td style="display: none;" data-ice="updated">2018-06-06 21:39:38 (UTC)</td>
+      <td style="display: none;" data-ice="size">1772 byte</td>
+      <td style="display: none;" data-ice="lines">63</td>
+      <td style="display: none;" data-ice="updated">2018-07-01 00:21:18 (UTC)</td>
     </tr>
 <tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/src/components/fields/field-group-change-handlers/fieldsetCheckboxHandler.js.html">src/components/fields/field-group-change-handlers/fieldsetCheckboxHandler.js</a></span></td>
@@ -282,7 +287,7 @@
       <td class="coverage"><span data-ice="coverage">0 %</span><span data-ice="coverageCount" class="coverage-count">0/1</span></td>
       <td style="display: none;" data-ice="size">704 byte</td>
       <td style="display: none;" data-ice="lines">25</td>
-      <td style="display: none;" data-ice="updated">2018-06-07 18:34:49 (UTC)</td>
+      <td style="display: none;" data-ice="updated">2018-07-02 17:37:31 (UTC)</td>
     </tr>
 <tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/src/components/validation/checkValidatorsForConfigFields.js.html">src/components/validation/checkValidatorsForConfigFields.js</a></span></td>
@@ -290,39 +295,74 @@
       <td class="coverage"><span data-ice="coverage">100 %</span><span data-ice="coverageCount" class="coverage-count">1/1</span></td>
       <td style="display: none;" data-ice="size">909 byte</td>
       <td style="display: none;" data-ice="lines">27</td>
-      <td style="display: none;" data-ice="updated">2018-06-07 18:34:07 (UTC)</td>
+      <td style="display: none;" data-ice="updated">2018-07-02 17:37:31 (UTC)</td>
     </tr>
 <tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/src/components/validation/getValidatorsFromConfigField.js.html">src/components/validation/getValidatorsFromConfigField.js</a></span></td>
       <td data-ice="identifier" class="identifiers"><span><a href="function/index.html#static-function-getValidatorsFromConfigField">getValidatorsFromConfigField</a></span></td>
       <td class="coverage"><span data-ice="coverage">100 %</span><span data-ice="coverageCount" class="coverage-count">1/1</span></td>
-      <td style="display: none;" data-ice="size">400 byte</td>
+      <td style="display: none;" data-ice="size">401 byte</td>
       <td style="display: none;" data-ice="lines">14</td>
-      <td style="display: none;" data-ice="updated">2018-06-07 18:19:39 (UTC)</td>
+      <td style="display: none;" data-ice="updated">2018-07-02 16:58:37 (UTC)</td>
     </tr>
 <tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/src/components/validation/index.js.html">src/components/validation/index.js</a></span></td>
       <td data-ice="identifier" class="identifiers">-</td>
       <td class="coverage"><span data-ice="coverage">-</span></td>
-      <td style="display: none;" data-ice="size">724 byte</td>
-      <td style="display: none;" data-ice="lines">21</td>
-      <td style="display: none;" data-ice="updated">2018-06-07 23:44:31 (UTC)</td>
+      <td style="display: none;" data-ice="size">853 byte</td>
+      <td style="display: none;" data-ice="lines">25</td>
+      <td style="display: none;" data-ice="updated">2018-07-02 19:30:58 (UTC)</td>
     </tr>
 <tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/src/components/validation/isEmpty.js.html">src/components/validation/isEmpty.js</a></span></td>
       <td data-ice="identifier" class="identifiers">-</td>
       <td class="coverage"><span data-ice="coverage">-</span></td>
-      <td style="display: none;" data-ice="size">1288 byte</td>
+      <td style="display: none;" data-ice="size">1283 byte</td>
       <td style="display: none;" data-ice="lines">67</td>
-      <td style="display: none;" data-ice="updated">2018-06-07 23:37:37 (UTC)</td>
+      <td style="display: none;" data-ice="updated">2018-07-02 17:37:31 (UTC)</td>
     </tr>
 <tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/src/components/validation/isValid.js.html">src/components/validation/isValid.js</a></span></td>
       <td data-ice="identifier" class="identifiers">-</td>
       <td class="coverage"><span data-ice="coverage">-</span></td>
-      <td style="display: none;" data-ice="size">937 byte</td>
-      <td style="display: none;" data-ice="lines">47</td>
-      <td style="display: none;" data-ice="updated">2018-06-07 23:37:37 (UTC)</td>
+      <td style="display: none;" data-ice="size">1511 byte</td>
+      <td style="display: none;" data-ice="lines">73</td>
+      <td style="display: none;" data-ice="updated">2018-07-02 18:33:08 (UTC)</td>
+    </tr>
+<tr data-ice="file">
+      <td data-ice="filePath"><span><a href="file/src/components/validation/isValidOrEmpty.js.html">src/components/validation/isValidOrEmpty.js</a></span></td>
+      <td data-ice="identifier" class="identifiers">-</td>
+      <td class="coverage"><span data-ice="coverage">-</span></td>
+      <td style="display: none;" data-ice="size">1508 byte</td>
+      <td style="display: none;" data-ice="lines">62</td>
+      <td style="display: none;" data-ice="updated">2018-07-02 18:27:34 (UTC)</td>
+    </tr>
+<tr data-ice="file">
+      <td data-ice="filePath"><span><a href="file/src/components/validation/messageStrings.js.html">src/components/validation/messageStrings.js</a></span></td>
+      <td data-ice="identifier" class="identifiers"><span><a href="function/index.html#static-function-getMessageStringByType">getMessageStringByType</a></span>
+<span><a href="function/index.html#static-function-getMessageStrings">getMessageStrings</a></span>
+<span><a href="function/index.html#static-function-getRequiredMessage">getRequiredMessage</a></span></td>
+      <td class="coverage"><span data-ice="coverage">100 %</span><span data-ice="coverageCount" class="coverage-count">3/3</span></td>
+      <td style="display: none;" data-ice="size">1760 byte</td>
+      <td style="display: none;" data-ice="lines">58</td>
+      <td style="display: none;" data-ice="updated">2018-07-02 19:31:52 (UTC)</td>
+    </tr>
+<tr data-ice="file">
+      <td data-ice="filePath"><span><a href="file/src/components/validation/strings.js.html">src/components/validation/strings.js</a></span></td>
+      <td data-ice="identifier" class="identifiers">-</td>
+      <td class="coverage"><span data-ice="coverage">-</span></td>
+      <td style="display: none;" data-ice="size">2684 byte</td>
+      <td style="display: none;" data-ice="lines">55</td>
+      <td style="display: none;" data-ice="updated">2018-07-02 19:08:49 (UTC)</td>
+    </tr>
+<tr data-ice="file">
+      <td data-ice="filePath"><span><a href="file/src/components/validation/util.js.html">src/components/validation/util.js</a></span></td>
+      <td data-ice="identifier" class="identifiers"><span><a href="function/index.html#static-function-addAutomaticValidators">addAutomaticValidators</a></span>
+<span><a href="function/index.html#static-function-findFieldValueInFieldValues">findFieldValueInFieldValues</a></span></td>
+      <td class="coverage"><span data-ice="coverage">100 %</span><span data-ice="coverageCount" class="coverage-count">4/4</span></td>
+      <td style="display: none;" data-ice="size">2522 byte</td>
+      <td style="display: none;" data-ice="lines">106</td>
+      <td style="display: none;" data-ice="updated">2018-07-02 18:51:54 (UTC)</td>
     </tr>
 <tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/src/index.js.html">src/index.js</a></span></td>
