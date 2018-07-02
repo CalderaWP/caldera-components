@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2b0f3eb-379f-4bd9-bc0e-61e438292576" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/validation/util.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/validation/util.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/conditional-logic/checkConfigFieldsConditionals.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/conditional-logic/checkConfigFieldsConditionals.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/conditional-logic/conditionals.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/conditional-logic/conditionals.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/conditional-logic/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/conditional-logic/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/export.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/export.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/renderGroup.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/renderGroup.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/validation/checkValidatorsForConfigField.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/validation/checkValidatorsForConfigField.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/validation/checkValidatorsForConfigFields.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/validation/checkValidatorsForConfigFields.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/validation/getValidatorsFromConfigField.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/validation/getValidatorsFromConfigField.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/validation/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/validation/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/validation/isEmpty.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/validation/isEmpty.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/validation/isValid.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/validation/isValid.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/validation/isValidOrEmpty.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/validation/isValidOrEmpty.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/validation/isValidOrEmpty.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/validation/isValidOrEmpty.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/validation/validators.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/validation/validators.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/validation/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/validation/util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/validation/util.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/validation/util.test.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,14 +17,14 @@
     <favorites_list name="components" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.41199377">
+    <splitter split-orientation="horizontal" split-proportion="0.25233644">
       <split-first>
         <leaf>
           <file leaf-file-name="util.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/components/validation/util.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-301">
-                  <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+                <state relative-caret-position="590">
+                  <caret line="76" column="62" selection-start-line="76" selection-start-column="62" selection-end-line="76" selection-end-column="62" />
                   <folding>
                     <element signature="e#0#74#0" expanded="true" />
                   </folding>
@@ -50,11 +36,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="util.test.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="util.test.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/components/validation/util.test.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="324">
-                  <caret line="64" column="52" lean-forward="true" selection-start-line="64" selection-start-column="52" selection-end-line="64" selection-end-column="52" />
+                <state relative-caret-position="530">
+                  <caret line="123" column="33" lean-forward="true" selection-start-line="123" selection-start-column="33" selection-end-line="123" selection-end-column="33" />
                   <folding>
                     <element signature="e#0#74#0" expanded="true" />
                   </folding>
@@ -65,8 +51,8 @@
           <file leaf-file-name="renderGroup.test.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/components/renderGroup.test.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="166">
-                  <caret line="315" column="76" selection-start-line="315" selection-start-column="76" selection-end-line="315" selection-end-column="76" />
+                <state relative-caret-position="181">
+                  <caret line="316" column="12" selection-start-line="316" selection-start-column="12" selection-end-line="316" selection-end-column="33" />
                   <folding>
                     <element signature="e#0#42#0" expanded="true" />
                   </folding>
@@ -74,11 +60,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="export.test.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="export.test.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/components/export.test.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
-                  <caret line="1" selection-start-line="1" selection-end-line="1" />
+                <state relative-caret-position="210">
+                  <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
                 </state>
               </provider>
             </entry>
@@ -195,10 +181,10 @@
         <option value="$PROJECT_DIR$/src/components/validation/reduceFieldValue.js" />
         <option value="$PROJECT_DIR$/src/components/validation/addAutomaticValidators.test.js" />
         <option value="$PROJECT_DIR$/src/components/validation/reduceConfigFieldsToValue.js" />
+        <option value="$PROJECT_DIR$/src/components/export.test.js" />
+        <option value="$PROJECT_DIR$/src/components/renderGroup.test.js" />
         <option value="$PROJECT_DIR$/src/components/validation/util.js" />
         <option value="$PROJECT_DIR$/src/components/validation/util.test.js" />
-        <option value="$PROJECT_DIR$/src/components/renderGroup.test.js" />
-        <option value="$PROJECT_DIR$/src/components/export.test.js" />
       </list>
     </option>
   </component>
@@ -331,12 +317,12 @@
       <workItem from="1530235004219" duration="3086000" />
       <workItem from="1530294063553" duration="5635000" />
       <workItem from="1530366516493" duration="20452000" />
-      <workItem from="1530548429165" duration="4720000" />
+      <workItem from="1530548429165" duration="5108000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122271000" />
+    <option name="totallyTimeSpent" value="122659000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="134" y="51" width="1721" height="877" extended-state="0" />
@@ -348,8 +334,8 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32916668" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info anchor="bottom" x="1" y="545" width="1130" height="482" id="Terminal" order="7" type="WINDOWED" visible="true" weight="0.32948717" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.824359" visible="true" weight="0.23525909" />
+      <window_info active="true" anchor="bottom" x="1" y="545" width="1130" height="482" id="Terminal" order="7" type="WINDOWED" visible="true" weight="0.32948717" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.824359" visible="true" weight="0.23525909" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.0" />
@@ -812,10 +798,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/export.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/renderGroup.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="316" column="12" selection-start-line="316" selection-start-column="12" selection-end-line="316" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/validation/util.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-301">
-          <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+        <state relative-caret-position="590">
+          <caret line="76" column="62" selection-start-line="76" selection-start-column="62" selection-end-line="76" selection-end-column="62" />
           <folding>
             <element signature="e#0#74#0" expanded="true" />
           </folding>
@@ -824,28 +827,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/validation/util.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="64" column="52" lean-forward="true" selection-start-line="64" selection-start-column="52" selection-end-line="64" selection-end-column="52" />
+        <state relative-caret-position="530">
+          <caret line="123" column="33" lean-forward="true" selection-start-line="123" selection-start-column="33" selection-end-line="123" selection-end-column="33" />
           <folding>
             <element signature="e#0#74#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/renderGroup.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="315" column="76" selection-start-line="315" selection-start-column="76" selection-end-line="315" selection-end-column="76" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/export.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>

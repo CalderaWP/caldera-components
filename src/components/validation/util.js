@@ -49,21 +49,39 @@ export const  addAutomaticValidators = (configField) => {
 	switch ( configField.type ){
 	case 'input':
 		switch( configField.inputType ){
-		case 'email':
-			if( configField.isRequired ){
-				validators.push(
-					curryValidator(
-						configField.ID, isValid.email
-					)
-				);
-			}else{
-				validators.push(
-					curryValidator(
-						configField.ID, isValidOrEmpty.email
-					)
-				);
-			}
+			case 'email':
+				if( configField.isRequired ){
+					validators.push(
+						curryValidator(
+							configField.ID, isValid.email
+						)
+					);
+				}else{
+					validators.push(
+						curryValidator(
+							configField.ID, isValidOrEmpty.email
+						)
+					);
+				}
+				break;
+			case 'url':
+				if( configField.isRequired ){
+					validators.push(
+						curryValidator(
+							configField.ID, isValid.url
+						)
+					);
+				}else{
+					validators.push(
+						curryValidator(
+							configField.ID, isValidOrEmpty.url
+						)
+					);
+				}
+				break;
 		}
+
+
 		break;
 	case 'select':
 

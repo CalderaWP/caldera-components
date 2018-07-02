@@ -38,7 +38,6 @@ describe( 'Adding automatic validation', () => {
 	});
 
 	describe( 'Adding email validators', () => {
-
 		const emailFieldConfig = {
 			type: 'input',
 			inputType: 'email',
@@ -62,7 +61,7 @@ describe( 'Adding automatic validation', () => {
 			expect( addAutomaticValidators(configField).validators[0](values) ).toEqual( true );
 		});
 
-		it( 'Invlaid emails validate false', () => {
+		it( 'Invalid emails validate false', () => {
 			const configField = {
 				...emailFieldConfig,
 				ID: 'fld03',
@@ -75,6 +74,52 @@ describe( 'Adding automatic validation', () => {
 		it( 'empty emails validate true if not required', () => {
 			const configField = {
 				...emailFieldConfig,
+				ID: 'fld04',
+				isRequired:false,
+				value: ''
+			};
+			const values = reduceConfigFieldsToValues([configField]);
+			expect( addAutomaticValidators(configField).validators[0](values) ).toEqual( true );
+		});
+	});
+
+	describe.only( 'Adding url validators', () => {
+		const textFieldConfig = {
+			type: 'input',
+			inputType: 'url',
+			value: 'https://hiRoy.club',
+			isRequired: true,
+		};
+
+		it( 'adds validator for text fields', () => {
+			expect( addAutomaticValidators({
+				...textFieldConfig,
+				ID: 'fld01',
+			}).validators ).toHaveLength( 1 );
+		});
+
+		it( 'Valid urls validate true', () => {
+			const configField = {
+				...textFieldConfig,
+				ID: 'fld02',
+			};
+			const values = reduceConfigFieldsToValues([configField]);
+			expect( addAutomaticValidators(configField).validators[0](values) ).toEqual( true );
+		});
+
+		it( 'Non urls validate false', () => {
+			const configField = {
+				...textFieldConfig,
+				ID: 'fld03',
+				value: '#almostBluma'
+			};
+			const values = reduceConfigFieldsToValues([configField]);
+			expect( addAutomaticValidators(configField).validators[0](values) ).toEqual( false );
+		});
+
+		it.skip( 'empty values validate true if not required', () => {
+			const configField = {
+				...textFieldConfig,
 				ID: 'fld04',
 				isRequired:false,
 				value: ''
