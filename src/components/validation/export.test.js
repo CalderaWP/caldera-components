@@ -1,4 +1,8 @@
 import CalderaValidators from './index';
+import getValidatorsFromConfigField from './getValidatorsFromConfigField';
+import checkValidatorsForConfigFields from './checkValidatorsForConfigField';
+import checkValidatorsForConfigField from './checkValidatorsForConfigFields';
+
 describe( 'CalderaValidators export', () => {
 
 	it( 'exports getValidatorsFromConfigField', () => {
@@ -7,6 +11,18 @@ describe( 'CalderaValidators export', () => {
 
 	it( 'exports checkValidatorsForConfigFields', () => {
 		expect( typeof CalderaValidators.checkValidatorsForConfigFields ).toEqual( 'function' );
+	});
+
+	it( 'exports checkValidatorsForConfigFields as checkValidatorsForConfigFields', () => {
+		expect( CalderaValidators.checkValidatorsForConfigFields ).toEqual( checkValidatorsForConfigFields );
+	});
+
+	it( 'exports getValidatorsFromConfigField as getValidatorsFromConfigField', () => {
+		expect( CalderaValidators.getValidatorsFromConfigField ).toEqual( getValidatorsFromConfigField );
+	});
+
+	it( 'exports checkValidatorsForConfigField as checkValidatorsForConfigField', () => {
+		expect( CalderaValidators.checkValidatorsForConfigField ).toEqual( checkValidatorsForConfigField );
 	});
 
 	it( 'exports checkValidatorsForConfigField', () => {
@@ -28,6 +44,7 @@ describe( 'CalderaValidators export', () => {
 	it( 'can call a function on isEmpty export ', () => {
 		expect(  CalderaValidators.isEmpty.string('roy@hiroy.club') ).toEqual( false );
 	});
+
 
 	it( 'exports isValid', () => {
 		expect( typeof CalderaValidators.isValid ).toEqual( 'object' );

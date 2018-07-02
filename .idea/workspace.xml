@@ -2,130 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2b0f3eb-379f-4bd9-bc0e-61e438292576" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/manual/validation.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.esdoc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.esdoc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/conditional-logic/checkConfigFieldsConditionals.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/conditional-logic/checkConfigFieldsConditionals.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/conditional-logic/conditionals.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/conditional-logic/conditionals.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/conditional-logic/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/conditional-logic/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/export.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/export.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/fields/factories/fieldFactory.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/fields/factories/fieldFactory.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/fields/factories/prepareFieldConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/fields/factories/prepareFieldConfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/fields/util.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/fields/util.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/validation/checkValidatorsForConfigField.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/validation/checkValidatorsForConfigField.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/validation/checkValidatorsForConfigFields.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/validation/checkValidatorsForConfigFields.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/validation/getValidatorsFromConfigField.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/validation/getValidatorsFromConfigField.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/validation/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/validation/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/validation/validators.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/validation/validators.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/.external-ecmascript.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/App.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/RenderGroup.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/conditional-logic/checkConfigFieldConditionals.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/conditional-logic/checkConfigFieldsConditionals.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/conditional-logic/index.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/conditional-logic/util.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/FieldGroup.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/FieldInner.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/factories/fieldFactory.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/factories/fieldSetFactory.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/factories/index.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/factories/prepareFieldConfig.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/field-group-change-handlers/fieldsetCheckboxHandler.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/fieldFactory.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/index.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/input/Input.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/messages/Message.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/messages/messageObjectFactory.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/messages/messagePropTypes.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/propTypes.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/select/SelectField.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/select/SelectFieldFancy.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/util.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/index.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/validation/checkValidatorsForConfigField.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/validation/checkValidatorsForConfigFields.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/validation/getValidatorsFromConfigField.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/validation/index.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/validation/isEmpty.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/validation/isValid.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/index.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/registerServiceWorker.js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/badge.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/class/src/App.js~App.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/class/src/components/RenderGroup.js~RenderGroup.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/coverage.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/css/github.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/css/identifiers.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/css/manual.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/css/prettify-tomorrow.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/css/search.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/css/source.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/css/test.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/App.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/RenderGroup.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/conditional-logic/checkConfigFieldConditionals.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/conditional-logic/checkConfigFieldsConditionals.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/conditional-logic/index.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/conditional-logic/util.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/FieldGroup.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/FieldInner.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/factories/fieldFactory.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/factories/fieldSetFactory.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/factories/index.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/factories/prepareFieldConfig.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/field-group-change-handlers/fieldsetCheckboxHandler.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/fieldFactory.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/index.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/input/Input.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/messages/Message.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/messages/messageObjectFactory.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/messages/messagePropTypes.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/propTypes.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/select/SelectField.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/select/SelectFieldFancy.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/util.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/index.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/validation/checkValidatorsForConfigField.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/validation/checkValidatorsForConfigFields.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/validation/getValidatorsFromConfigField.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/validation/index.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/validation/isEmpty.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/components/validation/isValid.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/index.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/file/src/registerServiceWorker.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/function/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/identifiers.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/image/badge.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/image/brand_logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/image/esdoc-logo-mini-black.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/image/esdoc-logo-mini.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/image/github.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/image/manual-badge.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/image/search.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/lint.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/manual/README.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/manual/components.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/manual/factories.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/manual/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/manual/testing.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/script/inherited-summary.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/script/inner-link.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/script/manual.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/script/patch-for-local.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/script/prettify/Apache-License-2.0.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/script/prettify/prettify.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/script/pretty-print.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/script/search.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/script/search_index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/script/test-summary.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/variable/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/conditional-logic/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/manual/conditional-logic.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/validation/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/validation/export.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/validation/export.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/validation/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/validation/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -151,76 +29,36 @@
       <file leaf-file-name="RenderGroup.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/RenderGroup.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="34" column="7" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
+            <state relative-caret-position="277">
+              <caret line="33" column="18" lean-forward="true" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FieldGroup.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/fields/FieldGroup.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="99" column="25" selection-start-line="99" selection-start-column="25" selection-end-line="99" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FieldInner.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/fields/FieldInner.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-369">
-              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/index.js">
+        <entry file="file://$PROJECT_DIR$/src/components/validation/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="30">
+              <caret line="2" selection-start-line="2" selection-end-line="4" selection-end-column="77" />
               <folding>
-                <element signature="e#0#26#0" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#49#123#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="isValidOrEmpty.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/validation/isValidOrEmpty.js">
+      <file leaf-file-name="export.test.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/validation/export.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="49" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
+            <state relative-caret-position="285">
+              <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
               <folding>
-                <element signature="e#0#32#0" expanded="true" />
+                <element signature="e#0#40#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="renderGroup.test.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/renderGroup.test.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="329" column="38" lean-forward="true" selection-start-line="329" selection-start-column="38" selection-end-line="329" selection-end-column="38" />
-              <folding>
-                <element signature="e#0#42#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".esdoc.json" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.esdoc.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="22" lean-forward="true" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -355,12 +193,12 @@
         <option value="$PROJECT_DIR$/src/components/validation/strings.js" />
         <option value="$PROJECT_DIR$/src/components/validation/getMessageStrings.js" />
         <option value="$PROJECT_DIR$/src/components/validation/getMessageStrings.test.js" />
-        <option value="$PROJECT_DIR$/src/components/validation/index.js" />
         <option value="$PROJECT_DIR$/src/components/validation/messageStrings.js" />
-        <option value="$PROJECT_DIR$/src/components/validation/export.test.js" />
         <option value="$PROJECT_DIR$/src/components/validation/README.md" />
         <option value="$PROJECT_DIR$/manual/validation.md" />
         <option value="$PROJECT_DIR$/.esdoc.json" />
+        <option value="$PROJECT_DIR$/src/components/validation/index.js" />
+        <option value="$PROJECT_DIR$/src/components/validation/export.test.js" />
       </list>
     </option>
   </component>
@@ -421,7 +259,7 @@
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="conditional-logic" type="462c0819:PsiDirectoryNode" />
+              <item name="validation" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -478,15 +316,16 @@
       <workItem from="1530235004219" duration="3086000" />
       <workItem from="1530294063553" duration="5635000" />
       <workItem from="1530366516493" duration="20452000" />
-      <workItem from="1530548429165" duration="12774000" />
+      <workItem from="1530548429165" duration="13375000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130325000" />
+    <option name="totallyTimeSpent" value="130926000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="245" y="25" width="1721" height="877" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -780,16 +619,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/validation/isValidOrEmpty.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="49" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/validation/isValid.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
@@ -848,24 +677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/validation/export.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="23" column="53" lean-forward="true" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/validation/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="18" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="18" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#49#123#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/validation/messageStrings.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -882,15 +693,6 @@
           <caret line="106" selection-start-line="106" selection-end-line="106" />
           <folding>
             <element signature="e#0#74#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/validation/checkValidatorsForConfigFields.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#76#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -912,56 +714,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/RenderGroup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="34" column="7" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/fields/FieldGroup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="99" column="25" selection-start-line="99" selection-start-column="25" selection-end-line="99" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/fields/FieldInner.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-369">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/export.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/renderGroup.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="329" column="38" lean-forward="true" selection-start-line="329" selection-start-column="38" selection-end-line="329" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1000,8 +756,95 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.esdoc.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="22" lean-forward="true" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="39" />
+        <state relative-caret-position="480">
+          <caret line="32" column="6" lean-forward="true" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/renderGroup.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="329" column="38" selection-start-line="329" selection-start-column="38" selection-end-line="329" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/validation/isValidOrEmpty.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="49" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/fields/FieldInner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-369">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/fields/FieldGroup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="99" column="25" selection-start-line="99" selection-start-column="25" selection-end-line="99" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/validation/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="4" selection-end-column="77" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#49#123#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/validation/checkValidatorsForConfigFields.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="54" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/RenderGroup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="33" column="18" lean-forward="true" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/validation/export.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
