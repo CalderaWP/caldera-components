@@ -1,5 +1,5 @@
 import isValidOrEmpty from './isValidOrEmpty';
-import isValid from "./isValid";
+import isValid from './isValid';
 
 describe('Is valid or empty utilities', () => {
 	it('checks a valid email', () => {
@@ -49,13 +49,37 @@ describe('Is valid or empty utilities', () => {
 		expect(isValidOrEmpty.number('')).toBe(true);
 	});
 
-	it('Considers a valid string a string ', () => {
+	it('Considers a non-empty string a valid string ', () => {
 		expect(isValidOrEmpty.string(' Thanks!')).toBe(true);
 	});
 
 	it('Considers an empty string a valid string ', () => {
-		expect(isValidOrEmpty.string(' Thanks!')).toBe(true);
+		expect(isValidOrEmpty.string('')).toBe(true);
 	});
+
+	it('Considers an empty string a valid stringOrNumber ', () => {
+		expect(isValidOrEmpty.stringOrNumber('')).toBe(true);
+	});
+
+	it('Considers 0 a valid stringOrNumber ', () => {
+		expect(isValidOrEmpty.stringOrNumber(0)).toBe(true);
+	});
+
+	it('Considers floats a valid stringOrNumber ', () => {
+		expect(isValidOrEmpty.stringOrNumber(11.22)).toBe(true);
+	});
+
+	it('Considers non-empty strings a valid stringOrNumber ', () => {
+		expect(isValidOrEmpty.stringOrNumber('Mike Corkum')).toBe(true);
+	});
+
+	it('Considers arrays not a valid stringOrNumber ', () => {
+		expect(isValidOrEmpty.stringOrNumber(['Mike Corkum'])).toBe(false);
+	});
+
+
+
+
 
 
 

@@ -1,4 +1,5 @@
 import {isEmail,isUrl, isDate} from '@helpdotcom/is';
+import isEmpty from './isEmpty';
 
 /**
  * CalderaValidators for common types of validation needed
@@ -17,12 +18,23 @@ export default {
 		return isEmail(value);
 	},
 	/**
-	 * Check if given value is a string
+	 * Check if given value is a non-empty string
 	 *
 	 * @param {String} value Value to check
 	 */
 	string(value){
-		return 'string' === typeof value;
+		return 'string' === typeof value && ! isEmpty.string(value);
+	},
+	/**
+	 * Check if given value is a string
+	 *
+	 * @param {String} value Value to check
+	 */
+	stringOrNumber(value){
+		if( null !== value ){
+			return this.string(value) || this.number(value);
+		}
+		return false;
 	},
 	/**
 	 * Check if a given value is a valid url
@@ -51,6 +63,9 @@ export default {
 	 * @return {boolean}
 	 */
 	number(value){
+		if( '' === value ){
+			return false;
+		}
 		if( Array.isArray( value ) ){
 			return false;
 		}

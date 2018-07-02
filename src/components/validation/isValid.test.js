@@ -51,13 +51,41 @@ describe('Is valid utilities', () => {
 		expect(isValid.number([])).toBe(false);
 	});
 
+	it('Considers empty strings not numeric', () => {
+		expect(isValid.number('')).toBe(false);
+	});
+
 	it('Considers object literals not numeric', () => {
 		expect(isValid.number({
 			hi: 'Roy'
 		})).toBe(false);
 	});
 
-	it('Considers a valid string a string ', () => {
+	it('Considers a valid string a valid string ', () => {
 		expect(isValid.string(' Thanks!')).toBe(true);
+	});
+
+	it('Considers an empty string not a valid string ', () => {
+		expect(isValid.string('')).toBe(false);
+	});
+
+	it('Considers a string a valid stringOrNumber ', () => {
+		expect(isValid.stringOrNumber(' Thanks!')).toBe(true);
+	});
+
+	it('Considers an number a valid stringOrNumber ', () => {
+		expect(isValid.stringOrNumber(111)).toBe(true);
+	});
+	it('Considers null not a valid stringOrNumber ', () => {
+		expect(isValid.stringOrNumber(null)).toBe(false);
+	});
+
+	it('Considers an empty string not a valid stringOrNumber ', () => {
+		expect(isValid.stringOrNumber('')).toBe(false);
+	});
+
+
+	it('Considers a string a string or number', () => {
+		expect(isValid.stringOrNumber(' Thanks!')).toBe(true);
 	});
 });

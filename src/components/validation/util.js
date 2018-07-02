@@ -34,6 +34,14 @@ function curryValidator(fieldId, validator) {
 	};
 }
 
+/**
+ * Create validation function based on type and required
+ *
+ * @param {Object} configField Field to create validations for
+ * @param {Array} validators Current array of validators
+ * @param {string} validationType Type of validators to add.
+ * @return {Array}
+ */
 function addValidatorsForType(configField, validators, validationType) {
 	if (configField.isRequired) {
 		validators.push(
@@ -65,27 +73,27 @@ export const addAutomaticValidators = (configField) => {
 	}
 
 	switch (configField.type) {
-		case 'input':
-			if( [
-				'email',
-				'url',
-				'date',
-				'number',
-			].includes( configField.inputType ) ){
-				validators = addValidatorsForType(configField, validators, configField.inputType);
-			}else if( 'text' === configField.inputType){
-				validators = addValidatorsForType(configField, validators, 'string');
+	case 'input':
+		if( [
+			'email',
+			'url',
+			'date',
+			'number',
+		].includes( configField.inputType ) ){
+			validators = addValidatorsForType(configField, validators, configField.inputType);
+		}else if( 'text' === configField.inputType){
+			validators = addValidatorsForType(configField, validators, 'string');
 
-			}
+		}
 
-			else{
-				validators = addValidatorsForType( configField, validators, 'anything' )
-			}
+		else{
+			validators = addValidatorsForType( configField, validators, 'anything' );
+		}
 
-			break;
-		case 'select':
-
-			break;
+		break;
+	case 'select':
+		validators = addValidatorsForType( configField, validators, 'stringOrNumber' );
+		break;
 	}
 
 

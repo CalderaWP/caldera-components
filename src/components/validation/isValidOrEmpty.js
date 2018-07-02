@@ -24,6 +24,14 @@ export default {
 		return isEmpty.anything( value ) || isValid.string(value);
 	},
 	/**
+	 * Check if given value is a string or number empty
+	 *
+	 * @param {String} value Value to check
+	 */
+	stringOrNumber(value){
+		return isEmpty.anything(value) || isValid.stringOrNumber(value);
+	},
+	/**
 	 * Check if a given value is a valid url or empty
 	 *
 	 * @param {String} value Value to check

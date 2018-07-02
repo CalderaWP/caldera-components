@@ -242,4 +242,67 @@ describe( 'Adding automatic validation', () => {
 		});
 	});
 
+	describe( 'select field validator', () => {
+		const selectField = {
+			type: 'select',
+			inputType: 'text',
+			options: [{
+				value: 2,
+				label: 'Two'
+			},
+			{
+				value: 'three',
+				label: 'Three'
+			}],
+			isRequired:false,
+
+		};
+		it( 'adds a validator for select fields', () => {
+			const  configField = {
+				...selectField,
+				ID: 'fld510',
+				value: 2
+			};
+			expect( addAutomaticValidators(configField).validators ).toHaveLength( 1 );
+		});
+		it( 'considers a number valid', () => {
+			const  configField = {
+				...selectField,
+				ID: 'fld51',
+				value: 2
+			};
+			const values = reduceConfigFieldsToValues([configField]);
+			expect( addAutomaticValidators(configField).validators[0](values) ).toEqual( true );
+		});
+
+		it( 'considers a string valid', () => {
+			const  configField = {
+				...selectField,
+				ID: 'fld52',
+				value: 'Three'
+			};
+			const values = reduceConfigFieldsToValues([configField]);
+			expect( addAutomaticValidators(configField).validators[0](values) ).toEqual( true );
+		});
+
+		it( 'considers no value valid if not required', () => {
+			const  configField = {
+				...selectField,
+				ID: 'fld53',
+			};
+			const values = reduceConfigFieldsToValues([configField]);
+			expect( addAutomaticValidators(configField).validators[0](values) ).toEqual( true );
+		});
+
+		it( 'considers no value invalid if  required', () => {
+			const  configField = {
+				...selectField,
+				ID: 'fld54',
+				isRequired: true
+			};
+			const values = reduceConfigFieldsToValues([configField]);
+			expect( addAutomaticValidators(configField).validators[0](values) ).toEqual( false );
+		});
+	});
+
 });
