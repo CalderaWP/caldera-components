@@ -34,6 +34,24 @@ function curryValidator( fieldId, validator ) {
 	};
 }
 
+function addValidatorsForType(configField, validators, validationType) {
+	if (configField.isRequired) {
+		validators.push(
+			curryValidator(
+				configField.ID, isValid[validationType]
+			)
+		);
+	} else {
+		validators.push(
+			curryValidator(
+				configField.ID, isValidOrEmpty[validationType]
+			)
+		);
+	}
+
+	return validators;
+}
+
 /**
  * Adds sensible, automatic validation to fields -- if no validators have been added yet.
  *
@@ -65,19 +83,7 @@ export const  addAutomaticValidators = (configField) => {
 				}
 				break;
 			case 'url':
-				if( configField.isRequired ){
-					validators.push(
-						curryValidator(
-							configField.ID, isValid.url
-						)
-					);
-				}else{
-					validators.push(
-						curryValidator(
-							configField.ID, isValidOrEmpty.url
-						)
-					);
-				}
+				validators = addValidatorsForType(configField, validators, 'url');
 				break;
 		}
 
