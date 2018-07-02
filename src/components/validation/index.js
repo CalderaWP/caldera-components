@@ -1,8 +1,8 @@
 /*eslint no-undef: "error"*/
 /*eslint-env node*/
 import getValidatorsFromConfigField from './getValidatorsFromConfigField';
-import checkValidatorsForConfigFields from './checkValidatorsForConfigField';
-import checkValidatorsForConfigField from './checkValidatorsForConfigFields';
+import checkValidatorsForConfigFields from './checkValidatorsForConfigFields';
+import checkValidatorsForConfigField from './checkValidatorsForConfigField';
 import messageStrings from './messageStrings';
 import isEmpty from './isEmpty';
 import isValid from './isValid';

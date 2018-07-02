@@ -8,13 +8,13 @@ var _getValidatorsFromConfigField = require('./getValidatorsFromConfigField');
 
 var _getValidatorsFromConfigField2 = _interopRequireDefault(_getValidatorsFromConfigField);
 
-var _checkValidatorsForConfigField = require('./checkValidatorsForConfigField');
-
-var _checkValidatorsForConfigField2 = _interopRequireDefault(_checkValidatorsForConfigField);
-
 var _checkValidatorsForConfigFields = require('./checkValidatorsForConfigFields');
 
 var _checkValidatorsForConfigFields2 = _interopRequireDefault(_checkValidatorsForConfigFields);
+
+var _checkValidatorsForConfigField = require('./checkValidatorsForConfigField');
+
+var _checkValidatorsForConfigField2 = _interopRequireDefault(_checkValidatorsForConfigField);
 
 var _messageStrings = require('./messageStrings');
 
@@ -43,8 +43,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /*eslint-env node*/
 exports.default = {
 	getValidatorsFromConfigField: _getValidatorsFromConfigField2.default,
-	checkValidatorsForConfigFields: _checkValidatorsForConfigField2.default,
-	checkValidatorsForConfigField: _checkValidatorsForConfigFields2.default,
+	checkValidatorsForConfigFields: _checkValidatorsForConfigFields2.default,
+	checkValidatorsForConfigField: _checkValidatorsForConfigField2.default,
 	isEmpty: _isEmpty2.default,
 	isValid: _isValid2.default,
 	isValidOrEmpty: _isValidOrEmpty2.default,

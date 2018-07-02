@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 /**
  * Get the current values for prepareConfigFields
  *
- * @param configFields
+ * @param {Array} configFields
  */
 var reduceConfigFieldsToValues = exports.reduceConfigFieldsToValues = function reduceConfigFieldsToValues(configFields) {
 	var values = {};

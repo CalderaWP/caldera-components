@@ -38,8 +38,8 @@ describe('CalderaValidators export', function () {
 		expect(_index2.default.getValidatorsFromConfigField).toEqual(_getValidatorsFromConfigField2.default);
 	});
 
-	it('exports checkValidatorsForConfigField as checkValidatorsForConfigField', function () {
-		expect(_index2.default.checkValidatorsForConfigField).toEqual(_checkValidatorsForConfigFields2.default);
+	it('exports checkValidatorsForConfigFields as checkValidatorsForConfigFields', function () {
+		expect(_index2.default.checkValidatorsForConfigFields).toEqual(_checkValidatorsForConfigField2.default);
 	});
 
 	it('exports checkValidatorsForConfigField', function () {

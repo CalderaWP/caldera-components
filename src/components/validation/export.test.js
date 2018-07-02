@@ -1,7 +1,7 @@
 import CalderaValidators from './index';
 import getValidatorsFromConfigField from './getValidatorsFromConfigField';
-import checkValidatorsForConfigFields from './checkValidatorsForConfigField';
-import checkValidatorsForConfigField from './checkValidatorsForConfigFields';
+import checkValidatorsForConfigFields from './checkValidatorsForConfigFields';
+import checkValidatorsForConfigField from './checkValidatorsForConfigField';
 
 describe( 'CalderaValidators export', () => {
 
