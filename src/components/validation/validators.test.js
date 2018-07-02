@@ -1,24 +1,24 @@
 import validation from './index';
-import getValidatorsFromConfigField from "./getValidatorsFromConfigField";
-import checkValidatorsForConfigField from "./checkValidatorsForConfigField";
-import {reduceConfigFieldsToValues} from "../conditional-logic/util";
-import checkValidatorsForConfigFields from "./checkValidatorsForConfigFields";
+import getValidatorsFromConfigField from './getValidatorsFromConfigField';
+import checkValidatorsForConfigField from './checkValidatorsForConfigField';
+import {reduceConfigFieldsToValues} from '../conditional-logic/util';
+import checkValidatorsForConfigFields from './checkValidatorsForConfigFields';
 import isValid from './isValid';
 
 describe('validation export', () => {
 	it('exports getValidatorsFromConfigField', () => {
-		expect(typeof validation.getValidatorsFromConfigField).toEqual('function')
+		expect(typeof validation.getValidatorsFromConfigField).toEqual('function');
 	});
 	it('exports checkValidatorsForConfigFields', () => {
-		expect(typeof validation.checkValidatorsForConfigFields).toEqual('function')
+		expect(typeof validation.checkValidatorsForConfigFields).toEqual('function');
 	});
 	it('exports checkValidatorsForConfigField', () => {
-		expect(typeof validation.checkValidatorsForConfigField).toEqual('function')
+		expect(typeof validation.checkValidatorsForConfigField).toEqual('function');
 	});
 });
 
 function validateTrue() {
-	return true
+	return true;
 }
 
 describe('getValidatorsFromConfigField', () => {
@@ -149,7 +149,7 @@ describe('getValidatorsFromConfigField', () => {
 				ID: 'validEmailField',
 				validators: [
 					(fieldValues) => {
-						return isValid.email(fieldValues.validEmailField)
+						return isValid.email(fieldValues.validEmailField);
 					},
 				],
 				value: 'roy@hiroy.club'
@@ -159,7 +159,7 @@ describe('getValidatorsFromConfigField', () => {
 				ID: 'invalidEmailField',
 				validators: [
 					(fieldValues) => {
-						return isValid.email(fieldValues.invalidEmailField)
+						return isValid.email(fieldValues.invalidEmailField);
 					},
 				],
 				value: 'pants'
@@ -169,7 +169,7 @@ describe('getValidatorsFromConfigField', () => {
 				ID: 'invalidNumber',
 				validators: [
 					(fieldValues) => {
-						return isValid.number(fieldValues.invalidNumber)
+						return isValid.number(fieldValues.invalidNumber);
 					},
 				],
 				value: 'pants'
@@ -179,7 +179,7 @@ describe('getValidatorsFromConfigField', () => {
 				ID: 'validNumber',
 				validators: [
 					(fieldValues) => {
-						return isValid.number(fieldValues.validNumber)
+						return isValid.number(fieldValues.validNumber);
 					},
 				],
 				value: 1
@@ -189,7 +189,7 @@ describe('getValidatorsFromConfigField', () => {
 				ID: 'validDate',
 				validators: [
 					(fieldValues) => {
-						return isValid.number(fieldValues.validNumber)
+						return isValid.number(fieldValues.validNumber);
 					},
 				],
 				value: new Date('13 October 1982 00:00 UTC')
@@ -199,7 +199,7 @@ describe('getValidatorsFromConfigField', () => {
 				ID: 'invalidDate',
 				validators: [
 					(fieldValues) => {
-						return isValid.number(fieldValues.invalidDate)
+						return isValid.number(fieldValues.invalidDate);
 					},
 				],
 				value: 'Nothing stops Bluma'
@@ -209,7 +209,7 @@ describe('getValidatorsFromConfigField', () => {
 				ID: 'validDate',
 				validators: [
 					(fieldValues) => {
-						return isValid.number(fieldValues.validNumber)
+						return isValid.number(fieldValues.validNumber);
 					},
 				],
 				value: new Date('13 October 1982 00:00 UTC')
@@ -219,7 +219,7 @@ describe('getValidatorsFromConfigField', () => {
 				ID: 'invalidUrl',
 				validators: [
 					(fieldValues) => {
-						return isValid.url(fieldValues.invalidUrl)
+						return isValid.url(fieldValues.invalidUrl);
 					},
 				],
 				value: 'Nothing stops Bluma'
@@ -229,7 +229,7 @@ describe('getValidatorsFromConfigField', () => {
 				ID: 'validUrl',
 				validators: [
 					(fieldValues) => {
-						return isValid.url(fieldValues.validUrl)
+						return isValid.url(fieldValues.validUrl);
 					},
 				],
 				value: 'https://corkum.mike'

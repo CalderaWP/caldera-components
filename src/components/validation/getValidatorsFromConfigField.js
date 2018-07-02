@@ -1,7 +1,7 @@
 /**
  * Find the array of validators for a configField
  *
- * @param {Array} configField The config field to search in
+ * @param {Object} configField The config field to search in
  * @return {Array} Array of validators or empty array if non found
  */
 export default function getValidatorsFromConfigField(configField) {

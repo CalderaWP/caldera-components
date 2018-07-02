@@ -1,6 +1,6 @@
-import {checkConfigFieldConditionals} from "./checkConfigFieldConditionals";
-import {checkConfigFieldsConditionals} from "./checkConfigFieldsConditionals";
-import {reduceConfigFieldsToValues} from "./util";
+import {checkConfigFieldConditionals} from './checkConfigFieldConditionals';
+import {checkConfigFieldsConditionals} from './checkConfigFieldsConditionals';
+import {reduceConfigFieldsToValues} from './util';
 describe('checking conditionals', () => {
 	const field4 = {
 		ID: 'fld4',
@@ -123,11 +123,11 @@ describe('reducing config fields to values', () => {
 
 	it('returns null if no value', () => {
 		expect(reduceConfigFieldsToValues([
-				...configFields,
-				{
-					ID: 'fld45',
-				}
-			]
+			...configFields,
+			{
+				ID: 'fld45',
+			}
+		]
 		)).toEqual(
 			{
 				fld44: 5,
@@ -139,12 +139,12 @@ describe('reducing config fields to values', () => {
 
 	it('Returns default if has default and no value', () => {
 		expect(reduceConfigFieldsToValues([
-				...configFields,
-				{
-					ID: 'fld47',
-					default: 'Roy',
-				}
-			]
+			...configFields,
+			{
+				ID: 'fld47',
+				default: 'Roy',
+			}
+		]
 		)).toEqual(
 			{
 				fld44: 5,
@@ -156,13 +156,13 @@ describe('reducing config fields to values', () => {
 
 	it('Returns value if has default and  value', () => {
 		expect(reduceConfigFieldsToValues([
-				...configFields,
-				{
-					ID: 'fld48',
-					default: 'Roy',
-					value: 'Mike',
-				}
-			]
+			...configFields,
+			{
+				ID: 'fld48',
+				default: 'Roy',
+				value: 'Mike',
+			}
+		]
 		)).toEqual(
 			{
 				fld44: 5,

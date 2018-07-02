@@ -48,4 +48,4 @@ export default {
 		}
 		return ! isNaN(value);
 	}
-}
+};

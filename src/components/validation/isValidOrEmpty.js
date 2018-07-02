@@ -44,4 +44,4 @@ export default {
 	number(value){
 		return isEmpty.anything( value ) || isValid.number(value);
 	}
-}
+};

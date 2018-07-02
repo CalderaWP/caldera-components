@@ -1,4 +1,4 @@
-import isValidOrEmpty from './isValidOrEmpty'
+import isValidOrEmpty from './isValidOrEmpty';
 
 describe('Is valid or empty utilities', () => {
 	it('checks a valid email', () => {

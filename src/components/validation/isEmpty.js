@@ -16,12 +16,12 @@ export default {
 			return this.map(value);
 		}
 		switch (typeof value){
-			case 'object':
-				return this.object(value);
-			case 'string':
-				return this.string(value);
-			default:
-				return false;//
+		case 'object':
+			return this.object(value);
+		case 'string':
+			return this.string(value);
+		default:
+			return false;//
 		}
 		return false;
 	},
@@ -65,4 +65,4 @@ export default {
 	map( value ){
 		return 0 === value.size;
 	}
-}
+};

@@ -5,7 +5,7 @@
  * @param {Object} fieldValues Optional. Data to pass to validator rule callbacks
  * @return {boolean}
  */
-import getValidatorsFromConfigField from "./getValidatorsFromConfigField";
+import getValidatorsFromConfigField from './getValidatorsFromConfigField';
 
 export default function checkValidatorsForConfigField(configField,fieldValues) {
 	if( ! getValidatorsFromConfigField(configField).length){

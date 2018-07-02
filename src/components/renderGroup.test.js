@@ -314,7 +314,6 @@ describe( 'The render group component', () => {
 		});
 
 		it( 'Select field change handlers recive value, not event ', () => {
-			let updateValue = '';
 			const selectFieldConfig = {
 				'id': 'cf-something-select-id',
 				'type': 'dropdown',

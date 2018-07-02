@@ -1,5 +1,4 @@
 import Components from './index';
-import validation from "./validation";
 describe( 'conditionals export', () => {
 	it( 'exports RenderGroup', () => {
 		expect( typeof Components.RenderGroup ).toEqual( 'function' );

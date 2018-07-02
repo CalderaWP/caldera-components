@@ -1,5 +1,5 @@
-import checkValidatorsForConfigField from "./checkValidatorsForConfigField";
-import getValidatorsFromConfigField from "./getValidatorsFromConfigField";
+import checkValidatorsForConfigField from './checkValidatorsForConfigField';
+import getValidatorsFromConfigField from './getValidatorsFromConfigField';
 
 /**
  * Check validators for a collection of configFields

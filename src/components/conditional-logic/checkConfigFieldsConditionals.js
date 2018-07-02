@@ -1,4 +1,4 @@
-import {checkConfigFieldConditionals} from "./checkConfigFieldConditionals";
+import {checkConfigFieldConditionals} from './checkConfigFieldConditionals';
 
 /**
  * Check conditionals for a collection of configFields
