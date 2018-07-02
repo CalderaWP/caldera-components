@@ -2,6 +2,7 @@ import CalderaValidators from './index';
 import getValidatorsFromConfigField from './getValidatorsFromConfigField';
 import checkValidatorsForConfigFields from './checkValidatorsForConfigFields';
 import checkValidatorsForConfigField from './checkValidatorsForConfigField';
+import {addAutomaticValidators} from "./addAutomaticValidators";
 
 describe( 'CalderaValidators export', () => {
 
@@ -50,6 +51,10 @@ describe( 'CalderaValidators export', () => {
 		expect( typeof CalderaValidators.isValid ).toEqual( 'object' );
 	});
 
+	it( 'exports addAutomaticValidators', () => {
+		expect( typeof  CalderaValidators.addAutomaticValidators ).toBe( 'function')
+	});
+
 	it( 'exports isValidOrEmpty', () => {
 		it( 'exports isValidOrEmpty', () => {
 			expect( typeof CalderaValidators.isValid.isValidOrEmpty ).toEqual( 'object' );
@@ -64,5 +69,6 @@ describe( 'CalderaValidators export', () => {
 		expect( typeof CalderaValidators.messageStrings.getMessageStrings('en') ).toEqual( 'object' );
 
 	});
+
 
 });

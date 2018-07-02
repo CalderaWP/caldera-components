@@ -136,7 +136,7 @@
       {
         "type": "ImportDeclaration",
         "start": 124,
-        "end": 201,
+        "end": 202,
         "loc": {
           "start": {
             "line": 4,
@@ -144,7 +144,7 @@
           },
           "end": {
             "line": 4,
-            "column": 77
+            "column": 78
           }
         },
         "specifiers": [
@@ -184,7 +184,7 @@
         "source": {
           "type": "StringLiteral",
           "start": 167,
-          "end": 200,
+          "end": 201,
           "loc": {
             "start": {
               "line": 4,
@@ -192,19 +192,19 @@
             },
             "end": {
               "line": 4,
-              "column": 76
+              "column": 77
             }
           },
           "extra": {
-            "rawValue": "./checkValidatorsForConfigField",
-            "raw": "'./checkValidatorsForConfigField'"
+            "rawValue": "./checkValidatorsForConfigFields",
+            "raw": "'./checkValidatorsForConfigFields'"
           },
-          "value": "./checkValidatorsForConfigField"
+          "value": "./checkValidatorsForConfigFields"
         }
       },
       {
         "type": "ImportDeclaration",
-        "start": 202,
+        "start": 203,
         "end": 279,
         "loc": {
           "start": {
@@ -213,14 +213,14 @@
           },
           "end": {
             "line": 5,
-            "column": 77
+            "column": 76
           }
         },
         "specifiers": [
           {
             "type": "ImportDefaultSpecifier",
-            "start": 209,
-            "end": 238,
+            "start": 210,
+            "end": 239,
             "loc": {
               "start": {
                 "line": 5,
@@ -233,8 +233,8 @@
             },
             "local": {
               "type": "Identifier",
-              "start": 209,
-              "end": 238,
+              "start": 210,
+              "end": 239,
               "loc": {
                 "start": {
                   "line": 5,
@@ -252,7 +252,7 @@
         ],
         "source": {
           "type": "StringLiteral",
-          "start": 244,
+          "start": 245,
           "end": 278,
           "loc": {
             "start": {
@@ -261,14 +261,14 @@
             },
             "end": {
               "line": 5,
-              "column": 76
+              "column": 75
             }
           },
           "extra": {
-            "rawValue": "./checkValidatorsForConfigFields",
-            "raw": "'./checkValidatorsForConfigFields'"
+            "rawValue": "./checkValidatorsForConfigField",
+            "raw": "'./checkValidatorsForConfigField'"
           },
-          "value": "./checkValidatorsForConfigFields"
+          "value": "./checkValidatorsForConfigField"
         }
       },
       {
@@ -1576,9 +1576,9 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "./checkValidatorsForConfigField",
+      "value": "./checkValidatorsForConfigFields",
       "start": 167,
-      "end": 200,
+      "end": 201,
       "loc": {
         "start": {
           "line": 4,
@@ -1586,7 +1586,7 @@
         },
         "end": {
           "line": 4,
-          "column": 76
+          "column": 77
         }
       }
     },
@@ -1603,16 +1603,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 200,
-      "end": 201,
+      "start": 201,
+      "end": 202,
       "loc": {
         "start": {
           "line": 4,
-          "column": 76
+          "column": 77
         },
         "end": {
           "line": 4,
-          "column": 77
+          "column": 78
         }
       }
     },
@@ -1631,8 +1631,8 @@
         "updateContext": null
       },
       "value": "import",
-      "start": 202,
-      "end": 208,
+      "start": 203,
+      "end": 209,
       "loc": {
         "start": {
           "line": 5,
@@ -1657,8 +1657,8 @@
         "binop": null
       },
       "value": "checkValidatorsForConfigField",
-      "start": 209,
-      "end": 238,
+      "start": 210,
+      "end": 239,
       "loc": {
         "start": {
           "line": 5,
@@ -1683,8 +1683,8 @@
         "binop": null
       },
       "value": "from",
-      "start": 239,
-      "end": 243,
+      "start": 240,
+      "end": 244,
       "loc": {
         "start": {
           "line": 5,
@@ -1709,8 +1709,8 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "./checkValidatorsForConfigFields",
-      "start": 244,
+      "value": "./checkValidatorsForConfigField",
+      "start": 245,
       "end": 278,
       "loc": {
         "start": {
@@ -1719,7 +1719,7 @@
         },
         "end": {
           "line": 5,
-          "column": 76
+          "column": 75
         }
       }
     },
@@ -1741,11 +1741,11 @@
       "loc": {
         "start": {
           "line": 5,
-          "column": 76
+          "column": 75
         },
         "end": {
           "line": 5,
-          "column": 77
+          "column": 76
         }
       }
     },

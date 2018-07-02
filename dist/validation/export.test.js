@@ -10,13 +10,13 @@ var _getValidatorsFromConfigField = require('./getValidatorsFromConfigField');
 
 var _getValidatorsFromConfigField2 = _interopRequireDefault(_getValidatorsFromConfigField);
 
-var _checkValidatorsForConfigField = require('./checkValidatorsForConfigField');
-
-var _checkValidatorsForConfigField2 = _interopRequireDefault(_checkValidatorsForConfigField);
-
 var _checkValidatorsForConfigFields = require('./checkValidatorsForConfigFields');
 
 var _checkValidatorsForConfigFields2 = _interopRequireDefault(_checkValidatorsForConfigFields);
+
+var _checkValidatorsForConfigField = require('./checkValidatorsForConfigField');
+
+var _checkValidatorsForConfigField2 = _interopRequireDefault(_checkValidatorsForConfigField);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31,15 +31,15 @@ describe('CalderaValidators export', function () {
 	});
 
 	it('exports checkValidatorsForConfigFields as checkValidatorsForConfigFields', function () {
-		expect(_index2.default.checkValidatorsForConfigFields).toEqual(_checkValidatorsForConfigField2.default);
+		expect(_index2.default.checkValidatorsForConfigFields).toEqual(_checkValidatorsForConfigFields2.default);
 	});
 
 	it('exports getValidatorsFromConfigField as getValidatorsFromConfigField', function () {
 		expect(_index2.default.getValidatorsFromConfigField).toEqual(_getValidatorsFromConfigField2.default);
 	});
 
-	it('exports checkValidatorsForConfigFields as checkValidatorsForConfigFields', function () {
-		expect(_index2.default.checkValidatorsForConfigFields).toEqual(_checkValidatorsForConfigField2.default);
+	it('exports checkValidatorsForConfigField as checkValidatorsForConfigField', function () {
+		expect(_index2.default.checkValidatorsForConfigField).toEqual(_checkValidatorsForConfigField2.default);
 	});
 
 	it('exports checkValidatorsForConfigField', function () {
