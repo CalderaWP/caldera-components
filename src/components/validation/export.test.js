@@ -1,5 +1,6 @@
 import CalderaValidators from './index';
 describe( 'CalderaValidators export', () => {
+
 	it( 'exports getValidatorsFromConfigField', () => {
 		expect( typeof CalderaValidators.getValidatorsFromConfigField ).toEqual( 'function' );
 	});
@@ -26,6 +27,12 @@ describe( 'CalderaValidators export', () => {
 
 	it( 'exports isValid', () => {
 		expect( typeof CalderaValidators.isValid ).toEqual( 'object' );
+	});
+
+	it( 'exports isValidOrEmpty', () => {
+		it( 'exports isValidOrEmpty', () => {
+			expect( typeof CalderaValidators.isValid.isValidOrEmpty ).toEqual( 'object' );
+		});
 	});
 
 	it( 'can call a function on isValid export ', () => {

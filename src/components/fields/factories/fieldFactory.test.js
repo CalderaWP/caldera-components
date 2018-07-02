@@ -76,6 +76,22 @@ configFields.map(config => {
 describe('Factories', () => {
 	describe('Field factory', () => {
 
+		it('validators array is empty array if none supplied', () => {
+			expect(prepareFieldConfig(textFieldConfig).validators).toEqual([]);
+		});
+		it('Keeps valid validators if supplied', () => {
+
+			const validators = [
+				() => {
+					return true;
+				}
+			];
+			expect(prepareFieldConfig({
+				...textFieldConfig,
+				validators
+			}).validators).toEqual(validators);
+		});
+
 		it('validates type arg, setting inputType arg', () => {
 			let config = {
 				...textFieldConfig,
@@ -298,29 +314,17 @@ describe('Factories', () => {
 					onValueChange: genericHandler,
 					message: message
 				};
+
 				expect(prepareFieldConfig(selectFieldConfig).message).toEqual({
 					...message,
 					error: true
 				});
 			});
+
+
 		});
 
-		describe('validators array', () => {
-			it('is empty array if none supplied', () => {
-				expect(prepareFieldConfig(textFieldConfig).validators).toEqual([]);
-			});
-			it('is empty array if none supplied', () => {
-				const validators = [
-					() => {
-						return true;
-					}
-				];
-				expect(prepareFieldConfig({
-					...textFieldConfig,
-					validators
-				}).validators).toEqual(validators);
-			});
-		});
+
 	});
 
 	describe('Field set factory', () => {

@@ -2,6 +2,9 @@ import {isEmail,isUrl, isDate} from '@helpdotcom/is';
 
 /**
  * CalderaValidators for common types of validation needed
+ *
+ * Empty values are not valid.
+ * Ue isValidOrEmpty instead if you want empty values to pass
  */
 export default {
 	/**
