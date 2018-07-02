@@ -1,6 +1,6 @@
 {
   "name": "@caldera-labs/components",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "dependencies": {
     "@helpdotcom/is": "^3.0.4",
     "classnames": "^2.2.6",
