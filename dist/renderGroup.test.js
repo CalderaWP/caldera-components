@@ -345,4 +345,33 @@ describe('The render group component', function () {
 			expect(itFired).toBe(true);
 		});
 	});
+
+	describe('showing <Message> component in the child fields', function () {
+		var successMessage = {
+			message: 'Hi Roy',
+			error: false
+		};
+		var errorMessage = {
+			error: true,
+			message: 'Fail'
+		};
+
+		it('shows success message', function () {
+			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_RenderGroup.RenderGroup, { configFields: [_extends({}, textFieldConfig, {
+					message: successMessage,
+					ID: 'sField',
+					id: 'sField'
+				})] }));
+			expect(wrapper.find('.caldera-components-message').text()).toBe('Hi Roy');
+		});
+
+		it('shows error message', function () {
+			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_RenderGroup.RenderGroup, { configFields: [_extends({}, textFieldConfig, {
+					message: errorMessage,
+					ID: 'fField',
+					id: 'fField'
+				})] }));
+			expect(wrapper.find('.caldera-components-message').text()).toBe('Fail');
+		});
+	});
 });

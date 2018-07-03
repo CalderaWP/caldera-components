@@ -415,7 +415,7 @@ describe( 'The render group component', () => {
 				ID: 'fField',
 				id: 'fField'
 			}]}/> );
-			expect( wrapper.find( '.caldera-components-message' ).text() ).toBe('Fail');
+			expect(wrapper.find('.caldera-components-message').text()).toBe('');
 		});
 	});
 

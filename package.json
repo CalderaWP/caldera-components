@@ -13,6 +13,7 @@
     "test": "react-scripts test --env=jsdom",
     "test:once": "CI=true react-scripts test --env=jsdom",
     "test:coverage": "npm test -- --coverage",
+    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
     "eject": "react-wp-script eject",
     "lint": "eslint src/components/**",
     "document": "./node_modules/.bin/esdoc",
