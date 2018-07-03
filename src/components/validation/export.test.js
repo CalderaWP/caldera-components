@@ -55,6 +55,10 @@ describe( 'CalderaValidators export', () => {
 		expect( typeof  CalderaValidators.addAutomaticValidators ).toBe( 'function');
 	});
 
+	it( 'exports addAutomaticValidators as addAutomaticValidators ', () => {
+		expect(   CalderaValidators.addAutomaticValidators ).toEqual(addAutomaticValidators );
+	});
+
 	it( 'exports isValidOrEmpty', () => {
 		it( 'exports isValidOrEmpty', () => {
 			expect( typeof CalderaValidators.isValid.isValidOrEmpty ).toEqual( 'object' );

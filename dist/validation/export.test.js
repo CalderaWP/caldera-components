@@ -72,6 +72,10 @@ describe('CalderaValidators export', function () {
 		expect(_typeof(_index2.default.addAutomaticValidators)).toBe('function');
 	});
 
+	it('exports addAutomaticValidators as addAutomaticValidators ', function () {
+		expect(_index2.default.addAutomaticValidators).toEqual(_addAutomaticValidators.addAutomaticValidators);
+	});
+
 	it('exports isValidOrEmpty', function () {
 		it('exports isValidOrEmpty', function () {
 			expect(_typeof(_index2.default.isValid.isValidOrEmpty)).toEqual('object');

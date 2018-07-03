@@ -55,6 +55,8 @@
     <li data-ice="manualNav" class="indent-h1" data-link="manual/components.html"><a href="manual/components.html" data-ice="link">Included Component</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#-code-rendergroup--code-" data-ice="link">RenderGroup</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#example-of--code-rendergroup--code--component-usage" data-ice="link">Example Of RenderGroup Component Usage</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#add-onfocus-event-for-all-fields-of-render-group" data-ice="link">Add onFocus Event For All Fields Of Render Group</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#add-onblur-event-for-all-fields-of-render-group" data-ice="link">Add onBlur Event For All Fields Of Render Group</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#field-groups" data-ice="link">Field Groups</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#text-field-that-is-required" data-ice="link">Text field that is required</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#text-field-that-is-not-required" data-ice="link">Text field that is not required</a></li>
@@ -106,9 +108,13 @@
       
     <li data-ice="manualNav" class="indent-h1" data-link="manual/validation.html"><a href="manual/validation.html" data-ice="link">Validation</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/validation.html"><a href="manual/validation.html#structure" data-ice="link">Structure</a></li>
-<li data-ice="manualNav" class="indent-h2" data-link="manual/validation.html"><a href="manual/validation.html#usage" data-ice="link">Usage</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/validation.html"><a href="manual/validation.html#import-with-webpack" data-ice="link">Import With webpack</a></li>
-<li data-ice="manualNav" class="indent-h2" data-link="manual/validation.html"><a href="manual/validation.html#add-validators-automatically" data-ice="link">Add Validators Automatically</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/validation.html"><a href="manual/validation.html#automagic-ish-usage" data-ice="link">Automagic-ish Usage</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/validation.html"><a href="manual/validation.html#add-sensible--default-validators-automatically" data-ice="link">Add Sensible, Default Validators Automatically</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/validation.html"><a href="manual/validation.html#get-the-message-to-show-when-a-field-is-not-valid" data-ice="link">Get The Message To Show When A Field Is Not Valid</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/validation.html"><a href="manual/validation.html#find-an-invalid-field-message-by-input-type" data-ice="link">Find An Invalid Field Message By Input Type</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/validation.html"><a href="manual/validation.html#find-an--code-isrequired--code--field-message-by-input-type" data-ice="link">Find an isRequired Field Message By Input Type</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/validation.html"><a href="manual/validation.html#manual-usage" data-ice="link">Manual Usage</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/validation.html"><a href="manual/validation.html#get-validation-rules-from-config-fields" data-ice="link">Get validation rules from config fields</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/validation.html"><a href="manual/validation.html#check-validators-for-one-config-field" data-ice="link">Check validators for one config field</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/validation.html"><a href="manual/validation.html#check-validators-for-a-collection-of-config-fields" data-ice="link">Check validators for a collection of config fields</a></li>
@@ -192,6 +198,26 @@ const configFields = [
     configFields={configFields}
     className={&apos;cf-something-config&apos;}
  /&gt; </code>
+</code></pre>
+<h3 id="add-onfocus-event-for-all-fields-of-render-group">Add onFocus Event For All Fields Of Render Group</h3><p>You can add an onFocus event that fires when ever any field is focused. The callback function gets the config field&apos;s ID as its only parameter.</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">&lt;RenderGroup
+    configFields={[
+        //add your fields
+    ]}
+    className={&apos;cf-something-config&apos;}
+    onFocus={(fieldId) =&gt; console.log(fieldId)}
+ /&gt; 
+</code>
+</code></pre>
+<h3 id="add-onblur-event-for-all-fields-of-render-group">Add onBlur Event For All Fields Of Render Group</h3><p>You can add an <code>onBlur</code> event that fires when ever any field is blurred. The callback function gets the config field&apos;s ID as its only parameter.</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">&lt;RenderGroup
+    configFields={[
+        //add your fields
+    ]}
+    className={&apos;cf-something-config&apos;}
+    onBlur={(fieldId) =&gt; console.log(fieldId)}
+ /&gt; 
+</code>
 </code></pre>
 <h2 id="field-groups">Field Groups</h2><p>If you have to use a component, please use <code>FieldGroup</code> not its inner components.</p>
 <ul>

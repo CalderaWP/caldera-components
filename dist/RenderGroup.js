@@ -41,7 +41,6 @@ var RenderGroup = exports.RenderGroup = function (_React$Component) {
 		var _this = _possibleConstructorReturn(this, (RenderGroup.__proto__ || Object.getPrototypeOf(RenderGroup)).call(this, props));
 
 		_this.createComponents = _this.createComponents.bind(_this);
-
 		return _this;
 	}
 
@@ -55,7 +54,41 @@ var RenderGroup = exports.RenderGroup = function (_React$Component) {
 	_createClass(RenderGroup, [{
 		key: 'createComponents',
 		value: function createComponents() {
-			return (0, _fieldSetFactory.fieldSetFactory)(this.props.configFields);
+			var _this2 = this;
+
+			var configFields = this.props.configFields;
+
+			/**
+    * Find config field ID/id
+    *
+    * @param {Object} configField
+    * @return {boolean}
+    */
+			function findFieldId(configField) {
+				return configField.ID ? configField.ID : configField.id ? configField.id : false;
+			}
+
+			if ('function' === typeof this.props.onBlur) {
+				configFields.forEach(function (configField, configFieldIndex) {
+					var configFieldId = findFieldId(configField);
+					if (configFieldId) {
+						configFields[configFieldIndex].onBlur = function () {
+							_this2.props.onBlur(configFieldId);
+						};
+					}
+				});
+			}
+			if ('function' === typeof this.props.onFocus) {
+				configFields.forEach(function (configField, configFieldIndex) {
+					var configFieldId = findFieldId(configField);
+					if (configFieldId) {
+						configFields[configFieldIndex].onFocus = function () {
+							_this2.props.onFocus(configFieldId);
+						};
+					}
+				});
+			}
+			return (0, _fieldSetFactory.fieldSetFactory)(configFields);
 		}
 
 		/**
@@ -93,7 +126,9 @@ var RenderGroup = exports.RenderGroup = function (_React$Component) {
 
 RenderGroup.propTypes = {
 	configFields: _propTypes2.default.array.isRequired,
-	className: _propTypes2.default.string
+	className: _propTypes2.default.string,
+	onBlur: _propTypes2.default.func,
+	onFocus: _propTypes2.default.func
 };
 
 /**

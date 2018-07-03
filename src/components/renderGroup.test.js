@@ -387,6 +387,39 @@ describe( 'The render group component', () => {
 		});
 
 	});
+
+	describe( 'showing <Message> component in the child fields', () => {
+		const successMessage = {
+			message: 'Hi Roy',
+			error: false,
+		};
+		const errorMessage = {
+			error: true,
+			message: 'Fail'
+		}
+
+		it( 'shows success message', () => {
+			const wrapper = mount(<RenderGroup configFields={[{
+				...textFieldConfig,
+				message:successMessage,
+				ID: 'sField',
+				id: 'sField'
+			}]}/> );
+			expect( wrapper.find( '.caldera-components-message' ).text() ).toBe('Hi Roy');
+		});
+
+		it( 'shows error message', () => {
+			const wrapper = mount(<RenderGroup configFields={[{
+				...textFieldConfig,
+				message:errorMessage,
+				ID: 'fField',
+				id: 'fField'
+			}]}/> );
+			expect( wrapper.find( '.caldera-components-message' ).text() ).toBe('Fail');
+		});
+	});
+
+
 	
 });
 

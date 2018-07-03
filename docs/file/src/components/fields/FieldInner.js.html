@@ -73,7 +73,7 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/components/fields/FieldInner.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {fieldPropTypes} from &apos;./propTypes&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {fieldInnerPropTypes} from &apos;./propTypes&apos;;
 import React from &apos;react&apos;;
 import {Input} from &apos;./input/Input&apos;;
 import {SelectField} from &apos;./select/SelectField&apos;;
@@ -125,6 +125,8 @@ export const FieldInner = (props) =&gt; {
 				inputType={props.inputType}
 				options={props.options}
 				disabled={props.disabled}
+				onBlur={props.onBlur}
+				onFocus={props.onFocus}
 			/&gt;
 		);
 	default:
@@ -138,6 +140,8 @@ export const FieldInner = (props) =&gt; {
 				onValueChange={props.onValueChange}
 				inputType={props.inputType}
 				disabled={props.disabled}
+				onBlur={props.onBlur}
+				onFocus={props.onFocus}
 			/&gt;);
 	}
 
@@ -149,7 +153,7 @@ export const FieldInner = (props) =&gt; {
  * @type {{options, ariaDescribedbyAttr}}
  */
 FieldInner.propTypes = {
-	...fieldPropTypes,
+	...fieldInnerPropTypes,
 	type: PropTypes.string,
 };
 

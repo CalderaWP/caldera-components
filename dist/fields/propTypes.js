@@ -5,8 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.fieldPropTypes = exports.fieldInnerPropTypes = exports.fieldGroupPropTypes = exports.inputTypeProp = exports.onValueChangePropType = exports.valuePropType = undefined;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
@@ -52,7 +50,9 @@ var fieldGroupPropTypes = exports.fieldGroupPropTypes = {
 	options: _propTypes2.default.array,
 	inputType: inputTypeProp,
 	disabled: _propTypes2.default.bool,
-	message: _messagePropTypes.messagePropShape
+	message: _messagePropTypes.messagePropShape,
+	onBlur: _propTypes2.default.func,
+	onFocus: _propTypes2.default.func
 };
 
 /**
@@ -66,9 +66,10 @@ var fieldInnerPropTypes = exports.fieldInnerPropTypes = {
 	help: _propTypes2.default.string,
 	value: valuePropType,
 	onValueChange: onValueChangePropType,
-	inputType: inputTypeProp
+	inputType: inputTypeProp,
+	ariaDescribedbyAttr: _propTypes2.default.string,
+	onBlur: _propTypes2.default.func,
+	onFocus: _propTypes2.default.func
 };
 
-var fieldPropTypes = exports.fieldPropTypes = _extends({}, fieldInnerPropTypes, {
-	ariaDescribedbyAttr: _propTypes2.default.string
-});
+var fieldPropTypes = exports.fieldPropTypes = fieldInnerPropTypes;

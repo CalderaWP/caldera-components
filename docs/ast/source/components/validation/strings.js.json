@@ -1,7 +1,7 @@
 {
   "type": "File",
   "start": 0,
-  "end": 2671,
+  "end": 2672,
   "loc": {
     "start": {
       "line": 1,
@@ -9,13 +9,13 @@
     },
     "end": {
       "line": 56,
-      "column": 1
+      "column": 2
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 2671,
+    "end": 2672,
     "loc": {
       "start": {
         "line": 1,
@@ -23,7 +23,7 @@
       },
       "end": {
         "line": 56,
-        "column": 1
+        "column": 2
       }
     },
     "sourceType": "module",
@@ -31,7 +31,7 @@
       {
         "type": "ExportDefaultDeclaration",
         "start": 167,
-        "end": 2671,
+        "end": 2672,
         "loc": {
           "start": {
             "line": 7,
@@ -39,7 +39,7 @@
           },
           "end": {
             "line": 56,
-            "column": 1
+            "column": 2
           }
         },
         "declaration": {
@@ -157,7 +157,7 @@
                       },
                       "extra": {
                         "rawValue": "This value seems to be invalid.",
-                        "raw": "\"This value seems to be invalid.\""
+                        "raw": "'This value seems to be invalid.'"
                       },
                       "value": "This value seems to be invalid."
                     }
@@ -261,7 +261,7 @@
                             },
                             "extra": {
                               "rawValue": "This value should be a valid email.",
-                              "raw": "\"This value should be a valid email.\""
+                              "raw": "'This value should be a valid email.'"
                             },
                             "value": "This value should be a valid email."
                           }
@@ -316,7 +316,7 @@
                             },
                             "extra": {
                               "rawValue": "This value should be a valid url.",
-                              "raw": "\"This value should be a valid url.\""
+                              "raw": "'This value should be a valid url.'"
                             },
                             "value": "This value should be a valid url."
                           }
@@ -371,7 +371,7 @@
                             },
                             "extra": {
                               "rawValue": "This value should be a valid number.",
-                              "raw": "\"This value should be a valid number.\""
+                              "raw": "'This value should be a valid number.'"
                             },
                             "value": "This value should be a valid number."
                           }
@@ -426,7 +426,7 @@
                             },
                             "extra": {
                               "rawValue": "This value should be a valid integer.",
-                              "raw": "\"This value should be a valid integer.\""
+                              "raw": "'This value should be a valid integer.'"
                             },
                             "value": "This value should be a valid integer."
                           }
@@ -481,7 +481,7 @@
                             },
                             "extra": {
                               "rawValue": "This value should be digits.",
-                              "raw": "\"This value should be digits.\""
+                              "raw": "'This value should be digits.'"
                             },
                             "value": "This value should be digits."
                           }
@@ -536,7 +536,7 @@
                             },
                             "extra": {
                               "rawValue": "This value should be alphanumeric.",
-                              "raw": "\"This value should be alphanumeric.\""
+                              "raw": "'This value should be alphanumeric.'"
                             },
                             "value": "This value should be alphanumeric."
                           }
@@ -594,7 +594,7 @@
                       },
                       "extra": {
                         "rawValue": "This value should not be blank.",
-                        "raw": "\"This value should not be blank.\""
+                        "raw": "'This value should not be blank.'"
                       },
                       "value": "This value should not be blank."
                     }
@@ -649,7 +649,7 @@
                       },
                       "extra": {
                         "rawValue": "This value is required.",
-                        "raw": "\"This value is required.\""
+                        "raw": "'This value is required.'"
                       },
                       "value": "This value is required."
                     }
@@ -704,7 +704,7 @@
                       },
                       "extra": {
                         "rawValue": "This value seems to be invalid.",
-                        "raw": "\"This value seems to be invalid.\""
+                        "raw": "'This value seems to be invalid.'"
                       },
                       "value": "This value seems to be invalid."
                     }
@@ -759,7 +759,7 @@
                       },
                       "extra": {
                         "rawValue": "This value should be greater than or equal to %s.",
-                        "raw": "\"This value should be greater than or equal to %s.\""
+                        "raw": "'This value should be greater than or equal to %s.'"
                       },
                       "value": "This value should be greater than or equal to %s."
                     }
@@ -814,7 +814,7 @@
                       },
                       "extra": {
                         "rawValue": "This value should be lower than or equal to %s.",
-                        "raw": "\"This value should be lower than or equal to %s.\""
+                        "raw": "'This value should be lower than or equal to %s.'"
                       },
                       "value": "This value should be lower than or equal to %s."
                     }
@@ -869,7 +869,7 @@
                       },
                       "extra": {
                         "rawValue": "This value should be between %s and %s.",
-                        "raw": "\"This value should be between %s and %s.\""
+                        "raw": "'This value should be between %s and %s.'"
                       },
                       "value": "This value should be between %s and %s."
                     }
@@ -924,7 +924,7 @@
                       },
                       "extra": {
                         "rawValue": "This value is too short. It should have %s characters or more.",
-                        "raw": "\"This value is too short. It should have %s characters or more.\""
+                        "raw": "'This value is too short. It should have %s characters or more.'"
                       },
                       "value": "This value is too short. It should have %s characters or more."
                     }
@@ -979,7 +979,7 @@
                       },
                       "extra": {
                         "rawValue": "This value is too long. It should have %s characters or fewer.",
-                        "raw": "\"This value is too long. It should have %s characters or fewer.\""
+                        "raw": "'This value is too long. It should have %s characters or fewer.'"
                       },
                       "value": "This value is too long. It should have %s characters or fewer."
                     }
@@ -1034,7 +1034,7 @@
                       },
                       "extra": {
                         "rawValue": "This value length is invalid. It should be between %s and %s characters long.",
-                        "raw": "\"This value length is invalid. It should be between %s and %s characters long.\""
+                        "raw": "'This value length is invalid. It should be between %s and %s characters long.'"
                       },
                       "value": "This value length is invalid. It should be between %s and %s characters long."
                     }
@@ -1089,7 +1089,7 @@
                       },
                       "extra": {
                         "rawValue": "You must select at least %s choices.",
-                        "raw": "\"You must select at least %s choices.\""
+                        "raw": "'You must select at least %s choices.'"
                       },
                       "value": "You must select at least %s choices."
                     }
@@ -1144,7 +1144,7 @@
                       },
                       "extra": {
                         "rawValue": "You must select %s choices or fewer.",
-                        "raw": "\"You must select %s choices or fewer.\""
+                        "raw": "'You must select %s choices or fewer.'"
                       },
                       "value": "You must select %s choices or fewer."
                     }
@@ -1199,7 +1199,7 @@
                       },
                       "extra": {
                         "rawValue": "You must select between %s and %s choices.",
-                        "raw": "\"You must select between %s and %s choices.\""
+                        "raw": "'You must select between %s and %s choices.'"
                       },
                       "value": "You must select between %s and %s choices."
                     }
@@ -1254,7 +1254,7 @@
                       },
                       "extra": {
                         "rawValue": "This value should be the same.",
-                        "raw": "\"This value should be the same.\""
+                        "raw": "'This value should be the same.'"
                       },
                       "value": "This value should be the same."
                     }
@@ -1362,7 +1362,7 @@
                       },
                       "extra": {
                         "rawValue": "Este valor parece ser inválido.",
-                        "raw": "\"Este valor parece ser inválido.\""
+                        "raw": "'Este valor parece ser inválido.'"
                       },
                       "value": "Este valor parece ser inválido."
                     }
@@ -1466,7 +1466,7 @@
                             },
                             "extra": {
                               "rawValue": "Este valor debe ser un correo válido.",
-                              "raw": "\"Este valor debe ser un correo válido.\""
+                              "raw": "'Este valor debe ser un correo válido.'"
                             },
                             "value": "Este valor debe ser un correo válido."
                           }
@@ -1521,7 +1521,7 @@
                             },
                             "extra": {
                               "rawValue": "Este valor debe ser una URL válida.",
-                              "raw": "\"Este valor debe ser una URL válida.\""
+                              "raw": "'Este valor debe ser una URL válida.'"
                             },
                             "value": "Este valor debe ser una URL válida."
                           }
@@ -1576,7 +1576,7 @@
                             },
                             "extra": {
                               "rawValue": "Este valor debe ser un número válido.",
-                              "raw": "\"Este valor debe ser un número válido.\""
+                              "raw": "'Este valor debe ser un número válido.'"
                             },
                             "value": "Este valor debe ser un número válido."
                           }
@@ -1631,7 +1631,7 @@
                             },
                             "extra": {
                               "rawValue": "Este valor debe ser un número válido.",
-                              "raw": "\"Este valor debe ser un número válido.\""
+                              "raw": "'Este valor debe ser un número válido.'"
                             },
                             "value": "Este valor debe ser un número válido."
                           }
@@ -1686,7 +1686,7 @@
                             },
                             "extra": {
                               "rawValue": "Este valor debe ser un dígito válido.",
-                              "raw": "\"Este valor debe ser un dígito válido.\""
+                              "raw": "'Este valor debe ser un dígito válido.'"
                             },
                             "value": "Este valor debe ser un dígito válido."
                           }
@@ -1741,7 +1741,7 @@
                             },
                             "extra": {
                               "rawValue": "Este valor debe ser alfanumérico.",
-                              "raw": "\"Este valor debe ser alfanumérico.\""
+                              "raw": "'Este valor debe ser alfanumérico.'"
                             },
                             "value": "Este valor debe ser alfanumérico."
                           }
@@ -1799,7 +1799,7 @@
                       },
                       "extra": {
                         "rawValue": "Este valor no debe estar en blanco.",
-                        "raw": "\"Este valor no debe estar en blanco.\""
+                        "raw": "'Este valor no debe estar en blanco.'"
                       },
                       "value": "Este valor no debe estar en blanco."
                     }
@@ -1854,7 +1854,7 @@
                       },
                       "extra": {
                         "rawValue": "Este valor es requerido.",
-                        "raw": "\"Este valor es requerido.\""
+                        "raw": "'Este valor es requerido.'"
                       },
                       "value": "Este valor es requerido."
                     }
@@ -1909,7 +1909,7 @@
                       },
                       "extra": {
                         "rawValue": "Este valor es incorrecto.",
-                        "raw": "\"Este valor es incorrecto.\""
+                        "raw": "'Este valor es incorrecto.'"
                       },
                       "value": "Este valor es incorrecto."
                     }
@@ -1964,7 +1964,7 @@
                       },
                       "extra": {
                         "rawValue": "Este valor no debe ser menor que %s.",
-                        "raw": "\"Este valor no debe ser menor que %s.\""
+                        "raw": "'Este valor no debe ser menor que %s.'"
                       },
                       "value": "Este valor no debe ser menor que %s."
                     }
@@ -2019,7 +2019,7 @@
                       },
                       "extra": {
                         "rawValue": "Este valor no debe ser mayor que %s.",
-                        "raw": "\"Este valor no debe ser mayor que %s.\""
+                        "raw": "'Este valor no debe ser mayor que %s.'"
                       },
                       "value": "Este valor no debe ser mayor que %s."
                     }
@@ -2074,7 +2074,7 @@
                       },
                       "extra": {
                         "rawValue": "Este valor debe estar entre %s y %s.",
-                        "raw": "\"Este valor debe estar entre %s y %s.\""
+                        "raw": "'Este valor debe estar entre %s y %s.'"
                       },
                       "value": "Este valor debe estar entre %s y %s."
                     }
@@ -2129,7 +2129,7 @@
                       },
                       "extra": {
                         "rawValue": "Este valor es muy corto. La longitud mínima es de %s caracteres.",
-                        "raw": "\"Este valor es muy corto. La longitud mínima es de %s caracteres.\""
+                        "raw": "'Este valor es muy corto. La longitud mínima es de %s caracteres.'"
                       },
                       "value": "Este valor es muy corto. La longitud mínima es de %s caracteres."
                     }
@@ -2184,7 +2184,7 @@
                       },
                       "extra": {
                         "rawValue": "Este valor es muy largo. La longitud máxima es de %s caracteres.",
-                        "raw": "\"Este valor es muy largo. La longitud máxima es de %s caracteres.\""
+                        "raw": "'Este valor es muy largo. La longitud máxima es de %s caracteres.'"
                       },
                       "value": "Este valor es muy largo. La longitud máxima es de %s caracteres."
                     }
@@ -2239,7 +2239,7 @@
                       },
                       "extra": {
                         "rawValue": "La longitud de este valor debe estar entre %s y %s caracteres.",
-                        "raw": "\"La longitud de este valor debe estar entre %s y %s caracteres.\""
+                        "raw": "'La longitud de este valor debe estar entre %s y %s caracteres.'"
                       },
                       "value": "La longitud de este valor debe estar entre %s y %s caracteres."
                     }
@@ -2294,7 +2294,7 @@
                       },
                       "extra": {
                         "rawValue": "Debe seleccionar al menos %s opciones.",
-                        "raw": "\"Debe seleccionar al menos %s opciones.\""
+                        "raw": "'Debe seleccionar al menos %s opciones.'"
                       },
                       "value": "Debe seleccionar al menos %s opciones."
                     }
@@ -2349,7 +2349,7 @@
                       },
                       "extra": {
                         "rawValue": "Debe seleccionar %s opciones o menos.",
-                        "raw": "\"Debe seleccionar %s opciones o menos.\""
+                        "raw": "'Debe seleccionar %s opciones o menos.'"
                       },
                       "value": "Debe seleccionar %s opciones o menos."
                     }
@@ -2404,7 +2404,7 @@
                       },
                       "extra": {
                         "rawValue": "Debe seleccionar entre %s y %s opciones.",
-                        "raw": "\"Debe seleccionar entre %s y %s opciones.\""
+                        "raw": "'Debe seleccionar entre %s y %s opciones.'"
                       },
                       "value": "Debe seleccionar entre %s y %s opciones."
                     }
@@ -2459,7 +2459,7 @@
                       },
                       "extra": {
                         "rawValue": "Este valor debe ser idéntico.",
-                        "raw": "\"Este valor debe ser idéntico.\""
+                        "raw": "'Este valor debe ser idéntico.'"
                       },
                       "value": "Este valor debe ser idéntico."
                     }
@@ -7235,6 +7235,32 @@
     },
     {
       "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 2671,
+      "end": 2672,
+      "loc": {
+        "start": {
+          "line": 56,
+          "column": 1
+        },
+        "end": {
+          "line": 56,
+          "column": 2
+        }
+      }
+    },
+    {
+      "type": {
         "label": "eof",
         "beforeExpr": false,
         "startsExpr": false,
@@ -7246,16 +7272,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 2671,
-      "end": 2671,
+      "start": 2672,
+      "end": 2672,
       "loc": {
         "start": {
           "line": 56,
-          "column": 1
+          "column": 2
         },
         "end": {
           "line": 56,
-          "column": 1
+          "column": 2
         }
       }
     }

@@ -109,7 +109,9 @@ var FieldGroup = exports.FieldGroup = function FieldGroup(props) {
 							disabled: props.disabled,
 							onValueChange: function onValueChange() {
 								return (0, _fieldsetCheckboxHandler.fieldsetCheckboxHandler)(option, props.values, props.onValueChange);
-							}
+							},
+							onBlur: props.onBlur,
+							onFocus: props.onFocus
 						})
 					);
 				})
@@ -122,7 +124,9 @@ var FieldGroup = exports.FieldGroup = function FieldGroup(props) {
 				value: fieldProps.value,
 				onValueChange: fieldProps.onValueChange,
 				inputType: fieldProps.inputType,
-				disabled: props.disabled
+				disabled: props.disabled,
+				onBlur: props.onBlur,
+				onFocus: props.onFocus
 			});
 		} else {
 			return _react2.default.createElement(
@@ -151,7 +155,9 @@ var FieldGroup = exports.FieldGroup = function FieldGroup(props) {
 					onValueChange: fieldProps.onValueChange,
 					inputType: fieldProps.inputType,
 					options: fieldProps.options,
-					disabled: props.disabled
+					disabled: props.disabled,
+					onBlur: props.onBlur,
+					onFocus: props.onFocus
 				}),
 				fieldProps.help && _react2.default.createElement(
 					'p',

@@ -73,10 +73,10 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/components/validation/addAutomaticValidators.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import getValidatorsFromConfigField from &quot;./getValidatorsFromConfigField&quot;;
-import isValidOrEmpty from &quot;./isValidOrEmpty&quot;;
-import {findFieldValueInFieldValues} from &quot;./util&quot;;
-import isValid from &quot;./isValid&quot;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import getValidatorsFromConfigField from &apos;./getValidatorsFromConfigField&apos;;
+import isValidOrEmpty from &apos;./isValidOrEmpty&apos;;
+import {findFieldValueInFieldValues} from &apos;./util&apos;;
+import isValid from &apos;./isValid&apos;;
 /**
  * Helper function to curry validator functions
  *
@@ -131,34 +131,34 @@ export const addAutomaticValidators = (configField) =&gt; {
 	}
 
 	switch (configField.type) {
-		case &apos;input&apos;:
-			if( [
-				&apos;email&apos;,
-				&apos;url&apos;,
-				&apos;date&apos;,
-				&apos;number&apos;,
-			].includes( configField.inputType ) ){
-				validators = addValidatorsForType(configField, validators, configField.inputType);
-			}else if( &apos;text&apos; === configField.inputType){
-				validators = addValidatorsForType(configField, validators, &apos;string&apos;);
+	case &apos;input&apos;:
+		if( [
+			&apos;email&apos;,
+			&apos;url&apos;,
+			&apos;date&apos;,
+			&apos;number&apos;,
+		].includes( configField.inputType ) ){
+			validators = addValidatorsForType(configField, validators, configField.inputType);
+		}else if( &apos;text&apos; === configField.inputType){
+			validators = addValidatorsForType(configField, validators, &apos;string&apos;);
 
-			}
+		}
 
-			else{
-				validators = addValidatorsForType( configField, validators, &apos;anything&apos; );
-			}
+		else{
+			validators = addValidatorsForType( configField, validators, &apos;anything&apos; );
+		}
 
-			break;
-		case &apos;select&apos;:
-			validators = addValidatorsForType( configField, validators, &apos;stringOrNumber&apos; );
-			break;
+		break;
+	case &apos;select&apos;:
+		validators = addValidatorsForType( configField, validators, &apos;stringOrNumber&apos; );
+		break;
 	}
 
 
 	return {
 		...configField,
 		validators
-	}
+	};
 
 };</code></pre>
 

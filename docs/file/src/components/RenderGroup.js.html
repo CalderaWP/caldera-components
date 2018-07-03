@@ -87,11 +87,9 @@ export class RenderGroup extends React.Component {
 	 * Constructor for RenderGroup component
 	 * @param {Object} props
 	 */
-	constructor(props){
+	constructor(props) {
 		super(props);
 		this.createComponents = this.createComponents.bind(this);
-
-
 	}
 
 	/**
@@ -99,8 +97,45 @@ export class RenderGroup extends React.Component {
 	 *
 	 * @return {Array}
 	 */
-	createComponents(){
-		return fieldSetFactory(this.props.configFields);
+	createComponents() {
+		let configFields = this.props.configFields;
+
+		/**
+		 * Find config field ID/id
+		 *
+		 * @param {Object} configField
+		 * @return {boolean}
+		 */
+		function findFieldId(configField) {
+			return configField.ID ? configField.ID : configField.id ? configField.id : false;
+		}
+
+		if( &apos;function&apos; === typeof  this.props.onBlur  ){
+			configFields.forEach((configField, configFieldIndex ) =&gt; {
+				const configFieldId = findFieldId(configField);
+				if( configFieldId ){
+					configFields[configFieldIndex].onBlur = () =&gt; {
+						this.props.onBlur(configFieldId);
+					};
+
+				}
+
+			});
+
+		}
+		if( &apos;function&apos; === typeof  this.props.onFocus ){
+			configFields.forEach((configField, configFieldIndex ) =&gt; {
+				const configFieldId = findFieldId(configField);
+				if( configFieldId ){
+					configFields[configFieldIndex].onFocus = () =&gt; {
+						this.props.onFocus(configFieldId);
+					};
+
+				}
+
+			});
+		}
+		return fieldSetFactory(configFields);
 	}
 
 	/**
@@ -108,12 +143,12 @@ export class RenderGroup extends React.Component {
 	 *
 	 * @return {*}
 	 */
-	render(){
-		return(
+	render() {
+		return (
 			&lt;div
-				className={this.props.className ? this.props.className : RenderGroup.classNames.renderGroupWrapper }
+				className={this.props.className ? this.props.className : RenderGroup.classNames.renderGroupWrapper}
 			&gt;
-				{this.createComponents().map((configField,i) =&gt; {
+				{this.createComponents().map((configField, i) =&gt; {
 					return React.createElement(
 						&apos;div&apos;, {
 							key: i,
@@ -133,7 +168,9 @@ export class RenderGroup extends React.Component {
  */
 RenderGroup.propTypes = {
 	configFields: propTypes.array.isRequired,
-	className: propTypes.string
+	className: propTypes.string,
+	onBlur: propTypes.func,
+	onFocus: propTypes.func
 };
 
 /**

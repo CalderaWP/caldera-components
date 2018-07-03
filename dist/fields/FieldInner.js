@@ -69,7 +69,9 @@ var FieldInner = exports.FieldInner = function FieldInner(props) {
 				onValueChange: props.onValueChange,
 				inputType: props.inputType,
 				options: props.options,
-				disabled: props.disabled
+				disabled: props.disabled,
+				onBlur: props.onBlur,
+				onFocus: props.onFocus
 			});
 		default:
 		case 'input':
@@ -80,7 +82,9 @@ var FieldInner = exports.FieldInner = function FieldInner(props) {
 				value: props.value,
 				onValueChange: props.onValueChange,
 				inputType: props.inputType,
-				disabled: props.disabled
+				disabled: props.disabled,
+				onBlur: props.onBlur,
+				onFocus: props.onFocus
 			});
 	}
 };
@@ -90,7 +94,7 @@ var FieldInner = exports.FieldInner = function FieldInner(props) {
  *
  * @type {{options, ariaDescribedbyAttr}}
  */
-FieldInner.propTypes = _extends({}, _propTypes.fieldPropTypes, {
+FieldInner.propTypes = _extends({}, _propTypes.fieldInnerPropTypes, {
 	type: _propTypes3.default.string
 });
 

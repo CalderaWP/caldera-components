@@ -1,5 +1,7 @@
 'use strict';
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _RenderGroup = require('./RenderGroup');
 
 var _enzyme = require('enzyme');
@@ -279,7 +281,7 @@ describe('The render group component', function () {
 			expect(wrapper.find('select').children().find('option')).toHaveLength(3);
 		});
 
-		it('Select field change handlers recive value, not event ', function () {
+		it('Select field change handlers receive value, not event ', function () {
 			var updateValue = '';
 			var selectFieldConfig = {
 				'id': 'cf-something-select-id',
@@ -306,6 +308,41 @@ describe('The render group component', function () {
 			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_RenderGroup.RenderGroup, { configFields: [selectFieldConfig] }));
 			wrapper.find('select').simulate('change', { target: { value: 'imaginary' } });
 			expect(wrapper.find('select').children().find('option')).toHaveLength(3);
+		});
+	});
+
+	describe('adding blur and focus', function () {
+		it('Adds the props', function () {
+			var component = _reactTestRenderer2.default.create(_react2.default.createElement(_RenderGroup.RenderGroup, { configFields: [_extends({}, textFieldConfig, {
+					onBlur: function onBlur() {},
+					onFocus: function onFocus() {}
+				})] }));
+			expect(component.toJSON()).toMatchSnapshot();
+		});
+
+		it('Fires the onFocus handler', function () {
+			var itFired = false;
+			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_RenderGroup.RenderGroup, { configFields: [_extends({}, textFieldConfig, {
+					onBlur: function onBlur() {},
+					onFocus: function onFocus() {
+						itFired = true;
+					}
+				})] }));
+			wrapper.find('input').simulate('focus');
+
+			expect(itFired).toBe(true);
+		});
+
+		it('Fires the onBlur handler', function () {
+			var itFired = false;
+			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_RenderGroup.RenderGroup, { configFields: [_extends({}, textFieldConfig, {
+					onBlur: function onBlur() {
+						itFired = true;
+					}
+				})] }));
+			wrapper.find('input').simulate('blur');
+
+			expect(itFired).toBe(true);
 		});
 	});
 });
