@@ -396,7 +396,7 @@ describe( 'The render group component', () => {
 		const errorMessage = {
 			error: true,
 			message: 'Fail'
-		}
+		};
 
 		it( 'shows success message', () => {
 			const wrapper = mount(<RenderGroup configFields={[{
@@ -415,7 +415,7 @@ describe( 'The render group component', () => {
 				ID: 'fField',
 				id: 'fField'
 			}]}/> );
-			expect(wrapper.find('.caldera-components-message').text()).toBe('');
+			expect(wrapper.find('.caldera-components-message').text()).toBe('Fail');
 		});
 	});
 
