@@ -1,10 +1,9 @@
 # Caldera Components
 UI components for Caldera Forms admin, Caldera Forms 2.0 front-end
 
-[![Build Status](https://travis-ci.org/calderawp/caldera-components.svg?branch=master)](https://travis-ci.org/calderawp/caldera-components)
-[![Coverage Status](https://coveralls.io/repos/github/calderawp/caldera-components/badge.svg?branch=master)](https://coveralls.io/github/calderawp/caldera-components?branch=master)
-[![Coverage Status](https://calderalabs.org/caldera-components/badge.svg)](https://calderalabs.org/caldera-components/source.html)
-
+[![Build Status](https://travis-ci.org/CalderaWP/caldera-components.svg?branch=master)](https://travis-ci.org/calderawp/caldera-components)
+[![Documentation Status](./docs/badge.svg)](https://calderalabs.org/processor-ui/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/github/CalderaWP/caldera-components/badge.svg?branch=master)](https://coveralls.io/github/CalderaWP/caldera-components?branch=master)
 🌋 [Documentation](http://calderalabs.org/caldera-components/)
 
 ## What Is This?
