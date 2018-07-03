@@ -26,7 +26,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @return {Object}
  */
 function checkValidatorsForConfigFields(configFields, fieldValues) {
-	console.log(configFields);
 	var results = {};
 	Object.values(configFields).forEach(function (configField) {
 		var rules = (0, _getValidatorsFromConfigField2.default)(configField);
@@ -36,6 +35,5 @@ function checkValidatorsForConfigFields(configFields, fieldValues) {
 		}
 		results[configField.ID] = thisResult;
 	});
-	console.log(results);
 	return results;
 }

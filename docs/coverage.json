@@ -114,6 +114,11 @@
       "actualCount": 5,
       "undocumentLines": []
     },
+    "src/components/validation/addAutomaticValidators.js": {
+      "expectCount": 3,
+      "actualCount": 3,
+      "undocumentLines": []
+    },
     "src/components/validation/checkValidatorsForConfigField.js": {
       "expectCount": 1,
       "actualCount": 0,
@@ -137,8 +142,8 @@
       "undocumentLines": []
     },
     "src/components/validation/util.js": {
-      "expectCount": 4,
-      "actualCount": 4,
+      "expectCount": 1,
+      "actualCount": 1,
       "undocumentLines": []
     },
     "src/registerServiceWorker.js": {

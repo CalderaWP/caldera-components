@@ -54,9 +54,9 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
-    "@caldera-labs/components/src/components/validation/util.js~addautomaticvalidators",
+    "@caldera-labs/components/src/components/validation/addautomaticvalidators.js~addautomaticvalidators",
     "function/index.html#static-function-addAutomaticValidators",
-    "<span>addAutomaticValidators</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/validation/util.js</span>",
+    "<span>addAutomaticValidators</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/validation/addAutomaticValidators.js</span>",
     "function"
   ],
   [
@@ -675,6 +675,12 @@ window.esdocSearchIndex = [
     "src/components/index.js",
     "file/src/components/index.js.html",
     "src/components/index.js",
+    "file"
+  ],
+  [
+    "src/components/validation/addautomaticvalidators.js",
+    "file/src/components/validation/addAutomaticValidators.js.html",
+    "src/components/validation/addAutomaticValidators.js",
     "file"
   ],
   [

@@ -56,4 +56,4 @@ export default {
 	getMessageStrings,
 	getMessageStringByType,
 	getRequiredMessage
-}
+};

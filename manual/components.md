@@ -66,6 +66,33 @@ const configFields = [
  /> 
 ```
 
+### Add onFocus Event For All Fields Of Render Group
+You can add an onFocus event that fires when ever any field is focused. The callback function gets the config field's ID as its only parameter.
+```js
+<RenderGroup
+    configFields={[
+    	//add your fields
+    ]}
+    className={'cf-something-config'}
+    onFocus={(fieldId) => console.log(fieldId)}
+ /> 
+
+```
+
+### Add onBlur Event For All Fields Of Render Group
+You can add an `onBlur` event that fires when ever any field is blurred. The callback function gets the config field's ID as its only parameter.
+
+```js
+<RenderGroup
+    configFields={[
+    	//add your fields
+    ]}
+    className={'cf-something-config'}
+    onBlur={(fieldId) => console.log(fieldId)}
+ /> 
+
+```
+
 
 ## Field Groups
 If you have to use a component, please use `FieldGroup` not its inner components.

@@ -1,4 +1,4 @@
-import {fieldPropTypes} from './propTypes';
+import {fieldInnerPropTypes} from './propTypes';
 import React from 'react';
 import {Input} from './input/Input';
 import {SelectField} from './select/SelectField';
@@ -50,6 +50,8 @@ export const FieldInner = (props) => {
 				inputType={props.inputType}
 				options={props.options}
 				disabled={props.disabled}
+				onBlur={props.onBlur}
+				onFocus={props.onFocus}
 			/>
 		);
 	default:
@@ -63,6 +65,8 @@ export const FieldInner = (props) => {
 				onValueChange={props.onValueChange}
 				inputType={props.inputType}
 				disabled={props.disabled}
+				onBlur={props.onBlur}
+				onFocus={props.onFocus}
 			/>);
 	}
 
@@ -74,7 +78,7 @@ export const FieldInner = (props) => {
  * @type {{options, ariaDescribedbyAttr}}
  */
 FieldInner.propTypes = {
-	...fieldPropTypes,
+	...fieldInnerPropTypes,
 	type: PropTypes.string,
 };
 

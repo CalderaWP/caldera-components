@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../../">
-  <title data-ice="title">src/components/validation/util.js | Caldera Components library</title>
+  <title data-ice="title">src/components/validation/addAutomaticValidators.js | Caldera Components library</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -72,31 +72,95 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/components/validation/util.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">
-
+<div class="content" data-ice="content"><h1 data-ice="title">src/components/validation/addAutomaticValidators.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import getValidatorsFromConfigField from &quot;./getValidatorsFromConfigField&quot;;
+import isValidOrEmpty from &quot;./isValidOrEmpty&quot;;
+import {findFieldValueInFieldValues} from &quot;./util&quot;;
+import isValid from &quot;./isValid&quot;;
 /**
- * Find the value of a field by ID
+ * Helper function to curry validator functions
  *
- * Returns null if field is not in collection
+ * Validators expect 1 value, not an object of values, this function solves that.
  *
  * @param {String} fieldId Field to look for
- * @param {Object} fieldValues Values to look for field in
- * @return {String|Array|boolean|number|null}
+ * @param {Function} validator Validator function
+ * @return {function(*=): *}
  */
-export const findFieldValueInFieldValues = (fieldId, fieldValues) =&gt; {
-	if (fieldValues.hasOwnProperty(fieldId)) {
-		return fieldValues[fieldId];
+function curryValidator(fieldId, validator) {
+	return (fieldValues) =&gt; {
+		return validator(findFieldValueInFieldValues(fieldId, fieldValues));
+	};
+}
+
+/**
+ * Create validation function based on type and required
+ *
+ * @param {Object} configField Field to create validations for
+ * @param {Array} validators Current array of validators
+ * @param {string} validationType Type of validators to add.
+ * @return {Array}
+ */
+function addValidatorsForType(configField, validators, validationType) {
+	if (configField.isRequired) {
+		validators.push(
+			curryValidator(
+				configField.ID, isValid[validationType]
+			)
+		);
+	} else {
+		validators.push(
+			curryValidator(
+				configField.ID, isValidOrEmpty[validationType]
+			)
+		);
 	}
 
-	return null;
-};
+	return validators;
+}
+
+/**
+ * Adds sensible, automatic validation to fields -- if no validators have been added yet.
+ *
+ * @param {Object} configField
+ * @return {*}
+ */
+export const addAutomaticValidators = (configField) =&gt; {
+	let validators = getValidatorsFromConfigField(configField);
+	if (0 !== validators.length) {
+		return configField;
+	}
+
+	switch (configField.type) {
+		case &apos;input&apos;:
+			if( [
+				&apos;email&apos;,
+				&apos;url&apos;,
+				&apos;date&apos;,
+				&apos;number&apos;,
+			].includes( configField.inputType ) ){
+				validators = addValidatorsForType(configField, validators, configField.inputType);
+			}else if( &apos;text&apos; === configField.inputType){
+				validators = addValidatorsForType(configField, validators, &apos;string&apos;);
+
+			}
+
+			else{
+				validators = addValidatorsForType( configField, validators, &apos;anything&apos; );
+			}
+
+			break;
+		case &apos;select&apos;:
+			validators = addValidatorsForType( configField, validators, &apos;stringOrNumber&apos; );
+			break;
+	}
 
 
+	return {
+		...configField,
+		validators
+	}
 
-
-
-</code></pre>
+};</code></pre>
 
 </div>
 

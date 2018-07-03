@@ -18,6 +18,8 @@ var _checkValidatorsForConfigField = require('./checkValidatorsForConfigField');
 
 var _checkValidatorsForConfigField2 = _interopRequireDefault(_checkValidatorsForConfigField);
 
+var _addAutomaticValidators = require('./addAutomaticValidators');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 describe('CalderaValidators export', function () {
@@ -64,6 +66,10 @@ describe('CalderaValidators export', function () {
 
 	it('exports isValid', function () {
 		expect(_typeof(_index2.default.isValid)).toEqual('object');
+	});
+
+	it('exports addAutomaticValidators', function () {
+		expect(_typeof(_index2.default.addAutomaticValidators)).toBe('function');
 	});
 
 	it('exports isValidOrEmpty', function () {

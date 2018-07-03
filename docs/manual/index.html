@@ -108,6 +108,7 @@
 <li data-ice="manualNav" class="indent-h2" data-link="manual/validation.html"><a href="manual/validation.html#structure" data-ice="link">Structure</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/validation.html"><a href="manual/validation.html#usage" data-ice="link">Usage</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/validation.html"><a href="manual/validation.html#import-with-webpack" data-ice="link">Import With webpack</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/validation.html"><a href="manual/validation.html#add-validators-automatically" data-ice="link">Add Validators Automatically</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/validation.html"><a href="manual/validation.html#get-validation-rules-from-config-fields" data-ice="link">Get validation rules from config fields</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/validation.html"><a href="manual/validation.html#check-validators-for-one-config-field" data-ice="link">Check validators for one config field</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/validation.html"><a href="manual/validation.html#check-validators-for-a-collection-of-config-fields" data-ice="link">Check validators for a collection of config fields</a></li>
@@ -657,10 +658,24 @@ it( &apos;Has the right wrapper class&apos;, () =&gt; {
     </div>
 <div class="manual-card-wrap" data-ice="cards">
       <div class="manual-card">
-        <div data-ice="card"><h1>Validation</h1><p>The validation module handles the logic of determining if a field value is valid or not. It works a lot like conditional logic, in that configFields MAY have an array of validation functions. Each function is passed field values. If ANY of the validation functions returns the boolean <code>false</code>, the validation returns false. Return value of validators is checked with strict equality <code>false === validationFunction(fieldValues)</code>.</p><h2>Structure</h2><p>This module is structured differently than the others. It&apos;s an experiment that may be better than what I normally do. Not sure.</p><p>This will make moving it into its own npm module easier and <strong>may</strong> make use in Processor UI and other modules consuming this easier.</p><ul>
+        <div data-ice="card"><h1>Validation</h1><p>The validation module handles the logic of determining if a field value is valid or not. It works a lot like conditional logic, in that configFields MAY have an array of validation functions. Each function is passed field values. If ANY of the validation functions returns the boolean <code>false</code>, the validation returns false. Return value of validators is checked with strict equality <code>false === validationFunction(fieldValues)</code>.</p><p>&#x1F440;&#x1F30B; Validation is not implemented by default.</p><h2>Structure</h2><p>This module is structured differently than the others. It&apos;s an experiment that may be better than what I normally do. Not sure.</p><p>This will make moving it into its own npm module easier and <strong>may</strong> make use in Processor UI and other modules consuming this easier.</p><ul>
 <li>One function per file, as the default export</li>
 <li>All functions get exported together in index.js</li>
-</ul><h2>Usage</h2><h2>Import With webpack</h2><p><code>import {validation} from &apos;@caldera-labs/components</code>;</p><h3>Get validation rules from config fields</h3><pre><code class="lang-js"><code class="source-code prettyprint">import {validation} from &apos;@caldera-labs/components&apos;;
+</ul><h2>Usage</h2><h2>Import With webpack</h2><p><code>import {validation} from &apos;@caldera-labs/components</code>;</p><h2>Add Validators Automatically</h2><p>In general, you can add the validators that you would expect a field to have, using <code>addAutomaticValidators</code></p><p>In this example, the fields value will have to be an empty string or a valid email to be considered valid.</p><pre><code class="lang-js"><code class="source-code prettyprint">import {validation} from &apos;@caldera-labs/components&apos;;
+validation.addAutomaticValidators({
+    ID: &apos;fld1&apos;,
+    type: &apos;input&apos;,
+    inputType: &apos;url&apos;,
+    isRequired: false,
+})</code>
+</code></pre><p>In this example, the fields value will have to be a valid email to be considered valid.</p><pre><code class="lang-js"><code class="source-code prettyprint">import {validation} from &apos;@caldera-labs/components&apos;;
+validation.addAutomaticValidators({
+    ID: &apos;fld1&apos;,
+    type: &apos;input&apos;,
+    inputType: &apos;url&apos;,
+    isRequired: true,
+})</code>
+</code></pre><h3>Get validation rules from config fields</h3><pre><code class="lang-js"><code class="source-code prettyprint">import {validation} from &apos;@caldera-labs/components&apos;;
 validation.getValidatorsFromConfigField({
     ID: &apos;fld1&apos;,
     validators: [

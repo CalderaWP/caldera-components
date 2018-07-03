@@ -88,7 +88,9 @@ export const FieldGroup = (props) => {
 									}),
 									label: option.label,
 									disabled: props.disabled,
-									onValueChange: () => fieldsetCheckboxHandler(option, props.values, props.onValueChange)
+									onValueChange: () => fieldsetCheckboxHandler(option, props.values, props.onValueChange),
+									onBlur: props.onBlur,
+									onFocus: props.onFocus
 								})}
 							</React.Fragment>
 						);
@@ -106,6 +108,8 @@ export const FieldGroup = (props) => {
 						onValueChange: fieldProps.onValueChange,
 						inputType: fieldProps.inputType,
 						disabled: props.disabled,
+						onBlur: props.onBlur,
+						onFocus: props.onFocus
 					}
 				)
 			);
@@ -135,6 +139,8 @@ export const FieldGroup = (props) => {
 							inputType: fieldProps.inputType,
 							options: fieldProps.options,
 							disabled: props.disabled,
+							onBlur: props.onBlur,
+							onFocus: props.onFocus
 						}
 					)}
 					{fieldProps.help &&

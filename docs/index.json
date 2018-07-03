@@ -2175,6 +2175,157 @@
   {
     "__docId__": 116,
     "kind": "file",
+    "name": "src/components/validation/addAutomaticValidators.js",
+    "content": "import getValidatorsFromConfigField from \"./getValidatorsFromConfigField\";\nimport isValidOrEmpty from \"./isValidOrEmpty\";\nimport {findFieldValueInFieldValues} from \"./util\";\nimport isValid from \"./isValid\";\n/**\n * Helper function to curry validator functions\n *\n * Validators expect 1 value, not an object of values, this function solves that.\n *\n * @param {String} fieldId Field to look for\n * @param {Function} validator Validator function\n * @return {function(*=): *}\n */\nfunction curryValidator(fieldId, validator) {\n\treturn (fieldValues) => {\n\t\treturn validator(findFieldValueInFieldValues(fieldId, fieldValues));\n\t};\n}\n\n/**\n * Create validation function based on type and required\n *\n * @param {Object} configField Field to create validations for\n * @param {Array} validators Current array of validators\n * @param {string} validationType Type of validators to add.\n * @return {Array}\n */\nfunction addValidatorsForType(configField, validators, validationType) {\n\tif (configField.isRequired) {\n\t\tvalidators.push(\n\t\t\tcurryValidator(\n\t\t\t\tconfigField.ID, isValid[validationType]\n\t\t\t)\n\t\t);\n\t} else {\n\t\tvalidators.push(\n\t\t\tcurryValidator(\n\t\t\t\tconfigField.ID, isValidOrEmpty[validationType]\n\t\t\t)\n\t\t);\n\t}\n\n\treturn validators;\n}\n\n/**\n * Adds sensible, automatic validation to fields -- if no validators have been added yet.\n *\n * @param {Object} configField\n * @return {*}\n */\nexport const addAutomaticValidators = (configField) => {\n\tlet validators = getValidatorsFromConfigField(configField);\n\tif (0 !== validators.length) {\n\t\treturn configField;\n\t}\n\n\tswitch (configField.type) {\n\t\tcase 'input':\n\t\t\tif( [\n\t\t\t\t'email',\n\t\t\t\t'url',\n\t\t\t\t'date',\n\t\t\t\t'number',\n\t\t\t].includes( configField.inputType ) ){\n\t\t\t\tvalidators = addValidatorsForType(configField, validators, configField.inputType);\n\t\t\t}else if( 'text' === configField.inputType){\n\t\t\t\tvalidators = addValidatorsForType(configField, validators, 'string');\n\n\t\t\t}\n\n\t\t\telse{\n\t\t\t\tvalidators = addValidatorsForType( configField, validators, 'anything' );\n\t\t\t}\n\n\t\t\tbreak;\n\t\tcase 'select':\n\t\t\tvalidators = addValidatorsForType( configField, validators, 'stringOrNumber' );\n\t\t\tbreak;\n\t}\n\n\n\treturn {\n\t\t...configField,\n\t\tvalidators\n\t}\n\n};",
+    "static": true,
+    "longname": "/Users/josh/caldera-js/components/src/components/validation/addAutomaticValidators.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 117,
+    "kind": "function",
+    "name": "curryValidator",
+    "memberof": "src/components/validation/addAutomaticValidators.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/components/validation/addAutomaticValidators.js~curryValidator",
+    "access": "public",
+    "export": false,
+    "importPath": "@caldera-labs/components/src/components/validation/addAutomaticValidators.js",
+    "importStyle": null,
+    "description": "Helper function to curry validator functions\n\nValidators expect 1 value, not an object of values, this function solves that.",
+    "lineNumber": 14,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "fieldId",
+        "description": "Field to look for"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "validator",
+        "description": "Validator function"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "function(*=): *"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 118,
+    "kind": "function",
+    "name": "addValidatorsForType",
+    "memberof": "src/components/validation/addAutomaticValidators.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/components/validation/addAutomaticValidators.js~addValidatorsForType",
+    "access": "public",
+    "export": false,
+    "importPath": "@caldera-labs/components/src/components/validation/addAutomaticValidators.js",
+    "importStyle": null,
+    "description": "Create validation function based on type and required",
+    "lineNumber": 28,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "configField",
+        "description": "Field to create validations for"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Array"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "validators",
+        "description": "Current array of validators"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "validationType",
+        "description": "Type of validators to add."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Array"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 119,
+    "kind": "function",
+    "name": "addAutomaticValidators",
+    "memberof": "src/components/validation/addAutomaticValidators.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/components/validation/addAutomaticValidators.js~addAutomaticValidators",
+    "access": "public",
+    "export": true,
+    "importPath": "@caldera-labs/components/src/components/validation/addAutomaticValidators.js",
+    "importStyle": "{addAutomaticValidators}",
+    "description": "Adds sensible, automatic validation to fields -- if no validators have been added yet.",
+    "lineNumber": 52,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "configField",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "*"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 120,
+    "kind": "file",
     "name": "src/components/validation/checkValidatorsForConfigField.js",
     "content": "/**\n * Check the validators for one field\n *\n * @param {Object} configField The field to check the validator of.\n * @param {Object} fieldValues Optional. Data to pass to validator rule callbacks\n * @return {boolean}\n */\nimport getValidatorsFromConfigField from './getValidatorsFromConfigField';\n\nexport default function checkValidatorsForConfigField(configField,fieldValues) {\n\tif( ! getValidatorsFromConfigField(configField).length){\n\t\treturn true;\n\t}\n\tlet allRulesPassed = true;\n\tconfigField.validators.forEach(conditional => {\n\t\tif ('function' === typeof conditional && false === conditional.call(null, fieldValues)) {\n\t\t\tallRulesPassed = false;\n\t\t\treturn false;\n\t\t}\n\t});\n\n\treturn allRulesPassed;\n}\n\n\n",
     "static": true,
@@ -2184,7 +2335,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 117,
+    "__docId__": 121,
     "kind": "function",
     "name": "checkValidatorsForConfigField",
     "memberof": "src/components/validation/checkValidatorsForConfigField.js",
@@ -2220,7 +2371,7 @@
     }
   },
   {
-    "__docId__": 118,
+    "__docId__": 122,
     "kind": "file",
     "name": "src/components/validation/checkValidatorsForConfigFields.js",
     "content": "import checkValidatorsForConfigField from './checkValidatorsForConfigField';\nimport getValidatorsFromConfigField from './getValidatorsFromConfigField';\n\n/**\n * Check validators for a collection of configFields\n *\n * Returns false if any validators fail.\n * Returns true if no validators fail, or there are no validators.\n *\n * @param {Array} configFields The fields to check the validators of.\n * @param {Object} fieldValues Optional. Data to pass to validators rules' callbacks\n * @return {Object}\n */\nexport default function checkValidatorsForConfigFields(configFields,fieldValues) {\n\tlet results = {};\n\tObject.values( configFields ).forEach(configField => {\n\t\tconst rules = getValidatorsFromConfigField(configField);\n\t\tlet thisResult = true;\n\t\tif( rules.length ){\n\t\t\tthisResult = checkValidatorsForConfigField(configField,fieldValues);\n\n\t\t}\n\t\tresults[configField.ID] = thisResult;\n\t});\n\treturn results;\n}\n\n",
@@ -2231,7 +2382,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 119,
+    "__docId__": 123,
     "kind": "function",
     "name": "checkValidatorsForConfigFields",
     "memberof": "src/components/validation/checkValidatorsForConfigFields.js",
@@ -2277,7 +2428,7 @@
     }
   },
   {
-    "__docId__": 120,
+    "__docId__": 124,
     "kind": "file",
     "name": "src/components/validation/getValidatorsFromConfigField.js",
     "content": "/**\n * Find the array of validators for a configField\n *\n * @param {Object} configField The config field to search in\n * @return {Array} Array of validators or empty array if non found\n */\nexport default function getValidatorsFromConfigField(configField) {\n\tif (!configField.hasOwnProperty('validators') || !Array.isArray(configField.validators)) {\n\t\treturn [];\n\t}\n\n\treturn configField.validators;\n}\n\n",
@@ -2288,7 +2439,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 121,
+    "__docId__": 125,
     "kind": "function",
     "name": "getValidatorsFromConfigField",
     "memberof": "src/components/validation/getValidatorsFromConfigField.js",
@@ -2324,10 +2475,10 @@
     }
   },
   {
-    "__docId__": 122,
+    "__docId__": 126,
     "kind": "file",
     "name": "src/components/validation/index.js",
-    "content": "/*eslint no-undef: \"error\"*/\n/*eslint-env node*/\nimport getValidatorsFromConfigField from './getValidatorsFromConfigField';\nimport checkValidatorsForConfigFields from './checkValidatorsForConfigFields';\nimport checkValidatorsForConfigField from './checkValidatorsForConfigField';\nimport messageStrings from './messageStrings';\nimport isEmpty from './isEmpty';\nimport isValid from './isValid';\nimport isValidOrEmpty from './isValidOrEmpty';\n//Usage here indicates that this is a cross-cutting concern, & it totally is\n//Move to shared module?\nimport {reduceConfigFieldsToValues} from '../conditional-logic/util';\n\n/**\n * One export for validation system\n */\nexport default {\n\tgetValidatorsFromConfigField,\n\tcheckValidatorsForConfigFields,\n\tcheckValidatorsForConfigField,\n\tisEmpty,\n\tisValid,\n\tisValidOrEmpty,\n\treduceConfigFieldsToValues,\n\tmessageStrings\n};",
+    "content": "/*eslint no-undef: \"error\"*/\n/*eslint-env node*/\nimport getValidatorsFromConfigField from './getValidatorsFromConfigField';\nimport checkValidatorsForConfigFields from './checkValidatorsForConfigFields';\nimport checkValidatorsForConfigField from './checkValidatorsForConfigField';\nimport {addAutomaticValidators} from './addAutomaticValidators';\nimport messageStrings from './messageStrings';\nimport isEmpty from './isEmpty';\nimport isValid from './isValid';\nimport isValidOrEmpty from './isValidOrEmpty';\n//Usage here indicates that this is a cross-cutting concern, & it totally is\n//Move to shared module?\nimport {reduceConfigFieldsToValues} from '../conditional-logic/util';\n\n/**\n * One export for validation system\n */\nexport default {\n\tgetValidatorsFromConfigField,\n\tcheckValidatorsForConfigFields,\n\tcheckValidatorsForConfigField,\n\treduceConfigFieldsToValues,\n\taddAutomaticValidators,\n\tisEmpty,\n\tisValid,\n\tisValidOrEmpty,\n\tmessageStrings\n};",
     "static": true,
     "longname": "/Users/josh/caldera-js/components/src/components/validation/index.js",
     "access": "public",
@@ -2335,7 +2486,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 123,
+    "__docId__": 127,
     "kind": "file",
     "name": "src/components/validation/isEmpty.js",
     "content": "/**\n * CalderaValidators that check if a value is empty or not\n */\nexport default {\n\t/**\n\t * Check if different types (numbers, strings, objects, arrays or Maps) are empty\n\t *\n\t * @param {String|number|Array|object|Map} value\n\t * @return {boolean}\n\t */\n\tanything(value){\n\t\tif( Array.isArray(value)){\n\t\t\treturn this.array(value);\n\t\t}\n\t\tif( value instanceof Map ){\n\t\t\treturn this.map(value);\n\t\t}\n\t\tswitch (typeof value){\n\t\tcase 'object':\n\t\t\treturn this.object(value);\n\t\tcase 'string':\n\t\t\treturn this.string(value);\n\t\tdefault:\n\t\t\treturn false;//\n\t\t}\n\t\treturn false;\n\t},\n\t/**\n\t * Check if value is an empty object\n\t *\n\t * @param {Object} value The object to check\n\t * @return {boolean}\n\t */\n\tobject(value){\n\t\tfor(let key in value) {\n\t\t\tif(value.hasOwnProperty(key))\n\t\t\t\treturn false;\n\t\t}\n\t\treturn true;\n\t},\n\t/**\n\t * Check if value is an empty array\n\t *\n\t * @param {Array} value Array to check\n\t * @return {boolean}\n\t */\n\tarray(value){\n\t\treturn 0 === value.length;\n\t},\n\t/**\n\t * Check if value is not an empty string\n\t *\n\t * @param {String} value String to check\n\t * @return {boolean}\n\t */\n\tstring(value){\n\t\treturn !value;\n\t},\n\t/**\n\t * Check if value is not an empty map\n\t *\n\t * @param {Map} value The Map to check\n\t * @return {boolean}\n\t */\n\tmap( value ){\n\t\treturn 0 === value.size;\n\t}\n};",
@@ -2346,7 +2497,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 124,
+    "__docId__": 128,
     "kind": "file",
     "name": "src/components/validation/isValid.js",
     "content": "import {isEmail,isUrl, isDate} from '@helpdotcom/is';\nimport isEmpty from './isEmpty';\n\n/**\n * CalderaValidators for common types of validation needed\n *\n * Empty values are not valid.\n * Ue isValidOrEmpty instead if you want empty values to pass\n */\nexport default {\n\t/**\n\t * Check if a given value is an email address\n\t *\n\t * @param {String} value Value to check\n\t * @return {boolean}\n\t */\n\temail(value){\n\t\treturn isEmail(value);\n\t},\n\t/**\n\t * Check if given value is a non-empty string\n\t *\n\t * @param {String} value Value to check\n\t */\n\tstring(value){\n\t\treturn 'string' === typeof value && ! isEmpty.string(value);\n\t},\n\t/**\n\t * Check if given value is a string\n\t *\n\t * @param {String} value Value to check\n\t */\n\tstringOrNumber(value){\n\t\tif( null !== value ){\n\t\t\treturn this.string(value) || this.number(value);\n\t\t}\n\t\treturn false;\n\t},\n\t/**\n\t * Check if a given value is a valid url\n\t *\n\t * @param {String} value Value to check\n\t * @return {boolean}\n\t */\n\turl(value){\n\t\treturn isUrl(value);\n\t},\n\t/**\n\t * Check if a given value is an date.\n\t *\n\t * Considers Date objects and strings conforming to ISO 8601 standard to be valid.\n\t *\n\t * @param {String|Date} value Value to check\n\t * @return {boolean}\n\t */\n\tdate(value){\n\t\treturn isDate(value);\n\t},\n\t/**\n\t * Check if a given value is numeric\n\t *\n\t * @param {String|number} value Value to check\n\t * @return {boolean}\n\t */\n\tnumber(value){\n\t\tif( '' === value ){\n\t\t\treturn false;\n\t\t}\n\t\tif( Array.isArray( value ) ){\n\t\t\treturn false;\n\t\t}\n\t\treturn ! isNaN(value);\n\t}\n};",
@@ -2357,7 +2508,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 125,
+    "__docId__": 129,
     "kind": "file",
     "name": "src/components/validation/isValidOrEmpty.js",
     "content": "import isEmpty from './isEmpty';\nimport isValid from './isValid';\n/**\n * Validators by type that consider an empty value valid.\n *\n * Combines the isEmpty and isValid validations\n */\nexport default {\n\t/**\n\t * Check if a given value is an email address or empty\n\t *\n\t * @param {String} value Value to check\n\t * @return {boolean}\n\t */\n\temail(value){\n\t\treturn isEmpty.anything( value ) || isValid.email(value);\n\t},\n\t/**\n\t * Check if given value is a string or empty\n\t *\n\t * @param {String} value Value to check\n\t */\n\tstring(value){\n\t\treturn isEmpty.anything( value ) || isValid.string(value);\n\t},\n\t/**\n\t * Check if given value is a string or number empty\n\t *\n\t * @param {String} value Value to check\n\t */\n\tstringOrNumber(value){\n\t\treturn isEmpty.anything(value) || isValid.stringOrNumber(value);\n\t},\n\t/**\n\t * Check if a given value is a valid url or empty\n\t *\n\t * @param {String} value Value to check\n\t * @return {boolean}\n\t */\n\turl(value){\n\t\treturn isEmpty.anything( value ) || isValid.url(value);\n\t},\n\t/**\n\t * Check if a given value is an date.\n\t *\n\t * Considers Date objects and strings conforming to ISO 8601 standard to be valid.\n\t *\n\t * @param {String|Date} value Value to check or empty\n\t * @return {boolean}\n\t */\n\tdate(value){\n\t\treturn isEmpty.anything( value ) || isValid.date(value);\n\t},\n\t/**\n\t * Check if a given value is numeric\n\t *\n\t * @param {String|number} value Value to check or empty\n\t * @return {boolean}\n\t */\n\tnumber(value){\n\t\treturn isEmpty.anything( value ) || isValid.number(value);\n\t}\n};",
@@ -2368,7 +2519,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 126,
+    "__docId__": 130,
     "kind": "file",
     "name": "src/components/validation/messageStrings.js",
     "content": "import strings from './strings';\n\n/**\n * Get translation strings by language\n *\n * @param {String|Object} lang Language code or an object containing properly formatted strings to search in.\n * @param {String} defaultLang Optional. Language code to use for missing strings.\n *\n * @return {Object}\n */\nexport const getMessageStrings = (lang, defaultLang = 'en') => {\n\tif ('string' === typeof  lang) {\n\t\tif (strings.hasOwnProperty(lang)) {\n\t\t\treturn strings[lang];\n\t\t} else {\n\t\t\treturn getMessageStrings(defaultLang);\n\t\t}\n\t}\n\tif ('object' === typeof  lang) {\n\t\treturn Object.assign(getMessageStrings(defaultLang, 'en'), lang);\n\t}\n};\n\n/**\n * Get message for an invalid field, by field type\n *\n * @param {String}  inputType Type of input to get invalid message for.\n * @param {String|Object} lang Language code or an object containing properly formatted strings to search in.\n * @param {String} defaultLang Optional. Language code to use for missing strings.\n * @return {String}\n */\nexport const getMessageStringByType = (inputType, lang, defaultLang = 'en') => {\n\tconst strings = getMessageStrings(lang, defaultLang);\n\tif (strings.type.hasOwnProperty(inputType)) {\n\t\treturn strings.type[inputType];\n\t}\n\treturn strings.defaultMessage;\n};\n\n/**\n * Get the required message, by language.\n *\n * @param {String|Object} lang Language code or an object containing properly formatted strings to search in.\n * @param {String} defaultLang Optional. Language code to use for missing strings.\n * @return {String}\n */\nexport const getRequiredMessage = (lang, defaultLang = 'en') => {\n\treturn getMessageStrings(lang, defaultLang).required;\n\n};\n\n/**\n * Message string utilities for validation\n */\nexport default {\n\tgetMessageStrings,\n\tgetMessageStringByType,\n\tgetRequiredMessage\n}",
@@ -2379,7 +2530,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 127,
+    "__docId__": 131,
     "kind": "function",
     "name": "getMessageStrings",
     "memberof": "src/components/validation/messageStrings.js",
@@ -2426,7 +2577,7 @@
     }
   },
   {
-    "__docId__": 128,
+    "__docId__": 132,
     "kind": "function",
     "name": "getMessageStringByType",
     "memberof": "src/components/validation/messageStrings.js",
@@ -2483,7 +2634,7 @@
     }
   },
   {
-    "__docId__": 129,
+    "__docId__": 133,
     "kind": "function",
     "name": "getRequiredMessage",
     "memberof": "src/components/validation/messageStrings.js",
@@ -2530,7 +2681,7 @@
     }
   },
   {
-    "__docId__": 130,
+    "__docId__": 134,
     "kind": "file",
     "name": "src/components/validation/strings.js",
     "content": "/**\n * Translation strings for Caldera Components\n * Copied from Parsley (License: MIT)\n * https://github.com/guillaumepotier/Parsley.js/blob/master/dist/i18n/\n *\n */\nexport default {\n\ten: {\n\t\tdefaultMessage: \"This value seems to be invalid.\",\n\t\ttype: {\n\t\t\temail:        \"This value should be a valid email.\",\n\t\t\turl:          \"This value should be a valid url.\",\n\t\t\tnumber:       \"This value should be a valid number.\",\n\t\t\tinteger:      \"This value should be a valid integer.\",\n\t\t\tdigits:       \"This value should be digits.\",\n\t\t\talphanum:     \"This value should be alphanumeric.\"\n\t\t},\n\t\tnotblank:       \"This value should not be blank.\",\n\t\trequired:       \"This value is required.\",\n\t\tpattern:        \"This value seems to be invalid.\",\n\t\tmin:            \"This value should be greater than or equal to %s.\",\n\t\tmax:            \"This value should be lower than or equal to %s.\",\n\t\trange:          \"This value should be between %s and %s.\",\n\t\tminlength:      \"This value is too short. It should have %s characters or more.\",\n\t\tmaxlength:      \"This value is too long. It should have %s characters or fewer.\",\n\t\tlength:         \"This value length is invalid. It should be between %s and %s characters long.\",\n\t\tmincheck:       \"You must select at least %s choices.\",\n\t\tmaxcheck:       \"You must select %s choices or fewer.\",\n\t\tcheck:          \"You must select between %s and %s choices.\",\n\t\tequalto:        \"This value should be the same.\"\n\t},\n\tes:{\n\t\tdefaultMessage: \"Este valor parece ser inválido.\",\n\t\ttype: {\n\t\t\temail:        \"Este valor debe ser un correo válido.\",\n\t\t\turl:          \"Este valor debe ser una URL válida.\",\n\t\t\tnumber:       \"Este valor debe ser un número válido.\",\n\t\t\tinteger:      \"Este valor debe ser un número válido.\",\n\t\t\tdigits:       \"Este valor debe ser un dígito válido.\",\n\t\t\talphanum:     \"Este valor debe ser alfanumérico.\"\n\t\t},\n\t\tnotblank:       \"Este valor no debe estar en blanco.\",\n\t\trequired:       \"Este valor es requerido.\",\n\t\tpattern:        \"Este valor es incorrecto.\",\n\t\tmin:            \"Este valor no debe ser menor que %s.\",\n\t\tmax:            \"Este valor no debe ser mayor que %s.\",\n\t\trange:          \"Este valor debe estar entre %s y %s.\",\n\t\tminlength:      \"Este valor es muy corto. La longitud mínima es de %s caracteres.\",\n\t\tmaxlength:      \"Este valor es muy largo. La longitud máxima es de %s caracteres.\",\n\t\tlength:         \"La longitud de este valor debe estar entre %s y %s caracteres.\",\n\t\tmincheck:       \"Debe seleccionar al menos %s opciones.\",\n\t\tmaxcheck:       \"Debe seleccionar %s opciones o menos.\",\n\t\tcheck:          \"Debe seleccionar entre %s y %s opciones.\",\n\t\tequalto:        \"Este valor debe ser idéntico.\"\n\t}\n}",
@@ -2541,10 +2692,10 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 131,
+    "__docId__": 135,
     "kind": "file",
     "name": "src/components/validation/util.js",
-    "content": "import getValidatorsFromConfigField from './getValidatorsFromConfigField';\nimport isValid from './isValid';\nimport isValidOrEmpty from './isValidOrEmpty';\n\n/**\n * Find the value of a field by ID\n *\n * Returns null if field is not in collection\n *\n * @param {String} fieldId Field to look for\n * @param {Object} fieldValues Values to look for field in\n * @return {String|Array|boolean|number|null}\n */\nexport const findFieldValueInFieldValues = (fieldId, fieldValues) => {\n\tif (fieldValues.hasOwnProperty(fieldId)) {\n\t\treturn fieldValues[fieldId];\n\t}\n\n\treturn null;\n};\n\n/**\n * Helper function to curry validator functions\n *\n * Validators expect 1 value, not an object of values, this function solves that.\n *\n * @param {String} fieldId Field to look for\n * @param {Function} validator Validator function\n * @return {function(*=): *}\n */\nfunction curryValidator(fieldId, validator) {\n\treturn (fieldValues) => {\n\t\treturn validator(findFieldValueInFieldValues(fieldId, fieldValues));\n\t};\n}\n\n/**\n * Create validation function based on type and required\n *\n * @param {Object} configField Field to create validations for\n * @param {Array} validators Current array of validators\n * @param {string} validationType Type of validators to add.\n * @return {Array}\n */\nfunction addValidatorsForType(configField, validators, validationType) {\n\tif (configField.isRequired) {\n\t\tvalidators.push(\n\t\t\tcurryValidator(\n\t\t\t\tconfigField.ID, isValid[validationType]\n\t\t\t)\n\t\t);\n\t} else {\n\t\tvalidators.push(\n\t\t\tcurryValidator(\n\t\t\t\tconfigField.ID, isValidOrEmpty[validationType]\n\t\t\t)\n\t\t);\n\t}\n\n\treturn validators;\n}\n\n/**\n * Adds sensible, automatic validation to fields -- if no validators have been added yet.\n *\n * @param {Object} configField\n * @return {*}\n */\nexport const addAutomaticValidators = (configField) => {\n\tlet validators = getValidatorsFromConfigField(configField);\n\tif (0 !== validators.length) {\n\t\treturn configField;\n\t}\n\n\tswitch (configField.type) {\n\tcase 'input':\n\t\tif( [\n\t\t\t'email',\n\t\t\t'url',\n\t\t\t'date',\n\t\t\t'number',\n\t\t].includes( configField.inputType ) ){\n\t\t\tvalidators = addValidatorsForType(configField, validators, configField.inputType);\n\t\t}else if( 'text' === configField.inputType){\n\t\t\tvalidators = addValidatorsForType(configField, validators, 'string');\n\n\t\t}\n\n\t\telse{\n\t\t\tvalidators = addValidatorsForType( configField, validators, 'anything' );\n\t\t}\n\n\t\tbreak;\n\tcase 'select':\n\t\tvalidators = addValidatorsForType( configField, validators, 'stringOrNumber' );\n\t\tbreak;\n\t}\n\n\n\treturn {\n\t\t...configField,\n\t\tvalidators\n\t}\n\n};\n\n",
+    "content": "\n\n/**\n * Find the value of a field by ID\n *\n * Returns null if field is not in collection\n *\n * @param {String} fieldId Field to look for\n * @param {Object} fieldValues Values to look for field in\n * @return {String|Array|boolean|number|null}\n */\nexport const findFieldValueInFieldValues = (fieldId, fieldValues) => {\n\tif (fieldValues.hasOwnProperty(fieldId)) {\n\t\treturn fieldValues[fieldId];\n\t}\n\n\treturn null;\n};\n\n\n\n\n\n",
     "static": true,
     "longname": "/Users/josh/caldera-js/components/src/components/validation/util.js",
     "access": "public",
@@ -2552,7 +2703,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 132,
+    "__docId__": 136,
     "kind": "function",
     "name": "findFieldValueInFieldValues",
     "memberof": "src/components/validation/util.js",
@@ -2565,7 +2716,7 @@
     "importPath": "@caldera-labs/components/src/components/validation/util.js",
     "importStyle": "{findFieldValueInFieldValues}",
     "description": "Find the value of a field by ID\n\nReturns null if field is not in collection",
-    "lineNumber": 14,
+    "lineNumber": 12,
     "params": [
       {
         "nullable": null,
@@ -2602,147 +2753,7 @@
     }
   },
   {
-    "__docId__": 133,
-    "kind": "function",
-    "name": "curryValidator",
-    "memberof": "src/components/validation/util.js",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "src/components/validation/util.js~curryValidator",
-    "access": "public",
-    "export": false,
-    "importPath": "@caldera-labs/components/src/components/validation/util.js",
-    "importStyle": null,
-    "description": "Helper function to curry validator functions\n\nValidators expect 1 value, not an object of values, this function solves that.",
-    "lineNumber": 31,
-    "params": [
-      {
-        "nullable": null,
-        "types": [
-          "String"
-        ],
-        "spread": false,
-        "optional": false,
-        "name": "fieldId",
-        "description": "Field to look for"
-      },
-      {
-        "nullable": null,
-        "types": [
-          "Function"
-        ],
-        "spread": false,
-        "optional": false,
-        "name": "validator",
-        "description": "Validator function"
-      }
-    ],
-    "return": {
-      "nullable": null,
-      "types": [
-        "function(*=): *"
-      ],
-      "spread": false,
-      "description": ""
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 134,
-    "kind": "function",
-    "name": "addValidatorsForType",
-    "memberof": "src/components/validation/util.js",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "src/components/validation/util.js~addValidatorsForType",
-    "access": "public",
-    "export": false,
-    "importPath": "@caldera-labs/components/src/components/validation/util.js",
-    "importStyle": null,
-    "description": "Create validation function based on type and required",
-    "lineNumber": 45,
-    "params": [
-      {
-        "nullable": null,
-        "types": [
-          "Object"
-        ],
-        "spread": false,
-        "optional": false,
-        "name": "configField",
-        "description": "Field to create validations for"
-      },
-      {
-        "nullable": null,
-        "types": [
-          "Array"
-        ],
-        "spread": false,
-        "optional": false,
-        "name": "validators",
-        "description": "Current array of validators"
-      },
-      {
-        "nullable": null,
-        "types": [
-          "string"
-        ],
-        "spread": false,
-        "optional": false,
-        "name": "validationType",
-        "description": "Type of validators to add."
-      }
-    ],
-    "return": {
-      "nullable": null,
-      "types": [
-        "Array"
-      ],
-      "spread": false,
-      "description": ""
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 135,
-    "kind": "function",
-    "name": "addAutomaticValidators",
-    "memberof": "src/components/validation/util.js",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "src/components/validation/util.js~addAutomaticValidators",
-    "access": "public",
-    "export": true,
-    "importPath": "@caldera-labs/components/src/components/validation/util.js",
-    "importStyle": "{addAutomaticValidators}",
-    "description": "Adds sensible, automatic validation to fields -- if no validators have been added yet.",
-    "lineNumber": 69,
-    "params": [
-      {
-        "nullable": null,
-        "types": [
-          "Object"
-        ],
-        "spread": false,
-        "optional": false,
-        "name": "configField",
-        "description": ""
-      }
-    ],
-    "return": {
-      "nullable": null,
-      "types": [
-        "*"
-      ],
-      "spread": false,
-      "description": ""
-    }
-  },
-  {
-    "__docId__": 136,
+    "__docId__": 137,
     "kind": "file",
     "name": "src/index.js",
     "content": "import React from 'react';\nimport ReactDOM from 'react-dom';\nimport './index.css';\nimport App from './App';\nimport registerServiceWorker from './registerServiceWorker';\n\nReactDOM.render(<App />, document.getElementById('root'));\nregisterServiceWorker();\n",
@@ -2753,7 +2764,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 137,
+    "__docId__": 138,
     "kind": "file",
     "name": "src/registerServiceWorker.js",
     "content": "// In production, we register a service worker to serve assets from local cache.\n\n// This lets the app load faster on subsequent visits in production, and gives\n// it offline capabilities. However, it also means that developers (and users)\n// will only see deployed updates on the \"N+1\" visit to a page, since previously\n// cached resources are updated in the background.\n\n// To learn more about the benefits of this model, read https://goo.gl/KwvDNy.\n// This link also includes instructions on opting out of this behavior.\n\nconst isLocalhost = Boolean(\n\twindow.location.hostname === 'localhost' ||\n    // [::1] is the IPv6 localhost address.\n    window.location.hostname === '[::1]' ||\n    // 127.0.0.1/8 is considered localhost for IPv4.\n    window.location.hostname.match(\n    \t/^127(?:\\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/\n    )\n);\n\nexport default function register() {\n\tif (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {\n\t\t// The URL constructor is available in all browsers that support SW.\n\t\tconst publicUrl = new URL(process.env.PUBLIC_URL, window.location);\n\t\tif (publicUrl.origin !== window.location.origin) {\n\t\t\t// Our service worker won't work if PUBLIC_URL is on a different origin\n\t\t\t// from what our page is served on. This might happen if a CDN is used to\n\t\t\t// serve assets; see https://github.com/facebookincubator/create-react-app/issues/2374\n\t\t\treturn;\n\t\t}\n\n\t\twindow.addEventListener('load', () => {\n\t\t\tconst swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;\n\n\t\t\tif (isLocalhost) {\n\t\t\t\t// This is running on localhost. Lets check if a service worker still exists or not.\n\t\t\t\tcheckValidServiceWorker(swUrl);\n\t\t\t} else {\n\t\t\t\t// Is not local host. Just register service worker\n\t\t\t\tregisterValidSW(swUrl);\n\t\t\t}\n\t\t});\n\t}\n}\n\nfunction registerValidSW(swUrl) {\n\tnavigator.serviceWorker\n\t\t.register(swUrl)\n\t\t.then(registration => {\n\t\t\tregistration.onupdatefound = () => {\n\t\t\t\tconst installingWorker = registration.installing;\n\t\t\t\tinstallingWorker.onstatechange = () => {\n\t\t\t\t\tif (installingWorker.state === 'installed') {\n\t\t\t\t\t\tif (navigator.serviceWorker.controller) {\n\t\t\t\t\t\t\t// At this point, the old content will have been purged and\n\t\t\t\t\t\t\t// the fresh content will have been added to the cache.\n\t\t\t\t\t\t\t// It's the perfect time to display a \"New content is\n\t\t\t\t\t\t\t// available; please refresh.\" message in your web app.\n\t\t\t\t\t\t\tconsole.log('New content is available; please refresh.');\n\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\t// At this point, everything has been precached.\n\t\t\t\t\t\t\t// It's the perfect time to display a\n\t\t\t\t\t\t\t// \"Content is cached for offline use.\" message.\n\t\t\t\t\t\t\tconsole.log('Content is cached for offline use.');\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t};\n\t\t\t};\n\t\t})\n\t\t.catch(error => {\n\t\t\tconsole.error('Error during service worker registration:', error);\n\t\t});\n}\n\nfunction checkValidServiceWorker(swUrl) {\n\t// Check if the service worker can be found. If it can't reload the page.\n\tfetch(swUrl)\n\t\t.then(response => {\n\t\t\t// Ensure service worker exists, and that we really are getting a JS file.\n\t\t\tif (\n\t\t\t\tresponse.status === 404 ||\n        response.headers.get('content-type').indexOf('javascript') === -1\n\t\t\t) {\n\t\t\t\t// No service worker found. Probably a different app. Reload the page.\n\t\t\t\tnavigator.serviceWorker.ready.then(registration => {\n\t\t\t\t\tregistration.unregister().then(() => {\n\t\t\t\t\t\twindow.location.reload();\n\t\t\t\t\t});\n\t\t\t\t});\n\t\t\t} else {\n\t\t\t\t// Service worker found. Proceed as normal.\n\t\t\t\tregisterValidSW(swUrl);\n\t\t\t}\n\t\t})\n\t\t.catch(() => {\n\t\t\tconsole.log(\n\t\t\t\t'No internet connection found. App is running in offline mode.'\n\t\t\t);\n\t\t});\n}\n\nexport function unregister() {\n\tif ('serviceWorker' in navigator) {\n\t\tnavigator.serviceWorker.ready.then(registration => {\n\t\t\tregistration.unregister();\n\t\t});\n\t}\n}\n",
@@ -2764,7 +2775,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 138,
+    "__docId__": 139,
     "kind": "variable",
     "name": "isLocalhost",
     "memberof": "src/registerServiceWorker.js",
@@ -2785,7 +2796,7 @@
     "ignore": true
   },
   {
-    "__docId__": 139,
+    "__docId__": 140,
     "kind": "function",
     "name": "register",
     "memberof": "src/registerServiceWorker.js",
@@ -2804,7 +2815,7 @@
     "return": null
   },
   {
-    "__docId__": 140,
+    "__docId__": 141,
     "kind": "function",
     "name": "registerValidSW",
     "memberof": "src/registerServiceWorker.js",
@@ -2831,7 +2842,7 @@
     "ignore": true
   },
   {
-    "__docId__": 141,
+    "__docId__": 142,
     "kind": "function",
     "name": "checkValidServiceWorker",
     "memberof": "src/registerServiceWorker.js",
@@ -2858,7 +2869,7 @@
     "ignore": true
   },
   {
-    "__docId__": 142,
+    "__docId__": 143,
     "kind": "function",
     "name": "unregister",
     "memberof": "src/registerServiceWorker.js",
@@ -2937,7 +2948,7 @@
     "kind": "manual",
     "longname": "/Users/josh/caldera-js/components/manual/validation.md",
     "name": "./manual/validation.md",
-    "content": "# Validation\nThe validation module handles the logic of determining if a field value is valid or not. It works a lot like conditional logic, in that configFields MAY have an array of validation functions. Each function is passed field values. If ANY of the validation functions returns the boolean `false`, the validation returns false. Return value of validators is checked with strict equality `false === validationFunction(fieldValues)`.\n\n## Structure\nThis module is structured differently than the others. It's an experiment that may be better than what I normally do. Not sure.\n\nThis will make moving it into its own npm module easier and **may** make use in Processor UI and other modules consuming this easier.\n\n* One function per file, as the default export\n* All functions get exported together in index.js\n\n## Usage\n## Import With webpack\n`import {validation} from '@caldera-labs/components`;\n\n\n### Get validation rules from config fields\n\n```js\nimport {validation} from '@caldera-labs/components';\nvalidation.getValidatorsFromConfigField({\n    ID: 'fld1',\n    validators: [\n    \t//some functions\n    ]\n})\n```\n\n### Check validators for one config field\nCalderaValidators are an array of functions that return true or false. This field is invalid.\n```js\nimport {validation} from '@caldera-labs/components';\nconst isValid = validation.checkValidatorsForConfigField({\n    validators: [\n        () => {return false; },\n    ]\n}); //false\n\n```\n This field is invalid.\n\n```js\nimport {validation} from '@caldera-labs/components';\nconst isValid = validation.checkValidatorsForConfigField({\n    validators: [\n        () => {return false; },\n        () => {return true; },\n    ]\n}); //true\n\n```\nThis field is valid\n\n```js\nimport {validation} from '@caldera-labs/components';\nconst isValid = validation.checkValidatorsForConfigField({\n    validators: [\n        () => {return true; },\n    ]\n}); //true\n\n```\n\n### Check validators for a collection of config fields\nThe function `checkValidatorsForConfigFields` returns an object with each field it checked indexed by ID, with boolean value.\n```js\nimport {validation} from '@caldera-labs/components';\nconst configFields = [\n\t{\n\t\tID: 'fromEmail',\n        type: 'email',\n        value: 'roy@hiroy.club'\n    },\n    {\n    \t\tID: 'size',\n            type: 'number',\n            value: '1'\n        }\n]; //add config fields, with value prop set.\nconst fieldValues = validation.reduceConfigFieldsToValues(configFields);\nconst results = validation.checkValidatorsForConfigFields(configFields,fieldValues);\n```\n",
+    "content": "# Validation\nThe validation module handles the logic of determining if a field value is valid or not. It works a lot like conditional logic, in that configFields MAY have an array of validation functions. Each function is passed field values. If ANY of the validation functions returns the boolean `false`, the validation returns false. Return value of validators is checked with strict equality `false === validationFunction(fieldValues)`.\n\n👀🌋 Validation is not implemented by default.\n\n## Structure\nThis module is structured differently than the others. It's an experiment that may be better than what I normally do. Not sure.\n\nThis will make moving it into its own npm module easier and **may** make use in Processor UI and other modules consuming this easier.\n\n* One function per file, as the default export\n* All functions get exported together in index.js\n\n## Usage\n## Import With webpack\n`import {validation} from '@caldera-labs/components`;\n\n## Add Validators Automatically\nIn general, you can add the validators that you would expect a field to have, using `addAutomaticValidators`\n\nIn this example, the fields value will have to be an empty string or a valid email to be considered valid.\n```js\nimport {validation} from '@caldera-labs/components';\nvalidation.addAutomaticValidators({\n    ID: 'fld1',\n    type: 'input',\n    inputType: 'url',\n    isRequired: false,\n})\n```\n\nIn this example, the fields value will have to be a valid email to be considered valid.\n```js\nimport {validation} from '@caldera-labs/components';\nvalidation.addAutomaticValidators({\n    ID: 'fld1',\n    type: 'input',\n    inputType: 'url',\n    isRequired: true,\n})\n```\n\n### Get validation rules from config fields\n\n```js\nimport {validation} from '@caldera-labs/components';\nvalidation.getValidatorsFromConfigField({\n    ID: 'fld1',\n    validators: [\n    \t//some functions\n    ]\n})\n```\n\n### Check validators for one config field\nCalderaValidators are an array of functions that return true or false. This field is invalid.\n```js\nimport {validation} from '@caldera-labs/components';\nconst isValid = validation.checkValidatorsForConfigField({\n    validators: [\n        () => {return false; },\n    ]\n}); //false\n\n```\n This field is invalid.\n\n```js\nimport {validation} from '@caldera-labs/components';\nconst isValid = validation.checkValidatorsForConfigField({\n    validators: [\n        () => {return false; },\n        () => {return true; },\n    ]\n}); //true\n\n```\nThis field is valid\n\n```js\nimport {validation} from '@caldera-labs/components';\nconst isValid = validation.checkValidatorsForConfigField({\n    validators: [\n        () => {return true; },\n    ]\n}); //true\n\n```\n\n### Check validators for a collection of config fields\nThe function `checkValidatorsForConfigFields` returns an object with each field it checked indexed by ID, with boolean value.\n```js\nimport {validation} from '@caldera-labs/components';\nconst configFields = [\n\t{\n\t\tID: 'fromEmail',\n        type: 'email',\n        value: 'roy@hiroy.club'\n    },\n    {\n    \t\tID: 'size',\n            type: 'number',\n            value: '1'\n        }\n]; //add config fields, with value prop set.\nconst fieldValues = validation.reduceConfigFieldsToValues(configFields);\nconst results = validation.checkValidatorsForConfigFields(configFields,fieldValues);\n```\n\n",
     "static": true,
     "access": "public"
   },

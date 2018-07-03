@@ -1,7 +1,7 @@
-import getValidatorsFromConfigField from "./getValidatorsFromConfigField";
-import isValidOrEmpty from "./isValidOrEmpty";
-import {findFieldValueInFieldValues} from "./util";
-import isValid from "./isValid";
+import getValidatorsFromConfigField from './getValidatorsFromConfigField';
+import isValidOrEmpty from './isValidOrEmpty';
+import {findFieldValueInFieldValues} from './util';
+import isValid from './isValid';
 /**
  * Helper function to curry validator functions
  *
@@ -56,33 +56,33 @@ export const addAutomaticValidators = (configField) => {
 	}
 
 	switch (configField.type) {
-		case 'input':
-			if( [
-				'email',
-				'url',
-				'date',
-				'number',
-			].includes( configField.inputType ) ){
-				validators = addValidatorsForType(configField, validators, configField.inputType);
-			}else if( 'text' === configField.inputType){
-				validators = addValidatorsForType(configField, validators, 'string');
+	case 'input':
+		if( [
+			'email',
+			'url',
+			'date',
+			'number',
+		].includes( configField.inputType ) ){
+			validators = addValidatorsForType(configField, validators, configField.inputType);
+		}else if( 'text' === configField.inputType){
+			validators = addValidatorsForType(configField, validators, 'string');
 
-			}
+		}
 
-			else{
-				validators = addValidatorsForType( configField, validators, 'anything' );
-			}
+		else{
+			validators = addValidatorsForType( configField, validators, 'anything' );
+		}
 
-			break;
-		case 'select':
-			validators = addValidatorsForType( configField, validators, 'stringOrNumber' );
-			break;
+		break;
+	case 'select':
+		validators = addValidatorsForType( configField, validators, 'stringOrNumber' );
+		break;
 	}
 
 
 	return {
 		...configField,
 		validators
-	}
+	};
 
 };

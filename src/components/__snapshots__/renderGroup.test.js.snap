@@ -26,7 +26,9 @@ exports[`The render group component Rendering with fields Works with a few field
         className="field-config field-config"
         disabled={false}
         id="cf-something-apikey"
+        onBlur={undefined}
         onChange={[Function]}
+        onFocus={undefined}
         required={false}
         type="text"
         value={undefined}
@@ -41,7 +43,9 @@ exports[`The render group component Rendering with fields Works with a few field
       className="field-config field-config"
       disabled={false}
       id="cf-something-sequence-id"
+      onBlur={undefined}
       onChange={[Function]}
+      onFocus={undefined}
       required={false}
       type="hidden"
       value={undefined}
@@ -63,7 +67,9 @@ exports[`The render group component Rendering with fields Works with a few field
         className="field-config field-config"
         disabled={false}
         id="cf-something-tags"
+        onBlur={undefined}
         onChange={[Function]}
+        onFocus={undefined}
         required={false}
         type="text"
         value={undefined}
@@ -93,7 +99,41 @@ exports[`The render group component Rendering with fields Works with one text fi
         className="field-config field-config"
         disabled={false}
         id="sz"
+        onBlur={undefined}
         onChange={[Function]}
+        onFocus={undefined}
+        required={false}
+        type="text"
+        value={undefined}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`The render group component adding blur and focus Adds the props 1`] = `
+<div
+  className="caldera-config-field-setup"
+>
+  <div
+    className="caldera-config-group"
+  >
+    <div
+      className="caldera-config-field"
+    >
+      <label
+        htmlFor="cf-something-tags"
+      >
+        Tags
+      </label>
+      <input
+        aria-describedby={null}
+        className="field-config field-config"
+        disabled={false}
+        id="cf-something-tags"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
         required={false}
         type="text"
         value={undefined}
@@ -123,7 +163,9 @@ exports[`The render group component class structure Matches snapshot 1`] = `
         className="field-config field-config"
         disabled={false}
         id="cf-something-else"
+        onBlur={undefined}
         onChange={[Function]}
+        onFocus={undefined}
         required={false}
         type="text"
         value={undefined}
@@ -146,7 +188,9 @@ exports[`The render group component class structure Matches snapshot 1`] = `
         className="field-config field-config"
         disabled={false}
         id="cf-something-tags"
+        onBlur={undefined}
         onChange={[Function]}
+        onFocus={undefined}
         required={false}
         type="text"
         value={undefined}

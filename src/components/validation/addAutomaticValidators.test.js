@@ -1,5 +1,5 @@
 import {reduceConfigFieldsToValues} from '../conditional-logic/util';
-import {addAutomaticValidators} from "./addAutomaticValidators";
+import {addAutomaticValidators} from './addAutomaticValidators';
 
 describe( 'Adding automatic validation', () => {
 	function falseValidator(){
@@ -232,10 +232,10 @@ describe( 'Adding automatic validation', () => {
 				value: 2,
 				label: 'Two'
 			},
-				{
-					value: 'three',
-					label: 'Three'
-				}],
+			{
+				value: 'three',
+				label: 'Three'
+			}],
 			isRequired:false,
 
 		};

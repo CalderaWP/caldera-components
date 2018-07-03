@@ -313,7 +313,7 @@ describe( 'The render group component', () => {
 			).toHaveLength(3);
 		});
 
-		it( 'Select field change handlers recive value, not event ', () => {
+		it( 'Select field change handlers receive value, not event ', () => {
 			let updateValue = '';
 			const selectFieldConfig = {
 				'id': 'cf-something-select-id',
@@ -349,9 +349,44 @@ describe( 'The render group component', () => {
 		});
 	});
 
+	describe( 'adding blur and focus', () => {
+		it( 'Adds the props', () => {
+			const component = renderer.create(<RenderGroup configFields={[{
+				...textFieldConfig,
+				onBlur: () => {},
+				onFocus: () => {}
+			}]}/> );
+			expect( component.toJSON() ).toMatchSnapshot();
+		});
 
+		it( 'Fires the onFocus handler', () => {
+			let itFired = false;
+			const wrapper = mount(<RenderGroup configFields={[{
+				...textFieldConfig,
+				onBlur: () => {},
+				onFocus: () => {
+					itFired = true;
+				}
+			}]}/> );
+			wrapper.find( 'input' ).simulate('focus');
 
+			expect( itFired ).toBe(true);
+		});
 
+		it( 'Fires the onBlur handler', () => {
+			let itFired = false;
+			const wrapper = mount(<RenderGroup configFields={[{
+				...textFieldConfig,
+				onBlur: () => {
+					itFired = true;
+				}
+			}]}/> );
+			wrapper.find( 'input' ).simulate('blur');
+
+			expect( itFired ).toBe(true);
+		});
+
+	});
 	
 });
 

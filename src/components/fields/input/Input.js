@@ -51,6 +51,8 @@ export const Input = (props) => {
 				onChange={checkboxChangeHandler}
 				defaultChecked={props.value}
 				disabled={props.disabled}
+				onBlur={props.onBlur}
+				onFocus={props.onFocus}
 			/>
 		);
 	}
@@ -65,6 +67,8 @@ export const Input = (props) => {
 			onChange={changeHandler}
 			value={props.value}
 			disabled={props.disabled}
+			onBlur={props.onBlur}
+			onFocus={props.onFocus}
 		/>
 	);
 

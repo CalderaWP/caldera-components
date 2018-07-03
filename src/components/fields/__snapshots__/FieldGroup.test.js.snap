@@ -14,7 +14,9 @@ exports[`Field Group component Field group component props Can mark inner input 
     className="required block-input field-config field-config"
     disabled={true}
     id="control-224"
+    onBlur={undefined}
     onChange={[Function]}
+    onFocus={undefined}
     required={false}
     type="text"
     value={undefined}
@@ -37,7 +39,9 @@ exports[`Field Group component Field group component props Can mark inner input 
     className="required block-input field-config field-config"
     disabled={undefined}
     id="control-223"
+    onBlur={undefined}
     onChange={[Function]}
+    onFocus={undefined}
     required={false}
     type="text"
     value={undefined}
@@ -60,7 +64,9 @@ exports[`Field Group component Field group component props Can show an input  1`
     className="block-input field-config field-config"
     disabled={undefined}
     id="control-22"
+    onBlur={undefined}
     onChange={[Function]}
+    onFocus={undefined}
     required={false}
     type="text"
     value={undefined}
@@ -83,7 +89,9 @@ exports[`Field Group component Field group component props Help text is optional
     className="block-input field-config field-config"
     disabled={undefined}
     id="control-21"
+    onBlur={undefined}
     onChange={[Function]}
+    onFocus={undefined}
     required={false}
     type="text"
     value={undefined}
@@ -106,7 +114,9 @@ exports[`Field Group component Field group component props Works with help text 
     className="block-input field-config field-config"
     disabled={undefined}
     id="control-20"
+    onBlur={undefined}
     onChange={[Function]}
+    onFocus={undefined}
     required={false}
     type="text"
     value={undefined}

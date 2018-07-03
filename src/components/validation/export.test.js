@@ -2,7 +2,7 @@ import CalderaValidators from './index';
 import getValidatorsFromConfigField from './getValidatorsFromConfigField';
 import checkValidatorsForConfigFields from './checkValidatorsForConfigFields';
 import checkValidatorsForConfigField from './checkValidatorsForConfigField';
-import {addAutomaticValidators} from "./addAutomaticValidators";
+import {addAutomaticValidators} from './addAutomaticValidators';
 
 describe( 'CalderaValidators export', () => {
 
@@ -52,7 +52,7 @@ describe( 'CalderaValidators export', () => {
 	});
 
 	it( 'exports addAutomaticValidators', () => {
-		expect( typeof  CalderaValidators.addAutomaticValidators ).toBe( 'function')
+		expect( typeof  CalderaValidators.addAutomaticValidators ).toBe( 'function');
 	});
 
 	it( 'exports isValidOrEmpty', () => {

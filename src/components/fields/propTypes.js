@@ -43,7 +43,9 @@ export const fieldGroupPropTypes = {
 	options: PropTypes.array,
 	inputType:inputTypeProp,
 	disabled: PropTypes.bool,
-	message: messagePropShape
+	message: messagePropShape,
+	onBlur: PropTypes.func,
+	onFocus: PropTypes.func
 };
 
 /**
@@ -58,9 +60,9 @@ export const fieldInnerPropTypes = {
 	value: valuePropType,
 	onValueChange: onValueChangePropType,
 	inputType: inputTypeProp,
+	ariaDescribedbyAttr: PropTypes.string,
+	onBlur: PropTypes.func,
+	onFocus: PropTypes.func
 };
 
-export const fieldPropTypes = {
-	...fieldInnerPropTypes,
-	ariaDescribedbyAttr: PropTypes.string,
-};
+export const fieldPropTypes = fieldInnerPropTypes;

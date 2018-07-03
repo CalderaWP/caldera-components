@@ -15,7 +15,9 @@ const textFieldConfig = {
 	value: textFieldValue,
 	onValueChange: function(newValue){
 		textFieldValue = newValue
-	}
+	},
+
+
 };
 
 let hiddenFieldValue = '42';
@@ -27,7 +29,7 @@ const hiddenFieldConfig = {
 	value: hiddenFieldValue,
 	onValueChange: function(newValue){
 		hiddenFieldValue = newValue
-	}
+	},
 };
 
 let selectFieldValue = 'html';
@@ -105,6 +107,7 @@ class App extends Component {
 					<h2>Created With RenderGroup Component</h2>
 					<RenderGroup
 						configFields={configFields}
+						onBlur={(fI) => {console.log(fI)}}
 					/>
 				</div>
 

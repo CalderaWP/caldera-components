@@ -16,6 +16,8 @@ var _checkValidatorsForConfigField = require('./checkValidatorsForConfigField');
 
 var _checkValidatorsForConfigField2 = _interopRequireDefault(_checkValidatorsForConfigField);
 
+var _addAutomaticValidators = require('./addAutomaticValidators');
+
 var _messageStrings = require('./messageStrings');
 
 var _messageStrings2 = _interopRequireDefault(_messageStrings);
@@ -39,17 +41,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /**
  * One export for validation system
  */
-/*eslint no-undef: "error"*/
-/*eslint-env node*/
 exports.default = {
 	getValidatorsFromConfigField: _getValidatorsFromConfigField2.default,
 	checkValidatorsForConfigFields: _checkValidatorsForConfigFields2.default,
 	checkValidatorsForConfigField: _checkValidatorsForConfigField2.default,
+	reduceConfigFieldsToValues: _util.reduceConfigFieldsToValues,
+	addAutomaticValidators: _addAutomaticValidators.addAutomaticValidators,
 	isEmpty: _isEmpty2.default,
 	isValid: _isValid2.default,
 	isValidOrEmpty: _isValidOrEmpty2.default,
-	reduceConfigFieldsToValues: _util.reduceConfigFieldsToValues,
 	messageStrings: _messageStrings2.default
 };
 //Usage here indicates that this is a cross-cutting concern, & it totally is
 //Move to shared module?
+/*eslint no-undef: "error"*/
+/*eslint-env node*/
