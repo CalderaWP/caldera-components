@@ -9,6 +9,15 @@ exports[`MagicSelect component Matches snapshot 1`] = `
     }
   }
 >
-  HTML
+  <span
+    className="magic-item-label magic-item-left"
+  >
+    html
+  </span>
+  <span
+    className="magic-item-value magic-item-right"
+  >
+    HTML
+  </span>
 </div>
 `;

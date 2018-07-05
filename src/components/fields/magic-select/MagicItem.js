@@ -18,8 +18,21 @@ export const MagicItem = (props) => {
 			style={{background: props.isHighlighted ? props.highlightColor : props.notHighlighterColor}}
 			className={classNames(props.className, 'magic-input-option')}
 		>
-			{props.item.label}
+			<span
+				className={classNames('magic-item-label', 'magic-item-left')}
+
+			>
+				{props.item.value}
+			</span>
+
+			<span
+				className={classNames('magic-item-value', 'magic-item-right')}
+			>
+				{props.item.label}
+			</span>
+
 		</div>
+
 	);
 };
 
