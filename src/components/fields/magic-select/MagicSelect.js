@@ -42,6 +42,22 @@ export class MagicSelect extends React.PureComponent {
 	};
 
 	/**
+	 * Handle when the field gets focus
+	 */
+	onInputFocus() {
+		this.setState({isOpen: true});
+	}
+
+	/**
+	 * Handle when the option is chosen
+	 * @param {String|number} value
+	 */
+	onSelect(value) {
+		this.props.onValueChange(value);
+		this.setState({isOpen: false});
+	}
+
+	/**
 	 * Create the list of items
 	 *
 	 * @return {Array}
@@ -67,22 +83,6 @@ export class MagicSelect extends React.PureComponent {
 	}
 
 	/**
-	 * Handle when the field gets focus
-	 */
-	onInputFocus() {
-		this.setState({isOpen: true});
-	}
-
-	/**
-	 * Handle when the option is chosen
-	 * @param {String|number} value
-	 */
-	onSelect(value) {
-		this.props.onValueChange(value);
-		this.setState({isOpen: false});
-	}
-
-	/**
 	 * Render MagicSelect component
 	 * @return {*}
 	 */
@@ -103,7 +103,7 @@ export class MagicSelect extends React.PureComponent {
 					renderItem={(item, isHighlighted) =>
 						<div
 							style={{background: isHighlighted ? 'lightgray' : 'white'}}
-							className={classNames(`${this.props.id}-magic-input`, item.value, 'magic-input-option')}
+							className={classNames(`${this.props.id}-magic-input-option`, 'magic-input-option')}
 						>
 							{item.label}
 						</div>
