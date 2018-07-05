@@ -20,6 +20,24 @@ const textFieldConfig = {
 
 };
 
+const numberFieldConfig = {
+	'id': 'cf--something-some-number',
+	'label': 'The number of something',
+	'desc': 'How many somethings?',
+	'type': 'text',
+	'inputType': 'number',
+	attributes: {
+		min: -1,
+		max: 22,
+		step: 0.1,
+	},
+	value: 42,
+	onValueChange: (newNumberValue) =>{
+		console.log(newNumberValue);
+	},
+
+};
+
 let hiddenFieldValue = '42';
 const hiddenFieldConfig = {
 	'id': 'cf-something-sequence-id',
