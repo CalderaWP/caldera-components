@@ -5,8 +5,9 @@ import {
 	valuePropType
 } from '../propTypes';
 import classNames from 'classnames';
-import Autocomplete from 'react-autocomplete'
-import PropTypes from "prop-types";
+import Autocomplete from 'react-autocomplete';
+import PropTypes from 'prop-types';
+import {MagicItem} from './MagicItem';
 
 /**
  * Encapsulates a complete Magic Select field
@@ -39,7 +40,7 @@ export class MagicSelect extends React.PureComponent {
 	 */
 	onChange(event) {
 		this.props.onValueChange(event.target.value);
-	};
+	}
 
 	/**
 	 * Handle when the field gets focus
@@ -67,7 +68,7 @@ export class MagicSelect extends React.PureComponent {
 		if (Array.isArray(this.props.options) && this.props.options.length) {
 			items = this.props.options;
 		} else if ('system' === this.state.currentList) {
-			items = this.props.systemTagsList
+			items = this.props.systemTagsList;
 		} else {
 			items = this.props.fieldsList;
 		}
@@ -100,13 +101,12 @@ export class MagicSelect extends React.PureComponent {
 						className: `${this.props.id}-magic-input`,
 						onFocus: this.onInputFocus,
 					}}
-					renderItem={(item, isHighlighted) =>
-						<div
-							style={{background: isHighlighted ? 'lightgray' : 'white'}}
-							className={classNames(`${this.props.id}-magic-input-option`, 'magic-input-option')}
-						>
-							{item.label}
-						</div>
+					renderItem={(item, isHighlighted) => {
+						return (MagicItem({
+							item,
+							isHighlighted
+						}));
+					}
 					}
 					value={this.props.value}
 					onChange={this.onChange}
@@ -117,7 +117,7 @@ export class MagicSelect extends React.PureComponent {
 				/>
 			</div>
 		);
-	};
+	}
 }
 
 

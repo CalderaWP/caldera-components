@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MagicSelect component Matches snapshot 1`] = `
+<div
+  className="magic-input-option"
+  style={
+    Object {
+      "background": "#fff00",
+    }
+  }
+>
+  HTML
+</div>
+`;

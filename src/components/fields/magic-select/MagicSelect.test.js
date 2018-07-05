@@ -3,7 +3,7 @@ import React from 'react';
 import {mount, shallow} from 'enzyme';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import {MagicSelect} from "./MagicSelect";
+import {MagicSelect} from './MagicSelect';
 
 Enzyme.configure({adapter: new Adapter()});
 
@@ -50,7 +50,7 @@ describe('MagicSelect component', () => {
 				]}
 			/>
 		);
-		expect(component.find('input').length).toBe(1);
+		expect(component.find('input')).toHaveLength(1);
 	});
 
 	it('puts the right id attribute on inner input', () => {
@@ -94,7 +94,7 @@ describe('MagicSelect component', () => {
 					isOpen={false}
 				/>
 			);
-			expect(component.find('.magic-input-option').length).toBe(0);
+			expect(component.find('.magic-input-option')).toHaveLength(0);
 		});
 
 		it('Updates is open state when focused', () => {
@@ -170,7 +170,7 @@ describe('MagicSelect component', () => {
 					isOpen={true}
 				/>
 			);
-			expect(component.find('.magic-input-option').length).toBe(2);
+			expect(component.find('.magic-input-option')).toHaveLength(2);
 		});
 
 		it('Uses options prop by default - right number of options', () => {
@@ -192,7 +192,7 @@ describe('MagicSelect component', () => {
 					isOpen={true}
 				/>
 			);
-			expect(component.find('.magic-input-option').length).toBe(2);
+			expect(component.find('.magic-input-option')).toHaveLength(2);
 		});
 
 		it('Uses fieldsList prop if no options prop', () => {
@@ -224,7 +224,7 @@ describe('MagicSelect component', () => {
 					isOpen={true}
 				/>
 			);
-			expect(component.find('.magic-input-option').length).toBe(3);
+			expect(component.find('.magic-input-option')).toHaveLength(3);
 		});
 
 		it('Uses systemTagsList prop if no options prop and currentList state is system', () => {
@@ -257,7 +257,7 @@ describe('MagicSelect component', () => {
 				/>
 			);
 			component.setState({currentList: 'system'});
-			expect(component.find('.magic-input-option').length).toBe(1);
+			expect(component.find('.magic-input-option')).toHaveLength(1);
 		});
 	});
 
