@@ -101,12 +101,8 @@ export class MagicSelect extends React.PureComponent {
 						className: `${this.props.id}-magic-input`,
 						onFocus: this.onInputFocus,
 					}}
-					renderItem={(item, isHighlighted) => {
-						return (MagicItem({
-							item,
-							isHighlighted
-						}));
-					}
+					renderItem={(item, isHighlighted) =>
+						<MagicItem item={item} isHighlighted={isHighlighted} />
 					}
 					value={this.props.value}
 					onChange={this.onChange}

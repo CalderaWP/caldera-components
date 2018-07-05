@@ -19,4 +19,20 @@ describe('MagicSelect component', () => {
 		);
 		expect(component.toJSON()).toMatchSnapshot();
 	});
+
+	it('Can render as span', () => {
+		const component = renderer.create(
+			<MagicItem
+				item={{
+					label: 'HTML',
+					value: 'html'
+				}}
+				highlightColor={'#fff00'}
+				notHighlighterColor={'white'}
+				isHighlighted={true}
+				elementType={'span'}
+			/>
+		);
+		expect(component.toJSON()).toMatchSnapshot();
+	});
 });

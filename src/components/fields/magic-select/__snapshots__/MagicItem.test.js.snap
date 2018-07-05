@@ -1,5 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`MagicSelect component Can render as span 1`] = `
+<span
+  className="magic-input-option"
+  style={
+    Object {
+      "background": "#fff00",
+    }
+  }
+>
+  <span
+    className="magic-item-label magic-item-left"
+  >
+    html
+  </span>
+  <span
+    className="magic-item-value magic-item-right"
+  >
+    HTML
+  </span>
+</span>
+`;
+
 exports[`MagicSelect component Matches snapshot 1`] = `
 <div
   className="magic-input-option"

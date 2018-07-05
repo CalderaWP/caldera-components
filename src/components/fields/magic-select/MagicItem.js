@@ -13,26 +13,29 @@ import PropTypes from 'prop-types';
  * @constructor
  */
 export const MagicItem = (props) => {
-	return(
-		<div
-			style={{background: props.isHighlighted ? props.highlightColor : props.notHighlighterColor}}
-			className={classNames(props.className, 'magic-input-option')}
-		>
-			<span
-				className={classNames('magic-item-label', 'magic-item-left')}
+	return React.createElement(
+		props.elementType,
+		{
+			style: {background: props.isHighlighted ? props.highlightColor : props.notHighlighterColor},
+			className: classNames(props.className, 'magic-input-option')
 
-			>
+		},
+		(
+			<React.Fragment>
+				<span
+					className={classNames('magic-item-label', 'magic-item-left')}
+
+				>
 				{props.item.value}
 			</span>
 
-			<span
-				className={classNames('magic-item-value', 'magic-item-right')}
-			>
+				<span
+					className={classNames('magic-item-value', 'magic-item-right')}
+				>
 				{props.item.label}
 			</span>
-
-		</div>
-
+			</React.Fragment>
+		)
 	);
 };
 
@@ -42,6 +45,7 @@ export const MagicItem = (props) => {
  * @type {{item: shim, isHighlighted: shim, className: shim, highlightColor: shim, notHighlighterColor: shim}}
  */
 MagicItem.propTypes = {
+	elementType: PropTypes.oneOf(['div', 'span']),
 	item: PropTypes.shape(optionShape),
 	isHighlighted: PropTypes.bool,
 	className: PropTypes.string,
@@ -55,6 +59,7 @@ MagicItem.propTypes = {
  * @type {{isHighlighted: boolean, highlightColor: string, notHighlightedColor: string}}
  */
 MagicItem.defaultProps = {
+	elementType: 'div',
 	isHighlighted: false,
 	highlightColor: 'lightgray',
 	notHighlightedColor: 'white'
