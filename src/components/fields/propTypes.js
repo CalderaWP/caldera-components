@@ -24,7 +24,7 @@ export const onValueChangePropType = PropTypes.func.isRequired;
  * Proptypes for Input component
  * @type {shim}
  */
-export  const inputTypeProp = PropTypes.string;
+export const inputTypeProp = PropTypes.string;
 
 /**
  * PropTypes for field groups
@@ -37,11 +37,11 @@ export const fieldGroupPropTypes = {
 	isRequired: PropTypes.bool,
 	help: PropTypes.string,
 	label: PropTypes.string.isRequired,
-	type: PropTypes.oneOf(['input','select', 'fieldset']),
+	type: PropTypes.oneOf(['input', 'select', 'fieldset']),
 	value: valuePropType,
 	onValueChange: onValueChangePropType,
 	options: PropTypes.array,
-	inputType:inputTypeProp,
+	inputType: inputTypeProp,
 	disabled: PropTypes.bool,
 	message: messagePropShape,
 	onBlur: PropTypes.func,
@@ -66,3 +66,25 @@ export const fieldInnerPropTypes = {
 };
 
 export const fieldPropTypes = fieldInnerPropTypes;
+
+/**
+ * The shape of one option for a select field
+ *
+ * @type {{label: shim, value: shim}}
+ */
+export const optionShape = {
+	label: PropTypes.string,
+	value: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.number,
+	])
+};
+
+/**
+ * Shape of options prop for select fields
+ *
+ * @type {shim}
+ */
+export const optionsShapeProp = PropTypes.arrayOf(
+	PropTypes.shape(optionShape)
+);

@@ -8,44 +8,57 @@ import PropTypes from 'prop-types';
 /**
  * Create magic item for option of magic selects
  *
+ * This can not be a functional component
+ * https://github.com/reactjs/react-autocomplete/pull/293#issuecomment-371617758
+ *
+ *
  * @param {Object} props
  * @return {*}
  * @constructor
  */
-export const MagicItem = (props) => {
-	return React.createElement(
-		props.elementType,
-		{
-			style: {background: props.isHighlighted ? props.highlightColor : props.notHighlighterColor},
-			className: classNames(props.className, 'magic-input-option')
+export class MagicItem extends React.PureComponent {
 
-		},
-		(
-			<React.Fragment>
-				<span
-					className={classNames('magic-item-label', 'magic-item-left')}
+	render() {
+		return React.createElement(
+			this.props.elementType,
+			{
+				style: {background: this.props.isHighlighted ? this.props.highlightColor : this.props.notHighlighterColor},
+				className: classNames(this.props.className, 'magic-input-option'),
 
-				>
-				{props.item.value}
-			</span>
+			},
+			(
+				<React.Fragment>
+					<span
+						className={classNames('magic-item-label', 'magic-item-left')}
 
-				<span
-					className={classNames('magic-item-value', 'magic-item-right')}
-				>
-				{props.item.label}
-			</span>
-			</React.Fragment>
-		)
-	);
+					>
+						{this.props.item.value}
+					</span>
+
+					<span
+						className={classNames('magic-item-value', 'magic-item-right')}
+					>
+						{this.props.item.label}
+					</span>
+				</React.Fragment>
+			)
+		);
+	}
 };
 
+/**
+ * Prop definition for allowed element types
+ * @type {shim}
+ */
+const elemenetTypesProp = PropTypes.oneOf(['div', 'span']);
 /**
  * Prop definitions for MagicItem component
  *
  * @type {{item: shim, isHighlighted: shim, className: shim, highlightColor: shim, notHighlighterColor: shim}}
  */
 MagicItem.propTypes = {
-	elementType: PropTypes.oneOf(['div', 'span']),
+	elementType: elemenetTypesProp,
+	innerElementType: elemenetTypesProp,
 	item: PropTypes.shape(optionShape),
 	isHighlighted: PropTypes.bool,
 	className: PropTypes.string,
@@ -60,7 +73,8 @@ MagicItem.propTypes = {
  */
 MagicItem.defaultProps = {
 	elementType: 'div',
+	innerElementType: 'div',
 	isHighlighted: false,
 	highlightColor: 'lightgray',
-	notHighlightedColor: 'white'
+	notHighlightedColor: 'white',
 };

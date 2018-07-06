@@ -35,7 +35,10 @@ const configFields = [
 		'id': 'pid-1',
 		'label': 'Sequence',
 		'type': 'dropdown',
-		'options': ['-- Select A ConvertKit Sequence --'],
+		'options': [{
+			value: null,
+			label:'-- Select --'
+		}],
 		'desc': 'ConvertKit sequence to add subscriber to. Sequences are also referred to as courses.',
 		'description': false,
 		'extra_classes': 'field-Something is wrong',
@@ -368,7 +371,6 @@ describe('Factories', () => {
 			);
 			expect(wrapper.children()).toHaveLength(configFields.length);
 			expect(wrapper.find('.f-1')).toHaveLength(1);
-			expect(wrapper.find('.f-1').text()).toBe('Sequence');
 		});
 
 

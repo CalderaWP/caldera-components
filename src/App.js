@@ -4,6 +4,7 @@ import './App.css';
 import {FieldGroup} from "./components/fields/FieldGroup";
 import {fieldSetFactory} from "./components/fields/factories/fieldSetFactory";
 import {RenderGroup} from "./components/RenderGroup";
+import {MagicSelect} from "./components/fields/magic-select/MagicSelect";
 
 let textFieldValue = 'Roy,Mike';
 const textFieldConfig = {
@@ -98,7 +99,8 @@ const configFields = [
 	textFieldConfig,
 	hiddenFieldConfig,
 	selectFieldConfig,
-	fieldSetField
+	fieldSetField,
+	numberFieldConfig
 ];
 const configFieldEls = fieldSetFactory(configFields);
 
@@ -139,6 +141,25 @@ class App extends Component {
 							field
 						);
 					})}
+				</div>
+
+				<div>
+					<h2>Magic Select</h2>
+					<MagicSelect
+						id={'magic-3'}
+						fieldClassName={'magic'}
+						onValueChange={() => {}}
+						options={[
+							{
+								label: 'HTML',
+								value: 'html'
+							},
+							{
+								label: 'Plain Text',
+								value: 'plain'
+							}
+						]}
+					/>
 				</div>
 
 				<div>

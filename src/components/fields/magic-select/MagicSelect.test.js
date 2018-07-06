@@ -122,11 +122,11 @@ describe('MagicSelect component', () => {
 			expect(component.state('isOpen')).toEqual(true);
 		});
 
-		it('Updates is open state when a selection is made', () => {
-			let updatedValue = '914';
+		it('Updates is open state when blurred', () => {
+			let updatedValue = null;
 			const component = mount(
 				<MagicSelect
-					id={'magic-9'}
+					id={'magic-9-blur'}
 					fieldClassName={'magic'}
 					onValueChange={(newValue) => {
 						updatedValue = newValue;
@@ -134,22 +134,18 @@ describe('MagicSelect component', () => {
 					options={[
 						{
 							label: 'a1',
-							value: '914'
+							value: 1
 						},
 						{
-							label: '914',
-							value: '914'
+							label: 'a14',
+							value: 14
 						}
 					]}
-					value={updatedValue}
 				/>
 			);
-			component.find( 'input' ).simulate('focus');
-
-			component.find( '.magic-input-option' ).first().simulate('click');
+			component.find( 'input' ).simulate('blur');
 			expect(component.state('isOpen')).toEqual(false);
 		});
-
 
 		it('Uses options prop by default - right number of options', () => {
 			const component = mount(

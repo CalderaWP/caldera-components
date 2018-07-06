@@ -30,6 +30,7 @@ export class MagicSelect extends React.PureComponent {
 		this.onChange = this.onChange.bind(this);
 		this.onSelect = this.onSelect.bind(this);
 		this.onInputFocus = this.onInputFocus.bind(this);
+		this.onInputBlur = this.onInputBlur.bind(this);
 	}
 
 	/**
@@ -50,12 +51,19 @@ export class MagicSelect extends React.PureComponent {
 	}
 
 	/**
+	 * Handle when the field is blurred
+	 */
+	onInputBlur() {
+		this.setState({isOpen: false});
+	}
+
+
+	/**
 	 * Handle when the option is chosen
 	 * @param {String|number} value
 	 */
 	onSelect(value) {
 		this.props.onValueChange(value);
-		this.setState({isOpen: false});
 	}
 
 	/**
@@ -100,15 +108,18 @@ export class MagicSelect extends React.PureComponent {
 						value: this.props.value,
 						className: `${this.props.id}-magic-input`,
 						onFocus: this.onInputFocus,
+						onBlur:this.onInputBlur,
+						onClick:this.onChange
 					}}
 					renderItem={(item, isHighlighted) =>
-						<MagicItem item={item} isHighlighted={isHighlighted} />
+						<MagicItem item={item} isHighlighted={isHighlighted} key={item.value} />
 					}
 					value={this.props.value}
 					onChange={this.onChange}
 					open={this.state.isOpen}
 					selectOnBlur={true}
 					onSelect={this.onSelect}
+					onBlur={()=> { console.log('bo')}}
 
 				/>
 			</div>
