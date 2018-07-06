@@ -8,6 +8,7 @@ import classNames from 'classnames';
 import Autocomplete from 'react-autocomplete';
 import PropTypes from 'prop-types';
 import {MagicItem} from './MagicItem';
+import {ButtonGroup} from "../button-group/ButtonGroup";
 
 /**
  * Encapsulates a complete Magic Select field
@@ -141,8 +142,6 @@ export class MagicSelect extends React.PureComponent {
 					open={this.state.isOpen}
 					selectOnBlur={true}
 					onSelect={this.onSelect}
-					onBlur={()=> { console.log('bo')}}
-
 				/>
 			</div>
 		);

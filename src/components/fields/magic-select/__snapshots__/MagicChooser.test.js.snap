@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select field component Creates with one option 1`] = `
+<div
+  role="group"
+>
+  <button
+    onClick={undefined}
+  >
+    Tags
+  </button>
+</div>
+`;
