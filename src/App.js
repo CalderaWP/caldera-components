@@ -160,6 +160,14 @@ class App extends Component {
 							}
 						]}
 					/>
+					<MagicSelect
+						id={'magic-4'}
+						fieldClassName={'magic'}
+						onValueChange={() => {}}
+						options={[
+
+						]}
+					/>
 				</div>
 
 				<div>

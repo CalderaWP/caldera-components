@@ -10,8 +10,10 @@ describe('MagicSelect component', () => {
 			<MagicItem
 				item={{
 					label: 'HTML',
-					value: 'html'
+					value: 'html',
+					key: 'a'
 				}}
+				innerKey={'a1'}
 				highlightColor={'#fff00'}
 				notHighlighterColor={'white'}
 				isHighlighted={true}
@@ -27,10 +29,28 @@ describe('MagicSelect component', () => {
 					label: 'HTML',
 					value: 'html'
 				}}
+				innerKey={'1'}
 				highlightColor={'#fff00'}
 				notHighlighterColor={'white'}
 				isHighlighted={true}
 				elementType={'span'}
+			/>
+		);
+		expect(component.toJSON()).toMatchSnapshot();
+	});
+
+	it('Can render inner type as div', () => {
+		const component = renderer.create(
+			<MagicItem
+				item={{
+					label: 'HTML',
+					value: 'html'
+				}}
+				innerKey={'a1'}
+				highlightColor={'#fff00'}
+				notHighlighterColor={'white'}
+				isHighlighted={true}
+				innerElementType={'div'}
 			/>
 		);
 		expect(component.toJSON()).toMatchSnapshot();

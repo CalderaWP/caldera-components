@@ -30,6 +30,7 @@ export class MagicSelect extends React.PureComponent {
 		this.onChange = this.onChange.bind(this);
 		this.onSelect = this.onSelect.bind(this);
 		this.onInputFocus = this.onInputFocus.bind(this);
+		this.renderItem = this.renderItem.bind(this);
 		this.onInputBlur = this.onInputBlur.bind(this);
 	}
 
@@ -67,24 +68,47 @@ export class MagicSelect extends React.PureComponent {
 	}
 
 	/**
+	 * Render option
+	 *
+	 * @param {object} item
+	 * @param {bool} isHighlighted
+	 * @return {*}
+	 */
+	renderItem(item, isHighlighted){
+		return <MagicItem item={item} isHighlighted={isHighlighted} innerKey={item.innerKey} key={item.innerKey} />
+	}
+
+	/**
 	 * Create the list of items
 	 *
 	 * @return {Array}
 	 */
 	items() {
+		const optionsOrEmpty =(options) => {
+			return Array.isArray(options) && options.length ? options : [];
+		};
+
 		let items = [];
-		if (Array.isArray(this.props.options) && this.props.options.length) {
-			items = this.props.options;
-		} else if ('system' === this.state.currentList) {
-			items = this.props.systemTagsList;
+
+		if( optionsOrEmpty(this.props.options).length){
+			items = optionsOrEmpty(this.props.options);
+		}
+		else if ('system' === this.state.currentList ) {
+			items = optionsOrEmpty(this.props.systemTagsList);
 		} else {
-			items = this.props.fieldsList;
+			items = optionsOrEmpty(this.props.fieldsList);
 		}
 
 		if (items.length) {
 			items.forEach((item, itemIndex) => {
-				items[itemIndex].key = `${item.value}-${itemIndex}`;
+				items[itemIndex].innerKey = `${item.value}-${itemIndex}`;
 			});
+		}else{
+			items.push({
+				value: null,
+				label: null,
+				innerKey:this.props.id
+			})
 		}
 
 		return items;
@@ -111,9 +135,7 @@ export class MagicSelect extends React.PureComponent {
 						onBlur:this.onInputBlur,
 						onClick:this.onChange
 					}}
-					renderItem={(item, isHighlighted) =>
-						<MagicItem item={item} isHighlighted={isHighlighted} key={item.value} />
-					}
+					renderItem={this.renderItem}
 					value={this.props.value}
 					onChange={this.onChange}
 					open={this.state.isOpen}
