@@ -313,6 +313,23 @@ describe( 'The render group component', () => {
 			).toHaveLength(3);
 		});
 
+		it( 'Select fields can have no options', () => {
+			const selectFieldConfig = {
+				'id': 'cf-something-select-id',
+				'type': 'dropdown',
+				'label': 'Content type',
+				'description': 'Choose content type, default is HTML',
+				options: null,
+				value: '',
+				onValueChange: genericHandler
+			};
+
+			const wrapper = mount( <RenderGroup configFields={[selectFieldConfig]}/> );
+			expect(
+				wrapper.find('select').children().find('option')//this would make an error if the select field was invalid
+			).toHaveLength(0);
+		});
+
 		it( 'Select field change handlers receive value, not event ', () => {
 			let updateValue = '';
 			const selectFieldConfig = {
@@ -357,6 +374,20 @@ describe( 'The render group component', () => {
 				onFocus: () => {}
 			}]}/> );
 			expect( component.toJSON() ).toMatchSnapshot();
+		});
+
+		it ( 'Passes down the onFocus handler', () => {
+			let itFired = false;
+			const idArg = 'a1';
+			const wrapper = mount(<RenderGroup configFields={[{
+				...textFieldConfig,
+				id: idArg,
+				onBlur: () => {},
+				onFocus: () => {itFired = true;}
+			}]}/> );
+
+			wrapper.find('input').simulate( 'focus' );
+			expect(itFired ).toBe(true);
 		});
 
 		it( 'Fires the onFocus handler', () => {
