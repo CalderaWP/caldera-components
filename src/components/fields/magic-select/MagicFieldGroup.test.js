@@ -12,7 +12,7 @@ const genericChangeHandler = () => {
 describe('MagicFieldGroup component', () => {
 
 
-	it( 'matches snapshot with no message', () => {
+	it('matches snapshot with no message', () => {
 		const component = renderer.create(
 			<MagicFieldGroup
 				id={'magic-3'}
@@ -32,10 +32,10 @@ describe('MagicFieldGroup component', () => {
 				isOpen={false}
 			/>
 		);
-		expect(component.toJSON() ).toMatchSnapshot();
+		expect(component.toJSON()).toMatchSnapshot();
 	});
 
-	it( 'matches snapshot with message', () => {
+	it('matches snapshot with message', () => {
 		const component = renderer.create(
 			<MagicFieldGroup
 				id={'magic-3'}
@@ -59,10 +59,10 @@ describe('MagicFieldGroup component', () => {
 				}}
 			/>
 		);
-		expect(component.toJSON() ).toMatchSnapshot();
+		expect(component.toJSON()).toMatchSnapshot();
 	});
 
-	describe( 'Inner input', () => {
+	describe('Inner input', () => {
 		it('Has inner input', () => {
 			const component = mount(
 				<MagicFieldGroup
@@ -263,8 +263,8 @@ describe('MagicFieldGroup component', () => {
 				/>
 			);
 			component.find('input').simulate('focus');
-			component.find('input').simulate('change', { target: { value: '3' } });
-			expect( value ).toEqual('3');
+			component.find('input').simulate('change', {target: {value: '3'}});
+			expect(value).toEqual('3');
 		});
 	});
 
@@ -319,8 +319,8 @@ describe('MagicFieldGroup component', () => {
 		});
 	});
 
-	describe( 'Button group for type choice', () => {
-		it( 'Outputs the buttons if open', () => {
+	describe('Button group for type choice', () => {
+		it('Outputs the buttons if open', () => {
 			const component = mount(
 				<MagicFieldGroup
 					id={'magic-50'}
@@ -352,7 +352,7 @@ describe('MagicFieldGroup component', () => {
 			);
 			expect(component.find('button')).toHaveLength(2);
 		});
-		it( 'Does not output the buttons if not open', () => {
+		it('Does not output the buttons if not open', () => {
 			const component = mount(
 				<MagicFieldGroup
 					id={'magic-50'}
@@ -384,5 +384,144 @@ describe('MagicFieldGroup component', () => {
 			);
 			expect(component.find('button')).toHaveLength(0);
 		});
+	});
+
+	it('onChange passes value', () => {
+		let value = 2;
+		const component = mount(
+			<MagicFieldGroup
+				id={'magic-5'}
+				fieldClassName={'magic'}
+				label={'Hi Roy'}
+				onValueChange={(newValue) => {
+					value = newValue;
+				}}
+				fieldsList={[
+					{
+						label: '0',
+						value: 0
+					},
+					{
+						label: '1',
+						value: 1
+					},
+					{
+						label: '3',
+						value: 3
+					}
+				]}
+				systemTagsList={[
+					{
+						label: '3',
+						value: 3
+					}
+				]}
+				value={value}
+				isOpen={true}
+			/>
+		);
+		component.instance().onChange(3);
+		expect(value).toBe(3);
+	});
+
+	describe('updates state on focus', () => {
+		it('Updates state when calling handler directly', () => {
+			const component = mount(
+				<MagicFieldGroup
+					id={'magic-5'}
+					fieldClassName={'magic'}
+					label={'Hi Roy'}
+					onValueChange={() => {
+					}}
+					defaultList={'fields'}
+					options={[]}
+
+					isOpen={false}
+				/>
+			);
+			component.instance().onInputFocus();
+			expect(component.state().isOpen).toBe(true);
+		});
+
+		it('Updates state when simulating focus', () => {
+			const component = mount(
+				<MagicFieldGroup
+					id={'magic-5'}
+					fieldClassName={'magic'}
+					label={'Hi Roy'}
+					onValueChange={() => {
+					}}
+					defaultList={'fields'}
+					options={[]}
+
+					isOpen={false}
+				/>
+			);
+			component.find('input').simulate('focus');
+			expect(component.state().isOpen).toBe(true);
+		});
+	});
+
+	describe('updates state on blur', () => {
+
+		it('Updates state when calling handler directly', () => {
+			const component = mount(
+				<MagicFieldGroup
+					id={'magic-5'}
+					fieldClassName={'magic'}
+					label={'Hi Roy'}
+					onValueChange={() => {
+					}}
+					defaultList={'fields'}
+					options={[]}
+
+					isOpen={true}
+				/>
+			);
+			component.instance().onInputBlur();
+			expect(component.state().isOpen).toBe(false);
+		});
+
+		it('Updates state when simulating blur', () => {
+			const component = mount(
+				<MagicFieldGroup
+					id={'magic-5'}
+					fieldClassName={'magic'}
+					label={'Hi Roy'}
+					onValueChange={() => {
+					}}
+					defaultList={'fields'}
+					options={[]}
+
+					isOpen={true}
+				/>
+			);
+			component.find('input').simulate('blur');
+			expect(component.state().isOpen).toBe(false);
+		});
+
+	});
+
+	it('Renders the inner items', () => {
+		const component = mount(
+			<MagicFieldGroup
+				id={'magic-5'}
+				fieldClassName={'magic'}
+				label={'Hi Roy'}
+				onValueChange={() => {
+				}}
+				defaultList={'fields'}
+				options={[]}
+				isOpen={true}
+			/>
+		);
+		const innerComponent = renderer.create(
+			component.instance().renderItem({
+					label: '1',
+					value: '1',
+					innerKey: '1'
+				}, true
+			));
+		expect(innerComponent.toJSON()).toMatchSnapshot();
 	});
 });
