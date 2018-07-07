@@ -482,7 +482,29 @@ describe('MagicFieldGroup component', () => {
 			expect(component.state().isOpen).toBe(false);
 		});
 
-		it('Updates state when simulating blur', () => {
+
+
+	});
+
+	describe( 'Changing list type', () => {
+		it('Opens whenever changing type', () => {
+			const component = mount(
+				<MagicFieldGroup
+					id={'magic-5'}
+					fieldClassName={'magic'}
+					label={'Hi Roy'}
+					onValueChange={() => {
+					}}
+					defaultList={'fields'}
+					options={[]}
+
+					isOpen={false}
+				/>
+			);
+			component.instance().onChangeListType('system');
+			expect(component.state().isOpen).toBe(true);
+		});
+		it('Stays opens changing type', () => {
 			const component = mount(
 				<MagicFieldGroup
 					id={'magic-5'}
@@ -496,11 +518,29 @@ describe('MagicFieldGroup component', () => {
 					isOpen={true}
 				/>
 			);
-			component.find('input').simulate('blur');
-			expect(component.state().isOpen).toBe(false);
+			component.instance().onChangeListType('system');
+			expect(component.state().isOpen).toBe(true);
 		});
 
+		it('Changes the type', () => {
+			const component = mount(
+				<MagicFieldGroup
+					id={'magic-5'}
+					fieldClassName={'magic'}
+					label={'Hi Roy'}
+					onValueChange={() => {
+					}}
+					defaultList={'fields'}
+					options={[]}
+
+					isOpen={true}
+				/>
+			);
+			component.instance().onChangeListType('system');
+			expect(component.state().currentListType).toBe('system');
+		});
 	});
+
 
 	it('Renders the inner items', () => {
 		const component = mount(

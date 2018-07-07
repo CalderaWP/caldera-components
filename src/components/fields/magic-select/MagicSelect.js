@@ -29,6 +29,7 @@ export class MagicSelect extends React.PureComponent {
 		this.onInputFocus = this.onInputFocus.bind(this);
 		this.renderItem = this.renderItem.bind(this);
 		this.onInputBlur = this.onInputBlur.bind(this);
+		this.getItemValue = this.getItemValue.bind(this);
 	}
 
 	/**
@@ -79,6 +80,15 @@ export class MagicSelect extends React.PureComponent {
 		return <MagicItem item={item} isHighlighted={isHighlighted} innerKey={item.innerKey} key={item.innerKey} onClick={this.onSelect} />;
 	}
 
+	/**
+	 * Get the value of the item
+	 * @param {Object} item
+	 * @return {*}
+	 */
+	getItemValue(item){
+		return item.value;
+	}
+
 
 	/**
 	 * Render MagicSelect component
@@ -87,7 +97,7 @@ export class MagicSelect extends React.PureComponent {
 	render() {
 		return (
 			<Autocomplete
-				getItemValue={(item) => item.value}
+				getItemValue={this.getItemValue}
 				items={this.props.options}
 				inputProps={{
 					id: this.props.id,
