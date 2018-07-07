@@ -2,7 +2,7 @@
 
 exports[`MagicFieldGroup component matches snapshot 1`] = `
 <div
-  className="magic-select"
+  className="caldera-magic-select-group caldera-config-field"
 >
   <div
     style={
@@ -15,7 +15,7 @@ exports[`MagicFieldGroup component matches snapshot 1`] = `
       aria-autocomplete="list"
       aria-expanded={false}
       autoComplete="off"
-      className="magic-3-magic-input"
+      className="caldera-magic-input caldera-magic-input-magic-3 magic"
       id="magic-3"
       onBlur={[Function]}
       onChange={[Function]}

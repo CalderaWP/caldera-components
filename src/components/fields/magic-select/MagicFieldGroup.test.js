@@ -16,6 +16,7 @@ describe('MagicFieldGroup component', () => {
 		const component = renderer.create(
 			<MagicFieldGroup
 				id={'magic-3'}
+				label={'Hi Roy'}
 				fieldClassName={'magic'}
 				onValueChange={genericChangeHandler}
 				options={[
@@ -40,6 +41,7 @@ describe('MagicFieldGroup component', () => {
 				<MagicFieldGroup
 					id={'magic-1'}
 					fieldClassName={'magic'}
+					label={'Hi Roy'}
 					onValueChange={genericChangeHandler}
 					options={[
 						{
@@ -62,6 +64,7 @@ describe('MagicFieldGroup component', () => {
 			const component = mount(
 				<MagicFieldGroup
 					id={'magic-3'}
+					label={'Hi Roy'}
 					fieldClassName={'magic'}
 					onValueChange={genericChangeHandler}
 					options={[
@@ -85,6 +88,7 @@ describe('MagicFieldGroup component', () => {
 			const component = mount(
 				<MagicFieldGroup
 					id={'magic-4'}
+					label={'Hi Roy'}
 					fieldClassName={'magic'}
 					onValueChange={genericChangeHandler}
 					options={[
@@ -108,6 +112,7 @@ describe('MagicFieldGroup component', () => {
 			const component = mount(
 				<MagicFieldGroup
 					id={'magic-4'}
+					label={'Hi Roy'}
 					fieldClassName={'magic'}
 					onValueChange={genericChangeHandler}
 					options={[
@@ -131,6 +136,7 @@ describe('MagicFieldGroup component', () => {
 			const component = mount(
 				<MagicFieldGroup
 					id={'magic-5'}
+					label={'Hi Roy'}
 					fieldClassName={'magic'}
 					onValueChange={genericChangeHandler}
 					fieldsList={[
@@ -165,6 +171,7 @@ describe('MagicFieldGroup component', () => {
 				<MagicFieldGroup
 					id={'magic-5'}
 					fieldClassName={'magic'}
+					label={'Hi Roy'}
 					onValueChange={genericChangeHandler}
 					fieldsList={[
 						{
@@ -200,6 +207,7 @@ describe('MagicFieldGroup component', () => {
 				<MagicFieldGroup
 					id={'magic-5'}
 					fieldClassName={'magic'}
+					label={'Hi Roy'}
 					onValueChange={(newValue) => {
 						value = newValue;
 					}}
@@ -240,6 +248,7 @@ describe('MagicFieldGroup component', () => {
 				<MagicFieldGroup
 					id={'magic-7'}
 					fieldClassName={'magic'}
+					label={'Hi Roy'}
 					onValueChange={genericChangeHandler}
 					options={[
 						{
@@ -260,6 +269,7 @@ describe('MagicFieldGroup component', () => {
 				<MagicFieldGroup
 					id={'magic-9'}
 					fieldClassName={'magic'}
+					label={'Hi Roy'}
 					onValueChange={(newValue) => {
 						updatedValue = newValue;
 					}}
@@ -288,6 +298,7 @@ describe('MagicFieldGroup component', () => {
 				<MagicFieldGroup
 					id={'magic-50'}
 					fieldClassName={'magic'}
+					label={'Hi Roy'}
 					onValueChange={genericChangeHandler}
 					fieldsList={[
 						{
@@ -319,6 +330,7 @@ describe('MagicFieldGroup component', () => {
 				<MagicFieldGroup
 					id={'magic-50'}
 					fieldClassName={'magic'}
+					label={'Hi Roy'}
 					onValueChange={genericChangeHandler}
 					fieldsList={[
 						{

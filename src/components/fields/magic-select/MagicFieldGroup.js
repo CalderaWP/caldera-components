@@ -2,13 +2,17 @@ import React from 'react';
 import {
 	onValueChangePropType,
 	optionsShapeProp,
-	valuePropType
+	valuePropType,
+	fieldGroupPropTypes
 } from '../propTypes';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import {MagicItem} from './MagicItem';
 import {ButtonGroup} from "../button-group/ButtonGroup";
 import {MagicSelect} from "./MagicSelect";
+import {RenderGroup} from "../../RenderGroup";
+import {Message} from "../messages/Message";
+
 
 /**
  * Encapsulates a complete Magic Select field group including label and the type chooser and the input
@@ -24,7 +28,7 @@ export class MagicFieldGroup extends React.PureComponent {
 		super(props);
 		this.state = {
 			currentListType: props.defaultList,
-			isOpen: props.isOpen
+			isOpen: props.isOpen,
 		};
 		this.onChange = this.onChange.bind(this);
 		this.items = this.items.bind(this);
@@ -157,8 +161,17 @@ export class MagicFieldGroup extends React.PureComponent {
 	render() {
 		return (
 			<div
-				className={classNames('magic-select', this.props.className)}
+				className={classNames(
+					MagicFieldGroup.classNames.fieldWrapper,
+					RenderGroup.classNames.fieldWrapper,
+					this.props.className
+					)
+				}
 			>
+
+				<Message
+					message={this.props.message}
+				/>
 				{this.state.isOpen &&
 					<ButtonGroup
 						onChange={this.onChangeListType}
@@ -176,6 +189,7 @@ export class MagicFieldGroup extends React.PureComponent {
 					isOpen={this.state.isOpen}
 					onBlur={this.onInputBlur}
 					onFocus={this.onInputFocus}
+					className={this.props.fieldClassName}
 				/>
 			</div>
 		);
@@ -187,15 +201,9 @@ export class MagicFieldGroup extends React.PureComponent {
  * Prop definitions for MagicFieldGroup component
  */
 MagicFieldGroup.propTypes = {
-	id: PropTypes.string.isRequired,
+	...fieldGroupPropTypes,
 	fieldsList: optionsShapeProp,
 	systemTagsList: optionsShapeProp,
-	options: optionsShapeProp,
-	isRequired: PropTypes.bool,
-	help: PropTypes.string,
-	value: valuePropType,
-	onValueChange: onValueChangePropType,
-	disabled: PropTypes.bool,
 	defaultList: PropTypes.string,
 	isOpen: PropTypes.bool
 };
@@ -208,4 +216,18 @@ MagicFieldGroup.propTypes = {
 MagicFieldGroup.defaultProps = {
 	defaultList: 'fields',
 	isOpen: false,
+	message: {
+		error: false,
+		message: ''
+	}
+};
+
+/**
+ * The names of classes used for HTML elements in MagicFieldGroup component
+ * @type {{fieldWrapper: string, input: string, option: string}}
+ */
+MagicFieldGroup.classNames = {
+	fieldWrapper: 'caldera-magic-select-group',
+	input: 'caldera-magic-input',
+	option: 'caldera-magic-option'
 };

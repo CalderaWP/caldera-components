@@ -7,6 +7,9 @@ import {
 import Autocomplete from 'react-autocomplete';
 import PropTypes from 'prop-types';
 import {MagicItem} from './MagicItem';
+import {MagicFieldGroup} from "./MagicFieldGroup";
+import classNames from "classnames";
+
 
 /**
  * Encapsulates a complete Magic Select field
@@ -90,7 +93,11 @@ export class MagicSelect extends React.PureComponent {
 				inputProps={{
 					id: this.props.id,
 					value: this.props.value,
-					className: `${this.props.id}-magic-input`,
+					className:classNames(
+						MagicFieldGroup.classNames.input,
+						`${MagicFieldGroup.classNames.input}-${this.props.id}`,
+						this.props.className
+					),
 					onFocus: this.onInputFocus,
 					onBlur:this.onInputBlur,
 					onClick:this.onChange
@@ -121,7 +128,8 @@ MagicSelect.propTypes = {
 	disabled: PropTypes.bool,
 	isOpen: PropTypes.bool,
 	onBlur: PropTypes.func,
-	onFocus: PropTypes.func
+	onFocus: PropTypes.func,
+	className: PropTypes.string
 };
 
 /**
