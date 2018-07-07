@@ -4,6 +4,11 @@ exports[`MagicFieldGroup component matches snapshot 1`] = `
 <div
   className="caldera-magic-select-group caldera-config-field"
 >
+  <label
+    htmlFor="magic-3"
+  >
+    Hi Roy
+  </label>
   <div
     style={
       Object {

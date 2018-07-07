@@ -12,6 +12,7 @@ import {ButtonGroup} from "../button-group/ButtonGroup";
 import {MagicSelect} from "./MagicSelect";
 import {RenderGroup} from "../../RenderGroup";
 import {Message} from "../messages/Message";
+import {FieldGroup} from "../FieldGroup";
 
 
 /**
@@ -168,6 +169,10 @@ export class MagicFieldGroup extends React.PureComponent {
 					)
 				}
 			>
+				<FieldGroup.Label
+					id={this.props.id}
+					label={this.props.label}
+				/>
 
 				<Message
 					message={this.props.message}
