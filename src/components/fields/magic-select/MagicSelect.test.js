@@ -1,6 +1,6 @@
 import renderer from 'react-test-renderer';
 import React from 'react';
-import {mount, shallow} from 'enzyme';
+import {mount} from 'enzyme';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import {MagicSelect} from './MagicSelect';
@@ -20,11 +20,13 @@ describe('MagicSelect component', () => {
 				options={[
 					{
 						label: 'HTML',
-						value: 'html'
+						value: 'html',
+						innerKey:'html'
 					},
 					{
 						label: 'Plain Text',
-						value: 'plain'
+						value: 'plain',
+						innerKey:'plain'
 					}
 				]}
 			/>
@@ -41,11 +43,13 @@ describe('MagicSelect component', () => {
 				options={[
 					{
 						label: 'HTML',
-						value: 'html'
+						value: 'html',
+						innerKey:'html'
 					},
 					{
 						label: 'Plain Text',
-						value: 'plain'
+						value: 'plain',
+						innerKey:'plain'
 					}
 				]}
 			/>
@@ -62,11 +66,13 @@ describe('MagicSelect component', () => {
 				options={[
 					{
 						label: 'HTML',
-						value: 'html'
+						value: 'html',
+						innerKey:'html'
 					},
 					{
 						label: 'Plain Text',
-						value: 'plain'
+						value: 'plain',
+						innerKey:'plain'
 					}
 				]}
 			/>
@@ -82,69 +88,110 @@ describe('MagicSelect component', () => {
 					fieldClassName={'magic'}
 					onValueChange={genericChangeHandler}
 					options={[
-						{
-							label: 'HTML',
-							value: 'html'
-						},
-						{
-							label: 'Plain Text',
-							value: 'plain'
-						}
-					]}
+			{
+				label: 'HTML',
+				value: 'html',
+				innerKey:'html'
+			},
+			{
+				label: 'Plain Text',
+				value: 'plain',
+				innerKey:'plain'
+			}
+		]}
 					isOpen={false}
 				/>
 			);
 			expect(component.find('.magic-input-option')).toHaveLength(0);
 		});
 
-		it('Updates is open state when focused', () => {
-			let updatedValue = null;
+		it('shows  options if opened', () => {
 			const component = mount(
 				<MagicSelect
-					id={'magic-9'}
+					id={'magic-3'}
 					fieldClassName={'magic'}
-					onValueChange={(newValue) => {
-						updatedValue = newValue;
+					onValueChange={genericChangeHandler}
+					options={[
+			{
+				label: 'HTML',
+				value: 'html',
+				innerKey:'html'
+			},
+			{
+				label: 'Plain Text',
+				value: 'plain',
+				innerKey:'plain'
+			}
+		]}
+					isOpen={true}
+				/>
+			);
+			expect(component.find('.magic-input-option')).toHaveLength(2);
+		});
+
+		it('Updates is open state when focused', () => {
+			let isOpen = false;
+			const component = mount(
+				<MagicSelect
+					id={'magic-9-blur'}
+					fieldClassName={'magic'}
+					onInputBlur={() => {
+						isOpen = true;
 					}}
+					onFocus={() => {
+						isOpen = false;
+					}}
+					onValueChange={genericChangeHandler}
 					options={[
 						{
 							label: 'a1',
-							value: 1
+							value: 1,
+							innerKey: '1'
 						},
 						{
 							label: 'a14',
-							value: 14
+							value: 14,
+							innerKey: '2'
+
 						}
 					]}
 				/>
 			);
 			component.find( 'input' ).simulate('focus');
-			expect(component.state('isOpen')).toEqual(true);
+			expect(component.prop('isOpen')).toEqual(false);
 		});
 
 		it('Updates is open state when blurred', () => {
-			let updatedValue = null;
+			let isOpen = false;
 			const component = mount(
 				<MagicSelect
 					id={'magic-9-blur'}
 					fieldClassName={'magic'}
-					onValueChange={(newValue) => {
-						updatedValue = newValue;
+					onValueChange={genericChangeHandler}
+					onInputBlur={() => {
+						isOpen = true;
+					}}
+					onFocus={() => {
+						isOpen = false;
 					}}
 					options={[
 						{
 							label: 'a1',
-							value: 1
+							value: 1,
+							innerKey: '1'
 						},
 						{
 							label: 'a14',
-							value: 14
+							value: 14,
+							innerKey: '2'
+
 						}
 					]}
 				/>
 			);
+			component.find( 'input' ).simulate('focus');
 			component.find( 'input' ).simulate('blur');
-			expect(component.state('isOpen')).toEqual(false);
+			expect(component.prop('isOpen')).toEqual(false);
 		});
 
 		it('Uses options prop by default - right number of options', () => {
@@ -155,12 +202,15 @@ describe('MagicSelect component', () => {
 					onValueChange={genericChangeHandler}
 					options={[
 						{
-							label: 'HTML',
-							value: 'html'
+							label: 'a1',
+							value: 1,
+							innerKey: '1'
 						},
 						{
-							label: 'Plain Text',
-							value: 'plain'
+							label: 'a14',
+							value: 14,
+							innerKey: '2'
+
 						}
 					]}
 					isOpen={true}
@@ -176,86 +226,23 @@ describe('MagicSelect component', () => {
 					fieldClassName={'magic'}
 					onValueChange={genericChangeHandler}
 					options={[
-						{
-							label: 'HTML',
-							value: 'html'
-						},
-						{
-							label: 'Plain Text',
-							value: 'plain'
-						}
-					]}
+			{
+				label: 'HTML',
+				value: 'html',
+				innerKey:'html'
+			},
+			{
+				label: 'Plain Text',
+				value: 'plain',
+				innerKey:'plain'
+			}
+		]}
 					isOpen={true}
 				/>
 			);
 			expect(component.find('.magic-input-option')).toHaveLength(2);
 		});
 
-		it('Uses fieldsList prop if no options prop', () => {
-			const component = mount(
-				<MagicSelect
-					id={'magic-5'}
-					fieldClassName={'magic'}
-					onValueChange={genericChangeHandler}
-					fieldsList={[
-						{
-							label: 'Field One',
-							value: '%fldOne%'
-						},
-						{
-							label: 'Field Two',
-							value: '%fldTwo%'
-						},
-						{
-							label: 'Field Three',
-							value: '%fldThree%'
-						},
-					]}
-					systemTagsList={[
-						{
-							label: 'User First Name',
-							value: '{user:first_name}'
-						}
-					]}
-					isOpen={true}
-					value={''}
-				/>
-			);
-			expect(component.find('.magic-input-option').children().length).toBe(6);
-		});
-
-		it('Uses systemTagsList prop if no options prop and currentListType state is system', () => {
-			const component = mount(
-				<MagicSelect
-					id={'magic-5'}
-					fieldClassName={'magic'}
-					onValueChange={genericChangeHandler}
-					fieldsList={[
-						{
-							label: '0',
-							value: 0
-						},
-						{
-							label: '1',
-							value: 1
-						},
-						{
-							label: '3',
-							value: 3
-						}
-					]}
-					systemTagsList={[
-						{
-							label: '3',
-							value: 3
-						}
-					]}
-					isOpen={true}
-				/>
-			);
-			component.setState({currentListType: 'system'});
-			expect(component.find('.magic-input-option').length).toBe(1);
-		});
 	});
 
 
@@ -269,7 +256,8 @@ describe('MagicSelect component', () => {
 					options={[
 						{
 							label: '1',
-							value: 1
+							value: 1,
+							innerKey: '11'
 						}
 					]}
 					value={1}
@@ -291,11 +279,14 @@ describe('MagicSelect component', () => {
 					options={[
 						{
 							label: '1',
-							value: 1
+							value: 1,
+							innerKey: '12'
 						},
 						{
 							label: '14',
-							value: 14
+							value: 14,
+							innerKey: '13'
+
 						}
 					]}
 					value={1}
@@ -305,70 +296,33 @@ describe('MagicSelect component', () => {
 			component.instance().onSelect(14);
 			expect(updatedValue).toEqual(14);
 		});
-	});
 
-	describe( 'Button group for type choice', () => {
-		it( 'Outputs the buttons if open', () => {
+		it.skip('Receives the updated value ', () => {
+			let updatedValue = null;
 			const component = mount(
 				<MagicSelect
-					id={'magic-50'}
+					id={'magic-9'}
 					fieldClassName={'magic'}
-					onValueChange={genericChangeHandler}
-					fieldsList={[
-						{
-							label: '0',
-							value: 0
-						},
+					onValueChange={(newValue) => {
+						updatedValue = newValue;
+					}}
+					options={[
 						{
 							label: '1',
-							value: 1
-						},
-						{
-							label: '3',
-							value: 3
+							value: 12,
+							innerKey: '12'
 						}
 					]}
-					systemTagsList={[
-						{
-							label: '3',
-							value: 3
-						}
-					]}
+					value={updatedValue}
 					isOpen={true}
 				/>
 			);
-			expect(component.find('button').length).toBe(2);
-		});
-		it( 'Does not oupt the buttons if not open', () => {
-			const component = mount(
-				<MagicSelect
-					id={'magic-50'}
-					fieldClassName={'magic'}
-					onValueChange={genericChangeHandler}
-					fieldsList={[
-						{
-							label: '0',
-							value: 0
-						},
-						{
-							label: '1',
-							value: 1
-						},
-						{
-							label: '3',
-							value: 3
-						}
-					]}
-					systemTagsList={[
-						{
-							label: '3',
-							value: 3
-						}
-					]}
-					isOpen={false}
-				/>
-			);
-			expect(component.find('button').length).toBe(0);
+
+			component.find('input').simulate('change', {event:{target: {value: 12}}} );
+			expect(updatedValue).toEqual(14);
 		});
 	});
+
+
+
 });

@@ -4,11 +4,9 @@ import {
 	optionsShapeProp,
 	valuePropType
 } from '../propTypes';
-import classNames from 'classnames';
 import Autocomplete from 'react-autocomplete';
 import PropTypes from 'prop-types';
 import {MagicItem} from './MagicItem';
-import {ButtonGroup} from "../button-group/ButtonGroup";
 
 /**
  * Encapsulates a complete Magic Select field
@@ -22,19 +20,12 @@ export class MagicSelect extends React.PureComponent {
 	 */
 	constructor(props) {
 		super(props);
-		this.state = {
-			currentListType: props.defaultList,
-			isOpen: props.isOpen
-		};
 		this.onChange = this.onChange.bind(this);
-		this.items = this.items.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.onSelect = this.onSelect.bind(this);
 		this.onInputFocus = this.onInputFocus.bind(this);
 		this.renderItem = this.renderItem.bind(this);
 		this.onInputBlur = this.onInputBlur.bind(this);
-		this.onChangeListType = this.onChangeListType.bind(this);
-		this.listTypeOptions = this.listTypeOptions.bind(this);
 	}
 
 	/**
@@ -51,14 +42,18 @@ export class MagicSelect extends React.PureComponent {
 	 * Handle when the field gets focus
 	 */
 	onInputFocus() {
-		this.setState({isOpen: true});
+		if( 'function' === typeof this.props.onFocus ){
+			this.props.onFocus();
+		}
 	}
 
 	/**
 	 * Handle when the field is blurred
 	 */
 	onInputBlur() {
-		this.setState({isOpen: false});
+		if( 'function' === typeof this.props.onBlur ){
+			this.props.onBlur();
+		}
 	}
 
 
@@ -70,16 +65,6 @@ export class MagicSelect extends React.PureComponent {
 		this.props.onValueChange(value);
 	}
 
-	/**
-	 * Update list of tags to show
-	 * @param {String}newType
-	 */
-	onChangeListType(newType){
-		if( ! this.state.isOpen ){
-			this.setState({isOpen:true});
-		}
-		this.setState({currentListType:newType});
-	}
 
 	/**
 	 * Render option
@@ -92,64 +77,6 @@ export class MagicSelect extends React.PureComponent {
 		return <MagicItem item={item} isHighlighted={isHighlighted} innerKey={item.innerKey} key={item.innerKey} />
 	}
 
-	/**
-	 * Create the list of items
-	 *
-	 * @return {Array}
-	 */
-	items() {
-		const optionsOrEmpty =(options) => {
-			return Array.isArray(options) && options.length ? options : [];
-		};
-
-		let items = [];
-
-		if( optionsOrEmpty(this.props.options).length){
-			items = optionsOrEmpty(this.props.options);
-		}
-		else if ('system' === this.state.currentListType ) {
-			items = optionsOrEmpty(this.props.systemTagsList);
-		} else {
-			items = optionsOrEmpty(this.props.fieldsList);
-		}
-
-		if (items.length) {
-			items.forEach((item, itemIndex) => {
-				items[itemIndex].innerKey = `${item.value}-${itemIndex}`;
-			});
-		}else{
-			items.push({
-				value: null,
-				label: null,
-				innerKey:this.props.id
-			})
-		}
-
-		return items;
-
-	}
-
-	/**
-	 * Options for type chooser
-	 *
-	 * @return {*[]}
-	 */
-	listTypeOptions(){
-		return [
-			{
-				value: 'fields',
-				label: '%',
-				ariaLabel: 'Select from field values'
-			},
-			{
-				value: 'system',
-				label: '{}',
-				ariaLabel: 'Select from system values'
-			},
-		]
-	}
-
-
 
 	/**
 	 * Render MagicSelect component
@@ -157,36 +84,26 @@ export class MagicSelect extends React.PureComponent {
 	 */
 	render() {
 		return (
-			<div
-				className={classNames('magic-select', this.props.className)}
-			>
-				{this.state.isOpen &&
-					<ButtonGroup
-						onChange={this.onChangeListType}
-						options={this.listTypeOptions()}
-						value={this.state.currentListType}
-					/>
-				}
 
-				<Autocomplete
-					getItemValue={(item) => item.value}
-					items={this.items()}
-					inputProps={{
-						id: this.props.id,
-						value: this.props.value,
-						className: `${this.props.id}-magic-input`,
-						onFocus: this.onInputFocus,
-						onBlur:this.onInputBlur,
-						onClick:this.onChange
-					}}
-					renderItem={this.renderItem}
-					value={this.props.value}
-					onChange={this.onChange}
-					open={this.state.isOpen}
-					selectOnBlur={true}
-					onSelect={this.onSelect}
-				/>
-			</div>
+			<Autocomplete
+				getItemValue={(item) => item.value}
+				items={this.props.options}
+				inputProps={{
+					id: this.props.id,
+					value: this.props.value,
+					className: `${this.props.id}-magic-input`,
+					onFocus: this.onInputFocus,
+					onBlur:this.onInputBlur,
+					onClick:this.onChange
+				}}
+				renderItem={this.renderItem}
+				value={this.props.value}
+				onChange={this.onChange}
+				open={this.props.isOpen}
+				selectOnBlur={true}
+				onSelect={this.onSelect}
+			/>
+
 		);
 	}
 }
@@ -197,16 +114,15 @@ export class MagicSelect extends React.PureComponent {
  */
 MagicSelect.propTypes = {
 	id: PropTypes.string.isRequired,
-	fieldsList: optionsShapeProp,
-	systemTagsList: optionsShapeProp,
 	options: optionsShapeProp,
 	isRequired: PropTypes.bool,
 	help: PropTypes.string,
 	value: valuePropType,
 	onValueChange: onValueChangePropType,
 	disabled: PropTypes.bool,
-	defaultList: PropTypes.string,
-	isOpen: PropTypes.bool
+	isOpen: PropTypes.bool,
+	onBlur: PropTypes.func,
+	onFocus: PropTypes.func
 };
 
 /**
@@ -217,4 +133,5 @@ MagicSelect.propTypes = {
 MagicSelect.defaultProps = {
 	defaultList: 'fields',
 	isOpen: false,
+	options:[]
 };

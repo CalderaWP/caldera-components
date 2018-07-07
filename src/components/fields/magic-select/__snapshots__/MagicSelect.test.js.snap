@@ -2,29 +2,25 @@
 
 exports[`MagicSelect component Matches snapshot 1`] = `
 <div
-  className="magic-select"
->
-  <div
-    style={
-      Object {
-        "display": "inline-block",
-      }
+  style={
+    Object {
+      "display": "inline-block",
     }
-  >
-    <input
-      aria-autocomplete="list"
-      aria-expanded={false}
-      autoComplete="off"
-      className="magic-1-magic-input"
-      id="magic-1"
-      onBlur={[Function]}
-      onChange={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      role="combobox"
-      value=""
-    />
-  </div>
+  }
+>
+  <input
+    aria-autocomplete="list"
+    aria-expanded={false}
+    autoComplete="off"
+    className="magic-1-magic-input"
+    id="magic-1"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    role="combobox"
+    value=""
+  />
 </div>
 `;
