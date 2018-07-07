@@ -55,6 +55,7 @@
     <li data-ice="manualNav" class="indent-h1" data-link="manual/components.html"><a href="manual/components.html" data-ice="link">Included Component</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#-code-rendergroup--code-" data-ice="link">RenderGroup</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#example-of--code-rendergroup--code--component-usage" data-ice="link">Example Of RenderGroup Component Usage</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#a-magic-aut-complete-field-selector-in-a-rednergroup" data-ice="link">A Magic Aut-Complete Field Selector In A RednerGroup</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#add-onfocus-event-for-all-fields-of-render-group" data-ice="link">Add onFocus Event For All Fields Of Render Group</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#add-onblur-event-for-all-fields-of-render-group" data-ice="link">Add onBlur Event For All Fields Of Render Group</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#field-groups" data-ice="link">Field Groups</a></li>
@@ -63,6 +64,7 @@
 <li data-ice="manualNav" class="indent-h4" data-link="manual/components.html"><a href="manual/components.html#text-field-that-is-not-required" data-ice="link">Text field that is not required</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/components.html"><a href="manual/components.html#text-field-with-help-text" data-ice="link">Text field with help text</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#number-field-group" data-ice="link">Number Field Group</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#magic-select-groups" data-ice="link">Magic Select Groups</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#fieldsets" data-ice="link">Fieldsets</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#button-group" data-ice="link">Button Group</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#examples" data-ice="link">Examples</a></li>
@@ -204,6 +206,39 @@ const configFields = [
     className={&apos;cf-something-config&apos;}
  /&gt; </code>
 </code></pre>
+<h3 id="a-magic-aut-complete-field-selector-in-a-rednergroup">A Magic Aut-Complete Field Selector In A RednerGroup</h3><pre><code class="lang-js"><code class="source-code prettyprint">const magicField = {
+    &apos;id&apos;: &apos;cf-magic-example&apos;,
+    &apos;type&apos;: &apos;magic&apos;,
+    &apos;label&apos;: &apos;Magic ID&apos;,
+    &apos;description&apos;: &apos;Select a value from list of magic tags or type a value&apos;,
+    fieldsList: [
+        {
+            label: &apos;0&apos;,
+            value: 0
+        },
+        {
+            label: &apos;1&apos;,
+            value: 1
+        },
+        {
+            label: &apos;3&apos;,
+            value: 3
+        }
+    ],
+    systemTagsList: [
+        {
+            label: &apos;3&apos;,
+            value: 3
+        }
+    ],
+    isOpen: true,
+    onValueChange: () =&gt; {
+    }
+};
+
+&lt;RenderGroup configFields={[magicField]}/&gt;
+</code>
+</code></pre>
 <h3 id="add-onfocus-event-for-all-fields-of-render-group">Add onFocus Event For All Fields Of Render Group</h3><p>You can add an onFocus event that fires when ever any field is focused. The callback function gets the config field&apos;s ID as its only parameter.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">&lt;RenderGroup
     configFields={[
@@ -283,8 +318,7 @@ const configFields = [
 
 Select field groups happen when you pass &quot;select&quot; to the `type` prop. 
 
-Select fields take an array of options in the prop option. Options have the shape defiend in the 
-
+Select fields take an array of options in the prop option. Options in that collection must conform the shape [defined here](https://calderalabs.org/caldera-components/docs/file/src/components/fields/propTypes.js.html#lineNumber75)
 
 </code>
 </code></pre>
@@ -308,6 +342,42 @@ Select fields take an array of options in the prop option. Options have the shap
         }
     ]}
 /&gt;</p>
+<h3 id="magic-select-groups">Magic Select Groups</h3><p>Magic select groups use <code>MagicSelect</code> fields, which wrap <a href="https://github.com/reactjs/react-autocomplete">reactjs/react-autocomple</a> to create a UI for <a href="https://calderaforms.com/doc/using-magic-tags-caldera-forms/">Caldera Forms magic tags</a>.</p>
+<p>These fields groups show options from two lists, one is passed in the prop <code>fieldsList</code> and represents the fields of the form, and the other is in <code>systemTagsList</code>, which represents the system values such as the current user info.</p>
+<p>The property <code>isOpen</code> controls if the auto-complete list is open.</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">let magicFieldValue =&apos;&apos;;
+
+&lt;MagicFieldGroup
+        id={&apos;magic-5&apos;}
+        fieldClassName={&apos;magic&apos;}
+        label={&apos;Magic Group&apos;}
+        onValueChange={(newValue) =&gt; {
+            magicFieldValue = newValue;
+        } }
+        fieldsList={[
+            {
+                label: &apos;Field One&apos;,
+                value: &apos;%fldOne%&apos;
+            },
+            {
+                label: &apos;Field Two&apos;,
+                value: &apos;%fldTwo%&apos;
+            },
+            {
+                label: &apos;Field Three&apos;,
+                value: &apos;%fldThree%&apos;
+            },
+        ]}
+        systemTagsList={[
+            {
+                label: &apos;User First Name&apos;,
+                value: &apos;{user:first_name}&apos;
+            }
+        ]}
+        isOpen={true}
+        value={magicFieldValue}
+    /&gt;</code>
+</code></pre>
 <pre><code><code class="source-code prettyprint">## Select Fields
 * [Reference](https://calderalabs.org/caldera-components/function/index.html#static-function-SelectField)
 
@@ -358,7 +428,10 @@ let checkBoxValue = [&apos;1&apos;];
     ]}
 /&gt;</code>
 </code></pre>
-<h2 id="button-group">Button Group</h2><h3 id="examples">Examples</h3><h3 id="button-group-with-two-options">Button Group With Two Options</h3><pre><code class="lang-js"><code class="source-code prettyprint">&lt;ButtonGroup
+<h2 id="button-group">Button Group</h2><p>Button groups are select fields. One button can be selected at once.</p>
+<p>This is a field, not a group (like <code>FieldGroup</code> or <code>MagicFieldGroup</code>) so it does not handle its own label.</p>
+<p>Button groups fields take an array of options in the prop option. Options in that collection must conform the shape <a href="https://calderalabs.org/caldera-components/docs/file/src/components/fields/propTypes.js.html#lineNumber75">defined here</a></p>
+<h3 id="examples">Examples</h3><h3 id="button-group-with-two-options">Button Group With Two Options</h3><pre><code class="lang-js"><code class="source-code prettyprint">&lt;ButtonGroup
     onChange={(selectedValue) =&gt; {
         console.log(selectedValue);
     }}

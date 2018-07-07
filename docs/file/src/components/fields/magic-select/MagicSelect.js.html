@@ -47,6 +47,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fieldInnerPropTypes">fieldInnerPropTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fieldPropTypes">fieldPropTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-inputTypeProp">inputTypeProp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-magicGroupPropTypes">magicGroupPropTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-onValueChangePropType">onValueChangePropType</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-optionShape">optionShape</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-optionsShapeProp">optionsShapeProp</a></span></span></li>
@@ -88,6 +89,9 @@ import {
 import Autocomplete from &apos;react-autocomplete&apos;;
 import PropTypes from &apos;prop-types&apos;;
 import {MagicItem} from &apos;./MagicItem&apos;;
+import {MagicFieldGroup} from &apos;./MagicFieldGroup&apos;;
+import classNames from &apos;classnames&apos;;
+
 
 /**
  * Encapsulates a complete Magic Select field
@@ -112,7 +116,6 @@ export class MagicSelect extends React.PureComponent {
 	/**
 	 * Handle direct change events
 	 *
-	 * Probably not needed
 	 * @param {Event} event
 	 */
 	onChange(event) {
@@ -155,7 +158,7 @@ export class MagicSelect extends React.PureComponent {
 	 * @return {*}
 	 */
 	renderItem(item, isHighlighted){
-		return &lt;MagicItem item={item} isHighlighted={isHighlighted} innerKey={item.innerKey} key={item.innerKey} /&gt;
+		return &lt;MagicItem item={item} isHighlighted={isHighlighted} innerKey={item.innerKey} key={item.innerKey} onClick={this.onSelect} /&gt;;
 	}
 
 
@@ -165,14 +168,17 @@ export class MagicSelect extends React.PureComponent {
 	 */
 	render() {
 		return (
-
 			&lt;Autocomplete
 				getItemValue={(item) =&gt; item.value}
 				items={this.props.options}
 				inputProps={{
 					id: this.props.id,
 					value: this.props.value,
-					className: `${this.props.id}-magic-input`,
+					className:classNames(
+						MagicFieldGroup.classNames.input,
+						`${MagicFieldGroup.classNames.input}-${this.props.id}`,
+						this.props.className
+					),
 					onFocus: this.onInputFocus,
 					onBlur:this.onInputBlur,
 					onClick:this.onChange
@@ -203,7 +209,8 @@ MagicSelect.propTypes = {
 	disabled: PropTypes.bool,
 	isOpen: PropTypes.bool,
 	onBlur: PropTypes.func,
-	onFocus: PropTypes.func
+	onFocus: PropTypes.func,
+	className: PropTypes.string
 };
 
 /**

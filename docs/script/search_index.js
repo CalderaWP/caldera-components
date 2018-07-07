@@ -204,6 +204,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "@caldera-labs/components/src/components/fields/proptypes.js~magicgroupproptypes",
+    "variable/index.html#static-variable-magicGroupPropTypes",
+    "<span>magicGroupPropTypes</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/fields/propTypes.js</span>",
+    "variable"
+  ],
+  [
     "@caldera-labs/components/src/components/fields/messages/messageobjectfactory.js~messageobjectfactory",
     "function/index.html#static-function-messageObjectFactory",
     "<span>messageObjectFactory</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/fields/messages/messageObjectFactory.js</span>",

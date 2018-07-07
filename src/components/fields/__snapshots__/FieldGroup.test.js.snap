@@ -139,6 +139,7 @@ exports[`Field Group component Uses the Magic group, if type is magic 1`] = `
   >
     magic
   </label>
+  
   <div
     style={
       Object {

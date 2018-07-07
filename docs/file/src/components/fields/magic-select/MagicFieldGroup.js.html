@@ -47,6 +47,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fieldInnerPropTypes">fieldInnerPropTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fieldPropTypes">fieldPropTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-inputTypeProp">inputTypeProp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-magicGroupPropTypes">magicGroupPropTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-onValueChangePropType">onValueChangePropType</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-optionShape">optionShape</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-optionsShapeProp">optionsShapeProp</a></span></span></li>
@@ -80,16 +81,15 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/components/fields/magic-select/MagicFieldGroup.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;;
-import {
-	onValueChangePropType,
-	optionsShapeProp,
-	valuePropType
-} from &apos;../propTypes&apos;;
+import {magicGroupPropTypes} from &apos;../propTypes&apos;;
 import classNames from &apos;classnames&apos;;
-import PropTypes from &apos;prop-types&apos;;
 import {MagicItem} from &apos;./MagicItem&apos;;
-import {ButtonGroup} from &quot;../button-group/ButtonGroup&quot;;
-import {MagicSelect} from &quot;./MagicSelect&quot;;
+import {ButtonGroup} from &apos;../button-group/ButtonGroup&apos;;
+import {MagicSelect} from &apos;./MagicSelect&apos;;
+import {RenderGroup} from &apos;../../RenderGroup&apos;;
+import {Message} from &apos;../messages/Message&apos;;
+import {FieldGroup} from &apos;../FieldGroup&apos;;
+
 
 /**
  * Encapsulates a complete Magic Select field group including label and the type chooser and the input
@@ -105,7 +105,7 @@ export class MagicFieldGroup extends React.PureComponent {
 		super(props);
 		this.state = {
 			currentListType: props.defaultList,
-			isOpen: props.isOpen
+			isOpen: props.isOpen,
 		};
 		this.onChange = this.onChange.bind(this);
 		this.items = this.items.bind(this);
@@ -147,6 +147,7 @@ export class MagicFieldGroup extends React.PureComponent {
 	 */
 	onSelect(value) {
 		this.props.onValueChange(value);
+		this.setState({isOpen: false});
 	}
 
 	/**
@@ -168,7 +169,7 @@ export class MagicFieldGroup extends React.PureComponent {
 	 * @return {*}
 	 */
 	renderItem(item, isHighlighted){
-		return &lt;MagicItem item={item} isHighlighted={isHighlighted} innerKey={item.innerKey} key={item.innerKey} /&gt;
+		return &lt;MagicItem item={item} isHighlighted={isHighlighted} innerKey={item.innerKey} key={item.innerKey} /&gt;;
 	}
 
 	/**
@@ -201,7 +202,7 @@ export class MagicFieldGroup extends React.PureComponent {
 				value: null,
 				label: null,
 				innerKey:this.props.id
-			})
+			});
 		}
 
 		return items;
@@ -225,7 +226,7 @@ export class MagicFieldGroup extends React.PureComponent {
 				label: &apos;{}&apos;,
 				ariaLabel: &apos;Select from system values&apos;
 			},
-		]
+		];
 	}
 
 
@@ -237,8 +238,22 @@ export class MagicFieldGroup extends React.PureComponent {
 	render() {
 		return (
 			&lt;div
-				className={classNames(&apos;magic-select&apos;, this.props.className)}
+				className={classNames(
+					MagicFieldGroup.classNames.fieldWrapper,
+					RenderGroup.classNames.fieldWrapper,
+					this.props.className
+				)
+				}
 			&gt;
+				&lt;FieldGroup.Label
+					id={this.props.id}
+					label={this.props.label}
+				/&gt;
+				{this.props.message.message &amp;&amp;
+					&lt;Message
+						message={this.props.message}
+					/&gt;
+				}
 				{this.state.isOpen &amp;&amp;
 					&lt;ButtonGroup
 						onChange={this.onChangeListType}
@@ -254,6 +269,9 @@ export class MagicFieldGroup extends React.PureComponent {
 					value={this.props.value}
 					isRequired={this.props.isRequired}
 					isOpen={this.state.isOpen}
+					onBlur={this.onInputBlur}
+					onFocus={this.onInputFocus}
+					className={this.props.fieldClassName}
 				/&gt;
 			&lt;/div&gt;
 		);
@@ -264,19 +282,7 @@ export class MagicFieldGroup extends React.PureComponent {
 /**
  * Prop definitions for MagicFieldGroup component
  */
-MagicFieldGroup.propTypes = {
-	id: PropTypes.string.isRequired,
-	fieldsList: optionsShapeProp,
-	systemTagsList: optionsShapeProp,
-	options: optionsShapeProp,
-	isRequired: PropTypes.bool,
-	help: PropTypes.string,
-	value: valuePropType,
-	onValueChange: onValueChangePropType,
-	disabled: PropTypes.bool,
-	defaultList: PropTypes.string,
-	isOpen: PropTypes.bool
-};
+MagicFieldGroup.propTypes = magicGroupPropTypes;
 
 /**
  * Default property values for MagicFieldGroup component
@@ -286,6 +292,21 @@ MagicFieldGroup.propTypes = {
 MagicFieldGroup.defaultProps = {
 	defaultList: &apos;fields&apos;,
 	isOpen: false,
+	message: {
+		error: false,
+		message: &apos;&apos;
+	},
+	type: &apos;magic&apos;
+};
+
+/**
+ * The names of classes used for HTML elements in MagicFieldGroup component
+ * @type {{fieldWrapper: string, input: string, option: string}}
+ */
+MagicFieldGroup.classNames = {
+	fieldWrapper: &apos;caldera-magic-select-group&apos;,
+	input: &apos;caldera-magic-input&apos;,
+	option: &apos;caldera-magic-option&apos;
 };</code></pre>
 
 </div>

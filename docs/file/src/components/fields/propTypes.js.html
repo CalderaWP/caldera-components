@@ -47,6 +47,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fieldInnerPropTypes">fieldInnerPropTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fieldPropTypes">fieldPropTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-inputTypeProp">inputTypeProp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-magicGroupPropTypes">magicGroupPropTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-onValueChangePropType">onValueChangePropType</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-optionShape">optionShape</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-optionsShapeProp">optionsShapeProp</a></span></span></li>
@@ -118,7 +119,7 @@ export const fieldGroupPropTypes = {
 	isRequired: PropTypes.bool,
 	help: PropTypes.string,
 	label: PropTypes.string.isRequired,
-	type: PropTypes.oneOf([&apos;input&apos;, &apos;select&apos;, &apos;fieldset&apos;]),
+	type: PropTypes.oneOf([&apos;input&apos;, &apos;select&apos;, &apos;fieldset&apos;, &apos;magic&apos;]),
 	value: valuePropType,
 	onValueChange: onValueChangePropType,
 	options: PropTypes.array,
@@ -168,7 +169,16 @@ export const optionShape = {
  */
 export const optionsShapeProp = PropTypes.arrayOf(
 	PropTypes.shape(optionShape)
-);</code></pre>
+);
+
+export const magicGroupPropTypes = {
+	...fieldGroupPropTypes,
+	fieldsList: optionsShapeProp,
+	systemTagsList: optionsShapeProp,
+	defaultList: PropTypes.string,
+	isOpen: PropTypes.bool,
+	type: PropTypes.string
+};</code></pre>
 
 </div>
 

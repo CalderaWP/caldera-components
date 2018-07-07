@@ -4,12 +4,20 @@
     <list default="true" id="d2b0f3eb-379f-4bd9-bc0e-61e438292576" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/ast/source/App.js.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ast/source/App.js.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/FieldInner.js.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ast/source/components/fields/FieldInner.js.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/RenderGroup.js.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ast/source/components/RenderGroup.js.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/FieldGroup.js.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ast/source/components/fields/FieldGroup.js.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/button-group/ButtonGroup.js.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ast/source/components/fields/button-group/ButtonGroup.js.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/factories/prepareFieldConfig.js.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ast/source/components/fields/factories/prepareFieldConfig.js.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/magic-select/MagicFieldGroup.js.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ast/source/components/fields/magic-select/MagicFieldGroup.js.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/magic-select/MagicItem.js.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ast/source/components/fields/magic-select/MagicItem.js.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/magic-select/MagicSelect.js.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ast/source/components/fields/magic-select/MagicSelect.js.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/propTypes.js.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ast/source/components/fields/propTypes.js.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ast/source/components/fields/select/SelectField.js.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ast/source/components/fields/select/SelectField.js.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/badge.svg" beforeDir="false" afterPath="$PROJECT_DIR$/docs/badge.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/class/src/App.js~App.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/class/src/App.js~App.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/class/src/components/RenderGroup.js~RenderGroup.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/class/src/components/RenderGroup.js~RenderGroup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/class/src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/class/src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/class/src/components/fields/magic-select/MagicItem.js~MagicItem.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/class/src/components/fields/magic-select/MagicItem.js~MagicItem.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/class/src/components/fields/magic-select/MagicSelect.js~MagicSelect.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/class/src/components/fields/magic-select/MagicSelect.js~MagicSelect.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/coverage.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/coverage.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/file/src/App.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/App.js.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/file/src/components/RenderGroup.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/RenderGroup.js.html" afterDir="false" />
@@ -19,6 +27,7 @@
       <change beforePath="$PROJECT_DIR$/docs/file/src/components/conditional-logic/util.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/conditional-logic/util.js.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/FieldGroup.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/FieldGroup.js.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/FieldInner.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/FieldInner.js.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/button-group/ButtonGroup.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/button-group/ButtonGroup.js.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/factories/fieldFactory.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/factories/fieldFactory.js.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/factories/fieldSetFactory.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/factories/fieldSetFactory.js.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/factories/index.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/factories/index.js.html" afterDir="false" />
@@ -26,6 +35,9 @@
       <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/field-group-change-handlers/fieldsetCheckboxHandler.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/field-group-change-handlers/fieldsetCheckboxHandler.js.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/index.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/index.js.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/input/Input.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/input/Input.js.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/magic-select/MagicFieldGroup.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/magic-select/MagicFieldGroup.js.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/magic-select/MagicItem.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/magic-select/MagicItem.js.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/magic-select/MagicSelect.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/magic-select/MagicSelect.js.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/messages/Message.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/messages/Message.js.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/messages/messageObjectFactory.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/messages/messageObjectFactory.js.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/file/src/components/fields/messages/messagePropTypes.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/file/src/components/fields/messages/messagePropTypes.js.html" afterDir="false" />
@@ -51,7 +63,6 @@
       <change beforePath="$PROJECT_DIR$/docs/identifiers.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/identifiers.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/index.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/lint.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/lint.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/manual/README.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/manual/README.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/manual/components.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/manual/components.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/manual/conditional-logic.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/manual/conditional-logic.html" afterDir="false" />
@@ -62,23 +73,7 @@
       <change beforePath="$PROJECT_DIR$/docs/script/search_index.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/script/search_index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/source.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/variable/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/variable/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manual/components.md" beforeDir="false" afterPath="$PROJECT_DIR$/manual/components.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RenderGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RenderGroup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/fields/FieldGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/FieldGroup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/fields/FieldGroup.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/FieldGroup.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/fields/__snapshots__/FieldGroup.test.js.snap" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/__snapshots__/FieldGroup.test.js.snap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/fields/button-group/ButtonGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/button-group/ButtonGroup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/fields/button-group/ButtonGroup.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/button-group/ButtonGroup.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/fields/factories/fieldFactory.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/factories/fieldFactory.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/fields/factories/prepareFieldConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/factories/prepareFieldConfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/fields/magic-select/MagicFieldGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/magic-select/MagicFieldGroup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/fields/magic-select/MagicFieldGroup.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/magic-select/MagicFieldGroup.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/fields/magic-select/MagicItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/magic-select/MagicItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/fields/magic-select/MagicSelect.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/magic-select/MagicSelect.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/fields/magic-select/MagicSelect.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/magic-select/MagicSelect.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/fields/propTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fields/propTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/renderGroup.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/renderGroup.test.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -96,13 +91,52 @@
         <splitter split-orientation="horizontal" split-proportion="0.83228135">
           <split-first>
             <leaf>
-              <file leaf-file-name="renderGroup.test.js" pinned="false" current-in-tab="true">
+              <file leaf-file-name="renderGroup.test.js" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/components/renderGroup.test.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="440">
-                      <caret line="527" column="24" selection-start-line="527" selection-start-column="24" selection-end-line="527" selection-end-column="24" />
+                    <state relative-caret-position="600">
+                      <caret line="510" column="11" selection-start-line="475" selection-start-column="8" selection-end-line="510" selection-end-column="11" />
                       <folding>
                         <element signature="e#0#42#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="factories.md" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/manual/factories.md">
+                  <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+                    <state split_layout="SPLIT">
+                      <first_editor relative-caret-position="240">
+                        <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+                        <folding>
+                          <element signature="e#0#26#0" expanded="true" />
+                        </folding>
+                      </first_editor>
+                      <second_editor />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="components.md" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/manual/components.md">
+                  <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+                    <state split_layout="FIRST">
+                      <first_editor relative-caret-position="-2">
+                        <caret line="65" column="4" selection-start-line="65" selection-start-column="4" selection-end-line="65" selection-end-column="4" />
+                      </first_editor>
+                      <second_editor />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="MagicFieldGroup.js" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/components/fields/magic-select/MagicFieldGroup.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="271">
+                      <caret line="168" column="18" selection-start-line="168" selection-start-column="18" selection-end-line="168" selection-end-column="18" />
+                      <folding>
+                        <element signature="e#0#26#0" expanded="true" />
                       </folding>
                     </state>
                   </provider>
@@ -116,7 +150,7 @@
                 <entry file="file://$PROJECT_DIR$/src/components/fields/propTypes.js">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="495">
-                      <caret line="51" column="31" lean-forward="true" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
+                      <caret line="51" column="31" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
                     </state>
                   </provider>
                 </entry>
@@ -247,19 +281,19 @@
         <option value="$PROJECT_DIR$/src/components/fields/button-group/ButtonGroup.test.js" />
         <option value="$PROJECT_DIR$/src/components/fields/button-group/ButtonGroup.js" />
         <option value="$PROJECT_DIR$/src/components/fields/magic-select/MagicItem.js" />
-        <option value="$PROJECT_DIR$/src/components/fields/magic-select/MagicFieldGroup.test.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/manual/components.md" />
         <option value="$PROJECT_DIR$/src/components/fields/magic-select/MagicSelect.js" />
         <option value="$PROJECT_DIR$/src/components/fields/magic-select/MagicSelect.test.js" />
         <option value="$PROJECT_DIR$/src/components/RenderGroup.js" />
-        <option value="$PROJECT_DIR$/src/components/fields/magic-select/MagicFieldGroup.js" />
         <option value="$PROJECT_DIR$/src/components/fields/factories/prepareFieldConfig.js" />
         <option value="$PROJECT_DIR$/src/components/fields/propTypes.js" />
         <option value="$PROJECT_DIR$/src/components/fields/FieldGroup.js" />
         <option value="$PROJECT_DIR$/src/components/fields/FieldGroup.test.js" />
         <option value="$PROJECT_DIR$/src/components/fields/factories/fieldFactory.test.js" />
         <option value="$PROJECT_DIR$/src/components/renderGroup.test.js" />
+        <option value="$PROJECT_DIR$/manual/components.md" />
+        <option value="$PROJECT_DIR$/src/components/fields/magic-select/MagicFieldGroup.js" />
+        <option value="$PROJECT_DIR$/src/components/fields/magic-select/MagicFieldGroup.test.js" />
       </list>
     </option>
   </component>
@@ -346,6 +380,15 @@
               <item name="fields" type="462c0819:PsiDirectoryNode" />
               <item name="magic-select" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="components" type="b2602c69:ProjectViewProjectNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="fields" type="462c0819:PsiDirectoryNode" />
+              <item name="magic-select" type="462c0819:PsiDirectoryNode" />
+              <item name="__snapshots__" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -406,16 +449,15 @@
       <workItem from="1530660259058" duration="1250000" />
       <workItem from="1530724884526" duration="1621000" />
       <workItem from="1530810281638" duration="549000" />
-      <workItem from="1530895798568" duration="23137000" />
+      <workItem from="1530895798568" duration="23736000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="183310000" />
+    <option name="totallyTimeSpent" value="183909000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="305" y="23" width="1615" height="1056" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -423,8 +465,8 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.24608968" />
       <window_info id="npm" order="2" sideWeight="0.093622796" side_tool="true" visible="true" weight="0.21551175" />
-      <window_info anchor="bottom" x="-9" y="178" width="1453" height="731" id="Terminal" order="7" type="WINDOWED" visible="true" weight="0.32948717" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.9063772" visible="true" weight="0.21551175" />
+      <window_info active="true" anchor="bottom" x="-9" y="178" width="1453" height="731" id="Terminal" order="7" type="WINDOWED" visible="true" weight="0.32948717" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.9063772" visible="true" weight="0.21551175" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.23149113" />
@@ -529,13 +571,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dist/validation/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="607">
-          <caret line="48" column="68" selection-start-line="48" selection-start-column="68" selection-end-line="48" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dist/validation/addAutomaticValidators.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -755,13 +790,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/fields/magic-select/__snapshots__/MagicFieldGroup.test.js.snap">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="59" selection-start-line="2" selection-start-column="59" selection-end-line="2" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/docs/index.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -772,16 +800,6 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manual/components.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="89">
-            <caret line="195" column="22" selection-start-line="195" selection-start-column="22" selection-end-line="195" selection-end-column="22" />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -799,16 +817,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="331">
           <caret line="125" column="10" selection-start-line="125" selection-start-column="10" selection-end-line="125" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/fields/magic-select/MagicFieldGroup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2594">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -863,17 +871,7 @@
     <entry file="file://$PROJECT_DIR$/src/components/fields/propTypes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
-          <caret line="51" column="31" lean-forward="true" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/fields/magic-select/MagicFieldGroup.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="344" column="32" selection-start-line="344" selection-start-column="32" selection-end-line="344" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
+          <caret line="51" column="31" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -906,11 +904,61 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/renderGroup.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="527" column="24" selection-start-line="527" selection-start-column="24" selection-end-line="527" selection-end-column="24" />
+        <state relative-caret-position="600">
+          <caret line="510" column="11" selection-start-line="475" selection-start-column="8" selection-end-line="510" selection-end-column="11" />
           <folding>
             <element signature="e#0#42#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manual/factories.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="240">
+            <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+            <folding>
+              <element signature="e#0#26#0" expanded="true" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/fields/magic-select/MagicFieldGroup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="168" column="18" selection-start-line="168" selection-start-column="18" selection-end-line="168" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/fields/magic-select/__snapshots__/MagicFieldGroup.test.js.snap">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/fields/magic-select/MagicFieldGroup.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="32" column="14" lean-forward="true" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manual/components.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="-2">
+            <caret line="65" column="4" selection-start-line="65" selection-start-column="4" selection-end-line="65" selection-end-column="4" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

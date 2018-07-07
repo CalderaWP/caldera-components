@@ -47,6 +47,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fieldInnerPropTypes">fieldInnerPropTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fieldPropTypes">fieldPropTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-inputTypeProp">inputTypeProp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-magicGroupPropTypes">magicGroupPropTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-onValueChangePropType">onValueChangePropType</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-optionShape">optionShape</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-optionsShapeProp">optionsShapeProp</a></span></span></li>
@@ -79,7 +80,7 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/components/fields/factories/prepareFieldConfig.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {fieldGroupPropTypes} from &apos;../propTypes&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {fieldGroupPropTypes,magicGroupPropTypes} from &apos;../propTypes&apos;;
 import {isValidHtml5type, toBoolean} from &apos;../util&apos;;
 import {messageObjectFactory} from &apos;../messages/messageObjectFactory&apos;;
 
@@ -134,7 +135,8 @@ export const prepareFieldConfig = (fieldArgs) =&gt; {
 		validators = fieldArgs.validators;
 	}
 
-	fieldArgs = pick(fieldArgs, Object.keys(fieldGroupPropTypes));
+	const keys = &apos;magic&apos; === fieldArgs.type  ? magicGroupPropTypes : fieldGroupPropTypes;
+	fieldArgs = pick(fieldArgs, Object.keys(keys));
 	fieldArgs.disabled = toBoolean(fieldArgs.disabled);
 	fieldArgs.message = &apos;object&apos; === typeof  fieldArgs.message
 		? messageObjectFactory(fieldArgs.message)

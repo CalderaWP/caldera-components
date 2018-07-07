@@ -47,6 +47,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fieldInnerPropTypes">fieldInnerPropTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fieldPropTypes">fieldPropTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-inputTypeProp">inputTypeProp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-magicGroupPropTypes">magicGroupPropTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-onValueChangePropType">onValueChangePropType</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-optionShape">optionShape</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-optionsShapeProp">optionsShapeProp</a></span></span></li>
@@ -116,7 +117,7 @@ export class RenderGroup extends React.Component {
 			return configField.ID ? configField.ID : configField.id ? configField.id : false;
 		}
 
-		if( &apos;function&apos; === typeof  this.props.onBlur  ){
+		if( &apos;function&apos; === typeof this.props.onBlur  ){
 			configFields.forEach((configField, configFieldIndex ) =&gt; {
 				const configFieldId = findFieldId(configField);
 				if( configFieldId ){
@@ -129,7 +130,7 @@ export class RenderGroup extends React.Component {
 			});
 
 		}
-		if( &apos;function&apos; === typeof  this.props.onFocus ){
+		if( &apos;function&apos; === typeof this.props.onFocus ){
 			configFields.forEach((configField, configFieldIndex ) =&gt; {
 				const configFieldId = findFieldId(configField);
 				if( configFieldId ){
