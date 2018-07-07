@@ -98,7 +98,8 @@ const configFields = [
 	textFieldConfig,
 	hiddenFieldConfig,
 	selectFieldConfig,
-	fieldSetField
+	fieldSetField,
+	numberFieldConfig,
 ];
 const configFieldEls = fieldSetFactory(configFields);
 
