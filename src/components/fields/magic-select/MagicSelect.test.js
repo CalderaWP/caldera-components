@@ -199,31 +199,32 @@ describe('MagicSelect component', () => {
 					onValueChange={genericChangeHandler}
 					fieldsList={[
 						{
-							label: '0',
-							value: 0
+							label: 'Field One',
+							value: '%fldOne%'
 						},
 						{
-							label: '1',
-							value: 1
+							label: 'Field Two',
+							value: '%fldTwo%'
 						},
 						{
-							label: '3',
-							value: 3
-						}
+							label: 'Field Three',
+							value: '%fldThree%'
+						},
 					]}
 					systemTagsList={[
 						{
-							label: '3',
-							value: 3
+							label: 'User First Name',
+							value: '{user:first_name}'
 						}
 					]}
 					isOpen={true}
+					value={''}
 				/>
 			);
-			expect(component.find('.magic-input-option')).toHaveLength(3);
+			expect(component.find('.magic-input-option').children().length).toBe(6);
 		});
 
-		it('Uses systemTagsList prop if no options prop and currentList state is system', () => {
+		it.skip('Uses systemTagsList prop if no options prop and currentListType state is system', () => {
 			const component = mount(
 				<MagicSelect
 					id={'magic-5'}
@@ -252,8 +253,8 @@ describe('MagicSelect component', () => {
 					isOpen={true}
 				/>
 			);
-			component.setState({currentList: 'system'});
-			expect(component.find('.magic-input-option')).toHaveLength(1);
+			component.setState({currentListType: 'system'});
+			expect(component.find('.magic-input-option').length).toHaveLength(1);
 		});
 	});
 

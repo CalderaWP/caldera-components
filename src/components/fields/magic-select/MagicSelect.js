@@ -23,7 +23,7 @@ export class MagicSelect extends React.PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {
-			currentList: props.defaultList,
+			currentListType: props.defaultList,
 			isOpen: props.isOpen
 		};
 		this.onChange = this.onChange.bind(this);
@@ -34,6 +34,7 @@ export class MagicSelect extends React.PureComponent {
 		this.renderItem = this.renderItem.bind(this);
 		this.onInputBlur = this.onInputBlur.bind(this);
 		this.onChangeListType = this.onChangeListType.bind(this);
+		this.listTypeOptions = this.listTypeOptions.bind(this);
 	}
 
 	/**
@@ -74,7 +75,10 @@ export class MagicSelect extends React.PureComponent {
 	 * @param {String}newType
 	 */
 	onChangeListType(newType){
-		this.setState({currentList:newType});
+		if( ! this.state.isOpen ){
+			this.setState({isOpen:true});
+		}
+		this.setState({currentListType:newType});
 	}
 
 	/**
@@ -103,7 +107,7 @@ export class MagicSelect extends React.PureComponent {
 		if( optionsOrEmpty(this.props.options).length){
 			items = optionsOrEmpty(this.props.options);
 		}
-		else if ('system' === this.state.currentList ) {
+		else if ('system' === this.state.currentListType ) {
 			items = optionsOrEmpty(this.props.systemTagsList);
 		} else {
 			items = optionsOrEmpty(this.props.fieldsList);
@@ -125,6 +129,23 @@ export class MagicSelect extends React.PureComponent {
 
 	}
 
+	listTypeOptions(){
+		return [
+			{
+				value: 'fields',
+				label: '%',
+				ariaLabel: 'Select from field values'
+			},
+			{
+				value: 'system',
+				label: '{}',
+				ariaLabel: 'Select from system values'
+			},
+		]
+	}
+
+
+
 	/**
 	 * Render MagicSelect component
 	 * @return {*}
@@ -134,7 +155,22 @@ export class MagicSelect extends React.PureComponent {
 			<div
 				className={classNames('magic-select', this.props.className)}
 			>
-
+				<ButtonGroup
+					onChange={this.onChangeListType}
+					options={[
+						{
+							value: 'fields',
+							label: '%',
+							ariaLabel: 'Select from field values'
+						},
+						{
+							value: 'system',
+							label: '{}',
+							ariaLabel: 'Select from system values'
+						},
+					]}
+					value={this.state.currentListType}
+				/>
 				<Autocomplete
 					getItemValue={(item) => item.value}
 					items={this.items()}
