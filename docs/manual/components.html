@@ -55,15 +55,22 @@
     <li data-ice="manualNav" class="indent-h1" data-link="manual/components.html"><a href="manual/components.html" data-ice="link">Included Component</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#-code-rendergroup--code-" data-ice="link">RenderGroup</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#example-of--code-rendergroup--code--component-usage" data-ice="link">Example Of RenderGroup Component Usage</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#a-magic-aut-complete-field-selector-in-a-rednergroup" data-ice="link">A Magic Aut-Complete Field Selector In A RednerGroup</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#add-onfocus-event-for-all-fields-of-render-group" data-ice="link">Add onFocus Event For All Fields Of Render Group</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#add-onblur-event-for-all-fields-of-render-group" data-ice="link">Add onBlur Event For All Fields Of Render Group</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#field-groups" data-ice="link">Field Groups</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#text-field-that-is-required" data-ice="link">Text field that is required</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#text-field-that-is-not-required" data-ice="link">Text field that is not required</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#text-field-with-help-text" data-ice="link">Text field with help text</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#number-field" data-ice="link">Number Field</a></li>
-<li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#select-fields" data-ice="link">Select Fields</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#text-field-groups" data-ice="link">Text Field Groups</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/components.html"><a href="manual/components.html#text-field-that-is-required" data-ice="link">Text field that is required</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/components.html"><a href="manual/components.html#text-field-that-is-not-required" data-ice="link">Text field that is not required</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/components.html"><a href="manual/components.html#text-field-with-help-text" data-ice="link">Text field with help text</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#number-field-group" data-ice="link">Number Field Group</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#magic-select-groups" data-ice="link">Magic Select Groups</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#fieldsets" data-ice="link">Fieldsets</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#button-group" data-ice="link">Button Group</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#examples" data-ice="link">Examples</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#button-group-with-two-options" data-ice="link">Button Group With Two Options</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/components.html"><a href="manual/components.html#button-group-with-icon" data-ice="link">Button Group With Icon</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/components.html"><a href="manual/components.html#explicitly-set--code-aria-label--code--attribute" data-ice="link">Explicitly set aria-label Attribute</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#message-component" data-ice="link">Message component</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#an-error-message" data-ice="link">An error message</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#a-non-error-message" data-ice="link">A non-error message</a></li>
@@ -199,6 +206,39 @@ const configFields = [
     className={&apos;cf-something-config&apos;}
  /&gt; </code>
 </code></pre>
+<h3 id="a-magic-aut-complete-field-selector-in-a-rednergroup">A Magic Aut-Complete Field Selector In A RednerGroup</h3><pre><code class="lang-js"><code class="source-code prettyprint">const magicField = {
+    &apos;id&apos;: &apos;cf-magic-example&apos;,
+    &apos;type&apos;: &apos;magic&apos;,
+    &apos;label&apos;: &apos;Magic ID&apos;,
+    &apos;description&apos;: &apos;Select a value from list of magic tags or type a value&apos;,
+    fieldsList: [
+        {
+            label: &apos;0&apos;,
+            value: 0
+        },
+        {
+            label: &apos;1&apos;,
+            value: 1
+        },
+        {
+            label: &apos;3&apos;,
+            value: 3
+        }
+    ],
+    systemTagsList: [
+        {
+            label: &apos;3&apos;,
+            value: 3
+        }
+    ],
+    isOpen: true,
+    onValueChange: () =&gt; {
+    }
+};
+
+&lt;RenderGroup configFields={[magicField]}/&gt;
+</code>
+</code></pre>
 <h3 id="add-onfocus-event-for-all-fields-of-render-group">Add onFocus Event For All Fields Of Render Group</h3><p>You can add an onFocus event that fires when ever any field is focused. The callback function gets the config field&apos;s ID as its only parameter.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">&lt;RenderGroup
     configFields={[
@@ -223,7 +263,8 @@ const configFields = [
 <ul>
 <li><a href="https://calderalabs.org/caldera-components/function/index.html#static-function-Input">Reference</a></li>
 </ul>
-<h3 id="text-field-that-is-required">Text field that is required</h3><pre><code class="lang-jsx"><code class="source-code prettyprint">&lt;FieldGroup
+<h3 id="text-field-groups">Text Field Groups</h3><p>If the prop <code>type</code> is input, the type of input is controlled by the <code>inputType</code> props, which by default is <code>text</code>. Therefore, by default input field groups have inputs with the HTML5 input <code>type</code> attribute of &quot;text&quot;. Also, <code>inputType</code> could be &quot;number&quot; or &quot;data&quot;, etc.</p>
+<h4 id="text-field-that-is-required">Text field that is required</h4><pre><code class="lang-jsx"><code class="source-code prettyprint">&lt;FieldGroup
     id={&apos;control-22&apos;}
     label={&apos;Required Text input&apos;}
     type={&apos;input&apos;}
@@ -235,7 +276,7 @@ const configFields = [
 /&gt;
 </code>
 </code></pre>
-<h3 id="text-field-that-is-not-required">Text field that is not required</h3><pre><code class="lang-jsx"><code class="source-code prettyprint">&lt;FieldGroup
+<h4 id="text-field-that-is-not-required">Text field that is not required</h4><pre><code class="lang-jsx"><code class="source-code prettyprint">&lt;FieldGroup
     id={&apos;control-23&apos;}
     label={&apos;Non Required Text input&apos;}
     type={&apos;input&apos;}
@@ -246,7 +287,7 @@ const configFields = [
     }}
 /&gt;</code>
 </code></pre>
-<h3 id="text-field-with-help-text">Text field with help text</h3><ul>
+<h4 id="text-field-with-help-text">Text field with help text</h4><ul>
 <li>Adding help text automatically ads <code>aria-describedby</code></li>
 </ul>
 <pre><code class="lang-jsx"><code class="source-code prettyprint">&lt;FieldGroup
@@ -261,7 +302,7 @@ const configFields = [
     }}
 /&gt;</code>
 </code></pre>
-<h3 id="number-field">Number Field</h3><pre><code class="lang-jsx"><code class="source-code prettyprint">&lt;FieldGroup
+<h3 id="number-field-group">Number Field Group</h3><pre><code class="lang-jsx"><code class="source-code prettyprint">&lt;FieldGroup
     id={&apos;control-24&apos;}
     label={&apos;Non Required Numeric input&apos;}
     type={&apos;input&apos;}
@@ -272,12 +313,76 @@ const configFields = [
         values.two=newValue;
     }}
 /&gt;
+
+### Select Field Groups
+
+Select field groups happen when you pass &quot;select&quot; to the `type` prop. 
+
+Select fields take an array of options in the prop option. Options in that collection must conform the shape [defined here](https://calderalabs.org/caldera-components/docs/file/src/components/fields/propTypes.js.html#lineNumber75)
+
 </code>
 </code></pre>
-<h2 id="select-fields">Select Fields</h2><ul>
-<li><a href="https://calderalabs.org/caldera-components/function/index.html#static-function-SelectField">Reference</a></li>
-</ul>
-<pre><code class="lang-jsx"><code class="source-code prettyprint">import {SelectFieldFancy} from &apos;@caldera-labs/components/src/components/fields/select/SelectFieldFancyFancy.js&apos;
+<p>let selectFieldValue = &apos;&apos;;</p>
+<p>&lt;FieldGroup
+    type={&apos;select&apos;}
+    label={&apos;Basic select field&apos;}
+    value={selectFieldValue}
+    id={&apos;id-of-the-select-field-itself&apos;}
+    onValueChange={(newValue) =&gt; {
+        selectFieldValue = newValue;
+    }}
+    options={[
+        {
+            value: 1,
+            label: &apos;One&apos;
+        },
+        {
+            value: 2,
+            label: &apos;Two&apos;
+        }
+    ]}
+/&gt;</p>
+<h3 id="magic-select-groups">Magic Select Groups</h3><p>Magic select groups use <code>MagicSelect</code> fields, which wrap <a href="https://github.com/reactjs/react-autocomplete">reactjs/react-autocomple</a> to create a UI for <a href="https://calderaforms.com/doc/using-magic-tags-caldera-forms/">Caldera Forms magic tags</a>.</p>
+<p>These fields groups show options from two lists, one is passed in the prop <code>fieldsList</code> and represents the fields of the form, and the other is in <code>systemTagsList</code>, which represents the system values such as the current user info.</p>
+<p>The property <code>isOpen</code> controls if the auto-complete list is open.</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">let magicFieldValue =&apos;&apos;;
+
+&lt;MagicFieldGroup
+        id={&apos;magic-5&apos;}
+        fieldClassName={&apos;magic&apos;}
+        label={&apos;Magic Group&apos;}
+        onValueChange={(newValue) =&gt; {
+            magicFieldValue = newValue;
+        } }
+        fieldsList={[
+            {
+                label: &apos;Field One&apos;,
+                value: &apos;%fldOne%&apos;
+            },
+            {
+                label: &apos;Field Two&apos;,
+                value: &apos;%fldTwo%&apos;
+            },
+            {
+                label: &apos;Field Three&apos;,
+                value: &apos;%fldThree%&apos;
+            },
+        ]}
+        systemTagsList={[
+            {
+                label: &apos;User First Name&apos;,
+                value: &apos;{user:first_name}&apos;
+            }
+        ]}
+        isOpen={true}
+        value={magicFieldValue}
+    /&gt;</code>
+</code></pre>
+<pre><code><code class="source-code prettyprint">## Select Fields
+* [Reference](https://calderalabs.org/caldera-components/function/index.html#static-function-SelectField)
+
+```jsx 
+import {SelectFieldFancy} from &apos;@caldera-labs/components/src/components/fields/select/SelectFieldFancyFancy.js&apos;
 
 &lt;SelectFieldFancy
     id={&apos;number-of-things&apos;} //ID attribute for input
@@ -298,8 +403,7 @@ const configFields = [
     value={&apos;2&apos;} //The current value
 /&gt;
 </code>
-</code></pre>
-<h2 id="fieldsets">Fieldsets</h2><p>For a <code>&lt;fieldset&gt;</code> element containing checkboxes, pass the value <code>fieldset</code> to the `type</p>
+</code></pre><h2 id="fieldsets">Fieldsets</h2><p>For a <code>&lt;fieldset&gt;</code> element containing checkboxes, pass the value <code>fieldset</code> to the `type</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">//Value is an array.
 let checkBoxValue = [&apos;1&apos;];
 
@@ -321,6 +425,71 @@ let checkBoxValue = [&apos;1&apos;];
             value: &apos;2&apos;, //this value is NOT in array so box will NOT be checked by default
             label: &apos;Two&apos;// Used for this checkbox&apos;s &lt;label&gt;
         }
+    ]}
+/&gt;</code>
+</code></pre>
+<h2 id="button-group">Button Group</h2><p>Button groups are select fields. One button can be selected at once.</p>
+<p>This is a field, not a group (like <code>FieldGroup</code> or <code>MagicFieldGroup</code>) so it does not handle its own label.</p>
+<p>Button groups fields take an array of options in the prop option. Options in that collection must conform the shape <a href="https://calderalabs.org/caldera-components/docs/file/src/components/fields/propTypes.js.html#lineNumber75">defined here</a></p>
+<h3 id="examples">Examples</h3><h3 id="button-group-with-two-options">Button Group With Two Options</h3><pre><code class="lang-js"><code class="source-code prettyprint">&lt;ButtonGroup
+    onChange={(selectedValue) =&gt; {
+        console.log(selectedValue);
+    }}
+    options={[
+        {
+            value: 1,
+            label: &apos;Option One&apos;,
+        },
+        {
+            value: 2,
+            label: &apos;Option Two&apos;,
+        }
+    ]}
+    value={1}
+/&gt;</code>
+</code></pre>
+<h4 id="button-group-with-icon">Button Group With Icon</h4><p>If options have <code>icon</code>, the rendered markup for the button will be like this:</p>
+<pre><code class="lang-html"><code class="source-code prettyprint">&lt;button ...&gt;&lt;span class=&quot;fa-envelope&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+</code>
+</code></pre>
+<p>That&apos;s the markup you need if font awesome is loaded on the page. In the future this component should supply font awesome or dashicons or emoji icons. For now, it does not.</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">&lt;ButtonGroup
+    onChange={(selectedValue) =&gt; {
+        console.log(selectedValue);
+    }}
+    options={[
+        {
+            value: 1,
+            label: &apos;Option One&apos;,
+            icon: &apos;fa-envelop&apos;
+        },
+        {
+            value: 2,
+            label: &apos;Option Two&apos;,
+            icon: &apos;fa-twitter&apos;
+
+        }
+    ]}
+    value={1}
+/&gt;</code>
+</code></pre>
+<h4 id="explicitly-set--code-aria-label--code--attribute">Explicitly set <code>aria-label</code> Attribute</h4><p>By default, the visual representation fo the option is <code>option.label</code>. That makes sense, if you&apos;re representing the option with words. Allowing the component to use <code>option.label</code> for the <code>aria-label</code> attribute, which is its default value, I think makes sense.</p>
+<p>But, if the visual representation of the option is an emoji or image, then <code>aria-label</code> can not be an image, it has to be text that gives meaning to the image for users who can not see the image.</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">&lt;ButtonGroup
+    onChange={(selectedValue) =&gt; {
+        console.log(selectedValue);
+    }}
+    options={[
+        {
+            value: &apos;fields&apos;,
+            label: &apos;%&apos;,
+            ariaLabel: &apos;Select from field values&apos;
+        },
+        {
+            value: &apos;system&apos;,
+            label: &apos;{}&apos;,
+            ariaLabel: &apos;Select from system values&apos;
+        },
     ]}
 /&gt;</code>
 </code></pre>

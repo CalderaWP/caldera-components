@@ -1,4 +1,4 @@
-import {fieldGroupPropTypes} from '../propTypes';
+import {fieldGroupPropTypes,magicGroupPropTypes} from '../propTypes';
 import {isValidHtml5type, toBoolean} from '../util';
 import {messageObjectFactory} from '../messages/messageObjectFactory';
 
@@ -53,7 +53,8 @@ export const prepareFieldConfig = (fieldArgs) => {
 		validators = fieldArgs.validators;
 	}
 
-	fieldArgs = pick(fieldArgs, Object.keys(fieldGroupPropTypes));
+	const keys = 'magic' === fieldArgs.type  ? magicGroupPropTypes : fieldGroupPropTypes;
+	fieldArgs = pick(fieldArgs, Object.keys(keys));
 	fieldArgs.disabled = toBoolean(fieldArgs.disabled);
 	fieldArgs.message = 'object' === typeof  fieldArgs.message
 		? messageObjectFactory(fieldArgs.message)

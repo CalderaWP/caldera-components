@@ -4,6 +4,7 @@ import './App.css';
 import {FieldGroup} from "./components/fields/FieldGroup";
 import {fieldSetFactory} from "./components/fields/factories/fieldSetFactory";
 import {RenderGroup} from "./components/RenderGroup";
+import {MagicFieldGroup} from "./components/fields/magic-select/MagicFieldGroup";
 
 let textFieldValue = 'Roy,Mike';
 const textFieldConfig = {
@@ -98,7 +99,8 @@ const configFields = [
 	textFieldConfig,
 	hiddenFieldConfig,
 	selectFieldConfig,
-	fieldSetField
+	fieldSetField,
+	numberFieldConfig
 ];
 const configFieldEls = fieldSetFactory(configFields);
 
@@ -109,6 +111,8 @@ let values = {
 	two: '',
 	three: ''
 };
+
+let magicFieldValue = '';
 
 class App extends Component {
 
@@ -139,6 +143,40 @@ class App extends Component {
 							field
 						);
 					})}
+				</div>
+
+				<div>
+					<h2>Magic Select</h2>
+					<MagicFieldGroup
+						id={'magic-5'}
+						label={'Magic Group'}
+						fieldClassName={'magic'}
+						onValueChange={(newValue) => {
+							magicFieldValue = newValue;
+						} }
+						fieldsList={[
+							{
+								label: 'Field One',
+								value: '%fldOne%'
+							},
+							{
+								label: 'Field Two',
+								value: '%fldTwo%'
+							},
+							{
+								label: 'Field Three',
+								value: '%fldThree%'
+							},
+						]}
+						systemTagsList={[
+							{
+								label: 'User First Name',
+								value: '{user:first_name}'
+							}
+						]}
+						isOpen={true}
+						value={magicFieldValue}
+					/>
 				</div>
 
 				<div>

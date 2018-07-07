@@ -66,6 +66,42 @@ const configFields = [
  /> 
 ```
 
+### A Magic Aut-Complete Field Selector In A RednerGroup
+```js
+const magicField = {
+    'id': 'cf-magic-example',
+    'type': 'magic',
+    'label': 'Magic ID',
+    'description': 'Select a value from list of magic tags or type a value',
+    fieldsList: [
+        {
+            label: '0',
+            value: 0
+        },
+        {
+            label: '1',
+            value: 1
+        },
+        {
+            label: '3',
+            value: 3
+        }
+    ],
+    systemTagsList: [
+        {
+            label: '3',
+            value: 3
+        }
+    ],
+    isOpen: true,
+    onValueChange: () => {
+    }
+};
+
+<RenderGroup configFields={[magicField]}/>
+
+```
+
 ### Add onFocus Event For All Fields Of Render Group
 You can add an onFocus event that fires when ever any field is focused. The callback function gets the config field's ID as its only parameter.
 ```js
@@ -99,7 +135,10 @@ If you have to use a component, please use `FieldGroup` not its inner components
 
 * [Reference](https://calderalabs.org/caldera-components/function/index.html#static-function-Input)
 
-### Text field that is required
+### Text Field Groups
+If the prop `type` is input, the type of input is controlled by the `inputType` props, which by default is `text`. Therefore, by default input field groups have inputs with the HTML5 input `type` attribute of "text". Also, `inputType` could be "number" or "data", etc.
+
+#### Text field that is required
 ```jsx
 <FieldGroup
     id={'control-22'}
@@ -114,7 +153,7 @@ If you have to use a component, please use `FieldGroup` not its inner components
 
 ```
 
-### Text field that is not required
+#### Text field that is not required
 ```jsx
 <FieldGroup
     id={'control-23'}
@@ -128,7 +167,7 @@ If you have to use a component, please use `FieldGroup` not its inner components
 />
 ```
 
-### Text field with help text
+#### Text field with help text
 * Adding help text automatically ads `aria-describedby`
 
 ```jsx
@@ -146,7 +185,7 @@ If you have to use a component, please use `FieldGroup` not its inner components
 ```
 
 
-### Number Field
+### Number Field Group
 
 ```jsx
 <FieldGroup
@@ -161,6 +200,75 @@ If you have to use a component, please use `FieldGroup` not its inner components
     }}
 />
 
+### Select Field Groups
+
+Select field groups happen when you pass "select" to the `type` prop. 
+
+Select fields take an array of options in the prop option. Options in that collection must conform the shape [defined here](https://calderalabs.org/caldera-components/docs/file/src/components/fields/propTypes.js.html#lineNumber75)
+
+
+```
+let selectFieldValue = '';
+<FieldGroup
+    type={'select'}
+    label={'Basic select field'}
+    value={selectFieldValue}
+    id={'id-of-the-select-field-itself'}
+    onValueChange={(newValue) => {
+        selectFieldValue = newValue;
+    }}
+    options={[
+        {
+            value: 1,
+            label: 'One'
+        },
+        {
+            value: 2,
+            label: 'Two'
+        }
+    ]}
+/>
+
+### Magic Select Groups
+Magic select groups use `MagicSelect` fields, which wrap [reactjs/react-autocomple](https://github.com/reactjs/react-autocomplete) to create a UI for [Caldera Forms magic tags](https://calderaforms.com/doc/using-magic-tags-caldera-forms/).
+
+These fields groups show options from two lists, one is passed in the prop `fieldsList` and represents the fields of the form, and the other is in `systemTagsList`, which represents the system values such as the current user info.
+
+The property `isOpen` controls if the auto-complete list is open.
+```js
+let magicFieldValue ='';
+
+<MagicFieldGroup
+        id={'magic-5'}
+        fieldClassName={'magic'}
+        label={'Magic Group'}
+        onValueChange={(newValue) => {
+            magicFieldValue = newValue;
+        } }
+        fieldsList={[
+            {
+                label: 'Field One',
+                value: '%fldOne%'
+            },
+            {
+                label: 'Field Two',
+                value: '%fldTwo%'
+            },
+            {
+                label: 'Field Three',
+                value: '%fldThree%'
+            },
+        ]}
+        systemTagsList={[
+            {
+                label: 'User First Name',
+                value: '{user:first_name}'
+            }
+        ]}
+        isOpen={true}
+        value={magicFieldValue}
+    />
+```
 ```
 ## Select Fields
 * [Reference](https://calderalabs.org/caldera-components/function/index.html#static-function-SelectField)
@@ -215,6 +323,91 @@ let checkBoxValue = ['1'];
             value: '2', //this value is NOT in array so box will NOT be checked by default
             label: 'Two'// Used for this checkbox's <label>
         }
+    ]}
+/>
+```
+
+## Button Group
+Button groups are select fields. One button can be selected at once.
+
+This is a field, not a group (like `FieldGroup` or `MagicFieldGroup`) so it does not handle its own label.
+
+Button groups fields take an array of options in the prop option. Options in that collection must conform the shape [defined here](https://calderalabs.org/caldera-components/docs/file/src/components/fields/propTypes.js.html#lineNumber75)
+
+### Examples
+### Button Group With Two Options
+```js
+<ButtonGroup
+    onChange={(selectedValue) => {
+    	console.log(selectedValue);
+    }}
+    options={[
+        {
+            value: 1,
+            label: 'Option One',
+        },
+        {
+            value: 2,
+            label: 'Option Two',
+        }
+    ]}
+    value={1}
+/>
+```
+
+#### Button Group With Icon
+If options have `icon`, the rendered markup for the button will be like this:
+
+```html
+<button ...><span class="fa-envelope"></span></button>
+
+```
+
+That's the markup you need if font awesome is loaded on the page. In the future this component should supply font awesome or dashicons or emoji icons. For now, it does not.
+
+```js
+<ButtonGroup
+    onChange={(selectedValue) => {
+    	console.log(selectedValue);
+    }}
+    options={[
+        {
+            value: 1,
+            label: 'Option One',
+            icon: 'fa-envelop'
+        },
+        {
+            value: 2,
+            label: 'Option Two',
+            icon: 'fa-twitter'
+
+        }
+    ]}
+    value={1}
+/>
+```
+
+#### Explicitly set `aria-label` Attribute
+By default, the visual representation fo the option is `option.label`. That makes sense, if you're representing the option with words. Allowing the component to use `option.label` for the `aria-label` attribute, which is its default value, I think makes sense.
+
+But, if the visual representation of the option is an emoji or image, then `aria-label` can not be an image, it has to be text that gives meaning to the image for users who can not see the image.
+
+```js
+<ButtonGroup
+    onChange={(selectedValue) => {
+    	console.log(selectedValue);
+    }}
+    options={[
+        {
+            value: 'fields',
+            label: '%',
+            ariaLabel: 'Select from field values'
+        },
+        {
+            value: 'system',
+            label: '{}',
+            ariaLabel: 'Select from system values'
+        },
     ]}
 />
 ```
