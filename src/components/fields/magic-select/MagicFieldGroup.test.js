@@ -193,6 +193,44 @@ describe('MagicFieldGroup component', () => {
 			component.setState({currentListType: 'system'});
 			expect(component.find('.magic-input-option').length).toBe(1);
 		});
+
+		it('Receives updated value', () => {
+			let value = '1';
+			const component = mount(
+				<MagicFieldGroup
+					id={'magic-5'}
+					fieldClassName={'magic'}
+					onValueChange={(newValue) => {
+						value = newValue;
+					}}
+					fieldsList={[
+						{
+							label: '0',
+							value: 0
+						},
+						{
+							label: '1',
+							value: 1
+						},
+						{
+							label: '3',
+							value: 3
+						}
+					]}
+					systemTagsList={[
+						{
+							label: '3',
+							value: 3
+						}
+					]}
+					value={value}
+					isOpen={true}
+				/>
+			);
+			component.find('input').simulate('focus');
+			component.find('input').simulate('change', { target: { value: '3' } });
+			expect( value ).toEqual('3');
+		});
 	});
 
 

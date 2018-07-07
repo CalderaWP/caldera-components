@@ -74,7 +74,7 @@ export class MagicSelect extends React.PureComponent {
 	 * @return {*}
 	 */
 	renderItem(item, isHighlighted){
-		return <MagicItem item={item} isHighlighted={isHighlighted} innerKey={item.innerKey} key={item.innerKey} />
+		return <MagicItem item={item} isHighlighted={isHighlighted} innerKey={item.innerKey} key={item.innerKey} onClick={this.onSelect} />
 	}
 
 
@@ -84,7 +84,6 @@ export class MagicSelect extends React.PureComponent {
 	 */
 	render() {
 		return (
-
 			<Autocomplete
 				getItemValue={(item) => item.value}
 				items={this.props.options}

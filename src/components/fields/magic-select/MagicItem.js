@@ -27,7 +27,7 @@ export class MagicItem extends React.PureComponent {
 			{
 				style: {background: this.props.isHighlighted ? this.props.highlightColor : this.props.notHighlighterColor},
 				className: classNames(this.props.className, 'magic-input-option'),
-
+				onClick: this.props.onClick
 			},
 			[
 				React.createElement(
@@ -69,7 +69,8 @@ MagicItem.propTypes = {
 	className: PropTypes.string,
 	highlightColor: PropTypes.string,
 	notHighlighterColor: PropTypes.string,
-	innerKey: PropTypes.string.isRequired
+	innerKey: PropTypes.string.isRequired,
+	onClick: PropTypes.func
 };
 
 /**

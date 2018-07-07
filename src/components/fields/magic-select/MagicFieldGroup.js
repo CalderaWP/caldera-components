@@ -66,6 +66,7 @@ export class MagicFieldGroup extends React.PureComponent {
 	 */
 	onSelect(value) {
 		this.props.onValueChange(value);
+		this.setState({isOpen: false});
 	}
 
 	/**

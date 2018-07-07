@@ -3,6 +3,7 @@
 exports[`MagicSelect component Can render as span 1`] = `
 <span
   className="magic-input-option"
+  onClick={undefined}
   style={
     Object {
       "background": "#fff00",
@@ -25,6 +26,7 @@ exports[`MagicSelect component Can render as span 1`] = `
 exports[`MagicSelect component Can render inner type as div 1`] = `
 <div
   className="magic-input-option"
+  onClick={undefined}
   style={
     Object {
       "background": "#fff00",
@@ -47,6 +49,7 @@ exports[`MagicSelect component Can render inner type as div 1`] = `
 exports[`MagicSelect component Matches snapshot 1`] = `
 <div
   className="magic-input-option"
+  onClick={undefined}
   style={
     Object {
       "background": "#fff00",

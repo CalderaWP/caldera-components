@@ -297,8 +297,8 @@ describe('MagicSelect component', () => {
 			expect(updatedValue).toEqual(14);
 		});
 
-		it.skip('Receives the updated value ', () => {
-			let updatedValue = null;
+		it('Receives the updated value ', () => {
+			let updatedValue = 1;
 			const component = mount(
 				<MagicSelect
 					id={'magic-9'}
@@ -309,6 +309,11 @@ describe('MagicSelect component', () => {
 					options={[
 						{
 							label: '1',
+							value: 1,
+							innerKey: '1'
+						},
+						{
+							label: '12',
 							value: 12,
 							innerKey: '12'
 						}
@@ -318,8 +323,8 @@ describe('MagicSelect component', () => {
 				/>
 			);
 
-			component.find('input').simulate('change', {event:{target: {value: 12}}} );
-			expect(updatedValue).toEqual(14);
+			component.find('input').simulate('change', { target: { value: 12 } });
+			expect(updatedValue).toEqual(12);
 		});
 	});
 
