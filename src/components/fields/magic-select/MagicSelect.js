@@ -34,7 +34,6 @@ export class MagicSelect extends React.PureComponent {
 	/**
 	 * Handle direct change events
 	 *
-	 * Probably not needed
 	 * @param {Event} event
 	 */
 	onChange(event) {

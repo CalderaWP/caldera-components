@@ -297,6 +297,36 @@ describe('MagicSelect component', () => {
 			expect(updatedValue).toEqual(14);
 		});
 
+		it('Passes updated value, not an event ', () => {
+			let updatedValue = 1;
+			const component = mount(
+				<MagicSelect
+					id={'magic-9'}
+					fieldClassName={'magic'}
+					onValueChange={(newValue) => {
+						updatedValue = newValue;
+					}}
+					options={[
+						{
+							label: '1',
+							value: 1,
+							innerKey: '1'
+						},
+						{
+							label: '12',
+							value: 12,
+							innerKey: '12'
+						}
+					]}
+					value={updatedValue}
+					isOpen={true}
+				/>
+			);
+
+			component.instance().onChange({ target: { value: 12 } });
+			expect(updatedValue).toEqual(12);
+		});
+
 		it('Receives the updated value ', () => {
 			let updatedValue = 1;
 			const component = mount(
