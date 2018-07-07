@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MagicFieldGroup component matches snapshot 1`] = `
+exports[`MagicFieldGroup component matches snapshot with message 1`] = `
 <div
   className="caldera-magic-select-group caldera-config-field"
 >
@@ -9,6 +9,46 @@ exports[`MagicFieldGroup component matches snapshot 1`] = `
   >
     Hi Roy
   </label>
+  <div
+    className="caldera-components-message caldera-components-not-error"
+  >
+    Hi Roy
+  </div>
+  <div
+    style={
+      Object {
+        "display": "inline-block",
+      }
+    }
+  >
+    <input
+      aria-autocomplete="list"
+      aria-expanded={false}
+      autoComplete="off"
+      className="caldera-magic-input caldera-magic-input-magic-3 magic"
+      id="magic-3"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      role="combobox"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`MagicFieldGroup component matches snapshot with no message 1`] = `
+<div
+  className="caldera-magic-select-group caldera-config-field"
+>
+  <label
+    htmlFor="magic-3"
+  >
+    Hi Roy
+  </label>
+  
   <div
     style={
       Object {

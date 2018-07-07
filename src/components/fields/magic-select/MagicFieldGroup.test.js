@@ -12,7 +12,7 @@ const genericChangeHandler = () => {
 describe('MagicFieldGroup component', () => {
 
 
-	it( 'matches snapshot', () => {
+	it( 'matches snapshot with no message', () => {
 		const component = renderer.create(
 			<MagicFieldGroup
 				id={'magic-3'}
@@ -30,6 +30,33 @@ describe('MagicFieldGroup component', () => {
 					}
 				]}
 				isOpen={false}
+			/>
+		);
+		expect(component.toJSON() ).toMatchSnapshot();
+	});
+
+	it( 'matches snapshot with message', () => {
+		const component = renderer.create(
+			<MagicFieldGroup
+				id={'magic-3'}
+				label={'Hi Roy'}
+				fieldClassName={'magic'}
+				onValueChange={genericChangeHandler}
+				options={[
+					{
+						label: 'HTML',
+						value: 'html'
+					},
+					{
+						label: 'Plain Text',
+						value: 'plain'
+					}
+				]}
+				isOpen={false}
+				message={{
+					message: 'Hi Roy',
+					error: false,
+				}}
 			/>
 		);
 		expect(component.toJSON() ).toMatchSnapshot();

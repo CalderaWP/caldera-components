@@ -167,10 +167,11 @@ export class MagicFieldGroup extends React.PureComponent {
 					id={this.props.id}
 					label={this.props.label}
 				/>
-
-				<Message
-					message={this.props.message}
-				/>
+				{this.props.message.message &&
+					<Message
+						message={this.props.message}
+					/>
+				}
 				{this.state.isOpen &&
 					<ButtonGroup
 						onChange={this.onChangeListType}
