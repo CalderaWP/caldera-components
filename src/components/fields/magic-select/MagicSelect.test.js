@@ -224,7 +224,7 @@ describe('MagicSelect component', () => {
 			expect(component.find('.magic-input-option').children().length).toBe(6);
 		});
 
-		it.skip('Uses systemTagsList prop if no options prop and currentListType state is system', () => {
+		it('Uses systemTagsList prop if no options prop and currentListType state is system', () => {
 			const component = mount(
 				<MagicSelect
 					id={'magic-5'}
@@ -254,7 +254,7 @@ describe('MagicSelect component', () => {
 				/>
 			);
 			component.setState({currentListType: 'system'});
-			expect(component.find('.magic-input-option').length).toHaveLength(1);
+			expect(component.find('.magic-input-option').length).toBe(1);
 		});
 	});
 
@@ -305,7 +305,70 @@ describe('MagicSelect component', () => {
 			component.instance().onSelect(14);
 			expect(updatedValue).toEqual(14);
 		});
+	});
 
-
+	describe( 'Button group for type choice', () => {
+		it( 'Outputs the buttons if open', () => {
+			const component = mount(
+				<MagicSelect
+					id={'magic-50'}
+					fieldClassName={'magic'}
+					onValueChange={genericChangeHandler}
+					fieldsList={[
+						{
+							label: '0',
+							value: 0
+						},
+						{
+							label: '1',
+							value: 1
+						},
+						{
+							label: '3',
+							value: 3
+						}
+					]}
+					systemTagsList={[
+						{
+							label: '3',
+							value: 3
+						}
+					]}
+					isOpen={true}
+				/>
+			);
+			expect(component.find('button').length).toBe(2);
+		});
+		it( 'Does not oupt the buttons if not open', () => {
+			const component = mount(
+				<MagicSelect
+					id={'magic-50'}
+					fieldClassName={'magic'}
+					onValueChange={genericChangeHandler}
+					fieldsList={[
+						{
+							label: '0',
+							value: 0
+						},
+						{
+							label: '1',
+							value: 1
+						},
+						{
+							label: '3',
+							value: 3
+						}
+					]}
+					systemTagsList={[
+						{
+							label: '3',
+							value: 3
+						}
+					]}
+					isOpen={false}
+				/>
+			);
+			expect(component.find('button').length).toBe(0);
+		});
 	});
 });

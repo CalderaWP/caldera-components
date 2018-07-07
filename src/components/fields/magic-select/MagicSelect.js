@@ -129,6 +129,11 @@ export class MagicSelect extends React.PureComponent {
 
 	}
 
+	/**
+	 * Options for type chooser
+	 *
+	 * @return {*[]}
+	 */
 	listTypeOptions(){
 		return [
 			{
@@ -155,22 +160,14 @@ export class MagicSelect extends React.PureComponent {
 			<div
 				className={classNames('magic-select', this.props.className)}
 			>
-				<ButtonGroup
-					onChange={this.onChangeListType}
-					options={[
-						{
-							value: 'fields',
-							label: '%',
-							ariaLabel: 'Select from field values'
-						},
-						{
-							value: 'system',
-							label: '{}',
-							ariaLabel: 'Select from system values'
-						},
-					]}
-					value={this.state.currentListType}
-				/>
+				{this.state.isOpen &&
+					<ButtonGroup
+						onChange={this.onChangeListType}
+						options={this.listTypeOptions()}
+						value={this.state.currentListType}
+					/>
+				}
+
 				<Autocomplete
 					getItemValue={(item) => item.value}
 					items={this.items()}

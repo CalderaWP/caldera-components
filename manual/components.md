@@ -219,6 +219,86 @@ let checkBoxValue = ['1'];
 />
 ```
 
+## Button Group
+
+### Examples
+### Button Group With Two Options
+```js
+<ButtonGroup
+    onChange={(selectedValue) => {
+    	console.log(selectedValue);
+    }}
+    options={[
+        {
+            value: 1,
+            label: 'Option One',
+        },
+        {
+            value: 2,
+            label: 'Option Two',
+        }
+    ]}
+    value={1}
+/>
+```
+
+#### Button Group With Icon
+If options have `icon`, the rendered markup for the button will be like this:
+
+```html
+<button ...><span class="fa-envelope"></span></button>
+
+```
+
+That's the markup you need if font awesome is loaded on the page. In the future this component should supply font awesome or dashicons or emoji icons. For now, it does not.
+
+```js
+<ButtonGroup
+    onChange={(selectedValue) => {
+    	console.log(selectedValue);
+    }}
+    options={[
+        {
+            value: 1,
+            label: 'Option One',
+            icon: 'fa-envelop'
+        },
+        {
+            value: 2,
+            label: 'Option Two',
+            icon: 'fa-twitter'
+
+        }
+    ]}
+    value={1}
+/>
+```
+
+#### Explicitly set `aria-label` Attribute
+By default, the visual representation fo the option is `option.label`. That makes sense, if you're representing the option with words. Allowing the component to use `option.label` for the `aria-label` attribute, which is its default value, I think makes sense.
+
+But, if the visual representation of the option is an emoji or image, then `aria-label` can not be an image, it has to be text that gives meaning to the image for users who can not see the image.
+
+```js
+<ButtonGroup
+    onChange={(selectedValue) => {
+    	console.log(selectedValue);
+    }}
+    options={[
+        {
+            value: 'fields',
+            label: '%',
+            ariaLabel: 'Select from field values'
+        },
+        {
+            value: 'system',
+            label: '{}',
+            ariaLabel: 'Select from system values'
+        },
+    ]}
+/>
+```
+
 ## Message component
 The `Message` component is used to display validation messages in a `FieldGroup` component. Messages have a shape defined in the `messagePropShape` object. This component, by design, returns nothing if `props.message.message` is not supplied, or is an empty string.
 ### An error message

@@ -5,24 +5,6 @@ exports[`MagicSelect component Matches snapshot 1`] = `
   className="magic-select"
 >
   <div
-    role="group"
-  >
-    <button
-      aria-label="Select from field values"
-      className="selected"
-      onClick={[Function]}
-    >
-      %
-    </button>
-    <button
-      aria-label="Select from system values"
-      className="not-selected"
-      onClick={[Function]}
-    >
-      {}
-    </button>
-  </div>
-  <div
     style={
       Object {
         "display": "inline-block",

@@ -112,6 +112,8 @@ let values = {
 	three: ''
 };
 
+let magicFieldValue = '';
+
 class App extends Component {
 
 	render() {
@@ -146,27 +148,33 @@ class App extends Component {
 				<div>
 					<h2>Magic Select</h2>
 					<MagicSelect
-						id={'magic-3'}
+						id={'magic-5'}
 						fieldClassName={'magic'}
-						onValueChange={() => {}}
-						options={[
+						onValueChange={(newValue) => {
+							magicFieldValue = newValue;
+						} }
+						fieldsList={[
 							{
-								label: 'HTML',
-								value: 'html'
+								label: 'Field One',
+								value: '%fldOne%'
 							},
 							{
-								label: 'Plain Text',
-								value: 'plain'
+								label: 'Field Two',
+								value: '%fldTwo%'
+							},
+							{
+								label: 'Field Three',
+								value: '%fldThree%'
+							},
+						]}
+						systemTagsList={[
+							{
+								label: 'User First Name',
+								value: '{user:first_name}'
 							}
 						]}
-					/>
-					<MagicSelect
-						id={'magic-4'}
-						fieldClassName={'magic'}
-						onValueChange={() => {}}
-						options={[
-
-						]}
+						isOpen={true}
+						value={magicFieldValue}
 					/>
 				</div>
 
