@@ -27,6 +27,34 @@ const hiddenFieldConfig = {
 	'description': false
 };
 
+const magicField = {
+	'id': 'cf-magic-example',
+	'type': 'magic',
+	'label': 'Magic ID',
+	'description': 'Select a value from list of magic tags or type a value',
+	fieldsList: [
+		{
+			label: '0',
+			value: 0
+		},
+		{
+			label: '1',
+			value: 1
+		},
+		{
+			label: '3',
+			value: 3
+		}
+	],
+	systemTagsList: [
+		{
+			label: '3',
+			value: 3
+		}
+	],
+	onValueChange: () => {}
+};
+
 const configFields = [
 	{
 		'id': 'cf-convertkit-apikey', 'label': 'API Key', 'type': 'text'
@@ -37,7 +65,7 @@ const configFields = [
 		'type': 'dropdown',
 		'options': [{
 			value: null,
-			label:'-- Select --'
+			label: '-- Select --'
 		}],
 		'desc': 'ConvertKit sequence to add subscriber to. Sequences are also referred to as courses.',
 		'description': false,
@@ -371,6 +399,26 @@ describe('Factories', () => {
 			);
 			expect(wrapper.children()).toHaveLength(configFields.length);
 			expect(wrapper.find('.f-1')).toHaveLength(1);
+		});
+
+		it('Creates the if a magic field is in collection', () => {
+			const components = fieldSetFactory([
+				magicField
+			]);
+			const wrapper = mount(
+				<div>
+					{Array.from(components).map((field, i) => {
+						return React.createElement(
+							'div', {
+								key: i,
+								className: `f-${i}`
+							},
+							field
+						);
+					})}
+				</div>
+			);
+			expect(wrapper.find('input')).toHaveLength(1);
 		});
 
 

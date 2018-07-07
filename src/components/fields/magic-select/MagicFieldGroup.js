@@ -1,18 +1,12 @@
 import React from 'react';
-import {
-	onValueChangePropType,
-	optionsShapeProp,
-	valuePropType,
-	fieldGroupPropTypes
-} from '../propTypes';
+import {magicGroupPropTypes} from '../propTypes';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import {MagicItem} from './MagicItem';
-import {ButtonGroup} from "../button-group/ButtonGroup";
-import {MagicSelect} from "./MagicSelect";
-import {RenderGroup} from "../../RenderGroup";
-import {Message} from "../messages/Message";
-import {FieldGroup} from "../FieldGroup";
+import {ButtonGroup} from '../button-group/ButtonGroup';
+import {MagicSelect} from './MagicSelect';
+import {RenderGroup} from '../../RenderGroup';
+import {Message} from '../messages/Message';
+import {FieldGroup} from '../FieldGroup';
 
 
 /**
@@ -93,7 +87,7 @@ export class MagicFieldGroup extends React.PureComponent {
 	 * @return {*}
 	 */
 	renderItem(item, isHighlighted){
-		return <MagicItem item={item} isHighlighted={isHighlighted} innerKey={item.innerKey} key={item.innerKey} />
+		return <MagicItem item={item} isHighlighted={isHighlighted} innerKey={item.innerKey} key={item.innerKey} />;
 	}
 
 	/**
@@ -126,7 +120,7 @@ export class MagicFieldGroup extends React.PureComponent {
 				value: null,
 				label: null,
 				innerKey:this.props.id
-			})
+			});
 		}
 
 		return items;
@@ -150,7 +144,7 @@ export class MagicFieldGroup extends React.PureComponent {
 				label: '{}',
 				ariaLabel: 'Select from system values'
 			},
-		]
+		];
 	}
 
 
@@ -166,7 +160,7 @@ export class MagicFieldGroup extends React.PureComponent {
 					MagicFieldGroup.classNames.fieldWrapper,
 					RenderGroup.classNames.fieldWrapper,
 					this.props.className
-					)
+				)
 				}
 			>
 				<FieldGroup.Label
@@ -205,13 +199,7 @@ export class MagicFieldGroup extends React.PureComponent {
 /**
  * Prop definitions for MagicFieldGroup component
  */
-MagicFieldGroup.propTypes = {
-	...fieldGroupPropTypes,
-	fieldsList: optionsShapeProp,
-	systemTagsList: optionsShapeProp,
-	defaultList: PropTypes.string,
-	isOpen: PropTypes.bool
-};
+MagicFieldGroup.propTypes = magicGroupPropTypes;
 
 /**
  * Default property values for MagicFieldGroup component
@@ -224,7 +212,8 @@ MagicFieldGroup.defaultProps = {
 	message: {
 		error: false,
 		message: ''
-	}
+	},
+	type: 'magic'
 };
 
 /**

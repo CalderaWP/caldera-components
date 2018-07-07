@@ -49,7 +49,7 @@ export class MagicItem extends React.PureComponent {
 			]
 		);
 	}
-};
+}
 
 /**
  * Prop definition for allowed element types

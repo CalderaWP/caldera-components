@@ -4,7 +4,7 @@ import './App.css';
 import {FieldGroup} from "./components/fields/FieldGroup";
 import {fieldSetFactory} from "./components/fields/factories/fieldSetFactory";
 import {RenderGroup} from "./components/RenderGroup";
-import {MagicSelect} from "./components/fields/magic-select/MagicSelect";
+import {MagicFieldGroup} from "./components/fields/magic-select/MagicFieldGroup";
 
 let textFieldValue = 'Roy,Mike';
 const textFieldConfig = {
@@ -147,8 +147,9 @@ class App extends Component {
 
 				<div>
 					<h2>Magic Select</h2>
-					<MagicSelect
+					<MagicFieldGroup
 						id={'magic-5'}
+						label={'Magic Group'}
 						fieldClassName={'magic'}
 						onValueChange={(newValue) => {
 							magicFieldValue = newValue;

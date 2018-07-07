@@ -32,7 +32,7 @@ describe('Button Group component', () => {
 			const component = mount(
 				<ButtonGroup
 					onChange={(newValue) => {
-						updateValue = newValue
+						updateValue = newValue;
 					}}
 					options={[
 						{
@@ -46,7 +46,7 @@ describe('Button Group component', () => {
 					]}
 				/>
 			);
-			expect(component.find('button').length).toBe(2)
+			expect(component.find('button')).toHaveLength(2);
 		});
 
 		it('Sends the right update value when clicked', () => {
@@ -54,7 +54,7 @@ describe('Button Group component', () => {
 			const component = mount(
 				<ButtonGroup
 					onChange={(newValue) => {
-						updateValue = newValue
+						updateValue = newValue;
 					}}
 					options={[
 						{
@@ -65,7 +65,7 @@ describe('Button Group component', () => {
 				/>
 			);
 			component.find('button').simulate('click');
-			expect(updateValue).toBe('Tags')
+			expect(updateValue).toBe('Tags');
 		});
 
 		it('Marks the value as selected if it should on initial load', () => {
@@ -84,7 +84,7 @@ describe('Button Group component', () => {
 				/>
 			);
 
-			expect(component.find('button').hasClass('selected')).toBe(true)
+			expect(component.find('button').hasClass('selected')).toBe(true);
 		});
 
 		it('Sets aria-label to label  when ariaLabel not provided', () => {
@@ -100,8 +100,8 @@ describe('Button Group component', () => {
 				/>
 			);
 
-			expect(component.find('button').prop('aria-label')).toBe('Tags')
-		})
+			expect(component.find('button').prop('aria-label')).toBe('Tags');
+		});
 
 		it('Sets aria-label to explicit value when passed', () => {
 			const component = mount(
@@ -117,7 +117,7 @@ describe('Button Group component', () => {
 				/>
 			);
 
-			expect(component.find('button').prop('aria-label')).toBe('Select field values')
+			expect(component.find('button').prop('aria-label')).toBe('Select field values');
 		});
 	});
 

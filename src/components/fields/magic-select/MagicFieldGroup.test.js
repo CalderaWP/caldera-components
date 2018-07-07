@@ -56,7 +56,7 @@ describe('MagicFieldGroup component', () => {
 					isOpen={false}
 				/>
 			);
-			expect(component.find('input').length).toBe(1);
+			expect(component.find('input')).toHaveLength(1);
 		});
 	});
 	describe('Options', () => {
@@ -129,7 +129,7 @@ describe('MagicFieldGroup component', () => {
 				/>
 			);
 			component.find('input').simulate('focus');
-			expect(component.find('.magic-input-option').length).toBe(2);
+			expect(component.find('.magic-input-option')).toHaveLength(2);
 		});
 
 		it('Uses fieldsList prop if no options prop', () => {
@@ -163,7 +163,7 @@ describe('MagicFieldGroup component', () => {
 				/>
 			);
 			component.find('input').simulate('focus');
-			expect(component.find('.magic-input-option').length).toBe(3);
+			expect(component.find('.magic-input-option')).toHaveLength(3);
 		});
 
 		it('Uses systemTagsList prop if no options prop and currentListType state is system', () => {
@@ -198,7 +198,7 @@ describe('MagicFieldGroup component', () => {
 			);
 			component.find('input').simulate('focus');
 			component.setState({currentListType: 'system'});
-			expect(component.find('.magic-input-option').length).toBe(1);
+			expect(component.find('.magic-input-option')).toHaveLength(1);
 		});
 
 		it('Receives updated value', () => {
@@ -323,7 +323,7 @@ describe('MagicFieldGroup component', () => {
 					isOpen={true}
 				/>
 			);
-			expect(component.find('button').length).toBe(2);
+			expect(component.find('button')).toHaveLength(2);
 		});
 		it( 'Does not output the buttons if not open', () => {
 			const component = mount(
@@ -355,7 +355,7 @@ describe('MagicFieldGroup component', () => {
 					isOpen={false}
 				/>
 			);
-			expect(component.find('button').length).toBe(0);
+			expect(component.find('button')).toHaveLength(0);
 		});
 	});
 });

@@ -37,7 +37,7 @@ export const fieldGroupPropTypes = {
 	isRequired: PropTypes.bool,
 	help: PropTypes.string,
 	label: PropTypes.string.isRequired,
-	type: PropTypes.oneOf(['input', 'select', 'fieldset']),
+	type: PropTypes.oneOf(['input', 'select', 'fieldset', 'magic']),
 	value: valuePropType,
 	onValueChange: onValueChangePropType,
 	options: PropTypes.array,
@@ -88,3 +88,12 @@ export const optionShape = {
 export const optionsShapeProp = PropTypes.arrayOf(
 	PropTypes.shape(optionShape)
 );
+
+export const magicGroupPropTypes = {
+	...fieldGroupPropTypes,
+	fieldsList: optionsShapeProp,
+	systemTagsList: optionsShapeProp,
+	defaultList: PropTypes.string,
+	isOpen: PropTypes.bool,
+	type: PropTypes.string
+};

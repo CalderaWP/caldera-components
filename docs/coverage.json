@@ -1,25 +1,27 @@
 {
-  "coverage": "66.1%",
-  "expectCount": 59,
-  "actualCount": 39,
+  "coverage": "73.56%",
+  "expectCount": 87,
+  "actualCount": 64,
   "files": {
     "src/App.js": {
-      "expectCount": 13,
+      "expectCount": 15,
       "actualCount": 0,
       "undocumentLines": [
-        8,
         9,
-        23,
+        10,
         24,
-        35,
-        36,
-        57,
-        58,
-        79,
-        85,
-        89,
-        95,
-        97
+        42,
+        43,
+        54,
+        55,
+        76,
+        77,
+        98,
+        105,
+        109,
+        115,
+        117,
+        119
       ]
     },
     "src/components/RenderGroup.js": {
@@ -52,6 +54,11 @@
       "actualCount": 1,
       "undocumentLines": []
     },
+    "src/components/fields/button-group/ButtonGroup.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
     "src/components/fields/factories/fieldFactory.js": {
       "expectCount": 1,
       "actualCount": 1,
@@ -77,6 +84,23 @@
       "actualCount": 1,
       "undocumentLines": []
     },
+    "src/components/fields/magic-select/MagicFieldGroup.js": {
+      "expectCount": 12,
+      "actualCount": 11,
+      "undocumentLines": [
+        25
+      ]
+    },
+    "src/components/fields/magic-select/MagicItem.js": {
+      "expectCount": 3,
+      "actualCount": 3,
+      "undocumentLines": []
+    },
+    "src/components/fields/magic-select/MagicSelect.js": {
+      "expectCount": 8,
+      "actualCount": 8,
+      "undocumentLines": []
+    },
     "src/components/fields/messages/Message.js": {
       "expectCount": 2,
       "actualCount": 2,
@@ -93,8 +117,8 @@
       "undocumentLines": []
     },
     "src/components/fields/propTypes.js": {
-      "expectCount": 6,
-      "actualCount": 5,
+      "expectCount": 8,
+      "actualCount": 7,
       "undocumentLines": [
         68
       ]

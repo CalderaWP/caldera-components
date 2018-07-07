@@ -88,17 +88,17 @@ describe('MagicSelect component', () => {
 					fieldClassName={'magic'}
 					onValueChange={genericChangeHandler}
 					options={[
-			{
-				label: 'HTML',
-				value: 'html',
-				innerKey:'html'
-			},
-			{
-				label: 'Plain Text',
-				value: 'plain',
-				innerKey:'plain'
-			}
-		]}
+						{
+							label: 'HTML',
+							value: 'html',
+							innerKey:'html'
+						},
+						{
+							label: 'Plain Text',
+							value: 'plain',
+							innerKey:'plain'
+						}
+					]}
 					isOpen={false}
 				/>
 			);
@@ -112,17 +112,17 @@ describe('MagicSelect component', () => {
 					fieldClassName={'magic'}
 					onValueChange={genericChangeHandler}
 					options={[
-			{
-				label: 'HTML',
-				value: 'html',
-				innerKey:'html'
-			},
-			{
-				label: 'Plain Text',
-				value: 'plain',
-				innerKey:'plain'
-			}
-		]}
+						{
+							label: 'HTML',
+							value: 'html',
+							innerKey:'html'
+						},
+						{
+							label: 'Plain Text',
+							value: 'plain',
+							innerKey:'plain'
+						}
+					]}
 					isOpen={true}
 				/>
 			);
@@ -226,17 +226,17 @@ describe('MagicSelect component', () => {
 					fieldClassName={'magic'}
 					onValueChange={genericChangeHandler}
 					options={[
-			{
-				label: 'HTML',
-				value: 'html',
-				innerKey:'html'
-			},
-			{
-				label: 'Plain Text',
-				value: 'plain',
-				innerKey:'plain'
-			}
-		]}
+						{
+							label: 'HTML',
+							value: 'html',
+							innerKey:'html'
+						},
+						{
+							label: 'Plain Text',
+							value: 'plain',
+							innerKey:'plain'
+						}
+					]}
 					isOpen={true}
 				/>
 			);

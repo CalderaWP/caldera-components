@@ -35,7 +35,7 @@ export class RenderGroup extends React.Component {
 			return configField.ID ? configField.ID : configField.id ? configField.id : false;
 		}
 
-		if( 'function' === typeof  this.props.onBlur  ){
+		if( 'function' === typeof this.props.onBlur  ){
 			configFields.forEach((configField, configFieldIndex ) => {
 				const configFieldId = findFieldId(configField);
 				if( configFieldId ){
@@ -48,7 +48,7 @@ export class RenderGroup extends React.Component {
 			});
 
 		}
-		if( 'function' === typeof  this.props.onFocus ){
+		if( 'function' === typeof this.props.onFocus ){
 			configFields.forEach((configField, configFieldIndex ) => {
 				const configFieldId = findFieldId(configField);
 				if( configFieldId ){

@@ -554,4 +554,16 @@ describe('Field Group component', () => {
 			expect(wrapper.find('.caldera-components-message')).toHaveLength(0);
 		});
 	});
+
+	it( 'Uses the Magic group, if type is magic', () => {
+		const component = renderer.create(
+			<FieldGroup
+				id={'magic-field-group'}
+				label={'magic'}
+				type={'magic'}
+				onValueChange={() => {}}
+			/>
+		);
+		expect(component.toJSON()).toMatchSnapshot();
+	});
 });

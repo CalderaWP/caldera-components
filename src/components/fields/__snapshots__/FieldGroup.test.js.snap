@@ -129,3 +129,37 @@ exports[`Field Group component Field group component props Works with help text 
   </p>
 </div>
 `;
+
+exports[`Field Group component Uses the Magic group, if type is magic 1`] = `
+<div
+  className="caldera-magic-select-group caldera-config-field"
+>
+  <label
+    htmlFor="magic-field-group"
+  >
+    magic
+  </label>
+  <div
+    style={
+      Object {
+        "display": "inline-block",
+      }
+    }
+  >
+    <input
+      aria-autocomplete="list"
+      aria-expanded={false}
+      autoComplete="off"
+      className="caldera-magic-input caldera-magic-input-magic-field-group"
+      id="magic-field-group"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      role="combobox"
+      value=""
+    />
+  </div>
+</div>
+`;

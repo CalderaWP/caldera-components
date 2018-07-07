@@ -7,8 +7,8 @@ import {
 import Autocomplete from 'react-autocomplete';
 import PropTypes from 'prop-types';
 import {MagicItem} from './MagicItem';
-import {MagicFieldGroup} from "./MagicFieldGroup";
-import classNames from "classnames";
+import {MagicFieldGroup} from './MagicFieldGroup';
+import classNames from 'classnames';
 
 
 /**
@@ -76,7 +76,7 @@ export class MagicSelect extends React.PureComponent {
 	 * @return {*}
 	 */
 	renderItem(item, isHighlighted){
-		return <MagicItem item={item} isHighlighted={isHighlighted} innerKey={item.innerKey} key={item.innerKey} onClick={this.onSelect} />
+		return <MagicItem item={item} isHighlighted={isHighlighted} innerKey={item.innerKey} key={item.innerKey} onClick={this.onSelect} />;
 	}
 
 

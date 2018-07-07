@@ -1,6 +1,6 @@
 import React from 'react';
 import {optionShape} from '../propTypes';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 /**
  * Creates a button group field
  *
@@ -42,7 +42,7 @@ export const ButtonGroup = (props) => {
 						<React.Fragment>{option.label}</React.Fragment>
 					}
 
-				</button>
+				</button>;
 			})}
 		</div>
 	);

@@ -48,6 +48,38 @@
     ]
   },
   {
+    "name": "MagicFieldGroup#onChangeListType",
+    "filePath": "src/components/fields/magic-select/MagicFieldGroup.js",
+    "lines": [
+      {
+        "lineNumber": 70,
+        "line": "\t/**"
+      },
+      {
+        "lineNumber": 71,
+        "line": "\t * Update list of tags to show"
+      },
+      {
+        "lineNumber": 72,
+        "line": "\t * @param {String}newType"
+      },
+      {
+        "lineNumber": 73,
+        "line": "\t */"
+      },
+      {
+        "lineNumber": 74,
+        "line": "\tonChangeListType(newType){"
+      }
+    ],
+    "codeParams": [
+      "newType"
+    ],
+    "docParams": [
+      "{String}newType"
+    ]
+  },
+  {
     "name": "messageObjectFactory",
     "filePath": "src/components/fields/messages/messageObjectFactory.js",
     "lines": [

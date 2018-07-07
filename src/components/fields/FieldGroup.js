@@ -10,6 +10,7 @@ import {RenderGroup} from '../RenderGroup';
 import {Message} from './messages/Message';
 import {messageObjectFactory} from './messages/messageObjectFactory';
 import {fieldsetCheckboxHandler} from './field-group-change-handlers/fieldsetCheckboxHandler';
+import {MagicFieldGroup} from './magic-select/MagicFieldGroup';
 
 /**
  * Represents one configField -- wrapper, label and input.
@@ -19,6 +20,9 @@ import {fieldsetCheckboxHandler} from './field-group-change-handlers/fieldsetChe
  * @constructor
  */
 export const FieldGroup = (props) => {
+	if( 'magic' === props.type ){
+		return <MagicFieldGroup {...props} />;
+	}
 
 	/**
 	 * Creates the id attribute
@@ -118,11 +122,8 @@ export const FieldGroup = (props) => {
 				<div
 					className={RenderGroup.classNames.fieldWrapper}
 				>
-					<label
-						htmlFor={fieldProps.id}
-					>
-						{fieldProps.label}
-					</label>
+					<FieldGroup.Label id={fieldProps.id} label={fieldProps.label} />
+
 					<Message
 						message={message}
 					/>
@@ -163,11 +164,37 @@ export const FieldGroup = (props) => {
 	return fieldInner(props);
 };
 
-
+/**
+ * The prop type definitions for FieldGroup components
+ *
+ * @type {{id: (boolean|shim|*), isBlockInput: shim, isRequired: shim, help: shim, label: (boolean|shim|*), type: shim, value: shim, onValueChange: (boolean|shim|*), inputType: shim}}
+ */
 FieldGroup.propTypes = fieldGroupPropTypes;
 
+/**
+ * Default props for FieldGroups
+ *
+ * @type {{isBlockInput: boolean, isRequired: boolean, help: string}}
+ */
 FieldGroup.defaultProps = {
 	isBlockInput: true,
 	isRequired: false,
 	help: ''
+};
+
+/**
+ * Creates the FieldGroup's label component
+ *
+ * @param {Object} props
+ * @return {*}
+ * @constructor
+ */
+FieldGroup.Label = (props) => {
+	return (
+		<label
+			htmlFor={props.id}
+		>
+			{props.label}
+		</label>
+	);
 };
