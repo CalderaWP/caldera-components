@@ -33,6 +33,7 @@ export class MagicSelect extends React.PureComponent {
 		this.onInputFocus = this.onInputFocus.bind(this);
 		this.renderItem = this.renderItem.bind(this);
 		this.onInputBlur = this.onInputBlur.bind(this);
+		this.onChangeListType = this.onChangeListType.bind(this);
 	}
 
 	/**
@@ -66,6 +67,14 @@ export class MagicSelect extends React.PureComponent {
 	 */
 	onSelect(value) {
 		this.props.onValueChange(value);
+	}
+
+	/**
+	 * Update list of tags to show
+	 * @param {String}newType
+	 */
+	onChangeListType(newType){
+		this.setState({currentList:newType});
 	}
 
 	/**
@@ -125,6 +134,7 @@ export class MagicSelect extends React.PureComponent {
 			<div
 				className={classNames('magic-select', this.props.className)}
 			>
+
 				<Autocomplete
 					getItemValue={(item) => item.value}
 					items={this.items()}
