@@ -6,9 +6,15 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+<<<<<<< HEAD
+    "@caldera-labs/components/src/components/admin/calderaheader.js~calderaheader",
+    "function/index.html#static-function-CalderaHeader",
+    "<span>CalderaHeader</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/admin/CalderaHeader.js</span>",
+=======
     "@caldera-labs/components/src/components/fields/button-group/buttongroup.js~buttongroup",
     "function/index.html#static-function-ButtonGroup",
     "<span>ButtonGroup</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/fields/button-group/ButtonGroup.js</span>",
+>>>>>>> master
     "function"
   ],
   [
@@ -60,6 +66,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "@caldera-labs/components/src/components/admin/pagebody.js~pagebody",
+    "function/index.html#static-function-PageBody",
+    "<span>PageBody</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/admin/PageBody.js</span>",
+    "function"
+  ],
+  [
     "@caldera-labs/components/src/components/rendergroup.js~rendergroup",
     "class/src/components/RenderGroup.js~RenderGroup.html",
     "<span>RenderGroup</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/RenderGroup.js</span>",
@@ -75,6 +87,12 @@ window.esdocSearchIndex = [
     "@caldera-labs/components/src/components/fields/select/selectfieldfancy.js~selectfieldfancy",
     "function/index.html#static-function-SelectFieldFancy",
     "<span>SelectFieldFancy</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/fields/select/SelectFieldFancy.js</span>",
+    "function"
+  ],
+  [
+    "@caldera-labs/components/src/components/admin/statusindicator.js~statusindicator",
+    "function/index.html#static-function-StatusIndicator",
+    "<span>StatusIndicator</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/admin/StatusIndicator.js</span>",
     "function"
   ],
   [
@@ -592,6 +610,30 @@ window.esdocSearchIndex = [
     "class/src/components/RenderGroup.js~RenderGroup.html#instance-method-render",
     "src/components/RenderGroup.js~RenderGroup#render",
     "method"
+  ],
+  [
+    "src/components/admin/calderaheader.js",
+    "file/src/components/admin/CalderaHeader.js.html",
+    "src/components/admin/CalderaHeader.js",
+    "file"
+  ],
+  [
+    "src/components/admin/pagebody.js",
+    "file/src/components/admin/PageBody.js.html",
+    "src/components/admin/PageBody.js",
+    "file"
+  ],
+  [
+    "src/components/admin/statusindicator.js",
+    "file/src/components/admin/StatusIndicator.js.html",
+    "src/components/admin/StatusIndicator.js",
+    "file"
+  ],
+  [
+    "src/components/admin/index.js",
+    "file/src/components/admin/index.js.html",
+    "src/components/admin/index.js",
+    "file"
   ],
   [
     "src/components/conditional-logic/checkconfigfieldconditionals.js",
