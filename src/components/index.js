@@ -5,6 +5,7 @@ import * as factories from './fields/factories/index';
 import {RenderGroup} from './RenderGroup';
 import conditionals from './conditional-logic/index';
 import validation from './validation/index';
+import Admin from './admin/index';
 
 /**
  * Caldera components
@@ -16,5 +17,6 @@ module.exports = {
 	fields,
 	factories,
 	conditionals,
-	validation
+	validation,
+	Admin
 };

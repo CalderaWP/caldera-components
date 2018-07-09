@@ -273,3 +273,66 @@ This example adds the class `cf-whatever-error` to the element with the message.
     className={'cf-whatever-error'}
 />
 ```
+
+## Admin Page Components
+Main admin UI components for Caldera Forms
+
+### Import Using webpack
+`import {Admin} from '@caldera-labs/components'`
+
+### List of Admin Components
+* `CalderaHeader` A component to create the header markup of a page.
+- Child props can be passed. They will be outputted inside of a `ul`. You must supply `li`.
+* `PageBody` Wraps the content of an admin page in a consistent wrapper.
+* `StatusIndicator` Conveys succesful green messages or red messages of failure.
+
+#### `StatusIndicator`
+* Conveys successful green messages or red messages of failure.
+* Relies on CSS in admin.css for style, which makes it look the same as existing similar components.
+* Designed to work the same way as status indicator used in Pro UI, which is VueJS.
+
+#### Examples Usage of `StatusIndicator` Component
+Success message:
+```js
+import {Admin} from '@caldera-labs/components';
+<Admin.StatusIndicator 
+    message={'Everything Is Sivan!'}
+    show={true} 
+    success={true}
+/>
+```
+
+Error/ warning:
+
+```js
+import {Admin} from '@caldera-labs/components';
+<Admin.StatusIndicator 
+    message={'Error!'}
+    show={true}
+    success={false}
+/>
+
+```
+
+#### `CalderaHeader`
+```js
+import {Admin} from '@caldera-labs/components';
+<Admin.CalderaHeader 
+    >
+    <li><button></button></li>
+</Admin.CalderaHeader>
+```
+
+
+#### `PageBody`
+```js
+import {Admin} from '@caldera-labs/components';
+<Admin.PageBody 
+    >
+    <Admin.CalderaHeader 
+        >
+        <li><button></button></li>
+    </Admin.CalderaHeader>
+    <div>Hi Roy</div>
+</Admin.CalderaHeader>
+```

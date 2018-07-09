@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`admin components CalderaHeader Matching Snapshot  1`] = `
+<div
+  className="caldera-editor-header"
+>
+  <ul
+    className="caldera-editor-header-nav"
+  >
+    <li
+      className="caldera-editor-logo"
+    >
+      <span
+        className="caldera-forms-name"
+      >
+        Caldera Forms: 
+        Caldera Forms
+      </span>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`admin components CalderaHeader Matching Snapshot with child li 1`] = `
+<div
+  className="caldera-editor-header"
+>
+  <ul
+    className="caldera-editor-header-nav"
+  >
+    <li
+      className="caldera-editor-logo"
+    >
+      <span
+        className="caldera-forms-name"
+      >
+        Caldera Forms: 
+        Caldera Forms
+      </span>
+    </li>
+    <li>
+      Hi Roy
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`admin components PageBody Matching Snapshot  1`] = `
+<div
+  className="caldera-forms-admin-page-wrap"
+  style={
+    Object {
+      "marginTop": "75px",
+    }
+  }
+/>
+`;
+
+exports[`admin components PageBody Matching Snapshot with child  1`] = `
+<div
+  className="caldera-forms-admin-page-wrap"
+  style={
+    Object {
+      "marginTop": "75px",
+    }
+  }
+>
+  <div>
+    Hi Roy
+  </div>
+</div>
+`;
+
+exports[`admin components StatusIndicator Matching Snapshot  1`] = `null`;
+
+exports[`admin components StatusIndicator Matching Snapshot with a message to show  1`] = `
+<div
+  className="cf-alert-wrap"
+>
+  <p
+    className="cf-alert cf-alert-success"
+  >
+    Hi Roy
+  </p>
+</div>
+`;
+
+exports[`admin components StatusIndicator Matching Snapshot with an error message to show  1`] = `
+<div
+  className="cf-alert-wrap"
+>
+  <p
+    className="cf-alert cf-alert-error"
+  >
+    False Roy
+  </p>
+</div>
+`;

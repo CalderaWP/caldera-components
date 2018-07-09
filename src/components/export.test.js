@@ -17,5 +17,9 @@ describe( 'conditionals export', () => {
 		expect( typeof Components.validation ).toEqual( 'object' );
 	});
 
+	it( 'exports admin', () => {
+		expect( typeof Components.Admin ).toEqual( 'object' );
+	});
+
 });
 

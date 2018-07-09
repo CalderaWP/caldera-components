@@ -69,6 +69,13 @@
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#a-non-error-message" data-ice="link">A non-error message</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#render-nothing" data-ice="link">Render nothing</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#adding-additional-classes-to-the-message--39-s-outer-element" data-ice="link">Adding additional classes to the message&apos;s outer element</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#admin-page-components" data-ice="link">Admin Page Components</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#import-using-webpack" data-ice="link">Import Using webpack</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#list-of-admin-components" data-ice="link">List of Admin Components</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/components.html"><a href="manual/components.html#-code-statusindicator--code-" data-ice="link">StatusIndicator</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/components.html"><a href="manual/components.html#examples-usage-of--code-statusindicator--code--component" data-ice="link">Examples Usage of StatusIndicator Component</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/components.html"><a href="manual/components.html#-code-calderaheader--code-" data-ice="link">CalderaHeader</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/components.html"><a href="manual/components.html#-code-pagebody--code-" data-ice="link">PageBody</a></li>
 </ul>
   </div>
 <div data-ice="manual">
@@ -521,6 +528,42 @@ let checkBoxValue = [&apos;1&apos;];
     }}
     className={&apos;cf-whatever-error&apos;}
 /&gt;</code>
+</code></pre><h2>Admin Page Components</h2><p>Main admin UI components for Caldera Forms</p><h3>Import Using webpack</h3><p><code>import {Admin} from &apos;@caldera-labs/components&apos;</code></p><h3>List of Admin Components</h3><ul>
+<li><code>CalderaHeader</code> A component to create the header markup of a page.</li>
+<li>Child props can be passed. They will be outputted inside of a <code>ul</code>. You must supply <code>li</code>.</li>
+<li><code>PageBody</code> Wraps the content of an admin page in a consistent wrapper.</li>
+<li><code>StatusIndicator</code> Conveys succesful green messages or red messages of failure.</li>
+</ul><h4><code>StatusIndicator</code></h4><ul>
+<li>Conveys successful green messages or red messages of failure.</li>
+<li>Relies on CSS in admin.css for style, which makes it look the same as existing similar components.</li>
+<li>Designed to work the same way as status indicator used in Pro UI, which is VueJS.</li>
+</ul><h4>Examples Usage of <code>StatusIndicator</code> Component</h4><p>Success message:</p><pre><code class="lang-js"><code class="source-code prettyprint">import {Admin} from &apos;@caldera-labs/components&apos;;
+&lt;Admin.StatusIndicator 
+    message={&apos;Everything Is Sivan!&apos;}
+    show={true} 
+    success={true}
+/&gt;</code>
+</code></pre><p>Error/ warning:</p><pre><code class="lang-js"><code class="source-code prettyprint">import {Admin} from &apos;@caldera-labs/components&apos;;
+&lt;Admin.StatusIndicator 
+    message={&apos;Error!&apos;}
+    show={true}
+    success={false}
+/&gt;
+</code>
+</code></pre><h4><code>CalderaHeader</code></h4><pre><code class="lang-js"><code class="source-code prettyprint">import {Admin} from &apos;@caldera-labs/components&apos;;
+&lt;Admin.CalderaHeader 
+    &gt;
+    &lt;li&gt;&lt;button&gt;&lt;/button&gt;&lt;/li&gt;
+&lt;/Admin.CalderaHeader&gt;</code>
+</code></pre><h4><code>PageBody</code></h4><pre><code class="lang-js"><code class="source-code prettyprint">import {Admin} from &apos;@caldera-labs/components&apos;;
+&lt;Admin.PageBody 
+    &gt;
+    &lt;Admin.CalderaHeader 
+        &gt;
+        &lt;li&gt;&lt;button&gt;&lt;/button&gt;&lt;/li&gt;
+    &lt;/Admin.CalderaHeader&gt;
+    &lt;div&gt;Hi Roy&lt;/div&gt;
+&lt;/Admin.CalderaHeader&gt;</code>
 </code></pre></div>
         <a data-ice="link" href="manual/components.html"></a>
       </div>
