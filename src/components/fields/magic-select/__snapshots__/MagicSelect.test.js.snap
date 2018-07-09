@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MagicSelect component Matches snapshot 1`] = `
+<div
+  style={
+    Object {
+      "display": "inline-block",
+    }
+  }
+>
+  <input
+    aria-autocomplete="list"
+    aria-expanded={false}
+    autoComplete="off"
+    className="caldera-magic-input caldera-magic-input-magic-1"
+    id="magic-1"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    role="combobox"
+    value=""
+  />
+</div>
+`;

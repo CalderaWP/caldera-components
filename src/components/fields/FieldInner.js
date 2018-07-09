@@ -40,6 +40,7 @@ export const FieldInner = (props) => {
 	switch( props.type ){
 	case 'select':
 	case 'dropdown':
+		const options = Array.isArray(props.options) ? props.options : [];
 		return (
 			<SelectField
 				id={props.id}
@@ -48,7 +49,7 @@ export const FieldInner = (props) => {
 				value={props.value}
 				onValueChange={props.onValueChange}
 				inputType={props.inputType}
-				options={props.options}
+				options={options}
 				disabled={props.disabled}
 				onBlur={props.onBlur}
 				onFocus={props.onFocus}

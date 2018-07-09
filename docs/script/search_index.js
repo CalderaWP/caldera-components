@@ -6,9 +6,15 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+<<<<<<< HEAD
     "@caldera-labs/components/src/components/admin/calderaheader.js~calderaheader",
     "function/index.html#static-function-CalderaHeader",
     "<span>CalderaHeader</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/admin/CalderaHeader.js</span>",
+=======
+    "@caldera-labs/components/src/components/fields/button-group/buttongroup.js~buttongroup",
+    "function/index.html#static-function-ButtonGroup",
+    "<span>ButtonGroup</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/fields/button-group/ButtonGroup.js</span>",
+>>>>>>> master
     "function"
   ],
   [
@@ -34,6 +40,24 @@ window.esdocSearchIndex = [
     "variable/index.html#static-variable-MESSAGE_CLASS",
     "<span>MESSAGE_CLASS</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/fields/messages/Message.js</span>",
     "variable"
+  ],
+  [
+    "@caldera-labs/components/src/components/fields/magic-select/magicfieldgroup.js~magicfieldgroup",
+    "class/src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup.html",
+    "<span>MagicFieldGroup</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/fields/magic-select/MagicFieldGroup.js</span>",
+    "class"
+  ],
+  [
+    "@caldera-labs/components/src/components/fields/magic-select/magicitem.js~magicitem",
+    "class/src/components/fields/magic-select/MagicItem.js~MagicItem.html",
+    "<span>MagicItem</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/fields/magic-select/MagicItem.js</span>",
+    "class"
+  ],
+  [
+    "@caldera-labs/components/src/components/fields/magic-select/magicselect.js~magicselect",
+    "class/src/components/fields/magic-select/MagicSelect.js~MagicSelect.html",
+    "<span>MagicSelect</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/fields/magic-select/MagicSelect.js</span>",
+    "class"
   ],
   [
     "@caldera-labs/components/src/components/fields/messages/message.js~message",
@@ -198,6 +222,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "@caldera-labs/components/src/components/fields/proptypes.js~magicgroupproptypes",
+    "variable/index.html#static-variable-magicGroupPropTypes",
+    "<span>magicGroupPropTypes</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/fields/propTypes.js</span>",
+    "variable"
+  ],
+  [
     "@caldera-labs/components/src/components/fields/messages/messageobjectfactory.js~messageobjectfactory",
     "function/index.html#static-function-messageObjectFactory",
     "<span>messageObjectFactory</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/fields/messages/messageObjectFactory.js</span>",
@@ -213,6 +243,18 @@ window.esdocSearchIndex = [
     "@caldera-labs/components/src/components/fields/proptypes.js~onvaluechangeproptype",
     "variable/index.html#static-variable-onValueChangePropType",
     "<span>onValueChangePropType</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/fields/propTypes.js</span>",
+    "variable"
+  ],
+  [
+    "@caldera-labs/components/src/components/fields/proptypes.js~optionshape",
+    "variable/index.html#static-variable-optionShape",
+    "<span>optionShape</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/fields/propTypes.js</span>",
+    "variable"
+  ],
+  [
+    "@caldera-labs/components/src/components/fields/proptypes.js~optionsshapeprop",
+    "variable/index.html#static-variable-optionsShapeProp",
+    "<span>optionsShapeProp</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/fields/propTypes.js</span>",
     "variable"
   ],
   [
@@ -630,6 +672,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/components/fields/button-group/buttongroup.js",
+    "file/src/components/fields/button-group/ButtonGroup.js.html",
+    "src/components/fields/button-group/ButtonGroup.js",
+    "file"
+  ],
+  [
     "src/components/fields/factories/fieldfactory.js",
     "file/src/components/fields/factories/fieldFactory.js.html",
     "src/components/fields/factories/fieldFactory.js",
@@ -670,6 +718,138 @@ window.esdocSearchIndex = [
     "file/src/components/fields/input/Input.js.html",
     "src/components/fields/input/Input.js",
     "file"
+  ],
+  [
+    "src/components/fields/magic-select/magicfieldgroup.js",
+    "file/src/components/fields/magic-select/MagicFieldGroup.js.html",
+    "src/components/fields/magic-select/MagicFieldGroup.js",
+    "file"
+  ],
+  [
+    "src/components/fields/magic-select/magicfieldgroup.js~magicfieldgroup#constructor",
+    "class/src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup.html#instance-constructor-constructor",
+    "src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup#constructor",
+    "method"
+  ],
+  [
+    "src/components/fields/magic-select/magicfieldgroup.js~magicfieldgroup#items",
+    "class/src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup.html#instance-method-items",
+    "src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup#items",
+    "method"
+  ],
+  [
+    "src/components/fields/magic-select/magicfieldgroup.js~magicfieldgroup#listtypeoptions",
+    "class/src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup.html#instance-method-listTypeOptions",
+    "src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup#listTypeOptions",
+    "method"
+  ],
+  [
+    "src/components/fields/magic-select/magicfieldgroup.js~magicfieldgroup#onchange",
+    "class/src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup.html#instance-method-onChange",
+    "src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup#onChange",
+    "method"
+  ],
+  [
+    "src/components/fields/magic-select/magicfieldgroup.js~magicfieldgroup#onchangelisttype",
+    "class/src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup.html#instance-method-onChangeListType",
+    "src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup#onChangeListType",
+    "method"
+  ],
+  [
+    "src/components/fields/magic-select/magicfieldgroup.js~magicfieldgroup#oninputblur",
+    "class/src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup.html#instance-method-onInputBlur",
+    "src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup#onInputBlur",
+    "method"
+  ],
+  [
+    "src/components/fields/magic-select/magicfieldgroup.js~magicfieldgroup#oninputfocus",
+    "class/src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup.html#instance-method-onInputFocus",
+    "src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup#onInputFocus",
+    "method"
+  ],
+  [
+    "src/components/fields/magic-select/magicfieldgroup.js~magicfieldgroup#onselect",
+    "class/src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup.html#instance-method-onSelect",
+    "src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup#onSelect",
+    "method"
+  ],
+  [
+    "src/components/fields/magic-select/magicfieldgroup.js~magicfieldgroup#render",
+    "class/src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup.html#instance-method-render",
+    "src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup#render",
+    "method"
+  ],
+  [
+    "src/components/fields/magic-select/magicfieldgroup.js~magicfieldgroup#renderitem",
+    "class/src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup.html#instance-method-renderItem",
+    "src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup#renderItem",
+    "method"
+  ],
+  [
+    "src/components/fields/magic-select/magicfieldgroup.js~magicfieldgroup#state",
+    "class/src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup.html#instance-member-state",
+    "src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup#state",
+    "member"
+  ],
+  [
+    "src/components/fields/magic-select/magicitem.js",
+    "file/src/components/fields/magic-select/MagicItem.js.html",
+    "src/components/fields/magic-select/MagicItem.js",
+    "file"
+  ],
+  [
+    "src/components/fields/magic-select/magicitem.js~magicitem#render",
+    "class/src/components/fields/magic-select/MagicItem.js~MagicItem.html#instance-method-render",
+    "src/components/fields/magic-select/MagicItem.js~MagicItem#render",
+    "method"
+  ],
+  [
+    "src/components/fields/magic-select/magicselect.js",
+    "file/src/components/fields/magic-select/MagicSelect.js.html",
+    "src/components/fields/magic-select/MagicSelect.js",
+    "file"
+  ],
+  [
+    "src/components/fields/magic-select/magicselect.js~magicselect#constructor",
+    "class/src/components/fields/magic-select/MagicSelect.js~MagicSelect.html#instance-constructor-constructor",
+    "src/components/fields/magic-select/MagicSelect.js~MagicSelect#constructor",
+    "method"
+  ],
+  [
+    "src/components/fields/magic-select/magicselect.js~magicselect#onchange",
+    "class/src/components/fields/magic-select/MagicSelect.js~MagicSelect.html#instance-method-onChange",
+    "src/components/fields/magic-select/MagicSelect.js~MagicSelect#onChange",
+    "method"
+  ],
+  [
+    "src/components/fields/magic-select/magicselect.js~magicselect#oninputblur",
+    "class/src/components/fields/magic-select/MagicSelect.js~MagicSelect.html#instance-method-onInputBlur",
+    "src/components/fields/magic-select/MagicSelect.js~MagicSelect#onInputBlur",
+    "method"
+  ],
+  [
+    "src/components/fields/magic-select/magicselect.js~magicselect#oninputfocus",
+    "class/src/components/fields/magic-select/MagicSelect.js~MagicSelect.html#instance-method-onInputFocus",
+    "src/components/fields/magic-select/MagicSelect.js~MagicSelect#onInputFocus",
+    "method"
+  ],
+  [
+    "src/components/fields/magic-select/magicselect.js~magicselect#onselect",
+    "class/src/components/fields/magic-select/MagicSelect.js~MagicSelect.html#instance-method-onSelect",
+    "src/components/fields/magic-select/MagicSelect.js~MagicSelect#onSelect",
+    "method"
+  ],
+  [
+    "src/components/fields/magic-select/magicselect.js~magicselect#render",
+    "class/src/components/fields/magic-select/MagicSelect.js~MagicSelect.html#instance-method-render",
+    "src/components/fields/magic-select/MagicSelect.js~MagicSelect#render",
+    "method"
+  ],
+  [
+    "src/components/fields/magic-select/magicselect.js~magicselect#renderitem",
+    "class/src/components/fields/magic-select/MagicSelect.js~MagicSelect.html#instance-method-renderItem",
+    "src/components/fields/magic-select/MagicSelect.js~MagicSelect#renderItem",
+    "method"
   ],
   [
     "src/components/fields/messages/message.js",

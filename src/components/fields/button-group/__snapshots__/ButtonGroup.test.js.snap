@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Group component icon buttons Creates with an icon option 1`] = `
+<div
+  role="group"
+>
+  <button
+    aria-label="Tags"
+    className="not-selected"
+    onClick={[Function]}
+  >
+    <span
+      className="fa-envelope"
+    />
+  </button>
+</div>
+`;
+
+exports[`Button Group component options Creates with one option 1`] = `
+<div
+  role="group"
+>
+  <button
+    aria-label="Tags"
+    className="not-selected"
+    onClick={[Function]}
+  >
+    Tags
+  </button>
+</div>
+`;

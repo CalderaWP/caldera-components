@@ -50,13 +50,20 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fieldInnerPropTypes">fieldInnerPropTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fieldPropTypes">fieldPropTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-inputTypeProp">inputTypeProp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-magicGroupPropTypes">magicGroupPropTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-onValueChangePropType">onValueChangePropType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-optionShape">optionShape</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-optionsShapeProp">optionsShapeProp</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-valuePropType">valuePropType</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-button-group">components/fields/button-group</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ButtonGroup">ButtonGroup</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-factories">components/fields/factories</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldFactory">fieldFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldSetFactory">fieldSetFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-prepareFieldConfig">prepareFieldConfig</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-field-group-change-handlers">components/fields/field-group-change-handlers</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldsetCheckboxHandler">fieldsetCheckboxHandler</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-input">components/fields/input</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Input">Input</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-magic-select">components/fields/magic-select</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup.html">MagicFieldGroup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/fields/magic-select/MagicItem.js~MagicItem.html">MagicItem</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/fields/magic-select/MagicSelect.js~MagicSelect.html">MagicSelect</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-messages">components/fields/messages</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Message">Message</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-messageObjectFactory">messageObjectFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MESSAGE_CLASS">MESSAGE_CLASS</a></span></span></li>
@@ -82,6 +89,7 @@ import &apos;./App.css&apos;;
 import {FieldGroup} from &quot;./components/fields/FieldGroup&quot;;
 import {fieldSetFactory} from &quot;./components/fields/factories/fieldSetFactory&quot;;
 import {RenderGroup} from &quot;./components/RenderGroup&quot;;
+import {MagicFieldGroup} from &quot;./components/fields/magic-select/MagicFieldGroup&quot;;
 
 let textFieldValue = &apos;Roy,Mike&apos;;
 const textFieldConfig = {
@@ -177,7 +185,11 @@ const configFields = [
 	hiddenFieldConfig,
 	selectFieldConfig,
 	fieldSetField,
+<<<<<<< HEAD
 	numberFieldConfig,
+=======
+	numberFieldConfig
+>>>>>>> master
 ];
 const configFieldEls = fieldSetFactory(configFields);
 
@@ -188,6 +200,8 @@ let values = {
 	two: &apos;&apos;,
 	three: &apos;&apos;
 };
+
+let magicFieldValue = &apos;&apos;;
 
 class App extends Component {
 
@@ -218,6 +232,40 @@ class App extends Component {
 							field
 						);
 					})}
+				&lt;/div&gt;
+
+				&lt;div&gt;
+					&lt;h2&gt;Magic Select&lt;/h2&gt;
+					&lt;MagicFieldGroup
+						id={&apos;magic-5&apos;}
+						label={&apos;Magic Group&apos;}
+						fieldClassName={&apos;magic&apos;}
+						onValueChange={(newValue) =&gt; {
+							magicFieldValue = newValue;
+						} }
+						fieldsList={[
+							{
+								label: &apos;Field One&apos;,
+								value: &apos;%fldOne%&apos;
+							},
+							{
+								label: &apos;Field Two&apos;,
+								value: &apos;%fldTwo%&apos;
+							},
+							{
+								label: &apos;Field Three&apos;,
+								value: &apos;%fldThree%&apos;
+							},
+						]}
+						systemTagsList={[
+							{
+								label: &apos;User First Name&apos;,
+								value: &apos;{user:first_name}&apos;
+							}
+						]}
+						isOpen={true}
+						value={magicFieldValue}
+					/&gt;
 				&lt;/div&gt;
 
 				&lt;div&gt;

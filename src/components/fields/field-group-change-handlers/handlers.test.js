@@ -1,20 +1,20 @@
 import {fieldsetCheckboxHandler} from './fieldsetCheckboxHandler';
 
 describe('checkbox handler', () => {
-	let udpateValue = null;
+	let updateValue = null;
 	beforeEach(() => {
-		udpateValue = null;
+		updateValue = null;
 	});
 
 	function handler(newValue) {
-		udpateValue = newValue;
+		updateValue = newValue;
 	}
 	it('Adds value to array of values', () => {
 		fieldsetCheckboxHandler({
 			value: '2',
 			label: 'Two'
 		}, [5, 'pants'], handler);
-		expect(udpateValue).toEqual([5, 'pants', '2']);
+		expect(updateValue).toEqual([5, 'pants', '2']);
 	});
 
 	it('Removes value from array of values', () => {
@@ -22,7 +22,7 @@ describe('checkbox handler', () => {
 			value: 1,
 			label: 'One'
 		}, [1, 2], handler);
-		expect(udpateValue).toEqual([2]);
+		expect(updateValue).toEqual([2]);
 	});
 
 	it('Adds value to when values is a string', () => {
@@ -30,7 +30,7 @@ describe('checkbox handler', () => {
 			value: 1,
 			label: 'One'
 		}, '2', handler);
-		expect(udpateValue).toEqual(['2',1]);
+		expect(updateValue).toEqual(['2',1]);
 	});
 
 
@@ -39,6 +39,6 @@ describe('checkbox handler', () => {
 			value: 1,
 			label: 'One'
 		}, 2, handler);
-		expect(udpateValue).toEqual([2,1]);
+		expect(updateValue).toEqual([2,1]);
 	});
 });
