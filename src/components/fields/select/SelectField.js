@@ -2,6 +2,7 @@ import React from 'react';
 import {fieldPropTypes} from '../propTypes';
 import classNames from 'classnames';
 import {RenderGroup} from '../../RenderGroup';
+import {optionsShapeProp} from '../propTypes';
 
 /**
  * Creates a select field
@@ -69,6 +70,8 @@ export const SelectField = (props) => {
  */
 SelectField.propTypes = {
 	...fieldPropTypes,
+	options: optionsShapeProp
+
 };
 
 /**

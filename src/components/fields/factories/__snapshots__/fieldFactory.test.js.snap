@@ -47,8 +47,10 @@ exports[`Factories Field set factory Renders with elements 1`] = `
       >
         <option
           className="caldera-config-option"
-          value={undefined}
-        />
+          value={null}
+        >
+          -- Select --
+        </option>
       </select>
     </div>
   </div>

@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MagicFieldGroup component Renders the inner items 1`] = `
+<div
+  className="magic-input-option"
+  onClick={undefined}
+  style={
+    Object {
+      "background": "lightgray",
+    }
+  }
+>
+  <span
+    className="magic-item-value magic-item-left"
+  >
+    1
+  </span>
+  <span
+    className="magic-item-label magic-item-right"
+  >
+    1
+  </span>
+</div>
+`;
+
+exports[`MagicFieldGroup component matches snapshot with message 1`] = `
+<div
+  className="caldera-magic-select-group caldera-config-field"
+>
+  <label
+    htmlFor="magic-3"
+  >
+    Hi Roy
+  </label>
+  <div
+    className="caldera-components-message caldera-components-not-error"
+  >
+    Hi Roy
+  </div>
+  <div
+    style={
+      Object {
+        "display": "inline-block",
+      }
+    }
+  >
+    <input
+      aria-autocomplete="list"
+      aria-expanded={false}
+      autoComplete="off"
+      className="caldera-magic-input caldera-magic-input-magic-3 magic"
+      id="magic-3"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      role="combobox"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`MagicFieldGroup component matches snapshot with no message 1`] = `
+<div
+  className="caldera-magic-select-group caldera-config-field"
+>
+  <label
+    htmlFor="magic-3"
+  >
+    Hi Roy
+  </label>
+  
+  <div
+    style={
+      Object {
+        "display": "inline-block",
+      }
+    }
+  >
+    <input
+      aria-autocomplete="list"
+      aria-expanded={false}
+      autoComplete="off"
+      className="caldera-magic-input caldera-magic-input-magic-3 magic"
+      id="magic-3"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      role="combobox"
+      value=""
+    />
+  </div>
+</div>
+`;

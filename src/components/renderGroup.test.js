@@ -1,10 +1,11 @@
 import {RenderGroup} from './RenderGroup';
-import { mount } from 'enzyme';
+import {mount} from 'enzyme';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import React from 'react';
 import renderer from 'react-test-renderer';
-Enzyme.configure({ adapter: new Adapter() });
+
+Enzyme.configure({adapter: new Adapter()});
 
 const textFieldConfig = {
 	'id': 'cf-something-tags',
@@ -29,66 +30,69 @@ const configFields = [
 	textFieldConfig
 ];
 
-const genericHandler = () => {};
+const genericHandler = () => {
+};
 configFields.map(config => {
 	config.onValueChange = genericHandler;
 });
 
-describe( 'The render group component', () => {
+describe('The render group component', () => {
 
-	describe( 'Rendering with fields', () => {
-		it( 'Works with one text field', () => {
+	describe('Rendering with fields', () => {
+		it('Works with one text field', () => {
 			const component = renderer.create(
-				<RenderGroup configFields={[
-					{
-						'id': 'sz',
-						'label': 'Tags',
-						'desc': 'Comma separated list of tags.',
-						'type': 'text',
-						'description': false,
-						onValueChange: genericHandler
-					}
-				]}/>
+				<RenderGroup
+					configFields={[
+						{
+							'id': 'sz',
+							'label': 'Tags',
+							'desc': 'Comma separated list of tags.',
+							'type': 'text',
+							'description': false,
+							onValueChange: genericHandler
+						}
+					]}
+				/>
 			);
-			expect( component.toJSON() ).toMatchSnapshot();
+			expect(component.toJSON()).toMatchSnapshot();
 		});
 
-		it( 'Works with a few fields', () => {
+		it('Works with a few fields', () => {
 			const component = renderer.create(
 				<RenderGroup configFields={configFields}/>
 			);
-			expect( component.toJSON() ).toMatchSnapshot();
+			expect(component.toJSON()).toMatchSnapshot();
 		});
 
-		it( 'Does not error when passed empty array of fields', () => {
+		it('Does not error when passed empty array of fields', () => {
 			const component = renderer.create(
 				<RenderGroup configFields={[]}/>
 			);
-			expect( component.toJSON() ).toMatchSnapshot();
+			expect(component.toJSON()).toMatchSnapshot();
 		});
 	});
 
 
-	describe( 'Creates the inner components correctly', ()  =>{
-		it( 'Creates array of components', () => {
+	describe('Creates the inner components correctly', () => {
+		it('Creates array of components', () => {
 			const component = new RenderGroup({
-				configFields:configFields
+				configFields: configFields
 			});
-			expect( component.createComponents() ).toBeInstanceOf(Array);
+			expect(component.createComponents()).toBeInstanceOf(Array);
 		});
 
-		it( 'Has the right number of children', () => {
+		it('Has the right number of children', () => {
 			const wrapper = mount(
 				<RenderGroup
 					className={'x1'}
 					configFields={configFields}
 				/>
 			);
-			expect( wrapper.find('.x1').children() ).toHaveLength(4);
+			expect(wrapper.find('.x1').children()).toHaveLength(4);
 		});
 
 
-		it( 'Adds the description', () => {
+		it('Adds the description', () => {
 			const thisConfigFields = [
 				{
 					'id': 'sz',
@@ -100,12 +104,12 @@ describe( 'The render group component', () => {
 				}
 			];
 
-			const wrapper = mount( <RenderGroup configFields={thisConfigFields}/> );
+			const wrapper = mount(<RenderGroup configFields={thisConfigFields}/>);
 
-			expect( wrapper.find('p.description') ).toHaveLength(1);
+			expect(wrapper.find('p.description')).toHaveLength(1);
 		});
 
-		it( 'Adds the right description', () => {
+		it('Adds the right description', () => {
 			const thisConfigFields = [
 				{
 					'id': 'sz',
@@ -116,11 +120,11 @@ describe( 'The render group component', () => {
 					onValueChange: genericHandler
 				}
 			];
-			const wrapper = mount( <RenderGroup configFields={thisConfigFields}/> );
-			expect( wrapper.find('p.description').text() ).toEqual( 'Expect This' );
+			const wrapper = mount(<RenderGroup configFields={thisConfigFields}/>);
+			expect(wrapper.find('p.description').text()).toEqual('Expect This');
 		});
 
-		it( 'Sets aria-describedby prop on input to match description', () => {
+		it('Sets aria-describedby prop on input to match description', () => {
 			const thisConfigFields = [
 				{
 					'id': 'sz',
@@ -131,11 +135,11 @@ describe( 'The render group component', () => {
 					onValueChange: genericHandler
 				}
 			];
-			const wrapper = mount( <RenderGroup configFields={thisConfigFields}/> );
-			expect( wrapper.find('input').prop('aria-describedby') ).toEqual( 'sz-description' );
+			const wrapper = mount(<RenderGroup configFields={thisConfigFields}/>);
+			expect(wrapper.find('input').prop('aria-describedby')).toEqual('sz-description');
 		});
 
-		it( 'Adds the description using .desc if .description is not provided to match old spec', () => {
+		it('Adds the description using .desc if .description is not provided to match old spec', () => {
 			const thisConfigFields = [
 				{
 					'id': 'sz',
@@ -146,13 +150,13 @@ describe( 'The render group component', () => {
 				}
 			];
 
-			const wrapper = mount( <RenderGroup configFields={thisConfigFields}/> );
+			const wrapper = mount(<RenderGroup configFields={thisConfigFields}/>);
 
-			expect( wrapper.find('p.description') ).toHaveLength(1);
-			expect( wrapper.find('p.description').text() ).toEqual( 'Expect This' );
+			expect(wrapper.find('p.description')).toHaveLength(1);
+			expect(wrapper.find('p.description').text()).toEqual('Expect This');
 		});
 
-		it( 'Adds the right description using .desc if .description is not provided to match old spec', () => {
+		it('Adds the right description using .desc if .description is not provided to match old spec', () => {
 			const thisConfigFields = [
 				{
 					'id': 'sz',
@@ -163,12 +167,12 @@ describe( 'The render group component', () => {
 				}
 			];
 
-			const wrapper = mount( <RenderGroup configFields={thisConfigFields}/> );
+			const wrapper = mount(<RenderGroup configFields={thisConfigFields}/>);
 
-			expect( wrapper.find('p.description').text() ).toEqual( 'Expect This' );
+			expect(wrapper.find('p.description').text()).toEqual('Expect This');
 		});
 
-		it( 'Adds no description if .description is false', () => {
+		it('Adds no description if .description is false', () => {
 			const thisConfigFields = [
 				{
 					'id': 'sz',
@@ -178,27 +182,11 @@ describe( 'The render group component', () => {
 				}
 			];
 
-			const wrapper = mount( <RenderGroup configFields={thisConfigFields}/> );
-			expect( wrapper.find('p.description') ).toHaveLength(0);
+			const wrapper = mount(<RenderGroup configFields={thisConfigFields}/>);
+			expect(wrapper.find('p.description')).toHaveLength(0);
 		});
 
-		it( 'Adds the label', () => {
-			const thisConfigFields = [
-				{
-					'id': 'sz',
-					'label': 'Tags',
-					'desc': 'Comma separated list of tags.',
-					'type': 'text',
-					'description': false,
-					onValueChange: genericHandler
-				}
-			];
-			const wrapper = mount( <RenderGroup configFields={thisConfigFields}/> );
-			expect( wrapper.find('label') ).toHaveLength(1);
-			expect( wrapper.find('label').text() ).toEqual(thisConfigFields[0].label);
-		});
-
-		it( 'Adds the right label', () => {
+		it('Adds the label', () => {
 			const thisConfigFields = [
 				{
 					'id': 'sz',
@@ -209,8 +197,24 @@ describe( 'The render group component', () => {
 					onValueChange: genericHandler
 				}
 			];
-			const wrapper = mount( <RenderGroup configFields={thisConfigFields}/> );
-			expect( wrapper.find('label').text() ).toEqual(thisConfigFields[0].label);
+			const wrapper = mount(<RenderGroup configFields={thisConfigFields}/>);
+			expect(wrapper.find('label')).toHaveLength(1);
+			expect(wrapper.find('label').text()).toEqual(thisConfigFields[0].label);
+		});
+
+		it('Adds the right label', () => {
+			const thisConfigFields = [
+				{
+					'id': 'sz',
+					'label': 'Tags',
+					'desc': 'Comma separated list of tags.',
+					'type': 'text',
+					'description': false,
+					onValueChange: genericHandler
+				}
+			];
+			const wrapper = mount(<RenderGroup configFields={thisConfigFields}/>);
+			expect(wrapper.find('label').text()).toEqual(thisConfigFields[0].label);
 		});
 
 	});
@@ -230,30 +234,30 @@ describe( 'The render group component', () => {
 			}
 
 		],
-		value:[],
-		onValueChange:genericHandler
+		value: [],
+		onValueChange: genericHandler
 	};
 
-	describe( 'fieldsets', () => {
-		it( 'Outputs a fieldset', () => {
-			const wrapper = mount( <RenderGroup configFields={[fieldSetField]}/> );
-			expect( wrapper.find('fieldset') ).toHaveLength(1);
+	describe('fieldsets', () => {
+		it('Outputs a fieldset', () => {
+			const wrapper = mount(<RenderGroup configFields={[fieldSetField]}/>);
+			expect(wrapper.find('fieldset')).toHaveLength(1);
 
 		});
 
-		it( 'has inputs in the fieldset', () =>{
-			const wrapper = mount( <RenderGroup configFields={[fieldSetField]}/> );
-			expect( wrapper.find('fieldset').children().find('input' ) ).toHaveLength(2);
+		it('has inputs in the fieldset', () => {
+			const wrapper = mount(<RenderGroup configFields={[fieldSetField]}/>);
+			expect(wrapper.find('fieldset').children().find('input')).toHaveLength(2);
 		});
 
-		it( 'has inputs that are checbkoxes in the fieldset', () =>{
-			const wrapper = mount( <RenderGroup configFields={[fieldSetField]}/> );
-			expect( wrapper.find('fieldset').children().find('input' ).first().prop('type') ).toEqual( 'checkbox' );
+		it('has inputs that are checbkoxes in the fieldset', () => {
+			const wrapper = mount(<RenderGroup configFields={[fieldSetField]}/>);
+			expect(wrapper.find('fieldset').children().find('input').first().prop('type')).toEqual('checkbox');
 		});
 	});
 
 
-	describe( 'class structure', () => {
+	describe('class structure', () => {
 		const fieldConfigsForThisTest = [
 			{
 				'id': 'cf-something-else',
@@ -264,26 +268,26 @@ describe( 'The render group component', () => {
 			textFieldConfig
 		];
 
-		it( 'Puts .caldera-config-field-setup on outermost element', () =>{
-			const wrapper = mount( <RenderGroup configFields={fieldConfigsForThisTest}/> );
-			expect( wrapper.find('.caldera-config-field-setup') ).toHaveLength(1);
+		it('Puts .caldera-config-field-setup on outermost element', () => {
+			const wrapper = mount(<RenderGroup configFields={fieldConfigsForThisTest}/>);
+			expect(wrapper.find('.caldera-config-field-setup')).toHaveLength(1);
 		});
 
-		it( 'It puts .caldera-config-group around each group', () => {
-			const wrapper = mount( <RenderGroup configFields={fieldConfigsForThisTest}/> );
+		it('It puts .caldera-config-group around each group', () => {
+			const wrapper = mount(<RenderGroup configFields={fieldConfigsForThisTest}/>);
 			expect(
 				wrapper.find('.caldera-config-field-setup').children().find('.caldera-config-group')
 			).toHaveLength(2);
 		});
 
-		it( 'Matches snapshot', () => {
+		it('Matches snapshot', () => {
 			const component = renderer.create(<RenderGroup configFields={fieldConfigsForThisTest}/>);
-			expect( component.toJSON()).toMatchSnapshot();
+			expect(component.toJSON()).toMatchSnapshot();
 		});
 	});
 
-	describe( 'Select fields', () => {
-		it( 'Select fields have options', () => {
+	describe('Select fields', () => {
+		it('Select fields have options', () => {
 			const selectFieldConfig = {
 				'id': 'cf-something-select-id',
 				'type': 'dropdown',
@@ -307,13 +311,30 @@ describe( 'The render group component', () => {
 				onValueChange: genericHandler
 			};
 
-			const wrapper = mount( <RenderGroup configFields={[selectFieldConfig]}/> );
+			const wrapper = mount(<RenderGroup configFields={[selectFieldConfig]}/>);
 			expect(
 				wrapper.find('select').children().find('option')
 			).toHaveLength(3);
 		});
 
-		it( 'Select field change handlers receive value, not event ', () => {
+		it('Select fields can have no options', () => {
+			const selectFieldConfig = {
+				'id': 'cf-something-select-id',
+				'type': 'dropdown',
+				'label': 'Content type',
+				'description': 'Choose content type, default is HTML',
+				options: null,
+				value: '',
+				onValueChange: genericHandler
+			};
+
+			const wrapper = mount(<RenderGroup configFields={[selectFieldConfig]}/>);
+			expect(
+				wrapper.find('select').children().find('option')//this would make an error if the select field was invalid
+			).toHaveLength(0);
+		});
+
+		it('Select field change handlers receive value, not event ', () => {
 			let updateValue = '';
 			const selectFieldConfig = {
 				'id': 'cf-something-select-id',
@@ -341,54 +362,82 @@ describe( 'The render group component', () => {
 				}
 			};
 
-			const wrapper = mount( <RenderGroup configFields={[selectFieldConfig]}/> );
-			wrapper.find( 'select' ).simulate('change', { target: { value: 'imaginary' } });
+			const wrapper = mount(<RenderGroup configFields={[selectFieldConfig]}/>);
+			wrapper.find('select').simulate('change', {target: {value: 'imaginary'}});
 			expect(
 				wrapper.find('select').children().find('option')
 			).toHaveLength(3);
 		});
 	});
 
-	describe( 'adding blur and focus', () => {
-		it( 'Adds the props', () => {
-			const component = renderer.create(<RenderGroup configFields={[{
-				...textFieldConfig,
-				onBlur: () => {},
-				onFocus: () => {}
-			}]}/> );
-			expect( component.toJSON() ).toMatchSnapshot();
+	describe('adding blur and focus', () => {
+		it('Adds the props', () => {
+			const component = renderer.create(<RenderGroup
+				configFields={[{
+					...textFieldConfig,
+					onBlur: () => {
+					},
+					onFocus: () => {
+					}
+				}]}
+			/>);
+			expect(component.toJSON()).toMatchSnapshot();
 		});
 
-		it( 'Fires the onFocus handler', () => {
+		it('Passes down the onFocus handler', () => {
 			let itFired = false;
-			const wrapper = mount(<RenderGroup configFields={[{
-				...textFieldConfig,
-				onBlur: () => {},
-				onFocus: () => {
-					itFired = true;
-				}
-			}]}/> );
-			wrapper.find( 'input' ).simulate('focus');
+			const idArg = 'a1';
+			const wrapper = mount(<RenderGroup
+				configFields={[{
+					...textFieldConfig,
+					id: idArg,
+					onBlur: () => {
+					},
+					onFocus: () => {
+						itFired = true;
+					}
+				}]}
+			/>);
 
-			expect( itFired ).toBe(true);
+			wrapper.find('input').simulate('focus');
+			expect(itFired).toBe(true);
 		});
 
-		it( 'Fires the onBlur handler', () => {
+		it('Fires the onFocus handler', () => {
 			let itFired = false;
-			const wrapper = mount(<RenderGroup configFields={[{
-				...textFieldConfig,
-				onBlur: () => {
-					itFired = true;
-				}
-			}]}/> );
-			wrapper.find( 'input' ).simulate('blur');
+			const wrapper = mount(<RenderGroup
+				configFields={[{
+					...textFieldConfig,
+					onBlur: () => {
+					},
+					onFocus: () => {
+						itFired = true;
+					}
+				}]}
+			/>);
+			wrapper.find('input').simulate('focus');
 
-			expect( itFired ).toBe(true);
+			expect(itFired).toBe(true);
+		});
+
+		it('Fires the onBlur handler', () => {
+			let itFired = false;
+			const wrapper = mount(<RenderGroup
+				configFields={[{
+					...textFieldConfig,
+					onBlur: () => {
+						itFired = true;
+					}
+				}]}
+			/>);
+			wrapper.find('input').simulate('blur');
+
+			expect(itFired).toBe(true);
 		});
 
 	});
 
-	describe( 'showing <Message> component in the child fields', () => {
+	describe('showing <Message> component in the child fields', () => {
 		const successMessage = {
 			message: 'Hi Roy',
 			error: false,
@@ -398,28 +447,89 @@ describe( 'The render group component', () => {
 			message: 'Fail'
 		};
 
-		it( 'shows success message', () => {
-			const wrapper = mount(<RenderGroup configFields={[{
-				...textFieldConfig,
-				message:successMessage,
-				ID: 'sField',
-				id: 'sField'
-			}]}/> );
-			expect( wrapper.find( '.caldera-components-message' ).text() ).toBe('Hi Roy');
+		it('shows success message', () => {
+			const wrapper = mount(<RenderGroup
+				configFields={[{
+					...textFieldConfig,
+					message: successMessage,
+					ID: 'sField',
+					id: 'sField'
+				}]}
+			/>);
+			expect(wrapper.find('.caldera-components-message').text()).toBe('Hi Roy');
 		});
 
-		it( 'shows error message', () => {
-			const wrapper = mount(<RenderGroup configFields={[{
-				...textFieldConfig,
-				message:errorMessage,
-				ID: 'fField',
-				id: 'fField'
-			}]}/> );
+		it('shows error message', () => {
+			const wrapper = mount(<RenderGroup
+				configFields={[{
+					...textFieldConfig,
+					message: errorMessage,
+					ID: 'fField',
+					id: 'fField'
+				}]}
+			/>);
 			expect(wrapper.find('.caldera-components-message').text()).toBe('Fail');
 		});
 	});
 
+	describe('Magic fields inside render groups', () => {
+		const magicField = {
+			'id': 'cf-magic-example',
+			'type': 'magic',
+			'label': 'Magic ID',
+			'description': 'Select a value from list of magic tags or type a value',
+			fieldsList: [
+				{
+					label: '0',
+					value: 0
+				},
+				{
+					label: '1',
+					value: 1
+				},
+				{
+					label: '3',
+					value: 3
+				}
+			],
+			systemTagsList: [
+				{
+					label: '3',
+					value: 3
+				}
+			],
+			isOpen: true,
+			onValueChange: () => {
+			}
+		};
 
-	
+		it('Has the input', () => {
+			const component = mount(
+				<RenderGroup configFields={[magicField]}/>
+			);
+			expect(component.find('input')).toHaveLength(1);
+		});
+
+		it('Get values update ', () => {
+			let value = '1';
+			const component = mount(
+				<RenderGroup configFields={[
+					{
+						...magicField,
+						value,
+						onValueChange: (newValue) => {
+							value = newValue;
+						}
+					}
+				]}/>
+			);
+			component.find('input').simulate('change', { target: { value: 3 } });
+
+			expect(value).toBe(3);
+		});
+
+	});
+
+
 });
 

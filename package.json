@@ -4,7 +4,8 @@
   "dependencies": {
     "@helpdotcom/is": "^3.0.4",
     "classnames": "^2.2.6",
-    "downshift": "^1.31.16"
+    "downshift": "^1.31.16",
+    "react-autocomplete": "^1.8.1"
   },
   "license": "GPL-2.0",
   "scripts": {

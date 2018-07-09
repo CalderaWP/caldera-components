@@ -47,13 +47,20 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fieldInnerPropTypes">fieldInnerPropTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fieldPropTypes">fieldPropTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-inputTypeProp">inputTypeProp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-magicGroupPropTypes">magicGroupPropTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-onValueChangePropType">onValueChangePropType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-optionShape">optionShape</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-optionsShapeProp">optionsShapeProp</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-valuePropType">valuePropType</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-button-group">components/fields/button-group</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ButtonGroup">ButtonGroup</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-factories">components/fields/factories</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldFactory">fieldFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldSetFactory">fieldSetFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-prepareFieldConfig">prepareFieldConfig</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-field-group-change-handlers">components/fields/field-group-change-handlers</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldsetCheckboxHandler">fieldsetCheckboxHandler</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-input">components/fields/input</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Input">Input</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-magic-select">components/fields/magic-select</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup.html">MagicFieldGroup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/fields/magic-select/MagicItem.js~MagicItem.html">MagicItem</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/fields/magic-select/MagicSelect.js~MagicSelect.html">MagicSelect</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-messages">components/fields/messages</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Message">Message</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-messageObjectFactory">messageObjectFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MESSAGE_CLASS">MESSAGE_CLASS</a></span></span></li>
@@ -85,6 +92,7 @@ import {RenderGroup} from &apos;../RenderGroup&apos;;
 import {Message} from &apos;./messages/Message&apos;;
 import {messageObjectFactory} from &apos;./messages/messageObjectFactory&apos;;
 import {fieldsetCheckboxHandler} from &apos;./field-group-change-handlers/fieldsetCheckboxHandler&apos;;
+import {MagicFieldGroup} from &apos;./magic-select/MagicFieldGroup&apos;;
 
 /**
  * Represents one configField -- wrapper, label and input.
@@ -94,6 +102,9 @@ import {fieldsetCheckboxHandler} from &apos;./field-group-change-handlers/fields
  * @constructor
  */
 export const FieldGroup = (props) =&gt; {
+	if( &apos;magic&apos; === props.type ){
+		return &lt;MagicFieldGroup {...props} /&gt;;
+	}
 
 	/**
 	 * Creates the id attribute
@@ -193,11 +204,8 @@ export const FieldGroup = (props) =&gt; {
 				&lt;div
 					className={RenderGroup.classNames.fieldWrapper}
 				&gt;
-					&lt;label
-						htmlFor={fieldProps.id}
-					&gt;
-						{fieldProps.label}
-					&lt;/label&gt;
+					&lt;FieldGroup.Label id={fieldProps.id} label={fieldProps.label} /&gt;
+
 					&lt;Message
 						message={message}
 					/&gt;
@@ -238,13 +246,39 @@ export const FieldGroup = (props) =&gt; {
 	return fieldInner(props);
 };
 
-
+/**
+ * The prop type definitions for FieldGroup components
+ *
+ * @type {{id: (boolean|shim|*), isBlockInput: shim, isRequired: shim, help: shim, label: (boolean|shim|*), type: shim, value: shim, onValueChange: (boolean|shim|*), inputType: shim}}
+ */
 FieldGroup.propTypes = fieldGroupPropTypes;
 
+/**
+ * Default props for FieldGroups
+ *
+ * @type {{isBlockInput: boolean, isRequired: boolean, help: string}}
+ */
 FieldGroup.defaultProps = {
 	isBlockInput: true,
 	isRequired: false,
 	help: &apos;&apos;
+};
+
+/**
+ * Creates the FieldGroup&apos;s label component
+ *
+ * @param {Object} props
+ * @return {*}
+ * @constructor
+ */
+FieldGroup.Label = (props) =&gt; {
+	return (
+		&lt;label
+			htmlFor={props.id}
+		&gt;
+			{props.label}
+		&lt;/label&gt;
+	);
 };</code></pre>
 
 </div>
