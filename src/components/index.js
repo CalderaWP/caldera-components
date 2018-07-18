@@ -6,8 +6,8 @@ import {RenderGroup} from './RenderGroup';
 import conditionals from './conditional-logic/index';
 import validation from './validation/index';
 import Admin from './admin/index';
-import {FieldGroup} from "./fields/FieldGroup";
-import {MagicFieldGroup} from "./fields/magic-select/MagicFieldGroup";
+import {FieldGroup} from './fields/FieldGroup';
+import {MagicFieldGroup} from './fields/magic-select/MagicFieldGroup';
 
 /**
  * Caldera components
