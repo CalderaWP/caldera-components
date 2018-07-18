@@ -3,7 +3,9 @@
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-exports.fieldPropTypes = exports.fieldInnerPropTypes = exports.fieldGroupPropTypes = exports.inputTypeProp = exports.onValueChangePropType = exports.valuePropType = undefined;
+exports.magicGroupPropTypes = exports.optionsShapeProp = exports.optionShape = exports.fieldPropTypes = exports.fieldInnerPropTypes = exports.fieldGroupPropTypes = exports.inputTypeProp = exports.onValueChangePropType = exports.valuePropType = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _propTypes = require('prop-types');
 
@@ -44,7 +46,7 @@ var fieldGroupPropTypes = exports.fieldGroupPropTypes = {
 	isRequired: _propTypes2.default.bool,
 	help: _propTypes2.default.string,
 	label: _propTypes2.default.string.isRequired,
-	type: _propTypes2.default.oneOf(['input', 'select', 'fieldset']),
+	type: _propTypes2.default.oneOf(['input', 'select', 'fieldset', 'magic']),
 	value: valuePropType,
 	onValueChange: onValueChangePropType,
 	options: _propTypes2.default.array,
@@ -73,3 +75,28 @@ var fieldInnerPropTypes = exports.fieldInnerPropTypes = {
 };
 
 var fieldPropTypes = exports.fieldPropTypes = fieldInnerPropTypes;
+
+/**
+ * The shape of one option for a select field
+ *
+ * @type {{label: shim, value: shim}}
+ */
+var optionShape = exports.optionShape = {
+	label: _propTypes2.default.string,
+	value: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number])
+};
+
+/**
+ * Shape of options prop for select fields
+ *
+ * @type {shim}
+ */
+var optionsShapeProp = exports.optionsShapeProp = _propTypes2.default.arrayOf(_propTypes2.default.shape(optionShape));
+
+var magicGroupPropTypes = exports.magicGroupPropTypes = _extends({}, fieldGroupPropTypes, {
+	fieldsList: optionsShapeProp,
+	systemTagsList: optionsShapeProp,
+	defaultList: _propTypes2.default.string,
+	isOpen: _propTypes2.default.bool,
+	type: _propTypes2.default.string
+});

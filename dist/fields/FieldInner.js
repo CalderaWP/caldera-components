@@ -61,6 +61,7 @@ var FieldInner = exports.FieldInner = function FieldInner(props) {
 	switch (props.type) {
 		case 'select':
 		case 'dropdown':
+			var options = Array.isArray(props.options) ? props.options : [];
 			return _react2.default.createElement(_SelectField.SelectField, {
 				id: props.id,
 				fieldClassName: inputClassName(),
@@ -68,7 +69,7 @@ var FieldInner = exports.FieldInner = function FieldInner(props) {
 				value: props.value,
 				onValueChange: props.onValueChange,
 				inputType: props.inputType,
-				options: props.options,
+				options: options,
 				disabled: props.disabled,
 				onBlur: props.onBlur,
 				onFocus: props.onFocus

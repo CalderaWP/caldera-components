@@ -52,14 +52,16 @@ describe('The render group component', function () {
 
 	describe('Rendering with fields', function () {
 		it('Works with one text field', function () {
-			var component = _reactTestRenderer2.default.create(_react2.default.createElement(_RenderGroup.RenderGroup, { configFields: [{
+			var component = _reactTestRenderer2.default.create(_react2.default.createElement(_RenderGroup.RenderGroup, {
+				configFields: [{
 					'id': 'sz',
 					'label': 'Tags',
 					'desc': 'Comma separated list of tags.',
 					'type': 'text',
 					'description': false,
 					onValueChange: genericHandler
-				}] }));
+				}]
+			}));
 			expect(component.toJSON()).toMatchSnapshot();
 		});
 
@@ -281,6 +283,22 @@ describe('The render group component', function () {
 			expect(wrapper.find('select').children().find('option')).toHaveLength(3);
 		});
 
+		it('Select fields can have no options', function () {
+			var selectFieldConfig = {
+				'id': 'cf-something-select-id',
+				'type': 'dropdown',
+				'label': 'Content type',
+				'description': 'Choose content type, default is HTML',
+				options: null,
+				value: '',
+				onValueChange: genericHandler
+			};
+
+			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_RenderGroup.RenderGroup, { configFields: [selectFieldConfig] }));
+			expect(wrapper.find('select').children().find('option') //this would make an error if the select field was invalid
+			).toHaveLength(0);
+		});
+
 		it('Select field change handlers receive value, not event ', function () {
 			var updateValue = '';
 			var selectFieldConfig = {
@@ -313,21 +331,42 @@ describe('The render group component', function () {
 
 	describe('adding blur and focus', function () {
 		it('Adds the props', function () {
-			var component = _reactTestRenderer2.default.create(_react2.default.createElement(_RenderGroup.RenderGroup, { configFields: [_extends({}, textFieldConfig, {
+			var component = _reactTestRenderer2.default.create(_react2.default.createElement(_RenderGroup.RenderGroup, {
+				configFields: [_extends({}, textFieldConfig, {
 					onBlur: function onBlur() {},
 					onFocus: function onFocus() {}
-				})] }));
+				})]
+			}));
 			expect(component.toJSON()).toMatchSnapshot();
 		});
 
-		it('Fires the onFocus handler', function () {
+		it('Passes down the onFocus handler', function () {
 			var itFired = false;
-			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_RenderGroup.RenderGroup, { configFields: [_extends({}, textFieldConfig, {
+			var idArg = 'a1';
+			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_RenderGroup.RenderGroup, {
+				configFields: [_extends({}, textFieldConfig, {
+					id: idArg,
 					onBlur: function onBlur() {},
 					onFocus: function onFocus() {
 						itFired = true;
 					}
-				})] }));
+				})]
+			}));
+
+			wrapper.find('input').simulate('focus');
+			expect(itFired).toBe(true);
+		});
+
+		it('Fires the onFocus handler', function () {
+			var itFired = false;
+			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_RenderGroup.RenderGroup, {
+				configFields: [_extends({}, textFieldConfig, {
+					onBlur: function onBlur() {},
+					onFocus: function onFocus() {
+						itFired = true;
+					}
+				})]
+			}));
 			wrapper.find('input').simulate('focus');
 
 			expect(itFired).toBe(true);
@@ -335,11 +374,13 @@ describe('The render group component', function () {
 
 		it('Fires the onBlur handler', function () {
 			var itFired = false;
-			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_RenderGroup.RenderGroup, { configFields: [_extends({}, textFieldConfig, {
+			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_RenderGroup.RenderGroup, {
+				configFields: [_extends({}, textFieldConfig, {
 					onBlur: function onBlur() {
 						itFired = true;
 					}
-				})] }));
+				})]
+			}));
 			wrapper.find('input').simulate('blur');
 
 			expect(itFired).toBe(true);
@@ -357,21 +398,68 @@ describe('The render group component', function () {
 		};
 
 		it('shows success message', function () {
-			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_RenderGroup.RenderGroup, { configFields: [_extends({}, textFieldConfig, {
+			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_RenderGroup.RenderGroup, {
+				configFields: [_extends({}, textFieldConfig, {
 					message: successMessage,
 					ID: 'sField',
 					id: 'sField'
-				})] }));
+				})]
+			}));
 			expect(wrapper.find('.caldera-components-message').text()).toBe('Hi Roy');
 		});
 
 		it('shows error message', function () {
-			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_RenderGroup.RenderGroup, { configFields: [_extends({}, textFieldConfig, {
+			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_RenderGroup.RenderGroup, {
+				configFields: [_extends({}, textFieldConfig, {
 					message: errorMessage,
 					ID: 'fField',
 					id: 'fField'
-				})] }));
+				})]
+			}));
 			expect(wrapper.find('.caldera-components-message').text()).toBe('Fail');
+		});
+	});
+
+	describe('Magic fields inside render groups', function () {
+		var magicField = {
+			'id': 'cf-magic-example',
+			'type': 'magic',
+			'label': 'Magic ID',
+			'description': 'Select a value from list of magic tags or type a value',
+			fieldsList: [{
+				label: '0',
+				value: 0
+			}, {
+				label: '1',
+				value: 1
+			}, {
+				label: '3',
+				value: 3
+			}],
+			systemTagsList: [{
+				label: '3',
+				value: 3
+			}],
+			isOpen: true,
+			onValueChange: function onValueChange() {}
+		};
+
+		it('Has the input', function () {
+			var component = (0, _enzyme.mount)(_react2.default.createElement(_RenderGroup.RenderGroup, { configFields: [magicField] }));
+			expect(component.find('input')).toHaveLength(1);
+		});
+
+		it('Get values update ', function () {
+			var value = '1';
+			var component = (0, _enzyme.mount)(_react2.default.createElement(_RenderGroup.RenderGroup, { configFields: [_extends({}, magicField, {
+					value: value,
+					onValueChange: function onValueChange(newValue) {
+						value = newValue;
+					}
+				})] }));
+			component.find('input').simulate('change', { target: { value: 3 } });
+
+			expect(value).toBe(3);
 		});
 	});
 });

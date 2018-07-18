@@ -145,12 +145,12 @@ export const FieldGroup = (props) => {
 						}
 					)}
 					{fieldProps.help &&
-					<p
-						id={`${idAttrForHelpElement()}`}
-						className={'description'}
-					>
-						{fieldProps.help}
-					</p>
+						<p
+							id={`${idAttrForHelpElement()}`}
+							className={'description'}
+						>
+							{fieldProps.help}
+						</p>
 					}
 				</div>
 			);

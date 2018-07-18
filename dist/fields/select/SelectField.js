@@ -77,7 +77,10 @@ var SelectField = exports.SelectField = function SelectField(props) {
  *
  * @type {{}}
  */
-SelectField.propTypes = _extends({}, _propTypes.fieldPropTypes);
+SelectField.propTypes = _extends({}, _propTypes.fieldPropTypes, {
+	options: _propTypes.optionsShapeProp
+
+});
 
 /**
  * Default props for select fields

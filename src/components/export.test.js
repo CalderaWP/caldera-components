@@ -21,5 +21,14 @@ describe( 'conditionals export', () => {
 		expect( typeof Components.Admin ).toEqual( 'object' );
 	});
 
+	it( 'exports FieldGroup', () => {
+		expect( typeof Components.FieldGroup ).toEqual( 'function' );
+	});
+
+	it( 'exports MagicFieldGroup', () => {
+		expect( typeof Components.MagicFieldGroup ).toEqual( 'function' );
+	});
+
+
 });
 

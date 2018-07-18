@@ -1,36 +1,13 @@
 {
-<<<<<<< HEAD
-  "coverage": "66.66%",
-  "expectCount": 63,
-  "actualCount": 42,
-  "files": {
-    "src/App.js": {
-      "expectCount": 14,
-=======
-  "coverage": "72.72%",
-  "expectCount": 88,
-  "actualCount": 64,
+  "coverage": "73.91%",
+  "expectCount": 92,
+  "actualCount": 68,
   "files": {
     "src/App.js": {
       "expectCount": 15,
->>>>>>> master
       "actualCount": 0,
       "undocumentLines": [
         9,
-<<<<<<< HEAD
-        23,
-        41,
-        42,
-        53,
-        54,
-        75,
-        76,
-        97,
-        104,
-        108,
-        114,
-        116
-=======
         10,
         24,
         42,
@@ -45,7 +22,6 @@
         115,
         117,
         119
->>>>>>> master
       ]
     },
     "src/components/RenderGroup.js": {
@@ -136,8 +112,8 @@
       "undocumentLines": []
     },
     "src/components/fields/magic-select/MagicSelect.js": {
-      "expectCount": 8,
-      "actualCount": 8,
+      "expectCount": 9,
+      "actualCount": 9,
       "undocumentLines": []
     },
     "src/components/fields/messages/Message.js": {

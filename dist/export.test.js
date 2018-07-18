@@ -25,4 +25,8 @@ describe('conditionals export', function () {
 	it('exports validation', function () {
 		expect(_typeof(_index2.default.validation)).toEqual('object');
 	});
+
+	it('exports admin', function () {
+		expect(_typeof(_index2.default.Admin)).toEqual('object');
+	});
 });

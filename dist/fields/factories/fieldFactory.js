@@ -12,7 +12,7 @@ var _FieldGroup = require('../FieldGroup');
 /**
  * Generates field controls
  *
- * @param {Array} fieldArgs Field config
+ * @param {Object} fieldArgs Field config
  * @returns {*}
  */
 var fieldFactory = exports.fieldFactory = function fieldFactory(fieldArgs) {

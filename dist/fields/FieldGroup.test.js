@@ -466,4 +466,14 @@ describe('Field Group component', function () {
 			expect(wrapper.find('.caldera-components-message')).toHaveLength(0);
 		});
 	});
+
+	it('Uses the Magic group, if type is magic', function () {
+		var component = _reactTestRenderer2.default.create(_react2.default.createElement(_FieldGroup.FieldGroup, {
+			id: 'magic-field-group',
+			label: 'magic',
+			type: 'magic',
+			onValueChange: function onValueChange() {}
+		}));
+		expect(component.toJSON()).toMatchSnapshot();
+	});
 });
