@@ -86,13 +86,17 @@
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/*eslint no-undef: &quot;error&quot;*/
 /*eslint-env node*/
 import {FieldGroup} from &apos;./FieldGroup&apos;;
-import {SelectFieldFancy} from &apos;./select/SelectFieldFancy&apos;;
+import {SelectField} from &apos;./select/SelectField&apos;;
 import {Input} from &apos;./input/Input&apos;;
+import {Message} from &apos;./messages/Message&apos;;
+import {ButtonGroup} from &apos;./button-group/ButtonGroup&apos;;
 
 module.exports = {
 	FieldGroup,
-	SelectField: SelectFieldFancy,
-	Input
+	SelectField: SelectField,
+	Input,
+	Message,
+	ButtonGroup
 };</code></pre>
 
 </div>

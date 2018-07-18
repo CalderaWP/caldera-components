@@ -354,6 +354,12 @@ This is a field, not a group (like `FieldGroup` or `MagicFieldGroup`) so it does
 
 Button groups fields take an array of options in the prop option. Options in that collection must conform the shape [defined here](https://calderalabs.org/caldera-components/docs/file/src/components/fields/propTypes.js.html#lineNumber75)
 
+### Import With webpack
+```
+import {fields} from '@caldera-labs/components';
+const {ButtonGroup} = fields;
+```
+
 ### Examples
 ### Button Group With Two Options
 ```js
@@ -434,6 +440,13 @@ But, if the visual representation of the option is an emoji or image, then `aria
 
 ## Message component
 The `Message` component is used to display validation messages in a `FieldGroup` component. Messages have a shape defined in the `messagePropShape` object. This component, by design, returns nothing if `props.message.message` is not supplied, or is an empty string.
+
+### Import with webpack
+```
+import {fields} from '@caldera-labs/components';
+const {Message} = fields;
+```
+
 ### An error message
 ```js
 <Message

@@ -576,7 +576,7 @@
           },
           "extra": {
             "rawValue": "./fields/FieldGroup",
-            "raw": "\"./fields/FieldGroup\""
+            "raw": "'./fields/FieldGroup'"
           },
           "value": "./fields/FieldGroup"
         }
@@ -662,7 +662,7 @@
           },
           "extra": {
             "rawValue": "./fields/magic-select/MagicFieldGroup",
-            "raw": "\"./fields/magic-select/MagicFieldGroup\""
+            "raw": "'./fields/magic-select/MagicFieldGroup'"
           },
           "value": "./fields/magic-select/MagicFieldGroup"
         },

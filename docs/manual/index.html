@@ -72,11 +72,13 @@
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#example" data-ice="link">Example</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#fieldsets" data-ice="link">Fieldsets</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#button-group" data-ice="link">Button Group</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#import-with-webpack" data-ice="link">Import With webpack</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#examples" data-ice="link">Examples</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#button-group-with-two-options" data-ice="link">Button Group With Two Options</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/components.html"><a href="manual/components.html#button-group-with-icon" data-ice="link">Button Group With Icon</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/components.html"><a href="manual/components.html#explicitly-set--code-aria-label--code--attribute" data-ice="link">Explicitly set aria-label Attribute</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#message-component" data-ice="link">Message component</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#import-with-webpack" data-ice="link">Import with webpack</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#an-error-message" data-ice="link">An error message</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#a-non-error-message" data-ice="link">A non-error message</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#render-nothing" data-ice="link">Render nothing</a></li>
@@ -608,7 +610,9 @@ let checkBoxValue = [&apos;1&apos;];
         }
     ]}
 /&gt;</code>
-</code></pre><h2>Button Group</h2><p>Button groups are select fields. One button can be selected at once.</p><p>This is a field, not a group (like <code>FieldGroup</code> or <code>MagicFieldGroup</code>) so it does not handle its own label.</p><p>Button groups fields take an array of options in the prop option. Options in that collection must conform the shape <a href="https://calderalabs.org/caldera-components/docs/file/src/components/fields/propTypes.js.html#lineNumber75">defined here</a></p><h3>Examples</h3><h3>Button Group With Two Options</h3><pre><code class="lang-js"><code class="source-code prettyprint">&lt;ButtonGroup
+</code></pre><h2>Button Group</h2><p>Button groups are select fields. One button can be selected at once.</p><p>This is a field, not a group (like <code>FieldGroup</code> or <code>MagicFieldGroup</code>) so it does not handle its own label.</p><p>Button groups fields take an array of options in the prop option. Options in that collection must conform the shape <a href="https://calderalabs.org/caldera-components/docs/file/src/components/fields/propTypes.js.html#lineNumber75">defined here</a></p><h3>Import With webpack</h3><pre><code><code class="source-code prettyprint">import {fields} from &apos;@caldera-labs/components&apos;;
+const {ButtonGroup} = fields;</code>
+</code></pre><h3>Examples</h3><h3>Button Group With Two Options</h3><pre><code class="lang-js"><code class="source-code prettyprint">&lt;ButtonGroup
     onChange={(selectedValue) =&gt; {
         console.log(selectedValue);
     }}
@@ -662,7 +666,9 @@ let checkBoxValue = [&apos;1&apos;];
         },
     ]}
 /&gt;</code>
-</code></pre><h2>Message component</h2><p>The <code>Message</code> component is used to display validation messages in a <code>FieldGroup</code> component. Messages have a shape defined in the <code>messagePropShape</code> object. This component, by design, returns nothing if <code>props.message.message</code> is not supplied, or is an empty string.</p><h3>An error message</h3><pre><code class="lang-js"><code class="source-code prettyprint">&lt;Message
+</code></pre><h2>Message component</h2><p>The <code>Message</code> component is used to display validation messages in a <code>FieldGroup</code> component. Messages have a shape defined in the <code>messagePropShape</code> object. This component, by design, returns nothing if <code>props.message.message</code> is not supplied, or is an empty string.</p><h3>Import with webpack</h3><pre><code><code class="source-code prettyprint">import {fields} from &apos;@caldera-labs/components&apos;;
+const {Message} = fields;</code>
+</code></pre><h3>An error message</h3><pre><code class="lang-js"><code class="source-code prettyprint">&lt;Message
     message={{
         message:&apos;Something bad has happened.&apos;,
         error: true,
