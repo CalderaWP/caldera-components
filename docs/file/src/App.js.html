@@ -100,7 +100,7 @@ const textFieldConfig = {
 	&apos;description&apos;: false,
 	value: textFieldValue,
 	onValueChange: function(newValue){
-		textFieldValue = newValue
+		textFieldValue = newValue;
 	},
 
 
@@ -139,7 +139,7 @@ const hiddenFieldConfig = {
 let selectFieldValue = &apos;html&apos;;
 const selectFieldConfig = {
 	&apos;id&apos;: &apos;cf-something-select-id&apos;,
-	&apos;type&apos;: &apos;dropdown&apos;,
+	&apos;type&apos;: &apos;file&apos;,
 	&apos;label&apos;: &apos;Content type&apos;,
 	&apos;description&apos;: &apos;Choose content type, default is HTML&apos;,
 	options: [
@@ -185,11 +185,7 @@ const configFields = [
 	hiddenFieldConfig,
 	selectFieldConfig,
 	fieldSetField,
-<<<<<<< HEAD
-	numberFieldConfig,
-=======
 	numberFieldConfig
->>>>>>> master
 ];
 const configFieldEls = fieldSetFactory(configFields);
 
@@ -356,9 +352,47 @@ class App extends Component {
 						label={&apos;Basic select field&apos;}
 						value={selectFieldValue}
 						id={&apos;r&apos;}
+						options={[
+							{
+								value: 1,
+								label: &apos;One&apos;
+							},
+							{
+								value: 2,
+								label: &apos;Two&apos;
+							}
+						]}
 						onValueChange={(newValue) =&gt; {
 							selectFieldValue = newValue;
 						}}
+					/&gt;
+
+					&lt;FieldGroup
+						type={&apos;select&apos;}
+						label={&apos;Required select field&apos;}
+						value={selectFieldValue}
+						isRequired={true}
+						id={&apos;r&apos;}
+						options={[
+							{
+								value: 1,
+								label: &apos;One&apos;
+							},
+							{
+								value: 2,
+								label: &apos;Two&apos;
+							}
+						]}
+						onValueChange={(newValue) =&gt; {
+							selectFieldValue = newValue;
+						}}
+					/&gt;
+
+					&lt;FieldGroup
+						type={&apos;select&apos;}
+						label={&apos;Required select field&apos;}
+						disabled={true}
+						id={&apos;r&apos;}
 						options={[
 							{
 								value: 1,

@@ -15,7 +15,7 @@ const textFieldConfig = {
 	'description': false,
 	value: textFieldValue,
 	onValueChange: function(newValue){
-		textFieldValue = newValue
+		textFieldValue = newValue;
 	},
 
 
@@ -54,7 +54,7 @@ const hiddenFieldConfig = {
 let selectFieldValue = 'html';
 const selectFieldConfig = {
 	'id': 'cf-something-select-id',
-	'type': 'dropdown',
+	'type': 'file',
 	'label': 'Content type',
 	'description': 'Choose content type, default is HTML',
 	options: [
@@ -267,9 +267,47 @@ class App extends Component {
 						label={'Basic select field'}
 						value={selectFieldValue}
 						id={'r'}
+						options={[
+							{
+								value: 1,
+								label: 'One'
+							},
+							{
+								value: 2,
+								label: 'Two'
+							}
+						]}
 						onValueChange={(newValue) => {
 							selectFieldValue = newValue;
 						}}
+					/>
+
+					<FieldGroup
+						type={'select'}
+						label={'Required select field'}
+						value={selectFieldValue}
+						isRequired={true}
+						id={'r'}
+						options={[
+							{
+								value: 1,
+								label: 'One'
+							},
+							{
+								value: 2,
+								label: 'Two'
+							}
+						]}
+						onValueChange={(newValue) => {
+							selectFieldValue = newValue;
+						}}
+					/>
+
+					<FieldGroup
+						type={'select'}
+						label={'Required select field'}
+						disabled={true}
+						id={'r'}
 						options={[
 							{
 								value: 1,

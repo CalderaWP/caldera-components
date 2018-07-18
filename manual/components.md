@@ -7,6 +7,8 @@ The `RenderGroup` component takes an array of field configs and generates UI for
 
 * [Reference](https://calderalabs.org/caldera-components/class/src/components/RenderGroup.js~RenderGroup.html)
 
+### Import with wepback
+`import {RenderGroup} from '@caldera-labs/components';`
 ### Example Of `RenderGroup` Component Usage
 
 ```jsx 
@@ -66,7 +68,7 @@ const configFields = [
  /> 
 ```
 
-### A Magic Aut-Complete Field Selector In A RednerGroup
+### A Magic Aut-Complete Field Selector In A RenderGroup
 ```js
 const magicField = {
     'id': 'cf-magic-example',
@@ -135,6 +137,10 @@ If you have to use a component, please use `FieldGroup` not its inner components
 
 * [Reference](https://calderalabs.org/caldera-components/function/index.html#static-function-Input)
 
+
+### Import With webpack
+`import {FieldGroup} from '@caldera-labs/components';`
+
 ### Text Field Groups
 If the prop `type` is input, the type of input is controlled by the `inputType` props, which by default is `text`. Therefore, by default input field groups have inputs with the HTML5 input `type` attribute of "text". Also, `inputType` could be "number" or "data", etc.
 
@@ -199,6 +205,7 @@ If the prop `type` is input, the type of input is controlled by the `inputType` 
         values.two=newValue;
     }}
 />
+```
 
 ### Select Field Groups
 
@@ -229,12 +236,18 @@ let selectFieldValue = '';
     ]}
 />
 
-### Magic Select Groups
+## Magic Select Groups
 Magic select groups use `MagicSelect` fields, which wrap [reactjs/react-autocomple](https://github.com/reactjs/react-autocomplete) to create a UI for [Caldera Forms magic tags](https://calderaforms.com/doc/using-magic-tags-caldera-forms/).
 
 These fields groups show options from two lists, one is passed in the prop `fieldsList` and represents the fields of the form, and the other is in `systemTagsList`, which represents the system values such as the current user info.
 
 The property `isOpen` controls if the auto-complete list is open.
+
+### Import With webpack
+import {MagicFieldGroup} from '@caldera-labs/components';
+
+### Example
+
 ```js
 let magicFieldValue ='';
 
@@ -269,14 +282,19 @@ let magicFieldValue ='';
         value={magicFieldValue}
     />
 ```
-```
+
+
+
+
 ## Select Fields
 * [Reference](https://calderalabs.org/caldera-components/function/index.html#static-function-SelectField)
 
-```jsx 
-import {SelectFieldFancy} from '@caldera-labs/components/src/components/fields/select/SelectFieldFancyFancy.js'
+### Import With webpack
+`import {fields} from '@caldera-labs/components';`
 
-<SelectFieldFancy
+### Example
+```
+<fields.SelectField
     id={'number-of-things'} //ID attribute for input
     fieldClassName={'thing-select'} //Field className prop
     onValueChange={(newValue) => {
@@ -301,7 +319,9 @@ import {SelectFieldFancy} from '@caldera-labs/components/src/components/fields/s
 For a `<fieldset>` element containing checkboxes, pass the value `fieldset` to the `type
 
 
+
 ```js
+import {FieldGroup} from '@caldera-labs/components';
 //Value is an array.
 let checkBoxValue = ['1'];
 
@@ -333,6 +353,12 @@ Button groups are select fields. One button can be selected at once.
 This is a field, not a group (like `FieldGroup` or `MagicFieldGroup`) so it does not handle its own label.
 
 Button groups fields take an array of options in the prop option. Options in that collection must conform the shape [defined here](https://calderalabs.org/caldera-components/docs/file/src/components/fields/propTypes.js.html#lineNumber75)
+
+### Import With webpack
+```
+import {fields} from '@caldera-labs/components';
+const {ButtonGroup} = fields;
+```
 
 ### Examples
 ### Button Group With Two Options
@@ -414,6 +440,13 @@ But, if the visual representation of the option is an emoji or image, then `aria
 
 ## Message component
 The `Message` component is used to display validation messages in a `FieldGroup` component. Messages have a shape defined in the `messagePropShape` object. This component, by design, returns nothing if `props.message.message` is not supplied, or is an empty string.
+
+### Import with webpack
+```
+import {fields} from '@caldera-labs/components';
+const {Message} = fields;
+```
+
 ### An error message
 ```js
 <Message

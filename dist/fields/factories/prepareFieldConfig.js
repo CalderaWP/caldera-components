@@ -69,7 +69,8 @@ var prepareFieldConfig = exports.prepareFieldConfig = function prepareFieldConfi
 		validators = fieldArgs.validators;
 	}
 
-	fieldArgs = pick(fieldArgs, Object.keys(_propTypes.fieldGroupPropTypes));
+	var keys = 'magic' === fieldArgs.type ? _propTypes.magicGroupPropTypes : _propTypes.fieldGroupPropTypes;
+	fieldArgs = pick(fieldArgs, Object.keys(keys));
 	fieldArgs.disabled = (0, _util.toBoolean)(fieldArgs.disabled);
 	fieldArgs.message = 'object' === _typeof(fieldArgs.message) ? (0, _messageObjectFactory.messageObjectFactory)(fieldArgs.message) : (0, _messageObjectFactory.messageObjectFactory)({ message: null, error: false });
 

@@ -557,10 +557,10 @@ describe('MagicFieldGroup component', () => {
 		);
 		const innerComponent = renderer.create(
 			component.instance().renderItem({
-					label: '1',
-					value: '1',
-					innerKey: '1'
-				}, true
+				label: '1',
+				value: '1',
+				innerKey: '1'
+			}, true
 			));
 		expect(innerComponent.toJSON()).toMatchSnapshot();
 	});

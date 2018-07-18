@@ -5,7 +5,7 @@ import {FieldGroup} from '../FieldGroup';
 /**
  * Generates field controls
  *
- * @param {Array} fieldArgs Field config
+ * @param {Object} fieldArgs Field config
  * @returns {*}
  */
 export const fieldFactory = (fieldArgs) =>{

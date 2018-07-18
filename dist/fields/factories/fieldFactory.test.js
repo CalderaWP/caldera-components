@@ -45,13 +45,38 @@ var hiddenFieldConfig = {
 	'description': false
 };
 
+var magicField = {
+	'id': 'cf-magic-example',
+	'type': 'magic',
+	'label': 'Magic ID',
+	'description': 'Select a value from list of magic tags or type a value',
+	fieldsList: [{
+		label: '0',
+		value: 0
+	}, {
+		label: '1',
+		value: 1
+	}, {
+		label: '3',
+		value: 3
+	}],
+	systemTagsList: [{
+		label: '3',
+		value: 3
+	}],
+	onValueChange: function onValueChange() {}
+};
+
 var configFields = [{
 	'id': 'cf-convertkit-apikey', 'label': 'API Key', 'type': 'text'
 }, {
 	'id': 'pid-1',
 	'label': 'Sequence',
 	'type': 'dropdown',
-	'options': ['-- Select A ConvertKit Sequence --'],
+	'options': [{
+		value: null,
+		label: '-- Select --'
+	}],
 	'desc': 'ConvertKit sequence to add subscriber to. Sequences are also referred to as courses.',
 	'description': false,
 	'extra_classes': 'field-Something is wrong',
@@ -330,7 +355,21 @@ describe('Factories', function () {
 			));
 			expect(wrapper.children()).toHaveLength(configFields.length);
 			expect(wrapper.find('.f-1')).toHaveLength(1);
-			expect(wrapper.find('.f-1').text()).toBe('Sequence');
+		});
+
+		it('Creates the if a magic field is in collection', function () {
+			var components = (0, _fieldSetFactory.fieldSetFactory)([magicField]);
+			var wrapper = (0, _enzyme.mount)(_react2.default.createElement(
+				'div',
+				null,
+				Array.from(components).map(function (field, i) {
+					return _react2.default.createElement('div', {
+						key: i,
+						className: 'f-' + i
+					}, field);
+				})
+			));
+			expect(wrapper.find('input')).toHaveLength(1);
 		});
 	});
 });

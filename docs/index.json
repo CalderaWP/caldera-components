@@ -567,11 +567,7 @@
     "__docId__": 48,
     "kind": "file",
     "name": "src/App.js",
-<<<<<<< HEAD
-    "content": "import React, { Component } from 'react';\nimport logo from './logo.svg';\nimport './App.css';\nimport {FieldGroup} from \"./components/fields/FieldGroup\";\nimport {fieldSetFactory} from \"./components/fields/factories/fieldSetFactory\";\nimport {RenderGroup} from \"./components/RenderGroup\";\n\nlet textFieldValue = 'Roy,Mike';\nconst textFieldConfig = {\n\t'id': 'cf-something-tags',\n\t'label': 'Tags',\n\t'desc': 'Comma separated list of tags.',\n\t'type': 'text',\n\t'description': false,\n\tvalue: textFieldValue,\n\tonValueChange: function(newValue){\n\t\ttextFieldValue = newValue\n\t},\n\n\n};\n\nconst numberFieldConfig = {\n\t'id': 'cf--something-some-number',\n\t'label': 'The number of something',\n\t'desc': 'How many somethings?',\n\t'type': 'text',\n\t'inputType': 'number',\n\tattributes: {\n\t\tmin: -1,\n\t\tmax: 22,\n\t\tstep: 0.1,\n\t},\n\tvalue: 42,\n\tonValueChange: (newNumberValue) =>{\n\t\tconsole.log(newNumberValue);\n\t},\n\n};\n\nlet hiddenFieldValue = '42';\nconst hiddenFieldConfig = {\n\t'id': 'cf-something-sequence-id',\n\t'type': 'hidden',\n\t'label': 'Sequence ID',\n\t'description': false,\n\tvalue: hiddenFieldValue,\n\tonValueChange: function(newValue){\n\t\thiddenFieldValue = newValue\n\t},\n};\n\nlet selectFieldValue = 'html';\nconst selectFieldConfig = {\n\t'id': 'cf-something-select-id',\n\t'type': 'dropdown',\n\t'label': 'Content type',\n\t'description': 'Choose content type, default is HTML',\n\toptions: [\n\t\t{\n\t\t\tlabel: 'HTML',\n\t\t\tvalue: 'html'\n\t\t},\n\t\t{\n\t\t\tlabel: 'Plain Text',\n\t\t\tvalue: 'plain'\n\t\t}\n\t],\n\tvalue: selectFieldValue,\n\tonValueChange: function(newValue){\n\t\tselectFieldValue = newValue\n\t}\n};\n\nlet fieldSetFieldValue = ['1'];\nconst fieldSetField = {\n\tid: 'fieldset-3',\n\tlabel: 'How many?',\n\ttype: 'fieldset',\n\toptions: [\n\t\t{\n\t\t\tvalue: '1',\n\t\t\tlabel: 'One'\n\t\t},\n\t\t{\n\t\t\tvalue: '2',\n\t\t\tlabel: 'Two'\n\t\t}\n\n\t],\n\tvalue:[],\n\tonValueChange:(newValue) => {\n\t\tfieldSetFieldValue=newValue;\n\t}\n};\n\nconst configFields = [\n\ttextFieldConfig,\n\thiddenFieldConfig,\n\tselectFieldConfig,\n\tfieldSetField,\n\tnumberFieldConfig,\n];\nconst configFieldEls = fieldSetFactory(configFields);\n\n\n\nlet values = {\n\tone: '',\n\ttwo: '',\n\tthree: ''\n};\n\nclass App extends Component {\n\n\trender() {\n\t\treturn (\n\t\t\t<div className=\"App\">\n\t\t\t\t<header className=\"App-header\">\n\t\t\t\t\t<img src={logo} className=\"App-logo\" alt=\"logo\" />\n\t\t\t\t\t<h1 className=\"App-title\">Welcome to React</h1>\n\t\t\t\t</header>\n\n\n\t\t\t\t<div>\n\t\t\t\t\t<h2>Created With RenderGroup Component</h2>\n\t\t\t\t\t<RenderGroup\n\t\t\t\t\t\tconfigFields={configFields}\n\t\t\t\t\t\tonBlur={(fI) => {console.log(fI)}}\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\n\t\t\t\t<div>\n\t\t\t\t\t<h2>Created With Factory</h2>\n\t\t\t\t\t{Array.from(configFieldEls).map((field,i) => {\n\t\t\t\t\t\treturn React.createElement(\n\t\t\t\t\t\t\tReact.Fragment, {\n\t\t\t\t\t\t\t\tkey: i,\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\tfield\n\t\t\t\t\t\t);\n\t\t\t\t\t})}\n\t\t\t\t</div>\n\n\t\t\t\t<div>\n\t\t\t\t\t<h2>Inputs</h2>\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-22'}\n\t\t\t\t\t\tlabel={'Required Text input'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tvalue={values.one}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.one=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-23'}\n\t\t\t\t\t\tlabel={'Non Required Text input'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tvalue={values.two}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.two=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-23'}\n\t\t\t\t\t\tlabel={'With Help Text'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\thelp={'Adding help text sets aria-describedy'}\n\t\t\t\t\t\tvalue={values.thre}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.three=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-24'}\n\t\t\t\t\t\tlabel={'Non Required Numeric input'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tinnertype={'number'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tvalue={values.two}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.two=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-25'}\n\t\t\t\t\t\tlabel={'Non Required input disabled with error'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tinnertype={'text'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tvalue={values.two}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.two=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t\tmessage={{\n\t\t\t\t\t\t\tmessage:'Failures happened',\n\t\t\t\t\t\t\terror: true\n\t\t\t\t\t\t}}\n\t\t\t\t\t\tdisabled={true}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-25'}\n\t\t\t\t\t\tlabel={'Non Required input with non-error message'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tinnertype={'text'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tvalue={values.two}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.two=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t\tmessage={{\n\t\t\t\t\t\t\tmessage:'Failures did not happened',\n\t\t\t\t\t\t\terror: false\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\t\t\t\t<div>\n\t\t\t\t\t<h2>Selects</h2>\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\ttype={'select'}\n\t\t\t\t\t\tlabel={'Basic select field'}\n\t\t\t\t\t\tvalue={selectFieldValue}\n\t\t\t\t\t\tid={'r'}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tselectFieldValue = newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t\toptions={[\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tvalue: 1,\n\t\t\t\t\t\t\t\tlabel: 'One'\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tvalue: 2,\n\t\t\t\t\t\t\t\tlabel: 'Two'\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t]}\n\t\t\t\t\t/>\n\n\t\t\t\t</div>\n\n\t\t\t\t<div>\n\t\t\t\t\t<h2>fieldsets</h2>\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\ttype={'fieldset'}\n\t\t\t\t\t\tlabel={'Checkbox group'}\n\t\t\t\t\t\tvalue={fieldSetFieldValue}\n\t\t\t\t\t\tid={'Checkbox1'}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tfieldSetFieldValue = newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t\toptions={[\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tvalue: '1',\n\t\t\t\t\t\t\t\tlabel: 'One'\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tvalue: '2',\n\t\t\t\t\t\t\t\tlabel: 'Two'\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t]}\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\t\t);\n\t}\n}\n\nexport default App;\n",
-=======
-    "content": "import React, { Component } from 'react';\nimport logo from './logo.svg';\nimport './App.css';\nimport {FieldGroup} from \"./components/fields/FieldGroup\";\nimport {fieldSetFactory} from \"./components/fields/factories/fieldSetFactory\";\nimport {RenderGroup} from \"./components/RenderGroup\";\nimport {MagicFieldGroup} from \"./components/fields/magic-select/MagicFieldGroup\";\n\nlet textFieldValue = 'Roy,Mike';\nconst textFieldConfig = {\n\t'id': 'cf-something-tags',\n\t'label': 'Tags',\n\t'desc': 'Comma separated list of tags.',\n\t'type': 'text',\n\t'description': false,\n\tvalue: textFieldValue,\n\tonValueChange: function(newValue){\n\t\ttextFieldValue = newValue\n\t},\n\n\n};\n\nconst numberFieldConfig = {\n\t'id': 'cf--something-some-number',\n\t'label': 'The number of something',\n\t'desc': 'How many somethings?',\n\t'type': 'text',\n\t'inputType': 'number',\n\tattributes: {\n\t\tmin: -1,\n\t\tmax: 22,\n\t\tstep: 0.1,\n\t},\n\tvalue: 42,\n\tonValueChange: (newNumberValue) =>{\n\t\tconsole.log(newNumberValue);\n\t},\n\n};\n\nlet hiddenFieldValue = '42';\nconst hiddenFieldConfig = {\n\t'id': 'cf-something-sequence-id',\n\t'type': 'hidden',\n\t'label': 'Sequence ID',\n\t'description': false,\n\tvalue: hiddenFieldValue,\n\tonValueChange: function(newValue){\n\t\thiddenFieldValue = newValue\n\t},\n};\n\nlet selectFieldValue = 'html';\nconst selectFieldConfig = {\n\t'id': 'cf-something-select-id',\n\t'type': 'dropdown',\n\t'label': 'Content type',\n\t'description': 'Choose content type, default is HTML',\n\toptions: [\n\t\t{\n\t\t\tlabel: 'HTML',\n\t\t\tvalue: 'html'\n\t\t},\n\t\t{\n\t\t\tlabel: 'Plain Text',\n\t\t\tvalue: 'plain'\n\t\t}\n\t],\n\tvalue: selectFieldValue,\n\tonValueChange: function(newValue){\n\t\tselectFieldValue = newValue\n\t}\n};\n\nlet fieldSetFieldValue = ['1'];\nconst fieldSetField = {\n\tid: 'fieldset-3',\n\tlabel: 'How many?',\n\ttype: 'fieldset',\n\toptions: [\n\t\t{\n\t\t\tvalue: '1',\n\t\t\tlabel: 'One'\n\t\t},\n\t\t{\n\t\t\tvalue: '2',\n\t\t\tlabel: 'Two'\n\t\t}\n\n\t],\n\tvalue:[],\n\tonValueChange:(newValue) => {\n\t\tfieldSetFieldValue=newValue;\n\t}\n};\n\nconst configFields = [\n\ttextFieldConfig,\n\thiddenFieldConfig,\n\tselectFieldConfig,\n\tfieldSetField,\n\tnumberFieldConfig\n];\nconst configFieldEls = fieldSetFactory(configFields);\n\n\n\nlet values = {\n\tone: '',\n\ttwo: '',\n\tthree: ''\n};\n\nlet magicFieldValue = '';\n\nclass App extends Component {\n\n\trender() {\n\t\treturn (\n\t\t\t<div className=\"App\">\n\t\t\t\t<header className=\"App-header\">\n\t\t\t\t\t<img src={logo} className=\"App-logo\" alt=\"logo\" />\n\t\t\t\t\t<h1 className=\"App-title\">Welcome to React</h1>\n\t\t\t\t</header>\n\n\n\t\t\t\t<div>\n\t\t\t\t\t<h2>Created With RenderGroup Component</h2>\n\t\t\t\t\t<RenderGroup\n\t\t\t\t\t\tconfigFields={configFields}\n\t\t\t\t\t\tonBlur={(fI) => {console.log(fI)}}\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\n\t\t\t\t<div>\n\t\t\t\t\t<h2>Created With Factory</h2>\n\t\t\t\t\t{Array.from(configFieldEls).map((field,i) => {\n\t\t\t\t\t\treturn React.createElement(\n\t\t\t\t\t\t\tReact.Fragment, {\n\t\t\t\t\t\t\t\tkey: i,\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\tfield\n\t\t\t\t\t\t);\n\t\t\t\t\t})}\n\t\t\t\t</div>\n\n\t\t\t\t<div>\n\t\t\t\t\t<h2>Magic Select</h2>\n\t\t\t\t\t<MagicFieldGroup\n\t\t\t\t\t\tid={'magic-5'}\n\t\t\t\t\t\tlabel={'Magic Group'}\n\t\t\t\t\t\tfieldClassName={'magic'}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tmagicFieldValue = newValue;\n\t\t\t\t\t\t} }\n\t\t\t\t\t\tfieldsList={[\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tlabel: 'Field One',\n\t\t\t\t\t\t\t\tvalue: '%fldOne%'\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tlabel: 'Field Two',\n\t\t\t\t\t\t\t\tvalue: '%fldTwo%'\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tlabel: 'Field Three',\n\t\t\t\t\t\t\t\tvalue: '%fldThree%'\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t]}\n\t\t\t\t\t\tsystemTagsList={[\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tlabel: 'User First Name',\n\t\t\t\t\t\t\t\tvalue: '{user:first_name}'\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t]}\n\t\t\t\t\t\tisOpen={true}\n\t\t\t\t\t\tvalue={magicFieldValue}\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\n\t\t\t\t<div>\n\t\t\t\t\t<h2>Inputs</h2>\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-22'}\n\t\t\t\t\t\tlabel={'Required Text input'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tvalue={values.one}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.one=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-23'}\n\t\t\t\t\t\tlabel={'Non Required Text input'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tvalue={values.two}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.two=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-23'}\n\t\t\t\t\t\tlabel={'With Help Text'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\thelp={'Adding help text sets aria-describedy'}\n\t\t\t\t\t\tvalue={values.thre}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.three=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-24'}\n\t\t\t\t\t\tlabel={'Non Required Numeric input'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tinnertype={'number'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tvalue={values.two}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.two=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-25'}\n\t\t\t\t\t\tlabel={'Non Required input disabled with error'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tinnertype={'text'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tvalue={values.two}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.two=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t\tmessage={{\n\t\t\t\t\t\t\tmessage:'Failures happened',\n\t\t\t\t\t\t\terror: true\n\t\t\t\t\t\t}}\n\t\t\t\t\t\tdisabled={true}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-25'}\n\t\t\t\t\t\tlabel={'Non Required input with non-error message'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tinnertype={'text'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tvalue={values.two}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.two=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t\tmessage={{\n\t\t\t\t\t\t\tmessage:'Failures did not happened',\n\t\t\t\t\t\t\terror: false\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\t\t\t\t<div>\n\t\t\t\t\t<h2>Selects</h2>\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\ttype={'select'}\n\t\t\t\t\t\tlabel={'Basic select field'}\n\t\t\t\t\t\tvalue={selectFieldValue}\n\t\t\t\t\t\tid={'r'}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tselectFieldValue = newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t\toptions={[\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tvalue: 1,\n\t\t\t\t\t\t\t\tlabel: 'One'\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tvalue: 2,\n\t\t\t\t\t\t\t\tlabel: 'Two'\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t]}\n\t\t\t\t\t/>\n\n\t\t\t\t</div>\n\n\t\t\t\t<div>\n\t\t\t\t\t<h2>fieldsets</h2>\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\ttype={'fieldset'}\n\t\t\t\t\t\tlabel={'Checkbox group'}\n\t\t\t\t\t\tvalue={fieldSetFieldValue}\n\t\t\t\t\t\tid={'Checkbox1'}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tfieldSetFieldValue = newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t\toptions={[\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tvalue: '1',\n\t\t\t\t\t\t\t\tlabel: 'One'\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tvalue: '2',\n\t\t\t\t\t\t\t\tlabel: 'Two'\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t]}\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\t\t);\n\t}\n}\n\nexport default App;\n",
->>>>>>> master
+    "content": "import React, { Component } from 'react';\nimport logo from './logo.svg';\nimport './App.css';\nimport {FieldGroup} from \"./components/fields/FieldGroup\";\nimport {fieldSetFactory} from \"./components/fields/factories/fieldSetFactory\";\nimport {RenderGroup} from \"./components/RenderGroup\";\nimport {MagicFieldGroup} from \"./components/fields/magic-select/MagicFieldGroup\";\n\nlet textFieldValue = 'Roy,Mike';\nconst textFieldConfig = {\n\t'id': 'cf-something-tags',\n\t'label': 'Tags',\n\t'desc': 'Comma separated list of tags.',\n\t'type': 'text',\n\t'description': false,\n\tvalue: textFieldValue,\n\tonValueChange: function(newValue){\n\t\ttextFieldValue = newValue;\n\t},\n\n\n};\n\nconst numberFieldConfig = {\n\t'id': 'cf--something-some-number',\n\t'label': 'The number of something',\n\t'desc': 'How many somethings?',\n\t'type': 'text',\n\t'inputType': 'number',\n\tattributes: {\n\t\tmin: -1,\n\t\tmax: 22,\n\t\tstep: 0.1,\n\t},\n\tvalue: 42,\n\tonValueChange: (newNumberValue) =>{\n\t\tconsole.log(newNumberValue);\n\t},\n\n};\n\nlet hiddenFieldValue = '42';\nconst hiddenFieldConfig = {\n\t'id': 'cf-something-sequence-id',\n\t'type': 'hidden',\n\t'label': 'Sequence ID',\n\t'description': false,\n\tvalue: hiddenFieldValue,\n\tonValueChange: function(newValue){\n\t\thiddenFieldValue = newValue\n\t},\n};\n\nlet selectFieldValue = 'html';\nconst selectFieldConfig = {\n\t'id': 'cf-something-select-id',\n\t'type': 'file',\n\t'label': 'Content type',\n\t'description': 'Choose content type, default is HTML',\n\toptions: [\n\t\t{\n\t\t\tlabel: 'HTML',\n\t\t\tvalue: 'html'\n\t\t},\n\t\t{\n\t\t\tlabel: 'Plain Text',\n\t\t\tvalue: 'plain'\n\t\t}\n\t],\n\tvalue: selectFieldValue,\n\tonValueChange: function(newValue){\n\t\tselectFieldValue = newValue\n\t}\n};\n\nlet fieldSetFieldValue = ['1'];\nconst fieldSetField = {\n\tid: 'fieldset-3',\n\tlabel: 'How many?',\n\ttype: 'fieldset',\n\toptions: [\n\t\t{\n\t\t\tvalue: '1',\n\t\t\tlabel: 'One'\n\t\t},\n\t\t{\n\t\t\tvalue: '2',\n\t\t\tlabel: 'Two'\n\t\t}\n\n\t],\n\tvalue:[],\n\tonValueChange:(newValue) => {\n\t\tfieldSetFieldValue=newValue;\n\t}\n};\n\nconst configFields = [\n\ttextFieldConfig,\n\thiddenFieldConfig,\n\tselectFieldConfig,\n\tfieldSetField,\n\tnumberFieldConfig\n];\nconst configFieldEls = fieldSetFactory(configFields);\n\n\n\nlet values = {\n\tone: '',\n\ttwo: '',\n\tthree: ''\n};\n\nlet magicFieldValue = '';\n\nclass App extends Component {\n\n\trender() {\n\t\treturn (\n\t\t\t<div className=\"App\">\n\t\t\t\t<header className=\"App-header\">\n\t\t\t\t\t<img src={logo} className=\"App-logo\" alt=\"logo\" />\n\t\t\t\t\t<h1 className=\"App-title\">Welcome to React</h1>\n\t\t\t\t</header>\n\n\n\t\t\t\t<div>\n\t\t\t\t\t<h2>Created With RenderGroup Component</h2>\n\t\t\t\t\t<RenderGroup\n\t\t\t\t\t\tconfigFields={configFields}\n\t\t\t\t\t\tonBlur={(fI) => {console.log(fI)}}\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\n\t\t\t\t<div>\n\t\t\t\t\t<h2>Created With Factory</h2>\n\t\t\t\t\t{Array.from(configFieldEls).map((field,i) => {\n\t\t\t\t\t\treturn React.createElement(\n\t\t\t\t\t\t\tReact.Fragment, {\n\t\t\t\t\t\t\t\tkey: i,\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\tfield\n\t\t\t\t\t\t);\n\t\t\t\t\t})}\n\t\t\t\t</div>\n\n\t\t\t\t<div>\n\t\t\t\t\t<h2>Magic Select</h2>\n\t\t\t\t\t<MagicFieldGroup\n\t\t\t\t\t\tid={'magic-5'}\n\t\t\t\t\t\tlabel={'Magic Group'}\n\t\t\t\t\t\tfieldClassName={'magic'}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tmagicFieldValue = newValue;\n\t\t\t\t\t\t} }\n\t\t\t\t\t\tfieldsList={[\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tlabel: 'Field One',\n\t\t\t\t\t\t\t\tvalue: '%fldOne%'\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tlabel: 'Field Two',\n\t\t\t\t\t\t\t\tvalue: '%fldTwo%'\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tlabel: 'Field Three',\n\t\t\t\t\t\t\t\tvalue: '%fldThree%'\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t]}\n\t\t\t\t\t\tsystemTagsList={[\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tlabel: 'User First Name',\n\t\t\t\t\t\t\t\tvalue: '{user:first_name}'\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t]}\n\t\t\t\t\t\tisOpen={true}\n\t\t\t\t\t\tvalue={magicFieldValue}\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\n\t\t\t\t<div>\n\t\t\t\t\t<h2>Inputs</h2>\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-22'}\n\t\t\t\t\t\tlabel={'Required Text input'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tvalue={values.one}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.one=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-23'}\n\t\t\t\t\t\tlabel={'Non Required Text input'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tvalue={values.two}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.two=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-23'}\n\t\t\t\t\t\tlabel={'With Help Text'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\thelp={'Adding help text sets aria-describedy'}\n\t\t\t\t\t\tvalue={values.thre}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.three=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-24'}\n\t\t\t\t\t\tlabel={'Non Required Numeric input'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tinnertype={'number'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tvalue={values.two}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.two=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-25'}\n\t\t\t\t\t\tlabel={'Non Required input disabled with error'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tinnertype={'text'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tvalue={values.two}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.two=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t\tmessage={{\n\t\t\t\t\t\t\tmessage:'Failures happened',\n\t\t\t\t\t\t\terror: true\n\t\t\t\t\t\t}}\n\t\t\t\t\t\tdisabled={true}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\tid={'control-25'}\n\t\t\t\t\t\tlabel={'Non Required input with non-error message'}\n\t\t\t\t\t\ttype={'input'}\n\t\t\t\t\t\tinnertype={'text'}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tvalue={values.two}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tvalues.two=newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t\tmessage={{\n\t\t\t\t\t\t\tmessage:'Failures did not happened',\n\t\t\t\t\t\t\terror: false\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\t\t\t\t<div>\n\t\t\t\t\t<h2>Selects</h2>\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\ttype={'select'}\n\t\t\t\t\t\tlabel={'Basic select field'}\n\t\t\t\t\t\tvalue={selectFieldValue}\n\t\t\t\t\t\tid={'r'}\n\t\t\t\t\t\toptions={[\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tvalue: 1,\n\t\t\t\t\t\t\t\tlabel: 'One'\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tvalue: 2,\n\t\t\t\t\t\t\t\tlabel: 'Two'\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t]}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tselectFieldValue = newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\ttype={'select'}\n\t\t\t\t\t\tlabel={'Required select field'}\n\t\t\t\t\t\tvalue={selectFieldValue}\n\t\t\t\t\t\tisRequired={true}\n\t\t\t\t\t\tid={'r'}\n\t\t\t\t\t\toptions={[\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tvalue: 1,\n\t\t\t\t\t\t\t\tlabel: 'One'\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tvalue: 2,\n\t\t\t\t\t\t\t\tlabel: 'Two'\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t]}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tselectFieldValue = newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t/>\n\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\ttype={'select'}\n\t\t\t\t\t\tlabel={'Required select field'}\n\t\t\t\t\t\tdisabled={true}\n\t\t\t\t\t\tid={'r'}\n\t\t\t\t\t\toptions={[\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tvalue: 1,\n\t\t\t\t\t\t\t\tlabel: 'One'\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tvalue: 2,\n\t\t\t\t\t\t\t\tlabel: 'Two'\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t]}\n\t\t\t\t\t/>\n\n\t\t\t\t</div>\n\n\t\t\t\t<div>\n\t\t\t\t\t<h2>fieldsets</h2>\n\t\t\t\t\t<FieldGroup\n\t\t\t\t\t\ttype={'fieldset'}\n\t\t\t\t\t\tlabel={'Checkbox group'}\n\t\t\t\t\t\tvalue={fieldSetFieldValue}\n\t\t\t\t\t\tid={'Checkbox1'}\n\t\t\t\t\t\tonValueChange={(newValue) => {\n\t\t\t\t\t\t\tfieldSetFieldValue = newValue;\n\t\t\t\t\t\t}}\n\t\t\t\t\t\toptions={[\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tvalue: '1',\n\t\t\t\t\t\t\t\tlabel: 'One'\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tvalue: '2',\n\t\t\t\t\t\t\t\tlabel: 'Two'\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t]}\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\t\t);\n\t}\n}\n\nexport default App;\n",
     "static": true,
     "longname": "/Users/josh/caldera-js/components/src/App.js",
     "access": "public",
@@ -632,11 +628,7 @@
     "importPath": "@caldera-labs/components/src/App.js",
     "importStyle": null,
     "description": null,
-<<<<<<< HEAD
-    "lineNumber": 23,
-=======
     "lineNumber": 24,
->>>>>>> master
     "undocument": true,
     "type": {
       "types": [
@@ -657,11 +649,7 @@
     "importPath": "@caldera-labs/components/src/App.js",
     "importStyle": null,
     "description": null,
-<<<<<<< HEAD
-    "lineNumber": 41,
-=======
     "lineNumber": 42,
->>>>>>> master
     "undocument": true,
     "type": {
       "types": [
@@ -682,11 +670,7 @@
     "importPath": "@caldera-labs/components/src/App.js",
     "importStyle": null,
     "description": null,
-<<<<<<< HEAD
-    "lineNumber": 42,
-=======
     "lineNumber": 43,
->>>>>>> master
     "undocument": true,
     "type": {
       "types": [
@@ -707,11 +691,7 @@
     "importPath": "@caldera-labs/components/src/App.js",
     "importStyle": null,
     "description": null,
-<<<<<<< HEAD
-    "lineNumber": 53,
-=======
     "lineNumber": 54,
->>>>>>> master
     "undocument": true,
     "type": {
       "types": [
@@ -732,11 +712,7 @@
     "importPath": "@caldera-labs/components/src/App.js",
     "importStyle": null,
     "description": null,
-<<<<<<< HEAD
-    "lineNumber": 54,
-=======
     "lineNumber": 55,
->>>>>>> master
     "undocument": true,
     "type": {
       "types": [
@@ -757,11 +733,7 @@
     "importPath": "@caldera-labs/components/src/App.js",
     "importStyle": null,
     "description": null,
-<<<<<<< HEAD
-    "lineNumber": 75,
-=======
     "lineNumber": 76,
->>>>>>> master
     "undocument": true,
     "type": {
       "types": [
@@ -782,11 +754,7 @@
     "importPath": "@caldera-labs/components/src/App.js",
     "importStyle": null,
     "description": null,
-<<<<<<< HEAD
-    "lineNumber": 76,
-=======
     "lineNumber": 77,
->>>>>>> master
     "undocument": true,
     "type": {
       "types": [
@@ -807,11 +775,7 @@
     "importPath": "@caldera-labs/components/src/App.js",
     "importStyle": null,
     "description": null,
-<<<<<<< HEAD
-    "lineNumber": 97,
-=======
     "lineNumber": 98,
->>>>>>> master
     "undocument": true,
     "type": {
       "types": [
@@ -832,11 +796,7 @@
     "importPath": "@caldera-labs/components/src/App.js",
     "importStyle": null,
     "description": null,
-<<<<<<< HEAD
-    "lineNumber": 104,
-=======
     "lineNumber": 105,
->>>>>>> master
     "undocument": true,
     "type": {
       "types": [
@@ -857,11 +817,7 @@
     "importPath": "@caldera-labs/components/src/App.js",
     "importStyle": null,
     "description": null,
-<<<<<<< HEAD
-    "lineNumber": 108,
-=======
     "lineNumber": 109,
->>>>>>> master
     "undocument": true,
     "type": {
       "types": [
@@ -872,8 +828,6 @@
   },
   {
     "__docId__": 61,
-<<<<<<< HEAD
-=======
     "kind": "variable",
     "name": "magicFieldValue",
     "memberof": "src/App.js",
@@ -895,7 +849,6 @@
   },
   {
     "__docId__": 62,
->>>>>>> master
     "kind": "class",
     "name": "App",
     "memberof": "src/App.js",
@@ -906,11 +859,7 @@
     "importPath": "@caldera-labs/components/src/App.js",
     "importStyle": "App",
     "description": null,
-<<<<<<< HEAD
-    "lineNumber": 114,
-=======
     "lineNumber": 117,
->>>>>>> master
     "undocument": true,
     "interface": false,
     "extends": [
@@ -918,11 +867,7 @@
     ]
   },
   {
-<<<<<<< HEAD
-    "__docId__": 62,
-=======
     "__docId__": 63,
->>>>>>> master
     "kind": "method",
     "name": "render",
     "memberof": "src/App.js~App",
@@ -932,11 +877,7 @@
     "longname": "src/App.js~App#render",
     "access": "public",
     "description": null,
-<<<<<<< HEAD
-    "lineNumber": 116,
-=======
     "lineNumber": 119,
->>>>>>> master
     "undocument": true,
     "params": [],
     "return": {
@@ -946,11 +887,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 63,
-=======
     "__docId__": 64,
->>>>>>> master
     "kind": "file",
     "name": "src/components/RenderGroup.js",
     "content": "import React from 'react';\nimport propTypes from 'prop-types';\nimport {fieldSetFactory} from './fields/factories/fieldSetFactory';\n\n/**\n * Component for rendering an array of field configs\n */\nexport class RenderGroup extends React.Component {\n\n\n\t/**\n\t * Constructor for RenderGroup component\n\t * @param {Object} props\n\t */\n\tconstructor(props) {\n\t\tsuper(props);\n\t\tthis.createComponents = this.createComponents.bind(this);\n\t}\n\n\t/**\n\t * Create components\n\t *\n\t * @return {Array}\n\t */\n\tcreateComponents() {\n\t\tlet configFields = this.props.configFields;\n\n\t\t/**\n\t\t * Find config field ID/id\n\t\t *\n\t\t * @param {Object} configField\n\t\t * @return {boolean}\n\t\t */\n\t\tfunction findFieldId(configField) {\n\t\t\treturn configField.ID ? configField.ID : configField.id ? configField.id : false;\n\t\t}\n\n\t\tif( 'function' === typeof this.props.onBlur  ){\n\t\t\tconfigFields.forEach((configField, configFieldIndex ) => {\n\t\t\t\tconst configFieldId = findFieldId(configField);\n\t\t\t\tif( configFieldId ){\n\t\t\t\t\tconfigFields[configFieldIndex].onBlur = () => {\n\t\t\t\t\t\tthis.props.onBlur(configFieldId);\n\t\t\t\t\t};\n\n\t\t\t\t}\n\n\t\t\t});\n\n\t\t}\n\t\tif( 'function' === typeof this.props.onFocus ){\n\t\t\tconfigFields.forEach((configField, configFieldIndex ) => {\n\t\t\t\tconst configFieldId = findFieldId(configField);\n\t\t\t\tif( configFieldId ){\n\t\t\t\t\tconfigFields[configFieldIndex].onFocus = () => {\n\t\t\t\t\t\tthis.props.onFocus(configFieldId);\n\t\t\t\t\t};\n\n\t\t\t\t}\n\n\t\t\t});\n\t\t}\n\t\treturn fieldSetFactory(configFields);\n\t}\n\n\t/**\n\t * Renderer for RenderGroup component\n\t *\n\t * @return {*}\n\t */\n\trender() {\n\t\treturn (\n\t\t\t<div\n\t\t\t\tclassName={this.props.className ? this.props.className : RenderGroup.classNames.renderGroupWrapper}\n\t\t\t>\n\t\t\t\t{this.createComponents().map((configField, i) => {\n\t\t\t\t\treturn React.createElement(\n\t\t\t\t\t\t'div', {\n\t\t\t\t\t\t\tkey: i,\n\t\t\t\t\t\t\tclassName: RenderGroup.classNames.fieldGroup\n\t\t\t\t\t\t},\n\t\t\t\t\t\tconfigField\n\t\t\t\t\t);\n\t\t\t\t})}\n\t\t\t</div>\n\t\t);\n\t}\n}\n\n/**\n * Prop definitions for RenderGroup component\n * @type {{configFields: *, className: shim}}\n */\nRenderGroup.propTypes = {\n\tconfigFields: propTypes.array.isRequired,\n\tclassName: propTypes.string,\n\tonBlur: propTypes.func,\n\tonFocus: propTypes.func\n};\n\n/**\n * Classnames for elements (wrappers, field groups and form fields)\n *\n * @type {{renderGroupWrapper: string, fieldWrapper: string}}\n */\nRenderGroup.classNames = {\n\trenderGroupWrapper: 'caldera-config-field-setup',\n\tfieldGroup: 'caldera-config-group',\n\tfieldWrapper: 'caldera-config-field',\n\tinput: 'field-config',\n\n};",
@@ -961,11 +898,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 64,
-=======
     "__docId__": 65,
->>>>>>> master
     "kind": "class",
     "name": "RenderGroup",
     "memberof": "src/components/RenderGroup.js",
@@ -983,11 +916,7 @@
     ]
   },
   {
-<<<<<<< HEAD
-    "__docId__": 65,
-=======
     "__docId__": 66,
->>>>>>> master
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/components/RenderGroup.js~RenderGroup",
@@ -1012,11 +941,7 @@
     ]
   },
   {
-<<<<<<< HEAD
-    "__docId__": 67,
-=======
     "__docId__": 68,
->>>>>>> master
     "kind": "method",
     "name": "createComponents",
     "memberof": "src/components/RenderGroup.js~RenderGroup",
@@ -1038,11 +963,7 @@
     "params": []
   },
   {
-<<<<<<< HEAD
-    "__docId__": 68,
-=======
     "__docId__": 69,
->>>>>>> master
     "kind": "method",
     "name": "render",
     "memberof": "src/components/RenderGroup.js~RenderGroup",
@@ -1064,8 +985,7 @@
     "params": []
   },
   {
-<<<<<<< HEAD
-    "__docId__": 69,
+    "__docId__": 70,
     "kind": "file",
     "name": "src/components/admin/CalderaHeader.js",
     "content": "import React from 'react';\n\n/**\n * Creates the Caldera admin page header\n *\n * @param props\n * @returns {*}\n * @constructor\n */\nexport const CalderaHeader = (props) => {\n\treturn(\n\t\t<div className=\"caldera-editor-header\">\n\t\t\t<ul className=\"caldera-editor-header-nav\">\n\t\t\t\t<li className=\"caldera-editor-logo\">\n\t\t\t\t\t<span className=\"caldera-forms-name\">\n                        Caldera Forms: {props.name ? props.name : 'Caldera Forms'}\n\t\t\t\t\t</span>\n\t\t\t\t</li>\n\t\t\t\t{props.children}\n\t\t\t</ul>\n\t\t</div>\n\t);\n};",
@@ -1076,7 +996,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 70,
+    "__docId__": 71,
     "kind": "function",
     "name": "CalderaHeader",
     "memberof": "src/components/admin/CalderaHeader.js",
@@ -1122,7 +1042,7 @@
     }
   },
   {
-    "__docId__": 71,
+    "__docId__": 72,
     "kind": "file",
     "name": "src/components/admin/PageBody.js",
     "content": "import React from  'react';\n/**\n * Wrapper for an admin page's content\n *\n * @since 1.7.0\n *\n * @param props\n * @returns {*}\n * @constructor\n */\nexport const PageBody = (props) => {\n\treturn(\n\t\t<div\n\t\t\tstyle={{marginTop:'75px'}}\n\t\t\tclassName={'caldera-forms-admin-page-wrap'}\n\t\t>\n\t\t\t{props.children}\n\t\t</div>\n\t);\n};",
@@ -1133,7 +1053,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 72,
+    "__docId__": 73,
     "kind": "function",
     "name": "PageBody",
     "memberof": "src/components/admin/PageBody.js",
@@ -1180,7 +1100,7 @@
     }
   },
   {
-    "__docId__": 73,
+    "__docId__": 74,
     "kind": "file",
     "name": "src/components/admin/StatusIndicator.js",
     "content": "import React from  'react';\nimport PropTypes from 'prop-types';\n\n/**\n * A status indicator componet with CF Admin classes expected for CSS\n * @param props\n * @return {*}\n * @constructor\n */\nexport  const StatusIndicator = (props) =>{\n\tif( ! props.show){\n\t\treturn null;\n\t}\n\tlet className = 'cf-alert';\n\tif( props.success){\n\t\tclassName = `${className} cf-alert-success`;\n\t}else{\n\t\tclassName = `${className} cf-alert-error`;\n\t}\n\n\treturn(\n\t\t<div className={'cf-alert-wrap'}>\n\t\t\t<p\n\t\t\t\tclassName={className}\n\t\t\t>\n\t\t\t\t{props.message}\n\t\t\t</p>\n\t\t</div>\n\t);\n\n};\n/**\n * Default props for the StatusIndicator compoents\n * @type {{message: shim, success: shim, show: shim}}\n */\nStatusIndicator.propTypes = {\n\tmessage: PropTypes.string,\n\tsuccess: PropTypes.bool,\n\tshow: PropTypes.bool,\n};",
@@ -1191,7 +1111,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 74,
+    "__docId__": 75,
     "kind": "function",
     "name": "StatusIndicator",
     "memberof": "src/components/admin/StatusIndicator.js",
@@ -1233,7 +1153,7 @@
     }
   },
   {
-    "__docId__": 75,
+    "__docId__": 76,
     "kind": "file",
     "name": "src/components/admin/index.js",
     "content": "import {CalderaHeader} from './CalderaHeader';\nimport {PageBody} from './PageBody';\nimport {StatusIndicator} from './StatusIndicator';\n\nexport default {\n\tCalderaHeader,\n\tPageBody,\n\tStatusIndicator\n};",
@@ -1244,10 +1164,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 76,
-=======
-    "__docId__": 70,
->>>>>>> master
+    "__docId__": 77,
     "kind": "file",
     "name": "src/components/conditional-logic/checkConfigFieldConditionals.js",
     "content": "/**\n * Check configField conditionals.\n *\n * Returns false if any conditionals fail.\n * Returns true if no conditionals fail, or there are no conditionals.\n *\n * @param {Object} configField The field to check the conditionals of.\n * @param {Object} fieldValues Optional. Data to pass to conditional rule callbacks\n * @return {boolean}\n */\nexport const checkConfigFieldConditionals = (configField, fieldValues = {}) => {\n\tif (!configField.hasOwnProperty('conditionals') || !Array.isArray(configField.conditionals)) {\n\t\treturn true;\n\t}\n\n\tlet allRulesPassed = true;\n\tconfigField.conditionals.forEach(conditional => {\n\t\tif ('function' === typeof conditional && false === conditional.call(null, fieldValues)) {\n\t\t\tallRulesPassed = false;\n\t\t\treturn false;\n\t\t}\n\t});\n\n\treturn allRulesPassed;\n\n};",
@@ -1258,11 +1175,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 77,
-=======
-    "__docId__": 71,
->>>>>>> master
+    "__docId__": 78,
     "kind": "function",
     "name": "checkConfigFieldConditionals",
     "memberof": "src/components/conditional-logic/checkConfigFieldConditionals.js",
@@ -1308,11 +1221,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 78,
-=======
-    "__docId__": 72,
->>>>>>> master
+    "__docId__": 79,
     "kind": "file",
     "name": "src/components/conditional-logic/checkConfigFieldsConditionals.js",
     "content": "import {checkConfigFieldConditionals} from './checkConfigFieldConditionals';\n\n/**\n * Check conditionals for a collection of configFields\n *\n * Returns false if any conditionals fail.\n * Returns true if no conditionals fail, or there are no conditionals.\n *\n * @param {Array} configFields The fields to check the conditionals of.\n * @param {Object} fieldValues Optional. Data to pass to conditional rules' callbacks\n * @return {boolean}\n */\nexport const checkConfigFieldsConditionals = (configFields, fieldValues = {}) => {\n\tlet results = {};\n\tObject.values( configFields ).forEach(configField => {\n\t\tresults[configField.ID] = checkConfigFieldConditionals(configField,fieldValues);\n\t});\n\treturn results;\n\n};",
@@ -1323,11 +1232,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 79,
-=======
-    "__docId__": 73,
->>>>>>> master
+    "__docId__": 80,
     "kind": "function",
     "name": "checkConfigFieldsConditionals",
     "memberof": "src/components/conditional-logic/checkConfigFieldsConditionals.js",
@@ -1373,11 +1278,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 80,
-=======
-    "__docId__": 74,
->>>>>>> master
+    "__docId__": 81,
     "kind": "file",
     "name": "src/components/conditional-logic/index.js",
     "content": "/*eslint no-undef: \"error\"*/\n/*eslint-env node*/\nimport {checkConfigFieldConditionals} from './checkConfigFieldConditionals';\nimport {checkConfigFieldsConditionals} from './checkConfigFieldsConditionals';\nimport {reduceConfigFieldsToValues} from './util';\n\n/**\n * The Caldera Components conditional logic system\n */\nexport default {\n\tcheckConfigFieldConditionals,\n\tcheckConfigFieldsConditionals,\n\treduceConfigFieldsToValues\n};",
@@ -1388,11 +1289,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 81,
-=======
-    "__docId__": 75,
->>>>>>> master
+    "__docId__": 82,
     "kind": "file",
     "name": "src/components/conditional-logic/util.js",
     "content": "/**\n * Get the current values for prepareConfigFields\n *\n * @param {Array} configFields\n */\nexport const reduceConfigFieldsToValues = (configFields) => {\n\tlet values = {};\n\tconfigFields.forEach(field => {\n\t\tvalues[field.ID] = field.value\n\t\t\t? field.value\n\t\t\t: field.default\n\t\t\t\t? field.default\n\t\t\t\t: null;\n\t});\n\treturn values;\n};\n",
@@ -1403,11 +1300,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 82,
-=======
-    "__docId__": 76,
->>>>>>> master
+    "__docId__": 83,
     "kind": "function",
     "name": "reduceConfigFieldsToValues",
     "memberof": "src/components/conditional-logic/util.js",
@@ -1440,14 +1333,10 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 83,
-=======
-    "__docId__": 77,
->>>>>>> master
+    "__docId__": 84,
     "kind": "file",
     "name": "src/components/fields/FieldGroup.js",
-    "content": "import React from 'react';\nimport classNames from 'classnames';\nimport {ariaDescribedbyAttr} from './util';\nimport {\n\tfieldGroupPropTypes,\n} from './propTypes';\n\nimport {FieldInner} from './FieldInner';\nimport {RenderGroup} from '../RenderGroup';\nimport {Message} from './messages/Message';\nimport {messageObjectFactory} from './messages/messageObjectFactory';\nimport {fieldsetCheckboxHandler} from './field-group-change-handlers/fieldsetCheckboxHandler';\nimport {MagicFieldGroup} from './magic-select/MagicFieldGroup';\n\n/**\n * Represents one configField -- wrapper, label and input.\n *\n * @param props\n * @return {*}\n * @constructor\n */\nexport const FieldGroup = (props) => {\n\tif( 'magic' === props.type ){\n\t\treturn <MagicFieldGroup {...props} />;\n\t}\n\n\t/**\n\t * Creates the id attribute\n\t * @return {String}\n\t */\n\tfunction idAttrForHelpElement() {\n\t\treturn ariaDescribedbyAttr(props.id, props.help);\n\t}\n\n\n\t/**\n\t * Based on type, render the field.\n\t *\n\t * @return {*}\n\t */\n\tfunction fieldInner(fieldProps) {\n\t\tconst message = 'object' === typeof  fieldProps.message\n\t\t\t? messageObjectFactory(fieldProps.message)\n\t\t\t: messageObjectFactory({message: null, error: false});\n\n\t\tfunction getFieldClassName(conditionalClassNames) {\n\t\t\treturn classNames(\n\t\t\t\t{\n\t\t\t\t\trequired: fieldProps.isRequired,\n\t\t\t\t\t...conditionalClassNames\n\t\t\t\t}\n\t\t\t);\n\t\t}\n\n\t\t/**\n\t\t * Is this option the checked value?\n\t\t * @param {object}option\n\t\t * @param {String|number|Array} currentValue\n\t\t * @return {boolean}\n\t\t */\n\t\tfunction isCheckedOption(option, currentValue) {\n\t\t\tif (Array.isArray(currentValue)) {\n\t\t\t\treturn currentValue.includes(option.value);\n\t\t\t}\n\t\t\treturn option.value === currentValue;\n\t\t}\n\n\t\t//Fieldsets are rendered recursively.\n\t\tif ('fieldset' === fieldProps.type) {\n\t\t\treturn (\n\t\t\t\t<fieldset\n\t\t\t\t\tid={props.id}\n\t\t\t\t>\n\t\t\t\t\t<legend>\n\t\t\t\t\t\t{props.label}\n\t\t\t\t\t</legend>\n\t\t\t\t\t{props.options.map(option => {\n\n\n\t\t\t\t\t\t//Call this same function, as a regular checkbox\n\t\t\t\t\t\treturn (\n\t\t\t\t\t\t\t<React.Fragment\n\t\t\t\t\t\t\t\tkey={`${props.id}-${option.value}`}\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t{fieldInner({\n\t\t\t\t\t\t\t\t\ttype: 'input',\n\t\t\t\t\t\t\t\t\tinputType: 'checkbox',\n\t\t\t\t\t\t\t\t\tid: `${props.id}-${option.value}`,\n\t\t\t\t\t\t\t\t\tvalue: isCheckedOption(option, props.value),\n\t\t\t\t\t\t\t\t\tfieldClassName: getFieldClassName({\n\t\t\t\t\t\t\t\t\t\t'fieldset-checkbox': true,\n\t\t\t\t\t\t\t\t\t}),\n\t\t\t\t\t\t\t\t\tlabel: option.label,\n\t\t\t\t\t\t\t\t\tdisabled: props.disabled,\n\t\t\t\t\t\t\t\t\tonValueChange: () => fieldsetCheckboxHandler(option, props.values, props.onValueChange),\n\t\t\t\t\t\t\t\t\tonBlur: props.onBlur,\n\t\t\t\t\t\t\t\t\tonFocus: props.onFocus\n\t\t\t\t\t\t\t\t})}\n\t\t\t\t\t\t\t</React.Fragment>\n\t\t\t\t\t\t);\n\t\t\t\t\t})}\n\t\t\t\t</fieldset>\n\t\t\t);\n\t\t} else if ('hidden' === fieldProps.inputType) {\n\t\t\treturn (\n\t\t\t\tFieldInner(\n\t\t\t\t\t{\n\t\t\t\t\t\ttype: props.type,\n\t\t\t\t\t\tid: props.id,\n\t\t\t\t\t\tfieldClassName: getFieldClassName(),\n\t\t\t\t\t\tvalue: fieldProps.value,\n\t\t\t\t\t\tonValueChange: fieldProps.onValueChange,\n\t\t\t\t\t\tinputType: fieldProps.inputType,\n\t\t\t\t\t\tdisabled: props.disabled,\n\t\t\t\t\t\tonBlur: props.onBlur,\n\t\t\t\t\t\tonFocus: props.onFocus\n\t\t\t\t\t}\n\t\t\t\t)\n\t\t\t);\n\t\t} else {\n\t\t\treturn (\n\t\t\t\t<div\n\t\t\t\t\tclassName={RenderGroup.classNames.fieldWrapper}\n\t\t\t\t>\n\t\t\t\t\t<FieldGroup.Label id={fieldProps.id} label={fieldProps.label} />\n\n\t\t\t\t\t<Message\n\t\t\t\t\t\tmessage={message}\n\t\t\t\t\t/>\n\t\t\t\t\t{FieldInner(\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\ttype: fieldProps.type,\n\t\t\t\t\t\t\tid: fieldProps.id,\n\t\t\t\t\t\t\tfieldClassName: getFieldClassName({\n\t\t\t\t\t\t\t\t'block-input': fieldProps.isBlockInput\n\t\t\t\t\t\t\t}),\n\t\t\t\t\t\t\thelp: fieldProps.help,\n\t\t\t\t\t\t\tvalue: fieldProps.value,\n\t\t\t\t\t\t\tonValueChange: fieldProps.onValueChange,\n\t\t\t\t\t\t\tinputType: fieldProps.inputType,\n\t\t\t\t\t\t\toptions: fieldProps.options,\n\t\t\t\t\t\t\tdisabled: props.disabled,\n\t\t\t\t\t\t\tonBlur: props.onBlur,\n\t\t\t\t\t\t\tonFocus: props.onFocus\n\t\t\t\t\t\t}\n\t\t\t\t\t)}\n\t\t\t\t\t{fieldProps.help &&\n\t\t\t\t\t<p\n\t\t\t\t\t\tid={`${idAttrForHelpElement()}`}\n\t\t\t\t\t\tclassName={'description'}\n\t\t\t\t\t>\n\t\t\t\t\t\t{fieldProps.help}\n\t\t\t\t\t</p>\n\t\t\t\t\t}\n\t\t\t\t</div>\n\t\t\t);\n\t\t}\n\n\t}\n\n\t/**\n\t * Render field group\n\t */\n\treturn fieldInner(props);\n};\n\n/**\n * The prop type definitions for FieldGroup components\n *\n * @type {{id: (boolean|shim|*), isBlockInput: shim, isRequired: shim, help: shim, label: (boolean|shim|*), type: shim, value: shim, onValueChange: (boolean|shim|*), inputType: shim}}\n */\nFieldGroup.propTypes = fieldGroupPropTypes;\n\n/**\n * Default props for FieldGroups\n *\n * @type {{isBlockInput: boolean, isRequired: boolean, help: string}}\n */\nFieldGroup.defaultProps = {\n\tisBlockInput: true,\n\tisRequired: false,\n\thelp: ''\n};\n\n/**\n * Creates the FieldGroup's label component\n *\n * @param {Object} props\n * @return {*}\n * @constructor\n */\nFieldGroup.Label = (props) => {\n\treturn (\n\t\t<label\n\t\t\thtmlFor={props.id}\n\t\t>\n\t\t\t{props.label}\n\t\t</label>\n\t);\n};",
+    "content": "import React from 'react';\nimport classNames from 'classnames';\nimport {ariaDescribedbyAttr} from './util';\nimport {\n\tfieldGroupPropTypes,\n} from './propTypes';\n\nimport {FieldInner} from './FieldInner';\nimport {RenderGroup} from '../RenderGroup';\nimport {Message} from './messages/Message';\nimport {messageObjectFactory} from './messages/messageObjectFactory';\nimport {fieldsetCheckboxHandler} from './field-group-change-handlers/fieldsetCheckboxHandler';\nimport {MagicFieldGroup} from './magic-select/MagicFieldGroup';\n\n/**\n * Represents one configField -- wrapper, label and input.\n *\n * @param props\n * @return {*}\n * @constructor\n */\nexport const FieldGroup = (props) => {\n\tif( 'magic' === props.type ){\n\t\treturn <MagicFieldGroup {...props} />;\n\t}\n\n\t/**\n\t * Creates the id attribute\n\t * @return {String}\n\t */\n\tfunction idAttrForHelpElement() {\n\t\treturn ariaDescribedbyAttr(props.id, props.help);\n\t}\n\n\n\t/**\n\t * Based on type, render the field.\n\t *\n\t * @return {*}\n\t */\n\tfunction fieldInner(fieldProps) {\n\t\tconst message = 'object' === typeof  fieldProps.message\n\t\t\t? messageObjectFactory(fieldProps.message)\n\t\t\t: messageObjectFactory({message: null, error: false});\n\n\t\tfunction getFieldClassName(conditionalClassNames) {\n\t\t\treturn classNames(\n\t\t\t\t{\n\t\t\t\t\trequired: fieldProps.isRequired,\n\t\t\t\t\t...conditionalClassNames\n\t\t\t\t}\n\t\t\t);\n\t\t}\n\n\t\t/**\n\t\t * Is this option the checked value?\n\t\t * @param {object}option\n\t\t * @param {String|number|Array} currentValue\n\t\t * @return {boolean}\n\t\t */\n\t\tfunction isCheckedOption(option, currentValue) {\n\t\t\tif (Array.isArray(currentValue)) {\n\t\t\t\treturn currentValue.includes(option.value);\n\t\t\t}\n\t\t\treturn option.value === currentValue;\n\t\t}\n\n\t\t//Fieldsets are rendered recursively.\n\t\tif ('fieldset' === fieldProps.type) {\n\t\t\treturn (\n\t\t\t\t<fieldset\n\t\t\t\t\tid={props.id}\n\t\t\t\t>\n\t\t\t\t\t<legend>\n\t\t\t\t\t\t{props.label}\n\t\t\t\t\t</legend>\n\t\t\t\t\t{props.options.map(option => {\n\n\n\t\t\t\t\t\t//Call this same function, as a regular checkbox\n\t\t\t\t\t\treturn (\n\t\t\t\t\t\t\t<React.Fragment\n\t\t\t\t\t\t\t\tkey={`${props.id}-${option.value}`}\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t{fieldInner({\n\t\t\t\t\t\t\t\t\ttype: 'input',\n\t\t\t\t\t\t\t\t\tinputType: 'checkbox',\n\t\t\t\t\t\t\t\t\tid: `${props.id}-${option.value}`,\n\t\t\t\t\t\t\t\t\tvalue: isCheckedOption(option, props.value),\n\t\t\t\t\t\t\t\t\tfieldClassName: getFieldClassName({\n\t\t\t\t\t\t\t\t\t\t'fieldset-checkbox': true,\n\t\t\t\t\t\t\t\t\t}),\n\t\t\t\t\t\t\t\t\tlabel: option.label,\n\t\t\t\t\t\t\t\t\tdisabled: props.disabled,\n\t\t\t\t\t\t\t\t\tonValueChange: () => fieldsetCheckboxHandler(option, props.values, props.onValueChange),\n\t\t\t\t\t\t\t\t\tonBlur: props.onBlur,\n\t\t\t\t\t\t\t\t\tonFocus: props.onFocus\n\t\t\t\t\t\t\t\t})}\n\t\t\t\t\t\t\t</React.Fragment>\n\t\t\t\t\t\t);\n\t\t\t\t\t})}\n\t\t\t\t</fieldset>\n\t\t\t);\n\t\t} else if ('hidden' === fieldProps.inputType) {\n\t\t\treturn (\n\t\t\t\tFieldInner(\n\t\t\t\t\t{\n\t\t\t\t\t\ttype: props.type,\n\t\t\t\t\t\tid: props.id,\n\t\t\t\t\t\tfieldClassName: getFieldClassName(),\n\t\t\t\t\t\tvalue: fieldProps.value,\n\t\t\t\t\t\tonValueChange: fieldProps.onValueChange,\n\t\t\t\t\t\tinputType: fieldProps.inputType,\n\t\t\t\t\t\tdisabled: props.disabled,\n\t\t\t\t\t\tonBlur: props.onBlur,\n\t\t\t\t\t\tonFocus: props.onFocus\n\t\t\t\t\t}\n\t\t\t\t)\n\t\t\t);\n\t\t} else {\n\t\t\treturn (\n\t\t\t\t<div\n\t\t\t\t\tclassName={RenderGroup.classNames.fieldWrapper}\n\t\t\t\t>\n\t\t\t\t\t<FieldGroup.Label id={fieldProps.id} label={fieldProps.label} />\n\n\t\t\t\t\t<Message\n\t\t\t\t\t\tmessage={message}\n\t\t\t\t\t/>\n\t\t\t\t\t{FieldInner(\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\ttype: fieldProps.type,\n\t\t\t\t\t\t\tid: fieldProps.id,\n\t\t\t\t\t\t\tfieldClassName: getFieldClassName({\n\t\t\t\t\t\t\t\t'block-input': fieldProps.isBlockInput\n\t\t\t\t\t\t\t}),\n\t\t\t\t\t\t\thelp: fieldProps.help,\n\t\t\t\t\t\t\tvalue: fieldProps.value,\n\t\t\t\t\t\t\tonValueChange: fieldProps.onValueChange,\n\t\t\t\t\t\t\tinputType: fieldProps.inputType,\n\t\t\t\t\t\t\toptions: fieldProps.options,\n\t\t\t\t\t\t\tdisabled: props.disabled,\n\t\t\t\t\t\t\tonBlur: props.onBlur,\n\t\t\t\t\t\t\tonFocus: props.onFocus\n\t\t\t\t\t\t}\n\t\t\t\t\t)}\n\t\t\t\t\t{fieldProps.help &&\n\t\t\t\t\t\t<p\n\t\t\t\t\t\t\tid={`${idAttrForHelpElement()}`}\n\t\t\t\t\t\t\tclassName={'description'}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t{fieldProps.help}\n\t\t\t\t\t\t</p>\n\t\t\t\t\t}\n\t\t\t\t</div>\n\t\t\t);\n\t\t}\n\n\t}\n\n\t/**\n\t * Render field group\n\t */\n\treturn fieldInner(props);\n};\n\n/**\n * The prop type definitions for FieldGroup components\n *\n * @type {{id: (boolean|shim|*), isBlockInput: shim, isRequired: shim, help: shim, label: (boolean|shim|*), type: shim, value: shim, onValueChange: (boolean|shim|*), inputType: shim}}\n */\nFieldGroup.propTypes = fieldGroupPropTypes;\n\n/**\n * Default props for FieldGroups\n *\n * @type {{isBlockInput: boolean, isRequired: boolean, help: string}}\n */\nFieldGroup.defaultProps = {\n\tisBlockInput: true,\n\tisRequired: false,\n\thelp: ''\n};\n\n/**\n * Creates the FieldGroup's label component\n *\n * @param {Object} props\n * @return {*}\n * @constructor\n */\nFieldGroup.Label = (props) => {\n\treturn (\n\t\t<label\n\t\t\thtmlFor={props.id}\n\t\t>\n\t\t\t{props.label}\n\t\t</label>\n\t);\n};",
     "static": true,
     "longname": "/Users/josh/caldera-js/components/src/components/fields/FieldGroup.js",
     "access": "public",
@@ -1455,11 +1344,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 84,
-=======
-    "__docId__": 78,
->>>>>>> master
+    "__docId__": 85,
     "kind": "function",
     "name": "FieldGroup",
     "memberof": "src/components/fields/FieldGroup.js",
@@ -1501,11 +1386,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 85,
-=======
-    "__docId__": 79,
->>>>>>> master
+    "__docId__": 86,
     "kind": "file",
     "name": "src/components/fields/FieldInner.js",
     "content": "import {fieldInnerPropTypes} from './propTypes';\nimport React from 'react';\nimport {Input} from './input/Input';\nimport {SelectField} from './select/SelectField';\nimport {ariaDescribedbyAttr} from './util';\nimport PropTypes from 'prop-types';\nimport classNames from 'classnames';\nimport {RenderGroup} from '../RenderGroup';\n/**\n * Creates the field inside of a field group\n *\n * @param {Object} props\n * @returns {*}\n * @constructor\n */\nexport const FieldInner = (props) => {\n\n\t/**\n\t * Get the ID for the description element if it will be created\n\t *\n\t * @return {String|null}\n\t */\n\tfunction ariaIdAttr() {\n\t\treturn ariaDescribedbyAttr(props.id, props.help);\n\t}\n\n\t/**\n\t * Get the className prop for the\n\t *\n\t * @return {String}\n\t */\n\tfunction inputClassName() {\n\t\treturn classNames([\n\t\t\tprops.fieldClassName,\n\t\t\tRenderGroup.classNames.input\n\t\t]\n\t\t);\n\t}\n\n\tswitch( props.type ){\n\tcase 'select':\n\tcase 'dropdown':\n\t\tconst options = Array.isArray(props.options) ? props.options : [];\n\t\treturn (\n\t\t\t<SelectField\n\t\t\t\tid={props.id}\n\t\t\t\tfieldClassName={inputClassName()}\n\t\t\t\tariaDescribedbyAttr={ariaIdAttr()}\n\t\t\t\tvalue={props.value}\n\t\t\t\tonValueChange={props.onValueChange}\n\t\t\t\tinputType={props.inputType}\n\t\t\t\toptions={options}\n\t\t\t\tdisabled={props.disabled}\n\t\t\t\tonBlur={props.onBlur}\n\t\t\t\tonFocus={props.onFocus}\n\t\t\t/>\n\t\t);\n\tdefault:\n\tcase 'input':\n\t\treturn (\n\t\t\t<Input\n\t\t\t\tid={props.id}\n\t\t\t\tfieldClassName={inputClassName()}\n\t\t\t\tariaDescribedbyAttr={ariaIdAttr()}\n\t\t\t\tvalue={props.value}\n\t\t\t\tonValueChange={props.onValueChange}\n\t\t\t\tinputType={props.inputType}\n\t\t\t\tdisabled={props.disabled}\n\t\t\t\tonBlur={props.onBlur}\n\t\t\t\tonFocus={props.onFocus}\n\t\t\t/>);\n\t}\n\n};\n\n/**\n * propTypes for FieldInner component\n *\n * @type {{options, ariaDescribedbyAttr}}\n */\nFieldInner.propTypes = {\n\t...fieldInnerPropTypes,\n\ttype: PropTypes.string,\n};\n\n/**\n * Default props for FieldInner component\n * @type {{help: string}}\n */\nFieldInner.defaultProps = {\n\thelp: '',\n\ttype: 'input'\n};",
@@ -1516,11 +1397,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 86,
-=======
-    "__docId__": 80,
->>>>>>> master
+    "__docId__": 87,
     "kind": "function",
     "name": "FieldInner",
     "memberof": "src/components/fields/FieldInner.js",
@@ -1566,10 +1443,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 87,
-=======
-    "__docId__": 81,
+    "__docId__": 88,
     "kind": "file",
     "name": "src/components/fields/button-group/ButtonGroup.js",
     "content": "import React from 'react';\nimport {optionShape} from '../propTypes';\nimport PropTypes from 'prop-types';\n/**\n * Creates a button group field\n *\n * @param {Object} props\n * @returns {*}\n * @constructor\n */\nexport const ButtonGroup = (props) => {\n\t/**\n\t * Dispatches new value(s) to parent\n\t *\n\t * @param selection\n\t * @returns {*}\n\t */\n\tfunction changeHandler(selection) {\n\t\treturn props.onChange(selection);\n\t}\n\n\t/**\n\t * Render a button group\n\t */\n\treturn (\n\t\t<div\n\t\t\trole=\"group\"\n\t\t>\n\t\t\t{props.options.map(option => {\n\t\t\t\treturn <button\n\t\t\t\t\taria-label={option.ariaLabel ? option.ariaLabel : option.label}\n\t\t\t\t\tkey={option.value}\n\t\t\t\t\tclassName={props.value === option.value ? 'selected' : 'not-selected' }\n\t\t\t\t\tonClick={() => {\n\t\t\t\t\t\treturn changeHandler(option.value);\n\t\t\t\t\t}}\n\t\t\t\t>\n\t\t\t\t\t{option.hasOwnProperty('icon')&&\n\t\t\t\t\t\t<span className={option.icon}></span>\n\t\t\t\t\t}\n\t\t\t\t\t{!option.hasOwnProperty('icon') &&\n\t\t\t\t\t\t<React.Fragment>{option.label}</React.Fragment>\n\t\t\t\t\t}\n\n\t\t\t\t</button>;\n\t\t\t})}\n\t\t</div>\n\t);\n};\n\n/**\n * Prop definition for select fields\n *\n * @type {{}}\n */\nButtonGroup.propTypes = {\n\tonChange: PropTypes.func.isRequired,\n\toptions: PropTypes.arrayOf(\n\t\tPropTypes.shape({\n\t\t\t...optionShape,\n\t\t\ticon:PropTypes.string,\n\t\t\tariaLabel:PropTypes.string\n\t\t})\n\t),\n\tvalue: PropTypes.oneOfType([\n\t\tPropTypes.number,\n\t\tPropTypes.string\n\t])\n};\n\n/**\n * Default props for select fields\n *\n * @type {{options: Array}}\n */\nButtonGroup.defaultProps = {\n\toptions: []\n};",
@@ -1580,7 +1454,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 82,
+    "__docId__": 89,
     "kind": "function",
     "name": "ButtonGroup",
     "memberof": "src/components/fields/button-group/ButtonGroup.js",
@@ -1626,11 +1500,10 @@
     }
   },
   {
-    "__docId__": 83,
->>>>>>> master
+    "__docId__": 90,
     "kind": "file",
     "name": "src/components/fields/factories/fieldFactory.js",
-    "content": "import {prepareFieldConfig} from './prepareFieldConfig';\nimport {FieldGroup} from '../FieldGroup';\n\n\n/**\n * Generates field controls\n *\n * @param {Array} fieldArgs Field config\n * @returns {*}\n */\nexport const fieldFactory = (fieldArgs) =>{\n\treturn FieldGroup(prepareFieldConfig(fieldArgs));\n};\n",
+    "content": "import {prepareFieldConfig} from './prepareFieldConfig';\nimport {FieldGroup} from '../FieldGroup';\n\n\n/**\n * Generates field controls\n *\n * @param {Object} fieldArgs Field config\n * @returns {*}\n */\nexport const fieldFactory = (fieldArgs) =>{\n\treturn FieldGroup(prepareFieldConfig(fieldArgs));\n};\n",
     "static": true,
     "longname": "/Users/josh/caldera-js/components/src/components/fields/factories/fieldFactory.js",
     "access": "public",
@@ -1638,11 +1511,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 88,
-=======
-    "__docId__": 84,
->>>>>>> master
+    "__docId__": 91,
     "kind": "function",
     "name": "fieldFactory",
     "memberof": "src/components/fields/factories/fieldFactory.js",
@@ -1666,7 +1535,7 @@
       {
         "nullable": null,
         "types": [
-          "Array"
+          "Object"
         ],
         "spread": false,
         "optional": false,
@@ -1684,11 +1553,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 89,
-=======
-    "__docId__": 85,
->>>>>>> master
+    "__docId__": 92,
     "kind": "file",
     "name": "src/components/fields/factories/fieldSetFactory.js",
     "content": "import {fieldFactory} from './fieldFactory';\n\n/**\n * Given an array of field configs, generates and array of field controls\n *\n * Should be used for a group of settings, such as all settings for a processor.\n *\n * @param {Array} fields Field configs\n * @returns {Array}\n */\nexport const fieldSetFactory = (fields) =>{\n\tlet out = [];\n\tObject.values(fields).forEach( field => {\n\t\tout.push(fieldFactory(field));\n\t});\n\treturn out;\n};",
@@ -1699,11 +1564,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 90,
-=======
-    "__docId__": 86,
->>>>>>> master
+    "__docId__": 93,
     "kind": "function",
     "name": "fieldSetFactory",
     "memberof": "src/components/fields/factories/fieldSetFactory.js",
@@ -1745,11 +1606,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 91,
-=======
-    "__docId__": 87,
->>>>>>> master
+    "__docId__": 94,
     "kind": "file",
     "name": "src/components/fields/factories/index.js",
     "content": "/*eslint no-undef: \"error\"*/\n/*eslint-env node*/\nimport {fieldFactory} from './fieldFactory';\nimport {fieldSetFactory} from './fieldSetFactory';\n\nmodule.exports = {\n\tfieldFactory,\n\tfieldSetFactory\n};",
@@ -1760,11 +1617,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 92,
-=======
-    "__docId__": 88,
->>>>>>> master
+    "__docId__": 95,
     "kind": "file",
     "name": "src/components/fields/factories/prepareFieldConfig.js",
     "content": "import {fieldGroupPropTypes,magicGroupPropTypes} from '../propTypes';\nimport {isValidHtml5type, toBoolean} from '../util';\nimport {messageObjectFactory} from '../messages/messageObjectFactory';\n\n/**\n * Validates field configurations\n *\n * NOTE: This is called internally by factory. You probably do not want to call this.\n *\n * @param {Object}fieldArgs\n * @returns {*}\n */\nexport const prepareFieldConfig = (fieldArgs) => {\n\t/**\n\t * Pick whitelisted keys from object\n\t *\n\t * @see http://www.jstips.co/en/javascript/picking-and-rejecting-object-properties/\n\t *\n\t * @param {Object} obj The object to pick from\n\t * @param {Array} keys The whitelist of keys\n\t * @return {*}\n\t */\n\tfunction pick(obj, keys) {\n\t\treturn keys.map(k => k in obj ? {[k]: obj[k]} : {})\n\t\t\t.reduce((res, o) => Object.assign(res, o), {});\n\t}\n\n\tswitch (fieldArgs.type) {\n\tcase 'select':\n\tcase 'dropdown':\n\t\tfieldArgs.type = 'select';\n\t\tbreak;\n\tcase 'fieldset':\n\t\tfieldArgs.type = 'fieldset';\n\t\tbreak;\n\tcase 'text':\n\tcase 'number':\n\tdefault:\n\t\tfieldArgs.inputType = isValidHtml5type(fieldArgs.type) ? fieldArgs.type : 'text';\n\t\tfieldArgs.type = 'input';\n\t\tbreak;\n\t}\n\n\tif (fieldArgs.hasOwnProperty('desc')) {\n\t\tfieldArgs.help = fieldArgs.desc;\n\t}\n\tif (fieldArgs.hasOwnProperty('description')) {\n\t\tfieldArgs.help = fieldArgs.description;\n\t}\n\n\tlet validators = [];\n\tif( fieldArgs.hasOwnProperty('validators') && Array.isArray(fieldArgs.validators )){\n\t\tvalidators = fieldArgs.validators;\n\t}\n\n\tconst keys = 'magic' === fieldArgs.type  ? magicGroupPropTypes : fieldGroupPropTypes;\n\tfieldArgs = pick(fieldArgs, Object.keys(keys));\n\tfieldArgs.disabled = toBoolean(fieldArgs.disabled);\n\tfieldArgs.message = 'object' === typeof  fieldArgs.message\n\t\t? messageObjectFactory(fieldArgs.message)\n\t\t: messageObjectFactory({message:null, error: false });\n\n\tfieldArgs.validators = validators;\n\treturn fieldArgs;\n};",
@@ -1775,11 +1628,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 93,
-=======
-    "__docId__": 89,
->>>>>>> master
+    "__docId__": 96,
     "kind": "function",
     "name": "prepareFieldConfig",
     "memberof": "src/components/fields/factories/prepareFieldConfig.js",
@@ -1821,10 +1670,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 94,
-=======
-    "__docId__": 90,
+    "__docId__": 97,
     "kind": "file",
     "name": "src/components/fields/field-group-change-handlers/fieldsetCheckboxHandler.js",
     "content": "import {addOrRemoveFromArray} from '../util';\n\n/**\n * Change handler for a checkbox that is a part of a group\n * @param {Object} option Option that is being changed. Shape: `{value:String|number,label:String}`,\n * @param {Array|string|number} values Current values\n * @param {Function} onValueChange Function to call with updated value\n */\nexport const fieldsetCheckboxHandler = (option, values, onValueChange)  => {\n\tif (!Array.isArray(values)) {\n\t\tif ('string' === typeof values || 'number' === typeof  values) {\n\t\t\tvalues = [values];\n\t\t} else {\n\t\t\tvalues = [];\n\n\t\t}\n\t}\n\tvalues = addOrRemoveFromArray(option.value, values);\n\tonValueChange(values);\n};",
@@ -1835,7 +1681,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 91,
+    "__docId__": 98,
     "kind": "function",
     "name": "fieldsetCheckboxHandler",
     "memberof": "src/components/fields/field-group-change-handlers/fieldsetCheckboxHandler.js",
@@ -1886,10 +1732,10 @@
     "return": null
   },
   {
-    "__docId__": 92,
+    "__docId__": 99,
     "kind": "file",
     "name": "src/components/fields/index.js",
-    "content": "/*eslint no-undef: \"error\"*/\n/*eslint-env node*/\nimport {FieldGroup} from './FieldGroup';\nimport {SelectFieldFancy} from './select/SelectFieldFancy';\nimport {Input} from './input/Input';\n\nmodule.exports = {\n\tFieldGroup,\n\tSelectField: SelectFieldFancy,\n\tInput\n};",
+    "content": "/*eslint no-undef: \"error\"*/\n/*eslint-env node*/\nimport {FieldGroup} from './FieldGroup';\nimport {SelectField} from './select/SelectField';\nimport {Input} from './input/Input';\nimport {Message} from './messages/Message';\nimport {ButtonGroup} from './button-group/ButtonGroup';\n\nmodule.exports = {\n\tFieldGroup,\n\tSelectField: SelectField,\n\tInput,\n\tMessage,\n\tButtonGroup\n};",
     "static": true,
     "longname": "/Users/josh/caldera-js/components/src/components/fields/index.js",
     "access": "public",
@@ -1897,7 +1743,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 93,
+    "__docId__": 100,
     "kind": "file",
     "name": "src/components/fields/input/Input.js",
     "content": "import React from 'react';\nimport {fieldPropTypes} from '../propTypes';\nimport classNames from 'classnames';\nimport {RenderGroup} from '../../RenderGroup';\n/**\n * Input component for any HTML5 input type\n *\n * @param {Object} props\n * @returns {*}\n * @constructor\n */\nexport const Input = (props) => {\n\t/**\n\t * Dispatches value of input when it changes\n\t * @param event\n\t * @return {*}\n\t */\n\tfunction changeHandler(event){\n\t\treturn props.onValueChange(event.target.value);\n\t}\n\n\t/**\n\t * Dispatches value when checkbox is checked\n\t * @return {*}\n\t */\n\tfunction checkboxChangeHandler() {\n\t\treturn props.onValueChange(! props.value);\n\t}\n\n\n\t/**\n\t * Get the className prop for inputs\n\t *\n\t * @return {String}\n\t */\n\tfunction inputClassName() {\n\t\treturn classNames(\n\t\t\tprops.fieldClassName,\n\t\t\tRenderGroup.classNames.input\n\t\t);\n\t}\n\n\tif( 'checkbox' === props.inputType ){\n\t\treturn (\n\t\t\t<input\n\t\t\t\ttype={'checkbox'}\n\t\t\t\tid={props.id}\n\t\t\t\tclassName={inputClassName()}\n\t\t\t\taria-describedby={props.ariaDescribedbyAttr}\n\t\t\t\trequired={props.isRequired}\n\t\t\t\tonChange={checkboxChangeHandler}\n\t\t\t\tdefaultChecked={props.value}\n\t\t\t\tdisabled={props.disabled}\n\t\t\t\tonBlur={props.onBlur}\n\t\t\t\tonFocus={props.onFocus}\n\t\t\t/>\n\t\t);\n\t}\n\n\treturn (\n\t\t<input\n\t\t\ttype={props.inputType}\n\t\t\tid={props.id}\n\t\t\tclassName={inputClassName()}\n\t\t\taria-describedby={props.ariaDescribedbyAttr}\n\t\t\trequired={props.isRequired}\n\t\t\tonChange={changeHandler}\n\t\t\tvalue={props.value}\n\t\t\tdisabled={props.disabled}\n\t\t\tonBlur={props.onBlur}\n\t\t\tonFocus={props.onFocus}\n\t\t/>\n\t);\n\n};\n\n/**\n * Prop definitions for Input components\n */\nInput.propTypes = fieldPropTypes;\n\n/**\n * Default props for Input Component\n *\n * @type {{ariaDescribedbyAttr: string, isRequired: boolean, inputType: string}}\n */\nInput.defaultProps = {\n\tariaDescribedbyAttr: '',\n\tisRequired: false,\n\tinputType: 'text'\n};",
@@ -1908,7 +1754,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 94,
+    "__docId__": 101,
     "kind": "function",
     "name": "Input",
     "memberof": "src/components/fields/input/Input.js",
@@ -1954,7 +1800,7 @@
     }
   },
   {
-    "__docId__": 95,
+    "__docId__": 102,
     "kind": "file",
     "name": "src/components/fields/magic-select/MagicFieldGroup.js",
     "content": "import React from 'react';\nimport {magicGroupPropTypes} from '../propTypes';\nimport classNames from 'classnames';\nimport {MagicItem} from './MagicItem';\nimport {ButtonGroup} from '../button-group/ButtonGroup';\nimport {MagicSelect} from './MagicSelect';\nimport {RenderGroup} from '../../RenderGroup';\nimport {Message} from '../messages/Message';\nimport {FieldGroup} from '../FieldGroup';\n\n\n/**\n * Encapsulates a complete Magic Select field group including label and the type chooser and the input\n */\nexport class MagicFieldGroup extends React.PureComponent {\n\n\t/**\n\t * Create a MagicFieldGroup component\n\t *\n\t * @param {Object} props\n\t */\n\tconstructor(props) {\n\t\tsuper(props);\n\t\tthis.state = {\n\t\t\tcurrentListType: props.defaultList,\n\t\t\tisOpen: props.isOpen,\n\t\t};\n\t\tthis.onChange = this.onChange.bind(this);\n\t\tthis.items = this.items.bind(this);\n\t\tthis.onChange = this.onChange.bind(this);\n\t\tthis.onSelect = this.onSelect.bind(this);\n\t\tthis.onInputFocus = this.onInputFocus.bind(this);\n\t\tthis.renderItem = this.renderItem.bind(this);\n\t\tthis.onInputBlur = this.onInputBlur.bind(this);\n\t\tthis.onChangeListType = this.onChangeListType.bind(this);\n\t\tthis.listTypeOptions = this.listTypeOptions.bind(this);\n\t}\n\n\t/**\n\t * Handle direct change events\n\t * @param {String|number} newValue\n\t */\n\tonChange(newValue) {\n\t\tthis.props.onValueChange(newValue);\n\t}\n\n\t/**\n\t * Handle when the field gets focus\n\t */\n\tonInputFocus() {\n\t\tthis.setState({isOpen: true});\n\t}\n\n\t/**\n\t * Handle when the field is blurred\n\t */\n\tonInputBlur() {\n\t\tthis.setState({isOpen: false});\n\t}\n\n\n\t/**\n\t * Handle when the option is chosen\n\t * @param {String|number} value\n\t */\n\tonSelect(value) {\n\t\tthis.props.onValueChange(value);\n\t\tthis.setState({isOpen: false});\n\t}\n\n\t/**\n\t * Update list of tags to show\n\t * @param {String}newType\n\t */\n\tonChangeListType(newType){\n\t\tif( ! this.state.isOpen ){\n\t\t\tthis.setState({isOpen:true});\n\t\t}\n\t\tthis.setState({currentListType:newType});\n\t}\n\n\t/**\n\t * Render option\n\t *\n\t * @param {object} item\n\t * @param {bool} isHighlighted\n\t * @return {*}\n\t */\n\trenderItem(item, isHighlighted){\n\t\treturn <MagicItem item={item} isHighlighted={isHighlighted} innerKey={item.innerKey} key={item.innerKey} />;\n\t}\n\n\t/**\n\t * Create the list of items\n\t *\n\t * @return {Array}\n\t */\n\titems() {\n\t\tconst optionsOrEmpty =(options) => {\n\t\t\treturn Array.isArray(options) && options.length ? options : [];\n\t\t};\n\n\t\tlet items = [];\n\n\t\tif( optionsOrEmpty(this.props.options).length){\n\t\t\titems = optionsOrEmpty(this.props.options);\n\t\t}\n\t\telse if ('system' === this.state.currentListType ) {\n\t\t\titems = optionsOrEmpty(this.props.systemTagsList);\n\t\t} else {\n\t\t\titems = optionsOrEmpty(this.props.fieldsList);\n\t\t}\n\n\t\tif (items.length) {\n\t\t\titems.forEach((item, itemIndex) => {\n\t\t\t\titems[itemIndex].innerKey = `${item.value}-${itemIndex}`;\n\t\t\t});\n\t\t}else{\n\t\t\titems.push({\n\t\t\t\tvalue: null,\n\t\t\t\tlabel: null,\n\t\t\t\tinnerKey:this.props.id\n\t\t\t});\n\t\t}\n\n\t\treturn items;\n\n\t}\n\n\t/**\n\t * Options for type chooser\n\t *\n\t * @return {*[]}\n\t */\n\tlistTypeOptions(){\n\t\treturn [\n\t\t\t{\n\t\t\t\tvalue: 'fields',\n\t\t\t\tlabel: '%',\n\t\t\t\tariaLabel: 'Select from field values'\n\t\t\t},\n\t\t\t{\n\t\t\t\tvalue: 'system',\n\t\t\t\tlabel: '{}',\n\t\t\t\tariaLabel: 'Select from system values'\n\t\t\t},\n\t\t];\n\t}\n\n\n\n\t/**\n\t * Render MagicFieldGroup component\n\t * @return {*}\n\t */\n\trender() {\n\t\treturn (\n\t\t\t<div\n\t\t\t\tclassName={classNames(\n\t\t\t\t\tMagicFieldGroup.classNames.fieldWrapper,\n\t\t\t\t\tRenderGroup.classNames.fieldWrapper,\n\t\t\t\t\tthis.props.className\n\t\t\t\t)\n\t\t\t\t}\n\t\t\t>\n\t\t\t\t<FieldGroup.Label\n\t\t\t\t\tid={this.props.id}\n\t\t\t\t\tlabel={this.props.label}\n\t\t\t\t/>\n\t\t\t\t{this.props.message.message &&\n\t\t\t\t\t<Message\n\t\t\t\t\t\tmessage={this.props.message}\n\t\t\t\t\t/>\n\t\t\t\t}\n\t\t\t\t{this.state.isOpen &&\n\t\t\t\t\t<ButtonGroup\n\t\t\t\t\t\tonChange={this.onChangeListType}\n\t\t\t\t\t\toptions={this.listTypeOptions()}\n\t\t\t\t\t\tvalue={this.state.currentListType}\n\t\t\t\t\t/>\n\t\t\t\t}\n\n\t\t\t\t<MagicSelect\n\t\t\t\t\tid={this.props.id}\n\t\t\t\t\toptions={this.items()}\n\t\t\t\t\tonValueChange={this.props.onValueChange}\n\t\t\t\t\tvalue={this.props.value}\n\t\t\t\t\tisRequired={this.props.isRequired}\n\t\t\t\t\tisOpen={this.state.isOpen}\n\t\t\t\t\tonBlur={this.onInputBlur}\n\t\t\t\t\tonFocus={this.onInputFocus}\n\t\t\t\t\tclassName={this.props.fieldClassName}\n\t\t\t\t/>\n\t\t\t</div>\n\t\t);\n\t}\n}\n\n\n/**\n * Prop definitions for MagicFieldGroup component\n */\nMagicFieldGroup.propTypes = magicGroupPropTypes;\n\n/**\n * Default property values for MagicFieldGroup component\n *\n * @type {{}}\n */\nMagicFieldGroup.defaultProps = {\n\tdefaultList: 'fields',\n\tisOpen: false,\n\tmessage: {\n\t\terror: false,\n\t\tmessage: ''\n\t},\n\ttype: 'magic'\n};\n\n/**\n * The names of classes used for HTML elements in MagicFieldGroup component\n * @type {{fieldWrapper: string, input: string, option: string}}\n */\nMagicFieldGroup.classNames = {\n\tfieldWrapper: 'caldera-magic-select-group',\n\tinput: 'caldera-magic-input',\n\toption: 'caldera-magic-option'\n};",
@@ -1965,7 +1811,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 96,
+    "__docId__": 103,
     "kind": "class",
     "name": "MagicFieldGroup",
     "memberof": "src/components/fields/magic-select/MagicFieldGroup.js",
@@ -1983,7 +1829,7 @@
     ]
   },
   {
-    "__docId__": 97,
+    "__docId__": 104,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup",
@@ -2008,7 +1854,7 @@
     ]
   },
   {
-    "__docId__": 98,
+    "__docId__": 105,
     "kind": "member",
     "name": "state",
     "memberof": "src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup",
@@ -2025,7 +1871,7 @@
     }
   },
   {
-    "__docId__": 108,
+    "__docId__": 115,
     "kind": "method",
     "name": "onChange",
     "memberof": "src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup",
@@ -2052,7 +1898,7 @@
     "return": null
   },
   {
-    "__docId__": 109,
+    "__docId__": 116,
     "kind": "method",
     "name": "onInputFocus",
     "memberof": "src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup",
@@ -2067,7 +1913,7 @@
     "return": null
   },
   {
-    "__docId__": 110,
+    "__docId__": 117,
     "kind": "method",
     "name": "onInputBlur",
     "memberof": "src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup",
@@ -2082,7 +1928,7 @@
     "return": null
   },
   {
-    "__docId__": 111,
+    "__docId__": 118,
     "kind": "method",
     "name": "onSelect",
     "memberof": "src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup",
@@ -2109,7 +1955,7 @@
     "return": null
   },
   {
-    "__docId__": 112,
+    "__docId__": 119,
     "kind": "method",
     "name": "onChangeListType",
     "memberof": "src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup",
@@ -2135,7 +1981,7 @@
     "return": null
   },
   {
-    "__docId__": 113,
+    "__docId__": 120,
     "kind": "method",
     "name": "renderItem",
     "memberof": "src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup",
@@ -2178,7 +2024,7 @@
     }
   },
   {
-    "__docId__": 114,
+    "__docId__": 121,
     "kind": "method",
     "name": "items",
     "memberof": "src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup",
@@ -2200,7 +2046,7 @@
     "params": []
   },
   {
-    "__docId__": 115,
+    "__docId__": 122,
     "kind": "method",
     "name": "listTypeOptions",
     "memberof": "src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup",
@@ -2222,7 +2068,7 @@
     "params": []
   },
   {
-    "__docId__": 116,
+    "__docId__": 123,
     "kind": "method",
     "name": "render",
     "memberof": "src/components/fields/magic-select/MagicFieldGroup.js~MagicFieldGroup",
@@ -2244,7 +2090,7 @@
     "params": []
   },
   {
-    "__docId__": 117,
+    "__docId__": 124,
     "kind": "file",
     "name": "src/components/fields/magic-select/MagicItem.js",
     "content": "import React from 'react';\nimport {\n\toptionShape\n} from '../propTypes';\nimport classNames from 'classnames';\nimport PropTypes from 'prop-types';\n\n/**\n * Create magic item for option of magic selects\n *\n * This can not be a functional component\n * https://github.com/reactjs/react-autocomplete/pull/293#issuecomment-371617758\n *\n *\n * @param {Object} props\n * @return {*}\n * @constructor\n */\nexport class MagicItem extends React.PureComponent {\n\n\t/**\n\t * Render magic item components\n\t */\n\trender() {\n\t\treturn React.createElement(\n\t\t\tthis.props.elementType,\n\t\t\t{\n\t\t\t\tstyle: {background: this.props.isHighlighted ? this.props.highlightColor : this.props.notHighlighterColor},\n\t\t\t\tclassName: classNames(this.props.className, 'magic-input-option'),\n\t\t\t\tonClick: this.props.onClick\n\t\t\t},\n\t\t\t[\n\t\t\t\tReact.createElement(\n\t\t\t\t\tthis.props.innerElementType,\n\t\t\t\t\t{\n\t\t\t\t\t\tkey: `left--${this.props.innerKey}`,\n\t\t\t\t\t\tclassName: classNames('magic-item-value', 'magic-item-left')\n\t\t\t\t\t},\n\t\t\t\t\tthis.props.item.value\n\t\t\t\t),\n\t\t\t\tReact.createElement(\n\t\t\t\t\tthis.props.innerElementType,\n\t\t\t\t\t{\n\t\t\t\t\t\tkey: `right--${this.props.innerKey}`,\n\t\t\t\t\t\tclassName: classNames('magic-item-label', 'magic-item-right')\n\t\t\t\t\t},\n\t\t\t\t\tthis.props.item.label\n\t\t\t\t)\n\t\t\t]\n\t\t);\n\t}\n}\n\n/**\n * Prop definition for allowed element types\n * @type {shim}\n */\nconst elementTypesProp = PropTypes.oneOf(['div', 'span']);\n/**\n * Prop definitions for MagicItem component\n *\n * @type {{item: shim, isHighlighted: shim, className: shim, highlightColor: shim, notHighlighterColor: shim}}\n */\nMagicItem.propTypes = {\n\telementType: elementTypesProp,\n\tinnerElementType: elementTypesProp,\n\titem: PropTypes.shape(optionShape),\n\tisHighlighted: PropTypes.bool,\n\tclassName: PropTypes.string,\n\thighlightColor: PropTypes.string,\n\tnotHighlighterColor: PropTypes.string,\n\tinnerKey: PropTypes.string.isRequired,\n\tonClick: PropTypes.func\n};\n\n/**\n * Default props for the MagicItem component\n *\n * @type {{isHighlighted: boolean, highlightColor: string, notHighlightedColor: string}}\n */\nMagicItem.defaultProps = {\n\telementType: 'div',\n\tinnerElementType: 'span',\n\tisHighlighted: false,\n\thighlightColor: 'lightgray',\n\tnotHighlightedColor: 'white',\n};",
@@ -2255,7 +2101,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 118,
+    "__docId__": 125,
     "kind": "class",
     "name": "MagicItem",
     "memberof": "src/components/fields/magic-select/MagicItem.js",
@@ -2299,7 +2145,7 @@
     ]
   },
   {
-    "__docId__": 119,
+    "__docId__": 126,
     "kind": "method",
     "name": "render",
     "memberof": "src/components/fields/magic-select/MagicItem.js~MagicItem",
@@ -2318,7 +2164,7 @@
     }
   },
   {
-    "__docId__": 120,
+    "__docId__": 127,
     "kind": "variable",
     "name": "elementTypesProp",
     "memberof": "src/components/fields/magic-select/MagicItem.js",
@@ -2341,11 +2187,10 @@
     "ignore": true
   },
   {
-    "__docId__": 121,
->>>>>>> master
+    "__docId__": 128,
     "kind": "file",
     "name": "src/components/fields/magic-select/MagicSelect.js",
-    "content": "import React from 'react';\nimport {\n\tonValueChangePropType,\n\toptionsShapeProp,\n\tvaluePropType\n} from '../propTypes';\nimport Autocomplete from 'react-autocomplete';\nimport PropTypes from 'prop-types';\nimport {MagicItem} from './MagicItem';\nimport {MagicFieldGroup} from './MagicFieldGroup';\nimport classNames from 'classnames';\n\n\n/**\n * Encapsulates a complete Magic Select field\n */\nexport class MagicSelect extends React.PureComponent {\n\n\t/**\n\t * Create a MagicSelect component\n\t *\n\t * @param {Object} props\n\t */\n\tconstructor(props) {\n\t\tsuper(props);\n\t\tthis.onChange = this.onChange.bind(this);\n\t\tthis.onChange = this.onChange.bind(this);\n\t\tthis.onSelect = this.onSelect.bind(this);\n\t\tthis.onInputFocus = this.onInputFocus.bind(this);\n\t\tthis.renderItem = this.renderItem.bind(this);\n\t\tthis.onInputBlur = this.onInputBlur.bind(this);\n\t}\n\n\t/**\n\t * Handle direct change events\n\t *\n\t * @param {Event} event\n\t */\n\tonChange(event) {\n\t\tthis.props.onValueChange(event.target.value);\n\t}\n\n\t/**\n\t * Handle when the field gets focus\n\t */\n\tonInputFocus() {\n\t\tif( 'function' === typeof this.props.onFocus ){\n\t\t\tthis.props.onFocus();\n\t\t}\n\t}\n\n\t/**\n\t * Handle when the field is blurred\n\t */\n\tonInputBlur() {\n\t\tif( 'function' === typeof this.props.onBlur ){\n\t\t\tthis.props.onBlur();\n\t\t}\n\t}\n\n\n\t/**\n\t * Handle when the option is chosen\n\t * @param {String|number} value\n\t */\n\tonSelect(value) {\n\t\tthis.props.onValueChange(value);\n\t}\n\n\n\t/**\n\t * Render option\n\t *\n\t * @param {object} item\n\t * @param {bool} isHighlighted\n\t * @return {*}\n\t */\n\trenderItem(item, isHighlighted){\n\t\treturn <MagicItem item={item} isHighlighted={isHighlighted} innerKey={item.innerKey} key={item.innerKey} onClick={this.onSelect} />;\n\t}\n\n\n\t/**\n\t * Render MagicSelect component\n\t * @return {*}\n\t */\n\trender() {\n\t\treturn (\n\t\t\t<Autocomplete\n\t\t\t\tgetItemValue={(item) => item.value}\n\t\t\t\titems={this.props.options}\n\t\t\t\tinputProps={{\n\t\t\t\t\tid: this.props.id,\n\t\t\t\t\tvalue: this.props.value,\n\t\t\t\t\tclassName:classNames(\n\t\t\t\t\t\tMagicFieldGroup.classNames.input,\n\t\t\t\t\t\t`${MagicFieldGroup.classNames.input}-${this.props.id}`,\n\t\t\t\t\t\tthis.props.className\n\t\t\t\t\t),\n\t\t\t\t\tonFocus: this.onInputFocus,\n\t\t\t\t\tonBlur:this.onInputBlur,\n\t\t\t\t\tonClick:this.onChange\n\t\t\t\t}}\n\t\t\t\trenderItem={this.renderItem}\n\t\t\t\tvalue={this.props.value}\n\t\t\t\tonChange={this.onChange}\n\t\t\t\topen={this.props.isOpen}\n\t\t\t\tselectOnBlur={true}\n\t\t\t\tonSelect={this.onSelect}\n\t\t\t/>\n\n\t\t);\n\t}\n}\n\n\n/**\n * Prop definitions for MagicSelect component\n */\nMagicSelect.propTypes = {\n\tid: PropTypes.string.isRequired,\n\toptions: optionsShapeProp,\n\tisRequired: PropTypes.bool,\n\thelp: PropTypes.string,\n\tvalue: valuePropType,\n\tonValueChange: onValueChangePropType,\n\tdisabled: PropTypes.bool,\n\tisOpen: PropTypes.bool,\n\tonBlur: PropTypes.func,\n\tonFocus: PropTypes.func,\n\tclassName: PropTypes.string\n};\n\n/**\n * Default property values for MagicSelect component\n *\n * @type {{}}\n */\nMagicSelect.defaultProps = {\n\tdefaultList: 'fields',\n\tisOpen: false,\n\toptions:[]\n};",
+    "content": "import React from 'react';\nimport {\n\tonValueChangePropType,\n\toptionsShapeProp,\n\tvaluePropType\n} from '../propTypes';\nimport Autocomplete from 'react-autocomplete';\nimport PropTypes from 'prop-types';\nimport {MagicItem} from './MagicItem';\nimport {MagicFieldGroup} from './MagicFieldGroup';\nimport classNames from 'classnames';\n\n\n/**\n * Encapsulates a complete Magic Select field\n */\nexport class MagicSelect extends React.PureComponent {\n\n\t/**\n\t * Create a MagicSelect component\n\t *\n\t * @param {Object} props\n\t */\n\tconstructor(props) {\n\t\tsuper(props);\n\t\tthis.onChange = this.onChange.bind(this);\n\t\tthis.onChange = this.onChange.bind(this);\n\t\tthis.onSelect = this.onSelect.bind(this);\n\t\tthis.onInputFocus = this.onInputFocus.bind(this);\n\t\tthis.renderItem = this.renderItem.bind(this);\n\t\tthis.onInputBlur = this.onInputBlur.bind(this);\n\t\tthis.getItemValue = this.getItemValue.bind(this);\n\t}\n\n\t/**\n\t * Handle direct change events\n\t *\n\t * @param {Event} event\n\t */\n\tonChange(event) {\n\t\tthis.props.onValueChange(event.target.value);\n\t}\n\n\t/**\n\t * Handle when the field gets focus\n\t */\n\tonInputFocus() {\n\t\tif( 'function' === typeof this.props.onFocus ){\n\t\t\tthis.props.onFocus();\n\t\t}\n\t}\n\n\t/**\n\t * Handle when the field is blurred\n\t */\n\tonInputBlur() {\n\t\tif( 'function' === typeof this.props.onBlur ){\n\t\t\tthis.props.onBlur();\n\t\t}\n\t}\n\n\n\t/**\n\t * Handle when the option is chosen\n\t * @param {String|number} value\n\t */\n\tonSelect(value) {\n\t\tthis.props.onValueChange(value);\n\t}\n\n\n\t/**\n\t * Render option\n\t *\n\t * @param {object} item\n\t * @param {bool} isHighlighted\n\t * @return {*}\n\t */\n\trenderItem(item, isHighlighted){\n\t\treturn <MagicItem item={item} isHighlighted={isHighlighted} innerKey={item.innerKey} key={item.innerKey} onClick={this.onSelect} />;\n\t}\n\n\t/**\n\t * Get the value of the item\n\t * @param {Object} item\n\t * @return {*}\n\t */\n\tgetItemValue(item){\n\t\treturn item.value;\n\t}\n\n\n\t/**\n\t * Render MagicSelect component\n\t * @return {*}\n\t */\n\trender() {\n\t\treturn (\n\t\t\t<Autocomplete\n\t\t\t\tgetItemValue={this.getItemValue}\n\t\t\t\titems={this.props.options}\n\t\t\t\tinputProps={{\n\t\t\t\t\tid: this.props.id,\n\t\t\t\t\tvalue: this.props.value,\n\t\t\t\t\tclassName:classNames(\n\t\t\t\t\t\tMagicFieldGroup.classNames.input,\n\t\t\t\t\t\t`${MagicFieldGroup.classNames.input}-${this.props.id}`,\n\t\t\t\t\t\tthis.props.className\n\t\t\t\t\t),\n\t\t\t\t\tonFocus: this.onInputFocus,\n\t\t\t\t\tonBlur:this.onInputBlur,\n\t\t\t\t\tonClick:this.onChange\n\t\t\t\t}}\n\t\t\t\trenderItem={this.renderItem}\n\t\t\t\tvalue={this.props.value}\n\t\t\t\tonChange={this.onChange}\n\t\t\t\topen={this.props.isOpen}\n\t\t\t\tselectOnBlur={true}\n\t\t\t\tonSelect={this.onSelect}\n\t\t\t/>\n\n\t\t);\n\t}\n}\n\n\n/**\n * Prop definitions for MagicSelect component\n */\nMagicSelect.propTypes = {\n\tid: PropTypes.string.isRequired,\n\toptions: optionsShapeProp,\n\tisRequired: PropTypes.bool,\n\thelp: PropTypes.string,\n\tvalue: valuePropType,\n\tonValueChange: onValueChangePropType,\n\tdisabled: PropTypes.bool,\n\tisOpen: PropTypes.bool,\n\tonBlur: PropTypes.func,\n\tonFocus: PropTypes.func,\n\tclassName: PropTypes.string\n};\n\n/**\n * Default property values for MagicSelect component\n *\n * @type {{}}\n */\nMagicSelect.defaultProps = {\n\tdefaultList: 'fields',\n\tisOpen: false,\n\toptions:[]\n};",
     "static": true,
     "longname": "/Users/josh/caldera-js/components/src/components/fields/magic-select/MagicSelect.js",
     "access": "public",
@@ -2353,19 +2198,10 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 95,
-    "kind": "function",
-    "name": "fieldsetCheckboxHandler",
-    "memberof": "src/components/fields/field-group-change-handlers/fieldsetCheckboxHandler.js",
-    "generator": false,
-    "async": false,
-=======
-    "__docId__": 122,
+    "__docId__": 129,
     "kind": "class",
     "name": "MagicSelect",
     "memberof": "src/components/fields/magic-select/MagicSelect.js",
->>>>>>> master
     "static": true,
     "longname": "src/components/fields/magic-select/MagicSelect.js~MagicSelect",
     "access": "public",
@@ -2380,7 +2216,7 @@
     ]
   },
   {
-    "__docId__": 123,
+    "__docId__": 130,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/components/fields/magic-select/MagicSelect.js~MagicSelect",
@@ -2405,7 +2241,7 @@
     ]
   },
   {
-    "__docId__": 130,
+    "__docId__": 138,
     "kind": "method",
     "name": "onChange",
     "memberof": "src/components/fields/magic-select/MagicSelect.js~MagicSelect",
@@ -2415,7 +2251,7 @@
     "longname": "src/components/fields/magic-select/MagicSelect.js~MagicSelect#onChange",
     "access": "public",
     "description": "Handle direct change events",
-    "lineNumber": 39,
+    "lineNumber": 40,
     "params": [
       {
         "nullable": null,
@@ -2431,15 +2267,7 @@
     "return": null
   },
   {
-<<<<<<< HEAD
-    "__docId__": 96,
-    "kind": "file",
-    "name": "src/components/fields/index.js",
-    "content": "/*eslint no-undef: \"error\"*/\n/*eslint-env node*/\nimport {FieldGroup} from './FieldGroup';\nimport {SelectFieldFancy} from './select/SelectFieldFancy';\nimport {Input} from './input/Input';\n\nmodule.exports = {\n\tFieldGroup,\n\tSelectField: SelectFieldFancy,\n\tInput\n};",
-    "static": true,
-    "longname": "/Users/josh/caldera-js/components/src/components/fields/index.js",
-=======
-    "__docId__": 131,
+    "__docId__": 139,
     "kind": "method",
     "name": "onInputFocus",
     "memberof": "src/components/fields/magic-select/MagicSelect.js~MagicSelect",
@@ -2447,23 +2275,14 @@
     "async": false,
     "static": false,
     "longname": "src/components/fields/magic-select/MagicSelect.js~MagicSelect#onInputFocus",
->>>>>>> master
     "access": "public",
     "description": "Handle when the field gets focus",
-    "lineNumber": 46,
+    "lineNumber": 47,
     "params": [],
     "return": null
   },
   {
-<<<<<<< HEAD
-    "__docId__": 97,
-    "kind": "file",
-    "name": "src/components/fields/input/Input.js",
-    "content": "import React from 'react';\nimport {fieldPropTypes} from '../propTypes';\nimport classNames from 'classnames';\nimport {RenderGroup} from '../../RenderGroup';\n/**\n * Input component for any HTML5 input type\n *\n * @param {Object} props\n * @returns {*}\n * @constructor\n */\nexport const Input = (props) => {\n\t/**\n\t * Dispatches value of input when it changes\n\t * @param event\n\t * @return {*}\n\t */\n\tfunction changeHandler(event){\n\t\treturn props.onValueChange(event.target.value);\n\t}\n\n\t/**\n\t * Dispatches value when checkbox is checked\n\t * @return {*}\n\t */\n\tfunction checkboxChangeHandler() {\n\t\treturn props.onValueChange(! props.value);\n\t}\n\n\n\t/**\n\t * Get the className prop for inputs\n\t *\n\t * @return {String}\n\t */\n\tfunction inputClassName() {\n\t\treturn classNames(\n\t\t\tprops.fieldClassName,\n\t\t\tRenderGroup.classNames.input\n\t\t);\n\t}\n\n\tif( 'checkbox' === props.inputType ){\n\t\treturn (\n\t\t\t<input\n\t\t\t\ttype={'checkbox'}\n\t\t\t\tid={props.id}\n\t\t\t\tclassName={inputClassName()}\n\t\t\t\taria-describedby={props.ariaDescribedbyAttr}\n\t\t\t\trequired={props.isRequired}\n\t\t\t\tonChange={checkboxChangeHandler}\n\t\t\t\tdefaultChecked={props.value}\n\t\t\t\tdisabled={props.disabled}\n\t\t\t\tonBlur={props.onBlur}\n\t\t\t\tonFocus={props.onFocus}\n\t\t\t/>\n\t\t);\n\t}\n\n\treturn (\n\t\t<input\n\t\t\ttype={props.inputType}\n\t\t\tid={props.id}\n\t\t\tclassName={inputClassName()}\n\t\t\taria-describedby={props.ariaDescribedbyAttr}\n\t\t\trequired={props.isRequired}\n\t\t\tonChange={changeHandler}\n\t\t\tvalue={props.value}\n\t\t\tdisabled={props.disabled}\n\t\t\tonBlur={props.onBlur}\n\t\t\tonFocus={props.onFocus}\n\t\t/>\n\t);\n\n};\n\n/**\n * Prop definitions for Input components\n */\nInput.propTypes = fieldPropTypes;\n\n/**\n * Default props for Input Component\n *\n * @type {{ariaDescribedbyAttr: string, isRequired: boolean, inputType: string}}\n */\nInput.defaultProps = {\n\tariaDescribedbyAttr: '',\n\tisRequired: false,\n\tinputType: 'text'\n};",
-    "static": true,
-    "longname": "/Users/josh/caldera-js/components/src/components/fields/input/Input.js",
-=======
-    "__docId__": 132,
+    "__docId__": 140,
     "kind": "method",
     "name": "onInputBlur",
     "memberof": "src/components/fields/magic-select/MagicSelect.js~MagicSelect",
@@ -2471,32 +2290,24 @@
     "async": false,
     "static": false,
     "longname": "src/components/fields/magic-select/MagicSelect.js~MagicSelect#onInputBlur",
->>>>>>> master
     "access": "public",
     "description": "Handle when the field is blurred",
-    "lineNumber": 55,
+    "lineNumber": 56,
     "params": [],
     "return": null
   },
   {
-<<<<<<< HEAD
-    "__docId__": 98,
-    "kind": "function",
-    "name": "Input",
-    "memberof": "src/components/fields/input/Input.js",
-=======
-    "__docId__": 133,
+    "__docId__": 141,
     "kind": "method",
     "name": "onSelect",
     "memberof": "src/components/fields/magic-select/MagicSelect.js~MagicSelect",
->>>>>>> master
     "generator": false,
     "async": false,
     "static": false,
     "longname": "src/components/fields/magic-select/MagicSelect.js~MagicSelect#onSelect",
     "access": "public",
     "description": "Handle when the option is chosen",
-    "lineNumber": 66,
+    "lineNumber": 67,
     "params": [
       {
         "nullable": null,
@@ -2513,7 +2324,7 @@
     "return": null
   },
   {
-    "__docId__": 134,
+    "__docId__": 142,
     "kind": "method",
     "name": "renderItem",
     "memberof": "src/components/fields/magic-select/MagicSelect.js~MagicSelect",
@@ -2523,7 +2334,7 @@
     "longname": "src/components/fields/magic-select/MagicSelect.js~MagicSelect#renderItem",
     "access": "public",
     "description": "Render option",
-    "lineNumber": 78,
+    "lineNumber": 79,
     "params": [
       {
         "nullable": null,
@@ -2556,10 +2367,40 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 99,
-=======
-    "__docId__": 135,
+    "__docId__": 143,
+    "kind": "method",
+    "name": "getItemValue",
+    "memberof": "src/components/fields/magic-select/MagicSelect.js~MagicSelect",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/fields/magic-select/MagicSelect.js~MagicSelect#getItemValue",
+    "access": "public",
+    "description": "Get the value of the item",
+    "lineNumber": 88,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "item",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "*"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 144,
     "kind": "method",
     "name": "render",
     "memberof": "src/components/fields/magic-select/MagicSelect.js~MagicSelect",
@@ -2569,7 +2410,7 @@
     "longname": "src/components/fields/magic-select/MagicSelect.js~MagicSelect#render",
     "access": "public",
     "description": "Render MagicSelect component",
-    "lineNumber": 87,
+    "lineNumber": 97,
     "return": {
       "nullable": null,
       "types": [
@@ -2581,8 +2422,7 @@
     "params": []
   },
   {
-    "__docId__": 136,
->>>>>>> master
+    "__docId__": 145,
     "kind": "file",
     "name": "src/components/fields/messages/Message.js",
     "content": "import React from 'react';\nimport PropTypes from 'prop-types';\nimport {messagePropShape} from './messagePropTypes';\nimport classNames from 'classnames';\n\n/**\n * The class that message components always wrap messages in\n * @type {string}\n */\nexport const MESSAGE_CLASS = 'caldera-components-message';\n\n/**\n * Prop for showing a validation message\n *\n * Use or for errors and such\n *\n * @param {object}  props\n * @return {*}\n * @constructor\n */\nexport const Message = (props) => {\n\tconst {message,error} = props.message;\n\tif( !message || '' === message ){\n\t\treturn <React.Fragment></React.Fragment>;\n\t}\n\treturn(\n\t\t<div\n\t\t\tclassName={classNames(\n\t\t\t\tprops.className,\n\t\t\t\tMESSAGE_CLASS,\n\t\t\t\t{\n\t\t\t\t\t'has-error': error,\n\t\t\t\t\t'caldera-components-error': error,\n\t\t\t\t\t'caldera-components-not-error': ! error,\n\n\t\t\t\t}\n\t\t\t)}\n\t\t>\n\t\t\t{message}\n\t\t</div>\n\t);\n};\n\n/**\n * Prop types for Message components\n *\n * @type {{className: shim, message}}\n */\nMessage.propTypes = {\n\tclassName: PropTypes.string,\n\tmessage: messagePropShape,\n};\n\n",
@@ -2593,11 +2433,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 100,
-=======
-    "__docId__": 137,
->>>>>>> master
+    "__docId__": 146,
     "kind": "variable",
     "name": "MESSAGE_CLASS",
     "memberof": "src/components/fields/messages/Message.js",
@@ -2619,11 +2455,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 101,
-=======
-    "__docId__": 138,
->>>>>>> master
+    "__docId__": 147,
     "kind": "function",
     "name": "Message",
     "memberof": "src/components/fields/messages/Message.js",
@@ -2665,11 +2497,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 102,
-=======
-    "__docId__": 139,
->>>>>>> master
+    "__docId__": 148,
     "kind": "file",
     "name": "src/components/fields/messages/messageObjectFactory.js",
     "content": "import {toBoolean} from '../util';\n\n/**\n * Prepares messages object in fieldConfigs\n *\n * @param {Object} message\n * @param {Boolean} error\n * @return {{message: *, error: boolean}}\n */\nexport const messageObjectFactory = ({message,error}) => {\n\tif( 'string' !== typeof  message ){\n\t\tmessage = '';\n\t}\n\treturn{\n\t\tmessage: message,\n\t\terror: toBoolean(error)\n\t};\n};",
@@ -2680,11 +2508,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 103,
-=======
-    "__docId__": 140,
->>>>>>> master
+    "__docId__": 149,
     "kind": "function",
     "name": "messageObjectFactory",
     "memberof": "src/components/fields/messages/messageObjectFactory.js",
@@ -2730,11 +2554,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 104,
-=======
-    "__docId__": 141,
->>>>>>> master
+    "__docId__": 150,
     "kind": "file",
     "name": "src/components/fields/messages/messagePropTypes.js",
     "content": "import PropTypes from 'prop-types';\n\n/**\n * The shape of the message object passed to Message compoent\n *\n * @type {shim}\n */\nexport const messagePropShape = PropTypes.shape(\n\t{\n\t\terror: PropTypes.bool,\n\t\ttext: PropTypes.string\n\t}\n);",
@@ -2745,11 +2565,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 105,
-=======
-    "__docId__": 142,
->>>>>>> master
+    "__docId__": 151,
     "kind": "variable",
     "name": "messagePropShape",
     "memberof": "src/components/fields/messages/messagePropTypes.js",
@@ -2771,11 +2587,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 106,
-=======
-    "__docId__": 143,
->>>>>>> master
+    "__docId__": 152,
     "kind": "file",
     "name": "src/components/fields/propTypes.js",
     "content": "import PropTypes from 'prop-types';\nimport {messagePropShape} from './messages/messagePropTypes';\n\n/**\n * PropType for the field value used in multiple components\n *\n * @type {shim}\n */\nexport const valuePropType = PropTypes.oneOfType([\n\tPropTypes.string,\n\tPropTypes.number,\n\tPropTypes.array,\n\tPropTypes.bool\n]);\n\n/**\n * PropType for the field value change event used in multiple components\n *\n * @type {shim}\n */\nexport const onValueChangePropType = PropTypes.func.isRequired;\n\n/**\n * Proptypes for Input component\n * @type {shim}\n */\nexport const inputTypeProp = PropTypes.string;\n\n/**\n * PropTypes for field groups\n *\n * @type {{id: (boolean|shim|*), isBlockInput: shim, isRequired: shim, help: shim, label: (boolean|shim|*), type: shim, value: shim, onValueChange: (boolean|shim|*), inputType: shim}}\n */\nexport const fieldGroupPropTypes = {\n\tid: PropTypes.string.isRequired,\n\tisBlockInput: PropTypes.bool,\n\tisRequired: PropTypes.bool,\n\thelp: PropTypes.string,\n\tlabel: PropTypes.string.isRequired,\n\ttype: PropTypes.oneOf(['input', 'select', 'fieldset', 'magic']),\n\tvalue: valuePropType,\n\tonValueChange: onValueChangePropType,\n\toptions: PropTypes.array,\n\tinputType: inputTypeProp,\n\tdisabled: PropTypes.bool,\n\tmessage: messagePropShape,\n\tonBlur: PropTypes.func,\n\tonFocus: PropTypes.func\n};\n\n/**\n * PropTypes for the InnerField component\n *\n * @type {{id: (boolean|shim|*), fieldClassName: (boolean|shim|*), help: shim, value: shim, onValueChange: (boolean|shim|*), inputType: shim}}\n */\nexport const fieldInnerPropTypes = {\n\tid: PropTypes.string.isRequired,\n\tfieldClassName: PropTypes.string.isRequired,\n\thelp: PropTypes.string,\n\tvalue: valuePropType,\n\tonValueChange: onValueChangePropType,\n\tinputType: inputTypeProp,\n\tariaDescribedbyAttr: PropTypes.string,\n\tonBlur: PropTypes.func,\n\tonFocus: PropTypes.func\n};\n\nexport const fieldPropTypes = fieldInnerPropTypes;\n\n/**\n * The shape of one option for a select field\n *\n * @type {{label: shim, value: shim}}\n */\nexport const optionShape = {\n\tlabel: PropTypes.string,\n\tvalue: PropTypes.oneOfType([\n\t\tPropTypes.string,\n\t\tPropTypes.number,\n\t])\n};\n\n/**\n * Shape of options prop for select fields\n *\n * @type {shim}\n */\nexport const optionsShapeProp = PropTypes.arrayOf(\n\tPropTypes.shape(optionShape)\n);\n\nexport const magicGroupPropTypes = {\n\t...fieldGroupPropTypes,\n\tfieldsList: optionsShapeProp,\n\tsystemTagsList: optionsShapeProp,\n\tdefaultList: PropTypes.string,\n\tisOpen: PropTypes.bool,\n\ttype: PropTypes.string\n};",
@@ -2786,11 +2598,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 107,
-=======
-    "__docId__": 144,
->>>>>>> master
+    "__docId__": 153,
     "kind": "variable",
     "name": "valuePropType",
     "memberof": "src/components/fields/propTypes.js",
@@ -2812,11 +2620,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 108,
-=======
-    "__docId__": 145,
->>>>>>> master
+    "__docId__": 154,
     "kind": "variable",
     "name": "onValueChangePropType",
     "memberof": "src/components/fields/propTypes.js",
@@ -2838,11 +2642,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 109,
-=======
-    "__docId__": 146,
->>>>>>> master
+    "__docId__": 155,
     "kind": "variable",
     "name": "inputTypeProp",
     "memberof": "src/components/fields/propTypes.js",
@@ -2864,11 +2664,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 110,
-=======
-    "__docId__": 147,
->>>>>>> master
+    "__docId__": 156,
     "kind": "variable",
     "name": "fieldGroupPropTypes",
     "memberof": "src/components/fields/propTypes.js",
@@ -2890,11 +2686,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 111,
-=======
-    "__docId__": 148,
->>>>>>> master
+    "__docId__": 157,
     "kind": "variable",
     "name": "fieldInnerPropTypes",
     "memberof": "src/components/fields/propTypes.js",
@@ -2916,11 +2708,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 112,
-=======
-    "__docId__": 149,
->>>>>>> master
+    "__docId__": 158,
     "kind": "variable",
     "name": "fieldPropTypes",
     "memberof": "src/components/fields/propTypes.js",
@@ -2940,10 +2728,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 113,
-=======
-    "__docId__": 150,
+    "__docId__": 159,
     "kind": "variable",
     "name": "optionShape",
     "memberof": "src/components/fields/propTypes.js",
@@ -2965,7 +2750,7 @@
     }
   },
   {
-    "__docId__": 151,
+    "__docId__": 160,
     "kind": "variable",
     "name": "optionsShapeProp",
     "memberof": "src/components/fields/propTypes.js",
@@ -2987,7 +2772,7 @@
     }
   },
   {
-    "__docId__": 152,
+    "__docId__": 161,
     "kind": "variable",
     "name": "magicGroupPropTypes",
     "memberof": "src/components/fields/propTypes.js",
@@ -3007,8 +2792,7 @@
     }
   },
   {
-    "__docId__": 153,
->>>>>>> master
+    "__docId__": 162,
     "kind": "file",
     "name": "src/components/fields/select/SelectField.js",
     "content": "import React from 'react';\nimport {fieldPropTypes} from '../propTypes';\nimport classNames from 'classnames';\nimport {RenderGroup} from '../../RenderGroup';\nimport {optionsShapeProp} from '../propTypes';\n\n/**\n * Creates a select field\n *\n * @param {Object} props\n * @returns {*}\n * @constructor\n */\nexport const SelectField = (props) => {\n\t/**\n\t * Dispatches new value(s) to parent\n\t *\n\t * @param selection\n\t * @returns {*}\n\t */\n\tfunction changeHandler(selection) {\n\t\treturn props.onValueChange(selection);\n\t}\n\n\t/**\n\t * Get the className prop for the select element\n\t *\n\t * @return {String}\n\t */\n\tfunction selectClassNames() {\n\t\treturn classNames(\n\t\t\tprops.fieldClassName,\n\t\t\tRenderGroup.classNames.input\n\t\t);\n\t}\n\n\treturn (\n\t\t<select\n\t\t\tid={props.id}\n\t\t\tclassName={selectClassNames()}\n\t\t\tvalue={props.value}\n\t\t\tdisabled={props.disabled}\n\t\t\tonChange={changeHandler}\n\t\t>\n\t\t\t{props.options\n\t\t\t\t.map((item,i) => {\n\t\t\t\t\tconst key = 'string' === typeof item.value ? item.value : i;\n\t\t\t\t\treturn(\n\t\t\t\t\t\t<option\n\t\t\t\t\t\t\tkey={key}\n\t\t\t\t\t\t\tclassName={ 'caldera-config-option' }\n\t\t\t\t\t\t\tvalue={item.value}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t{item.label}\n\t\t\t\t\t\t</option>\n\t\t\t\t\t);\n\t\t\t\t})\n\t\t\t}\n\t\t</select>\n\n\n\n\t);\n};\n\n/**\n * Prop definition for select fields\n *\n * @type {{}}\n */\nSelectField.propTypes = {\n\t...fieldPropTypes,\n\toptions: optionsShapeProp\n\n};\n\n/**\n * Default props for select fields\n *\n * @type {{options: Array}}\n */\nSelectField.defaultProps = {\n\toptions: []\n};",
@@ -3019,11 +2803,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 114,
-=======
-    "__docId__": 154,
->>>>>>> master
+    "__docId__": 163,
     "kind": "function",
     "name": "SelectField",
     "memberof": "src/components/fields/select/SelectField.js",
@@ -3069,11 +2849,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 115,
-=======
-    "__docId__": 155,
->>>>>>> master
+    "__docId__": 164,
     "kind": "file",
     "name": "src/components/fields/select/SelectFieldFancy.js",
     "content": "import React from 'react';\nimport Downshift from 'downshift';\nimport PropTypes from 'prop-types';\nimport {fieldPropTypes} from '../propTypes';\n\n/**\n * Creates a select field\n *\n * Wraps [downshift](https://github.com/paypal/downshift)\n *\n * @param {Object} props\n * @returns {*}\n * @constructor\n */\nexport const SelectFieldFancy = (props) => {\n\t/**\n\t * Dispatches new value(s) to parent\n\t *\n\t * @param selection\n\t * @returns {*}\n\t */\n\tfunction changeHandler(selection) {\n\t\treturn props.onValueChange(selection);\n\t}\n\n\treturn (\n\t\t<Downshift\n\t\t\tinputValue={props.value}\n\t\t\tdefaultInputValue={props.value}\n\t\t\tonChange={changeHandler}\n\t\t\titemToString={item => (item ? item.value : '')}\n\t\t\tdefaultIsOpen={props.isOpen}\n\t\t>\n\t\t\t{({\n\t\t\t\tgetInputProps,\n\t\t\t\tgetItemProps,\n\t\t\t\tisOpen,\n\t\t\t\tinputValue,\n\t\t\t\thighlightedIndex,\n\t\t\t\tselectedItem,\n\t\t\t}) => (\n\t\t\t\t<div>\n\t\t\t\t\t<input {...getInputProps({\n\t\t\t\t\t\tid: props.id\n\t\t\t\t\t})} />\n\t\t\t\t\t{isOpen ? (\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t{props.options\n\t\t\t\t\t\t\t\t.filter(item => !inputValue || item.value.includes(inputValue))\n\t\t\t\t\t\t\t\t.map((item, index) => (\n\t\t\t\t\t\t\t\t\t<div\n\t\t\t\t\t\t\t\t\t\tkey={item.value}\n\t\t\t\t\t\t\t\t\t\t{...getItemProps({\n\t\t\t\t\t\t\t\t\t\t\tkey: item.value,\n\t\t\t\t\t\t\t\t\t\t\tindex,\n\t\t\t\t\t\t\t\t\t\t\titem,\n\t\t\t\t\t\t\t\t\t\t\tstyle: {\n\t\t\t\t\t\t\t\t\t\t\t\tbackgroundColor:\n\t\t\t\t\t\t\t\t\t\t\t\t\thighlightedIndex === index ? 'lightgray' : 'white',\n\t\t\t\t\t\t\t\t\t\t\t\tfontWeight: selectedItem === item ? 'bold' : 'normal',\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\tclassName: 'caldera-config-option'\n\t\t\t\t\t\t\t\t\t\t})}\n\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t{item.value}\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t))}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t) : null}\n\t\t\t\t</div>\n\t\t\t)}\n\t\t</Downshift>\n\t);\n};\n\n\nSelectFieldFancy.propTypes = {\n\t...fieldPropTypes,\n\tisOpen: PropTypes.bool,\n};",
@@ -3084,11 +2860,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 116,
-=======
-    "__docId__": 156,
->>>>>>> master
+    "__docId__": 165,
     "kind": "function",
     "name": "SelectFieldFancy",
     "memberof": "src/components/fields/select/SelectFieldFancy.js",
@@ -3134,11 +2906,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 117,
-=======
-    "__docId__": 157,
->>>>>>> master
+    "__docId__": 166,
     "kind": "file",
     "name": "src/components/fields/util.js",
     "content": "/**\n * Create the aria-describedby attribute or id attribute for the describing element\n *\n * @param {String} id Id attribute of input being described\n * @param {String} help Optional. Help text. If empty return is null.\n * @returns {String|null}\n */\nexport const  ariaDescribedbyAttr = (id, help = '') => {\n\tlet ariaDescribedby = null;\n\tif (help.length) {\n\t\tariaDescribedby = `${id}-description`;\n\t}\n\treturn ariaDescribedby;\n};\n\n\n/**\n * Get HTML5 input types that are valid\n * @returns {string[]}\n */\nexport function getHtmlInputTypes() {\n\treturn [\n\t\t'text',\n\t\t'email',\n\t\t'number',\n\t\t'date',\n\t\t'datetime',\n\t\t'password',\n\t\t'submit',\n\t\t'reset',\n\t\t'checkbox',\n\t\t'hidden'\n\t];\n}\n\n/**\n * Checks if a given input type is an acceptable HTML5 input type\n *\n * @param {String} type\n * @returns {boolean}\n */\nexport function isValidHtml5type(type) {\n\treturn getHtmlInputTypes().includes(type);\n}\n\n\n/**\n * Remove a value from an array if present, if not present, add it\n *\n * @param {String|number} value Value to add or remove\n * @param {Array} array Array to mutate\n * @return {*}\n */\nexport const addOrRemoveFromArray = (value,array) => {\n\tconst index = array.indexOf(value);\n\tif (index !== -1){\n\t\tarray.splice(index, 1);\n\t}else{\n\t\tarray.push( value );\n\t}\n\treturn array;\n};\n\n/**\n * Cast a boolean or boolean like to a true or false\n *\n * @param Mixed} value Value to cast\n * @return {boolean}\n */\nexport const toBoolean =(value) => {\n\tswitch(value){\n\tcase true:\n\tcase 'true':\n\tcase 1:\n\tcase '1':\n\tcase 'on':\n\tcase 'yes':\n\t\treturn true;\n\tdefault:\n\t\treturn false;\n\t}\n};",
@@ -3149,11 +2917,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 118,
-=======
-    "__docId__": 158,
->>>>>>> master
+    "__docId__": 167,
     "kind": "function",
     "name": "ariaDescribedbyAttr",
     "memberof": "src/components/fields/util.js",
@@ -3206,11 +2970,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 119,
-=======
-    "__docId__": 159,
->>>>>>> master
+    "__docId__": 168,
     "kind": "function",
     "name": "getHtmlInputTypes",
     "memberof": "src/components/fields/util.js",
@@ -3241,11 +3001,7 @@
     "params": []
   },
   {
-<<<<<<< HEAD
-    "__docId__": 120,
-=======
-    "__docId__": 160,
->>>>>>> master
+    "__docId__": 169,
     "kind": "function",
     "name": "isValidHtml5type",
     "memberof": "src/components/fields/util.js",
@@ -3287,11 +3043,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 121,
-=======
-    "__docId__": 161,
->>>>>>> master
+    "__docId__": 170,
     "kind": "function",
     "name": "addOrRemoveFromArray",
     "memberof": "src/components/fields/util.js",
@@ -3338,11 +3090,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 122,
-=======
-    "__docId__": 162,
->>>>>>> master
+    "__docId__": 171,
     "kind": "function",
     "name": "toBoolean",
     "memberof": "src/components/fields/util.js",
@@ -3378,14 +3126,10 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 123,
-=======
-    "__docId__": 163,
->>>>>>> master
+    "__docId__": 172,
     "kind": "file",
     "name": "src/components/index.js",
-    "content": "/*eslint no-undef: \"error\"*/\n/*eslint-env node*/\nimport * as fields from './fields/index';\nimport * as factories from './fields/factories/index';\nimport {RenderGroup} from './RenderGroup';\nimport conditionals from './conditional-logic/index';\nimport validation from './validation/index';\nimport Admin from './admin/index';\n\n/**\n * Caldera components\n *\n * @type {{RenderGroup: RenderGroup, fields: *, factories: *, conditionals: {checkConfigFieldConditionals, checkConfigFieldsConditionals, reduceConfigFieldsToValues}}}\n */\nmodule.exports = {\n\tRenderGroup,\n\tfields,\n\tfactories,\n\tconditionals,\n\tvalidation,\n\tAdmin\n};",
+    "content": "/*eslint no-undef: \"error\"*/\n/*eslint-env node*/\nimport * as fields from './fields/index';\nimport * as factories from './fields/factories/index';\nimport {RenderGroup} from './RenderGroup';\nimport conditionals from './conditional-logic/index';\nimport validation from './validation/index';\nimport Admin from './admin/index';\nimport {FieldGroup} from './fields/FieldGroup';\nimport {MagicFieldGroup} from './fields/magic-select/MagicFieldGroup';\n\n/**\n * Caldera components\n *\n * @type {{RenderGroup: RenderGroup, fields: *, factories: *, conditionals: {checkConfigFieldConditionals, checkConfigFieldsConditionals, reduceConfigFieldsToValues}}}\n */\nmodule.exports = {\n\tRenderGroup,\n\tfields,\n\tfactories,\n\tconditionals,\n\tvalidation,\n\tAdmin,\n\tFieldGroup,\n\tMagicFieldGroup\n};",
     "static": true,
     "longname": "/Users/josh/caldera-js/components/src/components/index.js",
     "access": "public",
@@ -3393,11 +3137,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 124,
-=======
-    "__docId__": 164,
->>>>>>> master
+    "__docId__": 173,
     "kind": "file",
     "name": "src/components/validation/addAutomaticValidators.js",
     "content": "import getValidatorsFromConfigField from './getValidatorsFromConfigField';\nimport isValidOrEmpty from './isValidOrEmpty';\nimport {findFieldValueInFieldValues} from './util';\nimport isValid from './isValid';\n/**\n * Helper function to curry validator functions\n *\n * Validators expect 1 value, not an object of values, this function solves that.\n *\n * @param {String} fieldId Field to look for\n * @param {Function} validator Validator function\n * @return {function(*=): *}\n */\nfunction curryValidator(fieldId, validator) {\n\treturn (fieldValues) => {\n\t\treturn validator(findFieldValueInFieldValues(fieldId, fieldValues));\n\t};\n}\n\n/**\n * Create validation function based on type and required\n *\n * @param {Object} configField Field to create validations for\n * @param {Array} validators Current array of validators\n * @param {string} validationType Type of validators to add.\n * @return {Array}\n */\nfunction addValidatorsForType(configField, validators, validationType) {\n\tif (configField.isRequired) {\n\t\tvalidators.push(\n\t\t\tcurryValidator(\n\t\t\t\tconfigField.ID, isValid[validationType]\n\t\t\t)\n\t\t);\n\t} else {\n\t\tvalidators.push(\n\t\t\tcurryValidator(\n\t\t\t\tconfigField.ID, isValidOrEmpty[validationType]\n\t\t\t)\n\t\t);\n\t}\n\n\treturn validators;\n}\n\n/**\n * Adds sensible, automatic validation to fields -- if no validators have been added yet.\n *\n * @param {Object} configField\n * @return {*}\n */\nexport const addAutomaticValidators = (configField) => {\n\tlet validators = getValidatorsFromConfigField(configField);\n\tif (0 !== validators.length) {\n\t\treturn configField;\n\t}\n\n\tswitch (configField.type) {\n\tcase 'input':\n\t\tif( [\n\t\t\t'email',\n\t\t\t'url',\n\t\t\t'date',\n\t\t\t'number',\n\t\t].includes( configField.inputType ) ){\n\t\t\tvalidators = addValidatorsForType(configField, validators, configField.inputType);\n\t\t}else if( 'text' === configField.inputType){\n\t\t\tvalidators = addValidatorsForType(configField, validators, 'string');\n\n\t\t}\n\n\t\telse{\n\t\t\tvalidators = addValidatorsForType( configField, validators, 'anything' );\n\t\t}\n\n\t\tbreak;\n\tcase 'select':\n\t\tvalidators = addValidatorsForType( configField, validators, 'stringOrNumber' );\n\t\tbreak;\n\t}\n\n\n\treturn {\n\t\t...configField,\n\t\tvalidators\n\t};\n\n};",
@@ -3408,11 +3148,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 125,
-=======
-    "__docId__": 165,
->>>>>>> master
+    "__docId__": 174,
     "kind": "function",
     "name": "curryValidator",
     "memberof": "src/components/validation/addAutomaticValidators.js",
@@ -3459,11 +3195,7 @@
     "ignore": true
   },
   {
-<<<<<<< HEAD
-    "__docId__": 126,
-=======
-    "__docId__": 166,
->>>>>>> master
+    "__docId__": 175,
     "kind": "function",
     "name": "addValidatorsForType",
     "memberof": "src/components/validation/addAutomaticValidators.js",
@@ -3520,11 +3252,7 @@
     "ignore": true
   },
   {
-<<<<<<< HEAD
-    "__docId__": 127,
-=======
-    "__docId__": 167,
->>>>>>> master
+    "__docId__": 176,
     "kind": "function",
     "name": "addAutomaticValidators",
     "memberof": "src/components/validation/addAutomaticValidators.js",
@@ -3560,11 +3288,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 128,
-=======
-    "__docId__": 168,
->>>>>>> master
+    "__docId__": 177,
     "kind": "file",
     "name": "src/components/validation/checkValidatorsForConfigField.js",
     "content": "/**\n * Check the validators for one field\n *\n * @param {Object} configField The field to check the validator of.\n * @param {Object} fieldValues Optional. Data to pass to validator rule callbacks\n * @return {boolean}\n */\nimport getValidatorsFromConfigField from './getValidatorsFromConfigField';\n\nexport default function checkValidatorsForConfigField(configField,fieldValues) {\n\tif( ! getValidatorsFromConfigField(configField).length){\n\t\treturn true;\n\t}\n\tlet allRulesPassed = true;\n\tconfigField.validators.forEach(conditional => {\n\t\tif ('function' === typeof conditional && false === conditional.call(null, fieldValues)) {\n\t\t\tallRulesPassed = false;\n\t\t\treturn false;\n\t\t}\n\t});\n\n\treturn allRulesPassed;\n}\n\n\n",
@@ -3575,11 +3299,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 129,
-=======
-    "__docId__": 169,
->>>>>>> master
+    "__docId__": 178,
     "kind": "function",
     "name": "checkValidatorsForConfigField",
     "memberof": "src/components/validation/checkValidatorsForConfigField.js",
@@ -3615,11 +3335,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 130,
-=======
-    "__docId__": 170,
->>>>>>> master
+    "__docId__": 179,
     "kind": "file",
     "name": "src/components/validation/checkValidatorsForConfigFields.js",
     "content": "import checkValidatorsForConfigField from './checkValidatorsForConfigField';\nimport getValidatorsFromConfigField from './getValidatorsFromConfigField';\n\n/**\n * Check validators for a collection of configFields\n *\n * Returns false if any validators fail.\n * Returns true if no validators fail, or there are no validators.\n *\n * @param {Array} configFields The fields to check the validators of.\n * @param {Object} fieldValues Optional. Data to pass to validators rules' callbacks\n * @return {Object}\n */\nexport default function checkValidatorsForConfigFields(configFields,fieldValues) {\n\tlet results = {};\n\tObject.values( configFields ).forEach(configField => {\n\t\tconst rules = getValidatorsFromConfigField(configField);\n\t\tlet thisResult = true;\n\t\tif( rules.length ){\n\t\t\tthisResult = checkValidatorsForConfigField(configField,fieldValues);\n\n\t\t}\n\t\tresults[configField.ID] = thisResult;\n\t});\n\treturn results;\n}\n\n",
@@ -3630,11 +3346,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 131,
-=======
-    "__docId__": 171,
->>>>>>> master
+    "__docId__": 180,
     "kind": "function",
     "name": "checkValidatorsForConfigFields",
     "memberof": "src/components/validation/checkValidatorsForConfigFields.js",
@@ -3680,11 +3392,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 132,
-=======
-    "__docId__": 172,
->>>>>>> master
+    "__docId__": 181,
     "kind": "file",
     "name": "src/components/validation/getValidatorsFromConfigField.js",
     "content": "/**\n * Find the array of validators for a configField\n *\n * @param {Object} configField The config field to search in\n * @return {Array} Array of validators or empty array if non found\n */\nexport default function getValidatorsFromConfigField(configField) {\n\tif (!configField.hasOwnProperty('validators') || !Array.isArray(configField.validators)) {\n\t\treturn [];\n\t}\n\n\treturn configField.validators;\n}\n\n",
@@ -3695,11 +3403,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 133,
-=======
-    "__docId__": 173,
->>>>>>> master
+    "__docId__": 182,
     "kind": "function",
     "name": "getValidatorsFromConfigField",
     "memberof": "src/components/validation/getValidatorsFromConfigField.js",
@@ -3735,11 +3439,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 134,
-=======
-    "__docId__": 174,
->>>>>>> master
+    "__docId__": 183,
     "kind": "file",
     "name": "src/components/validation/index.js",
     "content": "/*eslint no-undef: \"error\"*/\n/*eslint-env node*/\nimport getValidatorsFromConfigField from './getValidatorsFromConfigField';\nimport checkValidatorsForConfigFields from './checkValidatorsForConfigFields';\nimport checkValidatorsForConfigField from './checkValidatorsForConfigField';\nimport {addAutomaticValidators} from './addAutomaticValidators';\nimport messageStrings from './messageStrings';\nimport isEmpty from './isEmpty';\nimport isValid from './isValid';\nimport isValidOrEmpty from './isValidOrEmpty';\n//Usage here indicates that this is a cross-cutting concern, & it totally is\n//Move to shared module?\nimport {reduceConfigFieldsToValues} from '../conditional-logic/util';\n\n/**\n * One export for validation system\n */\nexport default {\n\tgetValidatorsFromConfigField,\n\tcheckValidatorsForConfigFields,\n\tcheckValidatorsForConfigField,\n\treduceConfigFieldsToValues,\n\taddAutomaticValidators,\n\tisEmpty,\n\tisValid,\n\tisValidOrEmpty,\n\tmessageStrings\n};",
@@ -3750,11 +3450,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 135,
-=======
-    "__docId__": 175,
->>>>>>> master
+    "__docId__": 184,
     "kind": "file",
     "name": "src/components/validation/isEmpty.js",
     "content": "/**\n * CalderaValidators that check if a value is empty or not\n */\nexport default {\n\t/**\n\t * Check if different types (numbers, strings, objects, arrays or Maps) are empty\n\t *\n\t * @param {String|number|Array|object|Map} value\n\t * @return {boolean}\n\t */\n\tanything(value){\n\t\tif( Array.isArray(value)){\n\t\t\treturn this.array(value);\n\t\t}\n\t\tif( value instanceof Map ){\n\t\t\treturn this.map(value);\n\t\t}\n\t\tswitch (typeof value){\n\t\tcase 'object':\n\t\t\treturn this.object(value);\n\t\tcase 'string':\n\t\t\treturn this.string(value);\n\t\tdefault:\n\t\t\treturn false;//\n\t\t}\n\t\treturn false;\n\t},\n\t/**\n\t * Check if value is an empty object\n\t *\n\t * @param {Object} value The object to check\n\t * @return {boolean}\n\t */\n\tobject(value){\n\t\tfor(let key in value) {\n\t\t\tif(value.hasOwnProperty(key))\n\t\t\t\treturn false;\n\t\t}\n\t\treturn true;\n\t},\n\t/**\n\t * Check if value is an empty array\n\t *\n\t * @param {Array} value Array to check\n\t * @return {boolean}\n\t */\n\tarray(value){\n\t\treturn 0 === value.length;\n\t},\n\t/**\n\t * Check if value is not an empty string\n\t *\n\t * @param {String} value String to check\n\t * @return {boolean}\n\t */\n\tstring(value){\n\t\treturn !value;\n\t},\n\t/**\n\t * Check if value is not an empty map\n\t *\n\t * @param {Map} value The Map to check\n\t * @return {boolean}\n\t */\n\tmap( value ){\n\t\treturn 0 === value.size;\n\t}\n};",
@@ -3765,11 +3461,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 136,
-=======
-    "__docId__": 176,
->>>>>>> master
+    "__docId__": 185,
     "kind": "file",
     "name": "src/components/validation/isValid.js",
     "content": "import {isEmail,isUrl, isDate} from '@helpdotcom/is';\nimport isEmpty from './isEmpty';\n\n/**\n * CalderaValidators for common types of validation needed\n *\n * Empty values are not valid.\n * Ue isValidOrEmpty instead if you want empty values to pass\n */\nexport default {\n\t/**\n\t * Check if a given value is an email address\n\t *\n\t * @param {String} value Value to check\n\t * @return {boolean}\n\t */\n\temail(value){\n\t\treturn isEmail(value);\n\t},\n\t/**\n\t * Check if given value is a non-empty string\n\t *\n\t * @param {String} value Value to check\n\t */\n\tstring(value){\n\t\treturn 'string' === typeof value && ! isEmpty.string(value);\n\t},\n\t/**\n\t * Check if given value is a string\n\t *\n\t * @param {String} value Value to check\n\t */\n\tstringOrNumber(value){\n\t\tif( null !== value ){\n\t\t\treturn this.string(value) || this.number(value);\n\t\t}\n\t\treturn false;\n\t},\n\t/**\n\t * Check if a given value is a valid url\n\t *\n\t * @param {String} value Value to check\n\t * @return {boolean}\n\t */\n\turl(value){\n\t\treturn isUrl(value);\n\t},\n\t/**\n\t * Check if a given value is an date.\n\t *\n\t * Considers Date objects and strings conforming to ISO 8601 standard to be valid.\n\t *\n\t * @param {String|Date} value Value to check\n\t * @return {boolean}\n\t */\n\tdate(value){\n\t\treturn isDate(value);\n\t},\n\t/**\n\t * Check if a given value is numeric\n\t *\n\t * @param {String|number} value Value to check\n\t * @return {boolean}\n\t */\n\tnumber(value){\n\t\tif( '' === value ){\n\t\t\treturn false;\n\t\t}\n\t\tif( Array.isArray( value ) ){\n\t\t\treturn false;\n\t\t}\n\t\treturn ! isNaN(value);\n\t}\n};",
@@ -3780,11 +3472,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 137,
-=======
-    "__docId__": 177,
->>>>>>> master
+    "__docId__": 186,
     "kind": "file",
     "name": "src/components/validation/isValidOrEmpty.js",
     "content": "import isEmpty from './isEmpty';\nimport isValid from './isValid';\n/**\n * Validators by type that consider an empty value valid.\n *\n * Combines the isEmpty and isValid validations\n */\nexport default {\n\t/**\n\t * Check if a given value is an email address or empty\n\t *\n\t * @param {String} value Value to check\n\t * @return {boolean}\n\t */\n\temail(value){\n\t\treturn isEmpty.anything( value ) || isValid.email(value);\n\t},\n\t/**\n\t * Check if given value is a string or empty\n\t *\n\t * @param {String} value Value to check\n\t */\n\tstring(value){\n\t\treturn isEmpty.anything( value ) || isValid.string(value);\n\t},\n\t/**\n\t * Check if given value is a string or number empty\n\t *\n\t * @param {String} value Value to check\n\t */\n\tstringOrNumber(value){\n\t\treturn isEmpty.anything(value) || isValid.stringOrNumber(value);\n\t},\n\t/**\n\t * Check if a given value is a valid url or empty\n\t *\n\t * @param {String} value Value to check\n\t * @return {boolean}\n\t */\n\turl(value){\n\t\treturn isEmpty.anything( value ) || isValid.url(value);\n\t},\n\t/**\n\t * Check if a given value is an date.\n\t *\n\t * Considers Date objects and strings conforming to ISO 8601 standard to be valid.\n\t *\n\t * @param {String|Date} value Value to check or empty\n\t * @return {boolean}\n\t */\n\tdate(value){\n\t\treturn isEmpty.anything( value ) || isValid.date(value);\n\t},\n\t/**\n\t * Check if a given value is numeric\n\t *\n\t * @param {String|number} value Value to check or empty\n\t * @return {boolean}\n\t */\n\tnumber(value){\n\t\treturn isEmpty.anything( value ) || isValid.number(value);\n\t}\n};",
@@ -3795,11 +3483,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 138,
-=======
-    "__docId__": 178,
->>>>>>> master
+    "__docId__": 187,
     "kind": "file",
     "name": "src/components/validation/messageStrings.js",
     "content": "import strings from './strings';\n\n/**\n * Get translation strings by language\n *\n * @param {String|Object} lang Language code or an object containing properly formatted strings to search in.\n * @param {String} defaultLang Optional. Language code to use for missing strings.\n *\n * @return {Object}\n */\nexport const getMessageStrings = (lang, defaultLang = 'en') => {\n\tif ('string' === typeof  lang) {\n\t\tif (strings.hasOwnProperty(lang)) {\n\t\t\treturn strings[lang];\n\t\t} else {\n\t\t\treturn getMessageStrings(defaultLang);\n\t\t}\n\t}\n\tif ('object' === typeof  lang) {\n\t\treturn Object.assign(getMessageStrings(defaultLang, 'en'), lang);\n\t}\n};\n\n/**\n * Get message for an invalid field, by field type\n *\n * @param {String}  inputType Type of input to get invalid message for.\n * @param {String|Object} lang Language code or an object containing properly formatted strings to search in.\n * @param {String} defaultLang Optional. Language code to use for missing strings.\n * @return {String}\n */\nexport const getMessageStringByType = (inputType, lang, defaultLang = 'en') => {\n\tconst strings = getMessageStrings(lang, defaultLang);\n\tif (strings.type.hasOwnProperty(inputType)) {\n\t\treturn strings.type[inputType];\n\t}\n\treturn strings.defaultMessage;\n};\n\n/**\n * Get the required message, by language.\n *\n * @param {String|Object} lang Language code or an object containing properly formatted strings to search in.\n * @param {String} defaultLang Optional. Language code to use for missing strings.\n * @return {String}\n */\nexport const getRequiredMessage = (lang, defaultLang = 'en') => {\n\treturn getMessageStrings(lang, defaultLang).required;\n\n};\n\n/**\n * Message string utilities for validation\n */\nexport default {\n\tgetMessageStrings,\n\tgetMessageStringByType,\n\tgetRequiredMessage\n};",
@@ -3810,11 +3494,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 139,
-=======
-    "__docId__": 179,
->>>>>>> master
+    "__docId__": 188,
     "kind": "function",
     "name": "getMessageStrings",
     "memberof": "src/components/validation/messageStrings.js",
@@ -3861,11 +3541,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 140,
-=======
-    "__docId__": 180,
->>>>>>> master
+    "__docId__": 189,
     "kind": "function",
     "name": "getMessageStringByType",
     "memberof": "src/components/validation/messageStrings.js",
@@ -3922,11 +3598,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 141,
-=======
-    "__docId__": 181,
->>>>>>> master
+    "__docId__": 190,
     "kind": "function",
     "name": "getRequiredMessage",
     "memberof": "src/components/validation/messageStrings.js",
@@ -3973,11 +3645,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 142,
-=======
-    "__docId__": 182,
->>>>>>> master
+    "__docId__": 191,
     "kind": "file",
     "name": "src/components/validation/strings.js",
     "content": "/**\n * Translation strings for Caldera Components\n * Copied from Parsley (License: MIT)\n * https://github.com/guillaumepotier/Parsley.js/blob/master/dist/i18n/\n *\n */\nexport default {\n\ten: {\n\t\tdefaultMessage: 'This value seems to be invalid.',\n\t\ttype: {\n\t\t\temail:        'This value should be a valid email.',\n\t\t\turl:          'This value should be a valid url.',\n\t\t\tnumber:       'This value should be a valid number.',\n\t\t\tinteger:      'This value should be a valid integer.',\n\t\t\tdigits:       'This value should be digits.',\n\t\t\talphanum:     'This value should be alphanumeric.'\n\t\t},\n\t\tnotblank:       'This value should not be blank.',\n\t\trequired:       'This value is required.',\n\t\tpattern:        'This value seems to be invalid.',\n\t\tmin:            'This value should be greater than or equal to %s.',\n\t\tmax:            'This value should be lower than or equal to %s.',\n\t\trange:          'This value should be between %s and %s.',\n\t\tminlength:      'This value is too short. It should have %s characters or more.',\n\t\tmaxlength:      'This value is too long. It should have %s characters or fewer.',\n\t\tlength:         'This value length is invalid. It should be between %s and %s characters long.',\n\t\tmincheck:       'You must select at least %s choices.',\n\t\tmaxcheck:       'You must select %s choices or fewer.',\n\t\tcheck:          'You must select between %s and %s choices.',\n\t\tequalto:        'This value should be the same.'\n\t},\n\tes:{\n\t\tdefaultMessage: 'Este valor parece ser inválido.',\n\t\ttype: {\n\t\t\temail:        'Este valor debe ser un correo válido.',\n\t\t\turl:          'Este valor debe ser una URL válida.',\n\t\t\tnumber:       'Este valor debe ser un número válido.',\n\t\t\tinteger:      'Este valor debe ser un número válido.',\n\t\t\tdigits:       'Este valor debe ser un dígito válido.',\n\t\t\talphanum:     'Este valor debe ser alfanumérico.'\n\t\t},\n\t\tnotblank:       'Este valor no debe estar en blanco.',\n\t\trequired:       'Este valor es requerido.',\n\t\tpattern:        'Este valor es incorrecto.',\n\t\tmin:            'Este valor no debe ser menor que %s.',\n\t\tmax:            'Este valor no debe ser mayor que %s.',\n\t\trange:          'Este valor debe estar entre %s y %s.',\n\t\tminlength:      'Este valor es muy corto. La longitud mínima es de %s caracteres.',\n\t\tmaxlength:      'Este valor es muy largo. La longitud máxima es de %s caracteres.',\n\t\tlength:         'La longitud de este valor debe estar entre %s y %s caracteres.',\n\t\tmincheck:       'Debe seleccionar al menos %s opciones.',\n\t\tmaxcheck:       'Debe seleccionar %s opciones o menos.',\n\t\tcheck:          'Debe seleccionar entre %s y %s opciones.',\n\t\tequalto:        'Este valor debe ser idéntico.'\n\t}\n};",
@@ -3988,11 +3656,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 143,
-=======
-    "__docId__": 183,
->>>>>>> master
+    "__docId__": 192,
     "kind": "file",
     "name": "src/components/validation/util.js",
     "content": "\n\n/**\n * Find the value of a field by ID\n *\n * Returns null if field is not in collection\n *\n * @param {String} fieldId Field to look for\n * @param {Object} fieldValues Values to look for field in\n * @return {String|Array|boolean|number|null}\n */\nexport const findFieldValueInFieldValues = (fieldId, fieldValues) => {\n\tif (fieldValues.hasOwnProperty(fieldId)) {\n\t\treturn fieldValues[fieldId];\n\t}\n\n\treturn null;\n};\n\n\n\n\n\n",
@@ -4003,11 +3667,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 144,
-=======
-    "__docId__": 184,
->>>>>>> master
+    "__docId__": 193,
     "kind": "function",
     "name": "findFieldValueInFieldValues",
     "memberof": "src/components/validation/util.js",
@@ -4057,11 +3717,7 @@
     }
   },
   {
-<<<<<<< HEAD
-    "__docId__": 145,
-=======
-    "__docId__": 185,
->>>>>>> master
+    "__docId__": 194,
     "kind": "file",
     "name": "src/index.js",
     "content": "import React from 'react';\nimport ReactDOM from 'react-dom';\nimport './index.css';\nimport App from './App';\nimport registerServiceWorker from './registerServiceWorker';\n\nReactDOM.render(<App />, document.getElementById('root'));\nregisterServiceWorker();\n",
@@ -4072,11 +3728,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 146,
-=======
-    "__docId__": 186,
->>>>>>> master
+    "__docId__": 195,
     "kind": "file",
     "name": "src/registerServiceWorker.js",
     "content": "// In production, we register a service worker to serve assets from local cache.\n\n// This lets the app load faster on subsequent visits in production, and gives\n// it offline capabilities. However, it also means that developers (and users)\n// will only see deployed updates on the \"N+1\" visit to a page, since previously\n// cached resources are updated in the background.\n\n// To learn more about the benefits of this model, read https://goo.gl/KwvDNy.\n// This link also includes instructions on opting out of this behavior.\n\nconst isLocalhost = Boolean(\n\twindow.location.hostname === 'localhost' ||\n    // [::1] is the IPv6 localhost address.\n    window.location.hostname === '[::1]' ||\n    // 127.0.0.1/8 is considered localhost for IPv4.\n    window.location.hostname.match(\n    \t/^127(?:\\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/\n    )\n);\n\nexport default function register() {\n\tif (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {\n\t\t// The URL constructor is available in all browsers that support SW.\n\t\tconst publicUrl = new URL(process.env.PUBLIC_URL, window.location);\n\t\tif (publicUrl.origin !== window.location.origin) {\n\t\t\t// Our service worker won't work if PUBLIC_URL is on a different origin\n\t\t\t// from what our page is served on. This might happen if a CDN is used to\n\t\t\t// serve assets; see https://github.com/facebookincubator/create-react-app/issues/2374\n\t\t\treturn;\n\t\t}\n\n\t\twindow.addEventListener('load', () => {\n\t\t\tconst swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;\n\n\t\t\tif (isLocalhost) {\n\t\t\t\t// This is running on localhost. Lets check if a service worker still exists or not.\n\t\t\t\tcheckValidServiceWorker(swUrl);\n\t\t\t} else {\n\t\t\t\t// Is not local host. Just register service worker\n\t\t\t\tregisterValidSW(swUrl);\n\t\t\t}\n\t\t});\n\t}\n}\n\nfunction registerValidSW(swUrl) {\n\tnavigator.serviceWorker\n\t\t.register(swUrl)\n\t\t.then(registration => {\n\t\t\tregistration.onupdatefound = () => {\n\t\t\t\tconst installingWorker = registration.installing;\n\t\t\t\tinstallingWorker.onstatechange = () => {\n\t\t\t\t\tif (installingWorker.state === 'installed') {\n\t\t\t\t\t\tif (navigator.serviceWorker.controller) {\n\t\t\t\t\t\t\t// At this point, the old content will have been purged and\n\t\t\t\t\t\t\t// the fresh content will have been added to the cache.\n\t\t\t\t\t\t\t// It's the perfect time to display a \"New content is\n\t\t\t\t\t\t\t// available; please refresh.\" message in your web app.\n\t\t\t\t\t\t\tconsole.log('New content is available; please refresh.');\n\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\t// At this point, everything has been precached.\n\t\t\t\t\t\t\t// It's the perfect time to display a\n\t\t\t\t\t\t\t// \"Content is cached for offline use.\" message.\n\t\t\t\t\t\t\tconsole.log('Content is cached for offline use.');\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t};\n\t\t\t};\n\t\t})\n\t\t.catch(error => {\n\t\t\tconsole.error('Error during service worker registration:', error);\n\t\t});\n}\n\nfunction checkValidServiceWorker(swUrl) {\n\t// Check if the service worker can be found. If it can't reload the page.\n\tfetch(swUrl)\n\t\t.then(response => {\n\t\t\t// Ensure service worker exists, and that we really are getting a JS file.\n\t\t\tif (\n\t\t\t\tresponse.status === 404 ||\n        response.headers.get('content-type').indexOf('javascript') === -1\n\t\t\t) {\n\t\t\t\t// No service worker found. Probably a different app. Reload the page.\n\t\t\t\tnavigator.serviceWorker.ready.then(registration => {\n\t\t\t\t\tregistration.unregister().then(() => {\n\t\t\t\t\t\twindow.location.reload();\n\t\t\t\t\t});\n\t\t\t\t});\n\t\t\t} else {\n\t\t\t\t// Service worker found. Proceed as normal.\n\t\t\t\tregisterValidSW(swUrl);\n\t\t\t}\n\t\t})\n\t\t.catch(() => {\n\t\t\tconsole.log(\n\t\t\t\t'No internet connection found. App is running in offline mode.'\n\t\t\t);\n\t\t});\n}\n\nexport function unregister() {\n\tif ('serviceWorker' in navigator) {\n\t\tnavigator.serviceWorker.ready.then(registration => {\n\t\t\tregistration.unregister();\n\t\t});\n\t}\n}\n",
@@ -4087,11 +3739,7 @@
     "lineNumber": 1
   },
   {
-<<<<<<< HEAD
-    "__docId__": 147,
-=======
-    "__docId__": 187,
->>>>>>> master
+    "__docId__": 196,
     "kind": "variable",
     "name": "isLocalhost",
     "memberof": "src/registerServiceWorker.js",
@@ -4112,11 +3760,7 @@
     "ignore": true
   },
   {
-<<<<<<< HEAD
-    "__docId__": 148,
-=======
-    "__docId__": 188,
->>>>>>> master
+    "__docId__": 197,
     "kind": "function",
     "name": "register",
     "memberof": "src/registerServiceWorker.js",
@@ -4135,11 +3779,7 @@
     "return": null
   },
   {
-<<<<<<< HEAD
-    "__docId__": 149,
-=======
-    "__docId__": 189,
->>>>>>> master
+    "__docId__": 198,
     "kind": "function",
     "name": "registerValidSW",
     "memberof": "src/registerServiceWorker.js",
@@ -4166,11 +3806,7 @@
     "ignore": true
   },
   {
-<<<<<<< HEAD
-    "__docId__": 150,
-=======
-    "__docId__": 190,
->>>>>>> master
+    "__docId__": 199,
     "kind": "function",
     "name": "checkValidServiceWorker",
     "memberof": "src/registerServiceWorker.js",
@@ -4197,11 +3833,7 @@
     "ignore": true
   },
   {
-<<<<<<< HEAD
-    "__docId__": 151,
-=======
-    "__docId__": 191,
->>>>>>> master
+    "__docId__": 200,
     "kind": "function",
     "name": "unregister",
     "memberof": "src/registerServiceWorker.js",
@@ -4221,7 +3853,7 @@
   },
   {
     "kind": "index",
-    "content": "# Caldera Components\nUI components for Caldera Forms admin, Caldera Forms 2.0 front-end\n\n[![Build Status](https://travis-ci.org/CalderaWP/caldera-components.svg?branch=master)](https://travis-ci.org/calderawp/caldera-components)\n[![Documentation Status](./docs/badge.svg)](https://calderalabs.org/processor-ui/badge.svg)\n[![Coverage Status](https://coveralls.io/repos/github/CalderaWP/caldera-components/badge.svg?branch=master)](https://coveralls.io/github/CalderaWP/caldera-components?branch=master)\n🌋 [Documentation](http://calderalabs.org/caldera-components/)\n\n## What Is This?\n* React components for Caldera Forms\n* Factories for generating UI dynamically.\n\n## Why Is This?\n[See goals](http://calderalabs.org/caldera-components/#goals)\n\n## Usage\n\n### Install\n`npm i -D @caldera-labs/components`\n\n### Using This Library\n* 🌋 [Components](http://calderalabs.org/caldera-components/manual/components.html)\n* 🌋 [Factories](http://calderalabs.org/caldera-components/manual/factories.html)\n* 🌋 🌋 Import From Webpack\n    - `import * as Components from '@caldera-labs/components';`\n* The reference implementation of this library is [`@caldera-labs/processor-ui`](https://github.com/CalderaWP/processor-ui)\n\n#### Basic Example\nThe easiest way to use this library is with the [`RenderGroup` component](https://calderalabs.org/caldera-components/manual/components.html#rendergroup). This component takes an array of configField settings. These settings follow a schema, [defined here](https://calderalabs.org/caldera-components/manual/factories.html#configfield-schema).\n\n```jsx\nimport * as Components from '@caldera-labs/components';\nimport React from 'react';\n\n<Components.RenderGroup \n    className={'cf-something-config'}\n    configFields={[\n        {\n            'id': 'cf-something-select-id',\n            'type': 'dropdown',\n            'label': 'Content type',\n            'description': 'Choose content type, default is HTML',\n            options: [\n                {\n                    label: 'HTML',\n                    value: 'html'\n                },\n                {\n                    label: 'Plain Text',\n                    value: 'plain'\n                }\n            ],\n            value: 'html',\n            onValueChange: (newValue) =>{\n                console.log(newValue)\n            }\n        }\n    ]}\n/>\n\n```\n\n## How To Develop This\n\n### Development Requirements\n* [npm](https://www.npmjs.com/get-npm)\n* [Yarn](https://yarnpkg.com/lang/en/docs/install/#mac-stable)\n* [Git]()\n\n### Testing\n[See testing documentation](http://calderalabs.org/caldera-components/manual/testing.html)\n\n### Scripts\n\n#### Develop\n* `yarn start`\n    - Runs linter and compiles for production\n    - Starts test app server\n\n#### Tests\n* `yarn test`\n    - Run test watcher\n* `npm test:once` \n    - Run tests once\n\n#### Lint Code\n* `yarn lint`\n    - Run linter and fixer watch\n* `yarn lint:fix`\n    - Lint and fix code once\n* `yarn lint:once`\n    - Lint code once\n\n\n#### Generate Documentation\n* `npm run documentation`\n    - Generates documentation from inline docs\n    - Generates documentation from markdown files in /manual\n\n#### Release To npm\nMust be [logged in as project maintainer via npm cli](https://docs.npmjs.com/cli/adduser)\n\n* `yarn release`\n    - Release a patch update\n    - Increments third position of a version. 1.0.1 -> 1.0.2\n* `yarn release:minor`\n    - Release a minor update\n    - Increments second position of a version. 1.0.1 -> 1.1.0 \n* `yarn release:major`\n    - Release a major update\n    - Increments second position of a version. 1.0.1 -> 2.0.0 \n    \nThese commands run the tests and linter, and if they pass, re-compiles source, rebuilds docs, updates the version using [npm version](https://docs.npmjs.com/cli/version), adds a git tag, makes a git commit for the version change and updates the module on npm.\n",
+    "content": "# Caldera Components\nUI components for Caldera Forms admin, Caldera Forms 2.0 front-end\n\n[![Build Status](https://travis-ci.org/CalderaWP/caldera-components.svg?branch=master)](https://travis-ci.org/calderawp/caldera-components)\n[![Documentation Status](./docs/badge.svg)](https://calderalabs.org/processor-ui/badge.svg)\n[![Coverage Status](https://coveralls.io/repos/github/CalderaWP/caldera-components/badge.svg?branch=master)](https://coveralls.io/github/CalderaWP/caldera-components?branch=master)\n🌋 [Documentation](http://calderalabs.org/caldera-components/)\n\n## What Is This?\n* React components for Caldera Forms\n* Factories for generating UI dynamically.\n\n## Why Is This?\n[See goals](http://calderalabs.org/caldera-components/#goals)\n\n## Usage\n\n### Install\n`npm i -D @caldera-labs/components`\n\n### Using This Library\n* 🌋 [Components](http://calderalabs.org/caldera-components/manual/components.html)\n* 🌋 [Factories](http://calderalabs.org/caldera-components/manual/factories.html)\n* 🌋 🌋 Import From Webpack\n    - `import * as Components from '@caldera-labs/components';`\n* The reference implementation of this library is [`@caldera-labs/processor-ui`](https://github.com/CalderaWP/processor-ui)\n\n#### Basic Example\nThe easiest way to use this library is with the [`RenderGroup` component](https://calderalabs.org/caldera-components/manual/components.html#rendergroup). This component takes an array of configField settings. These settings follow a schema, [defined here](https://calderalabs.org/caldera-components/manual/factories.html#configfield-schema).\n\n```jsx\nimport {RenderGroup} from '@caldera-labs/components';\nimport React from 'react';\n\n<RenderGroup \n    className={'cf-something-config'}\n    configFields={[\n        {\n            'id': 'cf-something-select-id',\n            'type': 'dropdown',\n            'label': 'Content type',\n            'description': 'Choose content type, default is HTML',\n            options: [\n                {\n                    label: 'HTML',\n                    value: 'html'\n                },\n                {\n                    label: 'Plain Text',\n                    value: 'plain'\n                }\n            ],\n            value: 'html',\n            onValueChange: (newValue) =>{\n                console.log(newValue)\n            }\n        }\n    ]}\n/>\n\n```\n\n## How To Develop This\n\n### Development Requirements\n* [npm](https://www.npmjs.com/get-npm)\n* [Yarn](https://yarnpkg.com/lang/en/docs/install/#mac-stable)\n* [Git]()\n\n### Testing\n[See testing documentation](http://calderalabs.org/caldera-components/manual/testing.html)\n\n### Scripts\n\n#### Develop\n* `yarn start`\n    - Runs linter and compiles for production\n    - Starts test app server\n\n#### Tests\n* `yarn test`\n    - Run test watcher\n* `npm test:once` \n    - Run tests once\n\n#### Lint Code\n* `yarn lint`\n    - Run linter and fixer watch\n* `yarn lint:fix`\n    - Lint and fix code once\n* `yarn lint:once`\n    - Lint code once\n\n\n#### Generate Documentation\n* `npm run documentation`\n    - Generates documentation from inline docs\n    - Generates documentation from markdown files in /manual\n\n#### Release To npm\nMust be [logged in as project maintainer via npm cli](https://docs.npmjs.com/cli/adduser)\n\n* `yarn release`\n    - Release a patch update\n    - Increments third position of a version. 1.0.1 -> 1.0.2\n* `yarn release:minor`\n    - Release a minor update\n    - Increments second position of a version. 1.0.1 -> 1.1.0 \n* `yarn release:major`\n    - Release a major update\n    - Increments second position of a version. 1.0.1 -> 2.0.0 \n    \nThese commands run the tests and linter, and if they pass, re-compiles source, rebuilds docs, updates the version using [npm version](https://docs.npmjs.com/cli/version), adds a git tag, makes a git commit for the version change and updates the module on npm.\n",
     "longname": "/Users/josh/caldera-js/components/README.md",
     "name": "./README.md",
     "static": true,
@@ -4229,11 +3861,7 @@
   },
   {
     "kind": "packageJSON",
-<<<<<<< HEAD
-    "content": "{\n  \"name\": \"@caldera-labs/components\",\n  \"version\": \"1.4.0\",\n  \"dependencies\": {\n    \"@helpdotcom/is\": \"^3.0.4\",\n    \"classnames\": \"^2.2.6\",\n    \"downshift\": \"^1.31.16\"\n  },\n  \"license\": \"GPL-2.0\",\n  \"scripts\": {\n    \"start\": \"react-wp-scripts start\",\n    \"example:build\": \"react-wp-script build\",\n    \"test\": \"react-scripts test --env=jsdom\",\n    \"test:once\": \"CI=true react-scripts test --env=jsdom\",\n    \"test:coverage\": \"npm test -- --coverage\",\n    \"coveralls\": \"cat ./coverage/lcov.info | node node_modules/.bin/coveralls\",\n    \"eject\": \"react-wp-script eject\",\n    \"lint\": \"eslint src/components/**\",\n    \"document\": \"./node_modules/.bin/esdoc\",\n    \"build\": \"npm run build:pre && npm run build:compile && npm run build:post\",\n    \"build:pre\": \"npm run test:once\",\n    \"build:compile\": \"./node_modules/.bin/babel -d dist src/components\",\n    \"build:post\": \"npm run document\",\n    \"prepublish\": \"npm run build\",\n    \"release\": \"npm run release:patch\",\n    \"release:minor\": \"npm version minor -m \\\"version %s\\\" && npm publish\",\n    \"release:major\": \"npm version major -m \\\"version %s\\\" && npm publish\",\n    \"release:patch\": \"npm version patch -m \\\"version %s\\\" && npm publish\"\n  },\n  \"main\": \"./dist/index.js\",\n  \"files\": [\n    \"dist\"\n  ],\n  \"devDependencies\": {\n    \"babel-cli\": \"^6.26.0\",\n    \"babel-preset-env\": \"^1.7.0\",\n    \"babel-preset-react\": \"^6.24.1\",\n    \"babel-preset-stage-3\": \"^6.24.1\",\n    \"coveralls\": \"^3.0.2\",\n    \"enzyme\": \"^3.3.0\",\n    \"enzyme-adapter-react-16\": \"^1.1.1\",\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-ecmascript-proposal-plugin\": \"^1.0.0\",\n    \"esdoc-jsx-plugin\": \"^1.0.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"eslint-plugin-jest\": \"^21.17.0\",\n    \"eslint-plugin-react\": \"^7.9.1\",\n    \"prop-types\": \"^15.6.1\",\n    \"react\": \"^16.4.1\",\n    \"react-dom\": \"^16.4.1\",\n    \"react-test-renderer\": \"^16.4.1\",\n    \"react-wp-scripts\": \"0.2.0\"\n  },\n  \"jest\": {\n    \"collectCoverageFrom\": [\n      \"src/components/**/*.js\",\n      \"!src/components/index.js\",\n      \"!src/components/fields/index.js\"\n    ]\n  }\n}\n",
-=======
-    "content": "{\n  \"name\": \"@caldera-labs/components\",\n  \"version\": \"1.3.1\",\n  \"dependencies\": {\n    \"@helpdotcom/is\": \"^3.0.4\",\n    \"classnames\": \"^2.2.6\",\n    \"downshift\": \"^1.31.16\",\n    \"react-autocomplete\": \"^1.8.1\"\n  },\n  \"license\": \"GPL-2.0\",\n  \"scripts\": {\n    \"start\": \"react-wp-scripts start\",\n    \"example:build\": \"react-wp-script build\",\n    \"test\": \"react-scripts test --env=jsdom\",\n    \"test:once\": \"CI=true react-scripts test --env=jsdom\",\n    \"test:coverage\": \"npm test -- --coverage\",\n    \"coveralls\": \"cat ./coverage/lcov.info | node node_modules/.bin/coveralls\",\n    \"eject\": \"react-wp-script eject\",\n    \"lint\": \"eslint src/components/**\",\n    \"document\": \"./node_modules/.bin/esdoc\",\n    \"build\": \"npm run build:pre && npm run build:compile && npm run build:post\",\n    \"build:pre\": \"npm run test:once\",\n    \"build:compile\": \"./node_modules/.bin/babel -d dist src/components\",\n    \"build:post\": \"npm run document\",\n    \"prepublish\": \"npm run build\",\n    \"release\": \"npm run release:patch\",\n    \"release:minor\": \"npm version minor -m \\\"version %s\\\" && npm publish\",\n    \"release:major\": \"npm version major -m \\\"version %s\\\" && npm publish\",\n    \"release:patch\": \"npm version patch -m \\\"version %s\\\" && npm publish\"\n  },\n  \"main\": \"./dist/index.js\",\n  \"files\": [\n    \"dist\"\n  ],\n  \"devDependencies\": {\n    \"babel-cli\": \"^6.26.0\",\n    \"babel-preset-env\": \"^1.7.0\",\n    \"babel-preset-react\": \"^6.24.1\",\n    \"babel-preset-stage-3\": \"^6.24.1\",\n    \"coveralls\": \"^3.0.2\",\n    \"enzyme\": \"^3.3.0\",\n    \"enzyme-adapter-react-16\": \"^1.1.1\",\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-ecmascript-proposal-plugin\": \"^1.0.0\",\n    \"esdoc-jsx-plugin\": \"^1.0.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"eslint-plugin-jest\": \"^21.17.0\",\n    \"eslint-plugin-react\": \"^7.9.1\",\n    \"prop-types\": \"^15.6.1\",\n    \"react\": \"^16.4.1\",\n    \"react-dom\": \"^16.4.1\",\n    \"react-test-renderer\": \"^16.4.1\",\n    \"react-wp-scripts\": \"0.2.0\"\n  },\n  \"jest\": {\n    \"collectCoverageFrom\": [\n      \"src/components/**/*.js\",\n      \"!src/components/index.js\",\n      \"!src/components/fields/index.js\"\n    ]\n  }\n}\n",
->>>>>>> master
+    "content": "{\n  \"name\": \"@caldera-labs/components\",\n  \"version\": \"1.5.0\",\n  \"dependencies\": {\n    \"@helpdotcom/is\": \"^3.0.4\",\n    \"classnames\": \"^2.2.6\",\n    \"downshift\": \"^1.31.16\",\n    \"react-autocomplete\": \"^1.8.1\"\n  },\n  \"license\": \"GPL-2.0\",\n  \"scripts\": {\n    \"start\": \"react-wp-scripts start\",\n    \"example:build\": \"react-wp-script build\",\n    \"test\": \"react-scripts test --env=jsdom\",\n    \"test:once\": \"CI=true react-scripts test --env=jsdom\",\n    \"test:coverage\": \"npm test -- --coverage\",\n    \"coveralls\": \"cat ./coverage/lcov.info | node node_modules/.bin/coveralls\",\n    \"eject\": \"react-wp-script eject\",\n    \"lint\": \"eslint src/components/**\",\n    \"document\": \"./node_modules/.bin/esdoc\",\n    \"build\": \"npm run build:pre && npm run build:compile && npm run build:post\",\n    \"build:pre\": \"npm run test:once\",\n    \"build:compile\": \"./node_modules/.bin/babel -d dist src/components\",\n    \"build:post\": \"npm run document\",\n    \"prepublish\": \"npm run build\",\n    \"release\": \"npm run release:patch\",\n    \"release:minor\": \"npm version minor -m \\\"version %s\\\" && npm publish\",\n    \"release:major\": \"npm version major -m \\\"version %s\\\" && npm publish\",\n    \"release:patch\": \"npm version patch -m \\\"version %s\\\" && npm publish\"\n  },\n  \"main\": \"./dist/index.js\",\n  \"files\": [\n    \"dist\"\n  ],\n  \"devDependencies\": {\n    \"babel-cli\": \"^6.26.0\",\n    \"babel-preset-env\": \"^1.7.0\",\n    \"babel-preset-react\": \"^6.24.1\",\n    \"babel-preset-stage-3\": \"^6.24.1\",\n    \"coveralls\": \"^3.0.2\",\n    \"enzyme\": \"^3.3.0\",\n    \"enzyme-adapter-react-16\": \"^1.1.1\",\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-ecmascript-proposal-plugin\": \"^1.0.0\",\n    \"esdoc-jsx-plugin\": \"^1.0.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"eslint-plugin-jest\": \"^21.17.0\",\n    \"eslint-plugin-react\": \"^7.9.1\",\n    \"prop-types\": \"^15.6.1\",\n    \"react\": \"^16.4.1\",\n    \"react-dom\": \"^16.4.1\",\n    \"react-test-renderer\": \"^16.4.1\",\n    \"react-wp-scripts\": \"0.2.0\"\n  },\n  \"jest\": {\n    \"collectCoverageFrom\": [\n      \"src/components/**/*.js\",\n      \"!src/components/index.js\",\n      \"!src/components/fields/index.js\"\n    ]\n  }\n}\n",
     "longname": "/Users/josh/caldera-js/components/package.json",
     "name": "package.json",
     "static": true,
@@ -4252,7 +3880,7 @@
     "kind": "manual",
     "longname": "/Users/josh/caldera-js/components/README.md",
     "name": "./README.md",
-    "content": "# Caldera Components\nUI components for Caldera Forms admin, Caldera Forms 2.0 front-end\n\n[![Build Status](https://travis-ci.org/CalderaWP/caldera-components.svg?branch=master)](https://travis-ci.org/calderawp/caldera-components)\n[![Documentation Status](./docs/badge.svg)](https://calderalabs.org/processor-ui/badge.svg)\n[![Coverage Status](https://coveralls.io/repos/github/CalderaWP/caldera-components/badge.svg?branch=master)](https://coveralls.io/github/CalderaWP/caldera-components?branch=master)\n🌋 [Documentation](http://calderalabs.org/caldera-components/)\n\n## What Is This?\n* React components for Caldera Forms\n* Factories for generating UI dynamically.\n\n## Why Is This?\n[See goals](http://calderalabs.org/caldera-components/#goals)\n\n## Usage\n\n### Install\n`npm i -D @caldera-labs/components`\n\n### Using This Library\n* 🌋 [Components](http://calderalabs.org/caldera-components/manual/components.html)\n* 🌋 [Factories](http://calderalabs.org/caldera-components/manual/factories.html)\n* 🌋 🌋 Import From Webpack\n    - `import * as Components from '@caldera-labs/components';`\n* The reference implementation of this library is [`@caldera-labs/processor-ui`](https://github.com/CalderaWP/processor-ui)\n\n#### Basic Example\nThe easiest way to use this library is with the [`RenderGroup` component](https://calderalabs.org/caldera-components/manual/components.html#rendergroup). This component takes an array of configField settings. These settings follow a schema, [defined here](https://calderalabs.org/caldera-components/manual/factories.html#configfield-schema).\n\n```jsx\nimport * as Components from '@caldera-labs/components';\nimport React from 'react';\n\n<Components.RenderGroup \n    className={'cf-something-config'}\n    configFields={[\n        {\n            'id': 'cf-something-select-id',\n            'type': 'dropdown',\n            'label': 'Content type',\n            'description': 'Choose content type, default is HTML',\n            options: [\n                {\n                    label: 'HTML',\n                    value: 'html'\n                },\n                {\n                    label: 'Plain Text',\n                    value: 'plain'\n                }\n            ],\n            value: 'html',\n            onValueChange: (newValue) =>{\n                console.log(newValue)\n            }\n        }\n    ]}\n/>\n\n```\n\n## How To Develop This\n\n### Development Requirements\n* [npm](https://www.npmjs.com/get-npm)\n* [Yarn](https://yarnpkg.com/lang/en/docs/install/#mac-stable)\n* [Git]()\n\n### Testing\n[See testing documentation](http://calderalabs.org/caldera-components/manual/testing.html)\n\n### Scripts\n\n#### Develop\n* `yarn start`\n    - Runs linter and compiles for production\n    - Starts test app server\n\n#### Tests\n* `yarn test`\n    - Run test watcher\n* `npm test:once` \n    - Run tests once\n\n#### Lint Code\n* `yarn lint`\n    - Run linter and fixer watch\n* `yarn lint:fix`\n    - Lint and fix code once\n* `yarn lint:once`\n    - Lint code once\n\n\n#### Generate Documentation\n* `npm run documentation`\n    - Generates documentation from inline docs\n    - Generates documentation from markdown files in /manual\n\n#### Release To npm\nMust be [logged in as project maintainer via npm cli](https://docs.npmjs.com/cli/adduser)\n\n* `yarn release`\n    - Release a patch update\n    - Increments third position of a version. 1.0.1 -> 1.0.2\n* `yarn release:minor`\n    - Release a minor update\n    - Increments second position of a version. 1.0.1 -> 1.1.0 \n* `yarn release:major`\n    - Release a major update\n    - Increments second position of a version. 1.0.1 -> 2.0.0 \n    \nThese commands run the tests and linter, and if they pass, re-compiles source, rebuilds docs, updates the version using [npm version](https://docs.npmjs.com/cli/version), adds a git tag, makes a git commit for the version change and updates the module on npm.\n",
+    "content": "# Caldera Components\nUI components for Caldera Forms admin, Caldera Forms 2.0 front-end\n\n[![Build Status](https://travis-ci.org/CalderaWP/caldera-components.svg?branch=master)](https://travis-ci.org/calderawp/caldera-components)\n[![Documentation Status](./docs/badge.svg)](https://calderalabs.org/processor-ui/badge.svg)\n[![Coverage Status](https://coveralls.io/repos/github/CalderaWP/caldera-components/badge.svg?branch=master)](https://coveralls.io/github/CalderaWP/caldera-components?branch=master)\n🌋 [Documentation](http://calderalabs.org/caldera-components/)\n\n## What Is This?\n* React components for Caldera Forms\n* Factories for generating UI dynamically.\n\n## Why Is This?\n[See goals](http://calderalabs.org/caldera-components/#goals)\n\n## Usage\n\n### Install\n`npm i -D @caldera-labs/components`\n\n### Using This Library\n* 🌋 [Components](http://calderalabs.org/caldera-components/manual/components.html)\n* 🌋 [Factories](http://calderalabs.org/caldera-components/manual/factories.html)\n* 🌋 🌋 Import From Webpack\n    - `import * as Components from '@caldera-labs/components';`\n* The reference implementation of this library is [`@caldera-labs/processor-ui`](https://github.com/CalderaWP/processor-ui)\n\n#### Basic Example\nThe easiest way to use this library is with the [`RenderGroup` component](https://calderalabs.org/caldera-components/manual/components.html#rendergroup). This component takes an array of configField settings. These settings follow a schema, [defined here](https://calderalabs.org/caldera-components/manual/factories.html#configfield-schema).\n\n```jsx\nimport {RenderGroup} from '@caldera-labs/components';\nimport React from 'react';\n\n<RenderGroup \n    className={'cf-something-config'}\n    configFields={[\n        {\n            'id': 'cf-something-select-id',\n            'type': 'dropdown',\n            'label': 'Content type',\n            'description': 'Choose content type, default is HTML',\n            options: [\n                {\n                    label: 'HTML',\n                    value: 'html'\n                },\n                {\n                    label: 'Plain Text',\n                    value: 'plain'\n                }\n            ],\n            value: 'html',\n            onValueChange: (newValue) =>{\n                console.log(newValue)\n            }\n        }\n    ]}\n/>\n\n```\n\n## How To Develop This\n\n### Development Requirements\n* [npm](https://www.npmjs.com/get-npm)\n* [Yarn](https://yarnpkg.com/lang/en/docs/install/#mac-stable)\n* [Git]()\n\n### Testing\n[See testing documentation](http://calderalabs.org/caldera-components/manual/testing.html)\n\n### Scripts\n\n#### Develop\n* `yarn start`\n    - Runs linter and compiles for production\n    - Starts test app server\n\n#### Tests\n* `yarn test`\n    - Run test watcher\n* `npm test:once` \n    - Run tests once\n\n#### Lint Code\n* `yarn lint`\n    - Run linter and fixer watch\n* `yarn lint:fix`\n    - Lint and fix code once\n* `yarn lint:once`\n    - Lint code once\n\n\n#### Generate Documentation\n* `npm run documentation`\n    - Generates documentation from inline docs\n    - Generates documentation from markdown files in /manual\n\n#### Release To npm\nMust be [logged in as project maintainer via npm cli](https://docs.npmjs.com/cli/adduser)\n\n* `yarn release`\n    - Release a patch update\n    - Increments third position of a version. 1.0.1 -> 1.0.2\n* `yarn release:minor`\n    - Release a minor update\n    - Increments second position of a version. 1.0.1 -> 1.1.0 \n* `yarn release:major`\n    - Release a major update\n    - Increments second position of a version. 1.0.1 -> 2.0.0 \n    \nThese commands run the tests and linter, and if they pass, re-compiles source, rebuilds docs, updates the version using [npm version](https://docs.npmjs.com/cli/version), adds a git tag, makes a git commit for the version change and updates the module on npm.\n",
     "static": true,
     "access": "public"
   },
@@ -4260,11 +3888,7 @@
     "kind": "manual",
     "longname": "/Users/josh/caldera-js/components/manual/components.md",
     "name": "./manual/components.md",
-<<<<<<< HEAD
-    "content": "# Included Component\nThese components are used by the factories and follow their schema, [defined here](https://calderalabs.org/caldera-components/manual/factories.html#configfield-schema).\nIn general, use the `RenderGroup` component, do not use the low-level components. Use the factories or `RenderGroup`.\n\n## `RenderGroup`\nThe `RenderGroup` component takes an array of field configs and generates UI for them. \n\n* [Reference](https://calderalabs.org/caldera-components/class/src/components/RenderGroup.js~RenderGroup.html)\n\n### Example Of `RenderGroup` Component Usage\n\n```jsx \nconst textFieldConfig = {\n\t'id': 'cf-something-tags',\n\t'label': 'Tags',\n\t'desc': 'Comma separated list of tags.',\n\t'type': 'text',\n\t'description': false,\n\tvalue: 'Roy,Mike',\n\tonValueChange: (newValue) =>{\n\t\tconsole.log(newValue)\n\t}\n};\n\nconst hiddenFieldConfig = {\n\t'id': 'cf-something-sequence-id',\n\t'type': 'hidden',\n\t'label': 'Sequence ID',\n\t'description': false,\n\tvalue: '42',\n    \tonValueChange: (newValue) =>{\n    \t\tconsole.log(newValue)\n    \t}\n};\n\nconst selectFieldConfig = {\n\t'id': 'cf-something-select-id',\n\t'type': 'dropdown',\n\t'label': 'Content type',\n\t'description': 'Choose content type, default is HTML',\n\toptions: [\n\t\t{\n\t\t\tlabel: 'HTML',\n\t\t\tvalue: 'html'\n\t\t},\n\t\t{\n\t\t\tlabel: 'Plain Text',\n\t\t\tvalue: 'plain'\n\t\t}\n\t],\n\tvalue: 'html',\n    onValueChange: (newValue) =>{\n        console.log(newValue)\n    }\n};\n\nconst configFields = [\n\ttextFieldConfig,\n\thiddenFieldConfig,\n\tselectFieldConfig\n];\n\n<RenderGroup\n    configFields={configFields}\n    className={'cf-something-config'}\n /> \n```\n\n### Add onFocus Event For All Fields Of Render Group\nYou can add an onFocus event that fires when ever any field is focused. The callback function gets the config field's ID as its only parameter.\n```js\n<RenderGroup\n    configFields={[\n    \t//add your fields\n    ]}\n    className={'cf-something-config'}\n    onFocus={(fieldId) => console.log(fieldId)}\n /> \n\n```\n\n### Add onBlur Event For All Fields Of Render Group\nYou can add an `onBlur` event that fires when ever any field is blurred. The callback function gets the config field's ID as its only parameter.\n\n```js\n<RenderGroup\n    configFields={[\n    \t//add your fields\n    ]}\n    className={'cf-something-config'}\n    onBlur={(fieldId) => console.log(fieldId)}\n /> \n\n```\n\n\n## Field Groups\nIf you have to use a component, please use `FieldGroup` not its inner components.\n\n* [Reference](https://calderalabs.org/caldera-components/function/index.html#static-function-Input)\n\n### Text field that is required\n```jsx\n<FieldGroup\n    id={'control-22'}\n    label={'Required Text input'}\n    type={'input'}\n    isRequired={true}\n    value={values.one}\n    onValueChange={(newValue) => {\n        values.one=newValue;\n    }}\n/>\n\n```\n\n### Text field that is not required\n```jsx\n<FieldGroup\n    id={'control-23'}\n    label={'Non Required Text input'}\n    type={'input'}\n    isRequired={true}\n    value={values.two}\n    onValueChange={(newValue) => {\n        values.two=newValue;\n    }}\n/>\n```\n\n### Text field with help text\n* Adding help text automatically ads `aria-describedby`\n\n```jsx\n<FieldGroup\n    id={'control-23'}\n    label={'With Help Text'}\n    type={'input'}\n    isRequired={true}\n    help={'Adding help text sets aria-describedy'}\n    value={values.thre}\n    onValueChange={(newValue) => {\n        values.three=newValue;\n    }}\n/>\n```\n\n\n### Number Field\n\n```jsx\n<FieldGroup\n    id={'control-24'}\n    label={'Non Required Numeric input'}\n    type={'input'}\n    innertype={'number'}\n    isRequired={true}\n    value={values.two}\n    onValueChange={(newValue) => {\n        values.two=newValue;\n    }}\n/>\n\n```\n## Select Fields\n* [Reference](https://calderalabs.org/caldera-components/function/index.html#static-function-SelectField)\n\n```jsx \nimport {SelectFieldFancy} from '@caldera-labs/components/src/components/fields/select/SelectFieldFancyFancy.js'\n\n<SelectFieldFancy\n    id={'number-of-things'} //ID attribute for input\n    fieldClassName={'thing-select'} //Field className prop\n    onValueChange={(newValue) => {\n        console.log(newValue)\n    }} //Update callback\n    options={[\n        {\n            value: '1,\n            label: 'One'\n        },\n        {\n            value: '2',\n            label: 'Two'\n        }\n    ]}\n    value={'2'} //The current value\n/>\n    \n```\n\n## Fieldsets\nFor a `<fieldset>` element containing checkboxes, pass the value `fieldset` to the `type\n\n\n```js\n//Value is an array.\nlet checkBoxValue = ['1'];\n\n<FieldGroup\n    type={'fieldset'} //Create a ground of checkboxes wrapped in a field set\n    label={'Checkbox group'} //Used for the <legend>\n    value={checkBoxValue} //value(s)\n    id={'Checkbox1'} //id attribute for <fieldset>\n    onValueChange={(newValue) => {\n    \t//logic of removing/adding from array is handled internally\n        checkBoxValue = newValue;\n    }}\n    options={[\n        {\n            value: '1', //this value is in array so box will be checked by default\n            label: 'One'// Used for this checkbox's <label>\n        },\n        {\n            value: '2', //this value is NOT in array so box will NOT be checked by default\n            label: 'Two'// Used for this checkbox's <label>\n        }\n    ]}\n/>\n```\n\n## Message component\nThe `Message` component is used to display validation messages in a `FieldGroup` component. Messages have a shape defined in the `messagePropShape` object. This component, by design, returns nothing if `props.message.message` is not supplied, or is an empty string.\n### An error message\n```js\n<Message\n    message={{\n        message:'Something bad has happened.',\n        error: true,\n    }}\n/>\n```\n\n### A non-error message\n```js\n<Message\n    message={{\n        message:'Something has happened.',\n        error: false,\n    }}\n/>\n```\n\n### Render nothing\nMessage components only render when needed.\n\nThis will not render anything\n ```js\n <Message\n     message={{\n         error: false,\n     }}\n />\n ```\n \n This will also render nothing:\n  ```js\n  <Message\n      message={{\n          message: '',\n      }}\n  />\n  ```\n\n### Adding additional classes to the message's outer element\nThis example adds the class `cf-whatever-error` to the element with the message.\n \n```js\n<Message\n    message={{\n        message:'Hi Roy'\n    }}\n    className={'cf-whatever-error'}\n/>\n```\n\n## Admin Page Components\nMain admin UI components for Caldera Forms\n\n### Import Using webpack\n`import {Admin} from '@caldera-labs/components'`\n\n### List of Admin Components\n* `CalderaHeader` A component to create the header markup of a page.\n- Child props can be passed. They will be outputted inside of a `ul`. You must supply `li`.\n* `PageBody` Wraps the content of an admin page in a consistent wrapper.\n* `StatusIndicator` Conveys succesful green messages or red messages of failure.\n\n#### `StatusIndicator`\n* Conveys successful green messages or red messages of failure.\n* Relies on CSS in admin.css for style, which makes it look the same as existing similar components.\n* Designed to work the same way as status indicator used in Pro UI, which is VueJS.\n\n#### Examples Usage of `StatusIndicator` Component\nSuccess message:\n```js\nimport {Admin} from '@caldera-labs/components';\n<Admin.StatusIndicator \n    message={'Everything Is Sivan!'}\n    show={true} \n    success={true}\n/>\n```\n\nError/ warning:\n\n```js\nimport {Admin} from '@caldera-labs/components';\n<Admin.StatusIndicator \n    message={'Error!'}\n    show={true}\n    success={false}\n/>\n\n```\n\n#### `CalderaHeader`\n```js\nimport {Admin} from '@caldera-labs/components';\n<Admin.CalderaHeader \n    >\n    <li><button></button></li>\n</Admin.CalderaHeader>\n```\n\n\n#### `PageBody`\n```js\nimport {Admin} from '@caldera-labs/components';\n<Admin.PageBody \n    >\n    <Admin.CalderaHeader \n        >\n        <li><button></button></li>\n    </Admin.CalderaHeader>\n    <div>Hi Roy</div>\n</Admin.CalderaHeader>\n```",
-=======
-    "content": "# Included Component\nThese components are used by the factories and follow their schema, [defined here](https://calderalabs.org/caldera-components/manual/factories.html#configfield-schema).\nIn general, use the `RenderGroup` component, do not use the low-level components. Use the factories or `RenderGroup`.\n\n## `RenderGroup`\nThe `RenderGroup` component takes an array of field configs and generates UI for them. \n\n* [Reference](https://calderalabs.org/caldera-components/class/src/components/RenderGroup.js~RenderGroup.html)\n\n### Example Of `RenderGroup` Component Usage\n\n```jsx \nconst textFieldConfig = {\n\t'id': 'cf-something-tags',\n\t'label': 'Tags',\n\t'desc': 'Comma separated list of tags.',\n\t'type': 'text',\n\t'description': false,\n\tvalue: 'Roy,Mike',\n\tonValueChange: (newValue) =>{\n\t\tconsole.log(newValue)\n\t}\n};\n\nconst hiddenFieldConfig = {\n\t'id': 'cf-something-sequence-id',\n\t'type': 'hidden',\n\t'label': 'Sequence ID',\n\t'description': false,\n\tvalue: '42',\n    \tonValueChange: (newValue) =>{\n    \t\tconsole.log(newValue)\n    \t}\n};\n\nconst selectFieldConfig = {\n\t'id': 'cf-something-select-id',\n\t'type': 'dropdown',\n\t'label': 'Content type',\n\t'description': 'Choose content type, default is HTML',\n\toptions: [\n\t\t{\n\t\t\tlabel: 'HTML',\n\t\t\tvalue: 'html'\n\t\t},\n\t\t{\n\t\t\tlabel: 'Plain Text',\n\t\t\tvalue: 'plain'\n\t\t}\n\t],\n\tvalue: 'html',\n    onValueChange: (newValue) =>{\n        console.log(newValue)\n    }\n};\n\nconst configFields = [\n\ttextFieldConfig,\n\thiddenFieldConfig,\n\tselectFieldConfig\n];\n\n<RenderGroup\n    configFields={configFields}\n    className={'cf-something-config'}\n /> \n```\n\n### A Magic Aut-Complete Field Selector In A RednerGroup\n```js\nconst magicField = {\n    'id': 'cf-magic-example',\n    'type': 'magic',\n    'label': 'Magic ID',\n    'description': 'Select a value from list of magic tags or type a value',\n    fieldsList: [\n        {\n            label: '0',\n            value: 0\n        },\n        {\n            label: '1',\n            value: 1\n        },\n        {\n            label: '3',\n            value: 3\n        }\n    ],\n    systemTagsList: [\n        {\n            label: '3',\n            value: 3\n        }\n    ],\n    isOpen: true,\n    onValueChange: () => {\n    }\n};\n\n<RenderGroup configFields={[magicField]}/>\n\n```\n\n### Add onFocus Event For All Fields Of Render Group\nYou can add an onFocus event that fires when ever any field is focused. The callback function gets the config field's ID as its only parameter.\n```js\n<RenderGroup\n    configFields={[\n    \t//add your fields\n    ]}\n    className={'cf-something-config'}\n    onFocus={(fieldId) => console.log(fieldId)}\n /> \n\n```\n\n### Add onBlur Event For All Fields Of Render Group\nYou can add an `onBlur` event that fires when ever any field is blurred. The callback function gets the config field's ID as its only parameter.\n\n```js\n<RenderGroup\n    configFields={[\n    \t//add your fields\n    ]}\n    className={'cf-something-config'}\n    onBlur={(fieldId) => console.log(fieldId)}\n /> \n\n```\n\n\n## Field Groups\nIf you have to use a component, please use `FieldGroup` not its inner components.\n\n* [Reference](https://calderalabs.org/caldera-components/function/index.html#static-function-Input)\n\n### Text Field Groups\nIf the prop `type` is input, the type of input is controlled by the `inputType` props, which by default is `text`. Therefore, by default input field groups have inputs with the HTML5 input `type` attribute of \"text\". Also, `inputType` could be \"number\" or \"data\", etc.\n\n#### Text field that is required\n```jsx\n<FieldGroup\n    id={'control-22'}\n    label={'Required Text input'}\n    type={'input'}\n    isRequired={true}\n    value={values.one}\n    onValueChange={(newValue) => {\n        values.one=newValue;\n    }}\n/>\n\n```\n\n#### Text field that is not required\n```jsx\n<FieldGroup\n    id={'control-23'}\n    label={'Non Required Text input'}\n    type={'input'}\n    isRequired={true}\n    value={values.two}\n    onValueChange={(newValue) => {\n        values.two=newValue;\n    }}\n/>\n```\n\n#### Text field with help text\n* Adding help text automatically ads `aria-describedby`\n\n```jsx\n<FieldGroup\n    id={'control-23'}\n    label={'With Help Text'}\n    type={'input'}\n    isRequired={true}\n    help={'Adding help text sets aria-describedy'}\n    value={values.thre}\n    onValueChange={(newValue) => {\n        values.three=newValue;\n    }}\n/>\n```\n\n\n### Number Field Group\n\n```jsx\n<FieldGroup\n    id={'control-24'}\n    label={'Non Required Numeric input'}\n    type={'input'}\n    innertype={'number'}\n    isRequired={true}\n    value={values.two}\n    onValueChange={(newValue) => {\n        values.two=newValue;\n    }}\n/>\n\n### Select Field Groups\n\nSelect field groups happen when you pass \"select\" to the `type` prop. \n\nSelect fields take an array of options in the prop option. Options in that collection must conform the shape [defined here](https://calderalabs.org/caldera-components/docs/file/src/components/fields/propTypes.js.html#lineNumber75)\n\n\n```\nlet selectFieldValue = '';\n<FieldGroup\n    type={'select'}\n    label={'Basic select field'}\n    value={selectFieldValue}\n    id={'id-of-the-select-field-itself'}\n    onValueChange={(newValue) => {\n        selectFieldValue = newValue;\n    }}\n    options={[\n        {\n            value: 1,\n            label: 'One'\n        },\n        {\n            value: 2,\n            label: 'Two'\n        }\n    ]}\n/>\n\n### Magic Select Groups\nMagic select groups use `MagicSelect` fields, which wrap [reactjs/react-autocomple](https://github.com/reactjs/react-autocomplete) to create a UI for [Caldera Forms magic tags](https://calderaforms.com/doc/using-magic-tags-caldera-forms/).\n\nThese fields groups show options from two lists, one is passed in the prop `fieldsList` and represents the fields of the form, and the other is in `systemTagsList`, which represents the system values such as the current user info.\n\nThe property `isOpen` controls if the auto-complete list is open.\n```js\nlet magicFieldValue ='';\n\n<MagicFieldGroup\n        id={'magic-5'}\n        fieldClassName={'magic'}\n        label={'Magic Group'}\n        onValueChange={(newValue) => {\n            magicFieldValue = newValue;\n        } }\n        fieldsList={[\n            {\n                label: 'Field One',\n                value: '%fldOne%'\n            },\n            {\n                label: 'Field Two',\n                value: '%fldTwo%'\n            },\n            {\n                label: 'Field Three',\n                value: '%fldThree%'\n            },\n        ]}\n        systemTagsList={[\n            {\n                label: 'User First Name',\n                value: '{user:first_name}'\n            }\n        ]}\n        isOpen={true}\n        value={magicFieldValue}\n    />\n```\n```\n## Select Fields\n* [Reference](https://calderalabs.org/caldera-components/function/index.html#static-function-SelectField)\n\n```jsx \nimport {SelectFieldFancy} from '@caldera-labs/components/src/components/fields/select/SelectFieldFancyFancy.js'\n\n<SelectFieldFancy\n    id={'number-of-things'} //ID attribute for input\n    fieldClassName={'thing-select'} //Field className prop\n    onValueChange={(newValue) => {\n        console.log(newValue)\n    }} //Update callback\n    options={[\n        {\n            value: '1,\n            label: 'One'\n        },\n        {\n            value: '2',\n            label: 'Two'\n        }\n    ]}\n    value={'2'} //The current value\n/>\n    \n```\n\n## Fieldsets\nFor a `<fieldset>` element containing checkboxes, pass the value `fieldset` to the `type\n\n\n```js\n//Value is an array.\nlet checkBoxValue = ['1'];\n\n<FieldGroup\n    type={'fieldset'} //Create a ground of checkboxes wrapped in a field set\n    label={'Checkbox group'} //Used for the <legend>\n    value={checkBoxValue} //value(s)\n    id={'Checkbox1'} //id attribute for <fieldset>\n    onValueChange={(newValue) => {\n    \t//logic of removing/adding from array is handled internally\n        checkBoxValue = newValue;\n    }}\n    options={[\n        {\n            value: '1', //this value is in array so box will be checked by default\n            label: 'One'// Used for this checkbox's <label>\n        },\n        {\n            value: '2', //this value is NOT in array so box will NOT be checked by default\n            label: 'Two'// Used for this checkbox's <label>\n        }\n    ]}\n/>\n```\n\n## Button Group\nButton groups are select fields. One button can be selected at once.\n\nThis is a field, not a group (like `FieldGroup` or `MagicFieldGroup`) so it does not handle its own label.\n\nButton groups fields take an array of options in the prop option. Options in that collection must conform the shape [defined here](https://calderalabs.org/caldera-components/docs/file/src/components/fields/propTypes.js.html#lineNumber75)\n\n### Examples\n### Button Group With Two Options\n```js\n<ButtonGroup\n    onChange={(selectedValue) => {\n    \tconsole.log(selectedValue);\n    }}\n    options={[\n        {\n            value: 1,\n            label: 'Option One',\n        },\n        {\n            value: 2,\n            label: 'Option Two',\n        }\n    ]}\n    value={1}\n/>\n```\n\n#### Button Group With Icon\nIf options have `icon`, the rendered markup for the button will be like this:\n\n```html\n<button ...><span class=\"fa-envelope\"></span></button>\n\n```\n\nThat's the markup you need if font awesome is loaded on the page. In the future this component should supply font awesome or dashicons or emoji icons. For now, it does not.\n\n```js\n<ButtonGroup\n    onChange={(selectedValue) => {\n    \tconsole.log(selectedValue);\n    }}\n    options={[\n        {\n            value: 1,\n            label: 'Option One',\n            icon: 'fa-envelop'\n        },\n        {\n            value: 2,\n            label: 'Option Two',\n            icon: 'fa-twitter'\n\n        }\n    ]}\n    value={1}\n/>\n```\n\n#### Explicitly set `aria-label` Attribute\nBy default, the visual representation fo the option is `option.label`. That makes sense, if you're representing the option with words. Allowing the component to use `option.label` for the `aria-label` attribute, which is its default value, I think makes sense.\n\nBut, if the visual representation of the option is an emoji or image, then `aria-label` can not be an image, it has to be text that gives meaning to the image for users who can not see the image.\n\n```js\n<ButtonGroup\n    onChange={(selectedValue) => {\n    \tconsole.log(selectedValue);\n    }}\n    options={[\n        {\n            value: 'fields',\n            label: '%',\n            ariaLabel: 'Select from field values'\n        },\n        {\n            value: 'system',\n            label: '{}',\n            ariaLabel: 'Select from system values'\n        },\n    ]}\n/>\n```\n\n## Message component\nThe `Message` component is used to display validation messages in a `FieldGroup` component. Messages have a shape defined in the `messagePropShape` object. This component, by design, returns nothing if `props.message.message` is not supplied, or is an empty string.\n### An error message\n```js\n<Message\n    message={{\n        message:'Something bad has happened.',\n        error: true,\n    }}\n/>\n```\n\n### A non-error message\n```js\n<Message\n    message={{\n        message:'Something has happened.',\n        error: false,\n    }}\n/>\n```\n\n### Render nothing\nMessage components only render when needed.\n\nThis will not render anything\n ```js\n <Message\n     message={{\n         error: false,\n     }}\n />\n ```\n \n This will also render nothing:\n  ```js\n  <Message\n      message={{\n          message: '',\n      }}\n  />\n  ```\n\n### Adding additional classes to the message's outer element\nThis example adds the class `cf-whatever-error` to the element with the message.\n \n```js\n<Message\n    message={{\n        message:'Hi Roy'\n    }}\n    className={'cf-whatever-error'}\n/>\n```",
->>>>>>> master
+    "content": "# Included Component\nThese components are used by the factories and follow their schema, [defined here](https://calderalabs.org/caldera-components/manual/factories.html#configfield-schema).\nIn general, use the `RenderGroup` component, do not use the low-level components. Use the factories or `RenderGroup`.\n\n## `RenderGroup`\nThe `RenderGroup` component takes an array of field configs and generates UI for them. \n\n* [Reference](https://calderalabs.org/caldera-components/class/src/components/RenderGroup.js~RenderGroup.html)\n\n### Import with wepback\n`import {RenderGroup} from '@caldera-labs/components';`\n### Example Of `RenderGroup` Component Usage\n\n```jsx \nconst textFieldConfig = {\n\t'id': 'cf-something-tags',\n\t'label': 'Tags',\n\t'desc': 'Comma separated list of tags.',\n\t'type': 'text',\n\t'description': false,\n\tvalue: 'Roy,Mike',\n\tonValueChange: (newValue) =>{\n\t\tconsole.log(newValue)\n\t}\n};\n\nconst hiddenFieldConfig = {\n\t'id': 'cf-something-sequence-id',\n\t'type': 'hidden',\n\t'label': 'Sequence ID',\n\t'description': false,\n\tvalue: '42',\n    \tonValueChange: (newValue) =>{\n    \t\tconsole.log(newValue)\n    \t}\n};\n\nconst selectFieldConfig = {\n\t'id': 'cf-something-select-id',\n\t'type': 'dropdown',\n\t'label': 'Content type',\n\t'description': 'Choose content type, default is HTML',\n\toptions: [\n\t\t{\n\t\t\tlabel: 'HTML',\n\t\t\tvalue: 'html'\n\t\t},\n\t\t{\n\t\t\tlabel: 'Plain Text',\n\t\t\tvalue: 'plain'\n\t\t}\n\t],\n\tvalue: 'html',\n    onValueChange: (newValue) =>{\n        console.log(newValue)\n    }\n};\n\nconst configFields = [\n\ttextFieldConfig,\n\thiddenFieldConfig,\n\tselectFieldConfig\n];\n\n<RenderGroup\n    configFields={configFields}\n    className={'cf-something-config'}\n /> \n```\n\n### A Magic Aut-Complete Field Selector In A RenderGroup\n```js\nconst magicField = {\n    'id': 'cf-magic-example',\n    'type': 'magic',\n    'label': 'Magic ID',\n    'description': 'Select a value from list of magic tags or type a value',\n    fieldsList: [\n        {\n            label: '0',\n            value: 0\n        },\n        {\n            label: '1',\n            value: 1\n        },\n        {\n            label: '3',\n            value: 3\n        }\n    ],\n    systemTagsList: [\n        {\n            label: '3',\n            value: 3\n        }\n    ],\n    isOpen: true,\n    onValueChange: () => {\n    }\n};\n\n<RenderGroup configFields={[magicField]}/>\n\n```\n\n### Add onFocus Event For All Fields Of Render Group\nYou can add an onFocus event that fires when ever any field is focused. The callback function gets the config field's ID as its only parameter.\n```js\n<RenderGroup\n    configFields={[\n    \t//add your fields\n    ]}\n    className={'cf-something-config'}\n    onFocus={(fieldId) => console.log(fieldId)}\n /> \n\n```\n\n### Add onBlur Event For All Fields Of Render Group\nYou can add an `onBlur` event that fires when ever any field is blurred. The callback function gets the config field's ID as its only parameter.\n\n```js\n<RenderGroup\n    configFields={[\n    \t//add your fields\n    ]}\n    className={'cf-something-config'}\n    onBlur={(fieldId) => console.log(fieldId)}\n /> \n\n```\n\n\n## Field Groups\nIf you have to use a component, please use `FieldGroup` not its inner components.\n\n* [Reference](https://calderalabs.org/caldera-components/function/index.html#static-function-Input)\n\n\n### Import With webpack\n`import {FieldGroup} from '@caldera-labs/components';`\n\n### Text Field Groups\nIf the prop `type` is input, the type of input is controlled by the `inputType` props, which by default is `text`. Therefore, by default input field groups have inputs with the HTML5 input `type` attribute of \"text\". Also, `inputType` could be \"number\" or \"data\", etc.\n\n#### Text field that is required\n```jsx\n<FieldGroup\n    id={'control-22'}\n    label={'Required Text input'}\n    type={'input'}\n    isRequired={true}\n    value={values.one}\n    onValueChange={(newValue) => {\n        values.one=newValue;\n    }}\n/>\n\n```\n\n#### Text field that is not required\n```jsx\n<FieldGroup\n    id={'control-23'}\n    label={'Non Required Text input'}\n    type={'input'}\n    isRequired={true}\n    value={values.two}\n    onValueChange={(newValue) => {\n        values.two=newValue;\n    }}\n/>\n```\n\n#### Text field with help text\n* Adding help text automatically ads `aria-describedby`\n\n```jsx\n<FieldGroup\n    id={'control-23'}\n    label={'With Help Text'}\n    type={'input'}\n    isRequired={true}\n    help={'Adding help text sets aria-describedy'}\n    value={values.thre}\n    onValueChange={(newValue) => {\n        values.three=newValue;\n    }}\n/>\n```\n\n\n### Number Field Group\n\n```jsx\n<FieldGroup\n    id={'control-24'}\n    label={'Non Required Numeric input'}\n    type={'input'}\n    innertype={'number'}\n    isRequired={true}\n    value={values.two}\n    onValueChange={(newValue) => {\n        values.two=newValue;\n    }}\n/>\n```\n\n### Select Field Groups\n\nSelect field groups happen when you pass \"select\" to the `type` prop. \n\nSelect fields take an array of options in the prop option. Options in that collection must conform the shape [defined here](https://calderalabs.org/caldera-components/docs/file/src/components/fields/propTypes.js.html#lineNumber75)\n\n\n```\nlet selectFieldValue = '';\n<FieldGroup\n    type={'select'}\n    label={'Basic select field'}\n    value={selectFieldValue}\n    id={'id-of-the-select-field-itself'}\n    onValueChange={(newValue) => {\n        selectFieldValue = newValue;\n    }}\n    options={[\n        {\n            value: 1,\n            label: 'One'\n        },\n        {\n            value: 2,\n            label: 'Two'\n        }\n    ]}\n/>\n\n## Magic Select Groups\nMagic select groups use `MagicSelect` fields, which wrap [reactjs/react-autocomple](https://github.com/reactjs/react-autocomplete) to create a UI for [Caldera Forms magic tags](https://calderaforms.com/doc/using-magic-tags-caldera-forms/).\n\nThese fields groups show options from two lists, one is passed in the prop `fieldsList` and represents the fields of the form, and the other is in `systemTagsList`, which represents the system values such as the current user info.\n\nThe property `isOpen` controls if the auto-complete list is open.\n\n### Import With webpack\nimport {MagicFieldGroup} from '@caldera-labs/components';\n\n### Example\n\n```js\nlet magicFieldValue ='';\n\n<MagicFieldGroup\n        id={'magic-5'}\n        fieldClassName={'magic'}\n        label={'Magic Group'}\n        onValueChange={(newValue) => {\n            magicFieldValue = newValue;\n        } }\n        fieldsList={[\n            {\n                label: 'Field One',\n                value: '%fldOne%'\n            },\n            {\n                label: 'Field Two',\n                value: '%fldTwo%'\n            },\n            {\n                label: 'Field Three',\n                value: '%fldThree%'\n            },\n        ]}\n        systemTagsList={[\n            {\n                label: 'User First Name',\n                value: '{user:first_name}'\n            }\n        ]}\n        isOpen={true}\n        value={magicFieldValue}\n    />\n```\n\n\n\n\n## Select Fields\n* [Reference](https://calderalabs.org/caldera-components/function/index.html#static-function-SelectField)\n\n### Import With webpack\n`import {fields} from '@caldera-labs/components';`\n\n### Example\n```\n<fields.SelectField\n    id={'number-of-things'} //ID attribute for input\n    fieldClassName={'thing-select'} //Field className prop\n    onValueChange={(newValue) => {\n        console.log(newValue)\n    }} //Update callback\n    options={[\n        {\n            value: '1,\n            label: 'One'\n        },\n        {\n            value: '2',\n            label: 'Two'\n        }\n    ]}\n    value={'2'} //The current value\n/>\n    \n```\n\n## Fieldsets\nFor a `<fieldset>` element containing checkboxes, pass the value `fieldset` to the `type\n\n\n\n```js\nimport {FieldGroup} from '@caldera-labs/components';\n//Value is an array.\nlet checkBoxValue = ['1'];\n\n<FieldGroup\n    type={'fieldset'} //Create a ground of checkboxes wrapped in a field set\n    label={'Checkbox group'} //Used for the <legend>\n    value={checkBoxValue} //value(s)\n    id={'Checkbox1'} //id attribute for <fieldset>\n    onValueChange={(newValue) => {\n    \t//logic of removing/adding from array is handled internally\n        checkBoxValue = newValue;\n    }}\n    options={[\n        {\n            value: '1', //this value is in array so box will be checked by default\n            label: 'One'// Used for this checkbox's <label>\n        },\n        {\n            value: '2', //this value is NOT in array so box will NOT be checked by default\n            label: 'Two'// Used for this checkbox's <label>\n        }\n    ]}\n/>\n```\n\n## Button Group\nButton groups are select fields. One button can be selected at once.\n\nThis is a field, not a group (like `FieldGroup` or `MagicFieldGroup`) so it does not handle its own label.\n\nButton groups fields take an array of options in the prop option. Options in that collection must conform the shape [defined here](https://calderalabs.org/caldera-components/docs/file/src/components/fields/propTypes.js.html#lineNumber75)\n\n### Import With webpack\n```\nimport {fields} from '@caldera-labs/components';\nconst {ButtonGroup} = fields;\n```\n\n### Examples\n### Button Group With Two Options\n```js\n<ButtonGroup\n    onChange={(selectedValue) => {\n    \tconsole.log(selectedValue);\n    }}\n    options={[\n        {\n            value: 1,\n            label: 'Option One',\n        },\n        {\n            value: 2,\n            label: 'Option Two',\n        }\n    ]}\n    value={1}\n/>\n```\n\n#### Button Group With Icon\nIf options have `icon`, the rendered markup for the button will be like this:\n\n```html\n<button ...><span class=\"fa-envelope\"></span></button>\n\n```\n\nThat's the markup you need if font awesome is loaded on the page. In the future this component should supply font awesome or dashicons or emoji icons. For now, it does not.\n\n```js\n<ButtonGroup\n    onChange={(selectedValue) => {\n    \tconsole.log(selectedValue);\n    }}\n    options={[\n        {\n            value: 1,\n            label: 'Option One',\n            icon: 'fa-envelop'\n        },\n        {\n            value: 2,\n            label: 'Option Two',\n            icon: 'fa-twitter'\n\n        }\n    ]}\n    value={1}\n/>\n```\n\n#### Explicitly set `aria-label` Attribute\nBy default, the visual representation fo the option is `option.label`. That makes sense, if you're representing the option with words. Allowing the component to use `option.label` for the `aria-label` attribute, which is its default value, I think makes sense.\n\nBut, if the visual representation of the option is an emoji or image, then `aria-label` can not be an image, it has to be text that gives meaning to the image for users who can not see the image.\n\n```js\n<ButtonGroup\n    onChange={(selectedValue) => {\n    \tconsole.log(selectedValue);\n    }}\n    options={[\n        {\n            value: 'fields',\n            label: '%',\n            ariaLabel: 'Select from field values'\n        },\n        {\n            value: 'system',\n            label: '{}',\n            ariaLabel: 'Select from system values'\n        },\n    ]}\n/>\n```\n\n## Message component\nThe `Message` component is used to display validation messages in a `FieldGroup` component. Messages have a shape defined in the `messagePropShape` object. This component, by design, returns nothing if `props.message.message` is not supplied, or is an empty string.\n\n### Import with webpack\n```\nimport {fields} from '@caldera-labs/components';\nconst {Message} = fields;\n```\n\n### An error message\n```js\n<Message\n    message={{\n        message:'Something bad has happened.',\n        error: true,\n    }}\n/>\n```\n\n### A non-error message\n```js\n<Message\n    message={{\n        message:'Something has happened.',\n        error: false,\n    }}\n/>\n```\n\n### Render nothing\nMessage components only render when needed.\n\nThis will not render anything\n ```js\n <Message\n     message={{\n         error: false,\n     }}\n />\n ```\n \n This will also render nothing:\n  ```js\n  <Message\n      message={{\n          message: '',\n      }}\n  />\n  ```\n\n### Adding additional classes to the message's outer element\nThis example adds the class `cf-whatever-error` to the element with the message.\n \n```js\n<Message\n    message={{\n        message:'Hi Roy'\n    }}\n    className={'cf-whatever-error'}\n/>\n```\n\n## Admin Page Components\nMain admin UI components for Caldera Forms\n\n### Import Using webpack\n`import {Admin} from '@caldera-labs/components'`\n\n### List of Admin Components\n* `CalderaHeader` A component to create the header markup of a page.\n- Child props can be passed. They will be outputted inside of a `ul`. You must supply `li`.\n* `PageBody` Wraps the content of an admin page in a consistent wrapper.\n* `StatusIndicator` Conveys succesful green messages or red messages of failure.\n\n#### `StatusIndicator`\n* Conveys successful green messages or red messages of failure.\n* Relies on CSS in admin.css for style, which makes it look the same as existing similar components.\n* Designed to work the same way as status indicator used in Pro UI, which is VueJS.\n\n#### Examples Usage of `StatusIndicator` Component\nSuccess message:\n```js\nimport {Admin} from '@caldera-labs/components';\n<Admin.StatusIndicator \n    message={'Everything Is Sivan!'}\n    show={true} \n    success={true}\n/>\n```\n\nError/ warning:\n\n```js\nimport {Admin} from '@caldera-labs/components';\n<Admin.StatusIndicator \n    message={'Error!'}\n    show={true}\n    success={false}\n/>\n\n```\n\n#### `CalderaHeader`\n```js\nimport {Admin} from '@caldera-labs/components';\n<Admin.CalderaHeader \n    >\n    <li><button></button></li>\n</Admin.CalderaHeader>\n```\n\n\n#### `PageBody`\n```js\nimport {Admin} from '@caldera-labs/components';\n<Admin.PageBody \n    >\n    <Admin.CalderaHeader \n        >\n        <li><button></button></li>\n    </Admin.CalderaHeader>\n    <div>Hi Roy</div>\n</Admin.CalderaHeader>\n```",
     "static": true,
     "access": "public"
   },

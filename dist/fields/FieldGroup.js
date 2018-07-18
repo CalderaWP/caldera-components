@@ -31,6 +31,8 @@ var _messageObjectFactory = require('./messages/messageObjectFactory');
 
 var _fieldsetCheckboxHandler = require('./field-group-change-handlers/fieldsetCheckboxHandler');
 
+var _MagicFieldGroup = require('./magic-select/MagicFieldGroup');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
@@ -41,6 +43,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @constructor
  */
 var FieldGroup = exports.FieldGroup = function FieldGroup(props) {
+	if ('magic' === props.type) {
+		return _react2.default.createElement(_MagicFieldGroup.MagicFieldGroup, props);
+	}
 
 	/**
   * Creates the id attribute
@@ -134,13 +139,7 @@ var FieldGroup = exports.FieldGroup = function FieldGroup(props) {
 				{
 					className: _RenderGroup.RenderGroup.classNames.fieldWrapper
 				},
-				_react2.default.createElement(
-					'label',
-					{
-						htmlFor: fieldProps.id
-					},
-					fieldProps.label
-				),
+				_react2.default.createElement(FieldGroup.Label, { id: fieldProps.id, label: fieldProps.label }),
 				_react2.default.createElement(_Message.Message, {
 					message: message
 				}),
@@ -177,10 +176,37 @@ var FieldGroup = exports.FieldGroup = function FieldGroup(props) {
 	return fieldInner(props);
 };
 
+/**
+ * The prop type definitions for FieldGroup components
+ *
+ * @type {{id: (boolean|shim|*), isBlockInput: shim, isRequired: shim, help: shim, label: (boolean|shim|*), type: shim, value: shim, onValueChange: (boolean|shim|*), inputType: shim}}
+ */
 FieldGroup.propTypes = _propTypes.fieldGroupPropTypes;
 
+/**
+ * Default props for FieldGroups
+ *
+ * @type {{isBlockInput: boolean, isRequired: boolean, help: string}}
+ */
 FieldGroup.defaultProps = {
 	isBlockInput: true,
 	isRequired: false,
 	help: ''
+};
+
+/**
+ * Creates the FieldGroup's label component
+ *
+ * @param {Object} props
+ * @return {*}
+ * @constructor
+ */
+FieldGroup.Label = function (props) {
+	return _react2.default.createElement(
+		'label',
+		{
+			htmlFor: props.id
+		},
+		props.label
+	);
 };

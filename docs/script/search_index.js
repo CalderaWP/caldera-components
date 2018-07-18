@@ -6,15 +6,15 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-<<<<<<< HEAD
-    "@caldera-labs/components/src/components/admin/calderaheader.js~calderaheader",
-    "function/index.html#static-function-CalderaHeader",
-    "<span>CalderaHeader</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/admin/CalderaHeader.js</span>",
-=======
     "@caldera-labs/components/src/components/fields/button-group/buttongroup.js~buttongroup",
     "function/index.html#static-function-ButtonGroup",
     "<span>ButtonGroup</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/fields/button-group/ButtonGroup.js</span>",
->>>>>>> master
+    "function"
+  ],
+  [
+    "@caldera-labs/components/src/components/admin/calderaheader.js~calderaheader",
+    "function/index.html#static-function-CalderaHeader",
+    "<span>CalderaHeader</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/admin/CalderaHeader.js</span>",
     "function"
   ],
   [
@@ -813,6 +813,12 @@ window.esdocSearchIndex = [
     "src/components/fields/magic-select/magicselect.js~magicselect#constructor",
     "class/src/components/fields/magic-select/MagicSelect.js~MagicSelect.html#instance-constructor-constructor",
     "src/components/fields/magic-select/MagicSelect.js~MagicSelect#constructor",
+    "method"
+  ],
+  [
+    "src/components/fields/magic-select/magicselect.js~magicselect#getitemvalue",
+    "class/src/components/fields/magic-select/MagicSelect.js~MagicSelect.html#instance-method-getItemValue",
+    "src/components/fields/magic-select/MagicSelect.js~MagicSelect#getItemValue",
     "method"
   ],
   [
