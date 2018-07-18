@@ -29,10 +29,10 @@ UI components for Caldera Forms admin, Caldera Forms 2.0 front-end
 The easiest way to use this library is with the [`RenderGroup` component](https://calderalabs.org/caldera-components/manual/components.html#rendergroup). This component takes an array of configField settings. These settings follow a schema, [defined here](https://calderalabs.org/caldera-components/manual/factories.html#configfield-schema).
 
 ```jsx
-import * as Components from '@caldera-labs/components';
+import {RenderGroup} from '@caldera-labs/components';
 import React from 'react';
 
-<Components.RenderGroup 
+<RenderGroup 
     className={'cf-something-config'}
     configFields={[
         {

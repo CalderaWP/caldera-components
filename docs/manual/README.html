@@ -54,17 +54,22 @@
       
     <li data-ice="manualNav" class="indent-h1" data-link="manual/components.html"><a href="manual/components.html" data-ice="link">Included Component</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#-code-rendergroup--code-" data-ice="link">RenderGroup</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#import-with-wepback" data-ice="link">Import with wepback</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#example-of--code-rendergroup--code--component-usage" data-ice="link">Example Of RenderGroup Component Usage</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#a-magic-aut-complete-field-selector-in-a-rednergroup" data-ice="link">A Magic Aut-Complete Field Selector In A RednerGroup</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#a-magic-aut-complete-field-selector-in-a-rendergroup" data-ice="link">A Magic Aut-Complete Field Selector In A RenderGroup</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#add-onfocus-event-for-all-fields-of-render-group" data-ice="link">Add onFocus Event For All Fields Of Render Group</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#add-onblur-event-for-all-fields-of-render-group" data-ice="link">Add onBlur Event For All Fields Of Render Group</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#field-groups" data-ice="link">Field Groups</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#import-with-webpack" data-ice="link">Import With webpack</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#text-field-groups" data-ice="link">Text Field Groups</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/components.html"><a href="manual/components.html#text-field-that-is-required" data-ice="link">Text field that is required</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/components.html"><a href="manual/components.html#text-field-that-is-not-required" data-ice="link">Text field that is not required</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/components.html"><a href="manual/components.html#text-field-with-help-text" data-ice="link">Text field with help text</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#number-field-group" data-ice="link">Number Field Group</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#magic-select-groups" data-ice="link">Magic Select Groups</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#select-field-groups" data-ice="link">Select Field Groups</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#select-fields" data-ice="link">Select Fields</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#import-with-webpack" data-ice="link">Import With webpack</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#example" data-ice="link">Example</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#fieldsets" data-ice="link">Fieldsets</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#button-group" data-ice="link">Button Group</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#examples" data-ice="link">Examples</a></li>
@@ -173,10 +178,10 @@
 <li>The reference implementation of this library is <a href="https://github.com/CalderaWP/processor-ui"><code>@caldera-labs/processor-ui</code></a></li>
 </ul>
 <h4 id="basic-example">Basic Example</h4><p>The easiest way to use this library is with the <a href="https://calderalabs.org/caldera-components/manual/components.html#rendergroup"><code>RenderGroup</code> component</a>. This component takes an array of configField settings. These settings follow a schema, <a href="https://calderalabs.org/caldera-components/manual/factories.html#configfield-schema">defined here</a>.</p>
-<pre><code class="lang-jsx"><code class="source-code prettyprint">import * as Components from &apos;@caldera-labs/components&apos;;
+<pre><code class="lang-jsx"><code class="source-code prettyprint">import {RenderGroup} from &apos;@caldera-labs/components&apos;;
 import React from &apos;react&apos;;
 
-&lt;Components.RenderGroup 
+&lt;RenderGroup 
     className={&apos;cf-something-config&apos;}
     configFields={[
         {
