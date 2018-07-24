@@ -29,4 +29,12 @@ describe('conditionals export', function () {
 	it('exports admin', function () {
 		expect(_typeof(_index2.default.Admin)).toEqual('object');
 	});
+
+	it('exports FieldGroup', function () {
+		expect(_typeof(_index2.default.FieldGroup)).toEqual('function');
+	});
+
+	it('exports MagicFieldGroup', function () {
+		expect(_typeof(_index2.default.MagicFieldGroup)).toEqual('function');
+	});
 });

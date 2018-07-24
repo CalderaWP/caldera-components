@@ -5,14 +5,15 @@
     "@helpdotcom/is": "^3.0.4",
     "classnames": "^2.2.6",
     "downshift": "^1.31.16",
-    "react-autocomplete": "^1.8.1"
+    "react-autocomplete": "^1.8.1",
+    "react-s3-uploader": "^4.8.0"
   },
   "license": "GPL-2.0",
   "scripts": {
     "start": "react-wp-scripts start",
     "example:build": "react-wp-script build",
     "test": "react-scripts test --env=jsdom",
-    "test:once": "CI=true react-scripts test --env=jsdom",
+    "test:once": "set CI=true &&react-scripts test --env=jsdom",
     "test:coverage": "npm test -- --coverage",
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
     "eject": "react-wp-script eject",

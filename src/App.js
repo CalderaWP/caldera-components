@@ -5,6 +5,7 @@ import {FieldGroup} from "./components/fields/FieldGroup";
 import {fieldSetFactory} from "./components/fields/factories/fieldSetFactory";
 import {RenderGroup} from "./components/RenderGroup";
 import {MagicFieldGroup} from "./components/fields/magic-select/MagicFieldGroup";
+import {FileFieldGroup} from "./components/fields/file-field/FileFieldGroup";
 
 let textFieldValue = 'Roy,Mike';
 const textFieldConfig = {
@@ -114,6 +115,8 @@ let values = {
 
 let magicFieldValue = '';
 
+let fileFieldValue = '';
+
 class App extends Component {
 
 	render() {
@@ -176,6 +179,19 @@ class App extends Component {
 						]}
 						isOpen={true}
 						value={magicFieldValue}
+					/>
+				</div>
+
+				<div>
+					<h2>File field Select</h2>
+					<FileFieldGroup
+						id={'file-1'}
+						label={'File field'}
+						fieldClassName={'file'}
+						onValueChange={(newValue) => {
+							magicFieldValue = newValue;
+						} }
+						value={fileFieldValue}
 					/>
 				</div>
 
