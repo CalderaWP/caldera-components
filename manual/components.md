@@ -210,7 +210,7 @@ If the prop `type` is input, the type of input is controlled by the `inputType` 
 ### Submit Button Field Group
 ```js
 <FieldGroup
-id={'control-24'}
+    id={'control-24'}
     label={'This will go in the label element'}
     type={'button'}
     innertype={'submit'}
@@ -225,7 +225,7 @@ id={'control-24'}
 ###  Button Field Group
 ```js
 <FieldGroup
-id={'control-24'}
+    id={'control-24'}
     label={'This will go in the label element'}
     type={'button'}
     innertype={'button'}
@@ -234,14 +234,13 @@ id={'control-24'}
     	//do stuff when clicked
     }}
 />
-
+```
 
 ### Select Field Groups
 
 Select field groups happen when you pass "select" to the `type` prop. 
 
 Select fields take an array of options in the prop option. Options in that collection must conform the shape [defined here](https://calderalabs.org/caldera-components/docs/file/src/components/fields/propTypes.js.html#lineNumber75)
-
 
 ```
 let selectFieldValue = '';
@@ -375,6 +374,32 @@ let checkBoxValue = ['1'];
         }
     ]}
 />
+```
+
+## Submit Buttons and Other Types Of Buttons
+In general, for submit inputs and `<button>` elements, instead of using an `Input` component, you should use the `Button` component.
+
+
+### Import With webpack
+```
+import {fields} from '@caldera-labs/components';
+const {Button} = fields;
+
+```
+
+### Exampel Submit Button
+```js
+<Button
+    id={'control-button'}
+    label={'Click To Submit Form'}
+    type={'button'}
+    innertype={'submit'}
+    value={'Submit Form'}
+    onClick={() => {
+    	//do stuff when clicked
+    }}
+/>
+
 ```
 
 ## Button Group
