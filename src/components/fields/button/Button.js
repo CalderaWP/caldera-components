@@ -14,8 +14,7 @@ export const Button = (props) => {
 	function inputClassName() {
 		return classNames(
 			props.fieldClassName,
-			RenderGroup.classNames.input,
-			RenderGroup.classNames.button
+			RenderGroup.classNames.input
 		);
 	}
 

@@ -3,7 +3,7 @@
 exports[`Button component props snapshot for button 1`] = `
 <button
   aria-describedby={undefined}
-  className="foo field-config caldera-config-button"
+  className="foo field-config"
   disabled={undefined}
   id="button-2"
   onBlur={undefined}
@@ -15,7 +15,7 @@ exports[`Button component props snapshot for button 1`] = `
 exports[`Button component props snapshot for submit 1`] = `
 <input
   aria-describedby={undefined}
-  className="foo field-config caldera-config-button"
+  className="foo field-config"
   disabled={undefined}
   id="button-1"
   onBlur={undefined}
