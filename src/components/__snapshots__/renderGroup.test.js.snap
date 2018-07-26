@@ -1,5 +1,66 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`The render group component Button fields inside render groups Button RenderGroup snapshots Renders a regular button 1`] = `
+<div
+  className="caldera-config-field-setup"
+>
+  <div
+    className="caldera-config-group"
+  >
+    <div
+      className="caldera-config-field"
+    >
+      <label
+        htmlFor="RendersARegularButtonSnapShotTest"
+      >
+        Submit
+      </label>
+      <button
+        aria-describedby={null}
+        className="field-config field-config caldera-config-button"
+        disabled={false}
+        id="RendersARegularButtonSnapShotTest"
+        onBlur={undefined}
+        onClick={undefined}
+        onFocus={undefined}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`The render group component Button fields inside render groups Button RenderGroup snapshots Renders a submit button 1`] = `
+<div
+  className="caldera-config-field-setup"
+>
+  <div
+    className="caldera-config-group"
+  >
+    <div
+      className="caldera-config-field"
+    >
+      <label
+        htmlFor="cf-button-example"
+      >
+        Submit
+      </label>
+      <input
+        aria-describedby={null}
+        className="field-config field-config caldera-config-button"
+        disabled={false}
+        id="cf-button-example"
+        onBlur={undefined}
+        onClick={undefined}
+        onFocus={undefined}
+        required={undefined}
+        type="submit"
+        value={undefined}
+      />
+    </div>
+  </div>
+</div>
+`;
+
 exports[`The render group component Rendering with fields Does not error when passed empty array of fields 1`] = `
 <div
   className="caldera-config-field-setup"

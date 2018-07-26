@@ -1,4 +1,4 @@
-import {fieldGroupPropTypes,magicGroupPropTypes} from '../propTypes';
+import {fieldGroupPropTypes, magicGroupPropTypes} from '../propTypes';
 import {isValidHtml5type, toBoolean} from '../util';
 import {messageObjectFactory} from '../messages/messageObjectFactory';
 
@@ -11,6 +11,24 @@ import {messageObjectFactory} from '../messages/messageObjectFactory';
  * @returns {*}
  */
 export const prepareFieldConfig = (fieldArgs) => {
+	function addMessageArg(fieldArgs) {
+		fieldArgs.disabled = toBoolean(fieldArgs.disabled);
+		fieldArgs.message = 'object' === typeof  fieldArgs.message
+			? messageObjectFactory(fieldArgs.message)
+			: messageObjectFactory({message: null, error: false});
+		return fieldArgs;
+	}
+
+
+	if( 'button' === fieldArgs.type ) {
+		if ('submit' !== fieldArgs.inputType) {
+			fieldArgs.inputType = 'button';
+		}
+
+		return addMessageArg(fieldArgs);
+	}
+
+
 	/**
 	 * Pick whitelisted keys from object
 	 *
@@ -49,17 +67,13 @@ export const prepareFieldConfig = (fieldArgs) => {
 	}
 
 	let validators = [];
-	if( fieldArgs.hasOwnProperty('validators') && Array.isArray(fieldArgs.validators )){
+	if (fieldArgs.hasOwnProperty('validators') && Array.isArray(fieldArgs.validators)) {
 		validators = fieldArgs.validators;
 	}
 
-	const keys = 'magic' === fieldArgs.type  ? magicGroupPropTypes : fieldGroupPropTypes;
+	const keys = 'magic' === fieldArgs.type ? magicGroupPropTypes : fieldGroupPropTypes;
 	fieldArgs = pick(fieldArgs, Object.keys(keys));
-	fieldArgs.disabled = toBoolean(fieldArgs.disabled);
-	fieldArgs.message = 'object' === typeof  fieldArgs.message
-		? messageObjectFactory(fieldArgs.message)
-		: messageObjectFactory({message:null, error: false });
-
+	fieldArgs = addMessageArg(fieldArgs);
 	fieldArgs.validators = validators;
 	return fieldArgs;
 };

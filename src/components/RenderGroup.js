@@ -108,5 +108,6 @@ RenderGroup.classNames = {
 	fieldGroup: 'caldera-config-group',
 	fieldWrapper: 'caldera-config-field',
 	input: 'field-config',
+	button: 'caldera-config-button',
 
 };
