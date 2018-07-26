@@ -21,7 +21,7 @@ exports[`The render group component Button fields inside render groups Button Re
         disabled={false}
         id="RendersARegularButtonSnapShotTest"
         onBlur={undefined}
-        onClick={undefined}
+        onClick={[Function]}
         onFocus={undefined}
       />
     </div>
@@ -29,7 +29,7 @@ exports[`The render group component Button fields inside render groups Button Re
 </div>
 `;
 
-exports[`The render group component Button fields inside render groups Button RenderGroup snapshots Renders a submit button 1`] = `
+exports[`The render group component Button fields inside render groups Button RenderGroup snapshots Renders a submit input 1`] = `
 <div
   className="caldera-config-field-setup"
 >
@@ -50,7 +50,7 @@ exports[`The render group component Button fields inside render groups Button Re
         disabled={false}
         id="cf-button-example"
         onBlur={undefined}
-        onClick={undefined}
+        onClick={[Function]}
         onFocus={undefined}
         required={undefined}
         type="submit"

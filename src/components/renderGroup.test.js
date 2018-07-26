@@ -537,7 +537,9 @@ describe('The render group component', () => {
 			id: 'cf-button-example',
 			type: 'button',
 			label: 'Submit',
-			onClick: genericHandler(),
+			onClick: () => {
+
+			},
 			inputType: 'submit'
 		};
 
@@ -553,11 +555,12 @@ describe('The render group component', () => {
 
 		it( 'Allows onClick prop to pass', () => {
 			const prepared = prepareFieldConfig(buttonField);
+			expect(typeof buttonField.onClick).toBe('function');
 			expect(typeof prepared.onClick ).toBe( 'function' );
 		});
 
 		describe( 'Button RenderGroup snapshots', () => {
-			it( 'Renders a submit button', ( ) => {
+			it( 'Renders a submit input', ( ) => {
 				const component = renderer.create(
 					<RenderGroup
 						configFields={[buttonField]}
@@ -577,11 +580,8 @@ describe('The render group component', () => {
 					/>
 				);
 				expect(component.toJSON()).toMatchSnapshot();
-
-
 			});
 		});
-
 
 
 		it( 'Renders a submit button', ( ) => {
