@@ -207,6 +207,35 @@ If the prop `type` is input, the type of input is controlled by the `inputType` 
 />
 ```
 
+### Submit Button Field Group
+```js
+<FieldGroup
+id={'control-24'}
+    label={'This will go in the label element'}
+    type={'button'}
+    innertype={'submit'}
+    value={'Submit Form'}
+    onClick={() => {
+    	//do stuff when clicked
+    }}
+/>
+
+```
+
+###  Button Field Group
+```js
+<FieldGroup
+id={'control-24'}
+    label={'This will go in the label element'}
+    type={'button'}
+    innertype={'button'}
+    value={false}
+    onClick={() => {
+    	//do stuff when clicked
+    }}
+/>
+
+
 ### Select Field Groups
 
 Select field groups happen when you pass "select" to the `type` prop. 
@@ -235,6 +264,7 @@ let selectFieldValue = '';
         }
     ]}
 />
+```
 
 ## Magic Select Groups
 Magic select groups use `MagicSelect` fields, which wrap [reactjs/react-autocomple](https://github.com/reactjs/react-autocomplete) to create a UI for [Caldera Forms magic tags](https://calderaforms.com/doc/using-magic-tags-caldera-forms/).
