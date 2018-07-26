@@ -6,6 +6,8 @@ import {ariaDescribedbyAttr} from './util';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {RenderGroup} from '../RenderGroup';
+import {Button} from "./button/Button";
+
 /**
  * Creates the field inside of a field group
  *
@@ -31,44 +33,59 @@ export const FieldInner = (props) => {
 	 */
 	function inputClassName() {
 		return classNames([
-			props.fieldClassName,
-			RenderGroup.classNames.input
-		]
+				props.fieldClassName,
+				RenderGroup.classNames.input
+			]
 		);
 	}
 
-	switch( props.type ){
-	case 'select':
-	case 'dropdown':
-		const options = Array.isArray(props.options) ? props.options : [];
-		return (
-			<SelectField
-				id={props.id}
-				fieldClassName={inputClassName()}
-				ariaDescribedbyAttr={ariaIdAttr()}
-				value={props.value}
-				onValueChange={props.onValueChange}
-				inputType={props.inputType}
-				options={options}
-				disabled={props.disabled}
-				onBlur={props.onBlur}
-				onFocus={props.onFocus}
-			/>
-		);
-	default:
-	case 'input':
-		return (
-			<Input
-				id={props.id}
-				fieldClassName={inputClassName()}
-				ariaDescribedbyAttr={ariaIdAttr()}
-				value={props.value}
-				onValueChange={props.onValueChange}
-				inputType={props.inputType}
-				disabled={props.disabled}
-				onBlur={props.onBlur}
-				onFocus={props.onFocus}
-			/>);
+	switch (props.type) {
+		case 'select':
+		case 'dropdown':
+			const options = Array.isArray(props.options) ? props.options : [];
+			return (
+				<SelectField
+					id={props.id}
+					fieldClassName={inputClassName()}
+					ariaDescribedbyAttr={ariaIdAttr()}
+					value={props.value}
+					onValueChange={props.onValueChange}
+					inputType={props.inputType}
+					options={options}
+					disabled={props.disabled}
+					onBlur={props.onBlur}
+					onFocus={props.onFocus}
+				/>
+			);
+		case 'button' :
+			return (
+				<Button
+					onClick={props.onClick}
+					id={props.id}
+					fieldClassName={inputClassName()}
+					ariaDescribedbyAttr={ariaIdAttr()}
+					value={props.value}
+					inputType={props.inputType}
+					disabled={props.disabled}
+					onBlur={props.onBlur}
+					onFocus={props.onFocus}
+				/>
+			);
+		default:
+		case 'input':
+			return (
+				<Input
+					id={props.id}
+					onValueChange={props.onValueChange}
+					fieldClassName={inputClassName()}
+					ariaDescribedbyAttr={ariaIdAttr()}
+					value={props.value}
+					onClick={props.onClick}
+					inputType={props.inputType}
+					disabled={props.disabled}
+					onBlur={props.onBlur}
+					onFocus={props.onFocus}
+				/>);
 	}
 
 };

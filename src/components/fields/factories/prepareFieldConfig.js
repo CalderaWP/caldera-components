@@ -11,6 +11,24 @@ import {messageObjectFactory} from '../messages/messageObjectFactory';
  * @returns {*}
  */
 export const prepareFieldConfig = (fieldArgs) => {
+	function addMessageArg(fieldArgs) {
+		fieldArgs.disabled = toBoolean(fieldArgs.disabled);
+		fieldArgs.message = 'object' === typeof  fieldArgs.message
+			? messageObjectFactory(fieldArgs.message)
+			: messageObjectFactory({message: null, error: false});
+		return fieldArgs;
+	}
+
+
+	if( 'button' === fieldArgs.type ) {
+		if ('submit' !== fieldArgs.inputType) {
+			fieldArgs.inputType = 'button';
+		}
+
+		return addMessageArg(fieldArgs);
+	}
+
+
 	/**
 	 * Pick whitelisted keys from object
 	 *

@@ -51,7 +51,7 @@ export const Button = (props) => {
 };
 
 let propTypes = fieldPropTypes;
-delete fieldPropTypes.onValueChange;
+delete propTypes.onValueChange;
 
 /**
  * Prop type definitions for Button Component

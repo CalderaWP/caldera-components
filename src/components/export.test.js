@@ -30,5 +30,29 @@ describe( 'conditionals export', () => {
 	});
 
 
+	describe( 'fields export', () => {
+		const {fields} = Components;
+		it( 'exports FieldGroup', () => {
+			expect( typeof fields.FieldGroup ).toEqual( 'function' );
+		});
+		it( 'exports SelectField', () => {
+			expect( typeof fields.SelectField ).toEqual( 'function' );
+		});
+		it( 'exports Input', () => {
+			expect( typeof fields.Input ).toEqual( 'function' );
+		});
+		it( 'exports Message', () => {
+			expect( typeof fields.Message ).toEqual( 'function' );
+		});
+		it( 'exports ButtonGroup', () => {
+			expect( typeof fields.ButtonGroup ).toEqual( 'function' );
+		});
+		it( 'exports Button', () => {
+			expect( typeof fields.Button ).toEqual( 'function' );
+		});
+	});
+
+
+
 });
 

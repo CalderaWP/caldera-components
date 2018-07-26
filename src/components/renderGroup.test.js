@@ -4,6 +4,7 @@ import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import React from 'react';
 import renderer from 'react-test-renderer';
+import {prepareFieldConfig} from "./fields/factories/prepareFieldConfig";
 
 Enzyme.configure({adapter: new Adapter()});
 
@@ -513,17 +514,19 @@ describe('The render group component', () => {
 		it('Get values update ', () => {
 			let value = '1';
 			const component = mount(
-				<RenderGroup configFields={[
-					{
-						...magicField,
-						value,
-						onValueChange: (newValue) => {
-							value = newValue;
+				<RenderGroup
+					configFields={[
+						{
+							...magicField,
+							value,
+							onValueChange: (newValue) => {
+								value = newValue;
+							}
 						}
-					}
-				]}/>
+					]}
+				/>
 			);
-			component.find('input').simulate('change', { target: { value: 3 } });
+			component.find('input').simulate('change', {target: {value: 3}});
 
 			expect(value).toBe(3);
 		});
@@ -542,7 +545,7 @@ describe('The render group component', () => {
 			inputType: 'submit'
 		};
 
-		it( 'Allows inputType of button', () => {
+		it('Allows inputType of button', () => {
 			const field = {
 				...buttonField,
 				inputType: 'button'
@@ -552,23 +555,25 @@ describe('The render group component', () => {
 			expect(prepared.inputType).toBe('button');
 		});
 
-		it( 'Allows onClick prop to pass', () => {
+		it('Allows onClick prop to pass', () => {
 			const prepared = prepareFieldConfig(buttonField);
 			expect(typeof buttonField.onClick).toBe('function');
-			expect(typeof prepared.onClick ).toBe( 'function' );
+			expect(typeof prepared.onClick).toBe('function');
 		});
 
-		describe( 'Button RenderGroup snapshots', () => {
-			it( 'Renders a submit input', ( ) => {
+		describe('Button RenderGroup snapshots', () => {
+			it('Renders a submit input', () => {
 				const component = renderer.create(
 					<RenderGroup
 						configFields={[buttonField]}
+						onClick={() => {
+						}}
 					/>
 				);
 				expect(component.toJSON()).toMatchSnapshot();
 			});
 
-			it( 'Renders a regular button', ( ) => {
+			it('Renders a regular button', () => {
 				const component = renderer.create(
 					<RenderGroup
 						configFields={[{
@@ -583,7 +588,7 @@ describe('The render group component', () => {
 		});
 
 
-		it( 'Renders a submit button', ( ) => {
+		it('Renders a submit button', () => {
 			const component = mount(
 				<RenderGroup
 					configFields={[buttonField]}
@@ -594,7 +599,7 @@ describe('The render group component', () => {
 		});
 
 
-		it( 'Renders a regular button', ( ) => {
+		it('Renders a regular button', () => {
 			const component = mount(
 				<RenderGroup
 					configFields={[{
@@ -609,8 +614,8 @@ describe('The render group component', () => {
 		});
 
 
-		describe( 'onClick callback', ( ) => {
-			it( 'Clicks submit inputs', () => {
+		describe('onClick callback', () => {
+			it('Clicks submit inputs', () => {
 				let clicked = false;
 				const component = mount(
 					<RenderGroup
@@ -622,12 +627,12 @@ describe('The render group component', () => {
 						}]}
 					/>
 				);
-				component.find( 'input' ).simulate('click' );
+				component.find('input').simulate('click');
 				expect(clicked).toBe(true);
 			});
 
 
-			it( 'Clicks button inputs', () => {
+			it('Clicks button inputs', () => {
 				let clicked = false;
 				const component = mount(
 					<RenderGroup
@@ -640,7 +645,7 @@ describe('The render group component', () => {
 						}]}
 					/>
 				);
-				component.find( 'button' ).simulate('click' );
+				component.find('button').simulate('click');
 				expect(clicked).toBe(true);
 			});
 
