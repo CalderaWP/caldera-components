@@ -55,6 +55,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-optionShape">optionShape</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-optionsShapeProp">optionsShapeProp</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-valuePropType">valuePropType</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-button">components/fields/button</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Button">Button</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-button-group">components/fields/button-group</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ButtonGroup">ButtonGroup</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-factories">components/fields/factories</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldFactory">fieldFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldSetFactory">fieldSetFactory</a></span></span></li>
@@ -83,7 +84,7 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/components/fields/factories/prepareFieldConfig.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {fieldGroupPropTypes,magicGroupPropTypes} from &apos;../propTypes&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {fieldGroupPropTypes, magicGroupPropTypes} from &apos;../propTypes&apos;;
 import {isValidHtml5type, toBoolean} from &apos;../util&apos;;
 import {messageObjectFactory} from &apos;../messages/messageObjectFactory&apos;;
 
@@ -96,6 +97,24 @@ import {messageObjectFactory} from &apos;../messages/messageObjectFactory&apos;;
  * @returns {*}
  */
 export const prepareFieldConfig = (fieldArgs) =&gt; {
+	function addMessageArg(fieldArgs) {
+		fieldArgs.disabled = toBoolean(fieldArgs.disabled);
+		fieldArgs.message = &apos;object&apos; === typeof  fieldArgs.message
+			? messageObjectFactory(fieldArgs.message)
+			: messageObjectFactory({message: null, error: false});
+		return fieldArgs;
+	}
+
+
+	if( &apos;button&apos; === fieldArgs.type ) {
+		if (&apos;submit&apos; !== fieldArgs.inputType) {
+			fieldArgs.inputType = &apos;button&apos;;
+		}
+
+		return addMessageArg(fieldArgs);
+	}
+
+
 	/**
 	 * Pick whitelisted keys from object
 	 *
@@ -134,17 +153,13 @@ export const prepareFieldConfig = (fieldArgs) =&gt; {
 	}
 
 	let validators = [];
-	if( fieldArgs.hasOwnProperty(&apos;validators&apos;) &amp;&amp; Array.isArray(fieldArgs.validators )){
+	if (fieldArgs.hasOwnProperty(&apos;validators&apos;) &amp;&amp; Array.isArray(fieldArgs.validators)) {
 		validators = fieldArgs.validators;
 	}
 
-	const keys = &apos;magic&apos; === fieldArgs.type  ? magicGroupPropTypes : fieldGroupPropTypes;
+	const keys = &apos;magic&apos; === fieldArgs.type ? magicGroupPropTypes : fieldGroupPropTypes;
 	fieldArgs = pick(fieldArgs, Object.keys(keys));
-	fieldArgs.disabled = toBoolean(fieldArgs.disabled);
-	fieldArgs.message = &apos;object&apos; === typeof  fieldArgs.message
-		? messageObjectFactory(fieldArgs.message)
-		: messageObjectFactory({message:null, error: false });
-
+	fieldArgs = addMessageArg(fieldArgs);
 	fieldArgs.validators = validators;
 	return fieldArgs;
 };</code></pre>

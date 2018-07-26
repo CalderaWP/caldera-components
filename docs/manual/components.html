@@ -66,11 +66,19 @@
 <li data-ice="manualNav" class="indent-h4" data-link="manual/components.html"><a href="manual/components.html#text-field-that-is-not-required" data-ice="link">Text field that is not required</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/components.html"><a href="manual/components.html#text-field-with-help-text" data-ice="link">Text field with help text</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#number-field-group" data-ice="link">Number Field Group</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#submit-button-field-group" data-ice="link">Submit Button Field Group</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#button-field-group" data-ice="link">Button Field Group</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#select-field-groups" data-ice="link">Select Field Groups</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#magic-select-groups" data-ice="link">Magic Select Groups</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#import-with-webpack" data-ice="link">Import With webpack</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#example" data-ice="link">Example</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#select-fields" data-ice="link">Select Fields</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#import-with-webpack" data-ice="link">Import With webpack</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#example" data-ice="link">Example</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#fieldsets" data-ice="link">Fieldsets</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#submit-buttons-and-other-types-of-buttons" data-ice="link">Submit Buttons and Other Types Of Buttons</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#import-with-webpack" data-ice="link">Import With webpack</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#exampel-submit-button" data-ice="link">Exampel Submit Button</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/components.html"><a href="manual/components.html#button-group" data-ice="link">Button Group</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#import-with-webpack" data-ice="link">Import With webpack</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/components.html"><a href="manual/components.html#examples" data-ice="link">Examples</a></li>
@@ -330,6 +338,29 @@ const configFields = [
     }}
 /&gt;</code>
 </code></pre>
+<h3 id="submit-button-field-group">Submit Button Field Group</h3><pre><code class="lang-js"><code class="source-code prettyprint">&lt;FieldGroup
+    id={&apos;control-24&apos;}
+    label={&apos;This will go in the label element&apos;}
+    type={&apos;button&apos;}
+    innertype={&apos;submit&apos;}
+    value={&apos;Submit Form&apos;}
+    onClick={() =&gt; {
+        //do stuff when clicked
+    }}
+/&gt;
+</code>
+</code></pre>
+<h3 id="button-field-group">Button Field Group</h3><pre><code class="lang-js"><code class="source-code prettyprint">&lt;FieldGroup
+    id={&apos;control-24&apos;}
+    label={&apos;This will go in the label element&apos;}
+    type={&apos;button&apos;}
+    innertype={&apos;button&apos;}
+    value={false}
+    onClick={() =&gt; {
+        //do stuff when clicked
+    }}
+/&gt;</code>
+</code></pre>
 <h3 id="select-field-groups">Select Field Groups</h3><p>Select field groups happen when you pass &quot;select&quot; to the <code>type</code> prop. </p>
 <p>Select fields take an array of options in the prop option. Options in that collection must conform the shape <a href="https://calderalabs.org/caldera-components/docs/file/src/components/fields/propTypes.js.html#lineNumber75">defined here</a></p>
 <pre><code><code class="source-code prettyprint">let selectFieldValue = &apos;&apos;;
@@ -351,22 +382,12 @@ const configFields = [
             label: &apos;Two&apos;
         }
     ]}
-/&gt;
-
-## Magic Select Groups
-Magic select groups use `MagicSelect` fields, which wrap [reactjs/react-autocomple](https://github.com/reactjs/react-autocomplete) to create a UI for [Caldera Forms magic tags](https://calderaforms.com/doc/using-magic-tags-caldera-forms/).
-
-These fields groups show options from two lists, one is passed in the prop `fieldsList` and represents the fields of the form, and the other is in `systemTagsList`, which represents the system values such as the current user info.
-
-The property `isOpen` controls if the auto-complete list is open.
-
-### Import With webpack
-import {MagicFieldGroup} from &apos;@caldera-labs/components&apos;;
-
-### Example
-
-```js
-let magicFieldValue =&apos;&apos;;
+/&gt;</code>
+</code></pre><h2 id="magic-select-groups">Magic Select Groups</h2><p>Magic select groups use <code>MagicSelect</code> fields, which wrap <a href="https://github.com/reactjs/react-autocomplete">reactjs/react-autocomple</a> to create a UI for <a href="https://calderaforms.com/doc/using-magic-tags-caldera-forms/">Caldera Forms magic tags</a>.</p>
+<p>These fields groups show options from two lists, one is passed in the prop <code>fieldsList</code> and represents the fields of the form, and the other is in <code>systemTagsList</code>, which represents the system values such as the current user info.</p>
+<p>The property <code>isOpen</code> controls if the auto-complete list is open.</p>
+<h3 id="import-with-webpack">Import With webpack</h3><p>import {MagicFieldGroup} from &apos;@caldera-labs/components&apos;;</p>
+<h3 id="example">Example</h3><pre><code class="lang-js"><code class="source-code prettyprint">let magicFieldValue =&apos;&apos;;
 
 &lt;MagicFieldGroup
         id={&apos;magic-5&apos;}
@@ -398,7 +419,8 @@ let magicFieldValue =&apos;&apos;;
         isOpen={true}
         value={magicFieldValue}
     /&gt;</code>
-</code></pre><h2 id="select-fields">Select Fields</h2><ul>
+</code></pre>
+<h2 id="select-fields">Select Fields</h2><ul>
 <li><a href="https://calderalabs.org/caldera-components/function/index.html#static-function-SelectField">Reference</a></li>
 </ul>
 <h3 id="import-with-webpack">Import With webpack</h3><p><code>import {fields} from &apos;@caldera-labs/components&apos;;</code></p>
@@ -446,6 +468,22 @@ let checkBoxValue = [&apos;1&apos;];
         }
     ]}
 /&gt;</code>
+</code></pre>
+<h2 id="submit-buttons-and-other-types-of-buttons">Submit Buttons and Other Types Of Buttons</h2><p>In general, for submit inputs and <code>&lt;button&gt;</code> elements, instead of using an <code>Input</code> component, you should use the <code>Button</code> component.</p>
+<h3 id="import-with-webpack">Import With webpack</h3><pre><code><code class="source-code prettyprint">import {fields} from &apos;@caldera-labs/components&apos;;
+const {Button} = fields;
+</code>
+</code></pre><h3 id="exampel-submit-button">Exampel Submit Button</h3><pre><code class="lang-js"><code class="source-code prettyprint">&lt;Button
+    id={&apos;control-button&apos;}
+    label={&apos;Click To Submit Form&apos;}
+    type={&apos;button&apos;}
+    innertype={&apos;submit&apos;}
+    value={&apos;Submit Form&apos;}
+    onClick={() =&gt; {
+        //do stuff when clicked
+    }}
+/&gt;
+</code>
 </code></pre>
 <h2 id="button-group">Button Group</h2><p>Button groups are select fields. One button can be selected at once.</p>
 <p>This is a field, not a group (like <code>FieldGroup</code> or <code>MagicFieldGroup</code>) so it does not handle its own label.</p>

@@ -6,6 +6,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "@caldera-labs/components/src/components/fields/button/button.js~button",
+    "function/index.html#static-function-Button",
+    "<span>Button</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/fields/button/Button.js</span>",
+    "function"
+  ],
+  [
     "@caldera-labs/components/src/components/fields/button-group/buttongroup.js~buttongroup",
     "function/index.html#static-function-ButtonGroup",
     "<span>ButtonGroup</span> <span class=\"search-result-import-path\">@caldera-labs/components/src/components/fields/button-group/ButtonGroup.js</span>",
@@ -675,6 +681,12 @@ window.esdocSearchIndex = [
     "src/components/fields/button-group/buttongroup.js",
     "file/src/components/fields/button-group/ButtonGroup.js.html",
     "src/components/fields/button-group/ButtonGroup.js",
+    "file"
+  ],
+  [
+    "src/components/fields/button/button.js",
+    "file/src/components/fields/button/Button.js.html",
+    "src/components/fields/button/Button.js",
     "file"
   ],
   [

@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 2464,
+  "end": 2498,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 112,
+      "line": 113,
       "column": 2
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 2464,
+    "end": 2498,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 112,
+        "line": 113,
         "column": 2
       }
     },
@@ -4552,28 +4552,28 @@
       {
         "type": "ExpressionStatement",
         "start": 2283,
-        "end": 2464,
+        "end": 2498,
         "loc": {
           "start": {
             "line": 106,
             "column": 0
           },
           "end": {
-            "line": 112,
+            "line": 113,
             "column": 2
           }
         },
         "expression": {
           "type": "AssignmentExpression",
           "start": 2283,
-          "end": 2463,
+          "end": 2497,
           "loc": {
             "start": {
               "line": 106,
               "column": 0
             },
             "end": {
-              "line": 112,
+              "line": 113,
               "column": 1
             }
           },
@@ -4633,14 +4633,14 @@
           "right": {
             "type": "ObjectExpression",
             "start": 2308,
-            "end": 2463,
+            "end": 2497,
             "loc": {
               "start": {
                 "line": 106,
                 "column": 25
               },
               "end": {
-                "line": 112,
+                "line": 113,
                 "column": 1
               }
             },
@@ -4863,6 +4863,61 @@
                     "raw": "'field-config'"
                   },
                   "value": "field-config"
+                }
+              },
+              {
+                "type": "ObjectProperty",
+                "start": 2462,
+                "end": 2493,
+                "loc": {
+                  "start": {
+                    "line": 111,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 111,
+                    "column": 32
+                  }
+                },
+                "method": false,
+                "shorthand": false,
+                "computed": false,
+                "key": {
+                  "type": "Identifier",
+                  "start": 2462,
+                  "end": 2468,
+                  "loc": {
+                    "start": {
+                      "line": 111,
+                      "column": 1
+                    },
+                    "end": {
+                      "line": 111,
+                      "column": 7
+                    },
+                    "identifierName": "button"
+                  },
+                  "name": "button"
+                },
+                "value": {
+                  "type": "StringLiteral",
+                  "start": 2470,
+                  "end": 2493,
+                  "loc": {
+                    "start": {
+                      "line": 111,
+                      "column": 9
+                    },
+                    "end": {
+                      "line": 111,
+                      "column": 32
+                    }
+                  },
+                  "extra": {
+                    "rawValue": "caldera-config-button",
+                    "raw": "'caldera-config-button'"
+                  },
+                  "value": "caldera-config-button"
                 }
               }
             ]
@@ -14399,6 +14454,111 @@
     },
     {
       "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "button",
+      "start": 2462,
+      "end": 2468,
+      "loc": {
+        "start": {
+          "line": 111,
+          "column": 1
+        },
+        "end": {
+          "line": 111,
+          "column": 7
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ":",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 2468,
+      "end": 2469,
+      "loc": {
+        "start": {
+          "line": 111,
+          "column": 7
+        },
+        "end": {
+          "line": 111,
+          "column": 8
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "string",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "caldera-config-button",
+      "start": 2470,
+      "end": 2493,
+      "loc": {
+        "start": {
+          "line": 111,
+          "column": 9
+        },
+        "end": {
+          "line": 111,
+          "column": 32
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 2493,
+      "end": 2494,
+      "loc": {
+        "start": {
+          "line": 111,
+          "column": 32
+        },
+        "end": {
+          "line": 111,
+          "column": 33
+        }
+      }
+    },
+    {
+      "type": {
         "label": "}",
         "beforeExpr": false,
         "startsExpr": false,
@@ -14409,15 +14569,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 2462,
-      "end": 2463,
+      "start": 2496,
+      "end": 2497,
       "loc": {
         "start": {
-          "line": 112,
+          "line": 113,
           "column": 0
         },
         "end": {
-          "line": 112,
+          "line": 113,
           "column": 1
         }
       }
@@ -14435,15 +14595,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 2463,
-      "end": 2464,
+      "start": 2497,
+      "end": 2498,
       "loc": {
         "start": {
-          "line": 112,
+          "line": 113,
           "column": 1
         },
         "end": {
-          "line": 112,
+          "line": 113,
           "column": 2
         }
       }
@@ -14461,15 +14621,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 2464,
-      "end": 2464,
+      "start": 2498,
+      "end": 2498,
       "loc": {
         "start": {
-          "line": 112,
+          "line": 113,
           "column": 2
         },
         "end": {
-          "line": 112,
+          "line": 113,
           "column": 2
         }
       }

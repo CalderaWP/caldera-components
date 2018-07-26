@@ -55,6 +55,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-optionShape">optionShape</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-optionsShapeProp">optionsShapeProp</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-valuePropType">valuePropType</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-button">components/fields/button</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Button">Button</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-button-group">components/fields/button-group</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ButtonGroup">ButtonGroup</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-fields-factories">components/fields/factories</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldFactory">fieldFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fieldSetFactory">fieldSetFactory</a></span></span></li>
@@ -91,6 +92,8 @@ import {ariaDescribedbyAttr} from &apos;./util&apos;;
 import PropTypes from &apos;prop-types&apos;;
 import classNames from &apos;classnames&apos;;
 import {RenderGroup} from &apos;../RenderGroup&apos;;
+import {Button} from &quot;./button/Button&quot;;
+
 /**
  * Creates the field inside of a field group
  *
@@ -116,44 +119,58 @@ export const FieldInner = (props) =&gt; {
 	 */
 	function inputClassName() {
 		return classNames([
-			props.fieldClassName,
-			RenderGroup.classNames.input
-		]
+				props.fieldClassName,
+				RenderGroup.classNames.input
+			]
 		);
 	}
 
-	switch( props.type ){
-	case &apos;select&apos;:
-	case &apos;dropdown&apos;:
-		const options = Array.isArray(props.options) ? props.options : [];
-		return (
-			&lt;SelectField
-				id={props.id}
-				fieldClassName={inputClassName()}
-				ariaDescribedbyAttr={ariaIdAttr()}
-				value={props.value}
-				onValueChange={props.onValueChange}
-				inputType={props.inputType}
-				options={options}
-				disabled={props.disabled}
-				onBlur={props.onBlur}
-				onFocus={props.onFocus}
-			/&gt;
-		);
-	default:
-	case &apos;input&apos;:
-		return (
-			&lt;Input
-				id={props.id}
-				fieldClassName={inputClassName()}
-				ariaDescribedbyAttr={ariaIdAttr()}
-				value={props.value}
-				onValueChange={props.onValueChange}
-				inputType={props.inputType}
-				disabled={props.disabled}
-				onBlur={props.onBlur}
-				onFocus={props.onFocus}
-			/&gt;);
+	switch (props.type) {
+		case &apos;select&apos;:
+		case &apos;dropdown&apos;:
+			const options = Array.isArray(props.options) ? props.options : [];
+			return (
+				&lt;SelectField
+					id={props.id}
+					fieldClassName={inputClassName()}
+					ariaDescribedbyAttr={ariaIdAttr()}
+					value={props.value}
+					onValueChange={props.onValueChange}
+					inputType={props.inputType}
+					options={options}
+					disabled={props.disabled}
+					onBlur={props.onBlur}
+					onFocus={props.onFocus}
+				/&gt;
+			);
+		case &apos;button&apos; :
+			return (
+				&lt;Button
+					onClick={props.onClick}
+					id={props.id}
+					fieldClassName={inputClassName()}
+					ariaDescribedbyAttr={ariaIdAttr()}
+					value={props.value}
+					inputType={props.inputType}
+					disabled={props.disabled}
+					onBlur={props.onBlur}
+					onFocus={props.onFocus}
+				/&gt;
+			);
+		default:
+		case &apos;input&apos;:
+			return (
+				&lt;Input
+					id={props.id}
+					fieldClassName={inputClassName()}
+					ariaDescribedbyAttr={ariaIdAttr()}
+					value={props.value}
+					onValueChange={props.onValueChange}
+					inputType={props.inputType}
+					disabled={props.disabled}
+					onBlur={props.onBlur}
+					onFocus={props.onFocus}
+				/&gt;);
 	}
 
 };

@@ -1,6 +1,6 @@
 {
-  "coverage": "73.91%",
-  "expectCount": 92,
+  "coverage": "72.34%",
+  "expectCount": 94,
   "actualCount": 68,
   "files": {
     "src/App.js": {
@@ -68,6 +68,14 @@
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []
+    },
+    "src/components/fields/button/Button.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        8,
+        54
+      ]
     },
     "src/components/fields/button-group/ButtonGroup.js": {
       "expectCount": 1,
