@@ -137,6 +137,7 @@ export const FieldGroup = (props) => {
 							help: fieldProps.help,
 							value: fieldProps.value,
 							onValueChange: fieldProps.onValueChange,
+							onClick: fieldProps.onClick,
 							inputType: fieldProps.inputType,
 							options: fieldProps.options,
 							disabled: props.disabled,

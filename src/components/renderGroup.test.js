@@ -530,6 +530,124 @@ describe('The render group component', () => {
 
 	});
 
+	describe('Button fields inside render groups', () => {
+
+		const buttonField = {
+			id: 'cf-button-example',
+			type: 'button',
+			label: 'Submit',
+			onClick: () => {
+
+			},
+			inputType: 'submit'
+		};
+
+		it( 'Allows inputType of button', () => {
+			const field = {
+				...buttonField,
+				inputType: 'button'
+			};
+			expect(field.inputType).toBe('button');
+			const prepared = prepareFieldConfig(field);
+			expect(prepared.inputType).toBe('button');
+		});
+
+		it( 'Allows onClick prop to pass', () => {
+			const prepared = prepareFieldConfig(buttonField);
+			expect(typeof buttonField.onClick).toBe('function');
+			expect(typeof prepared.onClick ).toBe( 'function' );
+		});
+
+		describe( 'Button RenderGroup snapshots', () => {
+			it( 'Renders a submit input', ( ) => {
+				const component = renderer.create(
+					<RenderGroup
+						configFields={[buttonField]}
+					/>
+				);
+				expect(component.toJSON()).toMatchSnapshot();
+			});
+
+			it( 'Renders a regular button', ( ) => {
+				const component = renderer.create(
+					<RenderGroup
+						configFields={[{
+							...buttonField,
+							inputType: 'button',
+							id: 'RendersARegularButtonSnapShotTest'
+						}]}
+					/>
+				);
+				expect(component.toJSON()).toMatchSnapshot();
+			});
+		});
+
+
+		it( 'Renders a submit button', ( ) => {
+			const component = mount(
+				<RenderGroup
+					configFields={[buttonField]}
+				/>
+			);
+			expect(component.find('input').length).toBe(1);
+
+		});
+
+
+		it( 'Renders a regular button', ( ) => {
+			const component = mount(
+				<RenderGroup
+					configFields={[{
+						...buttonField,
+						inputType: 'button',
+						id: 'RendersARegularButton'
+					}]}
+				/>
+			);
+			expect(component.find('button').length).toBe(1);
+
+		});
+
+
+		describe( 'onClick callback', ( ) => {
+			it( 'Clicks submit inputs', () => {
+				let clicked = false;
+				const component = mount(
+					<RenderGroup
+						configFields={[{
+							...buttonField,
+							onClick: () => {
+								clicked = true;
+							}
+						}]}
+					/>
+				);
+				component.find( 'input' ).simulate('click' );
+				expect(clicked).toBe(true);
+			});
+
+
+			it( 'Clicks button inputs', () => {
+				let clicked = false;
+				const component = mount(
+					<RenderGroup
+						configFields={[{
+							...buttonField,
+							inputType: 'button',
+							onClick: () => {
+								clicked = true;
+							}
+						}]}
+					/>
+				);
+				component.find( 'button' ).simulate('click' );
+				expect(clicked).toBe(true);
+			});
+
+
+		});
+	});
+
 
 });
 
