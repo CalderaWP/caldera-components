@@ -24,9 +24,6 @@ export const FieldGroup = (props) => {
 	if( 'magic' === props.type ){
 		return <MagicFieldGroup {...props} />;
 	}
-	if( 'file' === props.type ){
-		return <FileFieldGroup {...props} />;
-	}
 
 	/**
 	 * Creates the id attribute

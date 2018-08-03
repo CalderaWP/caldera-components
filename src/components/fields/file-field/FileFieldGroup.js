@@ -4,6 +4,7 @@ import {RenderGroup} from '../../RenderGroup';
 import {Message} from '../messages/Message';
 import {FieldGroup} from '../FieldGroup';
 import {FileSelect} from './FileSelect';
+import {fieldGroupPropTypes} from '../propTypes';
 
 /**
  * Encapsulates a complete File field group
@@ -18,18 +19,12 @@ export class FileFieldGroup extends React.PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {
-			currentListType: props.defaultList,
 			isOpen: props.isOpen,
 		};
 		this.onChange = this.onChange.bind(this);
-		//this.items = this.items.bind(this);
-		this.onChange = this.onChange.bind(this);
 		this.onSelect = this.onSelect.bind(this);
 		this.onInputFocus = this.onInputFocus.bind(this);
-		//this.renderItem = this.renderItem.bind(this);
 		this.onInputBlur = this.onInputBlur.bind(this);
-		this.onChangeListType = this.onChangeListType.bind(this);
-		//this.listTypeOptions = this.listTypeOptions.bind(this);
 	}
 
 	/**
@@ -54,7 +49,6 @@ export class FileFieldGroup extends React.PureComponent {
 		this.setState({isOpen: false});
 	}
 
-
 	/**
 	 * Handle when the option is chosen
 	 * @param {String|number} value
@@ -62,17 +56,6 @@ export class FileFieldGroup extends React.PureComponent {
 	onSelect(value) {
 		this.props.onValueChange(value);
 		this.setState({isOpen: false});
-	}
-
-	/**
-	 * Update list of tags to show
-	 * @param {String}newType
-	 */
-	onChangeListType(newType){
-		if( ! this.state.isOpen ){
-			this.setState({isOpen:true});
-		}
-		this.setState({currentListType:newType});
 	}
 
 	/**
@@ -89,10 +72,9 @@ export class FileFieldGroup extends React.PureComponent {
 				)
 				}
 			>
-				<FieldGroup.Label
-					id={this.props.id}
-					label={this.props.label}
-				/>
+				<label
+					htmlFor={this.props.id}
+				>{this.props.label}</label>
 				{this.props.message.message &&
 					<Message
 						message={this.props.message}
@@ -101,7 +83,6 @@ export class FileFieldGroup extends React.PureComponent {
 
 				<FileSelect
 					id={this.props.id}
-					//options={this.items()}
 					onValueChange={this.props.onValueChange}
 					value={this.props.value}
 					isRequired={this.props.isRequired}
@@ -109,6 +90,8 @@ export class FileFieldGroup extends React.PureComponent {
 					onBlur={this.onInputBlur}
 					onFocus={this.onInputFocus}
 					className={this.props.fieldClassName}
+					attachToMailer={this.props.attachToMailer}
+					saveInLibrary={this.props.saveInLibrary}
 				/>
 			</div>
 		);
@@ -116,17 +99,24 @@ export class FileFieldGroup extends React.PureComponent {
 }
 
 /**
+ * Prop definitions for FileFieldGroup component
+ */
+FileFieldGroup.propTypes = fieldGroupPropTypes;
+
+/**
  * Default property values for FileFieldGroup component
  *
  * @type {{}}
  */
 FileFieldGroup.defaultProps = {
-	isOpen: false,
 	message: {
 		error: false,
 		message: ''
 	},
-	type: 'file'
+	isOpen: false,
+	attachToMailer: false,
+	saveInLibrary: false,
+	type: 'file',
 };
 
 /**

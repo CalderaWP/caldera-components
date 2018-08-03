@@ -183,17 +183,19 @@ class App extends Component {
 				</div>
 
 				<div>
-					<h2>File field Select</h2>
+					<h2>File Field</h2>
 					<FileFieldGroup
-						id={'file-1'}
-						label={'File field'}
-						fieldClassName={'file'}
+						id={'file-5'}
+						label={'File Field'}
+						className={'file'}
 						onValueChange={(newValue) => {
 							magicFieldValue = newValue;
-						} }
+					} }	
+						isOpen={true}
 						value={fileFieldValue}
 					/>
 				</div>
+				
 
 				<div>
 					<h2>Inputs</h2>
@@ -334,6 +336,9 @@ class App extends Component {
 								label: 'Two'
 							}
 						]}
+						onValueChange={(newValue) => {  //Added after test response, ask Josh if this was on purpose
+							selectFieldValue = newValue;
+						}}
 					/>
 
 				</div>
