@@ -1,22 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FileFieldGroup component matches snapshot with no message 1`] = `
+exports[`FileFieldGroup component matches snapshot with message 1`] = `
 <div
   className="caldera-file-select-group caldera-config-field"
 >
+  <div
+    className="caldera-components-message caldera-components-not-error"
+  >
+    Hi Roy
+  </div>
   <label
     htmlFor="file-3"
   >
     Upload file
   </label>
-  
   <input
     accept="image/*"
     id="file-3"
     onChange={[Function]}
-    onSelect={undefined}
     type="file"
-    value={undefined}
+  />
+</div>
+`;
+
+exports[`FileFieldGroup component matches snapshot with no message 1`] = `
+<div
+  className="caldera-file-select-group caldera-config-field"
+>
+  
+  <label
+    htmlFor="file-3"
+  >
+    Upload file
+  </label>
+  <input
+    accept="image/*"
+    id="file-3"
+    onChange={[Function]}
+    type="file"
   />
 </div>
 `;

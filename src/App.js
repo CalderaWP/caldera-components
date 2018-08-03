@@ -185,13 +185,12 @@ class App extends Component {
 				<div>
 					<h2>File Field</h2>
 					<FileFieldGroup
-						id={'file-5'}
+					id={'file-1'}
 						label={'File Field'}
 						className={'file'}
 						onValueChange={(newValue) => {
 							magicFieldValue = newValue;
 					} }	
-						isOpen={true}
 						value={fileFieldValue}
 					/>
 				</div>

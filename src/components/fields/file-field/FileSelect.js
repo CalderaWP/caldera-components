@@ -19,8 +19,6 @@ export class FileSelect extends React.PureComponent {
 		return (
             <ReactS3Uploader
 				id={this.props.id}
-				value={this.props.value}
-				onSelect={this.onSelect}
                 signingUrl={this.props.signingUrl}
                 signingUrlMethod={this.props.signingUrlMethod}
                 accept={this.props.accept}
@@ -62,7 +60,6 @@ FileSelect.propTypes = {
  */
 FileSelect.defaultProps = {
 	fieldClassName: "caldera-file-select",
-	isOpen: false,
 	signingUrl: "/s3/sign",
 	signingUrlMethod: "GET",
 	accept: "image/*",

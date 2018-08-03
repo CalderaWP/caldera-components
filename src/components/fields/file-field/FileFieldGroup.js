@@ -2,7 +2,6 @@ import React from 'react';
 import classNames from 'classnames';
 import {RenderGroup} from '../../RenderGroup';
 import {Message} from '../messages/Message';
-import {FieldGroup} from '../FieldGroup';
 import {FileSelect} from './FileSelect';
 import {fieldGroupPropTypes} from '../propTypes';
 
@@ -18,13 +17,8 @@ export class FileFieldGroup extends React.PureComponent {
 	 */
 	constructor(props) {
 		super(props);
-		this.state = {
-			isOpen: props.isOpen,
-		};
 		this.onChange = this.onChange.bind(this);
 		this.onSelect = this.onSelect.bind(this);
-		this.onInputFocus = this.onInputFocus.bind(this);
-		this.onInputBlur = this.onInputBlur.bind(this);
 	}
 
 	/**
@@ -36,26 +30,11 @@ export class FileFieldGroup extends React.PureComponent {
 	}
 
 	/**
-	 * Handle when the field gets focus
-	 */
-	onInputFocus() {
-		this.setState({isOpen: true});
-	}
-
-	/**
-	 * Handle when the field is blurred
-	 */
-	onInputBlur() {
-		this.setState({isOpen: false});
-	}
-
-	/**
 	 * Handle when the option is chosen
 	 * @param {String|number} value
 	 */
 	onSelect(value) {
 		this.props.onValueChange(value);
-		this.setState({isOpen: false});
 	}
 
 	/**
@@ -72,23 +51,20 @@ export class FileFieldGroup extends React.PureComponent {
 				)
 				}
 			>
+			{this.props.message.message &&
+				<Message
+					message={this.props.message}
+				/>
+			}
 				<label
 					htmlFor={this.props.id}
 				>{this.props.label}</label>
-				{this.props.message.message &&
-					<Message
-						message={this.props.message}
-					/>
-				}
-
+				
 				<FileSelect
 					id={this.props.id}
 					onValueChange={this.props.onValueChange}
 					value={this.props.value}
 					isRequired={this.props.isRequired}
-					isOpen={this.state.isOpen}
-					onBlur={this.onInputBlur}
-					onFocus={this.onInputFocus}
 					className={this.props.fieldClassName}
 					attachToMailer={this.props.attachToMailer}
 					saveInLibrary={this.props.saveInLibrary}
@@ -113,7 +89,6 @@ FileFieldGroup.defaultProps = {
 		error: false,
 		message: ''
 	},
-	isOpen: false,
 	attachToMailer: false,
 	saveInLibrary: false,
 	type: 'file',

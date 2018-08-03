@@ -5,8 +5,6 @@ exports[`FileSelect component Matches snapshot 1`] = `
   accept="image/*"
   id="file-1"
   onChange={[Function]}
-  onSelect={undefined}
   type="file"
-  value={undefined}
 />
 `;
