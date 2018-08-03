@@ -40,24 +40,6 @@ describe('FileFieldGroup component', () => {
 		});
 	});
 
-	it('Receives updated value', () => {
-		let value = 'Fotolia_65093732_femme-mains-rites-automne-2.jpg';
-		const component = mount(
-			<FileFieldGroup
-				id={'file-5'}
-				fieldClassName={'file'}
-				label={'Upload file'}
-				onValueChange={(newValue) => {
-					value = newValue;
-				}}
-				
-				value={value}
-				isOpen={true}
-			/>
-		);
-		component.find('input').simulate('focus');
-		component.find('input').simulate('change', {target: {value: 'Fotolia_65093732_femme-mains-rites-automne.jpg'}});
-		expect(value).toEqual('Fotolia_65093732_femme-mains-rites-automne.jpg');
-	});
+	
 
 });
