@@ -130,6 +130,25 @@ exports[`Field Group component Field group component props Works with help text 
 </div>
 `;
 
+exports[`Field Group component Uses the File field group, if type is file 1`] = `
+<div
+  className="caldera-file-select-group caldera-config-field"
+>
+  
+  <label
+    htmlFor="file-field-group"
+  >
+    file
+  </label>
+  <input
+    accept="image/*"
+    id="file-field-group"
+    onChange={[Function]}
+    type="file"
+  />
+</div>
+`;
+
 exports[`Field Group component Uses the Magic group, if type is magic 1`] = `
 <div
   className="caldera-magic-select-group caldera-config-field"

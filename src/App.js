@@ -183,7 +183,7 @@ class App extends Component {
 				</div>
 
 				<div>
-					<h2>File Field</h2>
+					<h2>FileFieldGroup</h2>
 					<FileFieldGroup
 					id={'file-1'}
 						label={'File Field'}
@@ -197,6 +197,17 @@ class App extends Component {
 				
 
 				<div>
+					<h2>FileGroup type='file'</h2>
+					<FieldGroup
+						id={'file-22'}
+						label={'File field'}
+						type={'file'}
+						isRequired={false}
+						value={fileFieldValue}
+						onValueChange={(newValue) => {
+							magicFieldValue=newValue;
+						}}
+					/>
 					<h2>Inputs</h2>
 					<FieldGroup
 						id={'control-22'}

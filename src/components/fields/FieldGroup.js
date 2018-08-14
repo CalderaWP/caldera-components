@@ -11,6 +11,7 @@ import {Message} from './messages/Message';
 import {messageObjectFactory} from './messages/messageObjectFactory';
 import {fieldsetCheckboxHandler} from './field-group-change-handlers/fieldsetCheckboxHandler';
 import {MagicFieldGroup} from './magic-select/MagicFieldGroup';
+import {FileFieldGroup} from './file-field/FileFieldGroup';
 
 /**
  * Represents one configField -- wrapper, label and input.
@@ -22,6 +23,10 @@ import {MagicFieldGroup} from './magic-select/MagicFieldGroup';
 export const FieldGroup = (props) => {
 	if( 'magic' === props.type ){
 		return <MagicFieldGroup {...props} />;
+	}
+
+	if( 'file' === props.type ){
+		return <FileFieldGroup {...props} />;
 	}
 
 	/**
