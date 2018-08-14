@@ -197,7 +197,7 @@ class App extends Component {
 				
 
 				<div>
-					<h2>FileGroup type='file'</h2>
+					<h2>FieldGroup type='file'</h2>
 					<FieldGroup
 						id={'file-22'}
 						label={'File field'}
