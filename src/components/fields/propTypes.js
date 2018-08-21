@@ -97,3 +97,30 @@ export const magicGroupPropTypes = {
 	isOpen: PropTypes.bool,
 	type: PropTypes.string
 };
+
+/**
+ * Define Prop types needed by FileSelect
+ * 
+ * @type {{ signingUrl: string, signingUrlMethod: string, accept: string, s3path: string, onUploadStart: func, onSignedUrl: func, onProgress: func,	onError: func, onFinish: func, signingUrlHeaders: object, signingUrlQueryParams: object, signingUrlWithCredentials: bool, uploadRequestHeaders: object, contentDisposition: string, scrubFilename: func, server: string, inputRef: func, autoUpload: bool }}	
+ * */
+export const fileFieldPropTypes = {
+	...fieldGroupPropTypes,
+	signingUrl: PropTypes.string,
+	signingUrlMethod: PropTypes.string,
+	accept: PropTypes.string,
+	s3path: PropTypes.string,
+	onUploadStart: PropTypes.func,
+	onSignedUrl: PropTypes.func,
+	onProgress:  PropTypes.func,
+	onError: PropTypes.func,
+	onFinish:  PropTypes.func,
+	signingUrlHeaders: PropTypes.object,
+	signingUrlQueryParams: PropTypes.object,
+	signingUrlWithCredentials: PropTypes.bool,
+	uploadRequestHeaders: PropTypes.object,
+	contentDisposition: PropTypes.string,
+	scrubFilename: PropTypes.func,
+	server: PropTypes.string,
+	inputRef:  PropTypes.func,
+	autoUpload:PropTypes.bool
+}
