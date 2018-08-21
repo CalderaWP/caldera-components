@@ -185,13 +185,23 @@ class App extends Component {
 				<div>
 					<h2>FileFieldGroup</h2>
 					<FileFieldGroup
-					id={'file-1'}
+						id={'file-1'}
 						label={'File Field'}
 						className={'file'}
 						onValueChange={(newValue) => {
-							magicFieldValue = newValue;
-					} }	
+							fileFieldValue = newValue;
+						} }	
 						value={fileFieldValue}
+						preprocess={(file, next) => {
+							console.log("S3 start upload", file);
+							next(file) //temp
+						}}
+						onProgress={fileObject => { console.log("S3 progress", fileObject) }}
+						onError={e => { console.log("S3 error", e) }}
+						onFinish={status => {
+							console.log("S3 finished upload", status);
+						}}
+						contentDisposition="auto"
 					/>
 				</div>
 				
@@ -205,7 +215,7 @@ class App extends Component {
 						isRequired={false}
 						value={fileFieldValue}
 						onValueChange={(newValue) => {
-							magicFieldValue=newValue;
+							fileFieldValue = newValue;
 						}}
 					/>
 					<h2>Inputs</h2>
