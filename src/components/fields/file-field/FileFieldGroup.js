@@ -2,8 +2,9 @@ import React from 'react';
 import classNames from 'classnames';
 import {RenderGroup} from '../../RenderGroup';
 import {Message} from '../messages/Message';
-import {FileSelect} from './FileSelect';
-import {fieldGroupPropTypes} from '../propTypes';
+import FileSelect from './FileSelect';
+import {fileFieldPropTypes} from '../propTypes';
+import {FieldGroup} from '../FieldGroup';
 
 /**
  * Encapsulates a complete File field group
@@ -18,23 +19,29 @@ export class FileFieldGroup extends React.PureComponent {
 	constructor(props) {
 		super(props);
 		this.onChange = this.onChange.bind(this);
-		this.onSelect = this.onSelect.bind(this);
+		this.state = {
+			file: null
+	  	};
 	}
 
 	/**
 	 * Handle direct change events
-	 * @param {String|number} newValue
+	 * @param {String} newValue
 	 */
 	onChange(newValue) {
-		this.props.onValueChange(newValue);
+		if( this.props.autoUpload !== false ) {
+			this.props.onValueChange(newValue);
+		}
 	}
 
 	/**
-	 * Handle when the option is chosen
-	 * @param {String|number} value
+	 * Set value during change events
+	 * @param {String} newValue
 	 */
-	onSelect(value) {
-		this.props.onValueChange(value);
+	onValueChange(newValue){
+		this.props.value = newValue;
+		this.setState({file: newValue});
+		console.log(newValue);
 	}
 
 	/**
@@ -56,18 +63,38 @@ export class FileFieldGroup extends React.PureComponent {
 					message={this.props.message}
 				/>
 			}
-				<label
-					htmlFor={this.props.id}
-				>{this.props.label}</label>
+				
+				<FieldGroup.Label 
+					id={this.props.id} 
+					label={this.props.label} 
+				/> 
 				
 				<FileSelect
 					id={this.props.id}
-					onValueChange={this.props.onValueChange}
+					onValueChange={this.onValueChange.bind(this)}
 					value={this.props.value}
 					isRequired={this.props.isRequired}
 					className={this.props.fieldClassName}
 					attachToMailer={this.props.attachToMailer}
 					saveInLibrary={this.props.saveInLibrary}
+					signingUrl={this.props.signingUrl}
+					signingUrlMethod={this.props.signingUrlMethod}
+					accept={this.props.accept}
+					s3path={this.props.s3path}
+					preprocess={this.props.preprocess}
+					onSignedUrl={this.props.onSignedUrl}
+					onProgress={this.props.onProgress}
+					onError={this.props.onUploadError}
+					onFinish={this.props.onFinish}
+					signingUrlHeaders={this.props.signingUrlHeaders}
+					signingUrlQueryParams={this.props.signingUrlQueryParams}
+					signingUrlWithCredentials={this.props.signingUrlWithCredentials}
+					uploadRequestHeaders={this.props.uploadRequestHeaders}
+					contentDisposition={this.props.contentDisposition}
+					scrubFilename={this.props.scrubFilename}
+					server={this.props.server}
+					inputRef={this.props.inputRef}
+					autoUpload={this.props.autoUpload}
 				/>
 			</div>
 		);
@@ -77,7 +104,7 @@ export class FileFieldGroup extends React.PureComponent {
 /**
  * Prop definitions for FileFieldGroup component
  */
-FileFieldGroup.propTypes = fieldGroupPropTypes;
+FileFieldGroup.propTypes = fileFieldPropTypes;
 
 /**
  * Default property values for FileFieldGroup component
