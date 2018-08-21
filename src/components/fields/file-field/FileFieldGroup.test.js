@@ -4,6 +4,7 @@ import {mount, shallow} from 'enzyme';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import {FileFieldGroup} from './FileFieldGroup';
+import FileSelect from './FileSelect';
 
 Enzyme.configure({adapter: new Adapter()});
 
@@ -19,7 +20,6 @@ describe('FileFieldGroup component', () => {
 				label={'Upload file'}
 				fieldClassName={'file'}
 				onValueChange={genericChangeHandler}
-				isOpen={false}
 			/>
 		);
 		expect(component.toJSON()).toMatchSnapshot();
@@ -73,7 +73,99 @@ describe('FileFieldGroup component', () => {
 
 			component.instance().onChange('file2.jpg');
 			expect(updatedValue).toEqual('file2.jpg');
-		});
+		});	
+		
+		it('Passes updated value to value properly through the onChange handler', () => {
+			let value = 'file-10.jpg';
+			const component = mount(
+				<FileFieldGroup
+					id={'file-10'}
+					fieldClassName={'file'}
+					label={'Upload file'}
+					onValueChange={(newValue) => {
+						value = newValue;
+					}}
+					value={value}
+				/>
+			);
+
+			component.instance().onChange('file-11.jpg');
+			expect(value).toBe('file-11.jpg');
+		});	
+		
 	});
+
+	describe('File Select Props', () => {
+
+		it('Don\'t change value when autoUpload is set to false', () => {
+
+			const FileFiledGroupValue = 'file-10.jpg';
+			
+			const component = mount(
+				<FileFieldGroup
+					id={'file-10'}
+					fieldClassName={'file'}
+					label={'Upload file'}
+					onValueChange={(newValue) => {
+						FileFiledGroupValue = newValue;
+					}}
+					value={FileFiledGroupValue}
+					autoUpload={false}
+				/>
+			);
+
+			component.instance().onChange('file-11.jpg');
+			expect(FileFiledGroupValue).toBe('file-10.jpg');
+		});
+
+		it('Don\'t change value when autoUpload is set to false', () => {
+
+			const FileFiledGroupValue = 'file-14.jpg';
+			
+			const component = mount(
+				<FileFieldGroup
+					id={'file-14'}
+					fieldClassName={'file'}
+					label={'Upload file'}
+					onValueChange={(newValue) => {
+						FileFiledGroupValue = newValue;
+					}}
+					value={FileFiledGroupValue}
+					autoUpload={false}
+				/>
+			);
+
+			component.instance().onChange('file-15.jpg');
+			expect(FileFiledGroupValue).toBe('file-14.jpg');
+		});
+
+		it('Check the File Object during preprocess', () => {
+
+			const FileFiledGroupValue = 'file-14.jpg';
+			
+			const component = mount(
+				<FileFieldGroup
+					id={'file-14'}
+					fieldClassName={'file'}
+					label={'Upload file'}
+					onValueChange={(newValue) => {
+						FileFiledGroupValue = newValue;
+					}}
+					value={FileFiledGroupValue}
+					preprocess={(file, next) => {
+						console.log(file);
+						next(file);
+					}}
+				/>
+			);
+
+			expect(component.find('input')
+			  .prop('preprocess')).toBe(component.instance().preprocess);
+
+		});
+
+	});
+
+
 
 });
