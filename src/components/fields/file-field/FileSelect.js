@@ -5,35 +5,41 @@ import {
 import ReactS3Uploader from 'react-s3-uploader';
 import PropTypes from 'prop-types';
 
-
 /**
- * Encapsulates a complete File field
+ * Encapsulates the react-s3-iploader input field
  */
-export class FileSelect extends React.PureComponent {
+const FileSelect = ( props ) =>  {
 
 	/**
 	 * Render FileSelect component
 	 * @return {*}
 	 */
-	render() {
-		return (
-            <ReactS3Uploader
-				id={this.props.id}
-                signingUrl={this.props.signingUrl}
-                signingUrlMethod={this.props.signingUrlMethod}
-                accept={this.props.accept}
-                s3path={this.props.s3path}
-                signingUrlHeaders={this.props.signingUrlHeaders}
-                signingUrlQueryParams={this.props.signingUrlQueryParams}
-                signingUrlWithCredentials={this.props.signingUrlWithCredentials}
-                uploadRequestHeaders={this.props.uploadRequestHeaders}
-                contentDisposition={this.props.contentDisposition}
-                scrubFilename={this.props.scrubFilename}
-				server={this.props.server}
-            />
-		);
-	}
+	return (
+		<ReactS3Uploader
+			id={props.id}
+			signingUrl={props.signingUrl}
+			signingUrlMethod={props.signingUrlMethod}
+			accept={props.accept}
+			s3path={props.s3path}
+			preprocess={props.preprocess}
+			onSignedUrl={props.onSignedUrl}
+			onProgress={props.onProgress}
+			onError={props.onError}
+			onFinish={props.onFinish}
+			signingUrlHeaders={props.signingUrlHeaders}
+			signingUrlQueryParams={props.signingUrlQueryParams}
+			signingUrlWithCredentials={props.signingUrlWithCredentials}
+			uploadRequestHeaders={props.uploadRequestHeaders}
+			contentDisposition={props.contentDisposition}
+			scrubFilename={props.scrubFilename}
+			server={props.server}
+			inputRef={props.inputRef}
+			autoUpload={props.autoUpload}
+		/>
+	);
+
 }
+export default FileSelect;
 
 /**
  * Prop definitions for FileSelect component
@@ -44,6 +50,12 @@ FileSelect.propTypes = {
 	signingUrlMethod: PropTypes.string,
 	accept: PropTypes.string,
 	s3path: PropTypes.string,
+	onUploadStart: PropTypes.func,
+	onSignedUrl: PropTypes.func,
+	preprocess: PropTypes.func,
+	onProgress:  PropTypes.func,
+	onError: PropTypes.func,
+	onFinish:  PropTypes.func,
 	signingUrlHeaders: PropTypes.object,
 	signingUrlQueryParams: PropTypes.object,
 	signingUrlWithCredentials: PropTypes.bool,
@@ -51,6 +63,8 @@ FileSelect.propTypes = {
 	contentDisposition: PropTypes.string,
 	scrubFilename: PropTypes.func,
 	server: PropTypes.string,
+	inputRef:  PropTypes.func,
+	autoUpload:PropTypes.bool
 };
 
 /**
@@ -60,15 +74,4 @@ FileSelect.propTypes = {
  */
 FileSelect.defaultProps = {
 	fieldClassName: "caldera-file-select",
-	signingUrl: "/s3/sign",
-	signingUrlMethod: "GET",
-	accept: "image/*",
-	s3path: "/uploads/",
-	signingUrlHeaders: { additional: "headers" },
-	signingUrlQueryParams: { additional: "query-params" },
-	signingUrlWithCredentials: true,     // in case when need to pass authentication credentials via CORS
-	uploadRequestHeaders: { 'x-amz-acl': 'public-read' },  // this is the default
-	contentDisposition: "auto",
-	scrubFilename: (filename) => filename.replace(/[^\w\d_\-.]+/ig, ''),
-	server: "http://cross-origin-server.com",
 };
