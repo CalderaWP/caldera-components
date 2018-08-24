@@ -134,6 +134,20 @@ describe('Factories', () => {
 			expect(config.inputType).toBe('email');
 		});
 
+		it('Preparation allows for checkbox as inputType of input', () => {
+			let config = {
+				id: 'checkboxCheckTest',
+				label: 'Hi Roy',
+				type: 'input',
+				inputType: 'checkbox',
+				onValueChange: genericHandler
+			};
+			expect(config.type).toBe('input');
+			config = prepareFieldConfig(config);
+			expect(config.inputType).toBe('checkbox');
+		});
+
+
 		it('Allows fieldset', () => {
 			const fieldSetField = {
 				id: 'fieldset-30',
