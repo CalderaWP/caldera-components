@@ -55,7 +55,14 @@ export const prepareFieldConfig = (fieldArgs) => {
 	case 'number':
 	default:
 		fieldArgs.inputType = isValidHtml5type(fieldArgs.type) ? fieldArgs.type : 'text';
-		fieldArgs.type = 'input';
+		if ('password' === fieldArgs.type || 'password' === fieldArgs.inputType ) {
+			fieldArgs.type = 'password';
+			fieldArgs.inputType = 'password';
+
+		} else {
+			fieldArgs.type = 'input';
+
+		}
 		break;
 	}
 
@@ -77,6 +84,7 @@ export const prepareFieldConfig = (fieldArgs) => {
 	fieldArgs.message = 'object' === typeof  fieldArgs.message
 		? messageObjectFactory(fieldArgs.message)
 		: messageObjectFactory({message:null, error: false });
+
 
 	fieldArgs.validators = validators;
 	return fieldArgs;

@@ -11,6 +11,7 @@ import {Message} from './messages/Message';
 import {messageObjectFactory} from './messages/messageObjectFactory';
 import {fieldsetCheckboxHandler} from './field-group-change-handlers/fieldsetCheckboxHandler';
 import {MagicFieldGroup} from './magic-select/MagicFieldGroup';
+import {PasswordFieldGroup} from "./PasswordFieldGroup";
 
 /**
  * Represents one configField -- wrapper, label and input.
@@ -24,6 +25,9 @@ export const FieldGroup = (props) => {
 		return <MagicFieldGroup {...props} />;
 	}
 
+	if( 'password' === props.type ){
+		return <PasswordFieldGroup {...props } />;
+	}
 	/**
 	 * Creates the id attribute
 	 * @return {String}

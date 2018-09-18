@@ -3,7 +3,7 @@ import {
 } from './fieldFactory';
 import {prepareFieldConfig} from './prepareFieldConfig';
 import {fieldSetFactory} from './fieldSetFactory';
-import {getHtmlInputTypes} from '../util';
+import {getHtmlInputTypes, isValidHtml5type} from '../util';
 import {mount} from 'enzyme';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -26,6 +26,8 @@ const hiddenFieldConfig = {
 	'label': 'Sequence ID',
 	'description': false
 };
+
+
 
 const magicField = {
 	'id': 'cf-magic-example',
@@ -106,7 +108,17 @@ configFields.map(config => {
 
 describe('Factories', () => {
 	describe('Field factory', () => {
+		const passwordFieldConfig = {
+			'id': 'your-password',
+			'type': 'password',
+			'label': 'Password',
+			'description': false,
+			'help': ''
+		};
 
+		it( 'Can be a password field', () => {
+			expect(prepareFieldConfig(passwordFieldConfig).type).toEqual('password' );
+		});
 		it('validators array is empty array if none supplied', () => {
 			expect(prepareFieldConfig(textFieldConfig).validators).toEqual([]);
 		});
@@ -148,7 +160,6 @@ describe('Factories', () => {
 						value: '2',
 						label: 'Two'
 					}
-
 				],
 				value: [],
 				onValueChange: () => {
@@ -189,7 +200,6 @@ describe('Factories', () => {
 
 		it('passes the field options for select fields', () => {
 			expect(prepareFieldConfig(selectFieldConfig).options).toEqual(selectFieldOptions);
-
 		});
 
 		it('Changes "dropdown" to select', () => {
