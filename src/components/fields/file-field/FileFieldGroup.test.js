@@ -4,12 +4,12 @@ import {mount, shallow} from 'enzyme';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import {FileFieldGroup} from './FileFieldGroup';
-import FileSelect from './FileSelect';
 
 Enzyme.configure({adapter: new Adapter()});
 
 const genericChangeHandler = () => {
 };
+
 describe('FileFieldGroup component', () => {
 
 
@@ -127,9 +127,6 @@ describe('FileFieldGroup component', () => {
 					id={'file-14'}
 					fieldClassName={'file'}
 					label={'Upload file'}
-					onValueChange={(newValue) => {
-						FileFiledGroupValue = newValue;
-					}}
 					value={FileFiledGroupValue}
 					autoUpload={false}
 				/>
@@ -148,9 +145,6 @@ describe('FileFieldGroup component', () => {
 					id={'file-14'}
 					fieldClassName={'file'}
 					label={'Upload file'}
-					onValueChange={(newValue) => {
-						FileFiledGroupValue = newValue;
-					}}
 					value={FileFiledGroupValue}
 					preprocess={(file, next) => {
 						console.log(file);

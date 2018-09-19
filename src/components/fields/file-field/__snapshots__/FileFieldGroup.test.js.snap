@@ -2,7 +2,7 @@
 
 exports[`FileFieldGroup component matches snapshot with message 1`] = `
 <div
-  className="caldera-file-select-group caldera-config-field"
+  className="caldera-file-fielde-group caldera-config-field"
 >
   <div
     className="caldera-components-message caldera-components-not-error"
@@ -14,18 +14,57 @@ exports[`FileFieldGroup component matches snapshot with message 1`] = `
   >
     Upload file
   </label>
-  <input
-    accept="image/*"
-    id="file-3"
-    onChange={[Function]}
-    type="file"
-  />
+  <div
+    aria-disabled={false}
+    className=""
+    onClick={[Function]}
+    onDragEnter={[Function]}
+    onDragLeave={[Function]}
+    onDragOver={[Function]}
+    onDragStart={[Function]}
+    onDrop={[Function]}
+    style={
+      Object {
+        "borderColor": "rgb(102, 102, 102)",
+        "borderRadius": "5px",
+        "borderStyle": "dashed",
+        "borderWidth": "2px",
+        "height": "200px",
+        "margin": "0 auto",
+        "position": "relative",
+        "width": "200px",
+      }
+    }
+  >
+    <p>
+      Try dropping some files here, or click to select files to upload.
+    </p>
+    <input
+      accept=""
+      autoComplete="off"
+      disabled={false}
+      multiple={true}
+      onChange={[Function]}
+      style={
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "opacity": 0.00001,
+          "pointerEvents": "none",
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+      type="file"
+    />
+  </div>
 </div>
 `;
 
 exports[`FileFieldGroup component matches snapshot with no message 1`] = `
 <div
-  className="caldera-file-select-group caldera-config-field"
+  className="caldera-file-fielde-group caldera-config-field"
 >
   
   <label
@@ -33,11 +72,50 @@ exports[`FileFieldGroup component matches snapshot with no message 1`] = `
   >
     Upload file
   </label>
-  <input
-    accept="image/*"
-    id="file-3"
-    onChange={[Function]}
-    type="file"
-  />
+  <div
+    aria-disabled={false}
+    className=""
+    onClick={[Function]}
+    onDragEnter={[Function]}
+    onDragLeave={[Function]}
+    onDragOver={[Function]}
+    onDragStart={[Function]}
+    onDrop={[Function]}
+    style={
+      Object {
+        "borderColor": "rgb(102, 102, 102)",
+        "borderRadius": "5px",
+        "borderStyle": "dashed",
+        "borderWidth": "2px",
+        "height": "200px",
+        "margin": "0 auto",
+        "position": "relative",
+        "width": "200px",
+      }
+    }
+  >
+    <p>
+      Try dropping some files here, or click to select files to upload.
+    </p>
+    <input
+      accept=""
+      autoComplete="off"
+      disabled={false}
+      multiple={true}
+      onChange={[Function]}
+      style={
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "opacity": 0.00001,
+          "pointerEvents": "none",
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+      type="file"
+    />
+  </div>
 </div>
 `;

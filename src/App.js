@@ -192,21 +192,14 @@ class App extends Component {
 							fileFieldValue = newValue;
 						} }	
 						value={fileFieldValue}
-						preprocess={(file, next) => {
-							console.log("S3 start upload", file);
-							next(file) //temp
-						}}
-						onProgress={fileObject => { console.log("S3 progress", fileObject) }}
-						onError={e => { console.log("S3 error", e) }}
-						onFinish={status => {
-							console.log("S3 finished upload", status);
-						}}
+						autoUpload={true}
 						contentDisposition="auto"
 					/>
 				</div>
 				
 
 				<div>
+
 					<h2>FieldGroup type='file'</h2>
 					<FieldGroup
 						id={'file-22'}

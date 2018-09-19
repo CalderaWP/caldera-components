@@ -3,9 +3,11 @@
   "version": "1.5.0",
   "dependencies": {
     "@helpdotcom/is": "^3.0.4",
+    "axios": "^0.18.0",
     "classnames": "^2.2.6",
     "downshift": "^1.31.16",
     "react-autocomplete": "^1.8.1",
+    "react-dropzone": "^5.1.0",
     "react-s3-uploader": "^4.8.0"
   },
   "license": "GPL-2.0",
