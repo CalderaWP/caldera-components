@@ -192,8 +192,13 @@ class App extends Component {
 							fileFieldValue = newValue;
 						} }	
 						value={fileFieldValue}
-						autoUpload={true}
-						contentDisposition="auto"
+						account={'1'}
+						entryId={'cf_e_2'}
+						accept={'.jpg,.png'}
+						inputProps={{
+							'class': 'coolClassName', 
+							'data-file-input': 'awesome-data'
+						}}
 					/>
 				</div>
 				
