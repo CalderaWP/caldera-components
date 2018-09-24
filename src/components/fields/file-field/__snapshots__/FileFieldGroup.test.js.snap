@@ -15,8 +15,10 @@ exports[`FileFieldGroup component matches snapshot with message 1`] = `
     Upload file
   </label>
   <div
+    account={undefined}
     aria-disabled={false}
     className=""
+    entryId={undefined}
     onClick={[Function]}
     onDragEnter={[Function]}
     onDragLeave={[Function]}
@@ -73,8 +75,10 @@ exports[`FileFieldGroup component matches snapshot with no message 1`] = `
     Upload file
   </label>
   <div
+    account={undefined}
     aria-disabled={false}
     className=""
+    entryId={undefined}
     onClick={[Function]}
     onDragEnter={[Function]}
     onDragLeave={[Function]}

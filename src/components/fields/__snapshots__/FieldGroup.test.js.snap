@@ -141,8 +141,10 @@ exports[`Field Group component Uses the File field group, if type is file 1`] = 
     file
   </label>
   <div
+    account={undefined}
     aria-disabled={false}
     className=""
+    entryId={undefined}
     onClick={[Function]}
     onDragEnter={[Function]}
     onDragLeave={[Function]}
