@@ -50,12 +50,12 @@ export class FileFieldGroup extends React.PureComponent {
 
 		acceptedFiles.forEach(file => {		
 
-			const url = 'https://warm-parrot-19.localtunnel.me/api/file/upload';
+			const url = 'https://cfs3files.localtunnel.me/api/file/upload';
 			const formData = new FormData();
 			formData.append('file', file, file.name);
 			formData.append('filename', file.name);
-			formData.append('public', '22w3-VPBS-7415b81f-6pOL');
-			formData.append('account', '1');
+			formData.append('account', this.props.account);
+			formData.append('entry_id', this.props.entryId);
 			const config = {
 				withCredentials: true,
 				headers: {
@@ -107,9 +107,12 @@ export class FileFieldGroup extends React.PureComponent {
 					accept={this.props.accept}
 					disabled={this.props.disabled}
 					inputProps={this.props.inputProps}
-					//getDataTransferItems={this.getDataTransferItems}
+					account={this.props.account}
+					cf_entry_id={this.props.entryId}
+					disableClick={this.props.disableClick}
+					multiple={this.props.multiple}
 				>
-					<p>Try dropping some files here, or click to select files to upload.</p>
+					<p>{this.props.defaultText}</p>
 				</Dropzone>
 			</div>
 		);
@@ -133,6 +136,7 @@ FileFieldGroup.defaultProps = {
 	},
 	attachToMailer: false,
 	saveInLibrary: false,
+	defaultText: 'Try dropping some files here, or click to select files to upload.',
 	style: {
 		margin: "0 auto",
 		position: "relative",
@@ -143,11 +147,11 @@ FileFieldGroup.defaultProps = {
 		borderStyle: "dashed",
 		borderRadius: "5px"
 	},
-	accept: '',
-	//getDataTransferItems: this.getDataTransferItems(),
 	inputProps: {
 		type: 'file'
-	}
+	},
+	disableClick: false,
+	multiple: true
 };
 
 /**
@@ -155,6 +159,6 @@ FileFieldGroup.defaultProps = {
  * @type {{fieldWrapper: string, input: string, option: string}}
  */
 FileFieldGroup.classNames = {
-	fieldWrapper: 'caldera-file-fielde-group',
+	fieldWrapper: 'caldera-file-field-group',
 	input: 'caldera-file-field'
 };

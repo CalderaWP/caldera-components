@@ -108,8 +108,12 @@ export const fileFieldPropTypes = {
 	attachToMailer: PropTypes.bool,
 	saveInLibrary: PropTypes.bool,
 	style: PropTypes.object,
+	defaultText: PropTypes.string,
 	accept: PropTypes.string,
 	getDataTransferItems:  PropTypes.func,
 	inputProps: PropTypes.object,
-	disabled: PropTypes.bool
+	disabled: PropTypes.bool,
+	entryId: PropTypes.string,
+	disableClick: PropTypes.bool,
+	multiple: PropTypes.bool
 }
