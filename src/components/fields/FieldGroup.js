@@ -141,6 +141,7 @@ export const FieldGroup = (props) => {
 							inputType: fieldProps.inputType,
 							options: fieldProps.options,
 							disabled: props.disabled,
+							isRequired: fieldProps.isRequired,
 							onBlur: props.onBlur,
 							onFocus: props.onFocus
 						}
