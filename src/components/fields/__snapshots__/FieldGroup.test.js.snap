@@ -17,7 +17,7 @@ exports[`Field Group component Field group component props Can mark inner input 
     onBlur={undefined}
     onChange={[Function]}
     onFocus={undefined}
-    required={false}
+    required={true}
     type="text"
     value={undefined}
   />
@@ -42,7 +42,7 @@ exports[`Field Group component Field group component props Can mark inner input 
     onBlur={undefined}
     onChange={[Function]}
     onFocus={undefined}
-    required={false}
+    required={true}
     type="text"
     value={undefined}
   />
