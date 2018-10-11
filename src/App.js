@@ -318,6 +318,9 @@ class App extends Component {
 								label: 'Two'
 							}
 						]}
+						onValueChange={(newValue) => {
+							console.log(newValue);
+						}}
 					/>
 
 				</div>
