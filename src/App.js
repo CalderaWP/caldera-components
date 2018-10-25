@@ -117,6 +117,11 @@ let magicFieldValue = '';
 
 let fileFieldValue = '';
 
+let fileFieldStyles = Object.assign({}, {
+	opacity: '1',
+	position: 'relative'
+});
+
 class App extends Component {
 
 	render() {
@@ -190,17 +195,26 @@ class App extends Component {
 						className={'file'}
 						onValueChange={(newValue) => {
 							fileFieldValue = newValue;
-						} }	
+						} }
+						defaultDropzoneText={''}
 						value={fileFieldValue}
 						account={'1'}
-						entryId={'cf_e_2'}
+						cf_entry_id={'cf_3'}
 						accept={'.jpg,.png'}
-						inputProps={{
-							'class': 'coolClassName', 
-							'data-file-input': 'awesome-data'
+						style={{
+							margin: "0 auto",
+							position: "relative",
+							width: "auto",
+							height: "auto",
+							border: "none",
+							borderWidth: "0px"
 						}}
-					/>
-				</div>
+						inputProps={{
+							className: 'coolClassName',
+							'data-file-input': 'awesome-data',
+							'style': fileFieldStyles
+						}}
+					/>			</div>
 				
 
 				<div>
@@ -210,10 +224,27 @@ class App extends Component {
 						id={'file-22'}
 						label={'File field'}
 						type={'file'}
-						isRequired={false}
-						value={fileFieldValue}
+						className={'file'}
 						onValueChange={(newValue) => {
 							fileFieldValue = newValue;
+						} }
+						defaultDropzoneText={''}
+						value={fileFieldValue}
+						account={'1'}
+						cf_entry_id={'cf_3'}
+						accept={'.jpg,.png'}
+						style={{
+							margin: "0 auto",
+							position: "relative",
+							width: "auto",
+							height: "auto",
+							border: "none",
+							borderWidth: "0px"
+						}}
+						inputProps={{
+							className: 'coolClassName',
+							'data-file-input': 'awesome-data',
+							'style': fileFieldStyles
 						}}
 					/>
 					<h2>Inputs</h2>
