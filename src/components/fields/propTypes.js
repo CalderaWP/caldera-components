@@ -37,7 +37,7 @@ export const fieldGroupPropTypes = {
 	isRequired: PropTypes.bool,
 	help: PropTypes.string,
 	label: PropTypes.string.isRequired,
-	type: PropTypes.oneOf(['input', 'select', 'fieldset', 'magic']),
+	type: PropTypes.oneOf(['input', 'select', 'fieldset', 'magic', 'file']),
 	value: valuePropType,
 	onValueChange: onValueChangePropType,
 	options: PropTypes.array,
@@ -95,5 +95,25 @@ export const magicGroupPropTypes = {
 	systemTagsList: optionsShapeProp,
 	defaultList: PropTypes.string,
 	isOpen: PropTypes.bool,
-	type: PropTypes.string
+	type: PropTypes.string,
 };
+
+/**
+ * Define Prop types needed by File Dropzone
+ * 
+ * @type {{ signingUrl: string, signingUrlMethod: string, accept: string, s3path: string, onUploadStart: func, onSignedUrl: func, onProgress: func,	onError: func, onFinish: func, signingUrlHeaders: object, signingUrlQueryParams: object, signingUrlWithCredentials: bool, uploadRequestHeaders: object, contentDisposition: string, scrubFilename: func, server: string, inputRef: func, autoUpload: bool }}	
+ * */
+export const fileFieldPropTypes = {
+	...fieldGroupPropTypes,
+	attachToMailer: PropTypes.bool,
+	saveInLibrary: PropTypes.bool,
+	style: PropTypes.object,
+	defaultText: PropTypes.string,
+	accept: PropTypes.string,
+	getDataTransferItems:  PropTypes.func,
+	inputProps: PropTypes.object,
+	disabled: PropTypes.bool,
+	entryId: PropTypes.string,
+	disableClick: PropTypes.bool,
+	multiple: PropTypes.bool
+}

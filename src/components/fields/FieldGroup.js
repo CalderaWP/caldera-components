@@ -11,6 +11,7 @@ import {Message} from './messages/Message';
 import {messageObjectFactory} from './messages/messageObjectFactory';
 import {fieldsetCheckboxHandler} from './field-group-change-handlers/fieldsetCheckboxHandler';
 import {MagicFieldGroup} from './magic-select/MagicFieldGroup';
+import {FileFieldGroup} from './file-field/FileFieldGroup';
 
 /**
  * Represents one configField -- wrapper, label and input.
@@ -24,6 +25,10 @@ export const FieldGroup = (props) => {
 		return <MagicFieldGroup {...props} />;
 	}
 
+	if( 'file' === props.type ){
+		return <FileFieldGroup {...props} />;
+	}
+
 	/**
 	 * Creates the id attribute
 	 * @return {String}
@@ -31,7 +36,7 @@ export const FieldGroup = (props) => {
 	function idAttrForHelpElement() {
 		return ariaDescribedbyAttr(props.id, props.help);
 	}
-
+ 
 
 	/**
 	 * Based on type, render the field.

@@ -130,6 +130,66 @@ exports[`Field Group component Field group component props Works with help text 
 </div>
 `;
 
+exports[`Field Group component Uses the File field group, if type is file 1`] = `
+<div
+  className="caldera-file-fielde-group caldera-config-field"
+>
+  
+  <label
+    htmlFor="file-field-group"
+  >
+    file
+  </label>
+  <div
+    account={undefined}
+    aria-disabled={false}
+    className=""
+    entryId={undefined}
+    onClick={[Function]}
+    onDragEnter={[Function]}
+    onDragLeave={[Function]}
+    onDragOver={[Function]}
+    onDragStart={[Function]}
+    onDrop={[Function]}
+    style={
+      Object {
+        "borderColor": "rgb(102, 102, 102)",
+        "borderRadius": "5px",
+        "borderStyle": "dashed",
+        "borderWidth": "2px",
+        "height": "200px",
+        "margin": "0 auto",
+        "position": "relative",
+        "width": "200px",
+      }
+    }
+  >
+    <p>
+      Try dropping some files here, or click to select files to upload.
+    </p>
+    <input
+      accept=""
+      autoComplete="off"
+      disabled={false}
+      multiple={true}
+      onChange={[Function]}
+      style={
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "opacity": 0.00001,
+          "pointerEvents": "none",
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+      type="file"
+    />
+  </div>
+</div>
+`;
+
 exports[`Field Group component Uses the Magic group, if type is magic 1`] = `
 <div
   className="caldera-magic-select-group caldera-config-field"

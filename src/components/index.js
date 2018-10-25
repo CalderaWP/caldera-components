@@ -8,6 +8,7 @@ import validation from './validation/index';
 import Admin from './admin/index';
 import {FieldGroup} from './fields/FieldGroup';
 import {MagicFieldGroup} from './fields/magic-select/MagicFieldGroup';
+import {FileFieldGroup} from './fields/file-field/FileFieldGroup';
 
 /**
  * Caldera components
@@ -22,5 +23,6 @@ module.exports = {
 	validation,
 	Admin,
 	FieldGroup,
-	MagicFieldGroup
+	MagicFieldGroup,
+	FileFieldGroup
 };

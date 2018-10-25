@@ -566,4 +566,17 @@ describe('Field Group component', () => {
 		);
 		expect(component.toJSON()).toMatchSnapshot();
 	});
+
+	it( 'Uses the File field group, if type is file', () => {
+		const component = renderer.create(
+			<FieldGroup
+				id={'file-field-group'}
+				label={'file'}
+				type={'file'}
+				onValueChange={() => {}}
+			/>
+		);
+		expect(component.toJSON()).toMatchSnapshot();
+	});
+
 });

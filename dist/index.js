@@ -22,6 +22,10 @@ var _index7 = require('./admin/index');
 
 var _index8 = _interopRequireDefault(_index7);
 
+var _FieldGroup = require('./fields/FieldGroup');
+
+var _MagicFieldGroup = require('./fields/magic-select/MagicFieldGroup');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
@@ -39,5 +43,7 @@ module.exports = {
 	factories: factories,
 	conditionals: _index4.default,
 	validation: _index6.default,
-	Admin: _index8.default
+	Admin: _index8.default,
+	FieldGroup: _FieldGroup.FieldGroup,
+	MagicFieldGroup: _MagicFieldGroup.MagicFieldGroup
 };

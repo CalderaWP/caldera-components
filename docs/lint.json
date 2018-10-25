@@ -5,39 +5,39 @@
     "lines": [
       {
         "lineNumber": 4,
-        "line": "/**"
+        "line": "/**\r"
       },
       {
         "lineNumber": 5,
-        "line": " * Validates field configurations"
+        "line": " * Validates field configurations\r"
       },
       {
         "lineNumber": 6,
-        "line": " *"
+        "line": " *\r"
       },
       {
         "lineNumber": 7,
-        "line": " * NOTE: This is called internally by factory. You probably do not want to call this."
+        "line": " * NOTE: This is called internally by factory. You probably do not want to call this.\r"
       },
       {
         "lineNumber": 8,
-        "line": " *"
+        "line": " *\r"
       },
       {
         "lineNumber": 9,
-        "line": " * @param {Object}fieldArgs"
+        "line": " * @param {Object}fieldArgs\r"
       },
       {
         "lineNumber": 10,
-        "line": " * @returns {*}"
+        "line": " * @returns {*}\r"
       },
       {
         "lineNumber": 11,
-        "line": " */"
+        "line": " */\r"
       },
       {
         "lineNumber": 12,
-        "line": "export const prepareFieldConfig = (fieldArgs) => {"
+        "line": "export const prepareFieldConfig = (fieldArgs) => {\r"
       }
     ],
     "codeParams": [
@@ -53,23 +53,23 @@
     "lines": [
       {
         "lineNumber": 70,
-        "line": "\t/**"
+        "line": "\t/**\r"
       },
       {
         "lineNumber": 71,
-        "line": "\t * Update list of tags to show"
+        "line": "\t * Update list of tags to show\r"
       },
       {
         "lineNumber": 72,
-        "line": "\t * @param {String}newType"
+        "line": "\t * @param {String}newType\r"
       },
       {
         "lineNumber": 73,
-        "line": "\t */"
+        "line": "\t */\r"
       },
       {
         "lineNumber": 74,
-        "line": "\tonChangeListType(newType){"
+        "line": "\tonChangeListType(newType){\r"
       }
     ],
     "codeParams": [
@@ -85,35 +85,35 @@
     "lines": [
       {
         "lineNumber": 2,
-        "line": "/**"
+        "line": "/**\r"
       },
       {
         "lineNumber": 3,
-        "line": " * Prepares messages object in fieldConfigs"
+        "line": " * Prepares messages object in fieldConfigs\r"
       },
       {
         "lineNumber": 4,
-        "line": " *"
+        "line": " *\r"
       },
       {
         "lineNumber": 5,
-        "line": " * @param {Object} message"
+        "line": " * @param {Object} message\r"
       },
       {
         "lineNumber": 6,
-        "line": " * @param {Boolean} error"
+        "line": " * @param {Boolean} error\r"
       },
       {
         "lineNumber": 7,
-        "line": " * @return {{message: *, error: boolean}}"
+        "line": " * @return {{message: *, error: boolean}}\r"
       },
       {
         "lineNumber": 8,
-        "line": " */"
+        "line": " */\r"
       },
       {
         "lineNumber": 9,
-        "line": "export const messageObjectFactory = ({message,error}) => {"
+        "line": "export const messageObjectFactory = ({message,error}) => {\r"
       }
     ],
     "codeParams": [
@@ -130,31 +130,31 @@
     "lines": [
       {
         "lineNumber": 63,
-        "line": "/**"
+        "line": "/**\r"
       },
       {
         "lineNumber": 64,
-        "line": " * Cast a boolean or boolean like to a true or false"
+        "line": " * Cast a boolean or boolean like to a true or false\r"
       },
       {
         "lineNumber": 65,
-        "line": " *"
+        "line": " *\r"
       },
       {
         "lineNumber": 66,
-        "line": " * @param Mixed} value Value to cast"
+        "line": " * @param Mixed} value Value to cast\r"
       },
       {
         "lineNumber": 67,
-        "line": " * @return {boolean}"
+        "line": " * @return {boolean}\r"
       },
       {
         "lineNumber": 68,
-        "line": " */"
+        "line": " */\r"
       },
       {
         "lineNumber": 69,
-        "line": "export const toBoolean =(value) => {"
+        "line": "export const toBoolean =(value) => {\r"
       }
     ],
     "codeParams": [

@@ -24,11 +24,6 @@
         119
       ]
     },
-    "src/components/RenderGroup.js": {
-      "expectCount": 4,
-      "actualCount": 4,
-      "undocumentLines": []
-    },
     "src/components/admin/CalderaHeader.js": {
       "expectCount": 1,
       "actualCount": 1,
@@ -59,16 +54,6 @@
       "actualCount": 1,
       "undocumentLines": []
     },
-    "src/components/fields/FieldGroup.js": {
-      "expectCount": 1,
-      "actualCount": 1,
-      "undocumentLines": []
-    },
-    "src/components/fields/FieldInner.js": {
-      "expectCount": 1,
-      "actualCount": 1,
-      "undocumentLines": []
-    },
     "src/components/fields/button-group/ButtonGroup.js": {
       "expectCount": 1,
       "actualCount": 1,
@@ -90,6 +75,16 @@
       "undocumentLines": []
     },
     "src/components/fields/field-group-change-handlers/fieldsetCheckboxHandler.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/components/fields/FieldGroup.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/components/fields/FieldInner.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []
@@ -152,6 +147,11 @@
     "src/components/fields/util.js": {
       "expectCount": 5,
       "actualCount": 5,
+      "undocumentLines": []
+    },
+    "src/components/RenderGroup.js": {
+      "expectCount": 4,
+      "actualCount": 4,
       "undocumentLines": []
     },
     "src/components/validation/addAutomaticValidators.js": {

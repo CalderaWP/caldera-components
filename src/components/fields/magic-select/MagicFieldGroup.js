@@ -147,8 +147,6 @@ export class MagicFieldGroup extends React.PureComponent {
 		];
 	}
 
-
-
 	/**
 	 * Render MagicFieldGroup component
 	 * @return {*}

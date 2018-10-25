@@ -29,6 +29,10 @@ describe( 'conditionals export', () => {
 		expect( typeof Components.MagicFieldGroup ).toEqual( 'function' );
 	});
 
+	it( 'exports FileFieldGroup', () => {
+		expect( typeof Components.FileFieldGroup ).toEqual( 'function' );
+	});
+
 
 	describe( 'fields export', () => {
 		const {fields} = Components;

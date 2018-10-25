@@ -5,6 +5,7 @@ import {FieldGroup} from "./components/fields/FieldGroup";
 import {fieldSetFactory} from "./components/fields/factories/fieldSetFactory";
 import {RenderGroup} from "./components/RenderGroup";
 import {MagicFieldGroup} from "./components/fields/magic-select/MagicFieldGroup";
+import {FileFieldGroup} from "./components/fields/file-field/FileFieldGroup";
 
 let textFieldValue = 'Roy,Mike';
 const textFieldConfig = {
@@ -114,6 +115,13 @@ let values = {
 
 let magicFieldValue = '';
 
+let fileFieldValue = '';
+
+let fileFieldStyles = Object.assign({}, {
+	opacity: '1',
+	position: 'relative'
+});
+
 class App extends Component {
 
 	render() {
@@ -180,6 +188,65 @@ class App extends Component {
 				</div>
 
 				<div>
+					<h2>FileFieldGroup</h2>
+					<FileFieldGroup
+						id={'file-1'}
+						label={'File Field'}
+						className={'file'}
+						onValueChange={(newValue) => {
+							fileFieldValue = newValue;
+						} }
+						defaultDropzoneText={''}
+						value={fileFieldValue}
+						account={'1'}
+						cf_entry_id={'cf_3'}
+						accept={'.jpg,.png'}
+						style={{
+							margin: "0 auto",
+							position: "relative",
+							width: "auto",
+							height: "auto",
+							border: "none",
+							borderWidth: "0px"
+						}}
+						inputProps={{
+							className: 'coolClassName',
+							'data-file-input': 'awesome-data',
+							'style': fileFieldStyles
+						}}
+					/>			</div>
+				
+
+				<div>
+
+					<h2>FieldGroup type='file'</h2>
+					<FieldGroup
+						id={'file-22'}
+						label={'File field'}
+						type={'file'}
+						className={'file'}
+						onValueChange={(newValue) => {
+							fileFieldValue = newValue;
+						} }
+						defaultDropzoneText={''}
+						value={fileFieldValue}
+						account={'1'}
+						cf_entry_id={'cf_3'}
+						accept={'.jpg,.png'}
+						style={{
+							margin: "0 auto",
+							position: "relative",
+							width: "auto",
+							height: "auto",
+							border: "none",
+							borderWidth: "0px"
+						}}
+						inputProps={{
+							className: 'coolClassName',
+							'data-file-input': 'awesome-data',
+							'style': fileFieldStyles
+						}}
+					/>
 					<h2>Inputs</h2>
 					<FieldGroup
 						id={'control-22'}
@@ -318,6 +385,9 @@ class App extends Component {
 								label: 'Two'
 							}
 						]}
+						onValueChange={(newValue) => {  //Added after test response, ask Josh if this was on purpose
+							selectFieldValue = newValue;
+						}}
 					/>
 
 				</div>
